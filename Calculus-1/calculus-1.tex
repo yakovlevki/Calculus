@@ -35,6 +35,7 @@
 \newtheorem*{statement}{Утверждение}
 \newtheorem*{example}{Пример}
 \newtheorem*{examples}{Примеры}
+\newtheorem*{axiom}{Аксиома}
 
 \usepackage{titlesec}
 \titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
@@ -540,6 +541,7 @@
             \end{itemize}
             Рассмотрим множества $A=\{a_n\}$ и $B=\{b_n\}$. По аксиоме полноты $\exists c\in \R: a_n\leq c\leq b_m, \forall n,m \Rightarrow a_n\leq c\leq b_n, \forall n$. Если $|b_n-a_n|\to 0$, то $\not\exists c_1,c_2: c_1\ne c_2$ - различные общие точки. Значит $|c_2-c_1|>0$ и $[c_1,c_2]\subset [a_n,b_n], \forall n$ и $|b_n-a_n|\geq |c_2-c_1|\not\to 0$ противоречие.
         \end{proof}
+        \subsection{Неравенство Бернулли и Бином Ньютона}
         \begin{theorem} (Неравенство Бернулли)\\
             Пусть $\{x_k\}_{k=1}^n, x_k\in \R \tab[3pt] \forall k: x_k>0$ или $x_k\in (-1, 0)$. Тогда
             \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}x_k\]
@@ -569,6 +571,7 @@
             \sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}=\sum\limits_{m=1}^n C_n^{m-1} a^{m} b^{n-m+1}+\sum\limits_{m=0}^n C_n^m a^m b^{n-m+1}=\\=C_n^n a^{n+1}b^0+\sum\limits_{m=1}^n(C_n^{m-1}+C_n^m)a^n b^{n-m+1}+C_n^0a^0b^{n+1}=\sum\limits_{m=0}^{n+1}C_{n+1}^m a^m b^{n-m+1}
             \end{multline*}
         \end{proof} 
+        \subsection{Отношение эквивалентности. Равномощные множества}
         \begin{definition}
             Отношение $\sim$ называется отношение эквивалентности, если оно удовлетворяет:
             \begin{enumerate}
@@ -623,6 +626,7 @@
                 \item Множество алгебраических чисел (чисел которые являются корнями многочлена с рациональными коэффициентами).
             \end{enumerate}
         \end{examples}
+        \subsection{Теорема Кантора и аксиома выбора}
         \begin{theorem} (Теорема Кантора)\\
             Множество бесконечных последовательностей, состоящих из нулей и единиц несчетно.
         \end{theorem} 
@@ -635,12 +639,102 @@
             $a_{ij}$ - $j$-й член $i$-й последовательности. Рассмотри последовательность $b$ у которой $b_i=1-a_{ii}$. Такая последовательность отличается от всех последовательностей на $i$-й позицции, значит она не была посчитана, получаем противоречие.
         \end{proof}
         \begin{statement}
-            \begin{enumerate}
+            \begin{enumerate}\tab
                 \item Алгебраических чисел счетно.
                 \item Действительных чисел несчетно.
             \end{enumerate}
         \end{statement}
         \begin{definition}
             Действительные числа не являющееся алгебраическими называются трансцендентными.
+        \end{definition} 
+        \begin{definition}
+            Множества равномощные множеству последовательностей нулей и единиц называются множествами мощности континуума.
+        \end{definition} 
+        \begin{theorem}
+            У любого множетсва мощность множества всех подмножеств строго больше чем мощность самого множества.
+        \end{theorem}
+        \begin{definition}
+            Для множеств $A$ и $B$ обозначим $|A|\leq |B|$, если $\exists \ B^{\prime} \subset B$ для которого $\exists \ \phi:A\to B^{\prime}$ - биекция.
+        \end{definition} 
+        \begin{theorem}
+            Сравнение мощностей множеств $|A|\leq |B|$ является отношением порядка.
+            \begin{enumerate}
+                \item $\forall A,B: |A|\leq |B|$ или $|B|\leq |A|$ 
+                \item $|A|\leq |B|$ и $|B|\leq |A| \Rightarrow |A|=|B|$
+                \item $|A|\leq |B|$ и $|B|\leq |C| \Rightarrow |A|\leq |C|$
+            \end{enumerate}
+        \end{theorem}
+        \begin{proof}
+            Без доказательства.
+        \end{proof}
+        \begin{axiom}(Аксиома выбора)\\
+            Если существует множетсво неких множеств, то из каждоко множества можно выбрать по одному элементу и составить из них другое множество.
+        \end{axiom}
+        \begin{statement}
+            Множество всех подмножеств $\N$ равномощно множеству бесконечных последовательностей нулей и единиц.
+        \end{statement}
+        \begin{proof}
+            Каждому $A\subset \N$ ставим в соответствие характеристическую последовательность, которая принимает значения: единицу, если элемент лежит в подмножестве и ноль иначе.
+        \end{proof}
+        \begin{theorem}
+            У любого бесконечного множества существует счетное подмножество.
+        \end{theorem} 
+        \begin{proof}
+            Выбираем элемент и сразу присваиваем ему номер, продолжая это действие, построим счетное множество.
+        \end{proof}
+        \begin{theorem}
+            Пусть $A$ - бесконечное, $B$ - не более чем счетное $\Rightarrow A\sim A\cup B$
+        \end{theorem} 
+        \begin{proof}
+            Пусть $A^{\prime}\subset A$. Тогда $A\sim (A\setminus A^{\prime})\cup A^{\prime}\sim (A\setminus A^{\prime})\cup(A^{\prime}\cup B)\sim\\ \sim(A\cup B)$.
+        \end{proof}
+        \section{Топология $\R$}
+        \begin{definition}
+            $\forall x\in \R \ \forall \epsilon>0$ отрезок $B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$ называется\\ $\epsilon$-окрестностью точки $x$.
+        \end{definition}
+        \begin{definition}
+            $\forall x\in \R \ \forall \epsilon>0$ отрезок $\mathring{B}_{\epsilon}(x)=(x-\epsilon,x)\cup(x+\epsilon)$ называется проколотой $\epsilon$-окрестностью точки $x$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in A\subset \R$ называется внутренней точкой множества $A$, если $\exists \ B_{\epsilon}(x)\subset A$. Множество всех внутренних точек $x\in A$ называется внутренностью множетсва $A$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in \R\setminus A$ называется внешней точкой для множества $A\subset \R$, если $x$ - внутренняя точка для $\R\setminus A$. Множество всех внешних точек $x\in A$ называется внешностью множетсва $A$.
+        \end{definition}
+        \begin{definition}
+            Точка называется граничной для множества $A\subset \R$, если она не является ни внешней ни внутренней для $A$. Множество всех граничных точек называется границей и обозначается $\partial A$.
+        \end{definition}
+        \begin{definition} (Множество Кантора)\\
+            Разбиваем отрезок $[0,1]$ на три части и выбрасываем середину, затем каждый из получившихся отрезков разбиваем на три части и выбрасываем середину, и т.д.
+            \begin{itemize}
+                \item Суммарная длина всех выброшеных интервалов равна $1$.
+                \item Концов отрезков счетное множество.
+                \item Общее количество точек имеет мощность континуума.
+            \end{itemize}
+        \end{definition} 
+        \begin{definition}
+            Множество называется открытым, если все его точки внутренние.
+        \end{definition}
+        \begin{comm}
+            Любой интервал - открытое множество
+        \end{comm}
+        \begin{definition}
+            Множество называется $A\subset \R$ замкнутым, если все его дополнение $\R\setminus A$ открыто.
+        \end{definition} 
+        \begin{comm}
+            Отрезок - и не открытое и не замкнутое множество.
+        \end{comm}
+        \begin{comm}
+            По определениб считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
+        \end{comm} 
+        \begin{definition}
+            Точка $x\in \R$ называется передельной точкой множества $A\subset \R$, если в любой окрестности точки $x$ бесконечно много точек $A$, т.е\\
+            $\forall \epsilon >0\ A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in A$ называется изолированной точкой $A\subset \R$, если $\exists \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)=\emptyset$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in \R$ называется точкой прикосновения $A\subset \R$, если $\forall \ \epsilon>0: A\cap {B}_{\epsilon}(x)\ne\emptyset$.
         \end{definition} 
 \end{document}
