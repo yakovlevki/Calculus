@@ -93,7 +93,7 @@
             Множество не содержащее ни одного элемента называется пустым и обозначается $\emptyset$.
         \end{definition}
         \begin{definition}
-            Множество $A^{\prime}$ является подмножеством множества $A$, \\ если $\forall a\in A^{\prime}$ верно $a\in A$. Запись $A^{\prime} \subset A$ обозначает, что $A^{\prime}$ является подмножеством $A$.
+            Множество $A^{\prime}$ является подмножеством множества $A$, \\ если $a\in A^{\prime}\Rightarrow a\in A,\ \forall a$. Запись $A^{\prime} \subset A$ обозначает, что $A^{\prime}$ является подмножеством $A$.
         \end{definition}        
         \begin{definition}
             Для любого множества $A$ выполнено:
@@ -107,13 +107,11 @@
         \end{definition}
     \subsection{Операции над множествами}
         \begin{definition}
-            Множество $C=A\cup B$ называется объединением множеств $A$ и $B$, если $(\forall a\in A: a\in C)$ и $(\forall b\in B: b\in C)$ и $\forall c \in C$ выполнено $(c\in A$ или $c\in B)$.
-        \end{definition}
+            Множество $C=A\cup B$ называется объединением множеств $A$ и $B$, если $\forall a: (a\in A \Rightarrow a\in C)$ и $\forall b: (b\in B\Rightarrow b\in C)$, а также $\forall c: c\in C \Rightarrow (c\in A$ или $c\in B)$.        \end{definition}
         \begin{definition}
-            Множество $C=A\cap B$ называется пересечением множеств $A$ и $B$, если $\forall c\in C: (c\in A$ и $c\in B)$ и $(\forall c: c\in A$ и $c\in B)$ выполнено $ c\in C$.
-        \end{definition}
+            Множество $C=A\cap B$ называется пересечением множеств $A$ и $B$, если $\forall c: c\in C \Rightarrow (c\in A$ и $c\in B)$, а также $\forall c: (c\in A$ и $c\in B) \Rightarrow c\in C$.        \end{definition}
         \begin{definition}
-            Множество $C=A\setminus B$ называется разностью множеств $A$ и $B$, если $\forall c\in C: (c\in A $ и $c\notin B) $ и $(\forall a\in A: a\notin B)$ выполнено $a\in C$.
+            Множество $C=A\setminus B$ называется разностью множеств $A$ и $B$, если $\forall c: (c\in A$ и $c\not\in B) \Rightarrow c\in C$, а также $\forall c: c\in C \Rightarrow (c\in A$ и $c\not\in B)$
         \end{definition}
         \begin{statement}
             $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$.
@@ -142,37 +140,37 @@
         \end{definition}
     \subsection{Отображения}
         \begin{definition}
-            Пусть $X, Y$ - множества. Подмножество $f\subset X\times Y$ такое, что $\forall (x_1,y_1), (x_2, y_2)\in f: y_1\ne y_2 \Rightarrow x_1\ne x_2$ называется отображением из $X$ в $Y$, и обозначается $f: X\to Y$.
+            Пусть $X, Y$ - множества. Подмножество $f\subset X\times Y$ такое, что $\forall\ (x_1,y_1),\ (x_2, y_2)\in f: y_1\ne y_2 \Rightarrow x_1\ne x_2$ называется отображением из $X$ в $Y$, и обозначается $f: X\to Y$.
+        \end{definition}
+        \begin{comm}
+            Запись $(x,y)\in f$ часто заменяют на $y=f(x)$.
+            \end{comm}
+        \begin{definition}
+            Пусть $f:X\to Y$. Множество $\{x: \exists\ (x,y) \in f\} = D_f$ называется областью определения функции $f$.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y$. Множество $\{x: \exists (x,y) \in f\} = D_f$ называется областью определения функции $f$.
+            Пусть $f:X\to Y$. Множество $\{y: \exists\ (x,y) \in f\} = R_f$ называется областью значений функции $f$.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y$. Множество $\{y: \exists (x,y) \in f\} = R_f$ называется областью значений функции $f$.
-        \end{definition}
-        \begin{definition}
-            Пусть $f:X\to Y$. $f$ - инъекция $\lra \forall (x_1,y_1), (x_2,y_2)\in f: \\ x_1\ne x_2 \Rightarrow y_1\ne y_2$.
+            Пусть $f:X\to Y$. $f$ - инъекция $\lra \forall\ (x_1,y_1),\ (x_2,y_2)\in f: \\ x_1\ne x_2 \Rightarrow y_1\ne y_2$.
         \end{definition}
         \begin{definition}
             Пусть $f:X\to Y$. $f$ - сюръекция $\lra Y=R_f$
         \end{definition}
         \begin{comm}
-        Обычно используют определение $f$ - сюръекция $\lra \forall y\in Y \\ \exists x\in X: y=f(x)$.
+        Обычно используют определение $f$ - сюръекция $\lra \forall y\in Y \\ \exists\ x\in X: y=f(x)$.
         \end{comm}
         \begin{definition}
             $f$ - биекция $\lra f$ - инъекция и $f$ - сюръекция.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y, X_1\subset X$. Множество $\{(x,y)\in f: x\in X_1\}=f|_{X_1}$ называется ограничением $f$ на $X_1$.
-        \end{definition}
-        \begin{comm}
-        Запись $(x,y)\in f$ часто заменяют на $y=f(x)$.
-        \end{comm}
-        \begin{definition}
-            Пусть $f:X\to Y, X_1\subset X$. Множество $\{y\in Y: \exists x\in X_1 : \\ y=f(x)\}=f(X_1)$ называют образом множества $X_1$.
+            Пусть $f:X\to Y,\ X_1\subset X$. Множество $\{(x,y)\in f: x\in X_1\}=f|_{X_1}$ называется ограничением $f$ на $X_1$.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y, Y_1\subset Y$. Множество $\{x\in X: \exists y\in Y_1 : \\ y=f(x)\}=f^{-1}(Y_1)$ называют полным прообразом множества $Y_1$.
+            Пусть $f:X\to Y,\ X_1\subset X$. Множество $f(X_1)=\\ \{y\in Y: \exists\ x\in X_1 : (x,y)\in f\}$ называют образом множества $X_1$.
+        \end{definition}
+        \begin{definition}
+            Пусть $f:X\to Y,\ Y_1\subset Y$. Множество $f^{-1}(Y_1)=\\ \{x\in X: \exists\ y\in Y_1 : (x,y)\in f\}$ называют полным прообразом множества $Y_1$.
         \end{definition}
         \begin{definition}
             Пусть $f:X\to Y$. Если $\forall y\in R_f: f^{-1}(y)$ - одноэлементное множество, то подмножество $f^{-1}\subset Y\times X=\{(y,x)\}$ является отображением и называется обратным отображением к $f$. Если у отображения $f$ существует обратное отображение $f^{-1}$, то оно называется обратимым.
@@ -541,12 +539,14 @@
             Пусть последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$ такова, что $\forall n: [a_{n+1},b_{n+1}]\subset [a_n,b_n]$. Тогда $\exists c\in \R: c\in [a_n,b_n], \forall n$. Если $|b_n-a_n|\to 0$ то $c$ - единственная.
         \end{theorem} 
         \begin{proof}
-            $\forall n,m\in \N: a_n\leq a_m$
+            $\forall n,m\in \N: a_n\leq b_m$, т.к
             \begin{itemize}
-                \item если $n<m$, то $a_n\leq a_m<b_m$.
+                \item если $n<m$, то $a_n\leq a_m\leq b_m$.
                 \item если $n>m$, то $a_n\leq b_n\leq b_m$.
             \end{itemize}
-            Рассмотрим множества $A=\{a_n\}$ и $B=\{b_n\}$. По аксиоме полноты $\exists c\in \R: a_n\leq c\leq b_m, \forall n,m \Rightarrow a_n\leq c\leq b_n, \forall n$. Если $|b_n-a_n|\to 0$, то $\not\exists c_1,c_2: c_1\ne c_2$ - различные общие точки. Значит $|c_2-c_1|>0$ и $[c_1,c_2]\subset [a_n,b_n], \forall n$ и $|b_n-a_n|\geq |c_2-c_1|\not\to 0$ противоречие.
+            Значит для $\forall m,n\in \N: $
+            Рассмотрим множества $A=\{a_n\}$ и $B=\{b_n\}$. По аксиоме полноты $\exists c\in \R: a_n\leq c\leq b_m,\ \forall n,m \Rightarrow a_n\leq c\leq b_n,\ \forall n$.\\
+            Пусть $|b_n-a_n|\to 0$, предположим, что $\exists\ c_1$ и $c_2: c_1\ne c_2$ - различные общие точки, значит $|c_2-c_1|>0$. Получаем, что $0<|c_2-c_1|<|b_n-a_n|,\ \forall n$, значит $|c_2-c_1|\to 0$ получаем противоречие.
         \end{proof}
         \subsection{Неравенство Бернулли и Бином Ньютона}
         \begin{theorem} (Неравенство Бернулли)\\
