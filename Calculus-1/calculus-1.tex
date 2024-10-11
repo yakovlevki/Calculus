@@ -93,7 +93,7 @@
             Множество не содержащее ни одного элемента называется пустым и обозначается $\emptyset$.
         \end{definition}
         \begin{definition}
-            Множество $A^{\prime}$ является подмножеством множества $A$, \\ если $a\in A^{\prime}\Rightarrow a\in A,\ \forall a$. Запись $A^{\prime} \subset A$ обозначает, что $A^{\prime}$ является подмножеством $A$.
+            Множество $A^{\prime}$ является подмножеством множества $A$, \\ если $\forall a: a\in A^{\prime}\Rightarrow a\in A$. Запись $A^{\prime} \subset A$ обозначает, что $A^{\prime}$ является подмножеством $A$.
         \end{definition}        
         \begin{definition}
             Для любого множества $A$ выполнено:
@@ -164,7 +164,9 @@
             $f$ - биекция $\lra f$ - инъекция и $f$ - сюръекция.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y,\ X_1\subset X$. Множество $\{(x,y)\in f: x\in X_1\}=f|_{X_1}$ называется ограничением $f$ на $X_1$.
+            Пусть $f:X\to Y,\ X_1\subset X$. Множество $\{(x,y)\in f: x\in X_1\}=f|\begin{matrix}
+                \null \\ X_1
+            \end{matrix}$ называется ограничением $f$ на $X_1$.
         \end{definition}
         \begin{definition}
             Пусть $f:X\to Y,\ X_1\subset X$. Множество $f(X_1)=\\ \{y\in Y: \exists\ x\in X_1 : (x,y)\in f\}$ называют образом множества $X_1$.
@@ -331,7 +333,7 @@
         \end{comm}  
         \begin{definition}
             Упорядоченное поле $X$ называется архимедовым, если\\
-            (15) $\forall a\in X: a>0 \ \exists\ n\in \N: a\leq n$.
+            (15) $\forall a\in X: \exists\ n\in \N: a\leq n$.
         \end{definition}
         \begin{comm}
             $\Q$ - архимедово поле.
@@ -391,17 +393,12 @@
                 \vdots \\
                 Возьмем $\overline{b}= \overline{b_0b_1b_2\dots b_n \dots}\in B$, тогда\\
                 $\forall a\in A, \forall b\in B: a\leq \overline{b}\leq b$.\\
-                Предположим, что $\exists\ a^{\prime}\in A, a^{\prime}>\overline{b_0} \Rightarrow \exists\ k\in \N: a^{\prime}=a_0a_1\dots a_k\dots$, но тогда $a^{\prime}>\overline{b_0},\overline{b_1},\overline{b_2},...,\overline{b_k},...\in B$ - противоречие(???).
                 \item $a<0, b<0$ строим число по аналогии с пунктом 2.
             \end{enumerate}
         \end{proof} 
-        %\begin{comm}
-        %    $a=a_0a_1\dots a_n\dots$, $b=b_0b_1\dots b_n\dots \Rightarrow a^{\prime}=a_0a_1\dots a_n(0),\\
-        %    b^{\prime}=b_0b_1\dots b_n(0)$, $a^{\prime\prime}=a_0a_1\dots \overline{a_n+1}(0), b^{\prime\prime}=b_0b_1\dots \overline{b_n+1}(0)$.
-        %\end{comm}
     \subsubsection{Сечения $\Q$}
         \begin{definition} (Дедекиндовы сечения)\\
-            Пусть $A,B\subset \Q: A\cap B\ne \emptyset, A\cup B=\Q, \forall a\in A, \forall b\in B: a\leq b$ и в $B$ не существует минимального элемента, тогда $(A,B)$ - пара сечений $\Q$.
+            Пусть $A,B\subset \Q: A\cap B = \emptyset, A\cup B=\Q,\ \forall a\in A,\ \forall b\in B: a\leq b$ и в $B$ не существует минимального элемента, тогда $(A,B)$ - пара сечений $\Q$.
         \end{definition} 
         \begin{theorem}
             На множестве всех пар сечений $\{(A,B)\}$ можно ввести операции $(+), (\cdot)$ и отношение $(\leq)$, так что будут выполняться $(1)-(16)$.
@@ -697,12 +694,12 @@
         \begin{proof}
             Пусть $A^{\prime}\subset A$. Тогда $A\sim (A\setminus A^{\prime})\cup A^{\prime}\sim (A\setminus A^{\prime})\cup(A^{\prime}\cup B)\sim\\ \sim(A\cup B)$.
         \end{proof}
-        \section{Топология $\R$}
+    \section{Топология $\R$}
         \begin{definition}
             $\forall x\in \R \ \forall \epsilon>0$ отрезок $B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$ называется\\ $\epsilon$-окрестностью точки $x$.
         \end{definition}
         \begin{definition}
-            $\forall x\in \R \ \forall \epsilon>0$ отрезок $\mathring{B}_{\epsilon}(x)=(x-\epsilon,x)\cup(x+\epsilon)$ называется проколотой $\epsilon$-окрестностью точки $x$.
+            $\forall x\in \R \ \forall \epsilon>0$ отрезок $\mathring{B}_{\epsilon}(x)=(x-\epsilon,x)\cup(x,x+\epsilon)$ называется проколотой $\epsilon$-окрестностью точки $x$.
         \end{definition} 
         \begin{definition}
             Точка $x\in A\subset \R$ называется внутренней точкой множества $A$, если $\exists \ B_{\epsilon}(x)\subset A$. Множество всех внутренних точек $x\in A$ называется внутренностью множетсва $A$.
@@ -734,10 +731,10 @@
             Отрезок - и не открытое и не замкнутое множество.
         \end{comm}
         \begin{comm}
-            По определениб считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
+            По определению считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
         \end{comm} 
         \begin{definition}
-            Точка $x\in \R$ называется передельной точкой множества $A\subset \R$, если в любой окрестности точки $x$ бесконечно много точек $A$, т.е\\
+            Точка $x\in \R$ называется передельной точкой множества $A\subset \R$, если в любой проколотой окрестности точки $x$ бесконечно много точек $A$, т.е\\
             $\forall \epsilon >0\ A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$.
         \end{definition} 
         \begin{definition}
