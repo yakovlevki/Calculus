@@ -127,10 +127,10 @@
         \end{proof}
     \subsection{Декартово произведение множеств}
         \begin{definition}
-            Множество $A$ называется одноэлементным, если $\exists a\in A$ такое, что $A\setminus\{a\} = \emptyset$.
+            Множество $A$ называется одноэлементным, если $\exists\ a\in A$ такое, что $A\setminus\{a\} = \emptyset$.
         \end{definition}
         \begin{definition}
-            Множество $A$ называется двуэлементным, если $\exists a\in A$ такое, что $A\setminus\{a\}$ - одноэлементное.
+            Множество $A$ называется двуэлементным, если $\exists\ a\in A$ такое, что $A\setminus\{a\}$ - одноэлементное.
         \end{definition}
         \begin{definition}
             Пусть $x\in X, y\in Y$. Упорядоченной парой называется двуэлементное множество $\{x,\{x,y\}\}$, упорядоченную пару обозначают $(x,y)$.
@@ -221,11 +221,11 @@
             $R\subset X\times Y$ называется отношением между элементами\\ $X$ и $Y$. Обозначают $xRy$, если $(x,y)\in R$.
         \end{definition}
         \begin{definition}
-            Отношение $R$ называется отношением порядка, если выполнено:
+            Отношение $R$ называется отношением порядка, если $\forall x\in X,\\ \forall y\in Y$ выполнено:
             \begin{enumerate}
-                \item $\forall x,y: xRy$ или $yRx$. 
-                \item Если верно $xRy$ и $yRx$, то $x=y$. 
-                \item Если $xRy$ и $yRz$, то $xRz$.
+                \item $xRy$ или $yRx$. 
+                \item $(xRy$ и $yRx) \Rightarrow x=y$. 
+                \item $(xRy$ и $yRz) \Rightarrow xRz$.
             \end{enumerate}
             Такое отношение обозначают $\leq$.
         \end{definition}
@@ -236,8 +236,9 @@
             $M\subset \N, M\ne \emptyset$ имеет наименьшей элемент, т.е. $\exists n_{min}\in M, \forall n\in M: n_{min}\leq n$.
         \end{theorem} 
         \begin{proof}
-            База: Если $1\in M$, то $n_{min}=1$. Пусть $1\notin M$, тогда $1\in \N\setminus M$.\\
-            Шаг: Пусть $\{1,2,\dots, n\}\subset \N\setminus M$. Тогда $S(n)\in \N\setminus M\Rightarrow$ по аксиоме индукции $\N\setminus M=\N\Rightarrow M = \emptyset$ - противоречие.
+            Предположим, что в $M$ нет минимального элемента.\\
+            База: если $1\in M$, то $n_{min}=1 \Rightarrow 1\notin M \Rightarrow 1\in \N\setminus M$.\\
+            Шаг: $\{1,2,\dots, n\}\subset \N\setminus M \Rightarrow S(n)\in \N\setminus M$, тогда по аксиоме индукции $\N\setminus M=\N\Rightarrow M = \emptyset$ - противоречие.
         \end{proof}
     \subsection{Арифметические операции}
         \begin{definition}
@@ -250,7 +251,8 @@
             $n+0=0+n=n$, т.к. $cardA=card(A\cup \emptyset)$.
         \end{comm}
         \begin{comm}
-            $A \leftrightarrow \{1,\dots, n\}, B\leftrightarrow \{1,\dots, k\}$. Возьмем\\ $card(A\cup B)=\{1,\dots, n\}\cup \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\}$,\\ (где $\{1,\dots, k\} \leftrightarrow \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\}) \Rightarrow S(n)=n+1$.
+            $A \leftrightarrow \{1,\dots, n\}, B\leftrightarrow \{1,\dots, k\}$. Возьмем\\ $card(A\cup B)=\{1,\dots, n\}\cup \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\}$,\\ (где $\{1,\dots, k\} \leftrightarrow \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\})$\\
+            Из тех же сообжажений получаем, что $S(n)=n+1$.
         \end{comm} 
         \begin{definition}
             $n,k\in \N$. Тогда $\sum\limits_{i=1}^kn=nk$ называется произведением $n$ на $k$.
@@ -611,7 +613,7 @@
             Множества равномощные $\N$ называются счетными.
         \end{definition}
         \begin{theorem}
-            $A_i$ - счетные множества $\Rightarrow \bigcup\limits_{n=1}^{\infty}A_i$ - счетно.
+            Объединение не более чем счетного числа счетных множеств счетно.
         \end{theorem}
         \begin{proof}
             Предъявим проход по элементам, который задает биекцию:
@@ -622,7 +624,9 @@
         \begin{definition}
             Множество называется не более чем счетным, если оно конечно или счетно.
         \end{definition}
-        НЕ БОЛЕЕ ЧЕМ СЧЕТНОЕ ОБЪЕДИНЕНИЕ НЕ БОЛЕЕ ЧЕМ СЧЕТНЫХ МНОЖЕСТВ НЕ БОЛЕЕ ЧЕМ СЧЕТНО (ДОПИСАТЬ) 
+        \begin{theorem}
+            Объединение не более чем счетного числа не более чем счетных множеств не более чем счетно.
+        \end{theorem} 
         \begin{examples}
             \begin{enumerate}\tab
                 \item Множество целых чисел $\Z$
@@ -735,7 +739,7 @@
         \end{comm} 
         \begin{definition}
             Точка $x\in \R$ называется предельной точкой множества $A\subset \R$, если в любой проколотой окрестности точки $x$ бесконечно много точек $A$, т.е\\
-            $\forall \epsilon >0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$.
+            $\forall \epsilon >0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$. Множество всех предельных точек $A$ обозначается $A^{\prime}$
         \end{definition} 
         \begin{definition}
             Точка $x\in A$ называется изолированной точкой $A\subset \R$, если $\exists \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)=\emptyset$.
@@ -743,4 +747,66 @@
         \begin{definition}
             Точка $x\in \R$ называется точкой прикосновения $A\subset \R$, если $\forall \ \epsilon>0: A\cap {B}_{\epsilon}(x)\ne\emptyset$.
         \end{definition} 
+        \begin{statement}
+            Точки прикосновения множества $A$ являются либо внутренними, либо граничными.
+        \end{statement}
+        \begin{proof}
+            Точка прикосновения не может являются внешней точкой\\
+            $\Rightarrow$ она либо внутренняя либо граничная.
+        \end{proof}
+        \begin{statement}
+            Точки прикосновения являются либо предельными, либо изолированными.
+        \end{statement}  
+        \begin{proof}э
+            Следует из определения.
+        \end{proof} 
+        \begin{theorem} (Критерий замкнутости множества)\\
+            Следующие условия эквивалетны:
+            \begin{itemize}
+                \item[(0)] $A\subset \R$ - замкнуто. 
+                \item[(1)] $\partial A\subset A$,
+                \item[(2)] Все точки прикосновения содержатся в $A$,
+                \item[(3)] $A^{\prime}\subset A$.
+            \end{itemize}
+            \begin{proof}
+                Докажем по цепочке $(0)\Rightarrow (1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (0)$.\\
+                \begin{enumerate}
+                    \item $(0)\Rightarrow (1):A$ - замкнуто $\Rightarrow \R\setminus A$ - открыто $\Rightarrow \partial A \not\subset\R\setminus A \Rightarrow \partial A\subset A$.
+                    \item $(1)\Rightarrow (2):$ Все точки прикосновения являются граничными или внутренними. Поскольку $\partial A\subset A$ то все точки прикосновения содержатся в $A$.
+                    \item $(2)\Rightarrow (3):$ Если $x$ - предельная, то $x\in A$ или $x$ - точка прикосновения. Поскольку все точки прикосновения содержатся в $A$, то и все предельные точки содержатся в $A$.
+                    \item $(3)\Rightarrow (0): A^{\prime}\subset A\Rightarrow \forall x\in \R\setminus A: x\not\in A^{\prime}\Rightarrow \forall x\in\R\setminus A\ \exists\ \mathring{B}_{\epsilon}: \mathring{B}_{\epsilon}(x)\cap A=\emptyset\\
+                    \Rightarrow B_{\epsilon}(x)\cap A=\emptyset \Rightarrow x$ - внешняя точка $A,\ B_{\epsilon}(x)\subset\R\setminus A\Rightarrow \R\setminus A$ - открыто $\Rightarrow A$ - замкнуто. 
+                \end{enumerate}
+            \end{proof} 
+        \end{theorem}
+        \begin{theorem}
+            Пусть $A$ - множество индексов. Пусть $\{U_{\alpha}\}_{\alpha\in A}$ - открытые,\\
+            $\{X_{\alpha}\}_{\alpha\in A}$ - замкнутые. Тогда:
+            \begin{enumerate}
+                \item $\bigcup\limits_{\alpha} U_{\alpha}$ - открыто.
+                \item $\bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
+                \item $\bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто.
+                \item $\bigcup\limits_{\alpha} X_{\alpha}$ - замкнуто.
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof} \tab
+            \begin{enumerate}
+                \item Пусть $u\in \bigcup\limits_{\alpha} U_{\alpha} \Rightarrow \exists\ \alpha_0: u\in U_{\alpha_0}\Rightarrow \exists\ B(u)\in U_{\alpha_0}\Rightarrow B(u)\in \bigcup\limits_{\alpha} U_{\alpha}\\
+                \Rightarrow \bigcup\limits_{\alpha} U_{\alpha}$ - открыто.
+                \item Пусть $u\in \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \forall i\in \{1,\dots n\} \exists\ \epsilon_i: B_{\epsilon_i}\in U_{\alpha_i}\Rightarrow \exists\ \epsilon_i = \min\{\epsilon_{i_0}\}\Rightarrow B_{\epsilon_{i_0}}\subset U_{\alpha_i} \forall i \Rightarrow B_{\epsilon_{i_0}}\subset \bigcap\limits_{i=1}^n U_{\alpha_i}\Rightarrow \bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
+                \item $(3)$ и $(4)$ следуют из $(1)$, $(2)$ и законов Моргана. 
+            \end{enumerate}
+        \end{proof} 
+        \begin{examples} \tab
+            \begin{enumerate}
+                \item $\bigcap\limits_{n=1}^{\infty}(-\frac{1}{n}, 1+\frac{1}{n})=[0,1]$.
+                \item $\bigcup\limits_{n=1}^{\infty}[\frac{1}{n}, 1-\frac{1}{n}]=(0,1)$.
+            \end{enumerate}
+        \end{examples}
+        \begin{theorem}
+            Если $A$ - ограничено сверху или снизу и замкнуто, то существует $\max{A}$ или $\min{A}$ соответственно.
+        \end{theorem} 
+        \begin{proof}
+            По принципу поноты Вейерштрасса $\exists\ \alpha=\sup{A}.\\ \forall\epsilon>0\ \exists\ a_{\epsilon}\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
+        \end{proof} 
 \end{document}
