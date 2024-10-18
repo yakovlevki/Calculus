@@ -12,19 +12,26 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{arrows}
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\B}{\mathfrak{B}}
+
 \renewcommand{\phi}{\varphi}
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\lra}{\Leftrightarrow}
 \renewcommand{\emptyset}{\varnothing}
 \newcommand\tab[1][.5cm]{\hspace*{#1}}
-\newcommand{\hsp}{\hspace{5pt}}
+\newcommand{\seq}{\{a_n\}}
+\newcommand{\lims}{\lim\limits_{n\to \infty}}
+\renewcommand{\liminf}{\lim\limits_{x\to \infty}}
+\newcommand{\liminfp}{\lim\limits_{x\to +\infty}}
+\newcommand{\liminfm}{\lim\limits_{x\to -\infty}}
+\newcommand{\lima}{\lim\limits_{x\to a}}
 \newcommand{\om}{\bar{\bar{o}}}
+
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
@@ -571,10 +578,10 @@
             Индукция по $n$. База: для $n=1$ верно. Пусть верно для $n$. Распишем выражение для $n+1$:
             \[(a+b)^{n+1}=(a+b)\sum\limits_{k=0}^n C_n^k a^k b^{n-k}=\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}\]
             Сдвинем нумерацию в первой сумме:
-            \[\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}=\sum\limits_{m=1}^n C_n^{m-1} a^{m} b^{n-m+1}\]
+            \[\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}\]
             Получаем, что
             \begin{multline*}
-            \sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}=\sum\limits_{m=1}^n C_n^{m-1} a^{m} b^{n-m+1}+\sum\limits_{m=0}^n C_n^m a^m b^{n-m+1}=\\=C_n^n a^{n+1}b^0+\sum\limits_{m=1}^n(C_n^{m-1}+C_n^m)a^n b^{n-m+1}+C_n^0a^0b^{n+1}=\sum\limits_{m=0}^{n+1}C_{n+1}^m a^m b^{n-m+1}
+            \sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}+\sum\limits_{m=0}^n C_n^m a^m b^{n-m+1}=\\=C_n^n a^{n+1}b^0+\sum\limits_{m=1}^n(C_n^{m-1}+C_n^m)a^n b^{n-m+1}+C_n^0a^0b^{n+1}=\sum\limits_{m=0}^{n+1}C_{n+1}^m a^m b^{n-m+1}
             \end{multline*}
         \end{proof} 
         \subsection{Отношение эквивалентности. Равномощные множества}
@@ -808,5 +815,48 @@
         \end{theorem} 
         \begin{proof}
             По принципу поноты Вейерштрасса $\exists\ \alpha=\sup{A}.\\ \forall\epsilon>0\ \exists\ a_{\epsilon}\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
+        \end{proof}
+        \begin{theorem} (Больцано-Вейерштрасса)\\
+            Если $A$ - органиченое и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
+        \end{theorem} 
+        \begin{proof}
+            т.к $A$ - ограничено, что $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов $A$ и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_n,b_n]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
+        \end{proof}
+        \begin{definition}
+            Говорят, что семейство $\{A\}_{\alpha}$ является покрытием множества $B$, если $B\subset \bigcup\limits_{\alpha}A_{\alpha}$
+        \end{definition} 
+        \begin{definition}
+            Рассмотрим $X\subset \R$. Если $\forall$ покрытия $X$ открытыми множествами $\{A\}_{\alpha}\ \exists\ \{\alpha_i\}_{i=1}^n$ - конечное подпокрытие, что $X\subset \bigcup\limits_{\alpha}^n A_{\alpha}$, то $X$ называется компактным множеством или компактом.
+        \end{definition} 
+        \begin{theorem}
+            Любой отрезок является компактом.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отроезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}\Rightarrow \exists n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
+        \end{proof} 
+        \begin{theorem} (Лемма Гейне-Бореля)\\
+            $A$ - компакт $\lra A$ - замкнуто и ограничено.
+        \end{theorem} 
+        \begin{proof}
+            Без доказательства.
+        \end{proof}
+        \section{Числовые последовательности}
+        \begin{definition}
+            Отображение $\{a_n\}: \N\to \R$ называется последовательностью.
+        \end{definition} 
+        \begin{definition}
+            $\{a_n\}$ ограничена сверху (снизу), если ее образ ограничен сверху (снизу).
+        \end{definition} 
+        \begin{definition}
+            Пусть $\{n_k\}$ образ $\phi: \N\to \N$ и $\forall k: n_{k+1}>n_k$. Тогда для любой $\seq$ последовательность $\{a_{n_k}\}$ называется подпоследовательностью $\seq$.
+        \end{definition} 
+        \begin{definition}
+            Рассмотрим последовательность $\seq$. Если $\exists a\in \R$, такое что $\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N: \forall n>N_{\epsilon}: |a_n-a|<\epsilon$, то говорят что последовательность $\seq$ сходится, а число $a$ называется пределом последовательности $\seq$ и обозначается $\lims a_n=a$.
+        \end{definition}
+        \begin{theorem}
+            Если $\seq$ сходится, то ее предел единственный.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $\exists\ a,b: a\ne b$ - два предела последовательности $\seq$. Тогда $\exists N_1: \forall n>N_1: |a_n-a|<\frac{|a-b|}{3}$, а также $\exists N_2: \forall n>N_2: |a_n-b|<\frac{|a-b|}{3}$ Тогда взяв $N = \max{(N_1, N_2)}$ получим противоречие.
         \end{proof} 
 \end{document}
