@@ -30,6 +30,7 @@
 \newcommand{\liminfp}{\lim\limits_{x\to +\infty}}
 \newcommand{\liminfm}{\lim\limits_{x\to -\infty}}
 \newcommand{\lima}{\lim\limits_{x\to a}}
+\newcommand{\limo}{\lim\limits_{x\to 0}}
 \newcommand{\om}{\bar{\bar{o}}}
 
 
@@ -858,5 +859,98 @@
         \end{theorem} 
         \begin{proof}
             Пусть $\exists\ a,b: a\ne b$ - два предела последовательности $\seq$. Тогда $\exists N_1: \forall n>N_1: |a_n-a|<\frac{|a-b|}{3}$, а также $\exists N_2: \forall n>N_2: |a_n-b|<\frac{|a-b|}{3}$ Тогда взяв $N = \max{(N_1, N_2)}$ получим противоречие.
+        \end{proof} 
+        \begin{theorem}
+            Пусть $\exists\ \lims a_n=a$, тогда $\forall a_{n_k}\exists\ \lims a_{n_k}=a$.
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0 \exists n_{\epsilon} \forall n>N_{\epsilon}: |a_n-a|<\epsilon \Rightarrow \forall k>N_{\epsilon}: |a_{n_k}-a|<\epsilon$
+        \end{proof} 
+        \begin{definition}
+            $\forall k\in \Z$ отображение $\Z \setminus \{..., k-1\} \to \R$ тоже будем называть последовательностью.
+        \end{definition} 
+        \begin{comm}
+            \begin{enumerate}
+                \item Если $\exists \lims a_n=a$, то $\exists \lims a_{n+k}=a$.
+                \item $\lims a_n=a$ и $b_n$ отличается от $a_n$ конечным числом членов, то $\exists \lims b_n=a$.
+            \end{enumerate}
+        \end{comm} 
+        \begin{theorem} (Отделимость)\\
+            $\exists \lims a_n=a$. Пусть $b\ne a$. Тогда $\exists \epsilon>0,\ \exists N_{\epsilon}: B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}=\emptyset$.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $\forall \epsilon>0\ \forall \ N_{\epsilon}: B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}\ne \emptyset$. Возьмем $\epsilon = \frac{|b-a|}{3}$, сразу получаем противоречие.
+        \end{proof} 
+        \begin{comm}
+            $\exists\ \epsilon>0: \mathring{B_{\epsilon}}\cap \{a_n\}_{n=1}^{\infty}=\emptyset$. Если $b\notin \{a_n\}_{n=1}^{\infty}$, то $B_{\epsilon}(b)\cap\{a_n\}_{n=1}^{\infty}=\emptyset$.
+        \end{comm} 
+        \subsection{О-символика. Бесконечно малые и бесконечно большие последовательности}
+        \begin{definition}
+            Рассмотрим пару последовательностей $a_n$ и $b_n$. Если\\ $\exists\ \lims \frac{a_n}{b_n}=0$, то говорят, что последовательность $a_n$ это о-малое от $b_n$ и обозначают $a_n=\om(b_n)$, при $n\to \infty$. 
+        \end{definition} 
+        \begin{definition}
+            Если $\exists M>0: |\frac{a_n}{b_n}|\leq M\ \forall n$, то говорят, что последовательность $a_n$ это О-большое от $b_n$ и обозначают $a_n=O(b_n)$ при $n\to \infty$.
+        \end{definition} 
+        \begin{example}
+            $\frac{\sin n}{n}\to 0 \Leftrightarrow \sin n = \om(n),\ \frac{\cos n}{n}\to 0 \Leftrightarrow \cos n = \om(n),\\ \frac{\sqrt{n}+1}{n}\to 0 \Leftrightarrow \sqrt{n}+1 = \om(n)$\\
+        \end{example}
+        \begin{comm}
+            $O(1)$ - обозначение класса ограниченых последовательностей.
+        \end{comm} 
+        \begin{definition}
+            Последовательность $a_n$ называется бесконечно малой, если\\ $a_n=\om(1)$, т.е $\lims a_n=0)$.
+        \end{definition} 
+        \begin{definition}
+            Последовательность $a_n$ называется бесконечно большой, если\\ $\forall \epsilon>0\ \exists\ N_{\epsilon}\ \forall n>N_{\epsilon}: |a_n|>\epsilon$, такие последовательности обозначаются $\lims a_n=\infty$ (это всего лишь обозначение, конечно у последовательности $a_n$ не существует предела)\\
+            Если в определении $a_n>\epsilon$, то $\lims a_n=+\infty$.\\
+            Если в определении $a_n<-\epsilon$, то $\lims a_n=-\infty$.
+        \end{definition} 
+        \begin{theorem} (Исчисление бесконечно малых)\\
+            Пусть $a_n=\om(1), n\to \infty,\ b_n-\om(1), n\to \infty$ и $c_n=O(1)$. Тогда $\forall c\in \R$:
+            \begin{enumerate}
+                \item $ca_n=\om(1)$
+                \item $a_n+b_n=\om(1)$
+                \item $a_nb_n=\om(1)$
+                \item $a_nc_n=\om(1)$
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0\ \exists N_1\ \forall n>N_1: |a_n|<\epsilon,\ \exists N_2\ \forall n>N_2: |b_n|<\epsilon$, далее возьмем $n>\max\{N_1,N_2\},\ |c_n|<M$
+            \begin{enumerate}
+                \item $|c a_n|\leq|c|\epsilon$
+                \item $|a_n+b_n|<2\epsilon$
+                \item $|a_nb_n|<\epsilon^2$
+                \item $|c_na_n|<M\epsilon$
+            \end{enumerate}
+        \end{proof} 
+        \begin{theorem}
+            Пусть $a_n$ - бесконечно большая и $a_n\ne 0$, тогда $\frac{1}{a_n}$ - бесконечно малая.
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0 \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n|>\epsilon \Rightarrow \frac{1}{|a_n|}<\frac{1}{\epsilon}$
+        \end{proof} 
+        \begin{lemma}
+            Если $a_n\to a \lra (a_n-a)=\om(1)$
+        \end{lemma} 
+        \begin{proof}
+            $|a_n-a|<\epsilon$
+        \end{proof} 
+        \begin{theorem}
+            Пусть $\exists \lims a_n=a,\ \exists \lims b_n=b$, тогда
+            \begin{enumerate}
+                \item $\exists \lims (a_n+b_n)=a+b$
+                \item $\exists \lims ca_n=ca$
+                \item $\exists \lims a_nb_n=ab$
+                \item $\exists \lims \frac{a_n}{b_n}=\frac{a}{b}$
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            \begin{enumerate}
+                \item $a_n+b_b=a+\om(1)+b+\om(1)=a+b+\om(1)$
+                \item $ca_n=c(a+\om(1))=ca+\om(1)$
+                \item $a_nb_n=(a+\om(1))(b+\om(1))=ab+\om(1)$
+                \item $\frac{a_n}{b_n}-\frac{a}{b}=\frac{a_nb-ab_n}{bb_n}=\frac{(a+\om(1))b-a(b+\om(1))}{b(b+\om(1))}=\om(1)O(1)=\om(1)$
+            \end{enumerate}
+            
         \end{proof} 
 \end{document}
