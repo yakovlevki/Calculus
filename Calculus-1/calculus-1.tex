@@ -995,7 +995,7 @@
             $a_n$ - ограничена сверху и неубывает $\Rightarrow \exists\ \sup a_n=a$.\\ $\forall \epsilon>0\ \exists\ a_N>a-\epsilon,\ \forall n>N: a_n>a-\epsilon$.
         \end{proof}  
         \subsection{Число e}
-        \begin{statement}
+        \begin{statement} \tab
             \begin{enumerate}
                 \item $a_n=(1+\frac{1}{n})^n$ возрастает.
                 \item $b_n=(1+\frac{1}{n})^{n+1}$ убывает.
@@ -1003,10 +1003,10 @@
         \end{statement} 
         \begin{proof}
             \begin{multline*}
-                \cfrac{a_{n+1}}{a_n}=\cfrac{(1+\cfrac{1}{n+1})^{n+1}}{(1+\cfrac{1}{n})^{n}}=\cfrac{(n+2)^{n+1}n^n}{(n+1)^{2n+1}}=\cfrac{(n^2+2)^n (n+2)}{(n^2+2n+1)^n (n+1)}=\\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})>(1-\cfrac{1}{(n+1)^2}) (\cfrac{n+2}{n+1})=\\=\cfrac{n^2+n+1}{n^2+2n+1}\cfrac{n+2}{n+1}=\cfrac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}>1
+                1.\ \ \cfrac{a_{n+1}}{a_n}=\cfrac{(1+\cfrac{1}{n+1})^{n+1}}{(1+\cfrac{1}{n})^{n}}=\cfrac{(n+2)^{n+1}n^n}{(n+1)^{2n+1}}=\cfrac{(n^2+2)^n (n+2)}{(n^2+2n+1)^n (n+1)}=\\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})>(1-\cfrac{1}{(n+1)^2})\cdot \cfrac{n+2}{n+1}=\\=\cfrac{n^2+n+1}{n^2+2n+1}\cdot \cfrac{n+2}{n+1}=\cfrac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}>1
             \end{multline*}
             \begin{multline*}
-                \cfrac{b_n}{b_n+1}=\cfrac{(1+\frac{1}{n})^{n}}{(1+\cfrac{1}{n+1})^{n+1}}=\cfrac{(n+1)^{2n+3}}{n^{n+1}((n+2)^{n+2})}=\cfrac{(n^2+2n+1)^{n+1}(n+1)}{(n^2+2n)^{n+1}(n+2)}=\\=(1+\cfrac{1}{n^2+2n})^{n+1}\cfrac{(n+1)}{n+2}>(1+\cfrac{1}{n^2+2n})\cfrac{(n+1)}{n+2}=\\=\cfrac{n^2+3n+1}{n^2+2n}\cfrac{n+1}{n+2}=\cfrac{n^3+4n^2+4n+1}{n^3+4n^2+4n}>1
+                2.\ \ \cfrac{b_n}{b_{n+1}}=\cfrac{(1+\cfrac{1}{n})^{n}}{(1+\cfrac{1}{n+1})^{n+1}}=\cfrac{(n+1)^{2n+3}}{n^{n+1}((n+2)^{n+2})}=\cfrac{(n^2+2n+1)^{n+1}(n+1)}{(n^2+2n)^{n+1}(n+2)}=\\=(1+\cfrac{1}{n^2+2n})^{n+1}\cfrac{(n+1)}{n+2}>(1+\cfrac{1}{n^2+2n})(\cfrac{n+1}{n+2})=\\=\cfrac{n^2+3n+1}{n^2+2n}\cdot \cfrac{n+1}{n+2}=\cfrac{n^3+4n^2+4n+1}{n^3+4n^2+4n}>1
             \end{multline*}
         \end{proof} 
         \begin{theorem}
