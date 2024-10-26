@@ -842,7 +842,7 @@
         \begin{proof}
             Без доказательства.
         \end{proof}
-        \section{Числовые последовательности}
+    \section{Числовые последовательности}
         \begin{definition}
             Отображение $\{a_n\}: \N\to \R$ называется последовательностью.
         \end{definition} 
@@ -1017,5 +1017,62 @@
         \end{proof} 
         \begin{definition}
             $\lims (1+\frac{1}{n})^n=e$
+        \end{definition} 
+        \begin{theorem}
+            Если $a_n$ ограничена, то $\exists\ a_{n_k}\to a,\ k\to \infty$. 
+        \end{theorem}
+        \begin{proof}\tab
+            \begin{enumerate}
+                \item Образ $a_n$ бесконечен. Тогда $\exists\ a$ - предельная точка образа. Тогда в проколотой окрестности $a$ есть хотя бы одна точка, возьмем эту точку, назовем ее $a_{n_1}$, далее возьмем новую проколотую окрестность $a$ так, чтобы $a_{n_1}$ в нее не попадало, возьмем в ней $a_{n_2}$ такую, что $n_2>n_1$ и т.д
+                \item Образ $a_n$ конечный. Тогда $\exists\ a$ из образа, встречающаяся в последовательности бесконечно много раз. Тогда возьмем постоянную (стационарную) подпоследовательность.
+            \end{enumerate}
+        \end{proof} 
+        \begin{theorem} (Критерий Коши)\\
+            $a_n$ сходится $\lra \forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$.
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{itemize}
+                \item[$(\Rightarrow)$] $\exists \lims a_n =a \lra \forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n-a|<\epsilon$. Тогда $\forall m,n>N_{\epsilon}: |a_m-a_n|=|(a_m-a)+(a-a_n)|\leq |a_m-a|+|a-a_n|<2\epsilon$. 
+                \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$. Фиксируем $m$, тогда\\ $a_m-\epsilon<a_n<a_m+\epsilon \Rightarrow a_n$ - ограничена $\Rightarrow \exists\ a_{n_k}\to a,\ k\to \infty$. Тогда $|a_n-a|=|a_n-a_{n_k}+a_{n_k}-a|<|a_n-a_{n_k}|+|a_{n_k}-a|<2\epsilon$. 
+            \end{itemize}
+        \end{proof} 
+        \begin{definition}
+            Последовательность $a_n$, удовлетворяющая условию\\ $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$ называется фундаментальной.
+        \end{definition} 
+        \begin{example}
+                \[a_n=\sum\limits_{k=1}^n\frac{1}{k^2}\] 
+                \[|a_n-a_m|=|\sum\limits_{k=1}^n\frac{1}{k^2}-\sum\limits_{k=1}^m\frac{1}{k^2}|=|\sum\limits_{k=m+1}^n\frac{1}{k^2}|<|\sum\limits_{k=m+1}^n (\frac{1}{m-1}-\frac{1}{k})|=\frac{1}{m}-\frac{1}{n}<\frac{1}{m}<\epsilon\]
+                \[a_n=\sum\limits_{k=1}^n\frac{1}{k}\]
+                \[|a_n-a_m|=|\sum\limits_{k=n+1}^{2n}\frac{1}{k}|>\frac{1}{2n}n=\frac{1}{2}\]
+        \end{example}
+        \begin{definition}
+            Если у $a_n$ есть сходящаяся подпоследовательность $a_{n_k}$, то\\ $\lim\limits_{k\to \infty}a_{n_k}=a$ называется частичным пределом последовательности $a_n$.
+        \end{definition} 
+        \begin{theorem}
+            Рассмотрим $a_n$, и пусть $a\subset \R$ - множество всех частичных пределов $a_n$. Тогда $A$ замкнуто.
+        \end{theorem} 
+        \begin{proof}
+            $\forall x\in \R\setminus A \Rightarrow x\not\in A \Rightarrow \exists\ B_{\epsilon}(x): B_{\epsilon}(x)\cap\{a_n\}_{n=1}^{\infty}$ - конечно. Тогда $\forall x^{\prime}\in B_{\epsilon}(x)\ \exists\ B_{\epsilon^{\prime}}(x^{\prime})$, что $B_{\epsilon^{\prime}}(x^{\prime})\cap\{a_n\}_{n=1}^{\infty}$ конечно $\Rightarrow \forall x^{\prime} \not\in A\\ \Rightarrow B_{\epsilon}(x)\subset \R\setminus A\Rightarrow \R\setminus A$ - открыто.
+        \end{proof} 
+        \begin{definition}
+            Пусть $a_n$ ограничена. Тогда $\exists\ \max A$ и $\min A$, которые называют верхним и нижним пределом. (тут дописать обозначение)
+        \end{definition} 
+        \begin{theorem}
+            Пусть  $a_n$ ограничена. Тогда (верхний)$\lims a_n=\lims \sup\{a_k\}_{k=1}^{\infty}$ и (нижний)$\lims a_n=\lims \inf\{a_k\}_{k=1}^{\infty}$.
+        \end{theorem} 
+        \begin{proof}
+            $\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty},\ \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу. $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. $\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}$ конечно. С другой стороны $\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}$ бесконечно $\Rightarrow \alpha$ - частичный предел $\Rightarrow$ (верхний)$\alpha=\lims a_n$.
+        \end{proof} 
+        \begin{theorem}
+            $\exists \lims a_n=a \lra$ (верхний) $\lims a_n =a$ (нижний) $\lims a_n=a$
+        \end{theorem} 
+        \begin{proof}
+            \begin{itemize}
+                \item[($\Rightarrow$)] очев
+                \item[$(\Leftarrow)$] $\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}$ по лемме о двух миллиционерах $a_n \to a$. 
+            \end{itemize}
+        \end{proof} 
+        \begin{definition}
+            Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения (верхний)$\lims a_n=\infty\ (+\infty,\ -\infty)$ и\\ (верхний) $\lims a_n=\infty\ (+\infty,\ -\infty)$
         \end{definition} 
 \end{document}
