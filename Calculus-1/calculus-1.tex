@@ -1018,6 +1018,7 @@
         \begin{definition}
             $\lims (1+\frac{1}{n})^n=e$
         \end{definition} 
+        \subsection{Сходимость последовательностей и частичные пределы}
         \begin{theorem}
             Если $a_n$ ограничена, то $\exists\ a_{n_k}\to a,\ k\to \infty$. 
         \end{theorem}
@@ -1074,5 +1075,87 @@
         \end{proof} 
         \begin{definition}
             Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения (верхний)$\lims a_n=\infty\ (+\infty,\ -\infty)$ и\\ (верхний) $\lims a_n=\infty\ (+\infty,\ -\infty)$
+        \end{definition}
+        \section{Предел функции}
+        В данном разделе будут рассматриваться функции $f: \R\to\R$
+        \begin{definition}
+            Пусть $f(x)$ определена в $\Bo (x)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
+            \[\forall \epsilon>0\ \exists \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0) \Rightarrow |f(x)-a|<\epsilon\]
+        \end{definition} 
+        \begin{definition}
+            Пусть $f(x)$ определена в $\Bo(x_0)$. Число $a$ называется пределом $f(x)$ по Гейне, если
+            \[\forall \{x_n\}: x_n\to x_0,\ x_n\ne x_0\ \forall n\ \exists\ \lims f(x_n)=a\]
+        \end{definition} 
+        \begin{definition}
+            Пусть $f(x)$ определена на $(-\infty, x_0)$ и на $(x_0, +\infty)$. Тогда $a$ - предел $f$ при $x\to \infty\ (x\to +\infty,\ x\to -\infty)$ если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}: \forall |x|>\delta_{\epsilon}\ (x>\delta_{\epsilon},\ x<\delta_{\epsilon}) \Rightarrow |f(x)-a|<\epsilon\]
+        \end{definition} 
+        \begin{theorem} 
+            Определения предела по Коши и по Гейне эквивалентны.
+        \end{theorem} 
+        \begin{proof}\tab
+                \item[\text{(К)}$\Rightarrow$\text{(Г):}] $\forall \epsilon>0\ \exists \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0) \Rightarrow |f(x)-a|<\epsilon$.\\
+                $\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: 0<|x_0-x_n|<\delta_{\epsilon} \Rightarrow \forall n> N_{\delta_{\epsilon}}: x_n\in \Bo_{\delta_{\epsilon}}(x_0)\\
+                \Rightarrow |f(x_n)-a|<\epsilon$, т.е. $f(x_n)\to a$    
+                \item[\text{(Г)}$\Rightarrow$\text{(К):}] Выведем из отрицания предела по Коши отрицание предела по Гейне:\\
+                $\exists\ \epsilon> 0\ \forall \delta\ \exists\ x_{\delta}\in \Bo(x_0) \Rightarrow |f(x_{\delta})-a|\geq \epsilon_0$.\\
+                Возьмем $x_1 \in \Bo_1(x_0) \Rightarrow |f(x_1)-a|\geq \epsilon;\ x_2 \in \Bo_{\frac{|x_1|}{2}}(x_0) \Rightarrow |f(x_2)-a|\geq \epsilon_0$;\\
+                $x_3\in \Bo_{\frac{|x_2|}{2}}(x_0) \Rightarrow |f(x_3)-a|\geq \epsilon_0$;\ \dots;\ $x_n \in \Bo_{\frac{|x_n|}{2}}(x_0) \Rightarrow |f(x_n)-a|\geq \epsilon_0$\\
+                это и есть отрицание по Гейне.
+        \end{proof} 
+        \begin{comm}
+            В доказательстве пользуемся тем, что для утверждений $A$ и $B$ верно: $(A\Rightarrow B) \Leftrightarrow (\lnot B\Rightarrow \lnot A)$
+        \end{comm} 
+        \begin{comm}
+            при $x\to \infty\ (+\infty,\ -\infty)$ доказывается аналогично.
+        \end{comm}
+        \begin{theorem}
+            Если у функции существует предел в точке $x_0$ то он единственный.
+        \end{theorem}
+        \begin{proof}
+            $x_n: x_n\to x_0,\ x_n\ne x_0\ forall n: \lims f(x_n)=a$. Предположим, что $b\ne a$ - тоже предел. Тогда $\exists\ \{t_n\},\ t_n\to x_0,\ t_n\ne x_0: \lims f(t_n)=b$. Рассмотри последовательность $x_1,t_1,x_2,t_2,\dots$ - имеет два частичных предела.
+        \end{proof}
+        \begin{theorem}
+            Если $\exists \lim\limits_{x\to x_0}f(x)=a$, то $\exists\ \delta>0$, что $f(x)$ ограничена в $\Bo_{\delta}(x_0)$.
+        \end{theorem} 
+        \begin{proof}
+            $\exists\ \delta>0$, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<1\\
+            \Rightarrow a-1<f(x)<a+1$
+        \end{proof}
+        \begin{theorem} (Отделимость)\\
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a$. Тогда $\forall b\ne a\ \exists\ \delta>0$ и $\exists\ \epsilon>0$, что $f(\Bo(x_0))\cap \Bo_\epsilon(b)=\emptyset$. 
+        \end{theorem}  
+        \begin{proof}
+            $\exists\ \epsilon>0$, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3}$. Тогда\\
+            $f(\Bo_{\delta}(x_0))\cap\Bo_{\frac{|a-b|}{3}}(b)=\emptyset$.
+        \end{proof} 
+        \begin{definition}
+            Число $a$ называется пределом $f(x)$ в точке $x_0$ по $X\subset \R$, если $x_0\in X^{\prime}$ и $\forall\epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x\in \Bo_{\delta}(x_0)\cap X \Rightarrow |f(x)-a|<\epsilon$. Обозначают $\lim\limits_{x\to x_0,x\in X}f(x)=a$.
+        \end{definition} 
+        \begin{definition}
+            Если $\exists\ \lim\limits_{x\to x_0,x\in X}f(x)=a$ и $X_1\subset X,\ x_0\in X_1^{\prime}$. Тогда\\
+            $\exists\ \lim\limits_{x\to x_0,x\in X_1}f(x)=a$
+        \end{definition} 
+        \begin{proof}
+            Очевидно.
+        \end{proof}
+        \begin{theorem}
+            $\exists\ \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \exists\ \lim\limits_{x\to x_0+0}f(x)=a$ и $\exists\ \lim\limits_{x\to x_0-0}f(x)=a$.
+        \end{theorem} 
+        \begin{proof}
+            "В эту сторону очевидно, в другую сторону тоже очевидно"
+        \end{proof} 
+        \subsection{O-символика}
+        \begin{definition}
+            Если $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=0$, то $f(x)=\om(g(x))$ при $x\to x_0$.
+        \end{definition} 
+        \begin{definition}
+            Функция $f(x)=\om(x)$ при $x\to x_0$ называется бесконечно малой.
+        \end{definition}
+        \begin{definition}
+            Если $\exists M>0$, что $\forall x\in X\subset \R: |\frac{f(x)}{g(x)}|<M$, то $f(x)=O(g(x))$ на $X$
+        \end{definition} 
+        \begin{definition}
+            Функция $f(x)=O(1)$ называется ограниченой.
         \end{definition} 
 \end{document}
