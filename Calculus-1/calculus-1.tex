@@ -994,7 +994,7 @@
         \begin{proof}
             $a_n$ - ограничена сверху и неубывает $\Rightarrow \exists\ \sup a_n=a$.\\ $\forall \epsilon>0\ \exists\ a_N>a-\epsilon,\ \forall n>N: a_n>a-\epsilon$.
         \end{proof}  
-        \subsection{Число e}
+    \subsection{Число e}
         \begin{statement} \tab
             \begin{enumerate}
                 \item $a_n=(1+\frac{1}{n})^n$ возрастает.
@@ -1018,7 +1018,7 @@
         \begin{definition}
             $\lims (1+\frac{1}{n})^n=e$
         \end{definition} 
-        \subsection{Сходимость последовательностей и частичные пределы}
+    \subsection{Сходимость последовательностей и частичные пределы}
         \begin{theorem}
             Если $a_n$ ограничена, то $\exists\ a_{n_k}\to a,\ k\to \infty$. 
         \end{theorem}
@@ -1076,7 +1076,7 @@
         \begin{definition}
             Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения (верхний)$\lims a_n=\infty\ (+\infty,\ -\infty)$ и\\ (верхний) $\lims a_n=\infty\ (+\infty,\ -\infty)$
         \end{definition}
-        \section{Предел функции}
+    \section{Предел функции}
         В данном разделе будут рассматриваться функции $f: \R\to\R$
         \begin{definition}
             Пусть $f(x)$ определена в $\Bo (x)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
@@ -1145,7 +1145,7 @@
         \begin{proof}
             "В эту сторону очевидно, в другую сторону тоже очевидно"
         \end{proof} 
-        \subsection{O-символика}
+    \subsection{O-символика}
         \begin{definition}
             Если $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=0$, то $f(x)=\om(g(x))$ при $x\to x_0$.
         \end{definition} 
@@ -1238,7 +1238,21 @@
         \begin{proof}
             $\exists\ \sup{f(x)}=A.\ \forall \epsilon>0\ \exists\ x_{\epsilon}\in (a-\delta, a),\ f(x_{\epsilon})>A-\epsilon$. Тогда $\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon$, а значит $\forall x\in \Bo(A): f(x)-A<\epsilon$.
         \end{proof}
-        \section{Непрерывные функции}
+        \begin{theorem} (Критерий Коши)\\
+            $\exists \lim\limits_{x\to x_0}=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon$
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{itemize}
+                \item[$(\Rightarrow)$] $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon$\\
+                $\forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|=|f(x_1)-a+a-f(x_2)|\leq|f(x_1)-a|+|f(x_2)-a|<2\epsilon$.
+                \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon$.\\
+                $\forall \{x_n\},\ x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: \forall n> N_{\delta_{\epsilon}}: |x_n-x_0|<\delta_{\epsilon}$\\
+                $\Rightarrow n,m>N_{\delta_{\epsilon}}: |f(x_n)-f(x_m)|<\epsilon \Rightarrow \exists\lims f(x_n)=a$.\\
+                $\{t_n\},\ t\to x_0,\ t_n\ne x_0,\ \exists \lims f(t_n)=b.\ x_1, t_1, x_2, t_2 $(пояснить)$, \dots \Rightarrow a=b$.
+            \end{itemize}
+        \end{proof} 
+    \section{Непрерывные функции}
+    \subsection{Локальные свойства непрерывных функций}
         \begin{definition}
             Пусть $D_f$ - область определения $f(x)$. Пусть $x_0\in D_f$. Если $\forall \epsilon>0\ \exists \delta_{\epsilon}>0$, что $\forall x\in B_{\delta_{\epsilon}}(x_0)\cap D_f: |f(x)-f(x_0)|<\epsilon$, то $f(x)$ называется непрерывной в точке $x_0$.
         \end{definition}  
@@ -1256,7 +1270,13 @@
         \begin{proof}
             Если $x_0$ - изолированная то очев. Если неизолированная, то по свойствам предела очевидно.
         \end{proof} 
-        \subsection{Глобальные свойства непрерывных функций}
+        \begin{theorem} (Непрерывность композиции непрерывных функций) \\
+            $f(x)$ определена в $B_{\delta}(x_0)$ и $f(x)$ непрерывна в точке $x_0$.\ $f(B_{\delta}(x_0))\subset B(y_0),\ f(x_0)=y_0$.\ $g(y)$ определена в $B(y_0)$ и непрерывна в точке $y_0$. Тогда $g(f(x))$ непрерывна в точке $x_0$.
+        \end{theorem} 
+        \begin{proof}
+            $\forall x_n\to x_0,\ f(x_n)\to f(x_0).\ y_n\to y_0,\ g(y_n)\to g(y_0).\ y_n=f(x_n),\ g(f(x_n))\to g(f(x_0))$.
+        \end{proof} 
+    \subsection{Глобальные свойства непрерывных функций}
         \begin{definition}
             Пусть $f(x)$ - определена на $X\subset \R$ и $\forall x\in X: f(x)$ - непрерывна в точке $x$. Тогда говорят, что $f(x)$ непрерывна на $X$ и пишут $f(x)\in \mathcal{C}(X)$.
         \end{definition} 
@@ -1269,5 +1289,53 @@
             x_2: |f(x_2)|>2; \dots; x_M: |f(x_M)|>M;\dots$.\\
             $\{x_n\}\subset [a,b]\ \exists\ \{x_{n_k}\}: \exists\ \lim\limits_{k\to \infty}\{x_{n_k}\}=x_0$ т.к. $f(x)$ непрерывыная, то\\
             $\exists\ \lim\limits_{k\to \infty}f(\{x_{n_k}\})=f(x_0)$, но $|f(x_{n_k})|\to +\infty$. 
+        \end{proof} 
+        \begin{theorem} (2-я теорема Вейерштрасса)\\
+            Пусть $f(x)\in \mathcal{C}[a,b]$. Тогда $f(x)$ имеет $\max$ и $\min$ занчения на $[a,b]$
+        \end{theorem} 
+        \begin{proof}
+            $\alpha = \sup\limits_{x\in [a,b]} f(x): \exists x_1 \in [a,b],\ f(x_1)>\alpha-1,\ \exists x_2\in [a,b],\ f(x-2)>\alpha - \frac{1}{2}\dots \exists x_n\in [a,b],\ f(x-n)>\alpha - \frac{1}{n}, \dots$. $\exists \{x_{n_k}\}, x_{n_k}\to x^{\prime},\ f(x_{n_k})\to f(x^{\prime}),\ \alpha-\frac{1}{n_k}<f(x_{n_k})\leq \alpha \Rightarrow f(x_{n_k})\to \alpha$.
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f(x)\in \mathcal{C}[a,b].\ f(a)=A,\ f(b)=B$, пусть $a\leq B$. Тогда $\forall C: A\leq C\leq B\ \exists C\in [a,b],\ f(c)=C$
+        \end{theorem} 
+        \begin{proof}
+            $A=B$ ограничена, далее $A<B$. Возьмем $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем ту половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложеных отрезков $\Rightarrow \exists c\in [a_n,b_n],\ \forall n,\ a_n\to c,\ b_n\to c.\ \lims f(a_n)=f(c)\leq C. \lims f(b_n)=f(c)\geq C \Rightarrow f(c)=C$. 
+        \end{proof} 
+        \begin{definition}
+            Пусть $f(x)$ определена в $B(x_0)$. Если $\exists \lim\limits_{x\to x_0-0}=\lim\limits_{x\to x_0+0}\ne f(x_0)$, то  точка $x_0$ называется точкой устранимого разрыва функции $f(x)$. Если $\exists\ \lim\limits_{x\to x_0-0}=\alpha,\ \exists\ \lim\limits_{x\to x_0+0}=\beta,\ \alpha\ne \beta$, то точка называется точкой разрыва 1 рода функции $f(x)$. Если не существует хотя бы одного из односторонних пределов то $x_0$ называется точкой разрыва 2 рода. 
+        \end{definition} 
+        \begin{example}
+            $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, она там не определена).
+        \end{example}
+        \begin{theorem}
+            Пусть $f(x)$ определена на $[a,b]$ и монотонна. Тогда у этой функции могут быть разрывы только 1-го рода.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $f(x)\leq f(b)$ и $f$ монотонно возрастает. Так как $f(a)\leq f(x)\leq f(b)$, то $f$ - ограничена $\Rightarrow \forall x_0\in [a,b]\ \exists \lim\limits_{x\to x_0-0}f(x)$ и $\exists \lim\limits_{x\to x_0+0}$. Значит у $f(x)$ могут быть разрывы только 1-го рода.
+        \end{proof}
+        \begin{consequense}
+            Утверждение теоремы верно и для функции $f(x)$, определенной на интервале $(a,b)$.
+        \end{consequense} 
+        \begin{proof}
+            $\exists\ [a,b]\subset (a,b): (a,b)=\bigcup\limits_{n=1}^{\infty}[a_n,b_n]$
+        \end{proof}
+        \begin{statement}
+            У монотонной функции разрывов не более чем счетное множество.
+        \end{statement} 
+        \begin{theorem} (Теорема об обратной функции)\\
+            Пусть $f(x)$ строго монотонна на $[a,b]$ и $f(x)\in\mathcal{C}[a,b],\ f(a)=\alpha,\ f(b)=\beta$. Тогда $\exists f^{-1}(y)\in\mathcal{C}[\alpha,\beta]$ и она строго монотонна. 
+        \end{theorem} 
+        \begin{proof}
+            Пусть строго возрастает. $\forall x_1,x_2,\ x_1<x_2: f(x_1)=y_1<y_2=f(x_2)$. Тогда $f(x)$ - биекция между $[a,b]$ и $[\alpha,\beta] \Rightarrow \exists f^{-1}$. Предположим что она разрывная, но тогда нарушается биекция, и вообще нарушается условие того что функция определена на всем отрезке $[a,b]$.
+        \end{proof} 
+        \begin{definition}
+            Пусть $f(x)$ определена на $[a,b]$. Если $\forall \epsilon\ \exists\ \delta_{\epsilon}>0,\ \forall x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta_{\epsilon}$, то $|f(x^{\prime})-f(x^{\prime\prime})|<\epsilon$, то $f(x)$ называется равномерно непрерывной на $[a,b]$.
+        \end{definition} 
+        \begin{theorem} (Теорема Кантора)\\
+            Если $f(x)\in \mathcal{C}[a,b]$, то $f(x)$ равномерно непрерывна на $[a,b]$.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $\exists\ \epsilon_0>0$, что $\forall \delta>0\ \exists\ x^{\prime}, x^{\prime\prime}: |x^{\prime}-x^{\prime\prime}|<\delta: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0$. Возьмем последовательность $\delta_n=\frac{1}{n}: x^{\prime},x^{\prime\prime},\ |x^{\prime}-x^{\prime\prime}|<\frac{1}{n},\ |f(x^{\prime})-f(x^{\prime})|\geq \epsilon_0$. $\exists x_{n_k}^{\prime}\to x_0$, тогда $f(x_{n_k}^{\prime})\to f(x_0)$ и $f(x_{n_k}^{\prime\prime})\to f(x_0)$.
         \end{proof} 
 \end{document}
