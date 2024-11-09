@@ -633,8 +633,8 @@
         \begin{theorem}
             Объединение не более чем счетного числа не более чем счетных множеств не более чем счетно.
         \end{theorem} 
-        \begin{examples}
-            \begin{enumerate}\tab
+        \begin{examples}\tab
+            \begin{enumerate}
                 \item Множество целых чисел $\Z$
                 \item Множество рациональных чисел $\Q$
                 \item Множество многочленов с рациональными коэффициентами.
@@ -671,12 +671,9 @@
             \end{cases}\]
             Таким образом, построенное число $x = 0,\ b_1\ b_2\ b_3\ \dots$ отличается от каждого из $x_1,x_2,x_3\dots$ на $i$ позиции $\Rightarrow$ оно не было пересчитано, получаем противоречие.
         \end{proof} 
-        \begin{statement}\tab
-            \begin{enumerate}
-                \item Алгебраических чисел счетно.
-                \item Действительных чисел несчетно.
-            \end{enumerate}
-        \end{statement}
+        \begin{consequense}
+            Действительных чисел несчетно.
+        \end{consequense} 
         \begin{definition}
             Действительные числа не являющееся алгебраическими называются трансцендентными.
         \end{definition} 
@@ -707,7 +704,7 @@
             Множество $2^{\N}$ всех подмножеств $\N$ равномощно интервалу (0,1) (множеству $\{0,1\}^{\N}$ бесконечных последовательностей нулей и единиц).
         \end{statement}
         \begin{proof}
-            Каждому $A\subset \N$ ставим в соответствие характеристическую последовательность, которая принимает значения: единицу, если элемент лежит в подмножестве и ноль иначе $\Rightarrow |2^{\N}|=|\{0,1\}^{\N}|$. Поскольку каждое число из интервала $(0,1)$ представляется как последовательность цифр $0,\ a_1,\ a_2,\ a_3,\ \dots$ и каждую цифру можно представить в двоичной системе исчисления, то можно сделать вывод, что $|2^{N}|=|(0,1)|$.
+            Каждому $A\subset \N$ ставим в соответствие характеристическую последовательность, которая принимает значения: единицу, если элемент лежит в подмножестве и ноль иначе $\Rightarrow 2^{\N}\sim \{0,1\}^{\N}$. Поскольку каждое число из интервала $(0,1)$ представляется как последовательность цифр $0,\ a_1,\ a_2,\ a_3,\ \dots$ и каждую цифру можно представить в двоичной системе исчисления, то можно сделать вывод, что $2^{N}\sim (0,1)$.
         \end{proof}
         \begin{theorem}
             У любого бесконечного множества существует счетное подмножество.
@@ -723,10 +720,10 @@
         \end{proof}
     \section{Топология $\R$}
         \begin{definition}
-            $\forall x\in \R \ \forall \epsilon>0$ отрезок $B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$ называется\\ $\epsilon$-окрестностью точки $x$.
+            $\forall x\in \R,\ \forall \epsilon>0: B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$. Множество $B_{\epsilon}(x)$ называется $\epsilon$-окрестностью точки $x$.
         \end{definition}
         \begin{definition}
-            $\forall x\in \R \ \forall \epsilon>0$ отрезок $\mathring{B}_{\epsilon}(x)=(x-\epsilon,x)\cup(x,x+\epsilon)$ называется проколотой $\epsilon$-окрестностью точки $x$.
+            $\forall x\in \R,\ \forall \epsilon>0: \mathring{B}_{\epsilon}(x)=(x-\epsilon,x)\cup(x,x+\epsilon)$.  Множество $\mathring{B}_{\epsilon}(x)$ называется проколотой $\epsilon$-окрестностью точки $x$.
         \end{definition} 
         \begin{definition}
             Точка $x\in A\subset \R$ называется внутренней точкой множества $A$, если $\exists \ B_{\epsilon}(x)\subset A$. Множество всех внутренних точек $x\in A$ называется внутренностью множетсва $A$.
@@ -735,7 +732,7 @@
             Точка $x\in \R\setminus A$ называется внешней точкой для множества $A\subset \R$, если $x$ - внутренняя точка для $\R\setminus A$. Множество всех внешних точек $x\in A$ называется внешностью множетсва $A$.
         \end{definition}
         \begin{definition}
-            Точка называется граничной для множества $A\subset \R$, если она не является ни внешней ни внутренней для $A$. Множество всех граничных точек называется границей и обозначается $\partial A$.
+            Точка называется граничной для множества $A\subset \R$, если она не является ни внешней ни внутренней для $A$. Множество всех граничных точек называется границей множества $A$ и обозначается $\partial A$.
         \end{definition}
         \begin{definition} (Множество Кантора)\\
             Разбиваем отрезок $[0,1]$ на три части и выбрасываем середину, затем каждый из получившихся отрезков разбиваем на три части и выбрасываем середину, и т.д.
@@ -746,23 +743,23 @@
             \end{itemize}
         \end{definition} 
         \begin{definition}
-            Множество называется открытым, если все его точки внутренние.
+            Множество называется открытым, если все его точки - внутренние.
         \end{definition}
-        \begin{comm}
+        \begin{example}
             Любой интервал - открытое множество
-        \end{comm}
+        \end{example}
         \begin{definition}
             Множество называется $A\subset \R$ замкнутым, если все его дополнение $\R\setminus A$ открыто.
         \end{definition} 
-        \begin{comm}
-            Отрезок - и не открытое и не замкнутое множество.
-        \end{comm}
+        \begin{example}
+            Отрезок - замкнутое множество.
+        \end{example}
         \begin{comm}
             По определению считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
         \end{comm} 
         \begin{definition}
             Точка $x\in \R$ называется предельной точкой множества $A\subset \R$, если в любой проколотой окрестности точки $x$ бесконечно много точек $A$, т.е\\
-            $\forall \epsilon >0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$. Множество всех предельных точек $A$ обозначается $A^{\prime}$
+            $\forall\ \epsilon >0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$. Множество всех предельных точек $A$ обозначается $A^{\prime}$
         \end{definition} 
         \begin{definition}
             Точка $x\in A$ называется изолированной точкой $A\subset \R$, если $\exists \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)=\emptyset$.
@@ -774,16 +771,16 @@
             Точки прикосновения множества $A$ являются либо внутренними, либо граничными.
         \end{statement}
         \begin{proof}
-            Точка прикосновения не может являются внешней точкой\\
+            Точка прикосновения не может являться внешней точкой, поскольку в этом случае $\exists\ \epsilon>0: B_{\epsilon}(x)\in \R\setminus A$, что противоречит с условием $\forall \ \epsilon>0: A\cap {B}_{\epsilon}(x)\ne\emptyset$
             $\Rightarrow$ она либо внутренняя либо граничная.
         \end{proof}
         \begin{statement}
             Точки прикосновения являются либо предельными, либо изолированными.
         \end{statement}  
-        \begin{proof}э
-            Следует из определения.
+        \begin{proof}
+            По определению $\forall \ \epsilon>0: A\cap B_{\epsilon}(x)\ne\emptyset$. Если $\forall \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$, то $x$ - предельная. Если $\exists\ \epsilon > 0: A\cap\mathring{B}_{\epsilon}(x)=\emptyset$, то $x$ - изолированная.
         \end{proof} 
-        \begin{theorem} (Критерий замкнутости множества)\\
+        \begin{theorem} (Критерии замкнутости множества)\\
             Следующие условия эквивалетны:
             \begin{itemize}
                 \item[(0)] $A\subset \R$ - замкнуто. 
@@ -792,7 +789,7 @@
                 \item[(3)] $A^{\prime}\subset A$.
             \end{itemize}
             \begin{proof}
-                Докажем по цепочке $(0)\Rightarrow (1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (0)$.\\
+                Докажем по цепочке $(0)\Rightarrow (1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (0)$.
                 \begin{enumerate}
                     \item $(0)\Rightarrow (1):A$ - замкнуто $\Rightarrow \R\setminus A$ - открыто $\Rightarrow \partial A \not\subset\R\setminus A \Rightarrow \partial A\subset A$.
                     \item $(1)\Rightarrow (2):$ Все точки прикосновения являются граничными или внутренними. Поскольку $\partial A\subset A$ то все точки прикосновения содержатся в $A$.
@@ -800,24 +797,28 @@
                     \item $(3)\Rightarrow (0): A^{\prime}\subset A\Rightarrow \forall x\in \R\setminus A: x\not\in A^{\prime}\Rightarrow \forall x\in\R\setminus A\ \exists\ \mathring{B}_{\epsilon}: \mathring{B}_{\epsilon}(x)\cap A=\emptyset\\
                     \Rightarrow B_{\epsilon}(x)\cap A=\emptyset \Rightarrow x$ - внешняя точка $A,\ B_{\epsilon}(x)\subset\R\setminus A\Rightarrow \R\setminus A$ - открыто $\Rightarrow A$ - замкнуто. 
                 \end{enumerate}
-            \end{proof} 
+            \end{proof}
         \end{theorem}
         \begin{theorem}
             Пусть $A$ - множество индексов. Пусть $\{U_{\alpha}\}_{\alpha\in A}$ - открытые,\\
             $\{X_{\alpha}\}_{\alpha\in A}$ - замкнутые. Тогда:
             \begin{enumerate}
-                \item $\bigcup\limits_{\alpha} U_{\alpha}$ - открыто.
-                \item $\bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
-                \item $\bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто.
-                \item $\bigcup\limits_{\alpha} X_{\alpha}$ - замкнуто.
+                \item $\bigcup\limits_{\alpha} U_{\alpha}$ - открыто (объединение открытых множетсв - открыто).
+                \item $\bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто (конечное пересечение открытых множеств - открыто).
+                \item $\bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто (конечное объединение замкнутых множеств - замкнуто).
+                \item $\bigcap\limits_{\alpha} X_{\alpha}$ - замкнуто (пересечение замкнутых множеств - замкнуто).
             \end{enumerate}
         \end{theorem} 
         \begin{proof} \tab
             \begin{enumerate}
                 \item Пусть $u\in \bigcup\limits_{\alpha} U_{\alpha} \Rightarrow \exists\ \alpha_0: u\in U_{\alpha_0}\Rightarrow \exists\ B(u)\in U_{\alpha_0}\Rightarrow B(u)\in \bigcup\limits_{\alpha} U_{\alpha}\\
                 \Rightarrow \bigcup\limits_{\alpha} U_{\alpha}$ - открыто.
-                \item Пусть $u\in \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \forall i\in \{1,\dots n\} \exists\ \epsilon_i: B_{\epsilon_i}\in U_{\alpha_i}\Rightarrow \exists\ \epsilon_i = \min\{\epsilon_{i_0}\}\Rightarrow B_{\epsilon_{i_0}}\subset U_{\alpha_i} \forall i \Rightarrow B_{\epsilon_{i_0}}\subset \bigcap\limits_{i=1}^n U_{\alpha_i}\Rightarrow \bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
-                \item $(3)$ и $(4)$ следуют из $(1)$, $(2)$ и законов Моргана. 
+                \item Пусть $u\in \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \forall i\in \{1,\dots, n\}\ \exists\ \epsilon_i: B_{\epsilon_i}\in U_{\alpha_i}\Rightarrow \exists\ \epsilon_0 = \min\{\epsilon_{i}\}\\
+                \Rightarrow B_{\epsilon_{0}}\subset U_{\alpha_i}\ \forall i \Rightarrow B_{\epsilon_{0}}\subset \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
+                \item Поскольку $\bigcap\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcup\limits_{\alpha}A_{\alpha})$ (доказано ранее), то $\R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}=\\
+                =\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$. Так как $X_{\alpha_i}$ - замкнуто, то $\R \setminus X_{\alpha_i}$ - открыто. Тогда по пункту 2 получаем: $\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$ - открыто $\Rightarrow \R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}$ - открыто $\Rightarrow \bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто.
+                \item Поскольку $\bigcup\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcap\limits_{\alpha}A_{\alpha})$ (доказано ранее), то $\R \setminus \bigcap\limits_{\alpha} X_{\alpha}=\\
+                =\bigcup\limits_{\alpha}(\R \setminus X_{\alpha})$. Так как $X_{\alpha}$ - замкнуто, то $\R \setminus X_{\alpha}$ - открыто. Тогда по пункту 1 получаем: $\bigcup\limits_{\alpha}(\R \setminus X_{\alpha})$ - открыто $\Rightarrow \R \setminus \bigcap\limits_{\alpha} X_{\alpha}$ - открыто $\Rightarrow \bigcap\limits_{\alpha}X_{\alpha}$ - замкнуто.
             \end{enumerate}
         \end{proof} 
         \begin{examples} \tab
@@ -830,7 +831,7 @@
             Если $A$ - ограничено сверху или снизу и замкнуто, то существует $\max{A}$ или $\min{A}$ соответственно.
         \end{theorem} 
         \begin{proof}
-            По принципу поноты Вейерштрасса $\exists\ \alpha=\sup{A}.\\ \forall\epsilon>0\ \exists\ a_{\epsilon}\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
+            Докажем для ограниченого сверху. По принципу поноты Вейерштрасса $\exists\ \alpha=\sup{A}.\\ \forall\epsilon>0\ \exists\ a_{\epsilon}\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
         \end{proof}
         \begin{theorem} (Больцано-Вейерштрасса)\\
             Если $A$ - органиченое и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
