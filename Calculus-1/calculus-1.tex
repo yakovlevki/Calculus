@@ -1337,5 +1337,33 @@
         \end{theorem} 
         \begin{proof}
             Пусть $\exists\ \epsilon_0>0$, что $\forall \delta>0\ \exists\ x^{\prime}, x^{\prime\prime}: |x^{\prime}-x^{\prime\prime}|<\delta: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0$. Возьмем последовательность $\delta_n=\frac{1}{n}: x^{\prime},x^{\prime\prime},\ |x^{\prime}-x^{\prime\prime}|<\frac{1}{n},\ |f(x^{\prime})-f(x^{\prime})|\geq \epsilon_0$. $\exists x_{n_k}^{\prime}\to x_0$, тогда $f(x_{n_k}^{\prime})\to f(x_0)$ и $f(x_{n_k}^{\prime\prime})\to f(x_0)$.
+        \end{proof}
+        \subsection{Элементарные функции}
+        \begin{enumerate}
+            \item Показательная функция\\
+            Пусть $a>1$
+            \begin{itemize}
+                \item[(i)] $n\in \N,\ a^n=\prod\limits_{j=1}^n a;\ a^{n+m}=a^n a^m$
+                \item[(ii)] $n\in \Z,\ n=-k,\ k\in \N$, тогда $a^{-k}=\frac{1}{a^k},\ a^0=1$
+                \item[(iii)] $a^\frac{1}{n}: b^n=a$ в $\R_{+}$ (строго положительные числа). Пусть $A=\{x\in \R_{+}: x^n\leq a\},\ B=\{x\in \R_{+}: x^n>a\},\ A\cup B=\R_{+}$. По аксиоме полноты $\exists\ b: x_1\leq b\leq x_2,\ \forall x_1\in A,\ \forall x_2\in B$ и $b=a^{\frac{1}{n}}$. $\forall \frac{m}{n}\in \Q\ a^{\frac{m}{n}}=(a^{\frac{1}{n}})^m;\ a^{r_1+r_2}=a^{r_1}a^{r_2},\ (a^{\frac{m_1}{n_1}}\ V\ a^{\frac{m_2}{n_2}})^{n_1 n_2}\Rightarrow a^{m_1 n_2}\ V\ a^{m_2 n_1}$.
+                \item[(iv)] $\lim\limits_{n\to \infty} a^{\frac{1}{n}}=1$. $(1+\frac{a}{n})^n>1+a>a \Rightarrow 1+\frac{a}{n}>a^{\frac{1}{n}}>1$ по теореме о двух миллиционерах $a^{\frac{1}{n}}\to 1$.\\
+                Пусть $\forall x_0\in \R,\ r_n\to x_0-0,\ s_n\to x_0+0$. Тогда $\exists \lim\limits_{n\to\infty}a^{r_n}=\alpha,\ \exists \lim\limits_{n\to \infty}a^{s_n}=\beta,\ \alpha\leq \beta$. Пусть $\alpha < \beta,\ a^{s_n}-a^{r_n}=a^{r_n}(a^{s_n-r_n}-1)\to \beta-\alpha>0?$. Рассмотрим подпоследовательность $0<s_{n_k}-r_{n_k}<\frac{1}{k}$. Тогда $1<a^{s_{n_k}-r_{n_k}}<a^{\frac{1}{k}}$. По теореме о двух миллиционерах $a^{s_{n_k}-r_{n_k}}\to 1 \Rightarrow a^{s_{n_k}}-a^{r_{n_k}}\to 0 \Rightarrow \alpha=\beta=a^{x_0}$. Непрерывность и монотонность есть по построению.
+                \item[(v)] При $0<a<1,\ a^x=\frac{1}{(\frac{1}{a})^x}$
+            \end{itemize}
+            \item Функция, обратная к $y=a^x$ называется логарифмом и обозначается $x=\log_a{y}$. Далее пишем $y=\log_a{x}$.\\
+            $\log_{a^{\alpha}}{x^{\beta}}=\frac{\beta}{\alpha}\log_a{x},\ \log_a{xy}=\log_a{x}+\log_a{y}$. Обозначение: $\log_e{x}:=\ln{x}$.
+            \item Степенная функция.\\
+            $\forall x>0,\ \forall \alpha\in\R: x^{\alpha}=e^{\alpha\cdot \ln{x}}$. Распостраняем: при $\alpha \geq 0$ доопределяем $x^{\alpha}$ в точке $x_0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
+            \item $y=\sin{x}$. Возьмем окружность единичного радиуса, на $[0,2\pi]$ синус - ордината. $\forall x\in\R: |\sin{x}|\leq |x|,\ \sin{(x+\delta)}-\sin{x}=|2\sin{(\frac{\delta}{2})}\cos{(x+\frac{\delta}{2})}|\leq \delta$. $\cos$ определяем в соответсвтии определения синуса.
+            \item $\arcsin{x}$ определяем на области, где будет биекция с $\sin{x}$ (обычно берут $-\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$)
+            \item $\sh{x}=\cfrac{e^x-e^{-x}}{2},\ \ch{x}=\cfrac{e^x+e^{-x}}{2},\ \th{x}=\cfrac{\sh{x}}{\ch{x}}$ и $\cth{x}=\cfrac{\ch{x}}{\sh{x}}$ для этих функций можно получить формулы, аналогичные тем что верны для тригонометрических функций.
+        \end{enumerate}
+        \section{Замечательные пределы}
+        \begin{theorem}
+            $\exists\ \lim\limits_{x\to 0} \frac{\sin{x}}{x}=1$.
+        \end{theorem}     
+        \begin{proof}
+            $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\ctg{x}}\\
+            \Rightarrow \ctg{x}<\frac{\sin{x}}{x}<1$. По теореме о двух миллиционерах $\frac{\sin{x}}{x}\to 1$.
         \end{proof} 
 \end{document}
