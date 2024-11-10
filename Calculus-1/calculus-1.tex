@@ -945,7 +945,7 @@
             $\forall \epsilon>0\ \exists\ N_1,\ \forall n>N_1: |a_n|<\epsilon,\ \exists\ N_2,\ \forall n>N_2: |b_n|<\epsilon$.\\Возьмем $n>\max\{N_1,N_2\}$. Также по определению $\exists\ M>0: |c_n|<M$. Тогда:
             \begin{enumerate}
                 \item $|c a_n|=|c|\ |a_n|<|c|\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $|c|\epsilon$ - тоже $\Rightarrow c a_n=\bar{\bar{o}}{(1)}$.
-                \item $|a_n+b_n|<2\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $2\epsilon$ - тоже $\Rightarrow a_n+b_n=\bar{\bar{o}}{(1)}$.
+                \item $|a_n+b_n|\leq|a_n|+|b_n|<2\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $2\epsilon$ - тоже $\Rightarrow a_n+b_n=\bar{\bar{o}}{(1)}$.
                 \item $|a_n b_n| = |a_n|\ |b_n|<\epsilon\cdot\epsilon=\epsilon^2$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $\epsilon^2$ - тоже $\Rightarrow a_n b_n=\bar{\bar{o}}{(1)}$.
                 \item $|c_n a_n|=|c_n|\ |a_n|<M\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $M\epsilon$ - тоже $\Rightarrow c_n a_n =\bar{\bar{o}}{(1)}$.
             \end{enumerate}
