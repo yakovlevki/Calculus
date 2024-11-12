@@ -33,6 +33,8 @@
 \newcommand{\limo}{\lim\limits_{x\to 0}}
 \newcommand{\om}{\bar{\bar{o}}}
 
+\DeclareMathOperator*\lowlim{\underline{lim}}
+\DeclareMathOperator*\uplim{\overline{lim}}
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
@@ -607,16 +609,22 @@
                 \item $\phi:A\to B, \psi:B\to C$, то $\psi \circ \phi: A\to C$.
             \end{enumerate}
         \end{proof} 
+        \begin{comm}
+            Если $A$ равномощно $B$ то иногда пишут $A\sim B$ или $|A|=|B|$.
+        \end{comm} 
         \begin{theorem}
-            Конечные множества равномощны $\lra$ они содержат одинаковое количество элементов.
+            Конечные множества равномощны $\Leftrightarrow$ они содержат одинаковое количество элементов.
         \end{theorem}
         \begin{proof}\tab
             \begin{itemize}
                 \item[$(\Leftarrow)$] Пусть $\phi:A\to \{1,\dots, n\}, \ \psi:B\to \{1,\dots, n\}\\
                 \Rightarrow \exists \ \psi^{-1}:\{1,\dots, n\}\to B$. Тогда $\phi \circ \psi^{-1}:A\to B$ - искомая биекция.
-                \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция. Если $A=\emptyset$, то $B=\emptyset$. Докажем индукцией по количеству элементов. Пусть $A=\{a\}$, тогда $\exists \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное. Также $\exists \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
+                \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция, $A=\emptyset$, то $B=\emptyset$. Докажем индукцией по количеству элементов. База: пусть $A=\{a\}$, тогда $\exists ! \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists ! \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное и $\exists ! \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
             \end{itemize}
         \end{proof}
+        \begin{definition}
+            Множество называется не более чем счетным, если оно конечно или счетно.
+        \end{definition}
         \begin{theorem}
             Объединение не более чем счетного числа счетных множеств счетно.
         \end{theorem}
@@ -626,18 +634,15 @@
                 \includegraphics[width=0.4\linewidth]{prohod.png}
             \end{center}
         \end{proof}
-        \begin{definition}
-            Множество называется не более чем счетным, если оно конечно или счетно.
-        \end{definition}
         \begin{theorem}
             Объединение не более чем счетного числа не более чем счетных множеств не более чем счетно.
         \end{theorem} 
         \begin{examples}\tab
             \begin{enumerate}
-                \item Множество целых чисел $\Z$
-                \item Множество рациональных чисел $\Q$
-                \item Множество многочленов с рациональными коэффициентами.
-                \item Множество алгебраических чисел (чисел которые являются корнями многочлена с рациональными коэффициентами).
+                \item Множество целых чисел $\Z$ счетно.
+                \item Множество рациональных чисел $\Q$ счетно.
+                \item Множество многочленов с рациональными коэффициентами счетно.
+                \item Множество алгебраических чисел (чисел которые являются корнями многочлена с рациональными коэффициентами) счетно.
             \end{enumerate}
         \end{examples}
         \subsection{Теорема Кантора и аксиома выбора}
@@ -673,8 +678,12 @@
         \begin{consequense}
             Действительных чисел несчетно.
         \end{consequense} 
+        \begin{proof}
+            Достаточно показать, что $\R \sim (0,1)$. Например функция\\
+            $f:(0,1)\to \R$, такая что $f(x)=\frac{2x-1}{4x-4x^2}$ задает нужную биекцию.
+        \end{proof} 
         \begin{definition}
-            Действительные числа не являющееся алгебраическими называются трансцендентными.
+            Действительные числа не являющиеся алгебраическими называются трансцендентными.
         \end{definition} 
         \begin{definition}
             Множества равномощные интервалу $(0,1)$ называются множествами мощности континуума.
@@ -683,13 +692,13 @@
             У любого множетсва мощность множества всех подмножеств строго больше чем мощность самого множества.
         \end{theorem}
         \begin{definition}
-            Для множеств $A$ и $B$ обозначим $|A|\leq |B|$, если $\exists \ B^{\prime} \subset B$ для которого $\exists \ \phi:A\to B^{\prime}$ - биекция.
+            Для множеств $A$ и $B$ обозначим $|A|\leq |B|$, если $\exists \ B^{\prime} \subset B$ такое, что $A\sim B^{\prime}$.
         \end{definition} 
         \begin{theorem}
             Сравнение мощностей множеств $|A|\leq |B|$ является отношением порядка.
             \begin{enumerate}
                 \item $\forall A,B: |A|\leq |B|$ или $|B|\leq |A|$ 
-                \item $|A|\leq |B|$ и $|B|\leq |A| \Rightarrow |A|=|B|$
+                \item $|A|\leq |B|$ и $|B|\leq |A| \Rightarrow |A|=|B|$\ (Теорема Кантора-Бернштейна)
                 \item $|A|\leq |B|$ и $|B|\leq |C| \Rightarrow |A|\leq |C|$
             \end{enumerate}
         \end{theorem}
@@ -697,7 +706,7 @@
             Без доказательства.
         \end{proof}
         \begin{axiom}(Аксиома выбора)\\
-            Если существует множество неких множеств, то из каждого множества можно выбрать по одному элементу и составить из них другое множество.
+            Если существует семейство непустых множеств, то из каждого множества можно выбрать по одному элементу и составить из них другое множество.
         \end{axiom}
         \begin{statement}
             Множество $2^{\N}$ всех подмножеств $\N$ равномощно интервалу (0,1) (множеству $\{0,1\}^{\N}$ бесконечных последовательностей нулей и единиц).
@@ -709,7 +718,7 @@
             У любого бесконечного множества существует счетное подмножество.
         \end{theorem} 
         \begin{proof}
-            Выбираем элемент и сразу присваиваем ему номер, продолжая это действие, построим счетное множество.
+            Выбираем элемент и сразу присваиваем ему номер. Продолжая это действие, построим счетное множество.
         \end{proof}
         \begin{theorem}
             Пусть $A$ - бесконечное, $B$ - не более чем счетное $\Rightarrow A\sim A\cup B$
@@ -717,7 +726,9 @@
         \begin{proof}
             Выделим из $A$ счетное подмножество $A^{\prime}$. Тогда $A\sim (A\setminus A^{\prime})\cup A^{\prime}$, поскольку не более чем счетное объединение не более чем счетных множеств не более чем счетно, то  $(A\setminus A^{\prime})\cup A^{\prime} \sim (A\setminus A^{\prime})\cup(A^{\prime}\cup B) \sim(A\cup B)$.
         \end{proof}
+    \newpage
     \section{Топология $\R$}
+    \subsection{Окрестность точки. Классификация точек относительно подмножеств действительных чисел}
         \begin{definition}
             $\forall x\in \R,\ \forall \epsilon>0: B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$. Множество $B_{\epsilon}(x)$ называется $\epsilon$-окрестностью точки $x$.
         \end{definition}
@@ -731,31 +742,8 @@
             Точка $x\in \R\setminus A$ называется внешней точкой для множества $A\subset \R$, если $x$ - внутренняя точка для $\R\setminus A$. Множество всех внешних точек $x\in A$ называется внешностью множетсва $A$.
         \end{definition}
         \begin{definition}
-            Точка называется граничной для множества $A\subset \R$, если она не является ни внешней ни внутренней для $A$. Множество всех граничных точек называется границей множества $A$ и обозначается $\partial A$.
+            Точка называется граничной для множества $A\subset \R$, если она не является ни внешней ни внутренней для $A$ (в любой ее окрестности есть как точки из $A$ так точки из $\R \setminus A$). Множество всех граничных точек называется границей множества $A$ и обозначается $\partial A$.
         \end{definition}
-        \begin{definition} (Множество Кантора)\\
-            Разбиваем отрезок $[0,1]$ на три части и выбрасываем середину, затем каждый из получившихся отрезков разбиваем на три части и выбрасываем середину, и т.д.
-            \begin{itemize}
-                \item Суммарная длина всех выброшеных интервалов равна $1$.
-                \item Концов отрезков счетное множество.
-                \item Общее количество точек имеет мощность континуума.
-            \end{itemize}
-        \end{definition} 
-        \begin{definition}
-            Множество называется открытым, если все его точки - внутренние.
-        \end{definition}
-        \begin{example}
-            Любой интервал - открытое множество
-        \end{example}
-        \begin{definition}
-            Множество называется $A\subset \R$ замкнутым, если все его дополнение $\R\setminus A$ открыто.
-        \end{definition} 
-        \begin{example}
-            Отрезок - замкнутое множество.
-        \end{example}
-        \begin{comm}
-            По определению считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
-        \end{comm} 
         \begin{definition}
             Точка $x\in \R$ называется предельной точкой множества $A\subset \R$, если в любой проколотой окрестности точки $x$ бесконечно много точек $A$, т.е\\
             $\forall\ \epsilon >0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$. Множество всех предельных точек $A$ обозначается $A^{\prime}$
@@ -777,8 +765,33 @@
             Точки прикосновения являются либо предельными, либо изолированными.
         \end{statement}  
         \begin{proof}
-            По определению $\forall \ \epsilon>0: A\cap B_{\epsilon}(x)\ne\emptyset$. Если $\forall \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$, то $x$ - предельная. Если $\exists\ \epsilon > 0: A\cap\mathring{B}_{\epsilon}(x)=\emptyset$, то $x$ - изолированная.
+            Если $\forall \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$, то $x$ - предельная. Если $\exists\ \epsilon > 0: A\cap\mathring{B}_{\epsilon}(x)=\emptyset$, но по определению $\forall \ \epsilon>0: A\cap B_{\epsilon}(x)\ne\emptyset\\
+            \Rightarrow x\in A \Rightarrow x$ - изолированная.
         \end{proof} 
+        \begin{definition} (Множество Кантора)\\
+            Разбиваем отрезок $[0,1]$ на три части и выбрасываем середину, затем каждый из получившихся отрезков разбиваем на три части и выбрасываем середину, и т.д.
+            \begin{itemize}
+                \item Суммарная длина всех выброшеных интервалов равна $1$.
+                \item Концов отрезков счетное множество.
+                \item Общее количество точек имеет мощность континуума.
+            \end{itemize}
+    \subsection{Открытые и замкнутые множества}
+        \end{definition} 
+        \begin{definition}
+            Множество называется открытым, если все его точки - внутренние.
+        \end{definition}
+        \begin{example} 
+            Любой интервал - открытое множество 
+        \end{example}
+        \begin{definition}
+            Множество $A\subset \R$ называется замкнутым, если его дополнение $\R\setminus A$ открыто.
+        \end{definition} 
+        \begin{example}
+            Отрезок - замкнутое множество.
+        \end{example}
+        \begin{comm}
+            По определению считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
+        \end{comm} 
         \begin{theorem} (Критерии замкнутости множества)\\
             Следующие условия эквивалетны:
             \begin{itemize}
@@ -794,7 +807,8 @@
                     \item $(1)\Rightarrow (2):$ Все точки прикосновения являются граничными или внутренними. Поскольку $\partial A\subset A$ то все точки прикосновения содержатся в $A$.
                     \item $(2)\Rightarrow (3):$ Если $x$ - предельная, то $x\in A$ или $x$ - точка прикосновения. Поскольку все точки прикосновения содержатся в $A$, то и все предельные точки содержатся в $A$.
                     \item $(3)\Rightarrow (0): A^{\prime}\subset A\Rightarrow \forall x\in \R\setminus A: x\not\in A^{\prime}\Rightarrow \forall x\in\R\setminus A\ \exists\ \mathring{B}_{\epsilon}: \mathring{B}_{\epsilon}(x)\cap A=\emptyset\\
-                    \Rightarrow B_{\epsilon}(x)\cap A=\emptyset \Rightarrow x$ - внешняя точка $A,\ B_{\epsilon}(x)\subset\R\setminus A\Rightarrow \R\setminus A$ - открыто $\Rightarrow A$ - замкнуто. 
+                    \Rightarrow B_{\epsilon}(x)\cap A=\emptyset\ (\text{т.к}\ x\not\in A) \Rightarrow x$ - внешняя точка $A,\ B_{\epsilon}(x)\subset\R\setminus A\\
+                    \Rightarrow \R\setminus A$ - открыто $\Rightarrow A$ - замкнуто. 
                 \end{enumerate}
             \end{proof}
         \end{theorem}
@@ -812,10 +826,11 @@
             \begin{enumerate}
                 \item Пусть $u\in \bigcup\limits_{\alpha} U_{\alpha} \Rightarrow \exists\ \alpha_0: u\in U_{\alpha_0}\Rightarrow \exists\ B(u)\in U_{\alpha_0}\Rightarrow B(u)\in \bigcup\limits_{\alpha} U_{\alpha}\\
                 \Rightarrow \bigcup\limits_{\alpha} U_{\alpha}$ - открыто.
-                \item Пусть $u\in \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \forall i\in \{1,\dots, n\}\ \exists\ \epsilon_i: B_{\epsilon_i}\in U_{\alpha_i}\Rightarrow \exists\ \epsilon_0 = \min\{\epsilon_{i}\}\\
+                \item Пусть $u\in \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \forall i\in \{1,\dots, n\}\ \exists\ \epsilon_i: B_{\epsilon_i}(u)\in U_{\alpha_i}\Rightarrow \exists\ \epsilon_0 = \min\{\epsilon_{i}\}\\
                 \Rightarrow B_{\epsilon_{0}}\subset U_{\alpha_i}\ \forall i \Rightarrow B_{\epsilon_{0}}\subset \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
                 \item Поскольку $\bigcap\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcup\limits_{\alpha}A_{\alpha})$ (доказано ранее), то $\R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}=\\
-                =\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$. Так как $X_{\alpha_i}$ - замкнуто, то $\R \setminus X_{\alpha_i}$ - открыто. Тогда по пункту 2 получаем: $\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$ - открыто $\Rightarrow \R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}$ - открыто $\Rightarrow \bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто.
+                =\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$. Так как $X_{\alpha_i}$ - замкнуто, то $\R \setminus X_{\alpha_i}$ - открыто. Тогда по пункту 2 получаем: $\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$ - открыто $\Rightarrow \R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}$ - открыто \\
+                $\Rightarrow \bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто.
                 \item Поскольку $\bigcup\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcap\limits_{\alpha}A_{\alpha})$ (доказано ранее), то $\R \setminus \bigcap\limits_{\alpha} X_{\alpha}=\\
                 =\bigcup\limits_{\alpha}(\R \setminus X_{\alpha})$. Так как $X_{\alpha}$ - замкнуто, то $\R \setminus X_{\alpha}$ - открыто. Тогда по пункту 1 получаем: $\bigcup\limits_{\alpha}(\R \setminus X_{\alpha})$ - открыто $\Rightarrow \R \setminus \bigcap\limits_{\alpha} X_{\alpha}$ - открыто $\Rightarrow \bigcap\limits_{\alpha}X_{\alpha}$ - замкнуто.
             \end{enumerate}
@@ -830,7 +845,8 @@
             Если $A$ - ограничено сверху или снизу и замкнуто, то существует $\max{A}$ или $\min{A}$ соответственно.
         \end{theorem} 
         \begin{proof}
-            Докажем для ограниченого сверху. По принципу поноты Вейерштрасса $\exists\ \alpha=\sup{A}.\\ \forall\epsilon>0\ \exists\ a_{\epsilon}\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
+            Докажем для ограниченого сверху. По принципу полноты Вейерштрасса $\exists\ \alpha=\sup{A}$. По определению точной верхней грани:\\
+            $\forall\epsilon>0\ \exists\ a\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
         \end{proof}
         \begin{theorem} (Больцано-Вейерштрасса)\\
             Если $A$ - органиченое и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
@@ -838,6 +854,7 @@
         \begin{proof}
             т.к $A$ - ограничено, что $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов $A$ и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_n,b_n]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
         \end{proof}
+    \subsection{Компакты}
         \begin{definition}
             Говорят, что семейство $\{A\}_{\alpha}$ является покрытием множества $B$, если $B\subset \bigcup\limits_{\alpha}A_{\alpha}$
         \end{definition} 
@@ -856,7 +873,9 @@
         \begin{proof}
             Без доказательства.
         \end{proof}
+    \newpage
     \section{Числовые последовательности}
+    \subsection{Предел последовательности}
         \begin{definition}
             Отображение $\{a_n\}: \N\to \R$ называется последовательностью.
         \end{definition} 
@@ -888,9 +907,10 @@
         \begin{proof}
             $\forall \epsilon>0\ \exists\ N_{\epsilon}\ \forall n>N_{\epsilon}: |a_n-a|<\epsilon \Rightarrow \forall k>N_{\epsilon}:\\ |a_{n_k}-a|<\epsilon$
         \end{proof} 
-        \begin{definition}
+        \begin{comm}
             $\forall k\in \Z$ отображение $\Z \setminus \{..., k-1\} \to \R$ тоже будем называть последовательностью.
-        \end{definition} 
+        \end{comm} 
+        \
         \begin{comm}\tab
             \begin{enumerate}
                 \item Если $\exists \lims a_n=a$, то $\exists \lims a_{n+k}=a$.
@@ -901,11 +921,11 @@
             Пусть $\exists \lims a_n=a$ и $b\ne a$. Тогда $\exists\ \epsilon>0\ \exists\ N_{\epsilon}: B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}=\emptyset$.
         \end{theorem} 
         \begin{proof}
-            Пусть $\forall \epsilon>0\ \forall \ N_{\epsilon}: B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}\ne \emptyset$. Возьмем $\epsilon = \frac{|b-a|}{3}$, сразу получаем противоречие.
+            Предположим, что выполнено обратное: $\forall \epsilon>0\ \forall \ N_{\epsilon}:\\
+            B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}\ne \emptyset$. Возьмем $\epsilon = \frac{|b-a|}{3}$, сразу получаем противоречие.
         \end{proof} 
         \begin{comm}
-            $\exists\ \epsilon>0: \mathring{B_{\epsilon}}\cap \{a_n\}_{n=1}^{\infty}=\emptyset$. Если $b\notin \{a_n\}_{n=1}^{\infty}$, то\\
-            $B_{\epsilon}(b)\cap\{a_n\}_{n=1}^{\infty}=\emptyset$.
+            Теорема об отделимости равносильна следующему утверждению: $\exists\ \epsilon>0: \mathring{B_{\epsilon}}\cap \{a_n\}_{n=1}^{\infty}=\emptyset$, причем если $b\notin \{a_n\}_{n=1}^{\infty}$, то $B_{\epsilon}(b)\cap\{a_n\}_{n=1}^{\infty}=\emptyset$.
         \end{comm} 
         \subsection{О-символика. Бесконечно малые и бесконечно большие последовательности}
         \begin{definition}
@@ -925,10 +945,13 @@
             $O(1)$ - обозначение класса ограниченых последовательностей.
         \end{comm} 
         \begin{definition}
-            Последовательность $a_n$ называется бесконечно малой, если\\ $a_n=\om(1)$, т.е $\lims a_n=0)$.
+            Последовательность $a_n$ называется бесконечно малой, если 
+            \[a_n=\om(1)\ (\Leftrightarrow \lim\limits_{n\to \infty}a_n=0)\]
         \end{definition} 
         \begin{definition}
-            Последовательность $a_n$ называется бесконечно большой, если\\ $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n|>\epsilon$, такие последовательности обозначаются $\lims a_n=\infty$ (это всего лишь обозначение, конечно у последовательности $a_n$ не существует предела)\\
+            Последовательность $a_n$ называется бесконечно большой, если 
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n|>\epsilon\] 
+            такие последовательности обозначаются $\lims a_n=\infty$ (это всего лишь обозначение, конечно у последовательности $a_n$ не существует предела)\\
             Если в определении $a_n>\epsilon$, то пишут $\lims a_n=+\infty$.\\
             Если в определении $a_n<-\epsilon$, то пишут $\lims a_n=-\infty$.
         \end{definition} 
@@ -945,7 +968,7 @@
             $\forall \epsilon>0\ \exists\ N_1,\ \forall n>N_1: |a_n|<\epsilon,\ \exists\ N_2,\ \forall n>N_2: |b_n|<\epsilon$.\\Возьмем $n>\max\{N_1,N_2\}$. Также по определению $\exists\ M>0: |c_n|<M$. Тогда:
             \begin{enumerate}
                 \item $|c a_n|=|c|\ |a_n|<|c|\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $|c|\epsilon$ - тоже $\Rightarrow c a_n=\bar{\bar{o}}{(1)}$.
-                \item $|a_n+b_n|\leq|a_n|+|b_n|<2\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $2\epsilon$ - тоже $\Rightarrow a_n+b_n=\bar{\bar{o}}{(1)}$.
+                \item $|a_n+b_n|\leq|a_n|+|b_n|<\epsilon+\epsilon=2\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $2\epsilon$ - тоже $\Rightarrow a_n+b_n=\bar{\bar{o}}{(1)}$.
                 \item $|a_n b_n| = |a_n|\ |b_n|<\epsilon\cdot\epsilon=\epsilon^2$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $\epsilon^2$ - тоже $\Rightarrow a_n b_n=\bar{\bar{o}}{(1)}$.
                 \item $|c_n a_n|=|c_n|\ |a_n|<M\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $M\epsilon$ - тоже $\Rightarrow c_n a_n =\bar{\bar{o}}{(1)}$.
             \end{enumerate}
@@ -960,8 +983,10 @@
             $\lim\limits_{n\to \infty}a_n=a \Leftrightarrow a_n-a=\om(1)$ т.е $a_n=a+\bar{\bar{o}}{(1)}$
         \end{lemma} 
         \begin{proof}
-            Из определения предела для $a_n$ получаем: $|a_n-a|<\epsilon$, а это и означает что $a_n-a=\bar{\bar{o}}{(1)}$
+            Из определения предела для $a_n$ получаем: $|a_n-a|<\epsilon$, а это и означает что $a_n-a=\bar{\bar{o}}{(1)}$.
         \end{proof} 
+        \newpage
+    \subsection{Арифметические свойства сходящихся последовательностей}
         \begin{theorem}
             Пусть $\exists \lim\limits_{n\to\infty} a_n=a,\ \exists \lim\limits_{n\to\infty} b_n=b$, тогда
             \begin{enumerate}
@@ -1022,7 +1047,7 @@
             Если последовательность неубывает (невозраствает) и ограничена сверху (снизу), то у нее есть предел.
         \end{theorem}
         \begin{proof}
-            $a_n$ - ограничена сверху $\Rightarrow \exists\ \sup a_n=a$\\ $\Rightarrow \forall \epsilon>0\ \exists\ a_N>a-\epsilon$,\ $a_n$ неубывает $\Rightarrow \forall n>N: a_n>a-\epsilon \Rightarrow a-a_n<\epsilon$.
+            Докажем для неубывающей, ограниченой сверху. $a_n$ - ограничена сверху $\Rightarrow \exists\ a=\sup a_n \Rightarrow \forall \epsilon>0\ \exists\ a_{N_{\epsilon}}: a-\epsilon<a_{N_{\epsilon}}<a$,\ $a_n$ - неубывает $\Rightarrow \forall n>N_{\epsilon}: a_n>a-\epsilon \Rightarrow a-a_n<\epsilon$.
         \end{proof}  
     \subsection{Число e}
         \begin{lemma} \tab
@@ -1088,25 +1113,27 @@
             $\forall x\in \R\setminus A \Rightarrow x\not\in A \Rightarrow \exists\ B_{\epsilon}(x): B_{\epsilon}(x)\cap\{a_n\}_{n=1}^{\infty}$ - конечно. Тогда $\forall x^{\prime}\in B_{\epsilon}(x)\ \exists\ B_{\epsilon^{\prime}}(x^{\prime})$, что $B_{\epsilon^{\prime}}(x^{\prime})\cap\{a_n\}_{n=1}^{\infty}$ конечно $\Rightarrow \forall x^{\prime} \not\in A\\ \Rightarrow B_{\epsilon}(x)\subset \R\setminus A\Rightarrow \R\setminus A$ - открыто.
         \end{proof} 
         \begin{definition}
-            Пусть $a_n$ ограничена. Тогда $\exists\ \max A$ и $\min A$, которые называют верхним и нижним пределом. (тут дописать обозначение)
+            Пусть $a_n$ ограничена. Тогда $\exists\ \max A$ и $\min A$, которые называют верхним пределом $\uplim\limits_{n\to \infty}a_n$ и нижним пределом $\lowlim\limits_{n\to \infty}a_n$. 
         \end{definition} 
         \begin{theorem}
-            Пусть  $a_n$ ограничена. Тогда (верхний)$\lims a_n=\lims \sup\{a_k\}_{k=1}^{\infty}$ и (нижний)$\lims a_n=\lims \inf\{a_k\}_{k=1}^{\infty}$.
+            Пусть  $a_n$ ограничена. Тогда $\uplim\limits_{n\to \infty}a_n=\lims \sup\{a_k\}_{k=1}^{\infty}$ и\\
+            $\lowlim\limits_{n\to \infty}a_n=\lims \inf\{a_k\}_{k=1}^{\infty}$.
         \end{theorem} 
         \begin{proof}
-            $\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty},\ \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу. $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. $\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}$ конечно. С другой стороны $\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}$ бесконечно $\Rightarrow \alpha$ - частичный предел $\Rightarrow$ (верхний)$\alpha=\lims a_n$.
+            Докажем для верхнего: $\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty},\ \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу. $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. $\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}$ конечно. С другой стороны $\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}$ бесконечно\\
+            $\Rightarrow \alpha$ - частичный предел $\Rightarrow$ $\alpha=\uplim\limits_{n\to \infty}a_n$.
         \end{proof} 
         \begin{theorem}
-            $\exists \lims a_n=a \lra$ (верхний) $\lims a_n =a$ (нижний) $\lims a_n=a$
+            $\exists \lims a_n=a \Leftrightarrow$ $\uplim\limits_{n\to \infty}a_n=a$ и $\lowlim\limits_{n\to \infty}a_n=a$.
         \end{theorem} 
-        \begin{proof}
+        \begin{proof}\tab
             \begin{itemize}
                 \item[($\Rightarrow$)] очев
                 \item[$(\Leftarrow)$] $\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}$ по лемме о двух миллиционерах $a_n \to a$. 
             \end{itemize}
         \end{proof} 
         \begin{definition}
-            Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения (верхний)$\lims a_n=\infty\ (+\infty,\ -\infty)$ и\\ (верхний) $\lims a_n=\infty\ (+\infty,\ -\infty)$
+            Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения $\uplim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$ и $\lowlim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$
         \end{definition}
     \section{Предел функции}
         В данном разделе будут рассматриваться функции $f: \R\to\R$
@@ -1286,7 +1313,7 @@
     \section{Непрерывные функции}
     \subsection{Локальные свойства непрерывных функций}
         \begin{definition}
-            Пусть $D_f$ - область определения $f(x)$. Пусть $x_0\in D_f$. Если $\forall \epsilon>0\ \exists \delta_{\epsilon}>0$, что $\forall x\in B_{\delta_{\epsilon}}(x_0)\cap D_f: |f(x)-f(x_0)|<\epsilon$, то $f(x)$ называется непрерывной в точке $x_0$.
+            Пусть $D_f$ - область определения $f(x)$. Пусть $x_0\in D_f$. Если $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0$, что $\forall x\in B_{\delta_{\epsilon}}(x_0)\cap D_f: |f(x)-f(x_0)|<\epsilon$, то $f(x)$ называется непрерывной в точке $x_0$.
         \end{definition}  
         \begin{comm}
             Определение эквивалентно тому, что $\exists\ \lim\limits_{x\to x_0}f(x)=f(x_0)$, если $x_0$ не изолированная точка.
@@ -1317,9 +1344,9 @@
         \end{theorem} 
         \begin{proof}
             Предположим, что $f(x)$ неограничена, то есть\\
-            $\forall M>0\ \exists\ x_M\in [a,b]: |f(x)|>M$. Возьмем $x_1: |f(x_1)|>1;\dots;\\
-            x_2: |f(x_2)|>2; \dots; x_M: |f(x_M)|>M;\dots$.\\
-            $\{x_n\}\subset [a,b]\ \exists\ \{x_{n_k}\}: \exists\ \lim\limits_{k\to \infty}\{x_{n_k}\}=x_0$ т.к. $f(x)$ непрерывыная, то\\
+            \[\forall M>0\ \exists\ x_M\in [a,b]: |f(x_M)|>M\]
+            Возьмем $x_1: |f(x_1)|>1;\ \ x_2: |f(x_2)|>2;\ \  \dots\ \ x_M: |f(x_M)|>M;\dots$\\
+            Получаем последовательность $\{x_n\}\subset [a,b]\ \exists\ \{x_{n_k}\}: \exists\ \lim\limits_{k\to \infty}\{x_{n_k}\}=x_0$ т.к. $f(x)$ непрерывыная, то\\
             $\exists\ \lim\limits_{k\to \infty}f(\{x_{n_k}\})=f(x_0)$, но $|f(x_{n_k})|\to +\infty$. 
         \end{proof} 
         \begin{theorem} (2-я теорема Вейерштрасса)\\
@@ -1397,5 +1424,5 @@
         \begin{proof}
             $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\ctg{x}}\\
             \Rightarrow \ctg{x}<\frac{\sin{x}}{x}<1$. По теореме о двух миллиционерах $\frac{\sin{x}}{x}\to 1$.
-        \end{proof} 
+        \end{proof}
 \end{document}
