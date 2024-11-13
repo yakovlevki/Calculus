@@ -517,7 +517,13 @@
         \begin{proof}
             Докажем для верхней грани (аналогично для нижней)\\
             $A$ - ограничено сверху, $B$ - множество верхних граней. Значит $\forall a\in A$ и \\$\forall b\in B: a\leq b \Rightarrow$ по аксиоме полноты $\exists\ c\in \R: a\leq c\leq b \Rightarrow c=\sup A$.
-        \end{proof}\newpage
+        \end{proof}
+        \begin{lemma} (Свойство точной грани)\\
+            Если у множества $A$ существует $M=\sup{A}$ или $m=\inf{A}$, то $\forall \epsilon>0\ \exists\ a\in A: a\in (M-\epsilon,M)$ или $a\in (m,m+\epsilon)$ соответственно.
+        \end{lemma}
+        \begin{proof}
+            Докажем для верхней грани. $M=\sup{A}\Rightarrow \forall a\in A: a\leq M$. Поскольку $M$ - минимальная из верхних граней, то $\forall \epsilon>0: \widetilde{M}=M-\epsilon$ - не является верхней гранью. Тогда $\exists\ a\in A: a>\widetilde{M} \Rightarrow a\in (M-\epsilon,M)$.
+        \end{proof} 
         \begin{definition}
             $\forall a,b\in \R: a<b$ рассмотрим следующие множетсва:
             \begin{itemize}
@@ -622,6 +628,9 @@
                 \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция, $A=\emptyset$, то $B=\emptyset$. Докажем индукцией по количеству элементов. База: пусть $A=\{a\}$, тогда $\exists ! \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists ! \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное и $\exists ! \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
             \end{itemize}
         \end{proof}
+        \begin{definition}
+            Множества, равномощные $\N$ называются счетными.
+        \end{definition} 
         \begin{definition}
             Множество называется не более чем счетным, если оно конечно или счетно.
         \end{definition}
@@ -845,14 +854,8 @@
             Если $A$ - ограничено сверху или снизу и замкнуто, то существует $\max{A}$ или $\min{A}$ соответственно.
         \end{theorem} 
         \begin{proof}
-            Докажем для ограниченого сверху. По принципу полноты Вейерштрасса $\exists\ \alpha=\sup{A}$. По определению точной верхней грани:\\
+            Докажем для ограниченого сверху. По принципу полноты Вейерштрасса $\exists\ \alpha=\sup{A}$. По свойству точной верхней грани:\\
             $\forall\epsilon>0\ \exists\ a\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
-        \end{proof}
-        \begin{theorem} (Больцано-Вейерштрасса)\\
-            Если $A$ - органиченое и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
-        \end{theorem} 
-        \begin{proof}
-            т.к $A$ - ограничено, что $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов $A$ и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_n,b_n]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
         \end{proof}
     \subsection{Компакты}
         \begin{definition}
@@ -865,13 +868,20 @@
             Любой отрезок является компактом.
         \end{theorem} 
         \begin{proof}
-            Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отрезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых нельзя выделить конечное подпокрытие и длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}\Rightarrow \exists n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
+            Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отрезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых нельзя выделить конечное подпокрытие и длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}$. Поскольку $A_{\alpha_0}$ - открыто, то $\exists\ B_{\epsilon}(c)\subset A_{\alpha_0}$ $\Rightarrow \exists\ n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
         \end{proof} 
         \begin{theorem} (Лемма Гейне-Бореля)\\
-            $A$ - компакт $\lra A$ - замкнуто и ограничено.
+            $A$ - компакт $\Leftrightarrow A$ - замкнуто и ограничено.
         \end{theorem} 
         \begin{proof}
             Без доказательства.
+        \end{proof}
+    \subsection{Теорема Больцано-Вейерштрасса}
+        \begin{theorem} (Больцано-Вейерштрасса)\\
+            Если $A$ - органиченое и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
+        \end{theorem} 
+        \begin{proof}
+            т.к $A$ - ограничено, что $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов $A$ и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_{n_{\epsilon}},b_{n_{\epsilon}}]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
         \end{proof}
     \newpage
     \section{Числовые последовательности}
@@ -1417,7 +1427,7 @@
             \item $\arcsin{x}$ определяем на области, где будет биекция с $\sin{x}$ (обычно берут $-\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$)
             \item $\sh{x}=\cfrac{e^x-e^{-x}}{2},\ \ch{x}=\cfrac{e^x+e^{-x}}{2},\ \th{x}=\cfrac{\sh{x}}{\ch{x}}$ и $\cth{x}=\cfrac{\ch{x}}{\sh{x}}$ для этих функций можно получить формулы, аналогичные тем что верны для тригонометрических функций.
         \end{enumerate}
-        \section{Замечательные пределы}
+    \subsection{Замечательные пределы}
         \begin{theorem}
             $\exists\ \lim\limits_{x\to 0} \frac{\sin{x}}{x}=1$.
         \end{theorem}     
