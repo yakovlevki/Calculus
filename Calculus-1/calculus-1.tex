@@ -721,7 +721,7 @@
             Множество $2^{\N}$ всех подмножеств $\N$ равномощно интервалу (0,1) (множеству $\{0,1\}^{\N}$ бесконечных последовательностей нулей и единиц).
         \end{statement}
         \begin{proof}
-            Каждому $A\subset \N$ ставим в соответствие характеристическую последовательность, которая принимает значения: единицу, если элемент лежит в подмножестве и ноль иначе $\Rightarrow 2^{\N}\sim \{0,1\}^{\N}$. Поскольку каждое число из интервала $(0,1)$ представляется как последовательность цифр $0,\ a_1,\ a_2,\ a_3,\ \dots$ и каждую цифру можно представить в двоичной системе исчисления, то можно сделать вывод, что $2^{N}\sim (0,1)$.
+            Каждому $A\subset \N$ ставим в соответствие характеристическую последовательность, которая принимает значения: единицу, если элемент лежит в подмножестве и ноль иначе $\Rightarrow 2^{\N}\sim \{0,1\}^{\N}$. Поскольку каждое число из интервала $(0,1)$ представляется как последовательность цифр $0,\ a_1,\ a_2,\ a_3,\ \dots$ и каждую цифру можно представить в двоичной системе исчисления, то можно сделать вывод, что $2^{\N}\sim (0,1)$.
         \end{proof}
         \begin{theorem}
             У любого бесконечного множества существует счетное подмножество.
@@ -935,7 +935,7 @@
             B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}\ne \emptyset$. Возьмем $\epsilon = \frac{|b-a|}{3}$, сразу получаем противоречие.
         \end{proof} 
         \begin{comm}
-            Теорема об отделимости равносильна следующему утверждению: $\exists\ \epsilon>0: \mathring{B_{\epsilon}}\cap \{a_n\}_{n=1}^{\infty}=\emptyset$, причем если $b\notin \{a_n\}_{n=1}^{\infty}$, то $B_{\epsilon}(b)\cap\{a_n\}_{n=1}^{\infty}=\emptyset$.
+            Теорема об отделимости равносильна следующему утверждению: $\exists\ \epsilon>0: \mathring{B_{\epsilon}}(b)\cap \{a_n\}_{n=1}^{\infty}=\emptyset$, причем если $b\notin \{a_n\}_{n=1}^{\infty}$, то $B_{\epsilon}(b)\cap\{a_n\}_{n=1}^{\infty}=\emptyset$.
         \end{comm} 
         \subsection{О-символика. Бесконечно малые и бесконечно большие последовательности}
         \begin{definition}
@@ -1011,9 +1011,7 @@
             \begin{enumerate}
                 \item $a_n+b_n=a+\om(1)+b+\om(1)=a+b+\om(1)$
                 \item $ca_n=c(a+\om(1))=ca+c\om(1)=c(a+\om(1))=ca+\om(1)$
-                \item $a_n b_n=(a+\om(1))(b+\om(1))=ab+a \bar{\bar{o}}{(1)}+b \bar{\bar{o}}{(1)}+\bar{\bar{o}}{(1)}\bar{\bar{o}}{(1)}$.
-                \\Поскольку любая сходящаяся последовательность ограничена, то\\
-                $a \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)},\ b \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)} \Rightarrow a_n b_n=ab + \bar{\bar{o}}{(1)}$.
+                \item $a_n b_n=(a+\om(1))(b+\om(1))=ab+a \bar{\bar{o}}{(1)}+b \bar{\bar{o}}{(1)}+\bar{\bar{o}}{(1)}\bar{\bar{o}}{(1)}=ab+\bar{\bar{o}}{(1)}$.
                 \item $\cfrac{a_n}{b_n}-\cfrac{a}{b}=\cfrac{a_n b-ab_n}{bb_n}=\cfrac{b(a+\bar{\bar{o}}{(1)})-a(b+\bar{\bar{o}}{(1)})}{b(b+\bar{\bar{o}}{(1)})}=\cfrac{ab-ab+b \bar{\bar{o}}{(1)}-a \bar{\bar{o}}{(1)}}{b^2+b \bar{\bar{o}}{(1)}}=\\=\cfrac{1}{b^2+\bar{\bar{o}}{(1)}}\ \bar{\bar{o}}{(1)}=O(1) \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
             \end{enumerate}
         \end{proof}
@@ -1068,10 +1066,14 @@
         \end{lemma} 
         \begin{proof}
             \begin{multline*}
-                1.\ \ \cfrac{a_{n+1}}{a_n}=\cfrac{(1+\cfrac{1}{n+1})^{n+1}}{(1+\cfrac{1}{n})^{n}}=\cfrac{(n+2)^{n+1}n^n}{(n+1)^{2n+1}}=\cfrac{(n^2+2)^n (n+2)}{(n^2+2n+1)^n (n+1)}=\\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})>(1-\cfrac{1}{(n+1)^2})\cdot \cfrac{n+2}{n+1}=\\=\cfrac{n^2+n+1}{n^2+2n+1}\cdot \cfrac{n+2}{n+1}=\cfrac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}>1
+                1.\ \ \cfrac{a_{n+1}}{a_n}=\cfrac{(1+\cfrac{1}{n+1})^{n+1}}{(1+\cfrac{1}{n})^{n}}=\cfrac{(n+2)^{n+1}\ n^n}{(n+1)^{2n+1}}=\cfrac{(n^2+2n)^n\ (n+2)}{(n^2+2n+1)^n\ (n+1)}=
+                \\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})>(1-\cfrac{n}{(n+1)^2})\cdot \cfrac{n+2}{n+1}=\\
+                =\cfrac{n^2+n+1}{n^2+2n+1}\cdot \cfrac{n+2}{n+1}=\cfrac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}>1
             \end{multline*}
             \begin{multline*}
-                2.\ \ \cfrac{b_n}{b_{n+1}}=\cfrac{(1+\cfrac{1}{n})^{n}}{(1+\cfrac{1}{n+1})^{n+1}}=\cfrac{(n+1)^{2n+3}}{n^{n+1}((n+2)^{n+2})}=\cfrac{(n^2+2n+1)^{n+1}(n+1)}{(n^2+2n)^{n+1}(n+2)}=\\=(1+\cfrac{1}{n^2+2n})^{n+1}\cfrac{(n+1)}{n+2}>(1+\cfrac{1}{n^2+2n})(\cfrac{n+1}{n+2})=\\=\cfrac{n^2+3n+1}{n^2+2n}\cdot \cfrac{n+1}{n+2}=\cfrac{n^3+4n^2+4n+1}{n^3+4n^2+4n}>1
+                2.\ \ \cfrac{b_n}{b_{n+1}}=\cfrac{(1+\cfrac{1}{n})^{n+1}}{(1+\cfrac{1}{n+1})^{n+2}}=\cfrac{(n+1)^{2n+3}}{n^{n+1}(n+2)^{n+2}}=\cfrac{(n^2+2n+1)^{n+1}\ (n+1)}{(n^2+2n)^{n+1}\ (n+2)}=\\
+                =(1+\cfrac{1}{n^2+2n})^{n+1}\ \cfrac{(n+1)}{n+2}>(1+\cfrac{n+1}{n^2+2n})\ (\cfrac{n+1}{n+2})=\\
+                =\cfrac{n^2+3n+1}{n^2+2n}\cdot \cfrac{n+1}{n+2}=\cfrac{n^3+4n^2+4n+1}{n^3+4n^2+4n}>1
             \end{multline*}
         \end{proof} 
         \begin{theorem}
@@ -1109,7 +1111,7 @@
         \end{definition} 
         \begin{example}
                 \[a_n=\sum\limits_{k=1}^n\frac{1}{k^2}\ \ \text{- сходится, поскольку:}\] 
-                \[|a_n-a_m|=|\sum\limits_{k=1}^n\frac{1}{k^2}-\sum\limits_{k=1}^m\frac{1}{k^2}|=|\sum\limits_{k=m+1}^n\frac{1}{k^2}|<|\sum\limits_{k=m+1}^n (\frac{1}{m-1}-\frac{1}{k})|=\frac{1}{m}-\frac{1}{n}<\frac{1}{m}<\epsilon\]
+                \[|a_n-a_m|=|\sum\limits_{k=1}^n\frac{1}{k^2}-\sum\limits_{k=1}^m\frac{1}{k^2}|=|\sum\limits_{k=m+1}^n\frac{1}{k^2}|<|\sum\limits_{k=m+1}^n (\frac{1}{k-1}-\frac{1}{k})|=\frac{1}{m}-\frac{1}{n}<\frac{1}{m}<\epsilon\]
                 \[a_n=\sum\limits_{k=1}^n\frac{1}{k}\ \ \text{- расходится, поскольку:}\]
                 \[|a_n-a_m|=|\sum\limits_{k=n+1}^{2n}\frac{1}{k}|>\frac{1}{2n}n=\frac{1}{2}\]
         \end{example}
@@ -1146,31 +1148,33 @@
             Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения $\uplim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$ и $\lowlim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$
         \end{definition}
     \section{Предел функции}
-        В данном разделе будут рассматриваться функции $f: \R\to\R$
+        В данном разделе будут рассматриваться функции $f: \R\to\R$.
         \begin{definition}
-            Пусть $f(x)$ определена в $\Bo (x)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
-            \[\forall \epsilon>0\ \exists \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0) \Rightarrow |f(x)-a|<\epsilon\]
+            Пусть $f(x)$ определена в $\mathring{B}(x_0)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
         \end{definition} 
         \begin{definition}
-            Пусть $f(x)$ определена в $\Bo(x_0)$. Число $a$ называется пределом $f(x)$ по Гейне, если
-            \[\forall \{x_n\}: x_n\to x_0,\ x_n\ne x_0\ \forall n\ \exists\ \lims f(x_n)=a\]
+            Пусть $f(x)$ определена в $\Bo(x_0)$. Число $a$ называется пределом $f(x)$ в точке $x_0$ по Гейне, если
+            \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \forall n: \exists\ \lims f(x_n)=a\]
         \end{definition} 
         \begin{definition}
-            Пусть $f(x)$ определена на $(-\infty, x_0)$ и на $(x_0, +\infty)$. Тогда $a$ - предел $f$ при $x\to \infty\ (x\to +\infty,\ x\to -\infty)$ если 
-            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}: \forall |x|>\delta_{\epsilon}\ (x>\delta_{\epsilon},\ x<\delta_{\epsilon}) \Rightarrow |f(x)-a|<\epsilon\]
+            Пусть $f(x)$ определена на $(-\infty, x_0)$ и на $(x_0, +\infty)$. Тогда \\
+            $a$ - предел $f$ при $x\to \infty\ (x\to +\infty,\ x\to -\infty)$ если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0, \forall x: |x|>\delta_{\epsilon}\ (x>\delta_{\epsilon},\ x<\delta_{\epsilon}): |f(x)-a|<\epsilon\]
         \end{definition} 
         \begin{theorem} 
-            Определения предела по Коши и по Гейне эквивалентны.
+            Определения предела по Коши (1) и по Гейне (2) эквивалентны.
         \end{theorem} 
         \begin{proof}\tab
-                \item[\text{(К)}$\Rightarrow$\text{(Г):}] $\forall \epsilon>0\ \exists \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0) \Rightarrow |f(x)-a|<\epsilon$.\\
-                $\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: 0<|x_0-x_n|<\delta_{\epsilon} \Rightarrow \forall n> N_{\delta_{\epsilon}}: x_n\in \Bo_{\delta_{\epsilon}}(x_0)\\
-                \Rightarrow |f(x_n)-a|<\epsilon$, т.е. $f(x_n)\to a$    
-                \item[\text{(Г)}$\Rightarrow$\text{(К):}] Выведем из отрицания предела по Коши отрицание предела по Гейне:\\
-                $\exists\ \epsilon> 0\ \forall \delta\ \exists\ x_{\delta}\in \Bo(x_0) \Rightarrow |f(x_{\delta})-a|\geq \epsilon_0$.\\
+            \begin{enumerate}
+                \item $(1)\Rightarrow(2)$: $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon$.\\
+                $\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: 0<|x_0-x_n|<\delta_{\epsilon}\\
+                \Rightarrow \forall n> N_{\delta_{\epsilon}},\ x_n\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_n)-a|<\epsilon$, т.е. $f(x_n)\to a$.
+                \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: $\exists\ \epsilon> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo(x_0): |f(x_{\delta})-a|\geq \epsilon_0$.\\
                 Возьмем $x_1 \in \Bo_1(x_0) \Rightarrow |f(x_1)-a|\geq \epsilon;\ x_2 \in \Bo_{\frac{|x_1|}{2}}(x_0) \Rightarrow |f(x_2)-a|\geq \epsilon_0$;\\
                 $x_3\in \Bo_{\frac{|x_2|}{2}}(x_0) \Rightarrow |f(x_3)-a|\geq \epsilon_0$;\ \dots;\ $x_n \in \Bo_{\frac{|x_n|}{2}}(x_0) \Rightarrow |f(x_n)-a|\geq \epsilon_0$\\
                 это и есть отрицание по Гейне.
+            \end{enumerate}
         \end{proof} 
         \begin{comm}
             В доказательстве пользуемся тем, что для утверждений $A$ и $B$ верно: $(A\Rightarrow B) \Leftrightarrow (\lnot B\Rightarrow \lnot A)$
@@ -1182,32 +1186,39 @@
             Если у функции существует предел в точке $x_0$ то он единственный.
         \end{theorem}
         \begin{proof}
-            $x_n: x_n\to x_0,\ x_n\ne x_0\ forall n: \lims f(x_n)=a$. Предположим, что $b\ne a$ - тоже предел. Тогда $\exists\ \{t_n\},\ t_n\to x_0,\ t_n\ne x_0: \lims f(t_n)=b$. Рассмотри последовательность $x_1,t_1,x_2,t_2,\dots$ - имеет два частичных предела.
+            Получим противоречие с определением по Гейне, пусть $x_n: x_n\to x_0,\ x_n\ne x_0\ \forall n: \lims f(x_n)=a$. Предположим, что $b\ne a$ - тоже предел. Тогда $\exists\ t_n: t_n\to x_0,\ t_n\ne x_0\ \forall n: \lims f(t_n)=b$. Получаем, что последовательность $y_n = x_1,t_1,x_2,t_2,\dots: y_n\to x_0$, но при этом $f(y_n)= f(x_1),f(t_1),f(x_2),f(t_2)\dots$ - имеет два различных частичных предела.
         \end{proof}
         \begin{theorem}
-            Если $\exists \lim\limits_{x\to x_0}f(x)=a$, то $\exists\ \delta>0$, что $f(x)$ ограничена в $\Bo_{\delta}(x_0)$.
+            Если $\exists \lim\limits_{x\to x_0}f(x)=a$, то $\exists\ \delta>0$, такое что $f(x)$ ограничена в $\Bo_{\delta}(x_0)$.
         \end{theorem} 
         \begin{proof}
-            $\exists\ \delta>0$, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<1\\
-            \Rightarrow a-1<f(x)<a+1$
+            Возьмем $\epsilon = 1$. Тогда $\exists\ \delta>0$, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<1\\
+            \Rightarrow a-1<f(x)<a+1 \Rightarrow f(x)$ - ограничена.
         \end{proof}
-        \begin{theorem} (Отделимость)\\
-            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a$. Тогда $\forall b\ne a\ \exists\ \delta>0$ и $\exists\ \epsilon>0$, что $f(\Bo(x_0))\cap \Bo_\epsilon(b)=\emptyset$. 
+        \begin{theorem} (Теорема об отделимости)\\
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a$. Тогда $\forall b\ne a\ \exists\ \delta>0$ и $\exists\ \epsilon>0$, что $f(\Bo_{\delta}(x_0))\cap \Bo_\epsilon(b)=\emptyset$. 
         \end{theorem}  
         \begin{proof}
-            $\exists\ \epsilon>0$, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3}$. Тогда\\
+            $\exists\ \delta>0$ такое, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3}$. Тогда\\
             $f(\Bo_{\delta}(x_0))\cap\Bo_{\frac{|a-b|}{3}}(b)=\emptyset$.
         \end{proof} 
         \begin{definition}
-            Число $a$ называется пределом $f(x)$ в точке $x_0$ по $X\subset \R$, если $x_0\in X^{\prime}$ и $\forall\epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x\in \Bo_{\delta}(x_0)\cap X \Rightarrow |f(x)-a|<\epsilon$. Обозначают $\lim\limits_{x\to x_0,x\in X}f(x)=a$.
+            Число $a$ называется пределом $f(x)$ в точке $x_0$ по $X\subset \R$, если 
+            \[x_0\in X^{\prime}\ \text{и}\ \forall\epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta}(x_0)\cap X: |f(x)-a|<\epsilon\]
+            Обозначают \[\lim\limits_{X\ni x\to x_0}f(x)=a\]
         \end{definition} 
-        \begin{definition}
-            Если $\exists\ \lim\limits_{x\to x_0,x\in X}f(x)=a$ и $X_1\subset X,\ x_0\in X_1^{\prime}$. Тогда\\
-            $\exists\ \lim\limits_{x\to x_0,x\in X_1}f(x)=a$
-        \end{definition} 
+        \begin{statement}
+            Если $\exists\ \lim\limits_{X\ni x\to x_0}f(x)=a$ и $X_1\subset X,\ x_0\in X_1^{\prime}$. Тогда\\
+            $\exists\ \lim\limits_{X_1\ni x\to x_0}f(x)=a$.
+        \end{statement} 
         \begin{proof}
             Очевидно.
         \end{proof}
+        \begin{definition}\tab \\
+            Если $X=(x_0,x_0+\delta)$, то $\lim\limits_{x\to x_0+0}f(x)=a$.\\
+            Если $X=(x_0-\delta, x_0)$, то $\lim\limits_{x\to x_0-0}f(x)=a$.\\
+            Такие пределы называются односторонними.
+        \end{definition} 
         \begin{theorem}
             $\exists\ \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \exists\ \lim\limits_{x\to x_0+0}f(x)=a$ и $\exists\ \lim\limits_{x\to x_0-0}f(x)=a$.
         \end{theorem} 
@@ -1219,42 +1230,44 @@
             Если $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=0$, то $f(x)=\om(g(x))$ при $x\to x_0$.
         \end{definition} 
         \begin{definition}
-            Функция $f(x)=\om(x)$ при $x\to x_0$ называется бесконечно малой.
+            Функция $f(x)$ называется бесконечно малой, если $f(x)=\om(1)$ при $x\to x_0$.
         \end{definition}
         \begin{definition}
-            Если $\exists M>0$, что $\forall x\in X\subset \R: |\frac{f(x)}{g(x)}|<M$, то $f(x)=O(g(x))$ на $X$
+            Если $\exists\ M>0$ такое, что $\forall x\in X\subset \R: |\frac{f(x)}{g(x)}|<M$, то\\
+            $f(x)=O(g(x))$ на $X$
         \end{definition} 
         \begin{definition}
             Функция $f(x)=O(1)$ называется ограниченой.
         \end{definition}
         \begin{definition}
-            Пусть $f(x)$ определена в $\Bo(x_0)$. Если $\forall \epsilon>0\ \exists\ \delta{_\epsilon}:\\
-            \forall x\in \Bo_{\delta_{\epsilon}}(x_0) \Rightarrow |f(x)|>\epsilon\ (f(x)>\epsilon,\ f(x)<\epsilon)$, то говорят что $f(x)$ бесконечно большая и пишут
+            Пусть $f(x)$ определена в $\Bo(x_0)$. Если $\forall \epsilon>0\ \exists\ \delta{_\epsilon}>0,\\
+            \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)|>\epsilon\ (f(x)>\epsilon,\ f(x)<-\epsilon)$, то говорят что $f(x)$ бесконечно большая и пишут
             \[\lim\limits_{x\to x_0}f(x)=\infty,\ (\lim\limits_{x\to x_0}f(x)=+\infty,\ \lim\limits_{x\to x_0}f(x)=-\infty)\]
         \end{definition}
         \begin{theorem}
-            Пусть $\alpha(x)=\om(1)$ при $x\to x_0,\ \beta(x)=\om(1)$ при $x\to x_0,\ \gamma(x)=O(1)$ в $\Bo(x_0)$. Тогда
+            Пусть $\alpha(x)=\om(1)$ при $x\to x_0,\ \beta(x)=\om(1)$ при $x\to x_0,\ \gamma(x)=O(1)$ в $\Bo(x_0),\ c\in \R$. Тогда:
             \begin{enumerate}
-                \item $\alpha+\beta=\om(1),\ x\to x_0$
-                \item $c \alpha=\om(1),\ x\to x_0,\ \forall c\in \R$
-                \item $\alpha\beta=\om(1),\ x\to x_0$
-                \item $\alpha\gamma=\om(1),\ x\to x_0$
+                \item $\alpha+\beta=\om(1),\ x\to x_0$.
+                \item $c \alpha=\om(1),\ x\to x_0$.
+                \item $\alpha\beta=\om(1),\ x\to x_0$.
+                \item $\alpha\gamma=\om(1),\ x\to x_0$.
             \end{enumerate}
         \end{theorem} 
         \begin{proof}
             Очевидно по Гейне.
         \end{proof} 
         \begin{statement}
-            У функции $\exists\ \lim\limits_{x\to x_0}f(x)=a\Leftrightarrow f(x)=a+\om(1),\ x\to x_0$.
+            $\exists\ \lim\limits_{x\to x_0}f(x)=a\Leftrightarrow f(x)=a+\om(1),\ x\to x_0$.
         \end{statement} 
         \begin{proof}
             очев :(
         \end{proof}
         \begin{theorem}
-            Если $\exists\ \lim\limits_{x\to x_0}f(x)=a\ne 0$, то $\frac{1}{f(x)}=O(1)$ в $\Bo(x_0)$.
+            Если $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ a\ne 0$, то $\frac{1}{f(x)}=O(1)$ в $\Bo(x_0)$.
         \end{theorem} 
         \begin{proof}
-            По теореме об отделимости $\exists \Bo(x_0)$ и $\exists \epsilon>0: f(\Bo(x_0))\cap \Bo_{\epsilon}(0)\ne \emptyset$. $\forall x\in \Bo(x_0) \Rightarrow |f(x)|\geq \epsilon \Leftrightarrow \frac{1}{|f(x)|}<\frac{1}{\epsilon}$. 
+            По теореме об отделимости $\exists\ \Bo(x_0)$ и $\exists\ \epsilon>0:\\
+            f(\Bo(x_0))\cap \Bo_{\epsilon}(0)\ne \emptyset$. Тогда $\forall x\in \Bo(x_0): |f(x)|\geq \epsilon \Rightarrow \frac{1}{|f(x)|}\leq \frac{1}{\epsilon}$. 
         \end{proof} 
         \begin{theorem}
             Если $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$, то
@@ -1267,14 +1280,16 @@
         \begin{proof}
             По Гейне.
         \end{proof}
-        \begin{example}
-            $\forall \alpha, \beta\in \R,\ \alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$.\\\
-            $\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0$.\\
-            $x+\om(x)+x^2+\om(x^2)=x+\om(x),\ x\to 0$.\\
-            $\sin{x}=x+\om(x),\ x\to 0$.
+        \begin{example}\tab
+            \begin{enumerate}
+                \item $\forall \alpha, \beta\in \R,\ \alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как $\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0$.\\
+                Например: $x+\om(x)+x^2+\om(x^2)=x+\om(x),\ x\to 0$.
+                \item $\sin{x}=x+\om(x),\ x\to 0$, так как $\lim\limits_{x\to 0}\frac{\sin{x}}{x}=1$.
+            \end{enumerate}
         \end{example}
         \begin{theorem}
-            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$ и пусть $\forall x\in \Bo(x_0): f(x)\geq g(x)$, тогда $a\geq b$.
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$ и пусть $\forall x\in \Bo(x_0):\\
+            f(x)\geq g(x)$, тогда $a\geq b$.
         \end{theorem} 
         \begin{proof}
             по Гейне.
@@ -1283,7 +1298,7 @@
             Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$, и пусть $a>b$. Тогда $\exists\ \Bo(x_0): f(x)>g(x)$.
         \end{theorem}
         \begin{proof}
-            дописать
+            По теореме об отделимости.
         \end{proof} 
         \begin{theorem}(Теорема о двух милиционерах)\\
             Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=a$ и пусть в $\Bo(x_0): f(x)\leq h(x)\leq g(x)$. Тогда $\exists\ \lim\limits_{x\to x_0}h(x)=a$.
@@ -1292,12 +1307,12 @@
             по Гейне.
         \end{proof} 
         \begin{definition}
-            $\forall x_1, x_2\in (\alpha, \beta),\ x_1<x_2$:
+            Если $\forall x_1, x_2\in (\alpha, \beta): x_1<x_2$ выполнено, что
             \begin{enumerate}
-                \item $f(x_1)\leq f(x_2)$ называют неубывающей.
-                \item $f(x_1)< f(x_2)$ называют возрастающей.
-                \item $f(x_1)\geq f(x_2)$ называют невозрастающей.
-                \item $f(x_1)> f(x_2)$ называют убывающей.
+                \item $f(x_1)\leq f(x_2)$, то $f(x)$ называют неубывающей.
+                \item $f(x_1)< f(x_2)$, то $f(x)$ называют возрастающей.
+                \item $f(x_1)\geq f(x_2)$, то $f(x)$ называют невозрастающей.
+                \item $f(x_1)> f(x_2)$, то $f(x)$ называют убывающей.
             \end{enumerate}
             такие функции называют монотонными.
         \end{definition} 
@@ -1435,4 +1450,120 @@
             $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\ctg{x}}\\
             \Rightarrow \ctg{x}<\frac{\sin{x}}{x}<1$. По теореме о двух миллиционерах $\frac{\sin{x}}{x}\to 1$.
         \end{proof}
+        \begin{statement}
+            $\lim\limits_{x\to \infty}(1+\frac{1}{x})^x=e$.
+        \end{statement} 
+        \begin{proof}
+            $\alpha_n\to \infty,\ (1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1} \Rightarrow$ по лемме о двух миллиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. $\beta_n\to -\infty,\ (1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}$.
+        \end{proof} 
+        \begin{consequense}
+            $\lim\limits_{x\to 0}(1+\frac{1}{x})^{\frac{1}{x}}=e$.
+        \end{consequense} 
+        \begin{statement}
+            $\lim\limits_{x\to 0}(\frac{\ln{(1+x)}}{x})=1$.
+        \end{statement} 
+        \begin{proof}
+            $\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=\lim\limits_{x\to 0}\ln{(1+x)^{\frac{1}{x}}}=1$.
+        \end{proof} 
+        \begin{theorem} (Второй замечательный предел)\\
+            $\lim\limits_{x\to 0}\frac{e^x-1}{x}=1$
+        \end{theorem} 
+        \begin{proof}
+            $e^x-1=t,\ e^x=1+t,\ x=\ln{(1+t)} \Rightarrow \lim\limits_{t\to 0}\frac{t}{\ln{(1+t)}}=1$.
+        \end{proof} 
+        \newpage
+        \section{Дифференциальное исчисление функций одной переменной}
+        \begin{definition}
+            Пусть $f(x)$ определена в $B(x_0)$.
+             \[\lim\limits_{\Delta x\to 0}\frac{f(x+0+\Delta x)-f(x_0)}{\Delta x}=f^{\prime}(x_0)\]
+        \end{definition} 
+        \begin{definition}
+            Если \[\exists \lim\limits_{\Delta x\to 0\ (x_0+\Delta x\in A)}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f_A^{\prime}(x_0)\]
+            Если $A=(x_0-\Delta x, x_0)$ или $(x_0,x_0+\Delta x)$ пишут $f_{-}^{\prime}$ или $f_{+}^{\prime}$ 
+        \end{definition} 
+        \begin{comm}
+            $\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$
+        \end{comm} 
+        \begin{theorem}
+            Если $\exists f^{\prime}(x_0)$, то $f(X)$ непрерывна в точке $x_0$.
+        \end{theorem} 
+        % \begin{proof}
+        %    $\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=$
+        %\end{proof}
+        \begin{proof}
+            временно очев
+        \end{proof}
+        \begin{theorem}
+            Если $\exists f^{\prime}(x_0),\ g^{\prime}(x_0)$. Тогда $\forall C\\
+            \exists\ (Cf(x))^{\prime}=C f^{\prime}(x_0),\\
+            \exists (f(x)\pm g(x))^{\prime}=f^{\prime}(x_0)\pm g^{\prime}(x_0)$
+        \end{theorem} 
+        \begin{theorem}
+            Если $\exists f^{\prime}(x_0),\ g^{\prime}(x_0)$, то $\exists (f(x)g(x))^{\prime}=f^{\prime}g(x_0)+f(x_0)g^{\prime}(x_0)$.
+        \end{theorem} 
+        \begin{proof}
+            \[\lim\limits_{x\to x_0}\frac{f(x)g(x)-f(x_0)g(x_0)}{x-x_0}=\lim\limits_{x\to x_0}\frac{f(x)g(x)-f(x_0)g(x)+f(x_0)g(x)-f(x_0)g(x_0)}{x-x_0}=\dots\]
+        \end{proof} 
+        \begin{theorem}
+            Если $\exists f^{\prime}(x_0),\ g^{\prime}(x_0),\ g(x_0)\ne 0$. Тогда
+            \[\exists (\frac{f}{g})^{\prime}=\frac{f^{\prime}(x_0)g(x_0-f(x_0)g^{\prime}(x_0))}{g^2(x_)}\]
+        \end{theorem} 
+        \begin{proof}
+            \[\lim\limits_{x\to x_0}\frac{\frac{f(x)}{g(x)}-\frac{f(x_0)}{g(x_0)}}{x-x_0}=\lim\limits_{x\to x_0}\frac{f(x)g(x_0)-f(x_0)g(x)}{g(x)g(x_0)(x-x_0)}=\]
+            \[=\lim\limits_{x\to x_0}\frac{f(x)g(x_0)-f(x_0)g(x_0)+f(x_0)g(x_0)-f(x_0)g(x)}{g(x)g(x_0)(x-x_0)}\]
+        \end{proof} 
+        \begin{theorem}
+            $y=f(x),\ y_0=f(x_0),\ \exists f^{\prime}(x_0),\ \exists g^{\prime}(y_0)$. Тогда\\
+            $\exists (g(f(x)))^{\prime}=g^{\prime}(f(x_0))f^{\prime}(x_0)$.
+        \end{theorem}
+        \begin{proof}
+            $x_n\to x_0,\ f(x_n)\to f(x_0)$ и пусть $f(x_n)\ne f(x_0)$. Тогда 
+            \[\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{x-x_0}=\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{f(x_n)-f(x_0)}\cdot \frac{f(x_n)-f(x_0)}{x_n-x_0}\]
+            Пусть в любой окрестности $x_0$ есть бесконечно много точек, в которых \\
+            $f(x_n)=f(x_0)$. Тогда
+            \[\lim\limits_{n\to \infty}\frac{f(x_n)-f(x_0)}{x_n-x_0}=0=f^{\prime}(x_0)\]
+            $\Rightarrow g^{\prime}(f(x_0))f(x_0)=0$
+        \end{proof}  
+        \begin{comm}
+            \[\lim\limits_{n\to \infty}\frac{g(f(x_n))-g(f(x_0))}{x_n-x_0}=0\] 
+            (Использовалось в доказательстве)
+        \end{comm}
+        \begin{definition}
+            Пусть $f(x)$ определена в $B(x_0)$. Если $\exists A\in \R$, что $f(x_0+\Delta x)-f(x_0)$ (такую разность называют полное приращение функции) $=A \Delta x+\bar{\bar{o}}{(\Delta x)}$, то $f(x)$ называется дифференцируемой в точке $x_0$, а главная линенйная часть уравнения называется (первым) дифференциалом $f(x)$ в точке $x_0$, его обозначают $df=A\Delta x$.
+        \end{definition} 
+        Если функция $f(x)$ дифференцируема на $X\subset \R$, то пишем $f(x)\in \mathcal{D}(X)$
+        \begin{theorem}
+            $f(x)\in \mathcal{D}(x_0) \Leftrightarrow \exists f^{\prime}(x_0)$
+        \end{theorem}
+        \begin{proof}
+            \begin{itemize}\tab
+                \item[$\Rightarrow$] $\exists A: f(x_0+\Delta x)-f(x_0)=A\Delta x+\bar{\bar{o}}{(\Delta x)}$. $\exists \lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=A=f^{\prime}(x_0)$
+                \item[$\Leftarrow$] $\exists f^{\prime}(x_0): \frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f^{\prime}(x_0)+\bar{\bar{o}}{(1)},\ \Delta x\to 0$. 
+            \end{itemize}            
+        \end{proof}  
+        \begin{comm}
+            $df=f^{\prime}(x_0)\Delta x$
+        \end{comm} 
+        \begin{comm}
+            $df(x)=f^{\prime}(x)dx$
+        \end{comm} 
+        \begin{comm}
+            $d(g(f(x)))=g^{\prime}(f(x)f^{\prime})dx=g^{\prime}(f(x))df(x)$ (Инвариантность формы первого дифференциала)
+        \end{comm} 
+        \begin{theorem}
+            Пусть $\exists y^{\prime}=f^{\prime}(x_0),\ f^{\prime}(x_0)\ne 0$. Тогда $\exists x=f^{-1}(y)$ и $(f^{-1}(y_0))^{\prime}=\frac{1}{f^{\prime}(x_0)}$
+        \end{theorem} 
+        \begin{proof}
+            \[\lim\limits_{y\to y_0}\frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0}=\lim\limits_{x\to x_0}\frac{x-x_0}{f(x)-f(x_0)}=\frac{1}{f^{\prime}(x_0)}\]
+        \end{proof} 
+        \begin{enumerate}
+            \item $(e^x)^{\prime}=e^x$
+            %\[\lim\limits_{x\to x_0}\frac{e^x-e^{x_0}}{x-x_0}=e^{x_0}\lim\limits_{x\to x_0}\frac{e^{x-x_0-1}}{x-x_0}=e^x\]
+            \item $(\ln{x})^{\prime}= \frac{1}{e^y}=\frac{1}{e^{\ln{x}}}=\frac{1}{x}$
+            \item $(x^{\alpha})^{\prime}=\alpha x^{\alpha-1}$
+            $(e^{\alpha\ln{x}})^{\prime}=e^{\alpha\ln{x}}\frac{\alpha}{x}=\alpha x^{\alpha-1}$
+            \item $(\sin{x})^{\prime}=\cos{x}$.
+            \[\lim\limits_{\Delta x\to 0}\frac{\sin{(x_0+\Delta x)\sin{x_0}}}{\Delta x}=\lim\limits_{\Delta x\to 0}\frac{2\sin{\frac{\Delta x}{2}}\cos{(x_0+\frac{\Delta x}{2})}}{\Delta x}=\cos{x_0}\]
+        \end{enumerate}
+        
 \end{document}
