@@ -85,7 +85,7 @@
     \section{Элементы теории множеств}
     \subsection{Условности и обозначения}
         \begin{definition}
-            Кванторами будем назать символы, заменяющие слова в выражениях.
+            Кванторами будем называть символы, заменяющие слова в выражениях.
         \end{definition}
         \begin{comm}
             Пока что кванторы не подразумевают логические операции, мы будем использовать их только для более удобной и формальной записи.
@@ -210,7 +210,7 @@
     \subsection{Натуральные числа. Аксиоматика Пеано}
         \begin{definition} (Аксиоматика Пеано)
             \begin{enumerate}
-                \item В множестве $\N$ $\forall n\in \N, \exists !$ элемент называемый следующим и обозначающийся как $S(n)$.
+                \item В множестве $\N$ $\forall n\in \N, \exists !$ элемент называемый следующим и обозначаемый как $S(n)$.
                 \item $\forall n\in \N$ $\exists$ не более одного элемента $\N$, для которого $n$ - следующий.
                 \item $\exists !$ элемент $\N$ не являющийся следующим ни для какого элемента. Этот элемент обозначается $1$ и называется единицей.
                 \item (Аксиома индукции) Пусть $M\subset \N$, такое, что $1\in M$ и $\forall m\in M:\\ S(m)\in M$. Тогда $M=\N$.
@@ -262,7 +262,7 @@
         \end{comm}
         \begin{comm}
             $A \leftrightarrow \{1,\dots, n\}, B\leftrightarrow \{1,\dots, k\}$. Возьмем\\ $card(A\cup B)=\{1,\dots, n\}\cup \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\}$,\\ (где $\{1,\dots, k\} \leftrightarrow \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\})$\\
-            Из тех же сообжажений получаем, что $S(n)=n+1$.
+            Из тех же соображений получаем, что $S(n)=n+1$.
         \end{comm} 
         \begin{definition}
             $n,k\in \N$. Тогда $\sum\limits_{i=1}^kn=nk$ называется произведением $n$ на $k$.
@@ -289,10 +289,10 @@
         \end{definition}
     \subsection{Целые числа}
         \begin{definition}
-            Введем набор символов $-\N=\{\dots,-2,-1\}$. Множество символов $-\N \cup\{0\}\cup \N$ называются целыми числами и обозначаются $\Z$. 
+            Введем набор символов $-\N=\{\dots,-2,-1\}$. Множество символов $-\N \cup\{0\}\cup \N$ называется целыми числами и обозначаются $\Z$. 
         \end{definition}
         \begin{comm}
-            Принимаем выполнеными следующие свойства:
+            Принимаем выполненными следующие свойства:
             \begin{enumerate}
                 \item $k+(-n)=\begin{cases}
                     k-n, \text{если} \hspace*{5pt} k\geq n,\\
@@ -377,7 +377,7 @@
             Выражение вида $\pm a_0,a_1,\dots, a_n, \dots$ называется бесконечной десятичной дробью, если $a_0\in \N$ или $a_0=0 \hspace{5pt}$ и $\forall i\in \N$ $a_i \in \{0,1,\dots, 9\}$.
         \end{definition}
         \begin{definition}
-            Введем отношение порядка $\leq$ на множестве всех бесконечных дробей следующим образом:
+            Введем отношение порядка $\leq$ на множестве всех бесконечных десятичных дробей следующим образом:
             \begin{enumerate}
                 \item Если $a_0\leq 0,$ $b_0>0$, то $a\leq b$.
                 \item Если $a_0, b_0\geq 0,$ то $a\leq b$
@@ -499,9 +499,9 @@
         \end{definition}
         \begin{definition} \tab
             \begin{itemize}
-                \item Множество $A \subset \R, A\ne \emptyset$ называется ограниченым сверху, если у $A$ существует верхняя грань.
-                \item Множество $A \subset \R, A\ne \emptyset$ называется ограниченым снизу, если у $A$ существует нижняя грань.
-                \item Множество $A \subset \R$ называется ограниченым, если $A$ ограничено и сверху и снизу.
+                \item Множество $A \subset \R, A\ne \emptyset$ называется ограниченным сверху, если у $A$ существует верхняя грань.
+                \item Множество $A \subset \R, A\ne \emptyset$ называется ограниченным снизу, если у $A$ существует нижняя грань.
+                \item Множество $A \subset \R$ называется ограниченным, если $A$ ограничено и сверху и снизу.
             \end{itemize}
         \end{definition}
         \begin{definition} \tab
@@ -566,7 +566,7 @@
         \subsection{Неравенство Бернулли и Бином Ньютона}
         \begin{theorem} (Неравенство Бернулли)\\
             Пусть $\{x_k\}_{k=1}^n, x_k\in \R \tab[3pt] \forall k: x_k>0$ или $x_k\in (-1, 0)$. Тогда
-            \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}x_k\]
+            \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}^nx_k\]
         \end{theorem} 
         \begin{proof}
             Индукция по $n$.
@@ -625,7 +625,7 @@
             \begin{itemize}
                 \item[$(\Leftarrow)$] Пусть $\phi:A\to \{1,\dots, n\}, \ \psi:B\to \{1,\dots, n\}\\
                 \Rightarrow \exists \ \psi^{-1}:\{1,\dots, n\}\to B$. Тогда $\phi \circ \psi^{-1}:A\to B$ - искомая биекция.
-                \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция, $A=\emptyset$, то $B=\emptyset$. Докажем индукцией по количеству элементов. База: пусть $A=\{a\}$, тогда $\exists ! \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists ! \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное и $\exists ! \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
+                \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция, если $A=\emptyset$, то $B=\emptyset$. Докажем индукцией по количеству элементов. База: пусть $A=\{a\}$, тогда $\exists ! \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists ! \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное и $\exists ! \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
             \end{itemize}
         \end{proof}
         \begin{definition}
@@ -733,7 +733,7 @@
             Пусть $A$ - бесконечное, $B$ - не более чем счетное $\Rightarrow A\sim A\cup B$
         \end{theorem} 
         \begin{proof}
-            Выделим из $A$ счетное подмножество $A^{\prime}$. Тогда $A\sim (A\setminus A^{\prime})\cup A^{\prime}$, поскольку не более чем счетное объединение не более чем счетных множеств не более чем счетно, то  $(A\setminus A^{\prime})\cup A^{\prime} \sim (A\setminus A^{\prime})\cup(A^{\prime}\cup B) \sim(A\cup B)$.
+            Выделим из $A$ счетное подмножество $A^{\prime}$. Тогда $A\sim (A\setminus A^{\prime})\cup A^{\prime}$, поскольку объединение не более чем счётного числа не более чем счётных множеств не более чем счётно, то  $(A\setminus A^{\prime})\cup A^{\prime} \sim (A\setminus A^{\prime})\cup(A^{\prime}\cup B) \sim(A\cup B)$.
         \end{proof}
     \newpage
     \section{Топология $\R$}
@@ -780,7 +780,7 @@
         \begin{definition} (Множество Кантора)\\
             Разбиваем отрезок $[0,1]$ на три части и выбрасываем середину, затем каждый из получившихся отрезков разбиваем на три части и выбрасываем середину, и т.д.
             \begin{itemize}
-                \item Суммарная длина всех выброшеных интервалов равна $1$.
+                \item Суммарная длина всех выброшенных интервалов равна $1$.
                 \item Концов отрезков счетное множество.
                 \item Общее количество точек имеет мощность континуума.
             \end{itemize}
@@ -854,7 +854,7 @@
             Если $A$ - ограничено сверху или снизу и замкнуто, то существует $\max{A}$ или $\min{A}$ соответственно.
         \end{theorem} 
         \begin{proof}
-            Докажем для ограниченого сверху. По принципу полноты Вейерштрасса $\exists\ \alpha=\sup{A}$. По свойству точной верхней грани:\\
+            Докажем для ограниченного сверху. По принципу полноты Вейерштрасса $\exists\ \alpha=\sup{A}$. По свойству точной верхней грани:\\
             $\forall\epsilon>0\ \exists\ a\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
         \end{proof}
     \subsection{Компакты}
@@ -862,13 +862,13 @@
             Говорят, что семейство $\{A\}_{\alpha}$ является покрытием множества $B$, если $B\subset \bigcup\limits_{\alpha}A_{\alpha}$
         \end{definition} 
         \begin{definition}
-            Рассмотрим $X\subset \R$. Если для любого покрытия $X$ открытыми множествами $\{A\}_{\alpha}$ существует $\{\alpha_i\}_{i=1}^n$ - конечное подпокрытие, что $X\subset \bigcup\limits_{i=1}^n A_{\alpha_i}$, то $X$ называется компактным множеством или компактом.
+            Рассмотрим $X\subset \R$. Если для любого покрытия $X$ открытыми множествами $\{A\}_{\alpha}$ существует $\{\alpha_i\}_{i=1}^n$ - конечное подпокрытие такое, что $X\subset \bigcup\limits_{i=1}^n A_{\alpha_i}$, то $X$ называется компактным множеством или компактом.
         \end{definition} 
         \begin{theorem}
             Любой отрезок является компактом.
         \end{theorem} 
         \begin{proof}
-            Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отрезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых нельзя выделить конечное подпокрытие и длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}$. Поскольку $A_{\alpha_0}$ - открыто, то $\exists\ B_{\epsilon}(c)\subset A_{\alpha_0}$ $\Rightarrow \exists\ n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
+            Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отрезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых нельзя выделить конечное подпокрытие и длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}$. Поскольку $A_{\alpha_0}$ - открыто, то $\exists\ B_{\epsilon}(c)\subset A_{\alpha_0}$ $\Rightarrow \exists\ n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
         \end{proof} 
         \begin{theorem} (Лемма Гейне-Бореля)\\
             $A$ - компакт $\Leftrightarrow A$ - замкнуто и ограничено.
@@ -878,10 +878,10 @@
         \end{proof}
     \subsection{Теорема Больцано-Вейерштрасса}
         \begin{theorem} (Больцано-Вейерштрасса)\\
-            Если $A$ - органиченое и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
+            Если $A$ - ограниченное и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
         \end{theorem} 
         \begin{proof}
-            т.к $A$ - ограничено, что $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов $A$ и т.д. Получаем систему вложеных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_{n_{\epsilon}},b_{n_{\epsilon}}]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
+            т.к $A$ - ограничено, то $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов из множества $A$ и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_{n_{\epsilon}},b_{n_{\epsilon}}]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
         \end{proof}
     \newpage
     \section{Числовые последовательности}
@@ -900,7 +900,8 @@
         \end{definition} 
         \begin{definition}
             Рассмотрим последовательность $a_n$. Если $\exists \ a\in \R$, такое что 
-            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N: \forall n>N_{\epsilon}: |a_n-a|<\epsilon\] то говорят что последовательность $a_n$ сходится, а число $a$ называется пределом последовательности $a_n$ и обозначают
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N: \forall n>N_{\epsilon}: |a_n-a|<\epsilon\]
+            то говорят что последовательность $a_n$ сходится, а число $a$ называется пределом последовательности $a_n$ и обозначается
             \[\lim\limits_{n\to \infty} a_n=a\]
         \end{definition}
         \begin{theorem}
@@ -952,7 +953,7 @@
             \end{enumerate}
         \end{examples}
         \begin{comm}
-            $O(1)$ - обозначение класса ограниченых последовательностей.
+            $O(1)$ - обозначение класса ограниченных последовательностей.
         \end{comm} 
         \begin{definition}
             Последовательность $a_n$ называется бесконечно малой, если 
@@ -1007,7 +1008,7 @@
             \end{enumerate}
         \end{theorem} 
         \begin{proof}
-            Используя, что $a_n=a+\bar{\bar{o}}{(1)},\ b_n=b+\bar{\bar{o}}{(1)}$ и исчисление бесконечно малых, получаем:
+            Используя тот факт, что $a_n=a+\bar{\bar{o}}{(1)},\ b_n=b+\bar{\bar{o}}{(1)}$ и исчисление бесконечно малых, получаем:
             \begin{enumerate}
                 \item $a_n+b_n=a+\om(1)+b+\om(1)=a+b+\om(1)$
                 \item $ca_n=c(a+\om(1))=ca+c\om(1)=c(a+\om(1))=ca+\om(1)$
@@ -1055,7 +1056,7 @@
             Если последовательность неубывает (невозраствает) и ограничена сверху (снизу), то у нее есть предел.
         \end{theorem}
         \begin{proof}
-            Докажем для неубывающей, ограниченой сверху. $a_n$ - ограничена сверху $\Rightarrow \exists\ a=\sup a_n \Rightarrow \forall \epsilon>0\ \exists\ a_{N_{\epsilon}}: a-\epsilon<a_{N_{\epsilon}}<a$,\ $a_n$ - неубывает $\Rightarrow \forall n>N_{\epsilon}: a_n>a-\epsilon \Rightarrow a-a_n<\epsilon$.
+            Докажем для неубывающей, ограниченной сверху. $a_n$ - ограничена сверху $\Rightarrow \exists\ a=\sup a_n \Rightarrow \forall \epsilon>0\ \exists\ a_{N_{\epsilon}}: a-\epsilon<a_{N_{\epsilon}}<a$,\ $a_n$ - неубывает $\Rightarrow \forall n>N_{\epsilon}: a_n>a-\epsilon \Rightarrow a-a_n<\epsilon$.
         \end{proof}  
     \subsection{Число e}
         \begin{lemma} \tab
@@ -1093,7 +1094,7 @@
         \begin{proof}\tab
             \begin{enumerate}
                 \item Образ $a_n$ бесконечен. Тогда $\exists\ a$ - предельная точка образа. Тогда в проколотой окрестности $a$ есть хотя бы одна точка, возьмем эту точку, назовем ее $a_{n_1}$, далее возьмем новую проколотую окрестность $a$ так, чтобы $a_{n_1}$ в нее не попадало, возьмем в ней $a_{n_2}$ такую, что $n_2>n_1$ и так далее. Получим подпоследовательность, сходящуюся к $a$. 
-                \item Образ $a_n$ конечный. Тогда $\exists\ a$ из образа, встречающаяся в последовательности бесконечно много раз. Тогда возьмем постоянную (стационарную) подпоследовательность.
+                \item Образ $a_n$ конечен. Тогда $\exists\ a$ из образа, встречающаяся в последовательности бесконечно много раз. Тогда возьмем постоянную (стационарную) подпоследовательность.
             \end{enumerate}
         \end{proof} 
         \begin{theorem} (Критерий Коши)\\
@@ -1141,13 +1142,15 @@
         \begin{proof}\tab
             \begin{itemize}
                 \item[($\Rightarrow$)] очев
-                \item[$(\Leftarrow)$] $\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}$ по лемме о двух миллиционерах $a_n \to a$. 
+                \item[$(\Leftarrow)$] $\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}$ по лемме о двух милиционерах $a_n \to a$. 
             \end{itemize}
         \end{proof} 
         \begin{definition}
             Если $a_n$ имеет бесконечно большую подпоследовательность то используют обозначения $\uplim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$ и $\lowlim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$
         \end{definition}
     \section{Предел функции}
+    \subsection{Определение предела по Коши и по Гейне}
+    
         В данном разделе будут рассматриваться функции $f: \R\to\R$.
         \begin{definition}
             Пусть $f(x)$ определена в $\mathring{B}(x_0)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
@@ -1170,7 +1173,7 @@
                 \item $(1)\Rightarrow(2)$: $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon$.\\
                 $\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: 0<|x_0-x_n|<\delta_{\epsilon}\\
                 \Rightarrow \forall n> N_{\delta_{\epsilon}},\ x_n\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_n)-a|<\epsilon$, т.е. $f(x_n)\to a$.
-                \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: $\exists\ \epsilon> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo(x_0): |f(x_{\delta})-a|\geq \epsilon_0$.\\
+                \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: $\exists\ \epsilon> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo_{\delta}(x_0): |f(x_{\delta})-a|\geq \epsilon_0$.\\
                 Возьмем $x_1 \in \Bo_1(x_0) \Rightarrow |f(x_1)-a|\geq \epsilon;\ x_2 \in \Bo_{\frac{|x_1|}{2}}(x_0) \Rightarrow |f(x_2)-a|\geq \epsilon_0$;\\
                 $x_3\in \Bo_{\frac{|x_2|}{2}}(x_0) \Rightarrow |f(x_3)-a|\geq \epsilon_0$;\ \dots;\ $x_n \in \Bo_{\frac{|x_n|}{2}}(x_0) \Rightarrow |f(x_n)-a|\geq \epsilon_0$\\
                 это и есть отрицание по Гейне.
@@ -1182,6 +1185,7 @@
         \begin{comm}
             при $x\to \infty\ (+\infty,\ -\infty)$ доказывается аналогично.
         \end{comm}
+    \subsection{Простейшие свойства предела функции}
         \begin{theorem}
             Если у функции существует предел в точке $x_0$ то он единственный.
         \end{theorem}
@@ -1202,8 +1206,9 @@
             $\exists\ \delta>0$ такое, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3}$. Тогда\\
             $f(\Bo_{\delta}(x_0))\cap\Bo_{\frac{|a-b|}{3}}(b)=\emptyset$.
         \end{proof} 
+    \subsection{Предел по множеству. Односторонние пределы}
         \begin{definition}
-            Число $a$ называется пределом $f(x)$ в точке $x_0$ по $X\subset \R$, если 
+            Число $a$ называется пределом $f(x)$ в точке $x_0$ по множеству $X\subset \R$, если 
             \[x_0\in X^{\prime}\ \text{и}\ \forall\epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta}(x_0)\cap X: |f(x)-a|<\epsilon\]
             Обозначают \[\lim\limits_{X\ni x\to x_0}f(x)=a\]
         \end{definition} 
@@ -1214,9 +1219,11 @@
         \begin{proof}
             Очевидно.
         \end{proof}
-        \begin{definition}\tab \\
-            Если $X=(x_0,x_0+\delta)$, то $\lim\limits_{x\to x_0+0}f(x)=a$.\\
-            Если $X=(x_0-\delta, x_0)$, то $\lim\limits_{x\to x_0-0}f(x)=a$.\\
+        \begin{definition}\tab\
+            \begin{enumerate}
+                \item Если $X=(x_0,x_0+\delta)$, то обозначают $\lim\limits_{x\to x_0+0}f(x)=a$.
+                \item Если $X=(x_0-\delta, x_0)$, то обозначают $\lim\limits_{x\to x_0-0}f(x)=a$.
+            \end{enumerate}
             Такие пределы называются односторонними.
         \end{definition} 
         \begin{theorem}
@@ -1237,7 +1244,7 @@
             $f(x)=O(g(x))$ на $X$
         \end{definition} 
         \begin{definition}
-            Функция $f(x)=O(1)$ называется ограниченой.
+            Для обозначения класса ограниченных функций используется запись $f(x)=O(1)$.
         \end{definition}
         \begin{definition}
             Пусть $f(x)$ определена в $\Bo(x_0)$. Если $\forall \epsilon>0\ \exists\ \delta{_\epsilon}>0,\\
@@ -1269,6 +1276,7 @@
             По теореме об отделимости $\exists\ \Bo(x_0)$ и $\exists\ \epsilon>0:\\
             f(\Bo(x_0))\cap \Bo_{\epsilon}(0)\ne \emptyset$. Тогда $\forall x\in \Bo(x_0): |f(x)|\geq \epsilon \Rightarrow \frac{1}{|f(x)|}\leq \frac{1}{\epsilon}$. 
         \end{proof} 
+    \subsection{Арифметрические свойства пределов функций и предельные переходы в неравенствах}
         \begin{theorem}
             Если $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$, то
             \begin{enumerate}
@@ -1282,7 +1290,8 @@
         \end{proof}
         \begin{example}\tab
             \begin{enumerate}
-                \item $\forall \alpha, \beta\in \R,\ \alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как $\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0$.\\
+                \item $\forall \alpha,\beta\in \R$, если $\alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как\\
+                $\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0$.\\
                 Например: $x+\om(x)+x^2+\om(x^2)=x+\om(x),\ x\to 0$.
                 \item $\sin{x}=x+\om(x),\ x\to 0$, так как $\lim\limits_{x\to 0}\frac{\sin{x}}{x}=1$.
             \end{enumerate}
@@ -1306,6 +1315,7 @@
         \begin{proof}
             по Гейне.
         \end{proof} 
+    \subsection{Монотонные функции}
         \begin{definition}
             Если $\forall x_1, x_2\in (\alpha, \beta): x_1<x_2$ выполнено, что
             \begin{enumerate}
@@ -1317,11 +1327,12 @@
             такие функции называют монотонными.
         \end{definition} 
         \begin{theorem}
-            Пусть $f(x)$ определена на $(a-\delta, a),\ f(x)$ - неубывающая (невозрастающая) и ограниченая сверху (снизу). Тогда $\exists\ \lim\limits_{x\to a-0}f(x)=A$.
+            Пусть $f(x)$ определена на $(a-\delta, a),\ f(x)$ - неубывающая (невозрастающая) и ограниченная сверху (снизу). Тогда $\exists\ \lim\limits_{x\to a-0}f(x)=A$.
         \end{theorem} 
         \begin{proof}
             $\exists\ \sup{f(x)}=A.\ \forall \epsilon>0\ \exists\ x_{\epsilon}\in (a-\delta, a),\ f(x_{\epsilon})>A-\epsilon$. Тогда $\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon$, а значит $\forall x\in \Bo(A): f(x)-A<\epsilon$.
         \end{proof}
+    \subsection{Критерий Коши}
         \begin{theorem} (Критерий Коши)\\
             $\exists \lim\limits_{x\to x_0}=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon$
         \end{theorem} 
@@ -1346,7 +1357,7 @@
         \begin{theorem}
             Пусть $f(x),g(x)$ - непрерывны в точке $x_0$. Тогда:
             \begin{enumerate}
-                \item $\alpha f(x)+\beta g(x)$ - непрерывна а точке $x_0$
+                \item $\alpha f(x)+\beta g(x)$ - непрерывна в точке $x_0$
                 \item $f(x)g(x)$ - непрерывна в точке $x_0$
                 \item если $g(x_0)\ne 0$, то $\frac{f(x)}{g(x)}$ непрерывна в точке $x_0$
             \end{enumerate}
@@ -1371,26 +1382,33 @@
             Предположим, что $f(x)$ неограничена, то есть\\
             \[\forall M>0\ \exists\ x_M\in [a,b]: |f(x_M)|>M\]
             Возьмем $x_1: |f(x_1)|>1;\ \ x_2: |f(x_2)|>2;\ \  \dots\ \ x_M: |f(x_M)|>M;\dots$\\
-            Получаем последовательность $\{x_n\}\subset [a,b]\ \exists\ \{x_{n_k}\}: \exists\ \lim\limits_{k\to \infty}\{x_{n_k}\}=x_0$ т.к. $f(x)$ непрерывыная, то\\
-            $\exists\ \lim\limits_{k\to \infty}f(\{x_{n_k}\})=f(x_0)$, но $|f(x_{n_k})|\to +\infty$. 
+            Получаем последовательность $\{x_n\}\subset [a,b]\ \exists\ \{x_{n_k}\}: \exists\ \lim\limits_{k\to \infty}\{x_{n_k}\}=x_0$.\\
+            $f(x)$ непрерывная $\Rightarrow \exists\ \lim\limits_{k\to \infty}f(\{x_{n_k}\})=f(x_0)$, но $|f(x_{n_k})|\to +\infty$. 
         \end{proof} 
         \begin{theorem} (2-я теорема Вейерштрасса)\\
-            Пусть $f(x)\in \mathcal{C}[a,b]$. Тогда $f(x)$ имеет $\max$ и $\min$ занчения на $[a,b]$
+            Пусть $f(x)\in \mathcal{C}[a,b]$. Тогда $f(x)$ имеет максимальное $\max{f(x)}$ и минимальное $\min{f(x)}$ значения на $[a,b]$
         \end{theorem} 
         \begin{proof}
-            $\alpha = \sup\limits_{x\in [a,b]} f(x): \exists x_1 \in [a,b],\ f(x_1)>\alpha-1,\ \exists x_2\in [a,b],\ f(x-2)>\alpha - \frac{1}{2}\dots \exists x_n\in [a,b],\ f(x-n)>\alpha - \frac{1}{n}, \dots$. $\exists \{x_{n_k}\}, x_{n_k}\to x^{\prime},\ f(x_{n_k})\to f(x^{\prime}),\ \alpha-\frac{1}{n_k}<f(x_{n_k})\leq \alpha \Rightarrow f(x_{n_k})\to \alpha$.
+            $\alpha = \sup\limits_{x\in [a,b]} f(x): \exists\ x_1 \in [a,b],\ f(x_1)>\alpha-1,\ \exists\ x_2\in [a,b],\ f(x-2)>\alpha - \frac{1}{2}\dots \exists\ x_n\in [a,b],\ f(x-n)>\alpha - \frac{1}{n}, \dots$. $\exists \{x_{n_k}\}, x_{n_k}\to x^{\prime},\ f(x_{n_k})\to f(x^{\prime}),\ \alpha-\frac{1}{n_k}<f(x_{n_k})\leq \alpha \Rightarrow f(x_{n_k})\to \alpha$.
         \end{proof} 
         \begin{theorem}
-            Пусть $f(x)\in \mathcal{C}[a,b].\ f(a)=A,\ f(b)=B$, пусть $a\leq B$. Тогда $\forall C: A\leq C\leq B\ \exists C\in [a,b],\ f(c)=C$
+            Пусть $f(x)\in \mathcal{C}[a,b].\ f(a)=A,\ f(b)=B$, пусть $a\leq B$. Тогда $\forall C: A\leq C\leq B\ \exists\ C\in [a,b],\ f(c)=C$
         \end{theorem} 
         \begin{proof}
-            $A=B$ ограничена, далее $A<B$. Возьмем $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем ту половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложеных отрезков $\Rightarrow \exists c\in [a_n,b_n],\ \forall n,\ a_n\to c,\ b_n\to c.\ \lims f(a_n)=f(c)\leq C. \lims f(b_n)=f(c)\geq C \Rightarrow f(c)=C$. 
+            $A=B$ ограничена, далее $A<B$. Возьмем $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем ту половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложеных отрезков $\Rightarrow \exists\ c\in [a_n,b_n],\\
+            \forall n,\ a_n\to c,\ b_n\to c.\ \lims f(a_n)=f(c)\leq C. \lims f(b_n)=f(c)\geq C\\
+            \Rightarrow f(c)=C$. 
         \end{proof} 
         \begin{definition}
-            Пусть $f(x)$ определена в $B(x_0)$. Если $\exists \lim\limits_{x\to x_0-0}=\lim\limits_{x\to x_0+0}\ne f(x_0)$, то  точка $x_0$ называется точкой устранимого разрыва функции $f(x)$. Если $\exists\ \lim\limits_{x\to x_0-0}=\alpha,\ \exists\ \lim\limits_{x\to x_0+0}=\beta,\ \alpha\ne \beta$, то точка называется точкой разрыва 1 рода функции $f(x)$. Если не существует хотя бы одного из односторонних пределов то $x_0$ называется точкой разрыва 2 рода. 
+            Пусть $f(x)$ определена в $B(x_0)$.
+            \begin{enumerate}
+                \item Если $\exists \lim\limits_{x\to x_0-0}=\lim\limits_{x\to x_0+0}\ne f(x_0)$, то  точка $x_0$ называется точкой устранимого разрыва функции $f(x)$.
+                \item Если $\exists\ \lim\limits_{x\to x_0-0}=\alpha,\ \exists\ \lim\limits_{x\to x_0+0}=\beta,\ \alpha\ne \beta$, то точка называется точкой разрыва 1 рода функции $f(x)$.
+                \item Если не существует хотя бы одного из односторонних пределов, то $x_0$ называется точкой разрыва 2 рода функции $f(x)$.
+            \end{enumerate}
         \end{definition} 
         \begin{example}
-            $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, она там не определена).
+            $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, так как она там не определена).
         \end{example}
         \begin{theorem}
             Пусть $f(x)$ определена на $[a,b]$ и монотонна. Тогда у этой функции могут быть разрывы только 1-го рода.
@@ -1408,7 +1426,7 @@
             У монотонной функции разрывов не более чем счетное множество.
         \end{statement} 
         \begin{theorem} (Теорема об обратной функции)\\
-            Пусть $f(x)$ строго монотонна на $[a,b]$ и $f(x)\in\mathcal{C}[a,b],\ f(a)=\alpha,\ f(b)=\beta$. Тогда $\exists f^{-1}(y)\in\mathcal{C}[\alpha,\beta]$ и она строго монотонна. 
+            Пусть $f(x)$ строго монотонна на $[a,b]$ и $f(x)\in\mathcal{C}[a,b],\ f(a)=\alpha,\ f(b)=\beta$. Тогда $\exists\ f^{-1}(y)\in\mathcal{C}[\alpha,\beta]$ и она строго монотонна. 
         \end{theorem} 
         \begin{proof}
             Пусть строго возрастает. $\forall x_1,x_2,\ x_1<x_2: f(x_1)=y_1<y_2=f(x_2)$. Тогда $f(x)$ - биекция между $[a,b]$ и $[\alpha,\beta] \Rightarrow \exists f^{-1}$. Предположим что она разрывная, но тогда нарушается биекция, и вообще нарушается условие того что функция определена на всем отрезке $[a,b]$.
@@ -1430,17 +1448,17 @@
                 \item[(i)] $n\in \N,\ a^n=\prod\limits_{j=1}^n a;\ a^{n+m}=a^n a^m$
                 \item[(ii)] $n\in \Z,\ n=-k,\ k\in \N$, тогда $a^{-k}=\frac{1}{a^k},\ a^0=1$
                 \item[(iii)] $a^\frac{1}{n}: b^n=a$ в $\R_{+}$ (строго положительные числа). Пусть $A=\{x\in \R_{+}: x^n\leq a\},\ B=\{x\in \R_{+}: x^n>a\},\ A\cup B=\R_{+}$. По аксиоме полноты $\exists\ b: x_1\leq b\leq x_2,\ \forall x_1\in A,\ \forall x_2\in B$ и $b=a^{\frac{1}{n}}$. $\forall \frac{m}{n}\in \Q\ a^{\frac{m}{n}}=(a^{\frac{1}{n}})^m;\ a^{r_1+r_2}=a^{r_1}a^{r_2},\ (a^{\frac{m_1}{n_1}}\ V\ a^{\frac{m_2}{n_2}})^{n_1 n_2}\Rightarrow a^{m_1 n_2}\ V\ a^{m_2 n_1}$.
-                \item[(iv)] $\lim\limits_{n\to \infty} a^{\frac{1}{n}}=1$. $(1+\frac{a}{n})^n>1+a>a \Rightarrow 1+\frac{a}{n}>a^{\frac{1}{n}}>1$ по теореме о двух миллиционерах $a^{\frac{1}{n}}\to 1$.\\
-                Пусть $\forall x_0\in \R,\ r_n\to x_0-0,\ s_n\to x_0+0$. Тогда $\exists \lim\limits_{n\to\infty}a^{r_n}=\alpha,\ \exists \lim\limits_{n\to \infty}a^{s_n}=\beta,\ \alpha\leq \beta$. Пусть $\alpha < \beta,\ a^{s_n}-a^{r_n}=a^{r_n}(a^{s_n-r_n}-1)\to \beta-\alpha>0?$. Рассмотрим подпоследовательность $0<s_{n_k}-r_{n_k}<\frac{1}{k}$. Тогда $1<a^{s_{n_k}-r_{n_k}}<a^{\frac{1}{k}}$. По теореме о двух миллиционерах $a^{s_{n_k}-r_{n_k}}\to 1 \Rightarrow a^{s_{n_k}}-a^{r_{n_k}}\to 0 \Rightarrow \alpha=\beta=a^{x_0}$. Непрерывность и монотонность есть по построению.
+                \item[(iv)] $\lim\limits_{n\to \infty} a^{\frac{1}{n}}=1$. $(1+\frac{a}{n})^n>1+a>a \Rightarrow 1+\frac{a}{n}>a^{\frac{1}{n}}>1$ по теореме о двух милиционерах $a^{\frac{1}{n}}\to 1$.\\
+                Пусть $\forall x_0\in \R,\ r_n\to x_0-0,\ s_n\to x_0+0$. Тогда $\exists \lim\limits_{n\to\infty}a^{r_n}=\alpha,\ \exists \lim\limits_{n\to \infty}a^{s_n}=\beta,\ \alpha\leq \beta$. Пусть $\alpha < \beta,\ a^{s_n}-a^{r_n}=a^{r_n}(a^{s_n-r_n}-1)\to \beta-\alpha>0?$. Рассмотрим подпоследовательность $0<s_{n_k}-r_{n_k}<\frac{1}{k}$. Тогда $1<a^{s_{n_k}-r_{n_k}}<a^{\frac{1}{k}}$. По теореме о двух милиционерах $a^{s_{n_k}-r_{n_k}}\to 1 \Rightarrow a^{s_{n_k}}-a^{r_{n_k}}\to 0 \Rightarrow \alpha=\beta=a^{x_0}$. Непрерывность и монотонность есть по построению.
                 \item[(v)] При $0<a<1,\ a^x=\frac{1}{(\frac{1}{a})^x}$
             \end{itemize}
             \item Функция, обратная к $y=a^x$ называется логарифмом и обозначается $x=\log_a{y}$. Далее пишем $y=\log_a{x}$.\\
             $\log_{a^{\alpha}}{x^{\beta}}=\frac{\beta}{\alpha}\log_a{x},\ \log_a{xy}=\log_a{x}+\log_a{y}$. Обозначение: $\log_e{x}:=\ln{x}$.
             \item Степенная функция.\\
-            $\forall x>0,\ \forall \alpha\in\R: x^{\alpha}=e^{\alpha\cdot \ln{x}}$. Распостраняем: при $\alpha \geq 0$ доопределяем $x^{\alpha}$ в точке $x_0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
+            $\forall x>0,\ \forall \alpha\in\R: x^{\alpha}=e^{\alpha\cdot \ln{x}}$. Распространяем: при $\alpha \geq 0$ доопределяем $x^{\alpha}$ в точке $x_0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
             \item $y=\sin{x}$. Возьмем окружность единичного радиуса, на $[0,2\pi]$ синус - ордината. $\forall x\in\R: |\sin{x}|\leq |x|,\ \sin{(x+\delta)}-\sin{x}=|2\sin{(\frac{\delta}{2})}\cos{(x+\frac{\delta}{2})}|\leq \delta$. $\cos$ определяем в соответсвтии определения синуса.
             \item $\arcsin{x}$ определяем на области, где будет биекция с $\sin{x}$ (обычно берут $-\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$)
-            \item $\sh{x}=\cfrac{e^x-e^{-x}}{2},\ \ch{x}=\cfrac{e^x+e^{-x}}{2},\ \th{x}=\cfrac{\sh{x}}{\ch{x}}$ и $\cth{x}=\cfrac{\ch{x}}{\sh{x}}$ для этих функций можно получить формулы, аналогичные тем что верны для тригонометрических функций.
+            \item $\sh{x}=\cfrac{e^x-e^{-x}}{2},\ \ch{x}=\cfrac{e^x+e^{-x}}{2},\ \th{x}=\cfrac{\sh{x}}{\ch{x}}$ и $\cth{x}=\cfrac{\ch{x}}{\sh{x}}$ для этих функций можно получить формулы, аналогичные тем, что верны для тригонометрических функций.
         \end{enumerate}
     \subsection{Замечательные пределы}
         \begin{theorem}
@@ -1448,13 +1466,13 @@
         \end{theorem}     
         \begin{proof}
             $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\ctg{x}}\\
-            \Rightarrow \ctg{x}<\frac{\sin{x}}{x}<1$. По теореме о двух миллиционерах $\frac{\sin{x}}{x}\to 1$.
+            \Rightarrow \ctg{x}<\frac{\sin{x}}{x}<1$. По теореме о двух милиционерах $\frac{\sin{x}}{x}\to 1$.
         \end{proof}
         \begin{statement}
             $\lim\limits_{x\to \infty}(1+\frac{1}{x})^x=e$.
         \end{statement} 
         \begin{proof}
-            $\alpha_n\to \infty,\ (1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1} \Rightarrow$ по лемме о двух миллиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. $\beta_n\to -\infty,\ (1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}$.
+            $\alpha_n\to \infty,\ (1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1} \Rightarrow$ по лемме о двух милиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. $\beta_n\to -\infty,\ (1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}$.
         \end{proof} 
         \begin{consequense}
             $\lim\limits_{x\to 0}(1+\frac{1}{x})^{\frac{1}{x}}=e$.
