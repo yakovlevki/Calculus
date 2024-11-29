@@ -1674,10 +1674,8 @@
             Если углы наклона у правой и левой полукасательной отличаются на $\pi$, то образованая этими лучами прямая называется касательной прямой.
         \end{definition} 
         \begin{definition}\tab
-            \begin{enumerate}
-                \item $\tg{\alpha_+}=\lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f^{\prime}_+(x_0)$.
-                \item $\tg{\alpha_-}=\lim\limits_{x\to x_0-0}\frac{f(x)-f(x_0)}{x-x_0}=f^{\prime}_-(x_0)$.
-            \end{enumerate} 
+            \[\tg{\alpha_+}=\lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f^{\prime}_+(x_0)\]
+            \[\tg{\alpha_-}=\lim\limits_{x\to x_0-0}\frac{f(x)-f(x_0)}{x-x_0}=f^{\prime}_-(x_0)\]
         \end{definition} 
         \begin{center}
             \begin{tikzpicture}[scale=2]
@@ -1727,4 +1725,60 @@
             Уравнение касательной имеет вид:
             \[y-y_0=f^{\prime}(x_0)(x-x_0)\]
         \end{definition} 
+        \subsection{Производные и дифференциалы старших порядков}
+        \begin{definition}
+            Пусть $f(x)$ определена в $B(x_0),\ f(x)\in \mathcal{D}(B(x_0))$. Если $\exists (f'(x))'|_{x=x_0}$, то говорят, что у функции есть вторая производная в точке $x_0$, и обозначают $f''(x_0)$. Аналогично определяется производная порядка $n\in \N$, обозначают $f^{(n)}(x)$.
+        \end{definition} 
+        \begin{definition}
+            Пусть $f(x)\in \mathcal{D}(B(x_0))$. Пусть $f'(x)\in \mathcal{D}(B(x_0))$. Возмем первый дифференциал от первого дифференциала 
+            \[\delta(f'(x)dx)=\delta(f'(x))dx=f''(x)\delta x dx\ \ (\ast)\]
+            Выражение $(\ast)$, взятое при $\delta x=dx$, называется вторым дифференциалом $f(x)$, обозначается $d^2f(x)=f''(x)(dx)^2\ (=f''(x)dx^2)$. Аналогично определяется дифференциал порядка $n\in \N$
+            \[\delta(f^{(n-1)}(x)dx)=f^{(n)}(x)dx^{n-1}\delta x|_{\delta x=\delta dx}=f^{(n)}dx^n=d^nf\]
+        \end{definition} 
+        \begin{example} (Неивариантность формы диференциала старших порядков)
+            \[d^2f(x)=f''(x)dx^2\ne f''(x(t))x'(t)^2dt^2\]
+            \[d(df(x(t)))=d(f'(x(t))x'(t)dt)=(f''(x(t))x'(t)^2+f'(x(t))x''(t))dt^2\]
+        \end{example}
+        \begin{definition}
+            Запись $f(x)\in C^n[a,b]$ обзначает, что у функции $f$ есть $n$ производных и они все непрерывны на отрезке $[a,b]$. 
+        \end{definition} 
+        \subsection{Свойства дифференцируемых функций}
+        \begin{definition}
+            $f(x)$ определена в $B(x_0)$. Если  $\forall x\in \mathring{B}(x_0)$. Если $f(x)>f(x_0)$, то $x_0$ - точка минимума. Если $f(x)<f(x_0)$, то $x_0$ - точка максимума. Такие точки называют точками экстремума.
+        \end{definition} 
+        \begin{theorem} (Теорема Ферма)\\
+            Пусть $f(x)$ определена в $B(x_0)$, пусть существует левая и правая поизводные в точке $x_0$. Тогда $f'_-(x)\geq 0$ если $x_0$ - точка максимума $(\leq 0, \min)$. $f'_+(x_0)\leq$ - точка максимума $(\geq 0, \min)$
+        \end{theorem} 
+        \begin{proof} (для возрастающей)\\
+            $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$, если $x\in (x_0-\delta,x_0) \Rightarrow f'_-(x_0)\geq 0$.\\
+            $\frac{f(x)-f(x_0)}{x-x_0}\leq 0$, если $x\in (x_0,x_0+\delta) \Rightarrow f'_+(x_0)\leq 0$.
+        \end{proof} 
+        \begin{consequense}
+            Если $\exists f'(x_0)$, то $f'(x_0)=0$
+        \end{consequense} 
+        \begin{theorem} (Необходимое условие существования экстремума)\\
+            Если $f(x)$ имеет в экстремум в точке $x_0$, то либо $f'(x_0)=0$, либо не буществует производной в точке $x_0$.
+        \end{theorem} 
+        \begin{theorem} (Теорема Ролля)\\
+            Пусть $f(x)\in \mathcal{C}[a,b], f(x)\in \mathcal{D}(a,b)$. Если $f(a)=f(b)$, то $\exists\ c\in (a,b): f'(c)=0$.
+        \end{theorem} 
+        \begin{proof}
+            Если $\exists\ x_{\max}, f(x_{\max})>f(a) \Rightarrow f'(x_{\max})=0$.\\
+            Если $x_{\min},\ f(x_{\min})<f(a) \Rightarrow f'(x_{\min})=0$.\\
+            Если $\forall x\in (a,b): f(x)=f(a)=f(b)$, то $f'(x)=0$
+        \end{proof}
+        \begin{theorem} (Формула Лагранжа, формула дифференциального среднего)\\
+            $f(x)\in \mathcal{C}[a,b],\ f(x)\in \mathcal{D}(a,b)$. Тогда $\exists\ c\in (a,b):$
+            \[f(b)-f(a)=f'(c)(b-a)\]
+        \end{theorem}  
+        \begin{proof}
+            Пусть $\phi(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a).\ \phi(a)=f(a),\\
+            \phi(b)=f(a) \Rightarrow \exists\ c\in (a,b): \phi'(c)=0=f'(c)-\frac{f(b)-f(a)}{b-a}$.
+        \end{proof} 
+        \begin{consequense} (Важное следствие xd)\\
+            Пусть $f(x)\in \mathcal{D}(a,b)$. Если $f'(x)\equiv 0$, то $f(x)=const$.
+        \end{consequense} 
+        \begin{proof}
+            $\forall x_1,x_2\in(a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)=0$
+        \end{proof} 
 \end{document}
