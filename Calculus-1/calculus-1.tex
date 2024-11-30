@@ -1708,7 +1708,7 @@
 
                 %\draw[ultra thick] (1, 0) -- (2, 0);
                 \draw[ultra thick] (0, 0.5) -- (0, 1.5);
-                \draw[ultra thick] (2, 0.5) -- (2, 1.5);
+                %\draw[ultra thick] (2, 0.5) -- (2, 1.5);
                 
                 \draw[domain=-0.3:3,samples=2] plot (\x, {\x - 0.5});
                 \draw[domain=0.3:2.5,samples=100] plot (\x,{0.5*(\x)^2});
@@ -1735,7 +1735,7 @@
             Выражение $(\ast)$, взятое при $\delta x=dx$, называется вторым дифференциалом $f(x)$, обозначается $d^2f(x)=f''(x)(dx)^2\ (=f''(x)dx^2)$. Аналогично определяется дифференциал порядка $n\in \N$
             \[\delta(f^{(n-1)}(x)dx)=f^{(n)}(x)dx^{n-1}\delta x|_{\delta x=\delta dx}=f^{(n)}dx^n=d^nf\]
         \end{definition} 
-        \begin{example} (Неивариантность формы диференциала старших порядков)
+        \begin{example} (Неинвариантность формы дифференциала старших порядков)
             \[d^2f(x)=f''(x)dx^2\ne f''(x(t))x'(t)^2dt^2\]
             \[d(df(x(t)))=d(f'(x(t))x'(t)dt)=(f''(x(t))x'(t)^2+f'(x(t))x''(t))dt^2\]
         \end{example}
@@ -1744,10 +1744,11 @@
         \end{definition} 
         \subsection{Свойства дифференцируемых функций}
         \begin{definition}
-            $f(x)$ определена в $B(x_0)$. Если  $\forall x\in \mathring{B}(x_0)$. Если $f(x)>f(x_0)$, то $x_0$ - точка минимума. Если $f(x)<f(x_0)$, то $x_0$ - точка максимума. Такие точки называют точками экстремума.
+            Пусть $f(x)$ определена в $B(x_0)$. Если  $\forall x\in \mathring{B}(x_0)$ и\\
+            $f(x)>f(x_0)$, то $x_0$ - точка минимума. Если $f(x)<f(x_0)$, то $x_0$ - точка максимума. Такие точки называют точками экстремума.
         \end{definition} 
         \begin{theorem} (Теорема Ферма)\\
-            Пусть $f(x)$ определена в $B(x_0)$, пусть существует левая и правая поизводные в точке $x_0$. Тогда $f'_-(x)\geq 0$ если $x_0$ - точка максимума $(\leq 0, \min)$. $f'_+(x_0)\leq$ - точка максимума $(\geq 0, \min)$
+            Пусть $f(x)$ определена в $B(x_0)$, пусть существует левая и правая поизводные в точке $x_0$. Тогда $f'_-(x)\geq 0$, если $x_0$ - точка максимума $(\leq 0, \min)$. $f'_+(x_0)\leq 0$ - точка максимума $(\geq 0, \min)$
         \end{theorem} 
         \begin{proof} (для возрастающей)\\
             $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$, если $x\in (x_0-\delta,x_0) \Rightarrow f'_-(x_0)\geq 0$.\\
@@ -1757,14 +1758,14 @@
             Если $\exists f'(x_0)$, то $f'(x_0)=0$
         \end{consequense} 
         \begin{theorem} (Необходимое условие существования экстремума)\\
-            Если $f(x)$ имеет в экстремум в точке $x_0$, то либо $f'(x_0)=0$, либо не буществует производной в точке $x_0$.
+            Если $f(x)$ имеет в экстремум в точке $x_0$, то либо $f'(x_0)=0$, либо не существует производной в точке $x_0$.
         \end{theorem} 
         \begin{theorem} (Теорема Ролля)\\
             Пусть $f(x)\in \mathcal{C}[a,b], f(x)\in \mathcal{D}(a,b)$. Если $f(a)=f(b)$, то $\exists\ c\in (a,b): f'(c)=0$.
         \end{theorem} 
         \begin{proof}
-            Если $\exists\ x_{\max}, f(x_{\max})>f(a) \Rightarrow f'(x_{\max})=0$.\\
-            Если $x_{\min},\ f(x_{\min})<f(a) \Rightarrow f'(x_{\min})=0$.\\
+            Если $\exists\ x_{\max}: f(x_{\max})>f(a)\ \forall a \Rightarrow f'(x_{\max})=0$.\\
+            Если $x_{\min}: f(x_{\min})<f(a)\ \forall a \Rightarrow f'(x_{\min})=0$.\\
             Если $\forall x\in (a,b): f(x)=f(a)=f(b)$, то $f'(x)=0$
         \end{proof}
         \begin{theorem} (Формула Лагранжа, формула дифференциального среднего)\\
@@ -1775,10 +1776,92 @@
             Пусть $\phi(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a).\ \phi(a)=f(a),\\
             \phi(b)=f(a) \Rightarrow \exists\ c\in (a,b): \phi'(c)=0=f'(c)-\frac{f(b)-f(a)}{b-a}$.
         \end{proof} 
-        \begin{consequense} (Важное следствие xd)\\
-            Пусть $f(x)\in \mathcal{D}(a,b)$. Если $f'(x)\equiv 0$, то $f(x)=const$.
+        \begin{consequense} (Важное следствие из формулы Лагранжа)\\
+            Пусть $f(x)\in \mathcal{D}(a,b)$. Если $f'(x)\equiv 0$, то $f(x)=$ \textrm{const}.
         \end{consequense} 
         \begin{proof}
             $\forall x_1,x_2\in(a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)=0$
+        \end{proof} 
+        \subsection{Геометрический смысл и приложения формулы Лагранжа}
+        Рисунок\\
+        $f(b)-f(a)=f'(c)(b-a) \Leftrightarrow f'(c)=\frac{f(b)-f(a)}{b-a}$.
+        \begin{theorem} (Формула Коши)\\
+            $f(x),\ g(x)\in \mathcal{C}[a,b],\ f,g \in \mathcal{D}(a,b),\ g'(x)\ne 0 \forall x\in (a,b)$. Тогда $\exists\ c\in (a,b)$ такая, что
+            \[\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}\]
+        \end{theorem} 
+        \begin{proof}
+            Заметим, что $g(b)\ne g(a)$, так как иначе, по теореме Ролля $\exists\ c: g'(x)=0$. Введем функцию 
+            \[\phi(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a))\]
+            $\phi(b)=f(a),\ \phi(a)=f(a)$. Тогда по теореме Ролля $\exists\ c:$
+            \[\phi(c)=0=f'(c)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(c)\]
+        \end{proof} 
+        \begin{theorem} (Связь монотонной и знака производной)\tab
+            \begin{enumerate}
+                \item Пусть $f(x)$ неубывает(невозрастает) на $(a,b)$ и $f(x)\in \mathcal{D}(a,b)$. Тогда $f'(c)\geq 0 (\leq 0)$.
+                \item Пусть $f'(x)\geq 0 (\leq 0)$. Тогда $f(x)$ неубывает (невозрастает).
+                \item Пусть $f'(x)>0 (<0)$. Тогда $f(x)$ строго возрастает (строго убывает).
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{enumerate}
+                \item Пусть неубывает $\forall x_1,x_2\in (a,b): \frac{f(x_2)-f(x_1)}{x_2-x_1}\geq 0 \Rightarrow f'(x)\geq 0$.
+                \item $\forall x_1,x_2\in (a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)$.
+                \item $\forall x_1,x_2\in (a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)$.
+            \end{enumerate}
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$. Если $\exists \lim\limits_{x\to x_0-0}f'(x_0)=f'(x_0-0)$. Тогда $\exists\ f'_-(x_0)=f'(x_0-0)$. Если $\exists\ \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0)$, то $\exists\ f'_+(x_0)=f'(x_0+0)$.
+        \end{theorem}
+        ПРИМЕР
+        \begin{proof}
+            $\frac{f(x)-f(x_0)}{x-x_0}=f'(c)$. При $x\to x_0+0: c\to x_0+0$. Тогда $\exists \lim\limits_{x\to x_0+0}f'(c)=f'(x_0+0) \Leftrightarrow \lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)$.
+        \end{proof} 
+        \begin{consequense}
+            Если $f(x)\in \mathcal{D}$, то $f'(x)$ может иметь разрывы только второго рода.
+        \end{consequense} 
+        \begin{proof}\tab
+            \begin{enumerate}
+                \item Если $f'_-(x_0)=f'_+(x_0)$, то $\exists f'(x_0)=f'_-(x_0)=f_+(x_0)$, значит не бывает устранимых разрывов.
+                \item Если $f'_-(x_0)\ne f'_+(x_0)$, тогда $f'(x_0)$ не существует.
+            \end{enumerate}
+            Таким образом, могут быть разрывы только второго рода.
+        \end{proof} 
+        \begin{theorem} (Теорема Дарбу о промежуточных значениях производной)\\
+            Пусть $f(x)\in \mathcal{D}[a,b],\ f'(a)=A,\ f'(b)=B,\ C$ - число между $A$ и $B$. Тогда $\exists\ c\in [a,b]$ такая, что $f'(c)=C$.
+        \end{theorem} 
+        \tab
+        \begin{proof}
+            Тривиальный случай: Если $A=B$, то очев. Далее $A\ne B$
+            \begin{enumerate}
+                \item Пусть $A<0,\ B>0,\ C=0$. Тогда
+                \[\frac{f(a+\Delta x)-f(a)}{\Delta x}<0 \Rightarrow f(a+\Delta x)<f(a)\] 
+                \[\frac{f(b+\Delta x)-f(b)}{\Delta x}>0 \Rightarrow f(b+\Delta x)<f(b)\]
+                (при достаточно малых $x$)
+                $\Rightarrow x_{\min}\in(a,b) \Rightarrow f'(x_{\min})=0,\ c=x_{\min}$.
+                \item Пусть $A>0,\ B<0,\ C=0$. Тогда рассмотрим $g(x)=-f(x)$, а для нее верен предыдущий случай.
+                \item Пусть $A\ne B$ - любые, $C$ - между $A$ и $B$ - любое. Рассмотри функцию $g(x)=f(x)-Cx$. Тогда $g'(a)=A-C,\ g'(b)=B-C$ и ищем точку $c$ такую, что $g'(c)=0$. Заметим, что $g'(a)$ и $g'(b)$ разных знаков $\Rightarrow g'(c)=0$ (свели к первому и второму случаю).
+            \end{enumerate}
+        \end{proof} 
+        \subsection{Правила Лопиталя}
+        \begin{theorem}
+            Пусть $f(x),g(x)\in \mathcal{D}(B(x_0)),\ f(x_0)=g(x_0)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0),\\
+            g'(x)\ne 0$ в $B(x_0)$. Тогда $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\frac{f'(x_0)}{g'(x_0)}$
+        \end{theorem} 
+        \begin{proof}
+            \[\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim\limits_{x\to x_0}\frac{\frac{f(x)-f(x_0)}{x-x_0}}{\frac{g(x)-g(x_0)}{x-x_0}}=\frac{f'(x_0)}{g'(x_0)}\]
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f,g\in \mathcal{D}(\mathring{B}(x_0)),\ \lim\limits_{x\to x_0}f(x)=0,\ \lim\limits_{x\to x_0}g(x)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0),\ g'(x)\ne 0$ в $\mathring{B}(x_0)$. Тогда если $\exists \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$, и если $\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty$.
+        \end{theorem} 
+        \begin{proof}при $x\to x_0,\ c\to x_0$.
+            \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\]
+            Если $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A$, то $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$.\\
+            Если $\frac{f'(c)}{g'(c)}\to \infty,\ x\to x_0$, то $\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\to \infty$ при $x\to x_0$.
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f(x), g(x)\in \mathcal{D}(a,+\infty),\ \exists \lim\limits_{x\to +\infty}f(x)=0,\ \exists \lim\limits_{x\to +\infty}g(x)=0,\ g(x)\ne 0,\ f(x)\ne 0$, тогда если $\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to +\infty}=A$. Если $\frac{f'}{g'}\to \infty,\ x\to +\infty$, то $\frac{f}{g}\to \infty,\ x\to +\infty$. 
+        \end{theorem} 
+        \begin{proof}
+            Упражнение: свести теорему к предыдущей
         \end{proof} 
 \end{document}
