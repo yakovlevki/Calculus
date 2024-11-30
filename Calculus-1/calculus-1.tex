@@ -1710,8 +1710,8 @@
                 \draw[ultra thick] (0, 0.5) -- (0, 1.5);
                 %\draw[ultra thick] (2, 0.5) -- (2, 1.5);
                 
-                \draw[domain=-0.3:3,samples=2] plot (\x, {\x - 0.5});
-                \draw[domain=0.3:2.5,samples=100] plot (\x,{0.5*(\x)^2});
+                \draw[domain=-0.3:3,samples=2] plot (\x, {\x - 0.5}) node[above right] {$y=f'(x_0)(x-x_0)+f(x_0)$};
+                \draw[domain=0.3:2.5,samples=100] plot (\x,{0.5*(\x)^2}) node[above right] {$f$};
                 
                 \draw[dashed][domain=0:2,samples=2] plot (\x, {0.5});
                 \draw[dashed][domain=0:2,samples=2] plot (\x, {2});
@@ -1768,13 +1768,16 @@
             Если $x_{\min}: f(x_{\min})<f(a)\ \forall a \Rightarrow f'(x_{\min})=0$.\\
             Если $\forall x\in (a,b): f(x)=f(a)=f(b)$, то $f'(x)=0$
         \end{proof}
+        \subsection{Формула Лагранжа. Геометрический смысл и приложения}
         \begin{theorem} (Формула Лагранжа, формула дифференциального среднего)\\
             $f(x)\in \mathcal{C}[a,b],\ f(x)\in \mathcal{D}(a,b)$. Тогда $\exists\ c\in (a,b):$
             \[f(b)-f(a)=f'(c)(b-a)\]
         \end{theorem}  
         \begin{proof}
-            Пусть $\phi(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a).\ \phi(a)=f(a),\\
-            \phi(b)=f(a) \Rightarrow \exists\ c\in (a,b): \phi'(c)=0=f'(c)-\frac{f(b)-f(a)}{b-a}$.
+            Введем функцию $\phi(x):$
+            \[\phi(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a)\Rightarrow \phi(a)=f(a),\ \phi(b)=f(a)\]
+            Тогда по теореме Ролля $\exists\ c\in (a,b):$ 
+            \[\phi'(c)=f'(c)-\frac{f(b)-f(a)}{b-a}=0\]
         \end{proof} 
         \begin{consequense} (Важное следствие из формулы Лагранжа)\\
             Пусть $f(x)\in \mathcal{D}(a,b)$. Если $f'(x)\equiv 0$, то $f(x)=$ \textrm{const}.
@@ -1782,46 +1785,78 @@
         \begin{proof}
             $\forall x_1,x_2\in(a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)=0$
         \end{proof} 
-        \subsection{Геометрический смысл и приложения формулы Лагранжа}
-        Рисунок\\
-        $f(b)-f(a)=f'(c)(b-a) \Leftrightarrow f'(c)=\frac{f(b)-f(a)}{b-a}$.
+        Геометрически теорема Лагранжа означает, что в некоторой точке $(c, f(c))$, где $c\in (a,b)$, касательная к графику функции будет параллельна хорде, соединяющей точки $(a,f(a))$ и $(b,f(b))$.
+        \[f(b)-f(a)=f'(c)(b-a) \Leftrightarrow f'(c)=\frac{f(b)-f(a)}{b-a}\]
+        \begin{center}
+            \begin{tikzpicture}[scale=1]
+                \draw[->] (-1, 0) -- (7, 0) node[right] {$x$};
+                \draw[->] (0, -1) -- (0, 7) node[above] {$y$};
+                \draw[domain=0.6:5.6,samples=100] plot (\x,{0.2*(\x-3)^3+3}) node[above right] {$f$};
+                
+                \coordinate (O) at (0,0);
+                \coordinate (x1) at (1,0);
+                \coordinate (x2) at (5.3,0);
+                \coordinate (y1) at (1,1.4);
+                \coordinate (y2) at (5.3,5.4334);
+
+                \draw[fill] (x1) circle (2pt) node[below] {$a$};
+                \draw[fill] (x2) circle (2pt) node[below] {$b$};
+                \draw[fill] (y1) circle (2pt);
+                \draw[fill] (y2) circle (2pt);
+
+                \draw[dashed] (x1) -- (y1);
+                \draw[dashed] (x2) -- (y2);
+                \draw (y1) -- (y2);
+                \draw[dashed] [domain=1:2.5, samples=2] plot (\x, {0.938* (\x) +0.965});
+                \draw[dashed] [domain=3.5:5, samples=2] plot (\x, {0.938* (\x) -0.6});
+            \end{tikzpicture}
+        \end{center}
+        Отметим, что точек, удовлетворяющих формуле Лагранжа, может быть несколько.
         \begin{theorem} (Формула Коши)\\
-            $f(x),\ g(x)\in \mathcal{C}[a,b],\ f,g \in \mathcal{D}(a,b),\ g'(x)\ne 0 \forall x\in (a,b)$. Тогда $\exists\ c\in (a,b)$ такая, что
+            Пусть $f(x),g(x)\in \mathcal{C}[a,b],\ f(x),g(x) \in \mathcal{D}(a,b),\ g'(x)\ne 0\ \forall x\in (a,b)$. Тогда $\exists\ c\in (a,b)$ такая, что
             \[\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}\]
         \end{theorem} 
         \begin{proof}
-            Заметим, что $g(b)\ne g(a)$, так как иначе, по теореме Ролля $\exists\ c: g'(x)=0$. Введем функцию 
-            \[\phi(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a))\]
-            $\phi(b)=f(a),\ \phi(a)=f(a)$. Тогда по теореме Ролля $\exists\ c:$
-            \[\phi(c)=0=f'(c)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(c)\]
+            Заметим, что $g(b)\ne g(a)$, так как иначе, по теореме Ролля существует $c\in (a,b): g'(c)=0$. Введем функцию $\phi(x):$
+            \[\phi(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a)) \Rightarrow \phi(b)=f(a),\ \phi(a)=f(a)\]
+            Тогда по теореме Ролля $\exists\ c\in (a,b):$
+            \[\phi(c)=f'(c)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(c)=0\]
         \end{proof} 
-        \begin{theorem} (Связь монотонной и знака производной)\tab
+        \begin{theorem} (Связь монотонной функции и знака ее производной)\tab
             \begin{enumerate}
-                \item Пусть $f(x)$ неубывает(невозрастает) на $(a,b)$ и $f(x)\in \mathcal{D}(a,b)$. Тогда $f'(c)\geq 0 (\leq 0)$.
-                \item Пусть $f'(x)\geq 0 (\leq 0)$. Тогда $f(x)$ неубывает (невозрастает).
-                \item Пусть $f'(x)>0 (<0)$. Тогда $f(x)$ строго возрастает (строго убывает).
+                \item Пусть $f(x)$ неубывает (невозрастает) на $(a,b)$ и $f(x)\in \mathcal{D}(a,b)$. Тогда $f'(c)\geq 0\ (f'(c)\leq 0)\ \forall c\in (a,b)$.
+                \item Пусть $f'(x)\geq 0\ (f'(x)\leq 0)$. Тогда $f(x)$ неубывает (невозрастает).
+                \item Пусть $f'(x)>0\ (f'(x)<0)$. Тогда $f(x)$ строго возрастает (строго убывает).
             \end{enumerate}
         \end{theorem} 
-        \begin{proof}\tab
+        \begin{proof}Воспользуемся формулой Лагранжа
             \begin{enumerate}
-                \item Пусть неубывает $\forall x_1,x_2\in (a,b): \frac{f(x_2)-f(x_1)}{x_2-x_1}\geq 0 \Rightarrow f'(x)\geq 0$.
-                \item $\forall x_1,x_2\in (a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)$.
-                \item $\forall x_1,x_2\in (a,b): f(x_2)-f(x_1)=f'(c)(x_2-x_1)$.
+                \item Докажем для неубывающей: $\forall x_1,x_2\in (a,b),\ x_1\leq x_2:$
+                \[\frac{f(x_2)-f(x_1)}{x_2-x_1}\geq 0 \Rightarrow f'(x)\geq 0\]
+                \item Докажем для неубывающей: $\forall x_1,x_2\in (a,b),\ x_1\leq x_2:$ 
+                \[f(x_2)-f(x_1)=f'(c)(x_2-x_1) \Rightarrow f'(c)=\frac{f(x_2)-f(x_1)}{x_2-x_1}\geq 0\]
+                \item Докажем для возрастающей: $\forall x_1,x_2\in (a,b),\ x_1< x_2:$ 
+                \[f(x_2)-f(x_1)=f'(c)(x_2-x_1) \Rightarrow f'(c)=\frac{f(x_2)-f(x_1)}{x_2-x_1}> 0\]
             \end{enumerate}
         \end{proof} 
         \begin{theorem}
-            Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$. Если $\exists \lim\limits_{x\to x_0-0}f'(x_0)=f'(x_0-0)$. Тогда $\exists\ f'_-(x_0)=f'(x_0-0)$. Если $\exists\ \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0)$, то $\exists\ f'_+(x_0)=f'(x_0+0)$.
+            Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$
+            \begin{enumerate}
+                \item Если $\exists \lim\limits_{x\to x_0-0}f'(x_0)=f'(x_0-0)$, то $\exists\ f'_-(x_0)$ и $f'_-(x_0)=f'(x_0-0)$. 
+                \item Если $\exists\ \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0)$, то $\exists\ f'_+(x_0)$ и $f'_+(x_0)=f'(x_0+0)$.
+            \end{enumerate}
         \end{theorem}
-        ПРИМЕР
         \begin{proof}
-            $\frac{f(x)-f(x_0)}{x-x_0}=f'(c)$. При $x\to x_0+0: c\to x_0+0$. Тогда $\exists \lim\limits_{x\to x_0+0}f'(c)=f'(x_0+0) \Leftrightarrow \lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)$.
+            \[f'(c)=\frac{f(x)-f(x_0)}{x-x_0},\ x\to x_0+0,\ c\to x_0+0\]
+            Тогда 
+            \[\exists \lim\limits_{x\to x_0+0}f'(c)=f'(x_0+0) \Leftrightarrow \lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)\]
         \end{proof} 
         \begin{consequense}
-            Если $f(x)\in \mathcal{D}$, то $f'(x)$ может иметь разрывы только второго рода.
+            Если $f(x)\in \mathcal{D}(a,b)$, то $f'(x)$ может иметь разрывы только второго рода.
         \end{consequense} 
-        \begin{proof}\tab
+        \begin{proof} Покажем, что у такой функции не может быть устранимых разрывов и разрывов первого рода:
             \begin{enumerate}
-                \item Если $f'_-(x_0)=f'_+(x_0)$, то $\exists f'(x_0)=f'_-(x_0)=f_+(x_0)$, значит не бывает устранимых разрывов.
+                \item Если $f'_-(x_0)=f'_+(x_0)$, то $\exists\ f'(x_0)=f'_-(x_0)=f_+(x_0)$.
                 \item Если $f'_-(x_0)\ne f'_+(x_0)$, тогда $f'(x_0)$ не существует.
             \end{enumerate}
             Таким образом, могут быть разрывы только второго рода.
@@ -1829,7 +1864,6 @@
         \begin{theorem} (Теорема Дарбу о промежуточных значениях производной)\\
             Пусть $f(x)\in \mathcal{D}[a,b],\ f'(a)=A,\ f'(b)=B,\ C$ - число между $A$ и $B$. Тогда $\exists\ c\in [a,b]$ такая, что $f'(c)=C$.
         \end{theorem} 
-        \tab
         \begin{proof}
             Тривиальный случай: Если $A=B$, то очев. Далее $A\ne B$
             \begin{enumerate}
@@ -1839,27 +1873,30 @@
                 (при достаточно малых $x$)
                 $\Rightarrow x_{\min}\in(a,b) \Rightarrow f'(x_{\min})=0,\ c=x_{\min}$.
                 \item Пусть $A>0,\ B<0,\ C=0$. Тогда рассмотрим $g(x)=-f(x)$, а для нее верен предыдущий случай.
-                \item Пусть $A\ne B$ - любые, $C$ - между $A$ и $B$ - любое. Рассмотри функцию $g(x)=f(x)-Cx$. Тогда $g'(a)=A-C,\ g'(b)=B-C$ и ищем точку $c$ такую, что $g'(c)=0$. Заметим, что $g'(a)$ и $g'(b)$ разных знаков $\Rightarrow g'(c)=0$ (свели к первому и второму случаю).
+                \item Пусть $A\ne B$ - любые, $C$ - между $A$ и $B$ - любое. Рассмотрим функцию $g(x)=f(x)-Cx$. Тогда $g'(a)=A-C,\ g'(b)=B-C$. Заметим, что $g'(a)$ и $g'(b)$ разных знаков $\Rightarrow \exists\ g'(c)=0$ (свели к первому и второму случаю).
             \end{enumerate}
         \end{proof} 
         \subsection{Правила Лопиталя}
         \begin{theorem}
-            Пусть $f(x),g(x)\in \mathcal{D}(B(x_0)),\ f(x_0)=g(x_0)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0),\\
-            g'(x)\ne 0$ в $B(x_0)$. Тогда $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\frac{f'(x_0)}{g'(x_0)}$
+            Пусть $f(x),g(x)\in \mathcal{D}(B(x_0)),\ f(x_0)=g(x_0)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0)$ и\\
+            $g'(x)\ne 0$ в $B(x_0)$. Тогда $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\frac{f'(x_0)}{g'(x_0)}$
         \end{theorem} 
         \begin{proof}
             \[\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim\limits_{x\to x_0}\frac{\frac{f(x)-f(x_0)}{x-x_0}}{\frac{g(x)-g(x_0)}{x-x_0}}=\frac{f'(x_0)}{g'(x_0)}\]
         \end{proof} 
         \begin{theorem}
-            Пусть $f,g\in \mathcal{D}(\mathring{B}(x_0)),\ \lim\limits_{x\to x_0}f(x)=0,\ \lim\limits_{x\to x_0}g(x)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0),\ g'(x)\ne 0$ в $\mathring{B}(x_0)$. Тогда если $\exists \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$, и если $\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty$.
+            Пусть $f(x),g(x)\in \mathcal{D}(\mathring{B}(x_0)),\ \lim\limits_{x\to x_0}f(x)=0,\ \lim\limits_{x\to x_0}g(x)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0)$ и $g'(x)\ne 0$ в $\mathring{B}(x_0)$. Тогда если $\exists \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$.\\
+            А также, если $\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty$.
         \end{theorem} 
-        \begin{proof}при $x\to x_0,\ c\to x_0$.
+        \begin{proof} При $x\to x_0,\ c\to x_0$ справедливо:
             \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\]
             Если $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A$, то $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$.\\
-            Если $\frac{f'(c)}{g'(c)}\to \infty,\ x\to x_0$, то $\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\to \infty$ при $x\to x_0$.
+            Если $\frac{f'(c)}{g'(c)}\to \infty$, при $x\to x_0$, то $\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\to \infty$ при $x\to x_0$.
         \end{proof} 
         \begin{theorem}
-            Пусть $f(x), g(x)\in \mathcal{D}(a,+\infty),\ \exists \lim\limits_{x\to +\infty}f(x)=0,\ \exists \lim\limits_{x\to +\infty}g(x)=0,\ g(x)\ne 0,\ f(x)\ne 0$, тогда если $\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to +\infty}=A$. Если $\frac{f'}{g'}\to \infty,\ x\to +\infty$, то $\frac{f}{g}\to \infty,\ x\to +\infty$. 
+            Пусть $f(x), g(x)\in \mathcal{D}(a,+\infty),\ \exists \lim\limits_{x\to +\infty}f(x)=0,\ \exists \lim\limits_{x\to +\infty}g(x)=0,\\
+            g(x)\ne 0,\ f(x)\ne 0$, тогда если $\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to +\infty}=A$.\\
+            Если $\frac{f'(x)}{g'(x)}\to \infty,\ x\to +\infty$, то $\frac{f(x)}{g(x)}\to \infty,\ x\to +\infty$. 
         \end{theorem} 
         \begin{proof}
             Упражнение: свести теорему к предыдущей
