@@ -1901,4 +1901,111 @@
         \begin{proof}
             Упражнение: свести теорему к предыдущей
         \end{proof} 
+        \begin{theorem}
+            Пусть $f(x),\ g(x)\in \mathcal{D}(a-\delta, a),\ f(x),g(x)\to \pm \infty,\ x\to a-0,\\
+            g'(x)\ne 0$. Если $\exists \lim\limits_{x\to a-0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to a-0}\frac{f(x)}{g(x)}=A$. Если $\frac{f'(x)}{g'(x)}\to \pm \infty$, то $\frac{f(x)}{g(x)}\to \pm \infty$.
+        \end{theorem} 
+        \begin{proof}
+            $x_0<x<a$,\ 
+            \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)} \Rightarrow f(x)=f(x_0)+\frac{f'(c)}{g'(c)}g(x)-\frac{f'(c)}{g'(c)}g(x_0)\].
+            \[\frac{f(x)}{g(x)}=\frac{f(x_0)}{g(x)}+\frac{f'(c)}{g'(c)}-\frac{f'(c)}{g'(c)}\cdot \frac{g(x_0)}{g(x)}\]
+            Тогда $\forall \epsilon>0 \exists\ \delta_1>0,\ \forall x\in (a-\delta_1, a): |\frac{f'(x)}{g'(x)}-A|<\epsilon$. Нам понадобится: $|\frac{f'(x)}{g'(x)}|<|A|+\epsilon$.\\
+            \[|\frac{f(x)}{g(x)}-A|\leq |\frac{f(x_0)}{g(x)}|+|\frac{f'(c)}{g'(c)}-A|+|\frac{f'(c)}{g'(c)}|\cdot |\frac{g(x_0)}{g(x)}|\]
+            $x_0\in (a-\delta_1, a)$. Заметим, что $|\frac{f'(c)}{g'(c)}-A|<\epsilon,\ x\in (a-\delta_2, a): |\frac{f(x_0)}{g(x)}|<\epsilon$ и $|\frac{g(x_0)}{g(x)}|<\frac{\epsilon}{|A|+\epsilon}$. Значит $|\frac{f(x)}{g(x)}-A|<3\epsilon$.
+            \\
+            Если $\frac{f'(x)}{g'(x)}\to \pm \infty$, то $\frac{f'(x)}{g'(x)}$
+        \end{proof} 
+        \subsection{Формулы Тейлора}
+        \begin{definition}
+            Пусть $\exists\ f^{(n)}(x_0)$. Формула
+            \[f(x)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+r_n(x,x_0)\]
+            называется формулой Тейлора с центорм в точке $x_0$ и остаточным членом $r_n(x,x_0)$.
+        \end{definition} 
+        \begin{theorem} (Формула Тейлора с остаточным членом в форме Пеано)\\
+            Пусть $\exists\ f^{(n)}(x_0)$. Тогда остаточный член $r_n(x,x_0)=\bar{\bar{o}}{(x-x_0)^n},\ x\to x_0$.
+        \end{theorem} 
+        \begin{proof}
+            \begin{multline*}
+                \lim\limits_{x\to x_0}\frac{r_n(x,x_0)}{(x-x_0)^n}=\lim\limits_{x\to x_0}\frac{f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}{(x-x_0)^n}=\\
+                =\lim\limits_{x\to x_0}\frac{f'(x)-\sum\limits_{k-1}^{n}\frac{f^{(k)}(x_0)}{(k-1)!}(x-x_0)^{k-1}}{n(x-x_0)^{n-1}}=\dots=\tab[3cm]\\
+                \tab[3cm]=\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)-f^{(n)}(x_0)(x-x_0)}{n!(x-x_0)}=\\
+                =\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)=0
+            \end{multline*}
+        \end{proof} 
+        \begin{theorem} (Остаточный член в общей форме)\\
+            Пусть $f(t)\in \mathcal{C}^n[x_0,x],\ f^{(n)}\in \mathcal{D}(x_0,x),\ \phi(t)\in \mathcal{C}[x_0,x],\ \phi(t)\in \mathcal{D}(x_0,x),\\
+            \phi'(t)\ne 0$. Тогда $\exists\ c\in (x_0,x)$ такая, что 
+            \[r_n(x_0,x)= \frac{\phi(x)-\phi(x_0)}{\phi'(c)}\cdot \frac{f^{(n+1)}(c)}{n!}(x-c)^n\]
+        \end{theorem} 
+        \begin{proof}
+            Введем вспомогательную функцию
+            \[\psi(t)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(t)}{k!}(x-t)^k\]
+            \[\psi(x_0)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k,\ \psi(x)=f(x)\]
+            \begin{multline*}
+                \frac{r_n(x,x_0)}{\phi(x)-\phi(x_0)}=\frac{\psi(x)-\psi(x_0)}{\phi(x)-\phi(x_0)}=\frac{\psi'(c)}{\phi'(c)}=\\
+                =\frac{1}{\phi'(c)}(\sum\limits_{k=0}^{n}\frac{f^{(k+1)}(c)}{k!}(x-c)^k-\sum\limits_{k=1}^{n}\frac{f^{(k)}(c)}{(k-1)!}(x-c)^{k-1})=\\
+                =\frac{1}{\phi'(c)}\cdot \frac{f^{(n+1)}(c)}{n!}(x-c)^n
+            \end{multline*}
+            Отсюда
+            \[r_n(x,x_0)=\frac{\phi(x)-\phi(x_0)}{\phi'(c)}\cdot \frac{f^{(n+1)}(c)}{n!}(x-c)^n\]
+        \end{proof} 
+        \begin{consequense}
+            В форме Лагранжа
+        \end{consequense}
+        \subsubsection*{Формулы Тейлора элементарных функций с центром в нуле}
+            \[e^x=\sum\limits_{k=0}^{n}\frac{x^k}{k!}+\bar{\bar{o}}{(x^n)},\ x\to 0\]
+            \[\sin{x}=\sum\limits_{k=0}^{n}\frac{x^{2k+1}}{(2k+1)!}(-1)^k+\bar{\bar{o}}{(x^{2n+1})}\]
+            \[\cos{x}= \sum\limits_{k=0}^{n}\frac{x^{2k}}{(2k)!}(-1)^{k}+\bar{\bar{o}}{(x^{2n})}\]
+            \[\ln{(1+x)}=\sum\limits_{k=1}^{n}\frac{x^k}{k}(-1)^{k+1}+\bar{\bar{o}}{(x^n)}\]
+            \[(1+x)^{\alpha}=1+\sum\limits_{k=1}^{n}
+            \begin{pmatrix}
+                \alpha\\
+                k
+            \end{pmatrix}
+            x^n,\ 
+            \begin{pmatrix}
+                \alpha\\
+                k
+            \end{pmatrix}
+            =\frac{\alpha(\alpha-1)\dots(\alpha-k+1)}{k!}
+            \]
+        
+            \begin{example}
+            Рассмотрим несколько первых членов ряда для синуса
+            \[\includegraphics[width=0.7\linewidth]{sin1.png}\]
+            \[\sin{x}=x+\bar{\bar{o}}{(x)}\]
+            \[\includegraphics[width=0.7\linewidth]{sin2.png}\]
+            \[\sin{x}=x-\frac{x^3}{3!}+\bar{\bar{o}}{(x^3)}\]\\
+            \[\includegraphics[width=0.7\linewidth]{sin3.png}\]
+            \[\sin{x}=x-\frac{x^3}{3!}+\frac{x^5}{5!}+\bar{\bar{o}}{(x^5)}\]\\
+            \[\includegraphics[width=0.7\linewidth]{sin4.png}\]
+            \[\sin{x}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\bar{\bar{o}}{(x^7)}\]
+        \end{example}
+        \subsection{Экстремум функции}
+        \begin{theorem}
+            Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$. \\
+            Если при $x<x_0: f'(x)>0$ или при $x>x_0: f'(x)<0$, то $x_0$ - точка максимума.\\
+            Если при $x<x_0: f'(x)<0$ или при $x>x_0: f'(x)>0$то $x_0$ - точка минимума.
+        \end{theorem} 
+        \begin{proof}
+            По формуле Лагранжа: $f(x)-f(x_0)=f'(c)(x-x_0)$
+        \end{proof} 
+        \begin{theorem}
+            Пусть $\exists\ f^{(n)}(x_0)\ne 0,\ f^{(k)(x_0)}=0,\ k=1, \dots, n-1$.
+            \begin{enumerate}
+                \item Если $n=2k+1$, то экстремум нет.
+                \item Если $n=2k$, то при $f^{(2k)}(x_0)>0$ - $x_0$ точка минимума.\\
+                при $f^{(2k)}(x_0)<0$ - $x_0$ точка максимума.
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            $f(x)=f(x_0)+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\bar{\bar{o}}{(x-x_0)^n},\ x\to x_0\\
+            \Rightarrow f(x)-f(x_0)=(x-x_0)^n(\frac{f^{(n)}}{n!}+\bar{\bar{o}}{(1)})$
+        \end{proof} 
+        \subsubsection*{Схема поика глобального экстремума}
+        \begin{enumerate}
+            \item Ищем точки интервала $(a,b)$, где $f'(x)=0$ или где ее не существует. 
+            \item Находим значение во всех этих точках и значения на концах открезка.
+        \end{enumerate}
+        
 \end{document}
