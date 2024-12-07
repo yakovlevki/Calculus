@@ -1466,62 +1466,96 @@
             \item Показательная функция\\
             Пусть $a>1$
             \begin{itemize}
-                \item[(i)] $n\in \N,\ a^n=\prod\limits_{j=1}^n a;\ a^{n+m}=a^n a^m$
-                \item[(ii)] $n\in \Z,\ n=-k,\ k\in \N$, тогда $a^{-k}=\frac{1}{a^k},\ a^0=1$
-                \item[(iii)] $a^\frac{1}{n}: b^n=a$ в $\R_{+}$ (строго положительные числа). Пусть $A=\{x\in \R_{+}: x^n\leq a\},\ B=\{x\in \R_{+}: x^n>a\},\ A\cup B=\R_{+}$. По аксиоме полноты $\exists\ b: x_1\leq b\leq x_2,\ \forall x_1\in A,\ \forall x_2\in B$ и $b=a^{\frac{1}{n}}$. $\forall \frac{m}{n}\in \Q\ a^{\frac{m}{n}}=(a^{\frac{1}{n}})^m;\ a^{r_1+r_2}=a^{r_1}a^{r_2},\ (a^{\frac{m_1}{n_1}}\ V\ a^{\frac{m_2}{n_2}})^{n_1 n_2}\Rightarrow a^{m_1 n_2}\ V\ a^{m_2 n_1}$.
-                \item[(iv)] $\lim\limits_{n\to \infty} a^{\frac{1}{n}}=1$. $(1+\frac{a}{n})^n>1+a>a \Rightarrow 1+\frac{a}{n}>a^{\frac{1}{n}}>1$ по теореме о двух милиционерах $a^{\frac{1}{n}}\to 1$.\\
-                Пусть $\forall x_0\in \R,\ r_n\to x_0-0,\ s_n\to x_0+0$. Тогда $\exists \lim\limits_{n\to\infty}a^{r_n}=\alpha,\ \exists \lim\limits_{n\to \infty}a^{s_n}=\beta,\ \alpha\leq \beta$. Пусть $\alpha < \beta,\ a^{s_n}-a^{r_n}=a^{r_n}(a^{s_n-r_n}-1)\to \beta-\alpha>0?$. Рассмотрим подпоследовательность $0<s_{n_k}-r_{n_k}<\frac{1}{k}$. Тогда $1<a^{s_{n_k}-r_{n_k}}<a^{\frac{1}{k}}$. По теореме о двух милиционерах $a^{s_{n_k}-r_{n_k}}\to 1 \Rightarrow a^{s_{n_k}}-a^{r_{n_k}}\to 0 \Rightarrow \alpha=\beta=a^{x_0}$. Непрерывность и монотонность есть по построению.
-                \item[(v)] При $0<a<1,\ a^x=\frac{1}{(\frac{1}{a})^x}$
+                \item[(i)] Определим показательную функцию для натурального аргумента: \\
+                $a^n:=\prod\limits_{j=1}^n a,\ n\in \N$, из определения очевидно свойство: $a^{n+m}=a^n a^m$.
+                \item[(ii)] Для целого аргумента $n$ определим функцию так: 
+                \[a^n:=\begin{cases}
+                    a^n,\ n\in \N,\\
+                    \frac{1}{a^k},\ n = -k,\ k\in \N,\\
+                    1,\ n=0.
+                \end{cases}\]
+                \item[(iii)] Теперь доопределим функцию для рационального аргумента:\\
+                Пусть $a^\frac{1}{n}=b$, где $b^n=a,\ a,b\in \R_{\geq 1}$. Пусть $A=\{x\in \R_{\geq 1}: x^n\leq a\},\\
+                B=\{x\in \R_{\geq 1}: x^n>a\},\ A\cup B=\R_{\geq 1}$. По аксиоме полноты \\
+                $\exists\ b: x_1\leq b\leq x_2,\ \forall x_1\in A,\ \forall x_2\in B$ и $b=a^{\frac{1}{n}}$.\\
+                Далее $\forall\ \frac{m}{n}\in \Q,\ a^{\frac{m}{n}}:=(a^{\frac{1}{n}})^m$. 
+                %Из определения вытекают очевидные свойства: $a^{r_1+r_2}=a^{r_1}a^{r_2}$, для того чтобы сравнить $(a^{\frac{m_1}{n_1}}$ и $a^{\frac{m_2}{n_2}})^{n_1 n_2}$ достаточно сравнить $a^{m_1 n_2}$ и $a^{m_2 n_1}$.
+                \item[(iv)] $\lim\limits_{n\to \infty} a^{\frac{1}{n}}=1$.
+                \[(1+\frac{a}{n})^n>1+a>a \Rightarrow 1+\frac{a}{n}>a^{\frac{1}{n}}>1\]
+                по теореме о двух милиционерах $a^{\frac{1}{n}}\to 1$.\\
+                Пусть $\forall x_0\in \R,\ r_n\to x_0-0,\ s_n\to x_0+0$. Тогда 
+                \[\exists \lim\limits_{n\to\infty}a^{r_n}=\alpha,\ \exists \lim\limits_{n\to \infty}a^{s_n}=\beta,\ \alpha\leq \beta\]
+                Пусть $\alpha < \beta,\ a^{s_n}-a^{r_n}=a^{r_n}(a^{s_n-r_n}-1)\to \beta-\alpha>0$. Рассмотрим подпоследовательность $0<s_{n_k}-r_{n_k}<\frac{1}{k}$. Тогда $1<a^{s_{n_k}-r_{n_k}}<a^{\frac{1}{k}}$.\\
+                По теореме о двух милиционерах \[a^{s_{n_k}-r_{n_k}}\to 1 \Rightarrow a^{s_{n_k}}-a^{r_{n_k}}\to 0 \Rightarrow \alpha=\beta=a^{x_0}\]
+                Непрерывность и монотонность есть по построению.
+                \item[(v)] Доопределим функцию при $0<a<1$:
+                \[a^x:=\frac{1}{(\frac{1}{a})^x}\]
             \end{itemize}
-            \item Функция, обратная к $y=a^x$ называется логарифмом и обозначается $x=\log_a{y}$. Далее пишем $y=\log_a{x}$.\\
-            $\log_{a^{\alpha}}{x^{\beta}}=\frac{\beta}{\alpha}\log_a{x},\ \log_a{xy}=\log_a{x}+\log_a{y}$. Обозначение: $\log_e{x}:=\ln{x}$.
+            \item Функция, обратная к $y=a^x$ называется логарифмом и обозначается 
+            \[x=\log_a{y}\]
+            Далее пишем $y=\log_a{x}$. Известны следующие свойства:\\
+            \[\log_{a^{\alpha}}{x^{\beta}}=\frac{\beta}{\alpha}\log_a{x},\ \log_a{xy}=\log_a{x}+\log_a{y}\]
+            Отдельно выделяют $\log_e{x}$, его называют натуральным логарифмом и обозначают $\ln{x}$.
             \item Степенная функция.\\
-            $\forall x>0,\ \forall \alpha\in\R: x^{\alpha}=e^{\alpha\cdot \ln{x}}$. Распространяем: при $\alpha \geq 0$ доопределяем $x^{\alpha}$ в точке $x_0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
-            \item $y=\sin{x}$. Возьмем окружность единичного радиуса, на $[0,2\pi]$ синус - ордината. $\forall x\in\R: |\sin{x}|\leq |x|,\ \sin{(x+\delta)}-\sin{x}=|2\sin{(\frac{\delta}{2})}\cos{(x+\frac{\delta}{2})}|\leq \delta$. $\cos$ определяем в соответсвтии определения синуса.
-            \item $\arcsin{x}$ определяем на области, где будет биекция с $\sin{x}$ (обычно берут $-\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$)
-            \item $\sh{x}=\cfrac{e^x-e^{-x}}{2},\ \ch{x}=\cfrac{e^x+e^{-x}}{2},\ \th{x}=\cfrac{\sh{x}}{\ch{x}}$ и $\cth{x}=\cfrac{\ch{x}}{\sh{x}}$ для этих функций можно получить формулы, аналогичные тем, что верны для тригонометрических функций.
+            $\forall x>0,\ \forall \alpha\in\R$ степенная функция определяется как \[x^{\alpha}:=e^{\alpha\cdot \ln{x}}\]
+            Распространяем: при $\alpha \geq 0$ доопределим $x^{\alpha}$ в точке $x_0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем\\
+            $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
+            \item Тригонометрические функции:\\ 
+            $y=\sin{x}$ определим так: возьмем окружность единичного радиуса, на $[0,2\pi]$ синус - ордината.\\
+            $\forall x\in\R: |\sin{x}|\leq |x|,\ \sin{(x+\delta)}-\sin{x}=|2\sin{(\frac{\delta}{2})}\cos{(x+\frac{\delta}{2})}|\leq \delta$.\\
+            $\cos{x}$ определяем в соответствии с определением синуса.
+            \[\tg{x}=\frac{\sin{x}}{\cos{x}},\ \ctg={\frac{\cos{x}}{\sin{x}}}\]
+            \item Обратные тригонометрические функции:\\
+            $y=\arcsin{x}$, обратную к $\sin{x}$ определяем на области, где будет биекция с $\sin{x}$ (обычно берут $-\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$). Аналогично определяются обратные к $\cos{x},\ \tg{x}$ и $\ctg{x}$.
+            \item Гиперболические функции:
+            \[\sh{x}=\frac{e^x-e^{-x}}{2},\ \ch{x}=\frac{e^x+e^{-x}}{2},\ \th{x}=\frac{\sh{x}}{\ch{x}},\ \cth{x}=\frac{\ch{x}}{\sh{x}}\]
+            Для этих функций можно получить формулы, аналогичные тем, что верны для тригонометрических функций.
         \end{enumerate}
     \subsection{Замечательные пределы}
-        \begin{theorem}
-            $\exists\ \lim\limits_{x\to 0} \frac{\sin{x}}{x}=1$.
+        \begin{theorem} (Первый замечательный предел)
+            \[\lim\limits_{x\to 0} \frac{\sin{x}}{x}=1\]
         \end{theorem}     
         \begin{proof}
-            $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\ctg{x}}\\
-            \Rightarrow \ctg{x}<\frac{\sin{x}}{x}<1$. По теореме о двух милиционерах $\frac{\sin{x}}{x}\to 1$.
+            $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\cos{x}}\\
+            \Rightarrow \cos{x}<\frac{\sin{x}}{x}<1$. По теореме о двух милиционерах $\frac{\sin{x}}{x}\to 1$.
         \end{proof}
         \begin{statement}
-            $\lim\limits_{x\to \infty}(1+\frac{1}{x})^x=e$.
+            \[\lim\limits_{x\to \infty}(1+\frac{1}{x})^x=e\]
         \end{statement} 
         \begin{proof}
-            $\alpha_n\to \infty,\ (1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1} \Rightarrow$ по лемме о двух милиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. $\beta_n\to -\infty,\ (1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}$.
+            Воспользуемся определением по Гейне. Пусть $\alpha_n\to +\infty$:\\
+            \[(1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1}\]
+            $\Rightarrow$ по лемме о двух милиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. Теперь пусть $\beta_n\to -\infty$:
+            \[(1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}\]
         \end{proof} 
         \begin{consequense}
-            $\lim\limits_{x\to 0}(1+\frac{1}{x})^{\frac{1}{x}}=e$.
+            \[\lim\limits_{x\to 0}(1+x)^{\frac{1}{x}}=e\]
         \end{consequense} 
         \begin{statement}
-            $\lim\limits_{x\to 0}(\frac{\ln{(1+x)}}{x})=1$.
+            \[\lim\limits_{x\to 0}(\frac{\ln{(1+x)}}{x})=1\]
         \end{statement} 
-        \begin{proof}
-            $\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=\lim\limits_{x\to 0}\ln{(1+x)^{\frac{1}{x}}}=1$.
+        \begin{proof} В силу непрерывности натурального логарифма:
+            \[\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=\lim\limits_{x\to 0}\ln{(1+x)^{\frac{1}{x}}}=1\]
         \end{proof} 
         \begin{theorem} (Второй замечательный предел)\\
-            $\lim\limits_{x\to 0}\frac{e^x-1}{x}=1$
+            \[\lim\limits_{x\to 0}\frac{e^x-1}{x}=1\]
         \end{theorem} 
         \begin{proof}
-            $e^x-1=t,\ e^x=1+t,\ x=\ln{(1+t)} \Rightarrow \lim\limits_{t\to 0}\frac{t}{\ln{(1+t)}}=1$.
+            Пусть $t=e^x-1 \Rightarrow e^x=1+t \Rightarrow x=\ln{(1+t)}$. Тогда 
+            \[\lim\limits_{x\to 0}\frac{e^x-1}{x}=\lim\limits_{t\to 0}\frac{t}{\ln{(1+t)}}=1\]
         \end{proof} 
         \newpage
     \section{Дифференциальное исчисление функций одной переменной}
     \subsection{Производная функции}
-        Пусть $f(x)$ определена в $B(x_0)$.
+        В следующих определениях предполагается, что $f(x)$ определена в $B(x_0)$.
         \begin{definition}
             Производной функции $f(x)$ в точке $x_0$ называется (если он существует) предел
-             \[\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f^{\prime}(x_0)\]
+             \[f^{\prime}(x_0):=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\]
         \end{definition} 
         \begin{definition}
             Производной функции $f(x)$ в точке $x_0$ по множесту $A$ называется (если он существует) предел 
-            \[\exists \lim\limits_{A \ni \Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f_A^{\prime}(x_0)\]
-            Если $A=(x_0-\Delta x, x_0)$ или $(x_0,x_0+\Delta x)$, то пишут $f_{-}^{\prime}$ или $f_{+}^{\prime}$. 
+            \[f_A^{\prime}(x_0):=\lim\limits_{A \ni \Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}\]
+            Если $A=(x_0-\Delta x, x_0)$ или $(x_0,x_0+\Delta x)$, то пишут $f_{-}^{\prime}(x_0)$ или $f_{+}^{\prime}(x_0)$. 
         \end{definition} 
         \begin{comm} Если обозначить $\Delta x=x-x_0$, то
             \[\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\]
@@ -1529,21 +1563,25 @@
         \begin{theorem}
             Если существует производная функции $f(x)$ в точке $x_0$, то $f(x)$ непрерывна в точке $x_0$.
         \end{theorem} 
-        % \begin{proof}
-        %    $\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=$
-        %\end{proof}
-        \begin{proof}
-            временно очев
+         \begin{proof}
+            \[\exists\ f'(x)=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0} \Rightarrow \frac{f(x)-f(x_0)}{x-x_0}=f'(x)+\bar{\bar{o}}{(1)}\]
+            Так как $x-x_0=\bar{\bar{o}}{(1)}$ при $x\to x_0$, то это равенство можно записать в виде:
+            \[f(x)-f(x_0)=(f'(x)+\bar{\bar{o}}{(1)})(x-x_0)=\bar{\bar{o}}{(1)}\]
+            Значит
+            \[\lim\limits_{x\to x_0}f(x)=f(x_0)\]
         \end{proof}
+        %\begin{proof}
+        %    временно очев
+        %\end{proof}
         \begin{theorem}
             Если у функций $f(x)$ и $g(x)$ существуют производные в точке $x_0$, то $\forall C\in \R$ выполнено:
             \begin{enumerate}
-                \item $\exists\ (Cf(x))^{\prime}=C f^{\prime}(x_0)$.
-                \item $\exists\ (f(x)\pm g(x))^{\prime}=f^{\prime}(x_0)\pm g^{\prime}(x_0)$.
+                \item $\exists\ (Cf(x_0))^{\prime}=C f^{\prime}(x_0)$.
+                \item $\exists\ (f(x)\pm g(x_0))^{\prime}=f^{\prime}(x_0)\pm g^{\prime}(x_0)$.
             \end{enumerate}
         \end{theorem} 
         \begin{theorem}
-            Если $\exists\ f^{\prime}(x_0)$ и $\exists\ g^{\prime}(x_0)$, то $\exists\ (f(x)g(x))^{\prime}=f^{\prime}(x_0)g(x_0)+g^{\prime}(x_0)f(x_0)$.
+            Если $\exists\ f^{\prime}(x_0)$ и $\exists\ g^{\prime}(x_0)$, то $\exists\ (f(x_0)g(x_0))^{\prime}=f^{\prime}(x_0)g(x_0)+g^{\prime}(x_0)f(x_0)$.
         \end{theorem} 
         \begin{proof}
             \begin{multline*}
@@ -1557,7 +1595,7 @@
         \end{proof} 
         \begin{theorem}
             Если $\exists\ f^{\prime}(x_0),\ \exists\ g^{\prime}(x_0)$ и $g(x_0)\ne 0$, то
-            \[\exists\ (\frac{f(x)}{g(x)})^{\prime}=\frac{f^{\prime}(x_0)g(x_0)-f(x_0)g^{\prime}(x_0)}{g^2(x_0)}\]
+            \[\exists\ (\frac{f(x_0)}{g(x_0)})^{\prime}=\frac{f^{\prime}(x_0)g(x_0)-f(x_0)g^{\prime}(x_0)}{g^2(x_0)}\]
         \end{theorem} 
         \begin{proof}
             \begin{multline*}
@@ -1570,25 +1608,28 @@
         \end{proof} 
         \begin{theorem}
             $y=f(x),\ y_0=f(x_0),\ \exists\ f^{\prime}(x_0),\ \exists\ g^{\prime}(y_0)$. Тогда\\
-            $\exists\ (g(f(x)))^{\prime}=g^{\prime}(f(x_0))f^{\prime}(x_0)$.
+            $\exists\ (g(f(x_0)))^{\prime}=g^{\prime}(f(x_0))f^{\prime}(x_0)$.
         \end{theorem}
         \begin{proof}
-            $x_n\to x_0,\ f(x_n)\to f(x_0)$ и пусть $f(x_n)\ne f(x_0)$. Тогда 
-            \[\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{x_n-x_0}=\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{f(x_n)-f(x_0)}\cdot \frac{f(x_n)-f(x_0)}{x_n-x_0}\]
-            В любой окрестности $x_0$ есть бесконечно много точек, в которых $f(x_n)=f(x_0)$. Тогда
+            Пусть $x_n\to x_0,\ f(x_n)\to f(x_0)$ и $f(x_n)\ne f(x_0)$. Тогда 
+            \begin{multline*}
+                (g(f(x_0)))^{\prime}=\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{x_n-x_0}=\\
+                =\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{f(x_n)-f(x_0)}\cdot \frac{f(x_n)-f(x_0)}{x_n-x_0}=g^{\prime}(f(x_0))f^{\prime}(x_0)
+            \end{multline*}
+            Остался случай, когда в любой окрестности $x_0$ есть бесконечно много точек, в которых $f(x_n)=f(x_0)$. Тогда
             \[f^{\prime}(x_0)=\lim\limits_{x_n\to x_0}\frac{f(x_n)-f(x_0)}{x_n-x_0}=0\]
             $\Rightarrow g^{\prime}(f(x_0))f(x_0)=0$
         \end{proof}  
-        \begin{comm}
-            \[\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{x_n-x_0}=0\] 
-            (Использовалось в доказательстве)
-        \end{comm}
+        %\begin{comm}
+        %    \[\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{x_n-x_0}=0\] 
+        %    (Использовалось в доказательстве)
+        %\end{comm}
         \begin{example}
             $(f(g(h(a(x)))))^{\prime}=f^{\prime}(g(h(a(x))))\cdot g^{\prime}(h(a(x)))\cdot h^{\prime}(a(x))\cdot a^{\prime}(x)$
         \end{example}
     \subsection{Дифференцируемые функции}
         \begin{definition}
-            Разность $f(x_0=\Delta x)-f(x_0)$ называют полным приращением функции
+            Разность $\Delta x=x-x_0$ называется приращением аргумента. Разность $f(x_0+\Delta x)-f(x_0)$ называется полным приращением функции.
         \end{definition} 
         \begin{definition}
             Пусть $f(x)$ определена в $B(x_0)$. Если $\exists\ A\in \R$ такое, что
@@ -1600,26 +1641,27 @@
             $f(x)\in \mathcal{D}(x_0) \Leftrightarrow \exists\ f^{\prime}(x_0)$.
         \end{theorem}
         \begin{proof}\tab
-            \begin{enumerate}
-                \item $(\Rightarrow)$ $f(x_0+\Delta x)-f(x_0)=A\Delta x+\bar{\bar{o}}{(\Delta x)}\Rightarrow$
+            \begin{itemize}
+                \item[$(\Rightarrow)$]: $f(x_0+\Delta x)-f(x_0)=A\Delta x+\bar{\bar{o}}{(\Delta x)}$, значит
                 \[\frac{f(x_0+\Delta x)-f(x_0))}{\Delta x}=A+\bar{\bar{o}}{(1)}\Rightarrow \exists\ f^{\prime}(x_0)=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=A\]
-                \item $(\Leftarrow)$ $\exists\ f^{\prime}(x_0)$, значит
+                \item[$(\Leftarrow)$]: $\exists\ f^{\prime}(x_0)$, значит
                 \[f^{\prime}(x_0)=\lim\limits_{\Delta x\to 0} \frac{f(x_0+\Delta x)-f(x_0)}{\Delta x} \Rightarrow f(x_0+\Delta x)-f(x_0)=f^{\prime}(x_0)\Delta x+\bar{\bar{o}}{(\Delta x)}\] 
-            \end{enumerate}            
+            \end{itemize}            
         \end{proof}  
         \begin{comm}\tab
             \begin{enumerate}
                 \item $df=f^{\prime}(x_0)\Delta x$
                 \item $dx=x^{\prime}\Delta x=\Delta x \Rightarrow df=f^{\prime}(x)dx$
-                \item $d(g(f(x)))=g^{\prime}(f(x))f^{\prime}(x)dx=g^{\prime}(f(x))df$\\
-                (Инвариантность формы первого дифференциала)
             \end{enumerate}
         \end{comm}  
+        \begin{statement} (Инвариантность формы первого дифференциала)\\
+            \[d(g(f(x)))=g^{\prime}(f(x))f^{\prime}(x)dx=g^{\prime}(f(x))df\]
+        \end{statement} 
         \begin{examples}\tab
             \begin{enumerate}
-                \item $y=y(x)dy=y^{\prime}(x)dx \Leftrightarrow dx=\cfrac{1}{y^{\prime}(x)}\ dy$
+                \item $y=y(x)\ dy=y^{\prime}(x)\ dx \Leftrightarrow dx=\cfrac{1}{y^{\prime}(x)}\ dy$
                 \item $x^2+y^2=1 \Rightarrow y=\sqrt{1-x^2}\\
-                2xdx+2ydy=0 \Leftrightarrow dy=-\cfrac{x}{y}\ dx=-\cfrac{x}{\sqrt{1-x^2}}\ dx$.
+                2x\ dx+2y\ dy=0 \Leftrightarrow dy=-\cfrac{x}{y}\ dx=-\cfrac{x}{\sqrt{1-x^2}}\ dx$.
                 \item $\begin{cases}
                     x=x(t),\\
                     y=y(t).       
@@ -1633,15 +1675,14 @@
                     y^{\prime}_x=\cfrac{y^{\prime}_t}{x^{\prime}_t},\\
                     x=x(t).       
                 \end{cases}$
-                \\(В ПРИМЕРАХ ВРЕМЕННО МОГУТ БЫТЬ ОШИБКИ)
             \end{enumerate}
         \end{examples}
         \begin{theorem}
-            Пусть $\exists\ y^{\prime}=f^{\prime}(x_0),\ f^{\prime}(x_0)\ne 0$. Тогда \\
-            $\exists\ x=f^{-1}(y)$ и $(f^{-1}(y_0))^{\prime}=\frac{1}{f^{\prime}(x_0)}$
+            Пусть $\exists\ y^{\prime}=f^{\prime}(x_0),\ f^{\prime}(x_0)\ne 0$. Тогда $\exists\ x=f^{-1}(y)$ и\\
+            $(f^{-1}(y_0))^{\prime}=\frac{1}{f^{\prime}(x_0)}$
         \end{theorem} 
         \begin{proof}
-            \[\lim\limits_{y\to y_0}\frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0}=\lim\limits_{x\to x_0}\frac{x-x_0}{f(x)-f(x_0)}=\frac{1}{f^{\prime}(x_0)}\]
+            \[(f^{-1}(y_0))^{\prime}=\lim\limits_{y\to y_0}\frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0}=\lim\limits_{x\to x_0}\frac{x-x_0}{f(x)-f(x_0)}=\frac{1}{f^{\prime}(x_0)}\]
         \end{proof} 
     \subsection{Производные элементарных функций}
         \begin{enumerate}
@@ -1664,8 +1705,9 @@
         \end{enumerate}
     \subsection{Касательная. Геометрический смысл первого дифференциала}
         \begin{definition}
-            Луч $l_0=l(\alpha_0,(x_0,y_0))$ с началом в точке $(x_0,y_0)$ и углом к $Ox\ \alpha_0\in [-\pi,\pi]$ называется предельным положением семейства лучей $l(t),\\
-            t\in I, t_0\in I$, если они начинаются в той же самой точке $(x_0,y_0)$ и $\lim\limits_{x\to x_0}\alpha(t)=\alpha_0$.
+            Луч $l_0=l(\alpha_0,(x_0,y_0))$ с началом в точке $(x_0,y_0)$ и углом\\
+            к $Ox,\ \alpha_0\in [-\pi,\pi]$ называется предельным положением семейства лучей $l(t),\\
+            t,\ t_0 \in I$, если они начинаются в той же самой точке $(x_0,y_0)$ и $\lim\limits_{x\to x_0}\alpha(t)=\alpha_0$.
         \end{definition} 
         \begin{definition}
             Пусть $f(x)$ определена на $[x_0, x_0+\delta)$. Если семейство лучей $l(x,x_0)$, проходящих через точки $(x_0,f(x_0))$ и $(x, f(x))$ имеет предельное положение при $x\to x_0+0$, то это предельное положение называется правой полукасательной. Аналогично определяется левая полукасательная.         У правой полукасательной $\alpha\in [-\frac{\pi}{2}, \frac{\pi}{2}]$, у левой $\alpha\in [-\pi,-\frac{\pi}{2}]\cup[\frac{\pi}{2},\pi]$.
@@ -1677,6 +1719,10 @@
             \[\tg{\alpha_+}=\lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f^{\prime}_+(x_0)\]
             \[\tg{\alpha_-}=\lim\limits_{x\to x_0-0}\frac{f(x)-f(x_0)}{x-x_0}=f^{\prime}_-(x_0)\]
         \end{definition} 
+        \begin{statement}
+            Уравнение касательной имеет вид:
+            \[y-y_0=f^{\prime}(x_0)(x-x_0)\]
+        \end{statement} 
         \begin{center}
             \begin{tikzpicture}[scale=2]
 
@@ -1721,19 +1767,16 @@
             \end{tikzpicture}
         \end{center}
         \[df=f^{\prime}(x)dx\]
-        \begin{definition}
-            Уравнение касательной имеет вид:
-            \[y-y_0=f^{\prime}(x_0)(x-x_0)\]
-        \end{definition} 
         \subsection{Производные и дифференциалы старших порядков}
         \begin{definition}
-            Пусть $f(x)$ определена в $B(x_0),\ f(x)\in \mathcal{D}(B(x_0))$. Если $\exists (f'(x))'|_{x=x_0}$, то говорят, что у функции есть вторая производная в точке $x_0$, и обозначают $f''(x_0)$. Аналогично определяется производная порядка $n\in \N$, обозначают $f^{(n)}(x)$.
+            Пусть $f(x)$ определена в $B(x_0),\ f(x)\in \mathcal{D}(B(x_0))$. Если\\
+            $\exists\ (f'(x_0))'$, то говорят, что у функции есть вторая производная в точке $x_0$, и обозначают $f''(x_0)$. Аналогично определяется производная порядка $n\in \N$, обозначают $f^{(n)}(x)$.
         \end{definition} 
         \begin{definition}
-            Пусть $f(x)\in \mathcal{D}(B(x_0))$. Пусть $f'(x)\in \mathcal{D}(B(x_0))$. Возмем первый дифференциал от первого дифференциала 
+            Пусть $f(x)\in \mathcal{D}(B(x_0)),\ f'(x)\in \mathcal{D}(B(x_0))$. Возьмем первый дифференциал от первого дифференциала 
             \[\delta(f'(x)dx)=\delta(f'(x))dx=f''(x)\delta x dx\ \ (\ast)\]
-            Выражение $(\ast)$, взятое при $\delta x=dx$, называется вторым дифференциалом $f(x)$, обозначается $d^2f(x)=f''(x)(dx)^2\ (=f''(x)dx^2)$. Аналогично определяется дифференциал порядка $n\in \N$
-            \[\delta(f^{(n-1)}(x)dx)=f^{(n)}(x)dx^{n-1}\delta x|_{\delta x=\delta dx}=f^{(n)}dx^n=d^nf\]
+            Выражение $(\ast)$, взятое при $\delta x=dx$, называется вторым дифференциалом $f(x)$, обозначается $d^2f(x)=f''(x)(dx)^2$. Аналогично определяется дифференциал порядка $n\in \N$:
+            \[\delta(f^{(n-1)}(x)dx)=f^{(n)}(x)dx^{n-1}\delta x|_{\delta x=dx}=f^{(n)}dx^n=d^n  f(x)\]
         \end{definition} 
         \begin{example} (Неинвариантность формы дифференциала старших порядков)
             \[d^2f(x)=f''(x)dx^2\ne f''(x(t))x'(t)^2dt^2\]
@@ -1748,14 +1791,22 @@
             $f(x)>f(x_0)$, то $x_0$ - точка минимума. Если $f(x)<f(x_0)$, то $x_0$ - точка максимума. Такие точки называют точками экстремума.
         \end{definition} 
         \begin{theorem} (Теорема Ферма)\\
-            Пусть $f(x)$ определена в $B(x_0)$, пусть существует левая и правая поизводные в точке $x_0$. Тогда $f'_-(x)\geq 0$, если $x_0$ - точка максимума $(\leq 0, \min)$. $f'_+(x_0)\leq 0$ - точка максимума $(\geq 0, \min)$
+            Пусть $f(x)$ определена в $B(x_0)$, пусть существуют левая и правая производные в точке $x_0$. Тогда
+            \begin{enumerate}
+                \item $f'_-(x_0)\geq 0$, если $x_0$ - точка максимума,\\
+                $f'_-(x_0)\leq 0$, если $x_0$ - точка минимума.
+                \item $f'_+(x_0)\leq 0$, если $x_0$ - точка максимума,\\
+                $f'_+(x_0)\geq 0$, если $x_0$ - точка минимума.
+            \end{enumerate}
         \end{theorem} 
-        \begin{proof} (для возрастающей)\\
-            $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$, если $x\in (x_0-\delta,x_0) \Rightarrow f'_-(x_0)\geq 0$.\\
-            $\frac{f(x)-f(x_0)}{x-x_0}\leq 0$, если $x\in (x_0,x_0+\delta) \Rightarrow f'_+(x_0)\leq 0$.
+        \begin{proof} (для точки максимума)
+            \begin{enumerate}
+                \item $f'_-(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0$ при $x\in (x_0-\delta,x_0)$.
+                \item $f'_+(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\leq 0$ при $x\in (x_0,x_0+\delta)$.
+            \end{enumerate}
         \end{proof} 
         \begin{consequense}
-            Если $\exists f'(x_0)$, то $f'(x_0)=0$
+            Если $\exists\ f'(x_0)$, то $f'(x_0)=0$, то есть $x_0$ - экстремум.
         \end{consequense} 
         \begin{theorem} (Необходимое условие существования экстремума)\\
             Если $f(x)$ имеет в экстремум в точке $x_0$, то либо $f'(x_0)=0$, либо не существует производной в точке $x_0$.
@@ -1846,10 +1897,10 @@
                 \item Если $\exists\ \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0)$, то $\exists\ f'_+(x_0)$ и $f'_+(x_0)=f'(x_0+0)$.
             \end{enumerate}
         \end{theorem}
-        \begin{proof}
+        \begin{proof} По формуле Лагранжа:
             \[f'(c)=\frac{f(x)-f(x_0)}{x-x_0},\ x\to x_0+0,\ c\to x_0+0\]
             Тогда 
-            \[\exists \lim\limits_{x\to x_0+0}f'(c)=f'(x_0+0) \Leftrightarrow \lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)\]
+            \[\exists \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0) \Leftrightarrow \lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)\]
         \end{proof} 
         \begin{consequense}
             Если $f(x)\in \mathcal{D}(a,b)$, то $f'(x)$ может иметь разрывы только второго рода.
@@ -1888,9 +1939,9 @@
             Пусть $f(x),g(x)\in \mathcal{D}(\mathring{B}(x_0)),\ \lim\limits_{x\to x_0}f(x)=0,\ \lim\limits_{x\to x_0}g(x)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0)$ и $g'(x)\ne 0$ в $\mathring{B}(x_0)$. Тогда если $\exists \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$.\\
             А также, если $\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty$.
         \end{theorem} 
-        \begin{proof} При $x\to x_0,\ c\to x_0$ справедливо:
+        \begin{proof} По формуле Коши, при $x\to x_0,\ c\to x_0$ справедливо:
             \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\]
-            Если $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A$, то $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$.\\
+            Если $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$.\\
             Если $\frac{f'(c)}{g'(c)}\to \infty$, при $x\to x_0$, то $\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\to \infty$ при $x\to x_0$.
         \end{proof} 
         \begin{theorem}
@@ -2006,6 +2057,69 @@
         \begin{enumerate}
             \item Ищем точки интервала $(a,b)$, где $f'(x)=0$ или где ее не существует. 
             \item Находим значение во всех этих точках и значения на концах открезка.
+            \item Сравниваем их между собой.
         \end{enumerate}
-        
+        \subsection{Выпуклые функции}
+        \begin{definition}
+            Пусть $f(x)\in \mathcal{C} I$. Если $\forall x_1,x_2\in I$ и $\forall x: x_1<x<x_2:\\
+            f(x)\geq (\leq)\ \frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}$, то $f(x)$ называется выпуклой вверх (выпуклой вниз).
+        \end{definition} 
+        %\begin{center}
+        %    \begin{tikzpicture}[scale=2]
+        %        \draw[->] (-1, 0) -- (3.5, 0) node[right] {$x$};
+        %        \draw[->] (0, -1) -- (0, 3.5) node[above] {$y$};
+        %        %\draw[domain=-0.3:3,samples=2] plot (\x, {\x - 0.5});
+        %        \draw[domain=0.3:2.5,samples=100] plot (\x,{(\ln{\x})^2});
+        %    \end{tikzpicture}
+        %\end{center}
+        \begin{theorem}
+            Пусть $f'(c)\in \mathcal{D}(I)$. Если $f''(x)>0 (<0)$, то $f(x)$ выпукла вниз (вверх).
+        \end{theorem} 
+        \begin{proof}
+            Пусть $l_1(x)=\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1},$.
+            \begin{multline*}
+                f(x)-l_1(x)=f(x)\frac{(x-x_1)+(x_2-x)}{x_2-x_1}-\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}=\\
+                =\frac{(f(x)-f(x_2))(x-x_1)+(f(x)-f(x_1))(x_2-x)}{x_2-x_1}=\\
+                =\frac{-f'(\xi)(x_2-x)(x-x_1)+f'(\eta)(x-x_1)(x_2-x)}{x_2-x_1}=\\=
+                \frac{-f''(\chi)(\xi-\eta)(x-x_1)(x_2-x)}{x_2-x_1}
+            \end{multline*}
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f'(x)\in \mathcal{D}(I)$. Если $f''(x)>0 (<0)$, то $\forall x_0\in I$:
+            \[f(x)-f(x_0)-f'(x_0)(x-x_0)\geq 0\]
+        \end{theorem} 
+        \begin{proof}
+            Пусть $f(x_0)+f'(x_0)(x-x_0)=l_2(x),\\
+            f(x)-l_2(x)=f'(\xi)(x-x_0)-f'(x_0)(x-x_0)=f''(\eta)(\xi-x_0)(x-x_0)$, знаки скобок $(\xi-x_0)$ и $(x-x_0)$ одиноковы, значит $(\xi-x_0)(x-x_0)>0$
+        \end{proof} 
+        \begin{definition}
+            Если $f(x)-l_2(x)$ при проходе через точку (в левой и правой окрестности) $x_0$ меняет знак, то точка $x_0$ называется точкой перегиба.
+        \end{definition}
+        \begin{theorem}
+            Пусть $f''(x)\in \mathcal{C}(B(x_0))$. Если $x_0$ - точка перегиба, то $f''(x_0)=0$.
+        \end{theorem}  
+        \begin{proof}
+            Если $f''(x_0)>0$, то в силу непрерывности $f''(x)>0$ в $B(x_0)$, значит $x_0$ - не точка перегиба. Аналогично для $f''(x_0)<0$.
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f''(x)\in \mathcal{C}(I)$. Если $f''(x)$ меняется знак при проходе точки $x_0$, то $x_0$ - точка перегиба.
+        \end{theorem} 
+        \begin{proof}
+            $f(x)-l_2(x)=f''(\eta)(\xi-x_0)(x-x_0)$
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f''(x_0)=0,\ f'''(x_0)\ne 0$. Тогда $x_0$ - точка перегиба.
+        \end{theorem} 
+        \begin{proof}
+            $f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f'''(x_0)}{6}(x-x_0)^3+\bar{\bar{o}}{((x-x_0)^3)}$. Тогда $f(x)-l_2(x)=(x-x_0)^3(\frac{f'''(x_0)}{6}+\bar{\bar{o}}{(1)})$
+        \end{proof} 
+        \begin{definition}
+            Если при $x\to a-0 (a+0)\ f(x\to \pm \infty)$, то прямая $x=a$ называется вертикальной асимптотой.
+        \end{definition} 
+        \begin{definition}
+            Если при $x\to +\infty (-\infty)\ (f(x)-kx-b)\to 0$, то прямая $y=kx+b$ называется наклонной асимптотой.
+        \end{definition} 
+        \begin{theorem}
+            Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$
+        \end{theorem} 
 \end{document}
