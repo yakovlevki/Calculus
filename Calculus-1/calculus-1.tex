@@ -76,6 +76,10 @@
     \vspace{1.5cm}
     \begin{center}
         Конспект: Кирилл Яковлев, 108 группа \tab[5.5cm] tg: @fourkenz
+        %Кирилл Яковлев\\
+        %группа 108\\
+        %\href{https://github.com/yakovlevki}{GitHub}\\
+        %\href{t.me/@fourkenz}{Telegram}\\
     \end{center}
     \newpage
     \tableofcontents
@@ -1819,6 +1823,39 @@
             Если $x_{\min}: f(x_{\min})<f(a)\ \forall a \Rightarrow f'(x_{\min})=0$.\\
             Если $\forall x\in (a,b): f(x)=f(a)=f(b)$, то $f'(x)=0$
         \end{proof}
+        Геометрически это означает, что при таких условиях найдется точка, в которой касательная параллельна оси абцисс.
+        \begin{center}
+            \begin{tikzpicture}[scale=1]
+                \draw[->] (-1, 0) -- (7, 0) node[right] {$x$};
+                \draw[->] (0, -1) -- (0, 7) node[above] {$y$};
+                \draw[domain=1.2:6.8,samples=100] plot (\x,{0.5*(\x-4)^2+2}) node[above right] {$f$};
+                
+                \coordinate (O) at (0,0);
+                \coordinate (x1) at (1.5,0);
+                \coordinate (x2) at (6.5,0);
+                \coordinate (x3) at (4,0);
+                \coordinate (y1) at (1.5,5.125);
+                \coordinate (y2) at (6.5,5.125);
+                \coordinate (y3) at (4,2);
+                \coordinate (y4) at (2.5,2);
+                \coordinate (y5) at (5.5,2);
+                \coordinate (y6) at (0,5.125);
+
+                \draw[fill] (x1) circle (2pt) node[below] {$a$};
+                \draw[fill] (x2) circle (2pt) node[below] {$b$};
+                \draw[fill] (x3) circle (2pt) node[below] {$c$};
+                \draw[fill] (y1) circle (2pt);
+                \draw[fill] (y2) circle (2pt);
+                \draw[fill] (y3) circle (2pt);
+                \draw[fill] (y6) circle (2pt) node[left] {$f(a)=f(b)$};;
+
+                \draw[dashed] (y6) -- (y2);
+                \draw[dashed] (x1) -- (y1);
+                \draw[dashed] (x2) -- (y2);
+                \draw[dashed] (x3) -- (y3);
+                \draw (y4) -- (y5);
+            \end{tikzpicture}
+        \end{center}
         \subsection{Формула Лагранжа. Геометрический смысл и приложения}
         \begin{theorem} (Формула Лагранжа, формула дифференциального среднего)\\
             $f(x)\in \mathcal{C}[a,b],\ f(x)\in \mathcal{D}(a,b)$. Тогда $\exists\ c\in (a,b):$
@@ -1858,8 +1895,8 @@
                 \draw[dashed] (x1) -- (y1);
                 \draw[dashed] (x2) -- (y2);
                 \draw (y1) -- (y2);
-                \draw[dashed] [domain=1:2.5, samples=2] plot (\x, {0.938* (\x) +0.965});
-                \draw[dashed] [domain=3.5:5, samples=2] plot (\x, {0.938* (\x) -0.6});
+                \draw [domain=1:2.5, samples=2] plot (\x, {0.938* (\x) +0.965});
+                \draw [domain=3.5:5, samples=2] plot (\x, {0.938* (\x) -0.6});
             \end{tikzpicture}
         \end{center}
         Отметим, что точек, удовлетворяющих формуле Лагранжа, может быть несколько.
@@ -1875,9 +1912,21 @@
         \end{proof} 
         \begin{theorem} (Связь монотонной функции и знака ее производной)\tab
             \begin{enumerate}
-                \item Пусть $f(x)$ неубывает (невозрастает) на $(a,b)$ и $f(x)\in \mathcal{D}(a,b)$. Тогда $f'(c)\geq 0\ (f'(c)\leq 0)\ \forall c\in (a,b)$.
-                \item Пусть $f'(x)\geq 0\ (f'(x)\leq 0)$. Тогда $f(x)$ неубывает (невозрастает).
-                \item Пусть $f'(x)>0\ (f'(x)<0)$. Тогда $f(x)$ строго возрастает (строго убывает).
+                \item Пусть $f(x)\in \mathcal{D}(a,b)$.
+                    \begin{itemize}
+                        \item Если $f(x)$ неубывает на $(a,b)$, то $\forall c\in (a,b): f'(c)\geq 0$.
+                        \item Если $f(x)$ невозрастает на $(a,b)$, то $\forall c\in (a,b): f'(c)\leq 0$.
+                    \end{itemize}\
+                \item
+                    \begin{itemize}
+                        \item Пусть $f'(x)\geq 0$. Тогда $f(x)$ неубывает.
+                        \item Пусть $f'(x)\leq 0$. Тогда $f(x)$ невозрастает.
+                    \end{itemize}
+                \item 
+                    \begin{itemize}
+                        \item Пусть $f'(x)>0$. Тогда $f(x)$ строго возрастает.
+                        \item Пусть $f'(x)<0$. Тогда $f(x)$ строго убывает.
+                    \end{itemize}
             \end{enumerate}
         \end{theorem} 
         \begin{proof}Воспользуемся формулой Лагранжа
@@ -1894,7 +1943,7 @@
             Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$
             \begin{enumerate}
                 \item Если $\exists \lim\limits_{x\to x_0-0}f'(x_0)=f'(x_0-0)$, то $\exists\ f'_-(x_0)$ и $f'_-(x_0)=f'(x_0-0)$. 
-                \item Если $\exists\ \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0)$, то $\exists\ f'_+(x_0)$ и $f'_+(x_0)=f'(x_0+0)$.
+                \item Если $\exists\ \lim\limits_{x\to x_0+0}f'(x_0)=f'(x_0+0)$, то $\exists\ f'_+(x_0)$ и $f'_+(x_0)=f'(x_0+0)$.
             \end{enumerate}
         \end{theorem}
         \begin{proof} По формуле Лагранжа:
@@ -1930,7 +1979,8 @@
         \subsection{Правила Лопиталя}
         \begin{theorem}
             Пусть $f(x),g(x)\in \mathcal{D}(B(x_0)),\ f(x_0)=g(x_0)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0)$ и\\
-            $g'(x)\ne 0$ в $B(x_0)$. Тогда $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\frac{f'(x_0)}{g'(x_0)}$
+            $g'(x)\ne 0$ в $B(x_0)$. Тогда 
+            \[\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\frac{f'(x_0)}{g'(x_0)}\]
         \end{theorem} 
         \begin{proof}
             \[\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim\limits_{x\to x_0}\frac{\frac{f(x)-f(x_0)}{x-x_0}}{\frac{g(x)-g(x_0)}{x-x_0}}=\frac{f'(x_0)}{g'(x_0)}\]
@@ -1940,13 +1990,14 @@
             А также, если $\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty$.
         \end{theorem} 
         \begin{proof} По формуле Коши, при $x\to x_0,\ c\to x_0$ справедливо:
-            \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\]
-            Если $\lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$.\\
+            \[\frac{f(x)}{g(x)}=\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)}\]
+            Если 
+            \[\exists\ \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A \Rightarrow \exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A\]
             Если $\frac{f'(c)}{g'(c)}\to \infty$, при $x\to x_0$, то $\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\to \infty$ при $x\to x_0$.
         \end{proof} 
         \begin{theorem}
             Пусть $f(x), g(x)\in \mathcal{D}(a,+\infty),\ \exists \lim\limits_{x\to +\infty}f(x)=0,\ \exists \lim\limits_{x\to +\infty}g(x)=0,\\
-            g(x)\ne 0,\ f(x)\ne 0$, тогда если $\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to +\infty}=A$.\\
+            g(x)\ne 0,\ g'(x)\ne 0$, тогда если $\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to +\infty}\frac{f(x)}{g(x)}=A$.\\
             Если $\frac{f'(x)}{g'(x)}\to \infty,\ x\to +\infty$, то $\frac{f(x)}{g(x)}\to \infty,\ x\to +\infty$. 
         \end{theorem} 
         \begin{proof}
