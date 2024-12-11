@@ -1826,7 +1826,7 @@
         Геометрически это означает, что при таких условиях найдется точка, в которой касательная параллельна оси абцисс.
         \begin{center}
             \begin{tikzpicture}[scale=1]
-                \draw[->] (-1, 0) -- (7, 0) node[right] {$x$};
+                \draw[->] (-1, 0) -- (8, 0) node[right] {$x$};
                 \draw[->] (0, -1) -- (0, 7) node[above] {$y$};
                 \draw[domain=1.2:6.8,samples=100] plot (\x,{0.5*(\x-4)^2+2}) node[above right] {$f$};
                 
@@ -1986,36 +1986,58 @@
             \[\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim\limits_{x\to x_0}\frac{\frac{f(x)-f(x_0)}{x-x_0}}{\frac{g(x)-g(x_0)}{x-x_0}}=\frac{f'(x_0)}{g'(x_0)}\]
         \end{proof} 
         \begin{theorem}
-            Пусть $f(x),g(x)\in \mathcal{D}(\mathring{B}(x_0)),\ \lim\limits_{x\to x_0}f(x)=0,\ \lim\limits_{x\to x_0}g(x)=0,\ g(x)\ne 0$ в $\mathring{B}(x_0)$ и $g'(x)\ne 0$ в $\mathring{B}(x_0)$. Тогда если $\exists \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A$.\\
-            А также, если $\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty$, то $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty$.
+            Пусть $f(x),g(x)\in \mathcal{D}(\mathring{B}(x_0)),\ \lim\limits_{x\to x_0}f(x)=0,\ \lim\limits_{x\to x_0}g(x)=0$ и $g'(x)\ne 0\\
+            \forall x\in \mathring{B}(x_0)$. Тогда 
+            \[\exists \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A\ \Rightarrow\ \exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A\]
+            А также
+            \[\lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=\infty\ \Rightarrow\ \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\infty\]
         \end{theorem} 
-        \begin{proof} По формуле Коши, при $x\to x_0,\ c\to x_0$ справедливо:
-            \[\frac{f(x)}{g(x)}=\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)}\]
-            Если 
-            \[\exists\ \lim\limits_{x\to x_0}\frac{f'(x)}{g'(x)}=A \Rightarrow \exists\ \lim\limits_{x\to x_0}\frac{f'(c)}{g'(c)}=A \Rightarrow \exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=A\]
-            Если $\frac{f'(c)}{g'(c)}\to \infty$, при $x\to x_0$, то $\frac{f'(c)}{g'(c)}=\frac{f(x)}{g(x)}\to \infty$ при $x\to x_0$.
+        \begin{proof}\footnote{Доказательство модифицировано в соответсвии со старым конспектом лекций Подольского и курсом лекций Солодова на teach-in} Из существования предела отношения производных имеем:
+            \[\forall \epsilon>0\ \exists\ \delta>0: \forall x\in \mathring{B}(x_0):\ |\frac{f'(x)}{g'(x)}-A|<\epsilon\]
+            Доопределим функции в точке $x_0$: $f(x_0):=0,\ g(x_0):=0$.
+            Тогда\\
+            $f(x),\ g(x)\in C(x_0)$  при этих всех этих условиях выполнена теорема Коши:
+            \[|\frac{f(x)}{g(x)}-A|=|\frac{f(x)-f(x_0)}{g(x)-g(x_0)}-A|=|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
+            Аналогично,  условие
+            \[\forall \epsilon>0\ \exists\ \delta>0: \forall x\in \mathring{B}(x_0):\ |\frac{f'(x)}{g'(x)}-A|>\epsilon\]
+            влечет выполнение
+            \[|\frac{f(x)}{g(x)}-A|=|\frac{f'(c)}{g'(c)}-A|>\epsilon\]
+            где $x\in \mathring{B}(x_0)$, а $c$ - точка между $x$ и $x_0$.
         \end{proof} 
         \begin{theorem}
             Пусть $f(x), g(x)\in \mathcal{D}(a,+\infty),\ \exists \lim\limits_{x\to +\infty}f(x)=0,\ \exists \lim\limits_{x\to +\infty}g(x)=0,\\
-            g(x)\ne 0,\ g'(x)\ne 0$, тогда если $\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to +\infty}\frac{f(x)}{g(x)}=A$.\\
-            Если $\frac{f'(x)}{g'(x)}\to \infty,\ x\to +\infty$, то $\frac{f(x)}{g(x)}\to \infty,\ x\to +\infty$. 
+            g(x)\ne 0,\ g'(x)\ne 0$. Тогда
+            \[\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A\ \Rightarrow\ \exists \lim\limits_{x\to +\infty}\frac{f(x)}{g(x)}=A\]
+            А также
+            \[\lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=\infty\ \Rightarrow\ \exists \lim\limits_{x\to +\infty}\frac{f(x)}{g(x)}=\infty\]
         \end{theorem} 
         \begin{proof}
             Упражнение: свести теорему к предыдущей
         \end{proof} 
         \begin{theorem}
             Пусть $f(x),\ g(x)\in \mathcal{D}(a-\delta, a),\ f(x),g(x)\to \pm \infty,\ x\to a-0,\\
-            g'(x)\ne 0$. Если $\exists \lim\limits_{x\to a-0}\frac{f'(x)}{g'(x)}=A$, то $\exists \lim\limits_{x\to a-0}\frac{f(x)}{g(x)}=A$. Если $\frac{f'(x)}{g'(x)}\to \pm \infty$, то $\frac{f(x)}{g(x)}\to \pm \infty$.
+            g'(x)\ne 0\ \forall x\in \mathring{B}(x_0)$. Тогда
+            \[\exists \lim\limits_{x\to a-0}\frac{f'(x)}{g'(x)}=A\ \Rightarrow\ \exists \lim\limits_{x\to a-0}\frac{f(x)}{g(x)}=A\]
+            А также
+            \[\lim\limits_{x\to a-0}\frac{f'(x)}{g'(x)}=\pm \infty\ \Rightarrow\ \lim\limits_{x\to a-0}\frac{f(x)}{g(x)}=\pm \infty\]
         \end{theorem} 
         \begin{proof}
-            $x_0<x<a$,\ 
-            \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)} \Rightarrow f(x)=f(x_0)+\frac{f'(c)}{g'(c)}g(x)-\frac{f'(c)}{g'(c)}g(x_0)\].
+            $x_0<x<a$. По формуле Коши: 
+            \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)} \Rightarrow f(x)=f(x_0)+\frac{f'(c)}{g'(c)}\cdot g(x)-\frac{f'(c)}{g'(c)}\cdot g(x_0)\]
+            поделив это равенство на $g(x)$, получим:
             \[\frac{f(x)}{g(x)}=\frac{f(x_0)}{g(x)}+\frac{f'(c)}{g'(c)}-\frac{f'(c)}{g'(c)}\cdot \frac{g(x_0)}{g(x)}\]
-            Тогда $\forall \epsilon>0 \exists\ \delta_1>0,\ \forall x\in (a-\delta_1, a): |\frac{f'(x)}{g'(x)}-A|<\epsilon$. Нам понадобится: $|\frac{f'(x)}{g'(x)}|<|A|+\epsilon$.\\
+            По условию: $\forall \epsilon>0\ \exists\ \delta_1>0,\ \forall x\in (a-\delta_1, a): |\frac{f'(x)}{g'(x)}-A|<\epsilon$, значит\\
+            \[|\frac{f'(x)}{g'(x)}|<|A|+\epsilon\]
+            По неравенству треугольника:
             \[|\frac{f(x)}{g(x)}-A|\leq |\frac{f(x_0)}{g(x)}|+|\frac{f'(c)}{g'(c)}-A|+|\frac{f'(c)}{g'(c)}|\cdot |\frac{g(x_0)}{g(x)}|\]
-            $x_0\in (a-\delta_1, a)$. Заметим, что $|\frac{f'(c)}{g'(c)}-A|<\epsilon,\ x\in (a-\delta_2, a): |\frac{f(x_0)}{g(x)}|<\epsilon$ и $|\frac{g(x_0)}{g(x)}|<\frac{\epsilon}{|A|+\epsilon}$. Значит $|\frac{f(x)}{g(x)}-A|<3\epsilon$.
+            Возьмем $x_0\in (a-\delta_1, a)$. Ввиду расположения точки $c$: \[|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
+            Поскольку $\lim\limits_{x\to a-0}\frac{1}{g(x)}=0$, то $\forall \epsilon>0\ \exists\ \delta_2: \forall x\in (a-\delta_2, a): \frac{1}{g(x)}<\epsilon$. Значит
+            \[|\frac{f(x_0)}{g(x)}|<\epsilon\ \ \text{и}\ \ |\frac{g(x_0)}{g(x)}|<\frac{\epsilon}{|A|+\epsilon}\]
+            Значит, выбрав $\delta = \min\{\delta_1,\delta_2\}$, получм:
+            \[|\frac{f(x)}{g(x)}-A|<\epsilon+\epsilon+(|A|+\epsilon)(\frac{\epsilon}{|A|+\epsilon})=3\epsilon\]
             \\
-            Если $\frac{f'(x)}{g'(x)}\to \pm \infty$, то $\frac{f'(x)}{g'(x)}$
+            Аналогично
+            \[\frac{f'(x)}{g'(x)}\to \pm \infty\ \ \Rightarrow\ \ \frac{f'(x)}{g'(x)}\to \pm \infty\]
         \end{proof} 
         \subsection{Формулы Тейлора}
         \begin{definition}
@@ -2112,26 +2134,43 @@
         \end{enumerate}
         \subsection{Выпуклые функции}
         \begin{definition}
-            Пусть $f(x)\in \mathcal{C} I$. Если $\forall x_1,x_2\in I$ и $\forall x: x_1<x<x_2:\\
-            f(x)\geq (\leq)\ \frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}$, то $f(x)$ называется выпуклой вверх (выпуклой вниз).
+            Пусть $f(x)\in \mathcal{C}(I)$. Если $\forall x_1,x_2\in I$ и $\forall x: x_1<x<x_2$:
+            \[f(x)\leq \frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}\]
+            то $f(x)$ называется выпуклой вниз. Если выполнено обратное неравенство, то $f(x)$ называется выпуклой вверх. Пример выпуклой вниз функции :
         \end{definition} 
-        %\begin{center}
-        %    \begin{tikzpicture}[scale=2]
-        %        \draw[->] (-1, 0) -- (3.5, 0) node[right] {$x$};
-        %        \draw[->] (0, -1) -- (0, 3.5) node[above] {$y$};
-        %        %\draw[domain=-0.3:3,samples=2] plot (\x, {\x - 0.5});
-        %        \draw[domain=0.3:2.5,samples=100] plot (\x,{(\ln{\x})^2});
-        %    \end{tikzpicture}
-        %\end{center}
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw[->] (-0.5, 0) -- (3.5, 0) node[right] {$x$};
+                \draw[->] (0, -0.5) -- (0, 2.5) node[above] {$y$};
+                \draw[domain=0.4:3.2,samples=100] plot (\x,{((ln(\x))^2-(0.5*\x)+1.5)});
+                \coordinate (x1) at (0.5,0);
+                \coordinate (x2) at (3,0);
+                \coordinate (y1) at (0.5,1.73);
+                \coordinate (y2) at (3,1.2);
+
+                \draw[fill] (x1) circle (1pt) node[below] {$x_1$};
+                \draw[fill] (x2) circle (1pt) node[below] {$x_2$};
+                \draw[fill] (y1) circle (1pt) node[above right] {$f(x_1)$};
+                \draw[fill] (y2) circle (1pt) node[above right] {$f(x_2)$};
+                
+                \draw[dashed] (x1) -- (y1);
+                \draw[dashed] (x2) -- (y2);
+                \draw (y1) -- (y2);
+            \end{tikzpicture}
+        \end{center}
         \begin{theorem}
-            Пусть $f'(c)\in \mathcal{D}(I)$. Если $f''(x)>0 (<0)$, то $f(x)$ выпукла вниз (вверх).
+            Пусть $f'(c)\in \mathcal{D}(I)$.
+            \begin{itemize}
+                \item Если $f''(x)>0$, то $f(x)$ выпукла вниз.
+                \item Если $f''(x)<0$, то $f(x)$ выпукла вверх.
+            \end{itemize}
         \end{theorem} 
         \begin{proof}
-            Пусть $l_1(x)=\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1},$.
+            Пусть $l_1(x)=\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}$
             \begin{multline*}
                 f(x)-l_1(x)=f(x)\frac{(x-x_1)+(x_2-x)}{x_2-x_1}-\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}=\\
-                =\frac{(f(x)-f(x_2))(x-x_1)+(f(x)-f(x_1))(x_2-x)}{x_2-x_1}=\\
-                =\frac{-f'(\xi)(x_2-x)(x-x_1)+f'(\eta)(x-x_1)(x_2-x)}{x_2-x_1}=\\=
+                =\frac{(f(x)-f(x_2))(x-x_1)+(f(x)-f(x_1))(x_2-x)}{x_2-x_1}=\tab[5cm]\\
+                \tab[1cm]=\frac{-f'(\xi)(x_2-x)(x-x_1)+f'(\eta)(x-x_1)(x_2-x)}{x_2-x_1}=\\=
                 \frac{-f''(\chi)(\xi-\eta)(x-x_1)(x_2-x)}{x_2-x_1}
             \end{multline*}
         \end{proof} 
@@ -2140,11 +2179,12 @@
             \[f(x)-f(x_0)-f'(x_0)(x-x_0)\geq 0\]
         \end{theorem} 
         \begin{proof}
-            Пусть $f(x_0)+f'(x_0)(x-x_0)=l_2(x),\\
-            f(x)-l_2(x)=f'(\xi)(x-x_0)-f'(x_0)(x-x_0)=f''(\eta)(\xi-x_0)(x-x_0)$, знаки скобок $(\xi-x_0)$ и $(x-x_0)$ одиноковы, значит $(\xi-x_0)(x-x_0)>0$
+            Пусть $f(x_0)+f'(x_0)(x-x_0)=l_2(x)$
+            \[f(x)-l_2(x)=f'(\xi)(x-x_0)-f'(x_0)(x-x_0)=f''(\eta)(\xi-x_0)(x-x_0)\]
+            знаки скобок $(\xi-x_0)$ и $(x-x_0)$ одинаковы, значит $(\xi-x_0)(x-x_0)>0$
         \end{proof} 
         \begin{definition}
-            Если $f(x)-l_2(x)$ при проходе через точку (в левой и правой окрестности) $x_0$ меняет знак, то точка $x_0$ называется точкой перегиба.
+            Если $f(x)-l_2(x)$ при проходе через точку $x_0$ меняет знак (разные знаки в левой и правой окрестности), то точка $x_0$ называется точкой перегиба.
         \end{definition}
         \begin{theorem}
             Пусть $f''(x)\in \mathcal{C}(B(x_0))$. Если $x_0$ - точка перегиба, то $f''(x_0)=0$.
