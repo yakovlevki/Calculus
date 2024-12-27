@@ -64,7 +64,7 @@
 }
 
 \title{\textbf{Математический анализ-1}}
-\author{Лектор: Подольский Владимир Евгеньевич}
+\author{Лектор: проф. Подольский Владимир Евгеньевич}
 
 \begin{document}
     \fontsize{14pt}{20pt}\selectfont
@@ -373,7 +373,7 @@
         но $\not\exists \frac{m}{n}, \frac{m^2}{n^2}=2$
         \end{example}
     \subsection{Модели действительных чисел}
-    \subsubsection{Модель бесконечных десятичных дробей}
+    %\subsubsection{Модель бесконечных десятичных дробей}
         \begin{definition}
             Отображение $\{a_n\}: \N \to X$ называется последовательностью элементов $X$.
         \end{definition}
@@ -412,7 +412,7 @@
                 \item $a<0, b<0$ строим число по аналогии с пунктом 2.
             \end{enumerate}
         \end{proof} 
-    \subsubsection{Сечения $\Q$}
+    %\subsubsection{Сечения $\Q$}
         \begin{definition} (Дедекиндовы сечения)\\
             Пусть $A,B\subset \Q: A\cap B = \emptyset, A\cup B=\Q,\ \forall a\in A,\ \forall b\in B: a\leq b$ и в $B$ не существует минимального элемента, тогда $(A,B)$ - пара сечений $\Q$.
         \end{definition} 
@@ -422,7 +422,7 @@
         \begin{proof}
             Без доказательства.
         \end{proof}
-    \subsubsection{Геометрическая модель числовой прямой}
+    %\subsubsection{Геометрическая модель числовой прямой}
     Выбираем точку, называем ее 0
     \[\begin{tikzpicture}
         \draw[-latex] (-5.5,0) -- (5.5,0) ;
@@ -488,7 +488,7 @@
         Получаем последовательность вложенных отрезков, у которых длина стремится к нулю, значит у них есть единственная общая точка - наше число.\\
         Таким образом, прямая - множество бесконечных десятичных дробей, а значит на ней выполняеются (1)-(16).
         \subsection{Принципы полноты}
-        \subsubsection{Верхние и нижние грани множества}
+        %\subsubsection{Верхние и нижние грани множества}
         \begin{definition} \tab
             \begin{itemize}
                 \item Элемент $a\in \R$ называется максимальным элементом множества $A$\\ $(\max A\subset \R), A\ne \emptyset$, если $\forall a^{\prime}\in A: a\geq a^{\prime}$ и $a\in A$.
@@ -514,7 +514,7 @@
                 \item Пусть множество $A \subset \R$ ограничено снизу, $B$ - множество нижних граней $A$. Элемент $c=\max B$ называется точной нижней гранью $A$ и обозначается $\inf A$.
             \end{itemize}
         \end{definition}
-        \subsubsection{Принцип полноты Вейерштрасса}
+        %\subsubsection{Принцип полноты Вейерштрасса}
         \begin{theorem} (Принцип полноты Вейерштрасса) \\
             Для каждого ограниченого сверху или снизу множества $A$ существует $\sup A$ или $\inf A$ соответственно.
         \end{theorem}
@@ -553,7 +553,7 @@
         \begin{definition}
             Рассмотрим последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$. Говорят, что\\ $|b_n-a_n|\to 0$ при $n\to \infty$, если $\forall \epsilon >0\tab[5pt]\exists N\in \N: \forall n>N$ выполнено $|b_n-a_n|<\epsilon$.
         \end{definition}
-        \subsubsection{Принцип вложенных отрезков (принцип полноты Кантора)}
+        %\subsubsection{Принцип вложенных отрезков (принцип полноты Кантора)}
         \begin{theorem} (Принцип вложенных отрезков) \\
             Пусть последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$ такова, что $\forall n: [a_{n+1},b_{n+1}]\subset [a_n,b_n]$. Тогда $\exists c\in \R: c\in [a_n,b_n], \forall n$. Если $|b_n-a_n|\to 0$ то $c$ - единственная.
         \end{theorem} 
@@ -1996,7 +1996,7 @@
             \[\forall \epsilon>0\ \exists\ \delta>0: \forall x\in \mathring{B}(x_0):\ |\frac{f'(x)}{g'(x)}-A|<\epsilon\]
             Доопределим функции в точке $x_0$: $f(x_0):=0,\ g(x_0):=0$.
             Тогда\\
-            $f(x),\ g(x)\in C(x_0)$  при этих всех этих условиях выполнена теорема Коши:
+            $f(x),\ g(x)\in C(x_0)$  при этих всех условиях выполнена теорема Коши:
             \[|\frac{f(x)}{g(x)}-A|=|\frac{f(x)-f(x_0)}{g(x)-g(x_0)}-A|=|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
             Аналогично,  условие
             \[\forall \epsilon>0\ \exists\ \delta>0: \forall x\in \mathring{B}(x_0):\ |\frac{f'(x)}{g'(x)}-A|>\epsilon\]
@@ -2033,11 +2033,11 @@
             Возьмем $x_0\in (a-\delta_1, a)$. Ввиду расположения точки $c$: \[|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
             Поскольку $\lim\limits_{x\to a-0}\frac{1}{g(x)}=0$, то $\forall \epsilon>0\ \exists\ \delta_2: \forall x\in (a-\delta_2, a): \frac{1}{g(x)}<\epsilon$. Значит
             \[|\frac{f(x_0)}{g(x)}|<\epsilon\ \ \text{и}\ \ |\frac{g(x_0)}{g(x)}|<\frac{\epsilon}{|A|+\epsilon}\]
-            Значит, выбрав $\delta = \min\{\delta_1,\delta_2\}$, получм:
+            Значит, выбрав $\delta = \min\{\delta_1,\delta_2\}$, получим:
             \[|\frac{f(x)}{g(x)}-A|<\epsilon+\epsilon+(|A|+\epsilon)(\frac{\epsilon}{|A|+\epsilon})=3\epsilon\]
             \\
             Аналогично
-            \[\frac{f'(x)}{g'(x)}\to \pm \infty\ \ \Rightarrow\ \ \frac{f'(x)}{g'(x)}\to \pm \infty\]
+            \[\frac{f'(x)}{g'(x)}\to \pm \infty\ \ \Rightarrow\ \ \frac{f(x)}{g(x)}\to \pm \infty\]
         \end{proof} 
         \subsection{Формулы Тейлора}
         \begin{definition}
@@ -2115,7 +2115,7 @@
             По формуле Лагранжа: $f(x)-f(x_0)=f'(c)(x-x_0)$
         \end{proof} 
         \begin{theorem}
-            Пусть $\exists\ f^{(n)}(x_0)\ne 0,\ f^{(k)(x_0)}=0,\ k=1, \dots, n-1$.
+            Пусть $\exists\ f^{(n)}(x_0)\ne 0,\ f^{(k)}(x_0)=0,\ k=1, \dots, n-1$.
             \begin{enumerate}
                 \item Если $n=2k+1$, то экстремум нет.
                 \item Если $n=2k$, то при $f^{(2k)}(x_0)>0$ - $x_0$ точка минимума.\\
@@ -2126,7 +2126,7 @@
             $f(x)=f(x_0)+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\bar{\bar{o}}{(x-x_0)^n},\ x\to x_0\\
             \Rightarrow f(x)-f(x_0)=(x-x_0)^n(\frac{f^{(n)}}{n!}+\bar{\bar{o}}{(1)})$
         \end{proof} 
-        \subsubsection*{Схема поика глобального экстремума}
+        \subsubsection*{Схема поиска глобального экстремума}
         \begin{enumerate}
             \item Ищем точки интервала $(a,b)$, где $f'(x)=0$ или где ее не существует. 
             \item Находим значение во всех этих точках и значения на концах открезка.
@@ -2213,4 +2213,33 @@
         \begin{theorem}
             Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$
         \end{theorem} 
+        \begin{theorem} (Неравенство Йенсена)\\
+            Пусть $f(x)$ выпукла вверх (вниз) на $I$. Пусть $\{\alpha_i\} \alpha_i>0 \forall i,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall \{x_i\} \subset I$. $f(\sum\limits_{i=1}^{n}\alpha_i x_i) \geq \sum\limits_{i=1}^{n}\alpha_i f(x_i)$.
+        \end{theorem} 
+        \begin{proof}
+            Индукция по $n$. Если $n=1$ - очев.\\
+            $n=2: f(\alpha_1 x_1+\alpha_2 x_2)\geq \alpha_1 f(x_1)+\alpha_2 f(x_2)$ - очев по выпуклости $f(x)$.
+            \begin{multline*}
+                f(\sum\limits_{i=1}^{n+1}\alpha_i x_i)=f(\sum\limits_{i=1}^{n}\alpha_i x_i +\alpha_{n+1}x_{n+1})=f(\sum\limits_{i=1}^{n}\alpha_i \cdot \sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i\cdot x_i +\alpha_{n+1} x_{n+1}})\geq\\\geq \sum\limits_{i=1}^{n}\alpha_i\cdot f(\sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i} x_i)+\alpha_{n+1} f(x_{n+1})\geq \sum\limits_{i=1}^{n}x_i (\sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i}\cdot f(x_i))+\alpha_{n+1} f(x_{n+1})
+            \end{multline*}
+        \end{proof} 
+        \begin{statement}
+            Неравенство между средним арифметическим и средим геометрическим\\
+            \[\frac{1}{n}\sum\limits_{k=1}^{n}x_k\geq \sqrt[n]{\prod\limits_{k=1}^{n}x_k}\]
+        \end{statement}
+        \begin{proof}
+            $f(x)=\ln{x},\ f''(x)=-\frac{1}{x^2}<0$ - выпукла вверх. Тогда
+            \[\ln({\sum\limits_{k=1}^{n}\frac{1}{n}})\geq \frac{1}{n} \sum\limits_{k=1}^{n}\ln{x}=\ln{\prod\limits_{i=1}^{n}x_k^{\frac{1}{n}}}\]
+        \end{proof} 
+        \begin{statement}
+            Неравенство Юнга\\
+            $\forall a,b<0,\ \forall p,q>1: \frac{1}{p}+\frac{1}{q}=1$. Тогда 
+            \[ab\leq \frac{a^p}{p}+\frac{b^q}{q}\]
+        \end{statement}
+        \begin{proof}
+            Воспользуемся неравенством Йенсена для логарифма:
+            \[\ln({\frac{1}{p}x_1+\frac{1}{q}x_2})\geq \frac{1}{p}\ln{x_1}+\frac{1}{q}\ln{x_2}\]
+            $x_1=a^p,\ x_2=b^q$. Тогда
+            \[\ln{\frac{a^p}{p}+\frac{b^q}{q}}\geq \ln{a}+\ln{b}=\ln{ab}\]
+        \end{proof} 
 \end{document}
