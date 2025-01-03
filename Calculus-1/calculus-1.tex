@@ -150,29 +150,32 @@
             Пусть $x\in X, y\in Y$. Упорядоченной парой называется двуэлементное множество $\{x,\{x,y\}\}$, упорядоченную пару обозначают $(x,y)$.
         \end{definition}
         \begin{definition}
-            Множество всех упорядоченных пар $(x,y)$ называется декартовым произведением множеств $X$ и $Y$, где $x\in X, y\in Y$. Декартово произведение обозначают $X\times Y$.
+            Множество всех упорядоченных пар $X\times Y = \{(x,y)\}$, где \\
+            $x\in X$ и $y\in Y$ называется декартовым произведением множеств $X$ и $Y$.
         \end{definition}
     \subsection{Отображения}
         \begin{definition}
-            Пусть $X, Y$ - множества. Подмножество $f\subset X\times Y$ такое, что $\forall\ (x_1,y_1),\ (x_2, y_2)\in f: y_1\ne y_2 \Rightarrow x_1\ne x_2$ называется отображением из $X$ в $Y$, и обозначается $f: X\to Y$.
+            Пусть $X, Y$ - множества. Подмножество $f\subset X\times Y$ такое, что $\forall\ (x_1,y_1),\ (x_2, y_2)\in f: (y_1\ne y_2 \Rightarrow x_1\ne x_2)$ называется отображением из\\
+            $X$ в $Y$, и обозначается $f: X\to Y$.
         \end{definition}
         \begin{comm}
             Запись $(x,y)\in f$ часто заменяют на $y=f(x)$.
-            \end{comm}
+        \end{comm}
+        Далее пусть $f:X\to Y$. 
         \begin{definition}
-            Пусть $f:X\to Y$. Множество $\{x: \exists\ (x,y) \in f\} = D_f$ называется областью определения функции $f$.
+            Множество $D_f := \{x: \exists\ (x,y) \in f\}$ называется областью определения функции $f$.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y$. Множество $\{y: \exists\ (x,y) \in f\} = R_f$ называется областью значений функции $f$.
+            Множество $R_f := \{y: \exists\ (x,y) \in f\}$ называется областью значений функции $f$.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y$. $f$ - инъекция $\lra \forall\ (x_1,y_1),\ (x_2,y_2)\in f: \\ x_1\ne x_2 \Rightarrow y_1\ne y_2$.
+            $f$ - инъекция $\lra \forall\ (x_1,y_1),\ (x_2,y_2)\in f: (x_1\ne x_2 \Rightarrow y_1\ne y_2)$.
         \end{definition}
         \begin{definition}
-            Пусть $f:X\to Y$. $f$ - сюръекция $\lra Y=R_f$
+            $f$ - сюръекция $\lra Y=R_f$
         \end{definition}
         \begin{comm}
-        Обычно используют определение $f$ - сюръекция $\lra \forall y\in Y \\ \exists\ x\in X: y=f(x)$.
+        Обычно используют определение $f$ - сюръекция $\lra \forall y\in Y \\ \exists\ x\in X: y=f(x)$. Определения, очевидно, эквивалентны.
         \end{comm}
         \begin{definition}
             $f$ - биекция $\lra f$ - инъекция и $f$ - сюръекция.
@@ -197,7 +200,7 @@
         \begin{comm}
         Иногда $f: X\to Y$ записывают в виде $y_x$ и называют индексацией $y$ элементами $x$.
         \end{comm}
-    \subsection{Операции над множествами (продолжение)}
+    \subsection{Правила де Моргана}
         \begin{statement}
             $\bigcup\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcap\limits_{\alpha}A_{\alpha})$.
         \end{statement}
@@ -210,11 +213,11 @@
         \begin{proof}
             $a\in \bigcap\limits_{\alpha}(A\setminus A_{\alpha})\lra (a\in A$ и $a\notin A_{\alpha_1})$ и $\dots$ и $(a\in A$ и $a\notin A_{\alpha_n})\lra a\in A$ и $(a\notin A_{\alpha_1}$ или $\dots$ или $a\notin A_{\alpha_n})\lra a\in A\setminus (\bigcup\limits_{\alpha}A_{\alpha})$.
         \end{proof}
-    \section{Действительные числа}
+    \section{Вещественные числа}
     \subsection{Натуральные числа. Аксиоматика Пеано}
         \begin{definition} (Аксиоматика Пеано)
             \begin{enumerate}
-                \item В множестве $\N$ $\forall n\in \N, \exists !$ элемент, называемый следующим и обозначаемый как $S(n)$.
+                \item В множестве $\N$ $\forall n\in \N,\ \exists !$ элемент, называемый следующим и обозначаемый как $S(n)$.
                 \item $\forall n\in \N$ $\exists$ не более одного элемента $\N$, для которого $n$ - следующий.
                 \item $\exists !$ элемент $\N$, не являющийся следующим ни для какого элемента. Этот элемент обозначается $1$ и называется единицей.
                 \item (Аксиома индукции) Пусть $M\subset \N$, такое, что $1\in M$ и $\forall m\in M:\\ S(m)\in M$. Тогда $M=\N$.
@@ -222,7 +225,7 @@
         Множество, удовлетворяющее этим аксиомам, называется множеством натуральных чисел и обозначается $\N$.
         \end{definition}
         \begin{definition}
-            Рассмотрим  множество $X$. Если для некоторого $n\in \N$ $\exists$ биекция $\phi: X\to \{1, \dots n\}$, то $X$ называется $n$-элементным, или говорят, что количество элементов в $X$ равно $n$. Тот факт что множество $X$ - $n$-элементное обозначается как $|X|=n$ или $cardX=n$.
+            Рассмотрим  множество $X$. Если для некоторого $n\in \N$ существует биекция $\phi: X\to \{1, \dots n\}$, то $X$ называется $n$-элементным, или говорят, что количество элементов в $X$ равно $n$. Тот факт что множество $X$ - $n$-элементное обозначается как $|X|=n$ или $cardX=n$.
         \end{definition} 
         \begin{comm}
             По определению считаем, что $card(\emptyset) =0$.
@@ -235,7 +238,7 @@
             $R\subset X\times Y$ называется отношением между элементами\\ $X$ и $Y$. Обозначают $xRy$, если $(x,y)\in R$.
         \end{definition}
         \begin{definition}
-            Отношение $R$ называется отношением порядка, если $\forall x\in X,\\ \forall y\in Y$ выполнено:
+            Отношение $R$ называется отношением (линейного) порядка, если $\forall x\in X$ и $\forall y\in Y$ выполнено:
             \begin{enumerate}
                 \item $xRy$ или $yRx$. 
                 \item $(xRy$ и $yRx) \Rightarrow x=y$. 
@@ -244,8 +247,12 @@
             Такое отношение обозначают $\leq$.
         \end{definition}
         \begin{theorem}
-            $\exists !$ отношение порядка на $\N$, такое, что $\forall n\in \N: n\leq S(n)$. (Можно использовать на экзамене без доказательства)
+            Существует единственное отношение порядка на $\N$, такое, что\\
+            $\forall n\in \N: n\leq S(n)$.
         \end{theorem}
+        \begin{proof}
+            Без доказательства.
+        \end{proof} 
         \begin{theorem} (Принцип наименьшего элемента)\\
             $M\subset \N, M\ne \emptyset$ имеет наименьшей элемент, т.е. $\exists n_{min}\in M, \forall n\in M: n_{min}\leq n$.
         \end{theorem} 
@@ -256,7 +263,8 @@
         \end{proof}
     \subsection{Арифметические операции}
         \begin{definition}
-            Рассмотрим $A,B, card(A)=n, card(B)=k, n,k\in \N$. Пусть $A\cap B=\emptyset$. Тогда число $card(A\cup B)$ называется суммой $n$ и $k$ и обозначается $card(A\cup B)=n+k$.
+            Рассмотрим множества $A$ и $B, card(A)=n, card(B)=k,\\
+            n,k\in \N$. Пусть $A\cap B=\emptyset$. Тогда число $card(A\cup B)$ называется суммой $n$ и $k$ и обозначается $card(A\cup B)=n+k$.
         \end{definition}
         \begin{comm}
             Естественно выполняется $n+k=k+n$ (коммутативность) и\\ $(n+k)+m=n+(k+m)$ (ассоциативность).
@@ -265,15 +273,12 @@
             $n+0=0+n=n$, т.к. $cardA=card(A\cup \emptyset)$.
         \end{comm}
         \begin{comm}
-            $A \leftrightarrow \{1,\dots, n\}, B\leftrightarrow \{1,\dots, k\}$. Возьмем\\ $card(A\cup B)=\{1,\dots, n\}\cup \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\}$,\\ (где $\{1,\dots, k\} \leftrightarrow \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\})$\\
+            По определению существуют биекции $A \leftrightarrow \{1,\dots, n\}, B\leftrightarrow \{1,\dots, k\}$. Возьмем $card(A\cup B)=\{1,\dots, n\}\cup \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\}$,\\ (где $\{1,\dots, k\} \leftrightarrow \{\underbrace{S(n), S(S(n)), \dots, S(S(\dots (S(n))\dots)}_k\})$\\
             Из тех же соображений получаем, что $S(n)=n+1$.
         \end{comm} 
         \begin{definition}
             $n,k\in \N$. Тогда $\sum\limits_{i=1}^kn=nk$ называется произведением $n$ на $k$.
         \end{definition}
-        \begin{comm}
-            $nk=\underbrace{(n+n+\dots +n)}_k$. 
-        \end{comm}
         \begin{comm} Выполнены:
             \begin{itemize}
                 \item $nk=kn$ (коммутативность)
@@ -286,7 +291,7 @@
             Если $n+k=m$, то $n=m-k$ называется разностью\\ $m$ и $k,\ k=m-n$ называется разностью $m$ и $n$.
         \end{definition}
         \begin{comm}
-            $m-0=m$, $m+0=m$, $m-m=0$.
+            $m-0=m,\ m+0=m,\ m-m=0$.
         \end{comm}
         \begin{definition}
             $nk=m, \frac{m}{n}=k, \frac{m}{k}=n$.
@@ -294,9 +299,7 @@
     \subsection{Целые числа}
         \begin{definition}
             Введем набор символов $-\N=\{\dots,-2,-1\}$. Множество символов $-\N \cup\{0\}\cup \N$ называется целыми числами и обозначаются $\Z$. 
-        \end{definition}
-        \begin{comm}
-            Принимаем выполненными следующие свойства:
+            В нем принимаем выполненными следующие свойства:
             \begin{enumerate}
                 \item $k+(-n)=\begin{cases}
                     k-n, \text{если} \hspace*{5pt} k\geq n,\\
@@ -312,34 +315,34 @@
                 \item $\forall (\pm k), (\pm n), (\pm m)\in \Z$, если $(\pm k)\leq (\pm n)$, то $(\pm k)+(\pm m)\leq (\pm n)+(\pm m)$.
                 \item $\forall (\pm n), (\pm k)\in \Z, m\in \N$, если $(\pm n)\leq (\pm k)$, то $(\pm n)m\leq (\pm k)m$.
             \end{enumerate}
+        \end{definition}
         Далее пишем $-k$ вместо $(-k)$.\\
         $\forall k,n\in \Z$ $\exists (k-n)=k+(-n)$.
-        \end{comm}
     \subsection{Рациональные числа}
         \begin{definition}
-            Множество $\Q=(m,n)\in \Z \times \N$ называется множеством рациональных чисел, если введены следующие операции:
-            $$\frac{m}{n}+\frac{p}{q}=\frac{mq+pn}{nq}$$
-            $$\frac{m}{n}\cdot \frac{p}{q}=\frac{mp}{nq}$$
+            Множество $\Q=\{(m,n)\in \Z \times \N\}$, элементы которого обозначают $\frac{m}{n}$ называется множеством рациональных чисел, если введены следующие операции:
+            \[\frac{m}{n}+\frac{p}{q}=\frac{mq+pn}{nq}\]
+            \[\frac{m}{n}\cdot \frac{p}{q}=\frac{mp}{nq}\]
             а также введено отношение порядка:
-            $$\frac{m}{n}\leq \frac{p}{q}$$
+            \[\frac{m}{n}\leq \frac{p}{q}\ \Leftrightarrow\ mq\leq pn\]
         \end{definition}
-        Свойства операций $(a,b,c \in \Q)$:\\
-        \begin{itemize}
-            \item[(1)] $a+b=b+a$
-            \item[(2)] $a+(b+c)=(a+b)+c$
-            \item[(3)] $\exists ! \hspace{5pt} 0 \in \Q: a+0=0+a=a$
-            \item[(4)] $\forall a\in \Q \hspace{5pt} \exists ! \hspace{5pt} (-a)\in \Q: a+(-a)=0$
-            \item[(5)] $ab=ba$
-            \item[(6)] $a(bc)=(ab)c$
-            \item[(7)] $\exists ! \hspace{5pt} 1\in \Q \hspace{5pt} \forall a: a\cdot 1=1\cdot a=a$
-            \item[(8)] $\forall a\ne 0 \hspace{5pt} \exists ! \hspace{5pt} a^{-1}: aa^{-1}=a^{-1}a=1$
-            \item[(9)] $a(b+c)=ab+ac$
-            \item[(10)] $\forall a,b\in \Q \hspace{5pt} a\leq b$ или $b\leq a$
-            \item[(11)] $a\leq b$ и $b\leq a \Rightarrow a=b$
-            \item[(12)] $a\leq b$ и $b\leq c \Rightarrow a\leq c$
-            \item[(13)] $\forall c \in \Q: a\leq b \Rightarrow a+c\leq b+c$
-            \item[(14)] $\forall c>0: a\leq b\Rightarrow ac\leq bc$
-        \end{itemize}
+        Свойства операций $(a,b,c \in \Q)$:
+        \begin{enumerate}
+            \item $a+b=b+a$
+            \item $a+(b+c)=(a+b)+c$
+            \item $\exists ! \hspace{5pt} 0 \in \Q: a+0=0+a=a$
+            \item $\forall a\in \Q \hspace{5pt} \exists ! \hspace{5pt} (-a)\in \Q: a+(-a)=0$
+            \item $ab=ba$
+            \item $a(bc)=(ab)c$
+            \item $\exists ! \hspace{5pt} 1\in \Q \hspace{5pt} \forall a: a\cdot 1=1\cdot a=a$
+            \item $\forall a\ne 0 \hspace{5pt} \exists ! \hspace{5pt} a^{-1}: aa^{-1}=a^{-1}a=1$
+            \item $a(b+c)=ab+ac$
+            \item $\forall a,b\in \Q \hspace{5pt} a\leq b$ или $b\leq a$
+            \item $a\leq b$ и $b\leq a \Rightarrow a=b$
+            \item $a\leq b$ и $b\leq c \Rightarrow a\leq c$
+            \item $\forall c \in \Q: a\leq b \Rightarrow a+c\leq b+c$
+            \item $\forall c>0: a\leq b\Rightarrow ac\leq bc$
+        \end{enumerate}
     \subsection{Упорядоченные и архимедовы поля}    
         \begin{definition}
             Множество $X$ с операциями $(\cdot, +)$ и отношением порядка $\leq$ называется упорядоченным полем.
@@ -349,7 +352,7 @@
         \end{comm}  
         \begin{definition}
             Упорядоченное поле $X$ называется архимедовым, если\\
-            (15) $\forall a\in X: \exists\ n\in \N: a\leq n$.
+            15.\ $\forall a\in X: \exists\ n\in \N: a\leq n$.
         \end{definition}
         \begin{comm}
             $\Q$ - архимедово поле.
@@ -364,21 +367,21 @@
         \begin{definition}
             Множество $\R$ называется множеством действительных чисел, если $\Q \subset \R$, $\R$ удовлетворяет (1)-(15) и дополнительно выполняется (16).
         \end{definition}
-        \begin{definition} (Аксиома полноты)\\
-            (16) $\forall A,B\subset \R$ таких, что $\forall a\in A, \forall b\in B: a\leq b \ \exists \ c\in \R: a\leq c\leq b$.
-        \end{definition}
+        \begin{axiom} (Аксиома полноты)\\
+            16.\ $\forall A,B\subset \R$ таких, что $\forall a\in A,\ \forall b\in B: a\leq b \ \exists \ c\in \R: a\leq c\leq b$.
+        \end{axiom}
         \begin{example}
         Аксиома полноты не выполняется в $\Q$.\\
         $A=\{a\leq 0$ или $a>0: a^2<2\}$, $B=\{b>a: b^2>2\}$,\\
-        но $\not\exists \frac{m}{n}, \frac{m^2}{n^2}=2$
+        но не существует $\frac{m}{n}$ такого, что $\frac{m^2}{n^2}=2$
         \end{example}
     \subsection{Модели действительных чисел}
-    %\subsubsection{Модель бесконечных десятичных дробей}
+    \subsubsection*{Модель бесконечных десятичных дробей}
         \begin{definition}
             Отображение $\{a_n\}: \N \to X$ называется последовательностью элементов $X$.
         \end{definition}
         \begin{definition}
-            Выражение вида $\pm a_0,a_1,\dots, a_n, \dots$ называется бесконечной десятичной дробью, если $a_0\in \N$ или $a_0=0 \hspace{5pt}$ и $\forall i\in \N$ $a_i \in \{0,1,\dots, 9\}$.
+            Выражение вида $\pm a_0,a_1,\dots, a_n, \dots$ называется бесконечной десятичной дробью, если $a_0\in \N$ или $a_0=0$\ и $\forall i\in \N: a_i \in \{0,1,\dots, 9\}$.
         \end{definition}
         \begin{definition}
             Введем отношение порядка $\leq$ на множестве всех бесконечных десятичных дробей следующим образом:
@@ -387,11 +390,11 @@
                 \item Если $a_0, b_0\geq 0,$ то $a\leq b$
                 \begin{itemize}
                     \item если $a_0<b_0$ или $a_0=b_0$, $a_1<b_1$ или $a_0=b_0$, $a_1=b_1$, $a_2<b_2$,\\ или \dots или $a_0=b_0$, $a_1=b_1$, $a_2=b_2, \dots, a_{n-1}=b_{n-1},$ $a_n<b_n\dots$
-                    \item если $a_0=b_0$, $a_1=b_1, \dots, a_n\ne 9, b_n=a_{n}+1$.
+                    \item если $a_0=b_0$, $a_1=b_1, \dots, a_{n-1}=b_{n-1}$, а также $a_n\ne 9, b_n=a_{n}+1$.
                     $a_{n+k}=9$, $b_{n+k}=0$, $\forall k \in \N$, т.е $a=\overline{a_0a_1...a_n(9)}$, а $b=\overline{b_0b_1...b_n(0)}$.\\
                     (в числе $a$ начиная с $a_{n+1}$ все $a_i$ равны 9, а в числе $b$ начиная с $b_{n+1}$ все $b_i$ равны 0), то $a=b$.
                 \end{itemize}
-                \item Если $a_0, b_0<0$, то $a<b$, если $-b<-a$ (случай 3 сведен к случаю 2)
+                \item Если $a_0, b_0<0$, то $a\leq b$, если $-b\leq -a$ (случай 3 сведен к случаю 2)
             \end{enumerate}
         \end{definition} 
         \begin{theorem}
@@ -401,7 +404,7 @@
             Пусть $A,B\subset$ $\{$множество бесконечных десятичных дробей$\}$ и $\forall a\in A, \forall b\in B: a\leq b$.
             \begin{enumerate}
                 \item $a<0, b\geq 0$, тогда $c=0$.
-                \item $a>0, b>0$\\
+                \item $a\geq 0, b\geq 0$\\
                 Пусть\\
                 $\overline{b_0}=\min \{b_0: b_0b_1b_2\dots \in B\},\\
                 \overline{b_1}=\min \{b_1: \overline{b_0}b_1b_2\dots \in B\}$,\\
@@ -412,9 +415,10 @@
                 \item $a<0, b<0$ строим число по аналогии с пунктом 2.
             \end{enumerate}
         \end{proof} 
-    %\subsubsection{Сечения $\Q$}
-        \begin{definition} (Дедекиндовы сечения)\\
-            Пусть $A,B\subset \Q: A\cap B = \emptyset, A\cup B=\Q,\ \forall a\in A,\ \forall b\in B: a\leq b$ и в $B$ не существует минимального элемента, тогда $(A,B)$ - пара сечений $\Q$.
+    \subsubsection*{Дедекиндовы сечения}
+        \begin{definition}
+            Пусть $A,B\subset \Q: A\cap B = \emptyset,\ A\cup B=\Q,\ \forall a\in A,\ \forall b\in B:\\
+            a\leq b$ и в $B$ не существует минимального элемента, тогда $(A,B)$ - пара сечений $\Q$.
         \end{definition} 
         \begin{theorem}
             На множестве всех пар сечений $\{(A,B)\}$ можно ввести операции $(+), (\cdot)$ и отношение $(\leq)$, так что будут выполняться $(1)-(16)$.
@@ -422,7 +426,7 @@
         \begin{proof}
             Без доказательства.
         \end{proof}
-    %\subsubsection{Геометрическая модель числовой прямой}
+    \subsubsection*{Геометрическая модель числовой прямой}
     Выбираем точку, называем ее 0
     \[\begin{tikzpicture}
         \draw[-latex] (-5.5,0) -- (5.5,0) ;
@@ -494,7 +498,7 @@
                 \item Элемент $a\in \R$ называется максимальным элементом множества $A$\\ $(\max A\subset \R), A\ne \emptyset$, если $\forall a^{\prime}\in A: a\geq a^{\prime}$ и $a\in A$.
                 \item Элемент $a\in \R$ называется минимальным элементом множества $A$\\ $(\min A\subset \R), A\ne \emptyset$, если $\forall a^{\prime}\in A: a\leq a^{\prime}$ и $a\in A$.
             \end{itemize}
-        \end{definition}
+        \end{definition} \tab
         \begin{definition} \tab
             \begin{itemize}
                 \item Элемент $m\in \R$ называется верхней гранью $A\subset \R, A\ne \emptyset$, если\\ $\forall a\in A: a\leq m$.
@@ -555,7 +559,7 @@
         \end{definition}
         %\subsubsection{Принцип вложенных отрезков (принцип полноты Кантора)}
         \begin{theorem} (Принцип вложенных отрезков) \\
-            Пусть последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$ такова, что $\forall n: [a_{n+1},b_{n+1}]\subset [a_n,b_n]$. Тогда $\exists c\in \R: c\in [a_n,b_n], \forall n$. Если $|b_n-a_n|\to 0$ то $c$ - единственная.
+            Пусть последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$ такова, что $\forall n: [a_{n+1},b_{n+1}]\subset [a_n,b_n]$. Тогда $\exists\ c\in \R: c\in [a_n,b_n], \forall n$. Если $|b_n-a_n|\to 0$ то $c$ - единственная.
         \end{theorem} 
         \begin{proof}
             $\forall n,m\in \N: a_n\leq b_m$, т.к
@@ -564,7 +568,7 @@
                 \item если $n>m$, то $a_n\leq b_n\leq b_m$.
             \end{itemize}
             Значит для $\forall m,n\in \N: $
-            Рассмотрим множества $A=\{a_n\}$ и $B=\{b_n\}$. По аксиоме полноты $\exists c\in \R: a_n\leq c\leq b_m,\ \forall n,m \Rightarrow a_n\leq c\leq b_n,\ \forall n$.\\
+            Рассмотрим множества $A=\{a_n\}$ и $B=\{b_n\}$. По аксиоме полноты $\exists\ c\in \R: a_n\leq c\leq b_m,\ \forall n,m \Rightarrow a_n\leq c\leq b_n,\ \forall n$.\\
             Пусть $|b_n-a_n|\to 0$, предположим, что $\exists\ c_1$ и $c_2: c_1\ne c_2$ - различные общие точки, значит $|c_2-c_1|>0$. Получаем, что $0<|c_2-c_1|<|b_n-a_n|,\ \forall n$, значит $|c_2-c_1|\to 0$ получаем противоречие.
         \end{proof}
         \subsection{Неравенство Бернулли и Бином Ньютона}
@@ -616,7 +620,7 @@
             \begin{enumerate}
                 \item Рефлексивность очевидна, поскольку у любого множества существует биекция в себя.
                 \item Для любой биекции $\phi:A\to B$ существует $\phi^{-1}:B\to A$.
-                \item $\phi:A\to B, \psi:B\to C$, то $\psi \circ \phi: A\to C$.
+                \item $\phi:A\to B,\ \psi:B\to C$, то $\psi \circ \phi: A\to C$.
             \end{enumerate}
         \end{proof} 
         \begin{comm}
@@ -629,7 +633,7 @@
             \begin{itemize}
                 \item[$(\Leftarrow)$] Пусть $\phi:A\to \{1,\dots, n\}, \ \psi:B\to \{1,\dots, n\}\\
                 \Rightarrow \exists \ \psi^{-1}:\{1,\dots, n\}\to B$. Тогда $\phi \circ \psi^{-1}:A\to B$ - искомая биекция.
-                \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция, если $A=\emptyset$, то $B=\emptyset$. Докажем индукцией по количеству элементов. База: пусть $A=\{a\}$, тогда $\exists ! \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists ! \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное и $\exists ! \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
+                \item[$(\Rightarrow)$] Пусть $\phi:A\to B$ - биекция, если $A=\emptyset$, то $B=\emptyset$. Индукция по количеству элементов. База: пусть $A=\{a\}$, тогда $\exists ! \ b\in B: \phi(a)=b$. Пусть утверждение верно для случая когда $A$ - это $n$-элементное множество. Теперь если $A$ - это $n+1$-элементное, то $\exists \ \phi:A\to \{1,2,...,n+1\}$ - биекция. Значит $\exists ! \ a\in A$, что $\phi(a)=n+1$. Тогда $A\setminus\{a\}$ - $n$-элементное и $\exists ! \ b\in B: b=\phi(a) \Rightarrow B\setminus\{b\}$ - $n$-элементное $\Rightarrow  B$ - $n+1$-элементное.
             \end{itemize}
         \end{proof}
         \begin{definition}
@@ -647,9 +651,9 @@
                 \includegraphics[width=0.4\linewidth]{prohod.png}
             \end{center}
         \end{proof}
-        \begin{theorem}
+        \begin{consequense}
             Объединение не более чем счетного числа не более чем счетных множеств не более чем счетно.
-        \end{theorem} 
+        \end{consequense} 
         \begin{examples}\tab
             \begin{enumerate}
                 \item Множество целых чисел $\Z$ счетно.
@@ -674,7 +678,7 @@
         \begin{theorem} (Теорема Кантора)\\
             Интервал $(0,1)$ несчетен.
         \end{theorem}
-        \begin{proof}
+        \begin{proof}\footnote{Может немного отличаться от доказательства на лекциях}
             Докажем от противного. Предположим, что у нас получилось перечислить все элементы интервала $(0,1)$ 
             \[x_1=0,\ a_{11}\ a_{12}\ a_{13}\ \dots\]
             \[x_2=0,\ a_{21}\ a_{22}\ a_{23}\ \dots\]
@@ -691,7 +695,7 @@
         \begin{consequense}
             Действительных чисел несчетно.
         \end{consequense} 
-        \begin{proof}
+        \begin{proof}\footnote{Не было на лекциях}
             Достаточно показать, что $\R \sim (0,1)$. Например функция\\
             $f:(0,1)\to \R$, такая что $f(x)=\frac{2x-1}{4x-4x^2}$ задает нужную биекцию.
         \end{proof} 
@@ -704,6 +708,9 @@
         \begin{theorem}
             У любого множетсва мощность множества всех подмножеств строго больше чем мощность самого множества.
         \end{theorem}
+        \begin{proof}
+            Без доказательства.
+        \end{proof} 
         \begin{definition}
             Для множеств $A$ и $B$ обозначим $|A|\leq |B|$, если $\exists \ B^{\prime} \subset B$ такое, что $A\sim B^{\prime}$.
         \end{definition} 
@@ -724,7 +731,7 @@
         \begin{statement}
             Множество $2^{\N}$ всех подмножеств $\N$ равномощно интервалу (0,1) (множеству $\{0,1\}^{\N}$ бесконечных последовательностей нулей и единиц).
         \end{statement}
-        \begin{proof}
+        \begin{proof}\footnote{Может отличаться от доказательства на лекциях}
             Каждому $A\subset \N$ ставим в соответствие характеристическую последовательность, которая принимает значения: единицу, если элемент лежит в подмножестве и ноль иначе $\Rightarrow 2^{\N}\sim \{0,1\}^{\N}$. Поскольку каждое число из интервала $(0,1)$ представляется как последовательность цифр $0,\ a_1,\ a_2,\ a_3,\ \dots$ и каждую цифру можно представить в двоичной системе исчисления, то можно сделать вывод, что $2^{\N}\sim (0,1)$.
         \end{proof}
         \begin{theorem}
@@ -740,7 +747,7 @@
             Выделим из $A$ счетное подмножество $A^{\prime}$. Тогда $A\sim (A\setminus A^{\prime})\cup A^{\prime}$, поскольку объединение не более чем счётного числа не более чем счётных множеств не более чем счётно, то  $(A\setminus A^{\prime})\cup A^{\prime} \sim (A\setminus A^{\prime})\cup(A^{\prime}\cup B) \sim(A\cup B)$.
         \end{proof}
     \newpage
-    \section{Топология $\R$}
+    \section{Топология вещественной прямой}
     \subsection{Окрестность точки. Классификация точек относительно подмножеств действительных чисел}
         \begin{definition}
             $\forall x\in \R,\ \forall \epsilon>0: B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$. Множество $B_{\epsilon}(x)$ называется $\epsilon$-окрестностью точки $x$.
@@ -866,7 +873,8 @@
             Говорят, что семейство $\{A\}_{\alpha}$ является покрытием множества $B$, если $B\subset \bigcup\limits_{\alpha}A_{\alpha}$
         \end{definition} 
         \begin{definition}
-            Рассмотрим $X\subset \R$. Если для любого покрытия $X$ открытыми множествами $\{A\}_{\alpha}$ существует $\{\alpha_i\}_{i=1}^n$ - конечное подпокрытие такое, что $X\subset \bigcup\limits_{i=1}^n A_{\alpha_i}$, то $X$ называется компактным множеством или компактом.
+            Рассмотрим $X\subset \R$. Если для любого покрытия $X$ открытыми множествами $\{A\}_{\alpha}$ существует $\{\alpha_i\}_{i=1}^n$ - конечное подпокрытие такое, что \\
+            $X\subset \bigcup\limits_{i=1}^n A_{\alpha_i}$, то $X$ называется компактным множеством или компактом.
         \end{definition} 
         \begin{theorem}
             Любой отрезок является компактом.
@@ -874,18 +882,18 @@
         \begin{proof}
             Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отрезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых нельзя выделить конечное подпокрытие и длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}$. Поскольку $A_{\alpha_0}$ - открыто, то $\exists\ B_{\epsilon}(c)\subset A_{\alpha_0}$ $\Rightarrow \exists\ n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
         \end{proof} 
-        \begin{theorem} (Лемма Гейне-Бореля)\\
-            $A$ - компакт $\Leftrightarrow A$ - замкнуто и ограничено.
+        \begin{theorem} (Лемма Гейне-Бореля)\footnote{На самом деле, утверждение верно и для $\R^n$}\\
+            $A$ - компакт в $\R$ $\Leftrightarrow A$ - замкнуто и ограничено.
         \end{theorem} 
         \begin{proof}
             Без доказательства.
         \end{proof}
     \subsection{Теорема Больцано-Вейерштрасса}
         \begin{theorem} (Больцано-Вейерштрасса)\\
-            Если $A$ - ограниченное и бесконечное множетсво, то в нем есть хотя бы одна предельная точка ($A^{\prime}\ne \emptyset$).
+            Если $A\subset \R$ - ограниченное и бесконечное множетсво, то в нем есть хотя бы одна предельная точка (т.е. $A^{\prime}\ne \emptyset$).
         \end{theorem} 
         \begin{proof}
-            т.к $A$ - ограничено, то $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов из множества $A$ и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю (упражнение) $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_{n_{\epsilon}},b_{n_{\epsilon}}]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
+            т.к $A$ - ограничено, то $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов из множества $A$ и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_{n_{\epsilon}},b_{n_{\epsilon}}]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
         \end{proof}
     \newpage
     \section{Числовые последовательности}
@@ -920,11 +928,11 @@
             Пусть $\exists\ \lims a_n=a$, тогда $\forall a_{n_k}\ \exists\ \lims a_{n_k}=a$.
         \end{theorem} 
         \begin{proof}
-            $\forall \epsilon>0\ \exists\ N_{\epsilon}\ \forall n>N_{\epsilon}: |a_n-a|<\epsilon \Rightarrow \forall k>N_{\epsilon}:\\ |a_{n_k}-a|<\epsilon$
+            $\forall \epsilon>0\ \exists\ N_{\epsilon}\ \forall n>N_{\epsilon}: |a_n-a|<\epsilon \Rightarrow \forall n_k>N_{\epsilon}:\\ |a_{n_k}-a|<\epsilon$
         \end{proof} 
-        \begin{comm}
-            $\forall k\in \Z$ отображение $\Z \setminus \{..., k-1\} \to \R$ тоже будем называть последовательностью.
-        \end{comm} 
+        % \begin{comm}
+        %     $\forall k\in \Z$ отображение $\Z \setminus \{..., k-1\} \to \R$ тоже будем называть последовательностью.
+        % \end{comm} 
         \
         \begin{comm}\tab
             \begin{enumerate}
@@ -1020,9 +1028,10 @@
                 \item $\cfrac{a_n}{b_n}-\cfrac{a}{b}=\cfrac{a_n b-ab_n}{bb_n}=\cfrac{b(a+\bar{\bar{o}}{(1)})-a(b+\bar{\bar{o}}{(1)})}{b(b+\bar{\bar{o}}{(1)})}=\cfrac{ab-ab+b \bar{\bar{o}}{(1)}-a \bar{\bar{o}}{(1)}}{b^2+b \bar{\bar{o}}{(1)}}=\\=\cfrac{1}{b^2+\bar{\bar{o}}{(1)}}\ \bar{\bar{o}}{(1)}=O(1) \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
             \end{enumerate}
         \end{proof}
-        \begin{comm}
-            т.к $b\ne 0,\ b_n\ne 0\ \forall n$, то 0 отделен от $b_n$, т.е $\exists\ \epsilon>0: B_{\epsilon}(0)\cap b_n=\emptyset \Rightarrow |b_n|>\epsilon \Rightarrow \frac{1}{|b_n|}<\frac{1}{\epsilon}$.
-        \end{comm}
+        %\begin{comm}
+        %    т.к $b\ne 0,\ b_n\ne 0\ \forall n$, то 0 отделен от $b_n$, т.е $\exists\ \epsilon>0:\\
+        %    B_{\epsilon}(0)\cap b_n=\emptyset \Rightarrow |b_n|>\epsilon \Rightarrow \frac{1}{|b_n|}<\frac{1}{\epsilon}$.
+        %\end{comm}
         \begin{theorem}
             Пусть $\exists\ \lim\limits_{n\to \infty} a_n=a$ и $a_n\geq 0,\ \forall n$. Тогда $a\geq 0$.
         \end{theorem} 
@@ -1093,7 +1102,7 @@
         \end{definition} 
     \subsection{Сходимость последовательностей и частичные пределы}
         \begin{theorem}
-            Если $a_n$ ограничена, то $\exists\ a_{n_k}\to a,\ k\to \infty$. 
+            Если $a_n$ ограничена, то у нее существует сходящаяся подпоследовательность. 
         \end{theorem}
         \begin{proof}\tab
             \begin{enumerate}
@@ -1103,7 +1112,7 @@
         \end{proof} 
         \begin{theorem} (Критерий Коши)\\
             Последовательность $a_n$ сходится тогда и только тогда, когда
-            \[\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon\]
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N,\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon\]
         \end{theorem} 
         \begin{proof}\tab
             \begin{itemize}
@@ -1112,7 +1121,9 @@
             \end{itemize}
         \end{proof} 
         \begin{definition}
-            Последовательность $a_n$, удовлетворяющая условию\\ $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$, называется фундаментальной.
+            Последовательность $a_n$, удовлетворяющая условию
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N,\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon\]
+            называется фундаментальной.
         \end{definition} 
         \begin{example}
                 \[a_n=\sum\limits_{k=1}^n\frac{1}{k^2}\ \ \text{- сходится, поскольку:}\] 
@@ -1124,20 +1135,26 @@
             Если у $a_n$ есть сходящаяся подпоследовательность $a_{n_k}$, то\\ $\lim\limits_{k\to \infty}a_{n_k}=a$ называется частичным пределом последовательности $a_n$.
         \end{definition} 
         \begin{theorem}
-            Рассмотрим $a_n$, и пусть $a\subset \R$ - множество всех частичных пределов $a_n$. Тогда $A$ замкнуто.
+            Рассмотрим $a_n$, и пусть $A\subset \R$ - множество всех частичных пределов $a_n$. Тогда $A$ замкнуто.
         \end{theorem} 
         \begin{proof}
             $\forall x\in \R\setminus A \Rightarrow x\not\in A \Rightarrow \exists\ B_{\epsilon}(x): B_{\epsilon}(x)\cap\{a_n\}_{n=1}^{\infty}$ - конечно. Тогда $\forall x^{\prime}\in B_{\epsilon}(x)\ \exists\ B_{\epsilon^{\prime}}(x^{\prime})$, что $B_{\epsilon^{\prime}}(x^{\prime})\cap\{a_n\}_{n=1}^{\infty}$ конечно $\Rightarrow \forall x^{\prime} \not\in A\\ \Rightarrow B_{\epsilon}(x)\subset \R\setminus A\Rightarrow \R\setminus A$ - открыто.
         \end{proof} 
         \begin{definition}
-            Пусть $a_n$ ограничена. Тогда $\exists\ \max A$ и $\min A$, которые называют верхним пределом $\uplim\limits_{n\to \infty}a_n$ и нижним пределом $\lowlim\limits_{n\to \infty}a_n$. 
+            Пусть $a_n$ ограничена. Тогда $\exists\ \max A$ и $\min A$ частичные пределы, которые называют верхним пределом $\uplim\limits_{n\to \infty}a_n$ и нижним пределом $\lowlim\limits_{n\to \infty}a_n$ соответственно. 
         \end{definition} 
         \begin{theorem}
-            Пусть  $a_n$ ограничена. Тогда $\uplim\limits_{n\to \infty}a_n=\lims \sup\{a_k\}_{k=1}^{\infty}$ и\\
-            $\lowlim\limits_{n\to \infty}a_n=\lims \inf\{a_k\}_{k=1}^{\infty}$.
+            Пусть  $a_n$ ограничена. Тогда 
+            \[\uplim\limits_{n\to \infty}a_n=\lims \sup\{a_k\}_{k=1}^{\infty},\ \lowlim\limits_{n\to \infty}a_n=\lims \inf\{a_k\}_{k=1}^{\infty}\]
         \end{theorem} 
         \begin{proof}
-            Докажем для верхнего: $\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty},\ \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу. $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. $\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}$ конечно. С другой стороны $\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}$ бесконечно\\
+            Докажем для верхнего: 
+            \[\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty}\] 
+            $\Rightarrow \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу и монотонно убывает $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. Значит 
+            \[\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}\]
+            конечно. С другой стороны 
+            \[\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}\] 
+            бесконечно
             $\Rightarrow \alpha$ - частичный предел $\Rightarrow$ $\alpha=\uplim\limits_{n\to \infty}a_n$.
         \end{proof} 
         \begin{theorem}
@@ -1145,8 +1162,8 @@
         \end{theorem} 
         \begin{proof}\tab
             \begin{itemize}
-                \item[($\Rightarrow$)] очев
-                \item[$(\Leftarrow)$] $\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}$ по лемме о двух милиционерах $a_n \to a$. 
+                \item[($\Rightarrow$)] Если последовательность сходится к $a$, то все частичные пределы сходятся к $a$.
+                \item[$(\Leftarrow)$] \[\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}\] по лемме о двух милиционерах $a_n \to a$. 
             \end{itemize}
         \end{proof} 
         \begin{definition}
@@ -1154,7 +1171,7 @@
         \end{definition}
     \section{Предел функции}
     \subsection{Определение предела по Коши и по Гейне}
-        В данном разделе будут рассматриваться функции $f: \R\to\R$.
+        В данном разделе будут рассматриваться функции $\R\to\R$.
         \begin{definition}
             Пусть $f(x)$ определена в $\mathring{B}(x_0)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
             \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
@@ -1165,7 +1182,7 @@
         \end{definition} 
         \begin{definition}
             Пусть $f(x)$ определена на $(-\infty, x_0)$ и на $(x_0, +\infty)$. Тогда \\
-            $a$ - предел $f$ при $x\to \infty\ (x\to +\infty,\ x\to -\infty)$ если 
+            $a$ - предел функции $f$ при $x\to \infty\ (x\to +\infty,\ x\to -\infty)$ если 
             \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0, \forall x: |x|>\delta_{\epsilon}\ (x>\delta_{\epsilon},\ x<\delta_{\epsilon}): |f(x)-a|<\epsilon\]
         \end{definition} 
         \begin{theorem} 
@@ -1176,10 +1193,15 @@
                 \item $(1)\Rightarrow(2)$: $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon$.\\
                 $\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: 0<|x_0-x_n|<\delta_{\epsilon}\\
                 \Rightarrow \forall n> N_{\delta_{\epsilon}},\ x_n\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_n)-a|<\epsilon$, т.е. $f(x_n)\to a$.
-                \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: $\exists\ \epsilon> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo_{\delta}(x_0): |f(x_{\delta})-a|\geq \epsilon_0$.\\
-                Возьмем $x_1 \in \Bo_1(x_0) \Rightarrow |f(x_1)-a|\geq \epsilon;\ x_2 \in \Bo_{\frac{|x_1|}{2}}(x_0) \Rightarrow |f(x_2)-a|\geq \epsilon_0$;\\
-                $x_3\in \Bo_{\frac{|x_2|}{2}}(x_0) \Rightarrow |f(x_3)-a|\geq \epsilon_0$;\ \dots;\ $x_n \in \Bo_{\frac{|x_n|}{2}}(x_0) \Rightarrow |f(x_n)-a|\geq \epsilon_0$\\
-                это и есть отрицание по Гейне.
+                \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: 
+                \[\exists\ \epsilon_0> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo_{\delta}(x_0): |f(x_{\delta})-a|\geq \epsilon_0\]
+                Возьмем 
+                \[x_1 \in \Bo_1(x_0) \Rightarrow |f(x_1)-a|\geq \epsilon_0\] 
+                \[x_2 \in \Bo_{\frac{|x_1-x_0|}{2}}(x_0) \Rightarrow |f(x_2)-a|\geq \epsilon_0\]
+                \[x_3\in \Bo_{\frac{|x_2-x_0|}{2}}(x_0) \Rightarrow |f(x_3)-a|\geq \epsilon_0\]
+                \[\vdots\]
+                Получили последовательность $x_n\to x_0,\ x_n\ne x_0$, но при этом\\
+                $|f(x_n)-a|\geq \epsilon_0$. Это и есть отрицание по Гейне.
             \end{enumerate}
         \end{proof} 
         \begin{comm}
@@ -1193,20 +1215,26 @@
             Если у функции существует предел в точке $x_0$ то он единственный.
         \end{theorem}
         \begin{proof}
-            Получим противоречие с определением по Гейне, пусть $x_n: x_n\to x_0,\ x_n\ne x_0\ \forall n: \lims f(x_n)=a$. Предположим, что $b\ne a$ - тоже предел. Тогда $\exists\ t_n: t_n\to x_0,\ t_n\ne x_0\ \forall n: \lims f(t_n)=b$. Получаем, что последовательность $y_n = x_1,t_1,x_2,t_2,\dots: y_n\to x_0$, но при этом $f(y_n)= f(x_1),f(t_1),f(x_2),f(t_2)\dots$ - имеет два различных частичных предела.
+            Получим противоречие с определением по Гейне, пусть 
+            \[x_n: x_n\to x_0,\ x_n\ne x_0\ \forall n: \lims f(x_n)=a\] 
+            Предположим, что $b\ne a$ - тоже предел. Тогда 
+            \[\exists\ t_n: t_n\to x_0,\ t_n\ne x_0\ \forall n: \lims f(t_n)=b\] 
+            Получаем, что последовательность $y_n = x_1,t_1,x_2,t_2,\dots: y_n\to x_0$, но при этом $f(y_n)= f(x_1),f(t_1),f(x_2),f(t_2)\dots$ - имеет два различных частичных предела - противоречие.
         \end{proof}
         \begin{theorem}
             Если $\exists \lim\limits_{x\to x_0}f(x)=a$, то $\exists\ \delta>0$ такое, что $f(x)$ ограничена в $\Bo_{\delta}(x_0)$.
         \end{theorem} 
         \begin{proof}
-            Возьмем $\epsilon = 1$, тогда $\exists\ \delta>0$, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<1\\
-            \Rightarrow a-1<f(x)<a+1 \Rightarrow f(x)$ - ограничена.
+            Возьмем $\epsilon = 1$. Тогда
+            \[\exists\ \delta>0,\ \forall x\in \Bo_{\delta}(x_0): |f(x)-a|<1\]
+            $\Rightarrow a-1<f(x)<a+1 \Rightarrow f(x)$ - ограничена.
         \end{proof}
         \begin{theorem} (Теорема об отделимости)\\
-            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a$. Тогда $\forall b\ne a\ \exists\ \delta>0$ и $\exists\ \epsilon>0$, что $f(\Bo_{\delta}(x_0))\cap \Bo_\epsilon(b)=\emptyset$. 
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a$. Тогда $\forall\ b\ne a\ \exists\ \delta>0$ и $\exists\ \epsilon>0$, что $f(\Bo_{\delta}(x_0))\cap \Bo_\epsilon(b)=\emptyset$. 
         \end{theorem}  
         \begin{proof}
-            Возьмем $\epsilon=\frac{|a-b|}{3}$, тогда $\exists\ \delta>0$ такое, что $\forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3} \Rightarrow f(\Bo_{\delta}(x_0))\cap\Bo_{\frac{|a-b|}{3}}(b)=\emptyset$.
+            Возьмем $\epsilon=\frac{|a-b|}{3}$. Тогда
+            \[\exists\ \delta>0,\ \forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3} \Rightarrow f(\Bo_{\delta}(x_0))\cap\Bo_{\frac{|a-b|}{3}}(b)=\emptyset\]
         \end{proof} 
     \subsection{Предел по множеству. Односторонние пределы}
         \begin{definition}
@@ -1218,7 +1246,7 @@
             Если $\exists\ \lim\limits_{X\ni x\to x_0}f(x)=a$ и $X_1\subset X,\ x_0\in X_1^{\prime}$. Тогда\\
             $\exists\ \lim\limits_{X_1\ni x\to x_0}f(x)=a$.
         \end{statement} 
-        \begin{proof} %(дано в качестве очевидного)\ $\circledast$\\
+        \begin{proof}
             Очевидно.
         \end{proof}
         \begin{definition}\tab\
@@ -1231,13 +1259,18 @@
         \begin{theorem}
             $\exists\ \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \exists\ \lim\limits_{x\to x_0+0}f(x)=a$ и $\exists\ \lim\limits_{x\to x_0-0}f(x)=a$.
         \end{theorem} 
-        \begin{proof} (дано в качестве очевидного)\ $\circledast$
+        \begin{proof}\footnote{Дано в качестве очевидного}
             \begin{enumerate}
                 \item \begin{itemize}
-                    \item[$(\Rightarrow)$] Поскольку $\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<|\epsilon$,\\
-                    то $\forall x\in (x, x+\delta): |f(x)-a|<\epsilon$ и $\forall x\in (x-\delta, x): |f(x)-a|<\epsilon$.
-                    \item[$(\Leftarrow)$] Поскольку $\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in (x, x+\delta): |f(x)-a|<\epsilon$\\
-                    и $\forall x\in (x-\delta, x): |f(x)-a|<\epsilon$, то и $\forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon$.
+                    \item[$(\Rightarrow)$] Поскольку \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon\]
+                    то 
+                    \[\forall x\in (x, x+\delta): |f(x)-a|<\epsilon\ \ \text{и}\ \ \forall x\in (x-\delta, x): |f(x)-a|<\epsilon\]
+                    \item[$(\Leftarrow)$] Поскольку 
+                    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in (x, x+\delta): |f(x)-a|<\epsilon\]
+                    и поскольку 
+                    \[\forall x\in (x-\delta, x): |f(x)-a|<\epsilon\]
+                    то выполнено и 
+                    \[\forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon\]
                 \end{itemize}
             \end{enumerate}
         \end{proof} 
@@ -1269,11 +1302,12 @@
                 \item $\alpha(x)\gamma(x)=\om(1),\ x\to x_0$.
             \end{enumerate}
         \end{theorem} 
-        \begin{proof} (дано в качестве очевидного)\ $\circledast$\\
-            Запишем определение по Гейне:\\
-            $\lim\limits_{x\to x_0}\alpha(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne 0,\ \forall n: \exists \lim\limits_{n\to \infty}\alpha(x_n)=0,\\
-            \lim\limits_{x\to x_0}\beta(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne 0,\ \forall n: \exists \lim\limits_{n\to \infty}\beta(x_n)=0$.\\
-            $\gamma(x)=O(1) \Leftrightarrow \exists\ M>0: |\gamma(x)|<M$. Тогда:
+        \begin{proof}\footnote{Дано в качестве очевидного}
+            Запишем определение по Гейне:
+            \[\lim\limits_{x\to x_0}\alpha(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne 0,\ \forall n: \exists \lim\limits_{n\to \infty}\alpha(x_n)=0\]
+            \[\lim\limits_{x\to x_0}\beta(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne 0,\ \forall n: \exists \lim\limits_{n\to \infty}\beta(x_n)=0\]
+            \[\gamma(x)=O(1) \Leftrightarrow \exists\ M>0: |\gamma(x)|<M\] 
+            Теперь воспользуемся доказанным для последовательностей:
             \begin{enumerate}
                 \item $\alpha(x_n)+\beta(x_n)=\bar{\bar{o}}{(1)}+\bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
                 \item $c\alpha(x_n)=c \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
@@ -1284,15 +1318,17 @@
         \begin{statement}
             $\exists\ \lim\limits_{x\to x_0}f(x)=a\Leftrightarrow f(x)=a+\om(1),\ x\to x_0$.
         \end{statement} 
-        \begin{proof} (дано в качестве очевидного)\ $\circledast$\\
-            $\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon \Leftrightarrow f(x)-a=\bar{\bar{o}}{(1)}$.
+        \begin{proof}\footnote{Дано в качестве очевидного}
+            \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon \Leftrightarrow f(x)-a=\bar{\bar{o}}{(1)}\]
         \end{proof}
         \begin{theorem}
             Если $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ a\ne 0$, то $\frac{1}{f(x)}=O(1)$ в $\Bo(x_0)$.
         \end{theorem} 
         \begin{proof}
-            По теореме об отделимости $\exists\ \Bo(x_0)$ и $\exists\ \epsilon>0:\\
-            f(\Bo(x_0))\cap \Bo_{\epsilon}(0)\ne \emptyset$. Тогда $\forall x\in \Bo(x_0): |f(x)|\geq \epsilon \Rightarrow \frac{1}{|f(x)|}\leq \frac{1}{\epsilon}$. 
+            По теореме об отделимости 
+            \[\exists\ \Bo(x_0)\ \text{и}\ \exists\ \epsilon>0: f(\Bo(x_0))\cap \Bo_{\epsilon}(0)\ne \emptyset\] 
+            Тогда 
+            \[\forall x\in \Bo(x_0): |f(x)|\geq \epsilon \Rightarrow \frac{1}{|f(x)|}\leq \frac{1}{\epsilon}\]
         \end{proof} 
     \subsection{Арифметрические свойства пределов функций и предельные переходы в неравенствах}
         \begin{theorem}
@@ -1309,8 +1345,8 @@
         \end{proof}
         \begin{example}\tab
             \begin{enumerate}
-                \item $\forall \alpha,\beta\in \R$, если $\alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как\\
-                $\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0$.\\
+                \item $\forall \alpha,\beta\in \R$, если $\alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как
+                \[\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0\]
                 Например: $x+\om(x)+x^2+\om(x^2)=x+\om(x),\ x\to 0$.
                 \item $\sin{x}=x+\om(x),\ x\to 0$, так как $\lim\limits_{x\to 0}\frac{\sin{x}}{x}=1$.
             \end{enumerate}
@@ -1319,15 +1355,17 @@
             Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$ и пусть $\forall x\in \Bo(x_0):\\
             f(x)\geq g(x)$, тогда $a\geq b$.
         \end{theorem} 
-        \begin{proof} (дано в качестве очевидного)\ $\circledast$\\
-            $\forall x_n \to x_0,\ x_n\ne x_0,\ \forall n: \lim\limits_{x\to x_0} f(x_n)=a$ и $\lim\limits_{x\to x_0} g(x_n)=b$. $f(x_n)\geq g(x_n)$ значит, по доказанному для последовательностей $a\geq b$.
+        \begin{proof}\footnote{Дано в качестве очевидного}
+            \[\forall x_n \to x_0,\ x_n\ne x_0,\ \forall n: \lim\limits_{x\to x_0} f(x_n)=a\ \text{и}\ \lim\limits_{x\to x_0} g(x_n)=b\] 
+            по условию: $f(x_n)\geq g(x_n)$ значит, по доказанному для последовательностей $a\geq b$.
         \end{proof} 
         \begin{theorem}
             Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$, и пусть $a>b$. Тогда $\exists\ \Bo(x_0): f(x)>g(x)$.
         \end{theorem}
-        %\begin{proof} (дано в качестве очевидного)\ $\circledast$\\
-        %    По теореме об отделимости: $\exists\ \delta>0\ \exists\ \epsilon>0: f(\mathring{B}_{\delta}(x_0))\cap \mathring{B}_{\epsilon}(b)$.
-        %\end{proof} 
+        \begin{proof}
+            По теореме об отделимости.
+            %\[\exists\ \delta>0\ \exists\ \epsilon>0: f(\mathring{B}_{\delta}(x_0))\cap \mathring{B}_{\epsilon}(b)\]
+        \end{proof} 
         \begin{theorem}(Теорема о двух милиционерах)\\
             Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=a$ и пусть в $\Bo(x_0): f(x)\leq h(x)\leq g(x)$. Тогда $\exists\ \lim\limits_{x\to x_0}h(x)=a$.
         \end{theorem} 
@@ -1349,20 +1387,26 @@
             Пусть $f(x)$ определена на $(a-\delta, a),\ f(x)$ - неубывающая (невозрастающая) и ограниченная сверху (снизу). Тогда $\exists\ \lim\limits_{x\to a-0}f(x)=A$.
         \end{theorem} 
         \begin{proof}
-            $\exists\ \sup{f(x)}=A.\ \forall \epsilon>0\ \exists\ x_{\epsilon}\in (a-\delta, a),\ f(x_{\epsilon})>A-\epsilon$. Тогда $\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon$, а значит $\forall x\in \Bo(A): f(x)-A<\epsilon$.
+            Докажем для неубывающей и ограниченой сверху. $\exists\ \sup{f(x)}=A$. Значит
+            \[\forall \epsilon>0\ \exists\ x_{\epsilon}\in (a-\delta, a): f(x_{\epsilon})>A-\epsilon\] 
+            Тогда 
+            \[\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon\] 
+            а значит
+            \[\forall x\in \Bo(A): f(x)-A<\epsilon\]
         \end{proof}
     \subsection{Критерий Коши}
-        \begin{theorem} (Критерий Коши)\\
-            $\exists \lim\limits_{x\to x_0}=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon$
+        \begin{theorem} (Критерий Коши)
+            \[\exists \lim\limits_{x\to x_0}=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
         \end{theorem} 
         \begin{proof}\tab
             \begin{itemize}
-                \item[$(\Rightarrow)$] $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon$\\
-                $\forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|=|f(x_1)-a+a-f(x_2)|\leq|f(x_1)-a|+|f(x_2)-a|<2\epsilon$.
-                \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon$.\\
-                $\forall \{x_n\},\ x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: \forall n> N_{\delta_{\epsilon}}: |x_n-x_0|<\delta_{\epsilon}$\\
-                $\Rightarrow n,m>N_{\delta_{\epsilon}}: |f(x_n)-f(x_m)|<\epsilon \Rightarrow \exists\lims f(x_n)=a$.\\
-                $\{t_n\},\ t\to x_0,\ t_n\ne x_0,\ \exists \lims f(t_n)=b.\ x_1, t_1, x_2, t_2 $(пояснить)$, \dots \Rightarrow a=b$.
+                \item[$(\Rightarrow)$] \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
+                Значит $\forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0):$
+                \[|f(x_1)-f(x_2)|=|f(x_1)-a+a-f(x_2)|\leq|f(x_1)-a|+|f(x_2)-a|<2\epsilon\]
+                \item[$(\Leftarrow)$] \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
+                \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}\in \N,\ \forall n> N_{\delta_{\epsilon}}: |x_n-x_0|<\delta_{\epsilon}\]
+                \[\Rightarrow \forall n,m>N_{\delta_{\epsilon}}: |f(x_n)-f(x_m)|<\epsilon \Rightarrow \exists\lims f(x_n)=a\]
+                $t_n: t_n\to x_0,\ t_n\ne x_0,\ \exists \lims f(t_n)=b$. Рассмотрим последовательность $y_n: x_1, t_1, x_2, t_2, \dots,\ y_n\to x_0 \Rightarrow a=b$.
             \end{itemize}
         \end{proof} 
     \newpage
