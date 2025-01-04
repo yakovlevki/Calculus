@@ -1406,14 +1406,16 @@
                 \item[$(\Leftarrow)$] \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
                 \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}\in \N,\ \forall n> N_{\delta_{\epsilon}}: |x_n-x_0|<\delta_{\epsilon}\]
                 \[\Rightarrow \forall n,m>N_{\delta_{\epsilon}}: |f(x_n)-f(x_m)|<\epsilon \Rightarrow \exists\lims f(x_n)=a\]
-                $t_n: t_n\to x_0,\ t_n\ne x_0,\ \exists \lims f(t_n)=b$. Рассмотрим последовательность $y_n: x_1, t_1, x_2, t_2, \dots,\ y_n\to x_0 \Rightarrow a=b$.
+                $t_n: t_n\to x_0,\ t_n\ne x_0,\ \exists \lims f(t_n)=b$. Рассмотрим последовательность $y_n: x_1, t_1, x_2, t_2, \dots,\ y_n\to x_0$ если $a\ne b$ то последовательность $f(y_n)$  будет иметь два частичных предела $\Rightarrow a=b$.
             \end{itemize}
         \end{proof} 
     \newpage
     \section{Непрерывные функции}
     \subsection{Локальные свойства непрерывных функций}
         \begin{definition}
-            Пусть $D_f$ - область определения $f(x)$. Пусть $x_0\in D_f$. Если $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0$, что $\forall x\in B_{\delta_{\epsilon}}(x_0)\cap D_f: |f(x)-f(x_0)|<\epsilon$, то $f(x)$ называется непрерывной в точке $x_0$.
+            Пусть $D_f$ - область определения $f(x),\ x_0\in D_f$. Если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in B_{\delta_{\epsilon}}(x_0)\cap D_f: |f(x)-f(x_0)|<\epsilon\] 
+            то $f(x)$ называется непрерывной в точке $x_0$.
         \end{definition}  
         \begin{comm}
             Определение эквивалентно тому, что $\exists\ \lim\limits_{x\to x_0}f(x)=f(x_0)$, если $x_0$ не изолированная точка.
@@ -1430,10 +1432,12 @@
             Если $x_0$ - изолированная то очев. Если неизолированная, то по свойствам предела очевидно.
         \end{proof} 
         \begin{theorem} (Непрерывность композиции непрерывных функций) \\
-            $f(x)$ определена в $B_{\delta}(x_0)$ и $f(x)$ непрерывна в точке $x_0$.\ $f(B_{\delta}(x_0))\subset B(y_0),\ f(x_0)=y_0$.\ $g(y)$ определена в $B(y_0)$ и непрерывна в точке $y_0$. Тогда $g(f(x))$ непрерывна в точке $x_0$.
+            Пусть $f(x)$ определена в $B_{\delta}(x_0)$ и $f(x)$ непрерывна в точке $x_0$, а также\\
+            $f(B_{\delta}(x_0))\subset B(y_0),\ f(x_0)=y_0$. И пусть $g(y)$ определена в $B(y_0)$ и непрерывна в точке $y_0$. Тогда $g(f(x))$ непрерывна в точке $x_0$.
         \end{theorem} 
-        \begin{proof}
-            $\forall x_n\to x_0,\ f(x_n)\to f(x_0).\ y_n\to y_0,\ g(y_n)\to g(y_0).\ y_n=f(x_n),\ g(f(x_n))\to g(f(x_0))$.
+        \begin{proof} По Гейне:
+            \[\forall x_n\to x_0,\ f(x_n)\to f(x_0).\ \forall y_n\to y_0,\ g(y_n)\to g(y_0)\]
+            \[y_n=f(x_n),\ g(f(x_n))\to g(f(x_0))\]
         \end{proof} 
     \subsection{Глобальные свойства непрерывных функций}
         \begin{definition}
@@ -1443,22 +1447,29 @@
             Если $f(x)\in \mathcal{C}[a,b]$, то $f(x)$ - ограничена на $[a,b]$.
         \end{theorem} 
         \begin{proof}
-            Предположим, что $f(x)$ неограничена, то есть\\
+            Предположим, что $f(x)$ неограничена, то есть \\
             \[\forall M>0\ \exists\ x_M\in [a,b]: |f(x_M)|>M\]
-            Возьмем $x_1: |f(x_1)|>1;\ \ x_2: |f(x_2)|>2;\ \  \dots\ \ x_M: |f(x_M)|>M;\dots$\\
-            Получаем последовательность $\{x_n\}\subset [a,b]\ \exists\ \{x_{n_k}\}: \exists\ \lim\limits_{k\to \infty}\{x_{n_k}\}=x_0$.\\
-            $f(x)$ непрерывная $\Rightarrow \exists\ \lim\limits_{k\to \infty}f(\{x_{n_k}\})=f(x_0)$, но $|f(x_{n_k})|\to +\infty$. 
+            Возьмем 
+            \[x_1: |f(x_1)|>1,\ x_2: |f(x_2)|>2,\ \dots\ x_M: |f(x_M)|>M,\ \dots\]
+            Получаем последовательность 
+            \[x_n\subset [a,b]\Rightarrow \exists\ x_{n_k}: x_{n_k}\to x_0\]
+            $f(x)$ непрерывна $\Rightarrow f(x_{n_k})\to f(x_0)$, но $|f(x_{n_k})|\to +\infty$ получаем противоречие.
         \end{proof} 
         \begin{theorem} (2-я теорема Вейерштрасса)\\
             Пусть $f(x)\in \mathcal{C}[a,b]$. Тогда $f(x)$ имеет максимальное $\max{f(x)}$ и минимальное $\min{f(x)}$ значения на $[a,b]$
         \end{theorem} 
         \begin{proof}
-            $\alpha = \sup\limits_{x\in [a,b]} f(x): \exists\ x_1 \in [a,b],\ f(x_1)>\alpha-1,\ \exists\ x_2\in [a,b],\\
-            f(x-2)>\alpha - \frac{1}{2}\dots \exists\ x_n\in [a,b],\ f(x-n)>\alpha - \frac{1}{n}, \dots$. $\exists \{x_{n_k}\}, x_{n_k}\to x^{\prime},\\
-            f(x_{n_k})\to f(x^{\prime}),\ \alpha-\frac{1}{n_k}<f(x_{n_k})\leq \alpha \Rightarrow f(x_{n_k})\to \alpha$.
+            Пусть 
+            \[\alpha = \sup\limits_{x\in [a,b]} f(x)\] 
+            Значит
+            \[\exists\ x_1 \in [a,b]: f(x_1)>\alpha-1,\ \exists\ x_2\in [a,b]: f(x_2)>\alpha - \frac{1}{2},\ \dots\]
+            \[\exists\ x_n\in [a,b],\ f(x_n)>\alpha - \frac{1}{n},\ \dots\]
+            \[\Rightarrow \exists \{x_{n_k}\}, x_{n_k}\to x^{\prime}\]
+            \[f(x_{n_k})\to f(x^{\prime}),\ \alpha-\frac{1}{n_k}<f(x_{n_k})\leq \alpha \Rightarrow f(x_{n_k})\to \alpha\]
         \end{proof} 
         \begin{theorem}
-            Пусть $f(x)\in \mathcal{C}[a,b].\ f(a)=A,\ f(b)=B$, пусть $a\leq B$. Тогда $\forall C: A\leq C\leq B\ \exists\ C\in [a,b],\ f(c)=C$
+            Пусть $f(x)\in \mathcal{C}[a,b].\ f(a)=A,\ f(b)=B$ и $A\leq B$. Тогда 
+            \[\forall C: A\leq C\leq B\ \exists\ c\in [a,b],\ f(c)=C\]
         \end{theorem} 
         \begin{proof}
             $A=B$ ограничена, далее $A<B$. Возьмем $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложенных отрезков $\Rightarrow \exists\ c\in [a_n,b_n],\\
