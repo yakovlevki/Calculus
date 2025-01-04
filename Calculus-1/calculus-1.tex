@@ -1472,9 +1472,11 @@
             \[\forall C: A\leq C\leq B\ \exists\ c\in [a,b],\ f(c)=C\]
         \end{theorem} 
         \begin{proof}
-            $A=B$ ограничена, далее $A<B$. Возьмем $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложенных отрезков $\Rightarrow \exists\ c\in [a_n,b_n],\\
-            \forall n,\ a_n\to c,\ b_n\to c.\ \lims f(a_n)=f(c)\leq C. \lims f(b_n)=f(c)\geq C\\
-            \Rightarrow f(c)=C$. 
+            Если $A=B$ то очевидно, далее пусть $A<B$. Возьмем \\
+            $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложенных отрезков\\
+            $\Rightarrow \exists\ c\in [a_n,b_n], \forall n,\ a_n\to c,\ b_n\to c$. Тогда по непрерывности:
+            \[\lims f(a_n)=f(c)\leq C,\ \ \lims f(b_n)=f(c)\geq C\]
+            $\Rightarrow f(c)=C$. 
         \end{proof} 
     \subsection{Точки разрыва функции}
         \begin{definition} 
@@ -1485,17 +1487,18 @@
                 \item Если не существует хотя бы одного из односторонних пределов, то $x_0$ называется точкой разрыва 2 рода функции $f(x)$.
             \end{enumerate}
         \end{definition} 
-        \begin{example}
-            $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, так как она там не определена).
-        \end{example}
+        %\begin{example}
+        %    $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, так как она там не определена).
+        %\end{example}
         \begin{theorem}
             Пусть $f(x)$ определена на $[a,b]$ и монотонна. Тогда у этой функции могут быть разрывы только 1-го рода.
         \end{theorem} 
         \begin{proof}
-            Пусть $f(x)\leq f(b)$ и $f$ монотонно возрастает. Так как $f(a)\leq f(x)\leq f(b)$, то $f$ - ограничена $\Rightarrow \forall x_0\in [a,b]\ \exists \lim\limits_{x\to x_0-0}f(x)$ и $\exists \lim\limits_{x\to x_0+0}$. Значит у $f(x)$ могут быть разрывы только 1-го рода.
+            Пусть $f(x)\leq f(b)$ и $f$ монотонно возрастает. Так как\\
+            $f(a)\leq f(x)\leq f(b)$, то $f$ - ограничена $\Rightarrow \forall x_0\in [a,b]\ \exists \lim\limits_{x\to x_0-0}f(x)$ и $\exists \lim\limits_{x\to x_0+0}f(x)$. Значит у $f(x)$ могут быть разрывы только 1-го рода.
         \end{proof}
         \begin{consequense}
-            Утверждение теоремы верно и для функции $f(x)$, определенной на интервале $(a,b)$.
+            Утверждение теоремы верно и для монотонной функции $f(x)$, определенной на интервале $(a,b)$.
         \end{consequense} 
         \begin{proof}
             $\exists\ [a,b]\subset (a,b): (a,b)=\bigcup\limits_{n=1}^{\infty}[a_n,b_n]$
@@ -1512,13 +1515,19 @@
         \end{proof} 
     \subsection{Равномерная непрерывность}
         \begin{definition}
-            Пусть $f(x)$ определена на $[a,b]$. Если $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta_{\epsilon}$, то $|f(x^{\prime})-f(x^{\prime\prime})|<\epsilon$, то $f(x)$ называется равномерно непрерывной на $[a,b]$.
+            Пусть $f(x)$ определена на $[a,b]$. Если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta_{\epsilon}: |f(x^{\prime})-f(x^{\prime\prime})|<\epsilon\] 
+            то $f(x)$ называется равномерно непрерывной на $[a,b]$.
         \end{definition} 
         \begin{theorem} (Теорема Кантора)\\
             Если $f(x)\in \mathcal{C}[a,b]$, то $f(x)$ равномерно непрерывна на $[a,b]$.
         \end{theorem} 
         \begin{proof}
-            Пусть $\exists\ \epsilon_0>0$, что $\forall \delta>0\ \exists\ x^{\prime}, x^{\prime\prime}: |x^{\prime}-x^{\prime\prime}|<\delta: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0$. Возьмем последовательность $\delta_n=\frac{1}{n}: x^{\prime},x^{\prime\prime},\ |x^{\prime}-x^{\prime\prime}|<\frac{1}{n},\ |f(x^{\prime})-f(x^{\prime})|\geq \epsilon_0$. $\exists x_{n_k}^{\prime}\to x_0$, тогда $f(x_{n_k}^{\prime})\to f(x_0)$ и $f(x_{n_k}^{\prime\prime})\to f(x_0)$.
+            Пусть 
+            \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0\] 
+            Возьмем последовательность 
+            \[\delta_n=\frac{1}{n}: \exists x^{\prime},x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\frac{1}{n}: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0\] 
+            Тогда $\exists\ x_{n_k}^{\prime}\to x_0,\ \exists\ x_{n_k}^{\prime\prime}\to x_0$ $\Rightarrow f(x_{n_k}^{\prime})\to f(x_0)$ и $f(x_{n_k}^{\prime\prime})\to f(x_0)$ - противоречие.
         \end{proof}
         \subsection{Элементарные функции}
         \begin{enumerate}
@@ -1585,13 +1594,13 @@
             Воспользуемся определением по Гейне. Пусть $\alpha_n\to +\infty$:\\
             \[(1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1}\]
             $\Rightarrow$ по лемме о двух милиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. Теперь пусть $\beta_n\to -\infty$:
-            \[(1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}\]
+            \[(1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})^{\beta_n}=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}\]
         \end{proof} 
         \begin{consequense}
             \[\lim\limits_{x\to 0}(1+x)^{\frac{1}{x}}=e\]
         \end{consequense} 
         \begin{statement}
-            \[\lim\limits_{x\to 0}(\frac{\ln{(1+x)}}{x})=1\]
+            \[\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=1\]
         \end{statement} 
         \begin{proof} В силу непрерывности натурального логарифма:
             \[\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=\lim\limits_{x\to 0}\ln{(1+x)^{\frac{1}{x}}}=1\]
@@ -1636,7 +1645,7 @@
             Если у функций $f(x)$ и $g(x)$ существуют производные в точке $x_0$, то $\forall C\in \R$ выполнено:
             \begin{enumerate}
                 \item $\exists\ (Cf(x_0))^{\prime}=C f^{\prime}(x_0)$.
-                \item $\exists\ (f(x)\pm g(x_0))^{\prime}=f^{\prime}(x_0)\pm g^{\prime}(x_0)$.
+                \item $\exists\ (f(x_0)\pm g(x_0))^{\prime}=f^{\prime}(x_0)\pm g^{\prime}(x_0)$.
             \end{enumerate}
         \end{theorem} 
         \begin{theorem}
@@ -1666,8 +1675,8 @@
             в последнем переходе используется непрерывность $g(x)$.
         \end{proof} 
         \begin{theorem}
-            $y=f(x),\ y_0=f(x_0),\ \exists\ f^{\prime}(x_0),\ \exists\ g^{\prime}(y_0)$. Тогда\\
-            $\exists\ (g(f(x_0)))^{\prime}=g^{\prime}(f(x_0))f^{\prime}(x_0)$.
+            Пусть $y=f(x),\ y_0=f(x_0),\ \exists\ f^{\prime}(x_0),\ \exists\ g^{\prime}(y_0)$. Тогда
+            \[\exists\ (g(f(x_0)))^{\prime}=g^{\prime}(f(x_0))f^{\prime}(x_0)\]
         \end{theorem}
         \begin{proof}
             Пусть $x_n\to x_0,\ f(x_n)\to f(x_0)$ и $f(x_n)\ne f(x_0)$. Тогда 
@@ -1677,7 +1686,7 @@
             \end{multline*}
             Остался случай, когда в любой окрестности $x_0$ есть бесконечно много точек, в которых $f(x_n)=f(x_0)$. Тогда
             \[f^{\prime}(x_0)=\lim\limits_{x_n\to x_0}\frac{f(x_n)-f(x_0)}{x_n-x_0}=0\]
-            $\Rightarrow g^{\prime}(f(x_0))f(x_0)=0$
+            $\Rightarrow g^{\prime}(f(x_0))f'(x_0)=0$
         \end{proof}  
         %\begin{comm}
         %    \[\lim\limits_{x_n\to x_0}\frac{g(f(x_n))-g(f(x_0))}{x_n-x_0}=0\] 
@@ -1713,9 +1722,6 @@
                 \item $dx=x^{\prime}\Delta x=\Delta x \Rightarrow df=f^{\prime}(x)dx$
             \end{enumerate}
         \end{comm}  
-        \begin{statement} (Инвариантность формы первого дифференциала)\\
-            \[d(g(f(x)))=g^{\prime}(f(x))f^{\prime}(x)dx=g^{\prime}(f(x))df\]
-        \end{statement} 
         \begin{examples}\tab
             \begin{enumerate}
                 \item $y=y(x)\ dy=y^{\prime}(x)\ dx \Leftrightarrow dx=\cfrac{1}{y^{\prime}(x)}\ dy$
@@ -1736,9 +1742,9 @@
                 \end{cases}$
             \end{enumerate}
         \end{examples}
-        \begin{theorem}
-            Пусть $\exists\ y^{\prime}=f^{\prime}(x_0),\ f^{\prime}(x_0)\ne 0$. Тогда $\exists\ x=f^{-1}(y)$ и\\
-            $(f^{-1}(y_0))^{\prime}=\frac{1}{f^{\prime}(x_0)}$
+        \begin{theorem} (Теорема о производной обратной функции)\\
+            Пусть $\exists\ y^{\prime}=f^{\prime}(x_0),\ f^{\prime}(x_0)\ne 0$. Тогда $\exists\ x=f^{-1}(y)$ и 
+            \[(f^{-1}(y_0))^{\prime}=\frac{1}{f^{\prime}(x_0)}\]
         \end{theorem} 
         \begin{proof}
             \[(f^{-1}(y_0))^{\prime}=\lim\limits_{y\to y_0}\frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0}=\lim\limits_{x\to x_0}\frac{x-x_0}{f(x)-f(x_0)}=\frac{1}{f^{\prime}(x_0)}\]
@@ -1758,7 +1764,7 @@
                 \end{multline*}
                 \item $y^{\prime}=(\arcsin{x})^{\prime}=\cfrac{1}{\sqrt{1-x^2}}$
                 \begin{multline*}
-                    (\arcsin{x})^{\prime}=\frac{1}{(\sin{x})^{\prime}}=\frac{1}{\cos{y}}=\frac{1}{\cos{(\arcsin{x})}}=\frac{1}{\sqrt{1-\sin^2{(\arcsin{x})}}}=\\
+                    (\arcsin{x})^{\prime}=\frac{1}{(\sin{y})^{\prime}}=\frac{1}{\cos{y}}=\frac{1}{\cos{(\arcsin{x})}}=\frac{1}{\sqrt{1-\sin^2{(\arcsin{x})}}}=\\
                     =\frac{1}{\sqrt{1-x^2}}
                 \end{multline*}
         \end{enumerate}
@@ -1826,6 +1832,14 @@
             \end{tikzpicture}
         \end{center}
         \[df=f^{\prime}(x)dx\]
+        \begin{statement} (Инвариантность формы первого дифференциала)\\
+            Пусть $y=y(x)$. Если переменная $x$ - независимая, то 
+            \[dy=y'(x)dx\]
+            Если $x=x(t)$, то дифференциал $dy$ все равно вычисляется по той же формуле.
+        \end{statement} 
+        \begin{proof}
+            \[dy=y'(x)x'(t)dt=y'(x)dx\]
+        \end{proof} 
         \subsection{Производные и дифференциалы старших порядков}
         \begin{definition}
             Пусть $f(x)$ определена в $B(x_0),\ f(x)\in \mathcal{D}(B(x_0))$. Если\\
@@ -1838,8 +1852,8 @@
             \[\delta(f^{(n-1)}(x)dx)=f^{(n)}(x)dx^{n-1}\delta x|_{\delta x=dx}=f^{(n)}dx^n=d^n  f(x)\]
         \end{definition} 
         \begin{example} (Неинвариантность формы дифференциала старших порядков)
-            \[d^2f(x)=f''(x)dx^2\ne f''(x(t))x'(t)^2dt^2\]
-            \[d(df(x(t)))=d(f'(x(t))x'(t)dt)=(f''(x(t))x'(t)^2+f'(x(t))x''(t))dt^2\]
+            \[d^2y(x)=y''(x)dx^2\ne y''(x(t))x'(t)^2dt^2\]
+            \[d(dy(x(t)))=d(y'(x(t))x'(t)dt)=(y''(x(t))x'(t)^2+y'(x(t))x''(t))dt^2\]
         \end{example}
         \begin{definition}
             Запись $f(x)\in C^n[a,b]$ обзначает, что у функции $f$ есть $n$ производных и они все непрерывны на отрезке $[a,b]$. 
@@ -1852,10 +1866,8 @@
         \begin{theorem} (Теорема Ферма)\\
             Пусть $f(x)$ определена в $B(x_0)$, пусть существуют левая и правая производные в точке $x_0$. Тогда
             \begin{enumerate}
-                \item $f'_-(x_0)\geq 0$, если $x_0$ - точка максимума,\\
-                $f'_-(x_0)\leq 0$, если $x_0$ - точка минимума.
-                \item $f'_+(x_0)\leq 0$, если $x_0$ - точка максимума,\\
-                $f'_+(x_0)\geq 0$, если $x_0$ - точка минимума.
+                \item $x_0$ - точка максимума, если $f'_-(x_0)\geq 0$ и $f'_+(x_0)\leq 0$
+                \item $x_0$ - точка минимума, если $f'_-(x_0)\leq 0$ и $f'_+(x_0)\geq 0$
             \end{enumerate}
         \end{theorem} 
         \begin{proof} (для точки максимума)
