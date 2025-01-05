@@ -1151,7 +1151,7 @@
         \begin{proof}
             Докажем для верхнего: 
             \[\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty}\] 
-            $\Rightarrow \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу и монотонно убывает $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. Значит 
+            $\Rightarrow \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу и невозрастает $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. Значит 
             \[\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}\]
             конечно. С другой стороны 
             \[\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}\] 
@@ -1347,7 +1347,7 @@
         \begin{example}\tab
             \begin{enumerate}
                 \item $\forall \alpha,\beta\in \R$, если $\alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как
-                \[\lim\limits_{x\to x_0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to x_0}x^{\alpha-\beta}=0\]
+                \[\lim\limits_{x\to 0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to 0}x^{\alpha-\beta}=0\]
                 Например: $x+\om(x)+x^2+\om(x^2)=x+\om(x),\ x\to 0$.
                 \item $\sin{x}=x+\om(x),\ x\to 0$, так как $\lim\limits_{x\to 0}\frac{\sin{x}}{x}=1$.
             \end{enumerate}
@@ -1397,7 +1397,7 @@
         \end{proof}
     \subsection{Критерий Коши}
         \begin{theorem} (Критерий Коши)
-            \[\exists \lim\limits_{x\to x_0}=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
+            \[\exists \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
         \end{theorem} 
         \begin{proof}\tab
             \begin{itemize}
@@ -1857,7 +1857,7 @@
             \[d(dy(x(t)))=d(y'(x(t))x'(t)dt)=(y''(x(t))x'(t)^2+y'(x(t))x''(t))dt^2\]
         \end{example}
         \begin{definition}
-            Запись $f(x)\in C^n[a,b]$ обозначает, что у функции $f$ есть $n$ производных и они все непрерывны на отрезке $[a,b]$. 
+            Запись $f(x)\in \mathcal{C}^n[a,b]$ обозначает, что у функции $f$ есть $n$ производных и они все непрерывны на отрезке $[a,b]$. 
         \end{definition} 
         \subsection{Свойства дифференцируемых функций}
         \begin{definition}
