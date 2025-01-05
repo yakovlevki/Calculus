@@ -238,7 +238,7 @@
             $R\subset X\times Y$ называется отношением между элементами\\ $X$ и $Y$. Обозначают $xRy$, если $(x,y)\in R$.
         \end{definition}
         \begin{definition}
-            Отношение $R$ называется отношением (линейного) порядка, если $\forall x\in X$ и $\forall y\in Y$ выполнено:
+            Отношение $R$ называется отношением (линейного) порядка на множестве $X$, если $\forall x,y,z\in X$ выполнено:
             \begin{enumerate}
                 \item $xRy$ или $yRx$. 
                 \item $(xRy$ и $yRx) \Rightarrow x=y$. 
@@ -341,7 +341,7 @@
             \item $a\leq b$ и $b\leq a \Rightarrow a=b$
             \item $a\leq b$ и $b\leq c \Rightarrow a\leq c$
             \item $\forall c \in \Q: a\leq b \Rightarrow a+c\leq b+c$
-            \item $\forall c>0: a\leq b\Rightarrow ac\leq bc$
+            \item $\forall c\in \Q: c>0: a\leq b\Rightarrow ac\leq bc$
         \end{enumerate}
     \subsection{Упорядоченные и архимедовы поля}    
         \begin{definition}
@@ -527,7 +527,7 @@
             $A$ - ограничено сверху, $B$ - множество верхних граней. Значит $\forall a\in A$ и \\$\forall b\in B: a\leq b \Rightarrow$ по аксиоме полноты $\exists\ c\in \R: a\leq c\leq b \Rightarrow c=\sup A$.
         \end{proof}
         \begin{lemma} (Свойство точной грани)\\
-            Если у множества $A$ существует $M=\sup{A}$ или $m=\inf{A}$, то $\forall \epsilon>0\ \exists\ a\in A: a\in (M-\epsilon,M)$ или $a\in (m,m+\epsilon)$ соответственно.
+            Если у множества $A\subset \R$ существует $M=\sup{A}$ или $m=\inf{A}$, то $\forall \epsilon>0\ \exists\ a\in A: a\in (M-\epsilon,M)$ или $a\in (m,m+\epsilon)$ соответственно.
         \end{lemma}
         \begin{proof}
             Докажем для верхней грани. $M=\sup{A}\Rightarrow \forall a\in A: a\leq M$. Поскольку $M$ - минимальная из верхних граней, то $\forall \epsilon>0: \widetilde{M}=M-\epsilon$ - не является верхней гранью. Тогда $\exists\ a\in A: a>\widetilde{M} \Rightarrow a\in (M-\epsilon,M)$.
@@ -558,7 +558,7 @@
             Рассмотрим последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$. Говорят, что\\ $|b_n-a_n|\to 0$ при $n\to \infty$, если $\forall \epsilon >0\tab[5pt]\exists N\in \N: \forall n>N$ выполнено $|b_n-a_n|<\epsilon$.
         \end{definition}
         %\subsubsection{Принцип вложенных отрезков (принцип полноты Кантора)}
-        \begin{theorem} (Принцип вложенных отрезков) \\
+        \begin{theorem} (Принцип вложенных отрезков, принцип полноты Кантора) \\
             Пусть последовательность $\{[a_n,b_n]\}_{n=1}^{\infty}$ такова, что $\forall n: [a_{n+1},b_{n+1}]\subset [a_n,b_n]$. Тогда $\exists\ c\in \R: c\in [a_n,b_n], \forall n$. Если $|b_n-a_n|\to 0$ то $c$ - единственная.
         \end{theorem} 
         \begin{proof}
@@ -683,7 +683,8 @@
             \[x_1=0,\ a_{11}\ a_{12}\ a_{13}\ \dots\]
             \[x_2=0,\ a_{21}\ a_{22}\ a_{23}\ \dots\]
             \[x_3=0,\ a_{31}\ a_{32}\ a_{33}\ \dots\]
-            \tab[6.35cm] \vdots \\
+            \[\vdots\]
+            \newpage
             Теперь построим такую последовательность $b$, задающую число, которого нет в списке. Определим последовательность так: $b_0 = 0$ и на $i$-й позиции $b_i$ отличается от $a_{ii}$, например зададим ее так:
             \[b_i=
             \begin{cases}
@@ -1304,8 +1305,8 @@
         \end{theorem} 
         \begin{proof}\footnote{Дано в качестве очевидного}
             Запишем определение по Гейне:
-            \[\lim\limits_{x\to x_0}\alpha(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne 0,\ \forall n: \exists \lim\limits_{n\to \infty}\alpha(x_n)=0\]
-            \[\lim\limits_{x\to x_0}\beta(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne 0,\ \forall n: \exists \lim\limits_{n\to \infty}\beta(x_n)=0\]
+            \[\lim\limits_{x\to x_0}\alpha(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne x_0,\ \forall n: \exists \lim\limits_{n\to \infty}\alpha(x_n)=0\]
+            \[\lim\limits_{x\to x_0}\beta(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne x_0,\ \forall n: \exists \lim\limits_{n\to \infty}\beta(x_n)=0\]
             \[\gamma(x)=O(1) \Leftrightarrow \exists\ M>0: |\gamma(x)|<M\] 
             Теперь воспользуемся доказанным для последовательностей:
             \begin{enumerate}
