@@ -217,15 +217,15 @@
     \subsection{Натуральные числа. Аксиоматика Пеано}
         \begin{definition} (Аксиоматика Пеано)
             \begin{enumerate}
-                \item В множестве $\N$ $\forall n\in \N,\ \exists !$ элемент, называемый следующим и обозначаемый как $S(n)$.
-                \item $\forall n\in \N$ $\exists$ не более одного элемента $\N$, для которого $n$ - следующий.
-                \item $\exists !$ элемент $\N$, не являющийся следующим ни для какого элемента. Этот элемент обозначается $1$ и называется единицей.
-                \item (Аксиома индукции) Пусть $M\subset \N$, такое, что $1\in M$ и $\forall m\in M:\\ S(m)\in M$. Тогда $M=\N$.
+                \item В множестве $\N$ $\forall n\in \N$ существует единственный элемент, называемый следующим и обозначаемый как $S(n)$.
+                \item В множестве $\N$ $\forall n\in \N$ существует не более одного элемента, для которого $n$ - следующий.
+                \item В множестве $\N$ существует единственный элемент $\N$, не являющийся следующим ни для какого элемента. Этот элемент обозначается $1$ и называется единицей.
+                \item (Аксиома индукции) Пусть $M\subset \N$ такое, что $1\in M$ и $\forall m\in M:\\ S(m)\in M$. Тогда $M=\N$.
             \end{enumerate}
         Множество, удовлетворяющее этим аксиомам, называется множеством натуральных чисел и обозначается $\N$.
         \end{definition}
         \begin{definition}
-            Рассмотрим  множество $X$. Если для некоторого $n\in \N$ существует биекция $\phi: X\to \{1, \dots n\}$, то $X$ называется $n$-элементным, или говорят, что количество элементов в $X$ равно $n$. Тот факт что множество $X$ - $n$-элементное обозначается как $|X|=n$ или $cardX=n$.
+            Рассмотрим  множество $X$. Если для некоторого $n\in \N$ существует биекция $\phi: X\to \{1, \dots n\}$, то $X$ называется $n$-элементным, или говорят, что количество элементов в $X$ равно $n$. Тот факт, что множество $X$ - $n$-элементное, обозначается как $|X|=n$ или $cardX=n$.
         \end{definition} 
         \begin{comm}
             По определению считаем, что $card(\emptyset) =0$.
@@ -247,14 +247,14 @@
             Такое отношение обозначают $\leq$.
         \end{definition}
         \begin{theorem}
-            Существует единственное отношение порядка на $\N$, такое, что\\
+            Существует единственное отношение порядка на $\N$ такое, что\\
             $\forall n\in \N: n\leq S(n)$.
         \end{theorem}
         \begin{proof}
             Без доказательства.
         \end{proof} 
         \begin{theorem} (Принцип наименьшего элемента)\\
-            $M\subset \N, M\ne \emptyset$ имеет наименьшей элемент, т.е. $\exists n_{min}\in M, \forall n\in M: n_{min}\leq n$.
+            $M\subset \N, M\ne \emptyset$ имеет наименьший элемент, т.е. $\exists n_{min}\in M, \forall n\in M: n_{min}\leq n$.
         \end{theorem} 
         \begin{proof}
             Предположим, что в $M$ нет минимального элемента.\\
@@ -813,7 +813,7 @@
             По определению считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
         \end{comm} 
         \begin{theorem} (Критерии замкнутости множества)\\
-            Следующие условия эквивалетны:
+            Следующие условия эквивалентны:
             \begin{itemize}
                 \item[(0)] $A\subset \R$ - замкнуто. 
                 \item[(1)] $\partial A\subset A$,
@@ -1212,7 +1212,7 @@
         \end{comm}
     \subsection{Простейшие свойства предела функции}
         \begin{theorem}
-            Если у функции существует предел в точке $x_0$ то он единственный.
+            Если у функции существует предел в точке $x_0$, то он единственный.
         \end{theorem}
         \begin{proof}
             Получим противоречие с определением по Гейне, пусть 
@@ -1482,8 +1482,8 @@
         \begin{definition} 
             Пусть $f(x)$ определена в $B(x_0)$.    
             \begin{enumerate}
-                \item Если $\exists \lim\limits_{x\to x_0-0}=\lim\limits_{x\to x_0+0}\ne f(x_0)$, то  точка $x_0$ называется точкой устранимого разрыва функции $f(x)$.
-                \item Если $\exists\ \lim\limits_{x\to x_0-0}=\alpha,\ \exists\ \lim\limits_{x\to x_0+0}=\beta,\ \alpha\ne \beta$, то точка называется точкой разрыва 1 рода функции $f(x)$.
+                \item Если $\exists \lim\limits_{x\to x_0-0}f(x)=\lim\limits_{x\to x_0+0}f(x)\ne f(x_0)$, то  точка $x_0$ называется точкой устранимого разрыва функции $f(x)$.
+                \item Если $\exists\ \lim\limits_{x\to x_0-0}f(x)=\alpha,\ \exists\ \lim\limits_{x\to x_0+0}f(x)=\beta,\ \alpha\ne \beta$, то точка называется точкой разрыва 1 рода функции $f(x)$.
                 \item Если не существует хотя бы одного из односторонних пределов, то $x_0$ называется точкой разрыва 2 рода функции $f(x)$.
             \end{enumerate}
         \end{definition} 
@@ -1511,7 +1511,7 @@
             f(b)=\beta$. Тогда $\exists\ f^{-1}(y)\in\mathcal{C}[\alpha,\beta]$ и она строго монотонна. 
         \end{theorem} 
         \begin{proof}
-            Пусть строго возрастает. $\forall x_1,x_2,\ x_1<x_2: f(x_1)=y_1<y_2=f(x_2)$. Тогда $f(x)$ - биекция между $[a,b]$ и $[\alpha,\beta] \Rightarrow \exists f^{-1}$. Предположим что она разрывная, но тогда нарушается биекция, и вообще нарушается условие того что функция определена на всем отрезке $[a,b]$.
+            Пусть строго возрастает. $\forall x_1,x_2,\ x_1<x_2: f(x_1)=y_1<y_2=f(x_2)$. Тогда $f(x)$ - биекция между $[a,b]$ и $[\alpha,\beta] \Rightarrow \exists f^{-1}$. Предположим, что она разрывная, но тогда нарушается биекция, и вообще нарушается условие того, что функция определена на всем отрезке $[a,b]$.
         \end{proof} 
     \subsection{Равномерная непрерывность}
         \begin{definition}
@@ -1566,7 +1566,7 @@
             Отдельно выделяют $\log_e{x}$, его называют натуральным логарифмом и обозначают $\ln{x}$.
             \item Степенная функция.\\
             $\forall x>0,\ \forall \alpha\in\R$ степенная функция определяется как \[x^{\alpha}:=e^{\alpha\cdot \ln{x}}\]
-            Распространяем: при $\alpha \geq 0$ доопределим $x^{\alpha}$ в точке $x_0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем\\
+            Распространяем: при $\alpha \geq 0$ доопределим $x^{\alpha}$ в точке $x=0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем\\
             $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
             \item Тригонометрические функции:\\ 
             $y=\sin{x}$ определим так: возьмем окружность единичного радиуса, на $[0,2\pi]$ синус - ордината.\\
@@ -1856,7 +1856,7 @@
             \[d(dy(x(t)))=d(y'(x(t))x'(t)dt)=(y''(x(t))x'(t)^2+y'(x(t))x''(t))dt^2\]
         \end{example}
         \begin{definition}
-            Запись $f(x)\in C^n[a,b]$ обзначает, что у функции $f$ есть $n$ производных и они все непрерывны на отрезке $[a,b]$. 
+            Запись $f(x)\in C^n[a,b]$ обозначает, что у функции $f$ есть $n$ производных и они все непрерывны на отрезке $[a,b]$. 
         \end{definition} 
         \subsection{Свойства дифференцируемых функций}
         \begin{definition}
@@ -1866,31 +1866,29 @@
         \begin{theorem} (Теорема Ферма)\\
             Пусть $f(x)$ определена в $B(x_0)$, пусть существуют левая и правая производные в точке $x_0$. Тогда
             \begin{enumerate}
-                \item $x_0$ - точка максимума, если $f'_-(x_0)\geq 0$ и $f'_+(x_0)\leq 0$
-                \item $x_0$ - точка минимума, если $f'_-(x_0)\leq 0$ и $f'_+(x_0)\geq 0$
+                \item $x_0$ - точка максимума, если $f'_-(x_0)\geq 0$ и $f'_+(x_0)\leq 0$.
+                \item $x_0$ - точка минимума, если $f'_-(x_0)\leq 0$ и $f'_+(x_0)\geq 0$.
             \end{enumerate}
         \end{theorem} 
         \begin{proof} (для точки максимума)
-            \begin{enumerate}
-                \item $f'_-(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0$ при $x\in (x_0-\delta,x_0)$.
-                \item $f'_+(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\leq 0$ при $x\in (x_0,x_0+\delta)$.
-            \end{enumerate}
+                \[f'_-(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0\ \text{при}\ x\in (x_0-\delta,x_0)\]
+                \[f'_+(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\leq 0\ \text{при}\ x\in (x_0,x_0+\delta)\]
         \end{proof} 
-        \begin{consequense}
-            Если $\exists\ f'(x_0)$, то $f'(x_0)=0$, то есть $x_0$ - экстремум.
+        \begin{consequense}\footnote{Зачастую этот факт и именуют теоремой Ферма}
+            Если $\exists\ f'(x_0)$, то $f'(x_0)=0 \Rightarrow x_0$ - экстремум.
         \end{consequense} 
         \begin{theorem} (Необходимое условие существования экстремума)\\
             Если $f(x)$ имеет в экстремум в точке $x_0$, то либо $f'(x_0)=0$, либо не существует производной в точке $x_0$.
         \end{theorem} 
         \begin{theorem} (Теорема Ролля)\\
-            Пусть $f(x)\in \mathcal{C}[a,b], f(x)\in \mathcal{D}(a,b)$. Если $f(a)=f(b)$, то $\exists\ c\in (a,b): f'(c)=0$.
+            Пусть $f(x)\in \mathcal{C}[a,b],\ f(x)\in \mathcal{D}(a,b)$. Если $f(a)=f(b)$, то $\exists\ c\in (a,b): f'(c)=0$.
         \end{theorem} 
         \begin{proof}
-            Если $\exists\ x_{\max}: f(x_{\max})>f(a)\ \forall a \Rightarrow f'(x_{\max})=0$.\\
-            Если $x_{\min}: f(x_{\min})<f(a)\ \forall a \Rightarrow f'(x_{\min})=0$.\\
+            Если $\exists\ x_{\max}$ такой, что $\forall a: f(x_{\max})>f(a) \Rightarrow f'(x_{\max})=0$.\\
+            Если $\exists\ x_{\min}$ такой, что $\forall a: f(x_{\min})<f(a)\ \forall a \Rightarrow f'(x_{\min})=0$.\\
             Если $\forall x\in (a,b): f(x)=f(a)=f(b)$, то $f'(x)=0$
         \end{proof}
-        Геометрически это означает, что при таких условиях найдется точка, в которой касательная параллельна оси абцисс.
+        Геометрически это означает, что при таких условиях найдется точка, в которой касательная параллельна оси абсцисс.
         \begin{center}
             \begin{tikzpicture}[scale=1]
                 \draw[->] (-1, 0) -- (8, 0) node[right] {$x$};
@@ -1925,7 +1923,7 @@
         \end{center}
         \subsection{Формула Лагранжа. Геометрический смысл и приложения}
         \begin{theorem} (Формула Лагранжа, формула дифференциального среднего)\\
-            $f(x)\in \mathcal{C}[a,b],\ f(x)\in \mathcal{D}(a,b)$. Тогда $\exists\ c\in (a,b):$
+            Пусть $f(x)\in \mathcal{C}[a,b],\ f(x)\in \mathcal{D}(a,b)$. Тогда $\exists\ c\in (a,b):$
             \[f(b)-f(a)=f'(c)(b-a)\]
         \end{theorem}  
         \begin{proof}
@@ -1975,7 +1973,7 @@
             Заметим, что $g(b)\ne g(a)$, так как иначе, по теореме Ролля существует $c\in (a,b): g'(c)=0$. Введем функцию $\phi(x):$
             \[\phi(x)=f(x)-\frac{f(b)-f(a)}{g(b)-g(a)}(g(x)-g(a)) \Rightarrow \phi(b)=f(a),\ \phi(a)=f(a)\]
             Тогда по теореме Ролля $\exists\ c\in (a,b):$
-            \[\phi(c)=f'(c)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(c)=0\]
+            \[\phi'(c)=f'(c)-\frac{f(b)-f(a)}{g(b)-g(a)}g'(c)=0\]
         \end{proof} 
         \begin{theorem} (Связь монотонной функции и знака ее производной)\tab
             \begin{enumerate}
@@ -1996,7 +1994,7 @@
                     \end{itemize}
             \end{enumerate}
         \end{theorem} 
-        \begin{proof}Воспользуемся формулой Лагранжа
+        \begin{proof}Воспользуемся формулой Лагранжа:
             \begin{enumerate}
                 \item Докажем для неубывающей: $\forall x_1,x_2\in (a,b),\ x_1\leq x_2:$
                 \[\frac{f(x_2)-f(x_1)}{x_2-x_1}\geq 0 \Rightarrow f'(x)\geq 0\]
@@ -2063,7 +2061,7 @@
             \[\forall \epsilon>0\ \exists\ \delta>0: \forall x\in \mathring{B}(x_0):\ |\frac{f'(x)}{g'(x)}-A|<\epsilon\]
             Доопределим функции в точке $x_0$: $f(x_0):=0,\ g(x_0):=0$.
             Тогда\\
-            $f(x),\ g(x)\in C(x_0)$  при этих всех условиях выполнена теорема Коши:
+            $f(x),\ g(x)\in \mathcal{C}(x_0)$  при этих всех условиях выполнена теорема Коши:
             \[|\frac{f(x)}{g(x)}-A|=|\frac{f(x)-f(x_0)}{g(x)-g(x_0)}-A|=|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
             Аналогично,  условие
             \[\forall \epsilon>0\ \exists\ \delta>0: \forall x\in \mathring{B}(x_0):\ |\frac{f'(x)}{g'(x)}-A|>\epsilon\]
@@ -2098,7 +2096,7 @@
             По неравенству треугольника:
             \[|\frac{f(x)}{g(x)}-A|\leq |\frac{f(x_0)}{g(x)}|+|\frac{f'(c)}{g'(c)}-A|+|\frac{f'(c)}{g'(c)}|\cdot |\frac{g(x_0)}{g(x)}|\]
             Возьмем $x_0\in (a-\delta_1, a)$. Ввиду расположения точки $c$: \[|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
-            Поскольку $\lim\limits_{x\to a-0}\frac{1}{g(x)}=0$, то $\forall \epsilon>0\ \exists\ \delta_2: \forall x\in (a-\delta_2, a): \frac{1}{g(x)}<\epsilon$. Значит
+            Поскольку $\lim\limits_{x\to a-0}\frac{1}{g(x)}=0$, то $\forall \epsilon>0\ \exists\ \delta_2>0: \forall x\in (a-\delta_2, a): \frac{1}{g(x)}<\epsilon$. Значит
             \[|\frac{f(x_0)}{g(x)}|<\epsilon\ \ \text{и}\ \ |\frac{g(x_0)}{g(x)}|<\frac{\epsilon}{|A|+\epsilon}\]
             Значит, выбрав $\delta = \min\{\delta_1,\delta_2\}$, получим:
             \[|\frac{f(x)}{g(x)}-A|<\epsilon+\epsilon+(|A|+\epsilon)(\frac{\epsilon}{|A|+\epsilon})=3\epsilon\]
@@ -2118,7 +2116,7 @@
         \begin{proof}
             \begin{multline*}
                 \lim\limits_{x\to x_0}\frac{r_n(x,x_0)}{(x-x_0)^n}=\lim\limits_{x\to x_0}\frac{f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}{(x-x_0)^n}=\\
-                =\lim\limits_{x\to x_0}\frac{f'(x)-\sum\limits_{k-1}^{n}\frac{f^{(k)}(x_0)}{(k-1)!}(x-x_0)^{k-1}}{n(x-x_0)^{n-1}}=\dots=\tab[3cm]\\
+                =\lim\limits_{x\to x_0}\frac{f'(x)-\sum\limits_{k=1}^{n}\frac{f^{(k)}(x_0)}{(k-1)!}(x-x_0)^{k-1}}{n(x-x_0)^{n-1}}=\dots=\tab[3cm]\\
                 \tab[3cm]=\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)-f^{(n)}(x_0)(x-x_0)}{n!(x-x_0)}=\\
                 =\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)=0
             \end{multline*}
@@ -2153,7 +2151,7 @@
                 \alpha\\
                 k
             \end{pmatrix}
-            x^n,\ 
+            x^k,\ 
             \begin{pmatrix}
                 \alpha\\
                 k
@@ -2176,7 +2174,7 @@
         \begin{theorem}
             Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$. \\
             Если при $x<x_0: f'(x)>0$ или при $x>x_0: f'(x)<0$, то $x_0$ - точка максимума.\\
-            Если при $x<x_0: f'(x)<0$ или при $x>x_0: f'(x)>0$то $x_0$ - точка минимума.
+            Если при $x<x_0: f'(x)<0$ или при $x>x_0: f'(x)>0$, то $x_0$ - точка минимума.
         \end{theorem} 
         \begin{proof}
             По формуле Лагранжа: $f(x)-f(x_0)=f'(c)(x-x_0)$
@@ -2185,8 +2183,12 @@
             Пусть $\exists\ f^{(n)}(x_0)\ne 0,\ f^{(k)}(x_0)=0,\ k=1, \dots, n-1$.
             \begin{enumerate}
                 \item Если $n=2k+1$, то экстремум нет.
-                \item Если $n=2k$, то при $f^{(2k)}(x_0)>0$ - $x_0$ точка минимума.\\
-                при $f^{(2k)}(x_0)<0$ - $x_0$ точка максимума.
+                \item Если $n=2k$, то
+                \begin{itemize}
+                    \item если $f^{n}(x_0)>0$, то $x_0$ точка минимум
+                    \item если $f^{n}(x_0)<0$, то $x_0$ точка максимума.
+                \end{itemize}
+                
             \end{enumerate}
         \end{theorem} 
         \begin{proof}
