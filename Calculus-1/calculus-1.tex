@@ -570,36 +570,6 @@
             Значит для $\forall m,n\in \N: $
             Рассмотрим множества $A=\{a_n\}$ и $B=\{b_n\}$. По аксиоме полноты $\exists\ c\in \R: a_n\leq c\leq b_m,\ \forall n,m \Rightarrow a_n\leq c\leq b_n,\ \forall n$.\\
             Пусть $|b_n-a_n|\to 0$, предположим, что $\exists\ c_1$ и $c_2: c_1\ne c_2$ - различные общие точки, значит $|c_2-c_1|>0$. Получаем, что $0<|c_2-c_1|<|b_n-a_n|,\ \forall n$, значит $|c_2-c_1|\to 0$ получаем противоречие.
-        \end{proof}
-        \subsection{Неравенство Бернулли и Бином Ньютона}
-        \begin{theorem} (Неравенство Бернулли)\\
-            Пусть $\{x_k\}_{k=1}^n, x_k\in \R \tab[3pt] \forall k: x_k>0$ или $x_k\in (-1, 0)$. Тогда
-            \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}^nx_k\]
-        \end{theorem} 
-        \begin{proof}
-            Индукция по $n$.
-            База: $n=1: 1+x_1\geq 1+x_1$.
-            Пусть при $n$ утверждение верно.
-            \[\prod\limits_{k=1}^{n+1}(1+x_n)\geq(1+x_{n+1})(1+\sum\limits_{k=1}^nx_k)=1+\sum\limits_{k=1}^{n+1}x_k+(\sum\limits_{k=1}^{n}x_k)\cdot x_{n+1}> 1+\sum\limits_{k=1}^{n+1}x_n\]
-        \end{proof}
-        \begin{definition}
-            Число $\frac{n!}{k!(n-k)!}$ называется биномиальным коэффициентом и обозначается $C_n^k$.
-        \end{definition} 
-        \begin{comm}
-            По определнию считается, что $0!=1$.
-        \end{comm} 
-        \begin{theorem} (Бином Ньютона)
-            \[(a+b)^n=\sum\limits_{k=0}^n C_n^k a^k b^{n-k}\]
-        \end{theorem} 
-        \begin{proof}
-            Индукция по $n$. База: для $n=1$ верно. Пусть верно для $n$. Распишем выражение для $n+1$:
-            \[(a+b)^{n+1}=(a+b)\sum\limits_{k=0}^n C_n^k a^k b^{n-k}=\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}\]
-            Сдвинем нумерацию в первой сумме:
-            \[\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}\]
-            Получаем, что
-            \begin{multline*}
-            \sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}+\sum\limits_{m=0}^n C_n^m a^m b^{n-m+1}=\\=C_n^n a^{n+1}b^0+\sum\limits_{m=1}^n(C_n^{m-1}+C_n^m)a^n b^{n-m+1}+C_n^0a^0b^{n+1}=\sum\limits_{m=0}^{n+1}C_{n+1}^m a^m b^{n-m+1}
-            \end{multline*}
         \end{proof} 
         \subsection{Отношение эквивалентности. Равномощные множества}
         \begin{definition}
@@ -1071,7 +1041,37 @@
         \end{theorem}
         \begin{proof}
             Докажем для неубывающей, ограниченной сверху. $a_n$ - ограничена сверху $\Rightarrow \exists\ a=\sup a_n \Rightarrow \forall \epsilon>0\ \exists\ a_{N_{\epsilon}}: a-\epsilon<a_{N_{\epsilon}}<a$,\ $a_n$ - неубывает $\Rightarrow \forall n>N_{\epsilon}: a_n>a-\epsilon \Rightarrow a-a_n<\epsilon$.
-        \end{proof}  
+        \end{proof}
+        \subsection{Неравенство Бернулли и Бином Ньютона}
+        \begin{theorem} (Неравенство Бернулли)\\
+            Пусть $\{x_k\}_{k=1}^n, x_k\in \R \tab[3pt] \forall k: x_k>0$ или $x_k\in (-1, 0)$. Тогда
+            \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}^nx_k\]
+        \end{theorem} 
+        \begin{proof}
+            Индукция по $n$.
+            База: $n=1: 1+x_1\geq 1+x_1$.
+            Пусть при $n$ утверждение верно.
+            \[\prod\limits_{k=1}^{n+1}(1+x_k)\geq(1+x_{k+1})(1+\sum\limits_{k=1}^n x_k)=1+\sum\limits_{k=1}^{n+1}x_k+(\sum\limits_{k=1}^{n}x_k)\cdot x_{n+1}> 1+\sum\limits_{k=1}^{n+1}x_k\]
+        \end{proof}
+        \begin{definition}
+            Число $\frac{n!}{k!(n-k)!}$ называется биномиальным коэффициентом и обозначается $C_n^k$.
+        \end{definition} 
+        \begin{comm}
+            По определнию считается, что $0!=1$.
+        \end{comm} 
+        \begin{theorem} (Бином Ньютона)
+            \[(a+b)^n=\sum\limits_{k=0}^n C_n^k a^k b^{n-k}\]
+        \end{theorem} 
+        \begin{proof}
+            Индукция по $n$. База: для $n=1$ верно. Пусть верно для $n$. Распишем выражение для $n+1$:
+            \[(a+b)^{n+1}=(a+b)\sum\limits_{k=0}^n C_n^k a^k b^{n-k}=\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}\]
+            Сдвинем нумерацию в первой сумме:
+            \[\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}\]
+            Получаем, что
+            \begin{multline*}
+            \sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}+\sum\limits_{m=0}^n C_n^m a^m b^{n-m+1}=\\=C_n^n a^{n+1}b^0+\sum\limits_{m=1}^n(C_n^{m-1}+C_n^m)a^n b^{n-m+1}+C_n^0a^0b^{n+1}=\sum\limits_{m=0}^{n+1}C_{n+1}^m a^m b^{n-m+1}
+            \end{multline*}
+        \end{proof}
     \subsection{Число e}
         \begin{lemma} \tab
             \begin{enumerate}
@@ -1082,12 +1082,12 @@
         \begin{proof}
             \begin{multline*}
                 1.\ \ \cfrac{a_{n+1}}{a_n}=\cfrac{(1+\cfrac{1}{n+1})^{n+1}}{(1+\cfrac{1}{n})^{n}}=\cfrac{(n+2)^{n+1}\ n^n}{(n+1)^{2n+1}}=\cfrac{(n^2+2n)^n\ (n+2)}{(n^2+2n+1)^n\ (n+1)}=
-                \\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})>(1-\cfrac{n}{(n+1)^2})\cdot \cfrac{n+2}{n+1}=\\
+                \\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})\geq(1-\cfrac{n}{(n+1)^2})\cdot \cfrac{n+2}{n+1}=\\
                 =\cfrac{n^2+n+1}{n^2+2n+1}\cdot \cfrac{n+2}{n+1}=\cfrac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}>1
             \end{multline*}
             \begin{multline*}
                 2.\ \ \cfrac{b_n}{b_{n+1}}=\cfrac{(1+\cfrac{1}{n})^{n+1}}{(1+\cfrac{1}{n+1})^{n+2}}=\cfrac{(n+1)^{2n+3}}{n^{n+1}(n+2)^{n+2}}=\cfrac{(n^2+2n+1)^{n+1}\ (n+1)}{(n^2+2n)^{n+1}\ (n+2)}=\\
-                =(1+\cfrac{1}{n^2+2n})^{n+1}\ \cfrac{(n+1)}{n+2}>(1+\cfrac{n+1}{n^2+2n})\ (\cfrac{n+1}{n+2})=\\
+                =(1+\cfrac{1}{n^2+2n})^{n+1}\ \cfrac{n+1}{n+2}>(1+\cfrac{n+1}{n^2+2n})\ \cfrac{n+1}{n+2}=\\
                 =\cfrac{n^2+3n+1}{n^2+2n}\cdot \cfrac{n+1}{n+2}=\cfrac{n^3+4n^2+4n+1}{n^3+4n^2+4n}>1
             \end{multline*}
         \end{proof} 
@@ -1191,9 +1191,10 @@
         \end{theorem} 
         \begin{proof}\tab
             \begin{enumerate}
-                \item $(1)\Rightarrow(2)$: $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon$.\\
-                $\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}: 0<|x_0-x_n|<\delta_{\epsilon}\\
-                \Rightarrow \forall n> N_{\delta_{\epsilon}},\ x_n\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_n)-a|<\epsilon$, т.е. $f(x_n)\to a$.
+                \item $(1)\Rightarrow(2)$: 
+                \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
+                \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}>0: 0<|x_0-x_n|<\delta_{\epsilon}\]
+                \[\Rightarrow \forall n> N_{\delta_{\epsilon}},\ x_n\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_n)-a|<\epsilon\] т.е. $f(x_n)\to a$.
                 \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: 
                 \[\exists\ \epsilon_0> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo_{\delta}(x_0): |f(x_{\delta})-a|\geq \epsilon_0\]
                 Возьмем 
@@ -1261,8 +1262,7 @@
             $\exists\ \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \exists\ \lim\limits_{x\to x_0+0}f(x)=a$ и $\exists\ \lim\limits_{x\to x_0-0}f(x)=a$.
         \end{theorem} 
         \begin{proof}\footnote{Дано в качестве очевидного}
-            \begin{enumerate}
-                \item \begin{itemize}
+                \begin{itemize}
                     \item[$(\Rightarrow)$] Поскольку \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon\]
                     то 
                     \[\forall x\in (x, x+\delta): |f(x)-a|<\epsilon\ \ \text{и}\ \ \forall x\in (x-\delta, x): |f(x)-a|<\epsilon\]
@@ -1273,7 +1273,6 @@
                     то выполнено и 
                     \[\forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon\]
                 \end{itemize}
-            \end{enumerate}
         \end{proof} 
     \subsection{O-символика}
         \begin{definition}
@@ -1393,7 +1392,7 @@
             Тогда 
             \[\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon\] 
             а значит
-            \[\forall x\in \Bo(A): f(x)-A<\epsilon\]
+            \[\forall x\in \Bo(A): |f(x)-A|<\epsilon\]
         \end{proof}
     \subsection{Критерий Коши}
         \begin{theorem} (Критерий Коши)
@@ -1454,7 +1453,7 @@
             \[x_1: |f(x_1)|>1,\ x_2: |f(x_2)|>2,\ \dots\ x_M: |f(x_M)|>M,\ \dots\]
             Получаем последовательность 
             \[x_n\subset [a,b]\Rightarrow \exists\ x_{n_k}: x_{n_k}\to x_0\]
-            $f(x)$ непрерывна $\Rightarrow f(x_{n_k})\to f(x_0)$, но $|f(x_{n_k})|\to +\infty$ получаем противоречие.
+            $f(x)$ непрерывна $\Rightarrow f(x_{n_k})\to f(x_0)$, но $|f(x_{n_k})|\to \infty$ получаем противоречие.
         \end{proof} 
         \begin{theorem} (2-я теорема Вейерштрасса)\\
             Пусть $f(x)\in \mathcal{C}[a,b]$. Тогда $f(x)$ имеет максимальное $\max{f(x)}$ и минимальное $\min{f(x)}$ значения на $[a,b]$
@@ -1492,11 +1491,11 @@
         %    $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, так как она там не определена).
         %\end{example}
         \begin{theorem}
-            Пусть $f(x)$ определена на $[a,b]$ и монотонна. Тогда у этой функции могут быть разрывы только 1-го рода.
+            Пусть $f(x)$ определена на $[a,b]$ и монотонна. Тогда у этой функции не может быть разрывов 2-го рода.
         \end{theorem} 
         \begin{proof}
             Пусть $f(x)\leq f(b)$ и $f$ монотонно возрастает. Так как\\
-            $f(a)\leq f(x)\leq f(b)$, то $f$ - ограничена $\Rightarrow \forall x_0\in [a,b]\ \exists \lim\limits_{x\to x_0-0}f(x)$ и $\exists \lim\limits_{x\to x_0+0}f(x)$. Значит у $f(x)$ могут быть разрывы только 1-го рода.
+            $f(a)\leq f(x)\leq f(b)$, то $f$ - ограничена $\Rightarrow \forall x_0\in [a,b]\ \exists \lim\limits_{x\to x_0-0}f(x)$ и $\exists \lim\limits_{x\to x_0+0}f(x)$. Значит у $f(x)$ не может быть разрывов 2-го рода.
         \end{proof}
         \begin{consequense}
             Утверждение теоремы верно и для монотонной функции $f(x)$, определенной на интервале $(a,b)$.
@@ -1712,7 +1711,7 @@
         \begin{proof}\tab
             \begin{itemize}
                 \item[$(\Rightarrow)$]: $f(x_0+\Delta x)-f(x_0)=A\Delta x+\bar{\bar{o}}{(\Delta x)}$, значит
-                \[\frac{f(x_0+\Delta x)-f(x_0))}{\Delta x}=A+\bar{\bar{o}}{(1)}\Rightarrow \exists\ f^{\prime}(x_0)=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=A\]
+                \[\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=A+\bar{\bar{o}}{(1)}\Rightarrow \exists\ f^{\prime}(x_0)=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=A\]
                 \item[$(\Leftarrow)$]: $\exists\ f^{\prime}(x_0)$, значит
                 \[f^{\prime}(x_0)=\lim\limits_{\Delta x\to 0} \frac{f(x_0+\Delta x)-f(x_0)}{\Delta x} \Rightarrow f(x_0+\Delta x)-f(x_0)=f^{\prime}(x_0)\Delta x+\bar{\bar{o}}{(\Delta x)}\] 
             \end{itemize}            
@@ -2012,10 +2011,10 @@
                 \item Если $\exists\ \lim\limits_{x\to x_0+0}f'(x_0)=f'(x_0+0)$, то $\exists\ f'_+(x_0)$ и $f'_+(x_0)=f'(x_0+0)$.
             \end{enumerate}
         \end{theorem}
-        \begin{proof} По формуле Лагранжа:
+        \begin{proof} Докажем для правой производной. По формуле Лагранжа $\exists\ c\in (x_0, x)$:
             \[f'(c)=\frac{f(x)-f(x_0)}{x-x_0},\ x\to x_0+0,\ c\to x_0+0\]
             Тогда 
-            \[\exists \lim\limits_{x\to x_0+0}f'(x)=f'(x_0+0) \Leftrightarrow \lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)\]
+            \[f'(x_0+0)=\lim\limits_{x\to x_0+0}f'(x)=\lim\limits_{x\to x_0+0}\frac{f(x)-f(x_0)}{x-x_0}=f'_+(x_0)\]
         \end{proof} 
         \begin{consequense}
             Если $f(x)\in \mathcal{D}(a,b)$, то $f'(x)$ может иметь разрывы только второго рода.
