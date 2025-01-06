@@ -1030,9 +1030,9 @@
         \begin{definition} \tab
             \begin{enumerate}
                 \item Если $\forall n: a_{n+1}>a_n$, то $a_n$ (строго) возрастает.
-                \item Если $\forall n: a_{n+1}\geq a_n$, то $a_n$ неубывает.
+                \item Если $\forall n: a_{n+1}\geq a_n$, то $a_n$ не убывает.
                 \item Если $\forall n: a_{n+1}<a_n$, то $a_n$ (строго) убывает.
-                \item Если $\forall n: a_{n+1}\leq a_n$, то $a_n$ невозрастает.
+                \item Если $\forall n: a_{n+1}\leq a_n$, то $a_n$ не возрастает.
             \end{enumerate}
             Такие последовательности называют монотонными.
         \end{definition} 
@@ -2027,14 +2027,14 @@
             Таким образом, могут быть разрывы только второго рода.
         \end{proof} 
         \begin{theorem} (Теорема Дарбу о промежуточных значениях производной)\\
-            Пусть $f(x)\in \mathcal{D}[a,b],\ f'(a)=A,\ f'(b)=B,\ C$ - число между $A$ и $B$. Тогда $\exists\ c\in [a,b]$ такая, что $f'(c)=C$.
+            Пусть $f(x)\in \mathcal{D}[a,b],\ f'_+(a)=A,\ f'_-(b)=B,\ C$ - число между $A$ и $B$. Тогда $\exists\ c\in [a,b]$ такая, что $f'(c)=C$.
         \end{theorem} 
         \begin{proof}
             Тривиальный случай: Если $A=B$, то очев. Далее $A\ne B$
             \begin{enumerate}
                 \item Пусть $A<0,\ B>0,\ C=0$. Тогда
-                \[\frac{f(a+\Delta x)-f(a)}{\Delta x}<0 \Rightarrow f(a+\Delta x)<f(a)\] 
-                \[\frac{f(b+\Delta x)-f(b)}{\Delta x}>0 \Rightarrow f(b+\Delta x)<f(b)\]
+                \[\frac{f(a+\Delta x)-f(a)}{\Delta x}<0 \Rightarrow \exists\ \delta>0, x\in [a,a+\delta): f(x)<f(a)\] 
+                \[\frac{f(b+\Delta x)-f(b)}{\Delta x}>0 \Rightarrow \exists\ \delta>0, x\in (b-\delta, b]: f(x)<f(b)\]
                 (при достаточно малых $x$)
                 $\Rightarrow x_{\min}\in(a,b) \Rightarrow f'(x_{\min})=0,\ c=x_{\min}$.
                 \item Пусть $A>0,\ B<0,\ C=0$. Тогда рассмотрим $g(x)=-f(x)$, а для нее верен предыдущий случай.
@@ -2075,34 +2075,37 @@
             \[\exists \lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=A\ \Rightarrow\ \exists \lim\limits_{x\to +\infty}\frac{f(x)}{g(x)}=A\]
             А также
             \[\lim\limits_{x\to +\infty}\frac{f'(x)}{g'(x)}=\infty\ \Rightarrow\ \exists \lim\limits_{x\to +\infty}\frac{f(x)}{g(x)}=\infty\]
+            Для $x\to -\infty$ верно аналогичное утверждение.
         \end{theorem} 
         \begin{proof}
             Упражнение: свести теорему к предыдущей
         \end{proof} 
         \begin{theorem}
-            Пусть $f(x),\ g(x)\in \mathcal{D}(a-\delta, a),\ f(x),g(x)\to \pm \infty,\ x\to a-0,\\
+            Пусть $f(x),\ g(x)\in \mathcal{D}(x_0-\delta, x_0),\ f(x),g(x)\to \pm \infty,\ x\to x_0-0,\\
             g'(x)\ne 0\ \forall x\in \mathring{B}(x_0)$. Тогда
-            \[\exists \lim\limits_{x\to a-0}\frac{f'(x)}{g'(x)}=A\ \Rightarrow\ \exists \lim\limits_{x\to a-0}\frac{f(x)}{g(x)}=A\]
+            \[\exists \lim\limits_{x\to x_0-0}\frac{f'(x)}{g'(x)}=A\ \Rightarrow\ \exists \lim\limits_{x\to x_0-0}\frac{f(x)}{g(x)}=A\]
             А также
-            \[\lim\limits_{x\to a-0}\frac{f'(x)}{g'(x)}=\pm \infty\ \Rightarrow\ \lim\limits_{x\to a-0}\frac{f(x)}{g(x)}=\pm \infty\]
+            \[\lim\limits_{x\to x_0-0}\frac{f'(x)}{g'(x)}=\pm \infty\ \Rightarrow\ \lim\limits_{x\to x_0-0}\frac{f(x)}{g(x)}=\pm \infty\]
+            Для правой полуокрестности верно аналогичное утверждение.
         \end{theorem} 
-        \begin{proof}
-            $x_0<x<a$. По формуле Коши: 
-            \[\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(c)}{g'(c)} \Rightarrow f(x)=f(x_0)+\frac{f'(c)}{g'(c)}\cdot g(x)-\frac{f'(c)}{g'(c)}\cdot g(x_0)\]
+        \begin{proof}\footnote{Доказательство модифицировано в соответсвии с курсом лекций Солодова на teach-in}
+            Пусть $x_2<x_1<x_0$. По формуле Коши $\exists\ c\in (x_2,x_1)$:
+            \[\frac{f(x_2)-f(x_1)}{g(x_1)-g(x_2)}=\frac{f'(c)}{g'(c)} \Rightarrow f(x_1)=f(x_2)+\frac{f'(c)}{g'(c)}\cdot g(x_1)-\frac{f'(c)}{g'(c)}\cdot g(x_2)\]
             поделив это равенство на $g(x)$, получим:
-            \[\frac{f(x)}{g(x)}=\frac{f(x_0)}{g(x)}+\frac{f'(c)}{g'(c)}-\frac{f'(c)}{g'(c)}\cdot \frac{g(x_0)}{g(x)}\]
-            По условию: $\forall \epsilon>0\ \exists\ \delta_1>0,\ \forall x\in (a-\delta_1, a): |\frac{f'(x)}{g'(x)}-A|<\epsilon$, значит\\
+            \[\frac{f(x)}{g(x)}=\frac{f(x_2)}{g(x_1)}+\frac{f'(c)}{g'(c)}-\frac{f'(c)}{g'(c)}\cdot \frac{g(x_2)}{g(x_1)}\]
+            По условию существования предела отношения производных выберем такой $\delta_1$, что $\forall \epsilon>0\ \exists\ x_0-x_1>\delta_1>0,\ \forall x\in (a-\delta_1, a): |\frac{f'(x)}{g'(x)}-A|<\epsilon$, значит\\
             \[|\frac{f'(x)}{g'(x)}|<|A|+\epsilon\]
             По неравенству треугольника:
-            \[|\frac{f(x)}{g(x)}-A|\leq |\frac{f(x_0)}{g(x)}|+|\frac{f'(c)}{g'(c)}-A|+|\frac{f'(c)}{g'(c)}|\cdot |\frac{g(x_0)}{g(x)}|\]
-            Возьмем $x_0\in (a-\delta_1, a)$. Ввиду расположения точки $c$: \[|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
+            \[|\frac{f(x_1)}{g(x_1)}-A|\leq |\frac{f(x_2)}{g(x_1)}|+|\frac{f'(c)}{g'(c)}-A|+|\frac{f'(c)}{g'(c)}|\cdot |\frac{g(x_2)}{g(x_1)}|\]
+            Ввиду расположения точки $c$: \[|\frac{f'(c)}{g'(c)}-A|<\epsilon\]
             Поскольку $\lim\limits_{x\to a-0}\frac{1}{g(x)}=0$, то $\forall \epsilon>0\ \exists\ \delta_2>0: \forall x\in (a-\delta_2, a): \frac{1}{g(x)}<\epsilon$. Значит
-            \[|\frac{f(x_0)}{g(x)}|<\epsilon\ \ \text{и}\ \ |\frac{g(x_0)}{g(x)}|<\frac{\epsilon}{|A|+\epsilon}\]
+            \[|\frac{f(x_2)}{g(x_1)}|<\epsilon\ \ \text{и}\ \ |\frac{g(x_2)}{g(x_1)}|<\frac{\epsilon}{|A|+\epsilon}\]
             Значит, выбрав $\delta = \min\{\delta_1,\delta_2\}$, получим:
-            \[|\frac{f(x)}{g(x)}-A|<\epsilon+\epsilon+(|A|+\epsilon)(\frac{\epsilon}{|A|+\epsilon})=3\epsilon\]
+            \[|\frac{f(x_1)}{g(x_1)}-A|<\epsilon+\epsilon+\frac{\epsilon}{|A|+\epsilon}(|A|+\epsilon)=3\epsilon\]
             \\
             Аналогично
             \[\frac{f'(x)}{g'(x)}\to \pm \infty\ \ \Rightarrow\ \ \frac{f(x)}{g(x)}\to \pm \infty\]
+            
         \end{proof} 
         \subsection{Формулы Тейлора}
         \begin{definition}
