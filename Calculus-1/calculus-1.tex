@@ -2078,7 +2078,7 @@
             Для $x\to -\infty$ верно аналогичное утверждение.
         \end{theorem} 
         \begin{proof}
-            Упражнение: свести теорему к предыдущей
+            Сделав замену, сведем теорему к предыдущей.
         \end{proof} 
         \begin{theorem}
             Пусть $f(x),\ g(x)\in \mathcal{D}(x_0-\delta, x_0),\ f(x),g(x)\to \pm \infty,\ x\to x_0-0,\\
@@ -2121,7 +2121,7 @@
                 \lim\limits_{x\to x_0}\frac{r_n(x,x_0)}{(x-x_0)^n}=\lim\limits_{x\to x_0}\frac{f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}{(x-x_0)^n}=\\
                 =\lim\limits_{x\to x_0}\frac{f'(x)-\sum\limits_{k=1}^{n}\frac{f^{(k)}(x_0)}{(k-1)!}(x-x_0)^{k-1}}{n(x-x_0)^{n-1}}=\dots=\tab[3cm]\\
                 \tab[3cm]=\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)-f^{(n)}(x_0)(x-x_0)}{n!(x-x_0)}=\\
-                =\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)=0
+                =\frac{1}{n!}\cdot \lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)=0
             \end{multline*}
         \end{proof} 
         \begin{theorem} (Остаточный член в общей форме)\\
@@ -2141,8 +2141,9 @@
             Отсюда
             \[r_n(x,x_0)=\frac{\phi(x)-\phi(x_0)}{\phi'(c)}\cdot \frac{f^{(n+1)}(c)}{n!}(x-c)^n\]
         \end{proof} 
-        \begin{consequense}
-            В форме Лагранжа
+        \begin{consequense} (Остаточный член в форме Лагранжа)\\
+           Возьмем $\phi(t)=(x-t)^{n+1}$. Тогда
+           \[r_n(x,x_0)=\frac{f^{(n+1)}(c)(x-x_0)^{n+1}}{(n+1)!}\]
         \end{consequense}
         \subsubsection*{Формулы Тейлора элементарных функций с центром в нуле}
             \[e^x=\sum\limits_{k=0}^{n}\frac{x^k}{k!}+\bar{\bar{o}}{(x^n)},\ x\to 0\]
