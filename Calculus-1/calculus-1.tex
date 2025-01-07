@@ -2310,12 +2310,13 @@
             \end{multline*}
         \end{proof} 
         \begin{statement}
-            Неравенство между средним арифметическим и средим геометрическим\\
+            (Неравенство между средним арифметическим и средим геометрическим)
             \[\frac{1}{n}\sum\limits_{k=1}^{n}x_k\geq \sqrt[n]{\prod\limits_{k=1}^{n}x_k}\]
         \end{statement}
         \begin{proof}
             $f(x)=\ln{x},\ f''(x)=-\frac{1}{x^2}<0$ - выпукла вверх. Тогда
-            \[\ln({\sum\limits_{k=1}^{n}\frac{1}{n}})\geq \frac{1}{n} \sum\limits_{k=1}^{n}\ln{x}=\ln{\prod\limits_{i=1}^{n}x_k^{\frac{1}{n}}}\]
+            \[\ln({\sum\limits_{k=1}^{n}\frac{1}{n}})\geq \frac{1}{n} \sum\limits_{k=1}^{n}\ln{x}=\ln({\prod\limits_{i=1}^{n}x_k^{\frac{1}{n}}})\]
+            Взяв $\exp$ от обеих частей, получим искомое неравенство.
         \end{proof} 
         \begin{statement}
             Неравенство Юнга\\
@@ -2324,8 +2325,9 @@
         \end{statement}
         \begin{proof}
             Воспользуемся неравенством Йенсена для логарифма:
-            \[\ln({\frac{1}{p}x_1+\frac{1}{q}x_2})\geq \frac{1}{p}\ln{x_1}+\frac{1}{q}\ln{x_2}\]
+            \[\ln({\frac{1}{p}\cdot x_1+\frac{1}{q}\cdot x_2})\geq \frac{1}{p}\cdot \ln{x_1}+\frac{1}{q}\cdot \ln{x_2}\]
             $x_1=a^p,\ x_2=b^q$. Тогда
             \[\ln{\frac{a^p}{p}+\frac{b^q}{q}}\geq \ln{a}+\ln{b}=\ln{ab}\]
         \end{proof} 
+        Взяв $\exp$ от обеих частей, получим искомое неравенство.
 \end{document}
