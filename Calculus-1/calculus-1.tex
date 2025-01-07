@@ -1146,7 +1146,7 @@
         \end{definition} 
         \begin{theorem}
             Пусть  $a_n$ ограничена. Тогда 
-            \[\uplim\limits_{n\to \infty}a_n=\lims \sup\{a_k\}_{k=1}^{\infty},\ \lowlim\limits_{n\to \infty}a_n=\lims \inf\{a_k\}_{k=1}^{\infty}\]
+            \[\uplim\limits_{n\to \infty}a_n=\lims \sup\{a_k\}_{k=n}^{\infty},\ \lowlim\limits_{n\to \infty}a_n=\lims \inf\{a_k\}_{k=n}^{\infty}\]
         \end{theorem} 
         \begin{proof}
             Докажем для верхнего: 
@@ -1875,7 +1875,7 @@
         \begin{consequense}
             Если $f(x)$ имеет экстремум в точке $x_0$ и $\exists\ f'(x_0)$, то $f'(x_0)=0$.
         \end{consequense} 
-        \begin{theorem} (Необходимое условие существования экстремума)\\
+        \begin{theorem} (Необходимое условие существования локального экстремума)\\
             Если $f(x)$ имеет в экстремум в точке $x_0$, то либо $f'(x_0)=0$, либо не существует производной в точке $x_0$.
         \end{theorem} 
         \begin{theorem} (Теорема Ролля)\\
@@ -2173,7 +2173,7 @@
             \[\sin{x}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\bar{\bar{o}}{(x^7)}\]
         \end{example}
         \subsection{Экстремум функции}
-        \begin{theorem}
+        \begin{theorem} (Достаточное условие локального экстремума 1)\\
             Пусть $f(x)\in \mathcal{C}(B(x_0)),\ f(x)\in \mathcal{D}(\mathring{B}(x_0))$. \\
             Если при $x<x_0: f'(x)>0$ или при $x>x_0: f'(x)<0$, то $x_0$ - точка максимума.\\
             Если при $x<x_0: f'(x)<0$ или при $x>x_0: f'(x)>0$, то $x_0$ - точка минимума.
@@ -2181,7 +2181,7 @@
         \begin{proof}
             По формуле Лагранжа: $f(x)-f(x_0)=f'(c)(x-x_0)$
         \end{proof} 
-        \begin{theorem} (Достаточное условие локального экстремума)\\
+        \begin{theorem} (Достаточное условие локального экстремума 2)\\
             Пусть $\exists\ f^{(n)}(x_0)\ne 0,\ f^{(k)}(x_0)=0,\ k=1, \dots, n-1$.
             \begin{enumerate}
                 \item Если $n=2k+1$, то экстремум нет.
