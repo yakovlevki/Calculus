@@ -2264,13 +2264,13 @@
         \begin{definition}
             Если $f(x)-l_2(x)$ при проходе через точку $x_0$ меняет знак (разные знаки в левой и правой окрестности), то точка $x_0$ называется точкой перегиба.
         \end{definition}
-        \begin{theorem}
+        \begin{theorem} (Необходимое условие наличия точки перегиба)\\
             Пусть $f''(x)\in \mathcal{C}(B(x_0))$. Если $x_0$ - точка перегиба, то $f''(x_0)=0$.
         \end{theorem}  
         \begin{proof}
             Если $f''(x_0)>0$, то в силу непрерывности $f''(x)>0$ в $B(x_0)$, значит $x_0$ - не точка перегиба. Аналогично для $f''(x_0)<0$.
         \end{proof} 
-        \begin{theorem}
+        \begin{theorem} (Достаточное условие наличия точки перегиба)\\
             Пусть $f''(x)\in \mathcal{C}(I)$. Если $f''(x)$ меняется знак при проходе точки $x_0$, то $x_0$ - точка перегиба.
         \end{theorem} 
         \begin{proof}
@@ -2300,7 +2300,7 @@
         \begin{proof}
             Индукция по $n$. Если $n=1$ - очев. Для $n=2$ так как $f(x)$ - выпукла вверх: 
             \[f(\alpha_1 x_1+\alpha_2 x_2)\geq \alpha_1 f(x_1)+\alpha_2 f(x_2)\]
-            Пусть верно для $n$. Тогда
+            Пусть верно для $n$. Тогда пользуясь неравенством для $n=1$ и $n=2$ получим:
             \begin{multline*}
                 f(\sum\limits_{i=1}^{n+1}\alpha_i x_i)=f(\alpha_{n+1}x_{n+1}+\sum\limits_{i=1}^{n}\alpha_i x_i)=\\
                 =f(\alpha_{n+1}x_{n+1}+\sum\limits_{i=1}^{n}\alpha_i \cdot \sum\limits_{i=1}^{n}(\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i}\cdot x_i))\geq\tab[5cm]\\
@@ -2319,7 +2319,7 @@
             Взяв $\exp$ от обеих частей, получим искомое неравенство.
         \end{proof} 
         \begin{statement}
-            Неравенство Юнга\\
+            (Неравенство Юнга)\\
             $\forall a,b<0,\ \forall p,q>1: \frac{1}{p}+\frac{1}{q}=1$. Тогда 
             \[ab\leq \frac{a^p}{p}+\frac{b^q}{q}\]
         \end{statement}
