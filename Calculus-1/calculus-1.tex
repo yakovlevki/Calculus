@@ -2197,8 +2197,8 @@
             \[\Rightarrow f(x)-f(x_0)=(x-x_0)^n(\frac{f^{(n)}(x_0)}{n!}+\bar{\bar{o}}{(1)})\]
             Заметим, что знак $\frac{f^{(n)}(x_0)}{n!}+\bar{\bar{o}}{(1)}$ совпадает со знаком $f^{(n)}(x_0)$ в некоторой проколотой окрестности $x_0$. Значит,
             \begin{enumerate}
-                \item если $n=2k+1$, то $(x-x_0)^n$ меняет знак при переходе $x$ через точку $x_0 \Rightarrow$ при этом переходе $f(x)-f(x_0)$ тоже меняет свой знак $\Rightarrow x_0$ - не экстремум.
-                \item если $n=2k$, то $(x-x_0)^n$ не меняет знак при переходе $x$ через точку $x_0 \Rightarrow$ если $f^{(n)}(x_0)>0$, то $\forall x \in \mathring{B}(x_0): f(x)-f(x_0)>0 \Rightarrow x_0$ - точка минимума. Аналогично при $f^{(n)}(x_0)<0: x_0$ - точка максимума.
+                \item Если $n=2k+1$, то $(x-x_0)^n$ меняет знак при переходе $x$ через точку $x_0 \Rightarrow$ при этом переходе $f(x)-f(x_0)$ тоже меняет свой знак $\Rightarrow x_0$ - не экстремум.
+                \item Если $n=2k$, то $(x-x_0)^n$ не меняет знак при переходе $x$ через точку $x_0 \Rightarrow$ если $f^{(n)}(x_0)>0$, то $\forall x \in \mathring{B}(x_0): f(x)-f(x_0)>0 \Rightarrow x_0$ - точка минимума. Аналогично при $f^{(n)}(x_0)<0: x_0$ - точка максимума.
             \end{enumerate}
             
         \end{proof} 
@@ -2234,24 +2234,26 @@
                 \draw (y1) -- (y2);
             \end{tikzpicture}
         \end{center}
-        \begin{theorem}
-            Пусть $f'(c)\in \mathcal{D}(I)$.
+        \begin{theorem} (Достаточное условие выпуклости)\\
+            Пусть $f'(x)\in \mathcal{D}(I)$.
             \begin{itemize}
                 \item Если $f''(x)>0$, то $f(x)$ выпукла вниз.
                 \item Если $f''(x)<0$, то $f(x)$ выпукла вверх.
             \end{itemize}
         \end{theorem} 
         \begin{proof}
-            Пусть $l_1(x)=\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}$
+            Пусть 
+            \[l_1(x)=\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}\]
             \begin{multline*}
-                f(x)-l_1(x)=f(x)\frac{(x-x_1)+(x_2-x)}{x_2-x_1}-\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}=\\
-                =\frac{(f(x)-f(x_2))(x-x_1)+(f(x)-f(x_1))(x_2-x)}{x_2-x_1}=\tab[5cm]\\
-                \tab[1cm]=\frac{-f'(\xi)(x_2-x)(x-x_1)+f'(\eta)(x-x_1)(x_2-x)}{x_2-x_1}=\\=
+                f(x)-l_1(x)=\\
+                =f(x)\frac{(x-x_1)+(x_2-x)}{x_2-x_1}-\frac{f(x_2)(x-x_1)+f(x_1)(x_2-x)}{x_2-x_1}=\tab[2cm]\\
+                \tab[3cm]=\frac{(f(x)-f(x_2))(x-x_1)+(f(x)-f(x_1))(x_2-x)}{x_2-x_1}=\tab[5cm]\\
+                \tab[3cm]=\frac{-f'(\xi)(x_2-x)(x-x_1)+f'(\eta)(x-x_1)(x_2-x)}{x_2-x_1}=\\=
                 \frac{-f''(\chi)(\xi-\eta)(x-x_1)(x_2-x)}{x_2-x_1}
             \end{multline*}
         \end{proof} 
         \begin{theorem}
-            Пусть $f'(x)\in \mathcal{D}(I)$. Если $f''(x)>0 (<0)$, то $\forall x_0\in I$:
+            Пусть $f'(x)\in \mathcal{D}(I)$. Если $f''(x)>0\ (f''(x)<0)$, то $\forall x_0\in I$:
             \[f(x)-f(x_0)-f'(x_0)(x-x_0)\geq 0\]
         \end{theorem} 
         \begin{proof}
@@ -2278,25 +2280,33 @@
             Пусть $f''(x_0)=0,\ f'''(x_0)\ne 0$. Тогда $x_0$ - точка перегиба.
         \end{theorem} 
         \begin{proof}
-            $f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f'''(x_0)}{6}(x-x_0)^3+\bar{\bar{o}}{((x-x_0)^3)}$. Тогда $f(x)-l_2(x)=(x-x_0)^3(\frac{f'''(x_0)}{6}+\bar{\bar{o}}{(1)})$
+            \[f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f'''(x_0)}{6}(x-x_0)^3+\bar{\bar{o}}{((x-x_0)^3)}\] 
+            Тогда
+            \[f(x)-l_2(x)=(x-x_0)^3(\frac{f'''(x_0)}{6}+\bar{\bar{o}}{(1)})\]
         \end{proof} 
         \begin{definition}
-            Если при $x\to a-0 (a+0)\ f(x\to \pm \infty)$, то прямая $x=a$ называется вертикальной асимптотой.
+            Если при $x\to a-0\ (x\to a+0): f(x)\to \pm \infty$, то прямая $x=a$ называется вертикальной асимптотой.
         \end{definition} 
         \begin{definition}
-            Если при $x\to +\infty (-\infty)\ (f(x)-kx-b)\to 0$, то прямая $y=kx+b$ называется наклонной асимптотой.
+            Если при $x\to +\infty (x\to -\infty): (f(x)-kx-b)\to 0$, то прямая $y=kx+b$ называется наклонной асимптотой.
         \end{definition} 
         \begin{theorem}
-            Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$
+            Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$.
         \end{theorem} 
         \begin{theorem} (Неравенство Йенсена)\\
-            Пусть $f(x)$ выпукла вверх (вниз) на $I$. Пусть $\{\alpha_i\} \alpha_i>0 \forall i,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall \{x_i\} \subset I$. $f(\sum\limits_{i=1}^{n}\alpha_i x_i) \geq \sum\limits_{i=1}^{n}\alpha_i f(x_i)$.
+            Пусть $f(x)$ выпукла вверх (вниз) в каждой точке $I$. Пусть $\forall i: \alpha_i>0,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall x_i \subset I$:
+            \[f(\sum\limits_{i=1}^{n}\alpha_i x_i) \geq \sum\limits_{i=1}^{n}\alpha_i f(x_i)\]
         \end{theorem} 
         \begin{proof}
-            Индукция по $n$. Если $n=1$ - очев.\\
-            $n=2: f(\alpha_1 x_1+\alpha_2 x_2)\geq \alpha_1 f(x_1)+\alpha_2 f(x_2)$ - очев по выпуклости $f(x)$.
+            Индукция по $n$. Если $n=1$ - очев. Для $n=2$ так как $f(x)$ - выпукла вверх: 
+            \[f(\alpha_1 x_1+\alpha_2 x_2)\geq \alpha_1 f(x_1)+\alpha_2 f(x_2)\]
+            Пусть верно для $n$. Тогда
             \begin{multline*}
-                f(\sum\limits_{i=1}^{n+1}\alpha_i x_i)=f(\sum\limits_{i=1}^{n}\alpha_i x_i +\alpha_{n+1}x_{n+1})=f(\sum\limits_{i=1}^{n}\alpha_i \cdot \sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i\cdot x_i +\alpha_{n+1} x_{n+1}})\geq\\\geq \sum\limits_{i=1}^{n}\alpha_i\cdot f(\sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i} x_i)+\alpha_{n+1} f(x_{n+1})\geq \sum\limits_{i=1}^{n}x_i (\sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i}\cdot f(x_i))+\alpha_{n+1} f(x_{n+1})
+                f(\sum\limits_{i=1}^{n+1}\alpha_i x_i)=f(\alpha_{n+1}x_{n+1}+\sum\limits_{i=1}^{n}\alpha_i x_i)=\\
+                =f(\alpha_{n+1}x_{n+1}+\sum\limits_{i=1}^{n}\alpha_i \cdot \sum\limits_{i=1}^{n}(\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i}\cdot x_i))\geq\tab[5cm]\\
+                \geq \alpha_{n+1} f(x_{n+1})+\sum\limits_{i=1}^{n}\alpha_i\cdot f(\sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i} x_i)\geq\\
+                \tab[5cm]\geq \alpha_{n+1} f(x_{n+1})+\sum\limits_{i=1}^{n}\alpha_i(\sum\limits_{i=1}^{n}\frac{\alpha_i}{\sum\limits_{i=1}^{n}\alpha_i}\cdot f(x_i))=\\
+                =\alpha_{n+1}f(x_{n+1})+\sum\limits_{i=1}^{n}\alpha_i f(x_i)=\sum\limits_{i=1}^{n+1}\alpha_i f(x_i)
             \end{multline*}
         \end{proof} 
         \begin{statement}
