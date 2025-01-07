@@ -1118,7 +1118,7 @@
         \begin{proof}\tab
             \begin{itemize}
                 \item[$(\Rightarrow)$] $\exists \lims a_n =a \Leftrightarrow \forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n-a|<\frac{\epsilon}{2}$. Тогда $\forall m,n>N_{\epsilon}: |a_m-a_n|=|(a_m-a)+(a-a_n)|\leq |a_m-a|+|a-a_n|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$. 
-                \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$. Фиксируем $m$, тогда\\ $a_m-\epsilon<a_n<a_m+\epsilon \Rightarrow a_n$ - ограничена $\Rightarrow \exists\ a_{n_k}\to a,\ k\to \infty$. Поскольку $n_k\geq n > N$, то $|a_n-a_{n_k}|<\epsilon$. Тогда $|a_n-a|=|a_n-a_{n_k}+a_{n_k}-a|<\\<|a_n-a_{n_k}|+|a_{n_k}-a|<2\epsilon$\ ($2\epsilon$ пробегает все вещественные положительные числа) 
+                \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$. Фиксируем $m$, тогда\\ $a_m-\epsilon<a_n<a_m+\epsilon \Rightarrow a_n$ - ограничена $\Rightarrow \exists\ a_{k_n}\to a,\ n\to \infty$. Поскольку $k_n\geq n > N$, то $|a_n-a_{k_n}|<\epsilon$. Тогда $|a_n-a|=|a_n-a_{k_n}+a_{k_n}-a|<\\<|a_n-a_{k_n}|+|a_{k_n}-a|<2\epsilon$\ ($2\epsilon$ пробегает все вещественные положительные числа) 
             \end{itemize}
         \end{proof} 
         \begin{definition}
@@ -1392,7 +1392,7 @@
             Тогда 
             \[\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon\] 
             а значит
-            \[\forall x\in \Bo(A): |f(x)-A|<\epsilon\]
+            \[\forall x\in \Bo(a): |f(x)-A|<\epsilon\]
         \end{proof}
     \subsection{Критерий Коши}
         \begin{theorem} (Критерий Коши)
@@ -1501,7 +1501,7 @@
             Утверждение теоремы верно и для монотонной функции $f(x)$, определенной на интервале $(a,b)$.
         \end{consequense} 
         \begin{proof}
-            $\exists\ [a,b]\subset (a,b): (a,b)=\bigcup\limits_{n=1}^{\infty}[a_n,b_n]$
+            $\exists\ [a_n,b_n]\subset (a,b): (a,b)=\bigcup\limits_{n=1}^{\infty}[a_n,b_n]$
         \end{proof}
         \begin{statement}
             У монотонной функции разрывов не более чем счетное множество.
