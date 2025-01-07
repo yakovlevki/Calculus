@@ -1044,14 +1044,14 @@
         \end{proof}
         \subsection{Неравенство Бернулли и Бином Ньютона}
         \begin{theorem} (Неравенство Бернулли)\\
-            Пусть $\{x_k\}_{k=1}^n, x_k\in \R \tab[3pt] \forall k: x_k>0$ или $x_k\in (-1, 0)$. Тогда
+            Пусть $x_k\in \R$ и $\forall k: x_k>0$ или $\forall k: x_k\in (-1, 0)$. Тогда
             \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}^nx_k\]
         \end{theorem} 
         \begin{proof}
             Индукция по $n$.
-            База: $n=1: 1+x_1\geq 1+x_1$.
-            Пусть при $n$ утверждение верно.
-            \[\prod\limits_{k=1}^{n+1}(1+x_k)\geq(1+x_{k+1})(1+\sum\limits_{k=1}^n x_k)=1+\sum\limits_{k=1}^{n+1}x_k+(\sum\limits_{k=1}^{n}x_k)\cdot x_{n+1}> 1+\sum\limits_{k=1}^{n+1}x_k\]
+            База: $n=1: 1+x_1\geq 1+x_1$.\\
+            Шаг: пусть при $n$ утверждение верно. Тогда
+            \[\prod\limits_{k=1}^{n+1}(1+x_k)\geq(1+x_{n+1})(1+\sum\limits_{k=1}^n x_k)=1+\sum\limits_{k=1}^{n+1}x_k+(\sum\limits_{k=1}^{n}x_k)\cdot x_{n+1}> 1+\sum\limits_{k=1}^{n+1}x_k\]
         \end{proof}
         \begin{definition}
             Число $\frac{n!}{k!(n-k)!}$ называется биномиальным коэффициентом и обозначается $C_n^k$.
