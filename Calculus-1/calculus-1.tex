@@ -1515,9 +1515,9 @@
         \end{proof} 
     \subsection{Равномерная непрерывность}
         \begin{definition}
-            Пусть $f(x)$ определена на $[a,b]$. Если 
+            Пусть $f(x)$ определена на $A$. Если 
             \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta_{\epsilon}: |f(x^{\prime})-f(x^{\prime\prime})|<\epsilon\] 
-            то $f(x)$ называется равномерно непрерывной на $[a,b]$.
+            то $f(x)$ называется равномерно непрерывной на $A$.
         \end{definition} 
         \begin{theorem} (Теорема Кантора)\\
             Если $f(x)\in \mathcal{C}[a,b]$, то $f(x)$ равномерно непрерывна на $[a,b]$.
@@ -1864,13 +1864,13 @@
         \begin{theorem} (Теорема Ферма)\\
             Пусть $f(x)$ определена в $B(x_0)$, пусть существуют левая и правая производные в точке $x_0$. Тогда
             \begin{enumerate}
-                \item $x_0$ - точка максимума, если $f'_-(x_0)\geq 0$ и $f'_+(x_0)\leq 0$.
-                \item $x_0$ - точка минимума, если $f'_-(x_0)\leq 0$ и $f'_+(x_0)\geq 0$.
+                \item $x_0$ - точка максимума $\Rightarrow f'_-(x_0)\geq 0$ и $f'_+(x_0)\leq 0$.
+                \item $x_0$ - точка минимума $\Rightarrow f'_-(x_0)\leq 0$ и $f'_+(x_0)\geq 0$.
             \end{enumerate}
         \end{theorem} 
         \begin{proof} (для точки максимума)
-                \[f'_-(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0\ \text{при}\ x\in (x_0-\delta,x_0)\]
-                \[f'_+(x_0)=\frac{f(x)-f(x_0)}{x-x_0}\leq 0\ \text{при}\ x\in (x_0,x_0+\delta)\]
+                \[\frac{f(x)-f(x_0)}{x-x_0}\geq 0\ \text{при}\ x\in (x_0-\delta,x_0)\]
+                \[\frac{f(x)-f(x_0)}{x-x_0}\leq 0\ \text{при}\ x\in (x_0,x_0+\delta)\]
         \end{proof} 
         \begin{consequense}
             Если $f(x)$ имеет экстремум в точке $x_0$ и $\exists\ f'(x_0)$, то $f'(x_0)=0$.
