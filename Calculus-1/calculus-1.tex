@@ -2020,7 +2020,7 @@
         \begin{proof} Покажем, что у такой функции не может быть устранимых разрывов и разрывов первого рода:
             \begin{enumerate}
                 \item Если $f'_-(x_0)=f'_+(x_0)$, то $\exists\ f'(x_0)=f'_-(x_0)=f_+(x_0)$.
-                \item Если $f'_-(x_0)\ne f'_+(x_0)$, тогда $f'(x_0)$ не существует.
+                \item Если $f'_-(x_0)\ne f'_+(x_0)$, тогда $f'(x_0)$ не существует - противоречие.
             \end{enumerate}
             Таким образом, могут быть разрывы только второго рода.
         \end{proof} 
@@ -2119,7 +2119,7 @@
                 \lim\limits_{x\to x_0}\frac{r_n(x,x_0)}{(x-x_0)^n}=\lim\limits_{x\to x_0}\frac{f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k}{(x-x_0)^n}=\\
                 =\lim\limits_{x\to x_0}\frac{f'(x)-\sum\limits_{k=1}^{n}\frac{f^{(k)}(x_0)}{(k-1)!}(x-x_0)^{k-1}}{n(x-x_0)^{n-1}}=\dots=\tab[3cm]\\
                 \tab[3cm]=\lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)-f^{(n)}(x_0)(x-x_0)}{n!(x-x_0)}=\\
-                =\frac{1}{n!}\cdot \lim\limits_{x\to x_0}\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0)=0
+                =\frac{1}{n!}\cdot \lim\limits_{x\to x_0}(\frac{f^{(n-1)}(x)-f^{(n-1)}(x_0)}{x-x_0}-f^{(n)}(x_0))=0
             \end{multline*}
         \end{proof} 
         \begin{theorem} (Остаточный член в общей форме)\\
@@ -2205,7 +2205,7 @@
         \subsubsection*{Схема поиска глобального экстремума}
         \begin{enumerate}
             \item Ищем точки интервала $(a,b)$, где $f'(x)=0$ или где ее не существует. 
-            \item Находим значение во всех этих точках и значения на концах открезка.
+            \item Находим значение во всех этих точках и значения на концах отрезка.
             \item Сравниваем их между собой.
         \end{enumerate}
         \subsection{Выпуклые функции}
@@ -2291,7 +2291,7 @@
             Если при $x\to +\infty (x\to -\infty): (f(x)-kx-b)\to 0$, то прямая $y=kx+b$ называется наклонной асимптотой.
         \end{definition} 
         \begin{theorem}
-            Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$.
+            Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)=b$, аналогично к $-\infty$.
         \end{theorem} 
         \begin{theorem} (Неравенство Йенсена)\\
             Пусть $f(x)$ выпукла вниз в каждой точке $I$. Пусть $\forall i: \alpha_i>0,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall x_i \subset I$: (Если $f(x)$ выпукла вверх, то выполнено обратное неравенство)
