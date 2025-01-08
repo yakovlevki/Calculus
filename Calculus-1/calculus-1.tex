@@ -2033,7 +2033,7 @@
                 \item Пусть $A<0,\ B>0,\ C=0$. Тогда
                 \[\frac{f(a+\Delta x)-f(a)}{\Delta x}<0 \Rightarrow \exists\ \delta>0, x\in [a,a+\delta): f(x)<f(a)\] 
                 \[\frac{f(b+\Delta x)-f(b)}{\Delta x}>0 \Rightarrow \exists\ \delta>0, x\in (b-\delta, b]: f(x)<f(b)\]
-                (при достаточно малых $x$)
+                (при достаточно малых $\delta x$)
                 $\Rightarrow x_{\min}\in(a,b) \Rightarrow f'(x_{\min})=0,\ c=x_{\min}$.
                 \item Пусть $A>0,\ B<0,\ C=0$. Тогда рассмотрим $g(x)=-f(x)$, а для нее верен предыдущий случай.
                 \item Пусть $A\ne B$ - любые, $C$ - между $A$ и $B$ - любое. Рассмотрим функцию $g(x)=f(x)-Cx$. Тогда $g'(a)=A-C,\ g'(b)=B-C$. Заметим, что $g'(a)$ и $g'(b)$ разных знаков $\Rightarrow \exists\ g'(c)=0$ (свели к первому и второму случаю).
@@ -2294,8 +2294,9 @@
             Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$.
         \end{theorem} 
         \begin{theorem} (Неравенство Йенсена)\\
-            Пусть $f(x)$ выпукла вверх (вниз) в каждой точке $I$. Пусть $\forall i: \alpha_i>0,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall x_i \subset I$:
+            Пусть $f(x)$ выпукла вниз в каждой точке $I$. Пусть $\forall i: \alpha_i>0,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall x_i \subset I$:
             \[f(\sum\limits_{i=1}^{n}\alpha_i x_i) \geq \sum\limits_{i=1}^{n}\alpha_i f(x_i)\]
+            Если $f(x)$ выпукла вверх, то выполнено обратное неравенство.
         \end{theorem} 
         \begin{proof}
             Индукция по $n$. Если $n=1$ - очев. Для $n=2$ так как $f(x)$ - выпукла вверх: 
