@@ -2294,13 +2294,12 @@
             Прямая $y=kx+b$ является наклонной асимптотой графика функции $f(x) \Leftrightarrow \exists \lim\limits_{x\to +\infty}\frac{f(x)}{x}=k,\ \exists \lim\limits_{x\to +\infty}(f(x)-kx)$, аналогично к $-\infty$.
         \end{theorem} 
         \begin{theorem} (Неравенство Йенсена)\\
-            Пусть $f(x)$ выпукла вниз в каждой точке $I$. Пусть $\forall i: \alpha_i>0,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall x_i \subset I$:
+            Пусть $f(x)$ выпукла вниз в каждой точке $I$. Пусть $\forall i: \alpha_i>0,\ \sum\limits_{i=1}^{n}\alpha_i=1$. Тогда $\forall x_i \subset I$: (Если $f(x)$ выпукла вверх, то выполнено обратное неравенство)
             \[f(\sum\limits_{i=1}^{n}\alpha_i x_i) \geq \sum\limits_{i=1}^{n}\alpha_i f(x_i)\]
-            Если $f(x)$ выпукла вверх, то выполнено обратное неравенство.
         \end{theorem} 
         \begin{proof}
             Индукция по $n$. Если $n=1$ - очев. Для $n=2$ так как $f(x)$ - выпукла вверх: 
-            \[f(\alpha_1 x_1+\alpha_2 x_2)\geq \alpha_1 f(x_1)+\alpha_2 f(x_2)\]
+            $f(\alpha_1 x_1+\alpha_2 x_2)\geq \alpha_1 f(x_1)+\alpha_2 f(x_2)$
             Пусть верно для $n$. Тогда пользуясь неравенством для $n=1$ и $n=2$ получим:
             \begin{multline*}
                 f(\sum\limits_{i=1}^{n+1}\alpha_i x_i)=f(\alpha_{n+1}x_{n+1}+\sum\limits_{i=1}^{n}\alpha_i x_i)=\\
