@@ -1,0 +1,203 @@
+\section{Непрерывные функции}
+    \subsection{Локальные свойства непрерывных функций}
+        \begin{definition}
+            Пусть $D_f$ - область определения $f(x),\ x_0\in D_f$. Если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in B_{\delta_{\epsilon}}(x_0)\cap D_f: |f(x)-f(x_0)|<\epsilon\] 
+            то $f(x)$ называется непрерывной в точке $x_0$.
+        \end{definition}  
+        \begin{comm}
+            Определение эквивалентно тому, что $\exists\ \lim\limits_{x\to x_0}f(x)=f(x_0)$, если $x_0$ не изолированная точка.
+        \end{comm} 
+        \begin{theorem}
+            Пусть $f(x),g(x)$ - непрерывны в точке $x_0$. Тогда:
+            \begin{enumerate}
+                \item $\alpha f(x)+\beta g(x)$ - непрерывна в точке $x_0$
+                \item $f(x)g(x)$ - непрерывна в точке $x_0$
+                \item если $g(x_0)\ne 0$, то $\frac{f(x)}{g(x)}$ непрерывна в точке $x_0$
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            Если $x_0$ - изолированная то очев. Если неизолированная, то по свойствам предела очевидно.
+        \end{proof} 
+        \begin{theorem} (Непрерывность композиции непрерывных функций) \\
+            Пусть $f(x)$ определена в $B_{\delta}(x_0)$ и $f(x)$ непрерывна в точке $x_0$, а также\\
+            $f(B_{\delta}(x_0))\subset B(y_0),\ f(x_0)=y_0$. И пусть $g(y)$ определена в $B(y_0)$ и непрерывна в точке $y_0$. Тогда $g(f(x))$ непрерывна в точке $x_0$.
+        \end{theorem} 
+        \begin{proof} По Гейне:
+            \[\forall x_n\to x_0,\ f(x_n)\to f(x_0).\ \forall y_n\to y_0,\ g(y_n)\to g(y_0)\]
+            \[y_n=f(x_n),\ g(f(x_n))\to g(f(x_0))\]
+        \end{proof} 
+    \subsection{Глобальные свойства непрерывных функций}
+        \begin{definition}
+            Пусть $f(x)$ - определена на $X\subset \R$ и $\forall x\in X: f(x)$ - непрерывна в точке $x$. Тогда говорят, что $f(x)$ непрерывна на $X$, и пишут $f(x)\in \mathcal{C}(X)$.
+        \end{definition} 
+        \begin{theorem} (1-я теорема Вейерштрасса)\\
+            Если $f(x)\in \mathcal{C}[a,b]$, то $f(x)$ - ограничена на $[a,b]$.
+        \end{theorem} 
+        \begin{proof}
+            Предположим, что $f(x)$ неограничена, то есть \\
+            \[\forall M>0\ \exists\ x_M\in [a,b]: |f(x_M)|>M\]
+            Возьмем 
+            \[x_1: |f(x_1)|>1,\ x_2: |f(x_2)|>2,\ \dots\ x_M: |f(x_M)|>M,\ \dots\]
+            Получаем последовательность 
+            \[x_n\subset [a,b]\Rightarrow \exists\ x_{n_k}: x_{n_k}\to x_0\]
+            $f(x)$ непрерывна $\Rightarrow f(x_{n_k})\to f(x_0)$, но $|f(x_{n_k})|\to \infty$ получаем противоречие.
+        \end{proof} 
+        \begin{theorem} (2-я теорема Вейерштрасса)\\
+            Пусть $f(x)\in \mathcal{C}[a,b]$. Тогда $f(x)$ имеет максимальное $\max{f(x)}$ и минимальное $\min{f(x)}$ значения на $[a,b]$
+        \end{theorem} 
+        \begin{proof}
+            Пусть 
+            \[\alpha = \sup\limits_{x\in [a,b]} f(x)\] 
+            Значит
+            \[\exists\ x_1 \in [a,b]: f(x_1)>\alpha-1,\ \exists\ x_2\in [a,b]: f(x_2)>\alpha - \frac{1}{2},\ \dots\]
+            \[\exists\ x_n\in [a,b],\ f(x_n)>\alpha - \frac{1}{n},\ \dots\]
+            \[\Rightarrow \exists \{x_{n_k}\}, x_{n_k}\to x^{\prime}\]
+            \[f(x_{n_k})\to f(x^{\prime}),\ \alpha-\frac{1}{n_k}<f(x_{n_k})\leq \alpha \Rightarrow f(x_{n_k})\to \alpha\]
+        \end{proof} 
+        \begin{theorem}
+            Пусть $f(x)\in \mathcal{C}[a,b].\ f(a)=A,\ f(b)=B$ и $A\leq B$. Тогда 
+            \[\forall C: A\leq C\leq B\ \exists\ c\in [a,b],\ f(c)=C\]
+        \end{theorem} 
+        \begin{proof}
+            Если $A=B$ то очевидно, далее пусть $A<B$. Возьмем \\
+            $x_1=\frac{a+b}{2}$. Если $f(\frac{a+b}{2})=C$, то все. Если $f(\frac{a+b}{2})\ne C$, то $f(\frac{a+b}{2})>C$ или $f(\frac{a+b}{2})<C$. Возьмем половину отрезка $[a_1,b_1]: f(a_1)<C<f(b_1)$, снова делим пополам и т.д. Получаем $\{[a_n,b_n]\}$ последовательность вложенных отрезков\\
+            $\Rightarrow \exists\ c\in [a_n,b_n], \forall n,\ a_n\to c,\ b_n\to c$. Тогда по непрерывности:
+            \[\lims f(a_n)=f(c)\leq C,\ \ \lims f(b_n)=f(c)\geq C\]
+            $\Rightarrow f(c)=C$. 
+        \end{proof} 
+    \subsection{Точки разрыва функции}
+        \begin{definition} 
+            Пусть $f(x)$ определена в $B(x_0)$.    
+            \begin{enumerate}
+                \item Если $\exists \lim\limits_{x\to x_0-0}f(x)=\lim\limits_{x\to x_0+0}f(x)\ne f(x_0)$, то  точка $x_0$ называется точкой устранимого разрыва функции $f(x)$.
+                \item Если $\exists\ \lim\limits_{x\to x_0-0}f(x)=\alpha,\ \exists\ \lim\limits_{x\to x_0+0}f(x)=\beta,\ \alpha\ne \beta$, то точка называется точкой разрыва 1 рода функции $f(x)$.
+                \item Если не существует хотя бы одного из односторонних пределов, то $x_0$ называется точкой разрыва 2 рода функции $f(x)$.
+            \end{enumerate}
+        \end{definition} 
+        %\begin{example}
+        %    $f(x)=\frac{1}{x}$ непрерывна на всей области определения (в нуле нет точки разрыва, так как она там не определена).
+        %\end{example}
+        \begin{theorem}
+            Пусть $f(x)$ определена на $[a,b]$ и монотонна. Тогда у этой функции не может быть разрывов 2-го рода.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $f(x)\leq f(b)$ и $f$ монотонно возрастает. Так как\\
+            $f(a)\leq f(x)\leq f(b)$, то $f$ - ограничена $\Rightarrow \forall x_0\in [a,b]\ \exists \lim\limits_{x\to x_0-0}f(x)$ и $\exists \lim\limits_{x\to x_0+0}f(x)$. Значит у $f(x)$ не может быть разрывов 2-го рода.
+        \end{proof}
+        \begin{consequense}
+            Утверждение теоремы верно и для монотонной функции $f(x)$, определенной на интервале $(a,b)$.
+        \end{consequense} 
+        \begin{proof}
+            $\exists\ [a_n,b_n]\subset (a,b): (a,b)=\bigcup\limits_{n=1}^{\infty}[a_n,b_n]$
+        \end{proof}
+        \begin{statement}
+            У монотонной функции разрывов не более чем счетное множество.
+        \end{statement} 
+        \begin{theorem}
+            Пусть $f(x)$ строго монотонна на $[a,b]$ и $f(x)\in\mathcal{C}[a,b],\ f(a)=\alpha,\\
+            f(b)=\beta$. Тогда $\exists\ f^{-1}(y)\in\mathcal{C}[\alpha,\beta]$ и она строго монотонна. 
+        \end{theorem} 
+        \begin{proof}
+            Пусть строго возрастает. $\forall x_1,x_2,\ x_1<x_2: f(x_1)=y_1<y_2=f(x_2)$. Тогда $f(x)$ - биекция между $[a,b]$ и $[\alpha,\beta] \Rightarrow \exists f^{-1}$. Предположим, что она разрывная, но тогда нарушается биекция, и вообще нарушается условие того, что функция определена на всем отрезке $[a,b]$.
+        \end{proof} 
+    \subsection{Равномерная непрерывность}
+        \begin{definition}
+            Пусть $f(x)$ определена на $A$. Если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta_{\epsilon}: |f(x^{\prime})-f(x^{\prime\prime})|<\epsilon\] 
+            то $f(x)$ называется равномерно непрерывной на $A$.
+        \end{definition} 
+        \begin{theorem} (Теорема Кантора)\\
+            Если $f(x)\in \mathcal{C}[a,b]$, то $f(x)$ равномерно непрерывна на $[a,b]$.
+        \end{theorem} 
+        \begin{proof}
+            Пусть 
+            \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ x^{\prime}, x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\delta: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0\] 
+            Возьмем последовательность 
+            \[\delta_n=\frac{1}{n}: \exists x^{\prime},x^{\prime\prime}\in [a,b]: |x^{\prime}-x^{\prime\prime}|<\frac{1}{n}: |f(x^{\prime})-f(x^{\prime\prime})|\geq \epsilon_0\] 
+            Тогда $\exists\ x_{n_k}^{\prime}\to x_0,\ \exists\ x_{n_k}^{\prime\prime}\to x_0$ $\Rightarrow f(x_{n_k}^{\prime})\to f(x_0)$ и $f(x_{n_k}^{\prime\prime})\to f(x_0)$ - противоречие.
+        \end{proof}
+        \subsection{Элементарные функции}
+        \begin{enumerate}
+            \item Показательная функция\\
+            Пусть $a>1$
+            \begin{itemize}
+                \item[(i)] Определим показательную функцию для натурального аргумента: \\
+                $a^n:=\prod\limits_{j=1}^n a,\ n\in \N$, из определения очевидно свойство: $a^{n+m}=a^n a^m$.
+                \item[(ii)] Для целого аргумента $n$ определим функцию так: 
+                \[a^n:=\begin{cases}
+                    a^n,\ n\in \N,\\
+                    \frac{1}{a^k},\ n = -k,\ k\in \N,\\
+                    1,\ n=0.
+                \end{cases}\]
+                \item[(iii)] Теперь доопределим функцию для рационального аргумента:\\
+                Пусть $a^\frac{1}{n}=b$, где $b^n=a,\ a,b\in \R_{\geq 1}$. Пусть $A=\{x\in \R_{\geq 1}: x^n\leq a\},\\
+                B=\{x\in \R_{\geq 1}: x^n>a\},\ A\cup B=\R_{\geq 1}$. По аксиоме полноты \\
+                $\exists\ b: x_1\leq b\leq x_2,\ \forall x_1\in A,\ \forall x_2\in B$ и $b=a^{\frac{1}{n}}$.\\
+                Далее $\forall\ \frac{m}{n}\in \Q,\ a^{\frac{m}{n}}:=(a^{\frac{1}{n}})^m$. 
+                %Из определения вытекают очевидные свойства: $a^{r_1+r_2}=a^{r_1}a^{r_2}$, для того чтобы сравнить $(a^{\frac{m_1}{n_1}}$ и $a^{\frac{m_2}{n_2}})^{n_1 n_2}$ достаточно сравнить $a^{m_1 n_2}$ и $a^{m_2 n_1}$.
+                \item[(iv)] $\lim\limits_{n\to \infty} a^{\frac{1}{n}}=1$.
+                \[(1+\frac{a}{n})^n>1+a>a \Rightarrow 1+\frac{a}{n}>a^{\frac{1}{n}}>1\]
+                по теореме о двух милиционерах $a^{\frac{1}{n}}\to 1$.\\
+                Пусть $\forall x_0\in \R,\ r_n\to x_0-0,\ s_n\to x_0+0$. Тогда 
+                \[\exists \lim\limits_{n\to\infty}a^{r_n}=\alpha,\ \exists \lim\limits_{n\to \infty}a^{s_n}=\beta,\ \alpha\leq \beta\]
+                Пусть $\alpha < \beta,\ a^{s_n}-a^{r_n}=a^{r_n}(a^{s_n-r_n}-1)\to \beta-\alpha>0$. Рассмотрим подпоследовательность $0<s_{n_k}-r_{n_k}<\frac{1}{k}$. Тогда $1<a^{s_{n_k}-r_{n_k}}<a^{\frac{1}{k}}$.\\
+                По теореме о двух милиционерах \[a^{s_{n_k}-r_{n_k}}\to 1 \Rightarrow a^{s_{n_k}}-a^{r_{n_k}}\to 0 \Rightarrow \alpha=\beta=a^{x_0}\]
+                Непрерывность и монотонность есть по построению.
+                \item[(v)] Доопределим функцию при $0<a<1$:
+                \[a^x:=\frac{1}{(\frac{1}{a})^x}\]
+            \end{itemize}
+            \item Функция, обратная к $y=a^x$ называется логарифмом и обозначается 
+            \[x=\log_a{y}\]
+            Далее пишем $y=\log_a{x}$. Известны следующие свойства:\\
+            \[\log_{a^{\alpha}}{x^{\beta}}=\frac{\beta}{\alpha}\log_a{x},\ \log_a{xy}=\log_a{x}+\log_a{y}\]
+            Отдельно выделяют $\log_e{x}$, его называют натуральным логарифмом и обозначают $\ln{x}$.
+            \item Степенная функция.\\
+            $\forall x>0,\ \forall \alpha\in\R$ степенная функция определяется как \[x^{\alpha}:=e^{\alpha\cdot \ln{x}}\]
+            Распространяем: при $\alpha \geq 0$ доопределим $x^{\alpha}$ в точке $x=0$ по непрерывности (ищем предел и добавляем его как значение), при $\alpha\in \Z$ доопределяем\\
+            $x^{\alpha}$ при $x<0$ четно, если $\alpha$ - четное и нечетное, если $\alpha$ - нечетное.
+            \item Тригонометрические функции:\\ 
+            $y=\sin{x}$ определим так: возьмем окружность единичного радиуса, на $[0,2\pi]$ синус - ордината.\\
+            $\forall x\in\R: |\sin{x}|\leq |x|,\ \sin{(x+\delta)}-\sin{x}=|2\sin{(\frac{\delta}{2})}\cos{(x+\frac{\delta}{2})}|\leq \delta$.\\
+            $\cos{x}$ определяем в соответствии с определением синуса.
+            \[\tg{x}=\frac{\sin{x}}{\cos{x}},\ \ctg={\frac{\cos{x}}{\sin{x}}}\]
+            \item Обратные тригонометрические функции:\\
+            $y=\arcsin{x}$, обратную к $\sin{x}$ определяем на области, где будет биекция с $\sin{x}$ (обычно берут $-\frac{\pi}{2}\leq x\leq \frac{\pi}{2}$). Аналогично определяются обратные к $\cos{x},\ \tg{x}$ и $\ctg{x}$.
+            \item Гиперболические функции:
+            \[\sh{x}=\frac{e^x-e^{-x}}{2},\ \ch{x}=\frac{e^x+e^{-x}}{2},\ \th{x}=\frac{\sh{x}}{\ch{x}},\ \cth{x}=\frac{\ch{x}}{\sh{x}}\]
+            Для этих функций можно получить формулы, аналогичные тем, что верны для тригонометрических функций.
+        \end{enumerate}
+    \subsection{Замечательные пределы}
+        \begin{theorem} (Первый замечательный предел)
+            \[\lim\limits_{x\to 0} \frac{\sin{x}}{x}=1\]
+        \end{theorem}     
+        \begin{proof}
+            $\sin{x}<x<\tg{x}\Rightarrow \frac{\sin{x}}{x}<1$ и $\frac{x}{\sin{x}}<\frac{1}{\cos{x}}\\
+            \Rightarrow \cos{x}<\frac{\sin{x}}{x}<1$. По теореме о двух милиционерах $\frac{\sin{x}}{x}\to 1$.
+        \end{proof}
+        \begin{statement}
+            \[\lim\limits_{x\to \infty}(1+\frac{1}{x})^x=e\]
+        \end{statement} 
+        \begin{proof}
+            Воспользуемся определением по Гейне. Пусть $\alpha_n\to +\infty$:\\
+            \[(1+\frac{1}{[\alpha_n]+1})^{[\alpha_n]} \leq(1+\frac{1}{\alpha_n})^{\alpha_n}\leq (1+\frac{1}{[\alpha_n]})^{[\alpha_n]+1}\]
+            $\Rightarrow$ по лемме о двух милиционерах $(1+\frac{1}{\alpha_n})^{\alpha_n}\to e$. Теперь пусть $\beta_n\to -\infty$:
+            \[(1+\frac{1}{\beta_n})^{\beta_n}=(\frac{\beta_n+1}{\beta_n})^{\beta_n}=(\frac{\beta_n}{\beta_n+1})^{-\beta_n}=(1-\frac{1}{\beta_n+1})^{-\beta_n}\]
+        \end{proof} 
+        \begin{consequense}
+            \[\lim\limits_{x\to 0}(1+x)^{\frac{1}{x}}=e\]
+        \end{consequense} 
+        \begin{statement}
+            \[\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=1\]
+        \end{statement} 
+        \begin{proof} В силу непрерывности натурального логарифма:
+            \[\lim\limits_{x\to 0}\frac{\ln{(1+x)}}{x}=\lim\limits_{x\to 0}\ln{(1+x)^{\frac{1}{x}}}=1\]
+        \end{proof} 
+        \begin{theorem} (Второй замечательный предел)\\
+            \[\lim\limits_{x\to 0}\frac{e^x-1}{x}=1\]
+        \end{theorem} 
+        \begin{proof}
+            Пусть $t=e^x-1 \Rightarrow e^x=1+t \Rightarrow x=\ln{(1+t)}$. Тогда 
+            \[\lim\limits_{x\to 0}\frac{e^x-1}{x}=\lim\limits_{t\to 0}\frac{t}{\ln{(1+t)}}=1\]
+        \end{proof} 
+\newpage

@@ -1,0 +1,240 @@
+\section{Предел функции}
+    \subsection{Определение предела по Коши и по Гейне}
+        В данном разделе будут рассматриваться функции $\R\to\R$.
+        \begin{definition}
+            Пусть $f(x)$ определена в $\mathring{B}(x_0)$. Число $a$ называется пределом $f(x)$ в точке $x_0$, по Коши, если  
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
+        \end{definition} 
+        \begin{definition}
+            Пусть $f(x)$ определена в $\Bo(x_0)$. Число $a$ называется пределом $f(x)$ в точке $x_0$ по Гейне, если
+            \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \forall n: \exists\ \lims f(x_n)=a\]
+        \end{definition} 
+        \begin{definition}
+            Пусть $f(x)$ определена на $(-\infty, x_0)$ и на $(x_0, +\infty)$. Тогда \\
+            $a$ - предел функции $f$ при $x\to \infty\ (x\to +\infty,\ x\to -\infty)$ если 
+            \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0, \forall x: |x|>\delta_{\epsilon}\ (x>\delta_{\epsilon},\ x<\delta_{\epsilon}): |f(x)-a|<\epsilon\]
+        \end{definition} 
+        \begin{theorem} 
+            Определения предела по Коши (1) и по Гейне (2) эквивалентны.
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{enumerate}
+                \item $(1)\Rightarrow(2)$: 
+                \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
+                \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}>0: 0<|x_0-x_n|<\delta_{\epsilon}\]
+                \[\Rightarrow \forall n> N_{\delta_{\epsilon}},\ x_n\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_n)-a|<\epsilon\] т.е. $f(x_n)\to a$.
+                \item $(2)\Rightarrow(1)$: Выведем из отрицания предела по Коши отрицание предела по Гейне: 
+                \[\exists\ \epsilon_0> 0\ \forall \delta>0\ \exists\ x_{\delta}\in \Bo_{\delta}(x_0): |f(x_{\delta})-a|\geq \epsilon_0\]
+                Возьмем 
+                \[x_1 \in \Bo_1(x_0) \Rightarrow |f(x_1)-a|\geq \epsilon_0\] 
+                \[x_2 \in \Bo_{\frac{|x_1-x_0|}{2}}(x_0) \Rightarrow |f(x_2)-a|\geq \epsilon_0\]
+                \[x_3\in \Bo_{\frac{|x_2-x_0|}{2}}(x_0) \Rightarrow |f(x_3)-a|\geq \epsilon_0\]
+                \[\vdots\]
+                Получили последовательность $x_n\to x_0,\ x_n\ne x_0$, но при этом\\
+                $|f(x_n)-a|\geq \epsilon_0$. Это и есть отрицание по Гейне.
+            \end{enumerate}
+        \end{proof} 
+        \begin{comm}
+            В доказательстве пользуемся тем, что для утверждений $A$ и $B$ верно: $(A\Rightarrow B) \Leftrightarrow (\lnot B\Rightarrow \lnot A)$
+        \end{comm} 
+        \begin{comm}
+            при $x\to \infty\ (+\infty,\ -\infty)$ доказывается аналогично.
+        \end{comm}
+    \subsection{Простейшие свойства предела функции}
+        \begin{theorem}
+            Если у функции существует предел в точке $x_0$, то он единственный.
+        \end{theorem}
+        \begin{proof}
+            Получим противоречие с определением по Гейне, пусть 
+            \[x_n: x_n\to x_0,\ x_n\ne x_0\ \forall n: \lims f(x_n)=a\] 
+            Предположим, что $b\ne a$ - тоже предел. Тогда 
+            \[\exists\ t_n: t_n\to x_0,\ t_n\ne x_0\ \forall n: \lims f(t_n)=b\] 
+            Получаем, что последовательность $y_n = x_1,t_1,x_2,t_2,\dots: y_n\to x_0$, но при этом $f(y_n)= f(x_1),f(t_1),f(x_2),f(t_2)\dots$ - имеет два различных частичных предела - противоречие.
+        \end{proof}
+        \begin{theorem}
+            Если $\exists \lim\limits_{x\to x_0}f(x)=a$, то $\exists\ \delta>0$ такое, что $f(x)$ ограничена в $\Bo_{\delta}(x_0)$.
+        \end{theorem} 
+        \begin{proof}
+            Возьмем $\epsilon = 1$. Тогда
+            \[\exists\ \delta>0,\ \forall x\in \Bo_{\delta}(x_0): |f(x)-a|<1\]
+            $\Rightarrow a-1<f(x)<a+1 \Rightarrow f(x)$ - ограничена.
+        \end{proof}
+        \begin{theorem} (Теорема об отделимости)\\
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a$. Тогда $\forall\ b\ne a\ \exists\ \delta>0$ и $\exists\ \epsilon>0$, что $f(\Bo_{\delta}(x_0))\cap \Bo_\epsilon(b)=\emptyset$. 
+        \end{theorem}  
+        \begin{proof}
+            Возьмем $\epsilon=\frac{|a-b|}{3}$. Тогда
+            \[\exists\ \delta>0,\ \forall x\in \Bo_{\delta}(x_0): |f(x)-a|<\frac{|a-b|}{3} \Rightarrow f(\Bo_{\delta}(x_0))\cap\Bo_{\frac{|a-b|}{3}}(b)=\emptyset\]
+        \end{proof} 
+    \subsection{Предел по множеству. Односторонние пределы}
+        \begin{definition}
+            Число $a$ называется пределом $f(x)$ в точке $x_0$ по множеству $X\subset \R$, если 
+            \[x_0\in X^{\prime}\ \text{и}\ \forall\epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in \Bo_{\delta}(x_0)\cap X: |f(x)-a|<\epsilon\]
+            Обозначают \[\lim\limits_{X\ni x\to x_0}f(x)=a\]
+        \end{definition} 
+        \begin{statement}
+            Если $\exists\ \lim\limits_{X\ni x\to x_0}f(x)=a$ и $X_1\subset X,\ x_0\in X_1^{\prime}$. Тогда\\
+            $\exists\ \lim\limits_{X_1\ni x\to x_0}f(x)=a$.
+        \end{statement} 
+        \begin{proof}
+            Очевидно.
+        \end{proof}
+        \begin{definition}\tab\
+            \begin{enumerate}
+                \item Если $X=(x_0,x_0+\delta)$, то обозначают $\lim\limits_{x\to x_0+0}f(x)=a$.
+                \item Если $X=(x_0-\delta, x_0)$, то обозначают $\lim\limits_{x\to x_0-0}f(x)=a$.
+            \end{enumerate}
+            Такие пределы называются односторонними.
+        \end{definition} 
+        \begin{theorem}
+            $\exists\ \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \exists\ \lim\limits_{x\to x_0+0}f(x)=a$ и $\exists\ \lim\limits_{x\to x_0-0}f(x)=a$.
+        \end{theorem} 
+        \begin{proof}\footnote{Дано в качестве очевидного}
+                \begin{itemize}
+                    \item[$(\Rightarrow)$] Поскольку \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon\]
+                    то 
+                    \[\forall x\in (x, x+\delta): |f(x)-a|<\epsilon\ \ \text{и}\ \ \forall x\in (x-\delta, x): |f(x)-a|<\epsilon\]
+                    \item[$(\Leftarrow)$] Поскольку 
+                    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in (x, x+\delta): |f(x)-a|<\epsilon\]
+                    и поскольку 
+                    \[\forall x\in (x-\delta, x): |f(x)-a|<\epsilon\]
+                    то выполнено и 
+                    \[\forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon\]
+                \end{itemize}
+        \end{proof} 
+    \subsection{O-символика}
+        \begin{definition}
+            Если $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=0$, то $f(x)=\om(g(x))$ при $x\to x_0$.
+        \end{definition} 
+        \begin{definition}
+            Функция $f(x)$ называется бесконечно малой, если $f(x)=\om(1)$ при $x\to x_0$.
+        \end{definition}
+        \begin{definition}
+            Если $\exists\ M>0$ такое, что $\forall x\in X\subset \R: |\frac{f(x)}{g(x)}|<M$, то\\
+            $f(x)=O(g(x))$ на $X$
+        \end{definition} 
+        \begin{definition}
+            Для обозначения класса ограниченных функций используется запись $f(x)=O(1)$.
+        \end{definition}
+        \begin{definition}
+            Пусть $f(x)$ определена в $\Bo(x_0)$. Если 
+            \[\forall \epsilon>0\ \exists\ \delta{_\epsilon}>0,\ \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)|>\epsilon\ (f(x)>\epsilon,\ f(x)<-\epsilon)\] то говорят, что $f(x)$ - бесконечно большая, и пишут
+            \[\lim\limits_{x\to x_0}f(x)=\infty,\ (\lim\limits_{x\to x_0}f(x)=+\infty,\ \lim\limits_{x\to x_0}f(x)=-\infty)\]
+        \end{definition}
+        \begin{theorem} (Исчисление бесконечно малых)\\
+            Пусть $\alpha(x)=\om(1)$ при $x\to x_0,\ \beta(x)=\om(1)$ при $x\to x_0,\ \gamma(x)=O(1)$ в $\Bo(x_0),\ c\in \R$. Тогда:
+            \begin{enumerate}
+                \item $\alpha(x)+\beta(x)=\om(1),\ x\to x_0$.
+                \item $c \alpha(x)=\om(1),\ x\to x_0$.
+                \item $\alpha(x)\beta(x)=\om(1),\ x\to x_0$.
+                \item $\alpha(x)\gamma(x)=\om(1),\ x\to x_0$.
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}\footnote{Дано в качестве очевидного}
+            Запишем определение по Гейне:
+            \[\lim\limits_{x\to x_0}\alpha(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne x_0,\ \forall n: \exists \lim\limits_{n\to \infty}\alpha(x_n)=0\]
+            \[\lim\limits_{x\to x_0}\beta(x)=0 \Leftrightarrow \forall x_n: x_n\to x_0,\ x_n\ne x_0,\ \forall n: \exists \lim\limits_{n\to \infty}\beta(x_n)=0\]
+            \[\gamma(x)=O(1) \Leftrightarrow \exists\ M>0: |\gamma(x)|<M\] 
+            Теперь воспользуемся доказанным для последовательностей:
+            \begin{enumerate}
+                \item $\alpha(x_n)+\beta(x_n)=\bar{\bar{o}}{(1)}+\bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
+                \item $c\alpha(x_n)=c \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
+                \item $\alpha(x_n)\beta(x_n)=\bar{\bar{o}}{(1)}\bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
+                \item $\alpha(x)\gamma(x)=\bar{\bar{o}}{(1)}M=\bar{\bar{o}}{(1)}$.
+            \end{enumerate}
+        \end{proof} 
+        \begin{statement}
+            $\exists\ \lim\limits_{x\to x_0}f(x)=a\Leftrightarrow f(x)=a+\om(1),\ x\to x_0$.
+        \end{statement} 
+        \begin{proof}\footnote{Дано в качестве очевидного}
+            \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x\in \mathring{B}_{\delta}(x_0): |f(x)-a|<\epsilon \Leftrightarrow f(x)-a=\bar{\bar{o}}{(1)}\]
+        \end{proof}
+        \begin{theorem}
+            Если $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ a\ne 0$, то $\frac{1}{f(x)}=O(1)$ в $\Bo(x_0)$.
+        \end{theorem} 
+        \begin{proof}
+            По теореме об отделимости 
+            \[\exists\ \Bo(x_0)\ \text{и}\ \exists\ \epsilon>0: f(\Bo(x_0))\cap \Bo_{\epsilon}(0)\ne \emptyset\] 
+            Тогда 
+            \[\forall x\in \Bo(x_0): |f(x)|\geq \epsilon \Rightarrow \frac{1}{|f(x)|}\leq \frac{1}{\epsilon}\]
+        \end{proof} 
+    \subsection{Арифметрические свойства пределов функций и предельные переходы в неравенствах}
+        \begin{theorem}
+            Если $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$, то
+            \begin{enumerate}
+                \item $\forall \alpha,\beta\in \R\ \exists\ \lim\limits_{x\to x_0}(\alpha f(x)+\beta g(x))=\alpha a+\beta b$.
+                \item $\exists\ \lim\limits_{x\to x_0}(f(x)g(x))=ab$.
+                \item Если $b\ne 0$, то $\exists \lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\frac{a}{b}$.
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            Эту теорему можно доказать используя тот факт, что\\
+            $\lim\limits_{x\to x_0}f(x)=a \Leftrightarrow f(x)=a+\bar{\bar{o}}{(1)},\ \lim\limits_{x\to x_0}g(x)=b \Leftrightarrow g(x)=b+\bar{\bar{o}}{(1)}$, а также исчисление бесконечно малых функций.
+        \end{proof}
+        \begin{example}\tab
+            \begin{enumerate}
+                \item $\forall \alpha,\beta\in \R$, если $\alpha>\beta$, то $x^{\alpha}=\om(x^{\beta}),\ x\to 0$, так как
+                \[\lim\limits_{x\to 0}\frac{x^{\alpha}}{x^{\beta}}=\lim\limits_{x\to 0}x^{\alpha-\beta}=0\]
+                Например: $x+\om(x)+x^2+\om(x^2)=x+\om(x),\ x\to 0$.
+                \item $\sin{x}=x+\om(x),\ x\to 0$, так как $\lim\limits_{x\to 0}\frac{\sin{x}}{x}=1$.
+            \end{enumerate}
+        \end{example}
+        \begin{theorem}
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$ и пусть $\forall x\in \Bo(x_0):\\
+            f(x)\geq g(x)$, тогда $a\geq b$.
+        \end{theorem} 
+        \begin{proof}\footnote{Дано в качестве очевидного}
+            \[\forall x_n \to x_0,\ x_n\ne x_0,\ \forall n: \lim\limits_{x\to x_0} f(x_n)=a\ \text{и}\ \lim\limits_{x\to x_0} g(x_n)=b\] 
+            по условию: $f(x_n)\geq g(x_n)$ значит, по доказанному для последовательностей $a\geq b$.
+        \end{proof} 
+        \begin{theorem}
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=b$, и пусть $a>b$. Тогда $\exists\ \Bo(x_0): f(x)>g(x)$.
+        \end{theorem}
+        \begin{proof}
+            По теореме об отделимости.
+            %\[\exists\ \delta>0\ \exists\ \epsilon>0: f(\mathring{B}_{\delta}(x_0))\cap \mathring{B}_{\epsilon}(b)\]
+        \end{proof} 
+        \begin{theorem}(Теорема о двух милиционерах)\\
+            Пусть $\exists\ \lim\limits_{x\to x_0}f(x)=a,\ \exists\ \lim\limits_{x\to x_0}g(x)=a$ и пусть в $\Bo(x_0): f(x)\leq h(x)\leq g(x)$. Тогда $\exists\ \lim\limits_{x\to x_0}h(x)=a$.
+        \end{theorem} 
+        \begin{proof}
+            по Гейне.
+        \end{proof} 
+    \subsection{Монотонные функции}
+        \begin{definition}
+            Если $\forall x_1, x_2\in (\alpha, \beta): x_1<x_2$ выполнено, что
+            \begin{enumerate}
+                \item $f(x_1)\leq f(x_2)$, то $f(x)$ называют неубывающей.
+                \item $f(x_1)< f(x_2)$, то $f(x)$ называют возрастающей.
+                \item $f(x_1)\geq f(x_2)$, то $f(x)$ называют невозрастающей.
+                \item $f(x_1)> f(x_2)$, то $f(x)$ называют убывающей.
+            \end{enumerate}
+            такие функции называют монотонными.
+        \end{definition} 
+        \begin{theorem}
+            Пусть $f(x)$ определена на $(a-\delta, a),\ f(x)$ - неубывающая (невозрастающая) и ограниченная сверху (снизу). Тогда $\exists\ \lim\limits_{x\to a-0}f(x)=A$.
+        \end{theorem} 
+        \begin{proof}
+            Докажем для неубывающей и ограниченой сверху. $\exists\ \sup{f(x)}=A$. Значит
+            \[\forall \epsilon>0\ \exists\ x_{\epsilon}\in (a-\delta, a): f(x_{\epsilon})>A-\epsilon\] 
+            Тогда 
+            \[\forall x\in (x_{\epsilon},a): f(x)\geq f(x_{\epsilon})>A-\epsilon\] 
+            а значит
+            \[\forall x\in \Bo(a): |f(x)-A|<\epsilon\]
+        \end{proof}
+    \subsection{Критерий Коши}
+        \begin{theorem} (Критерий Коши)
+            \[\exists \lim\limits_{x\to x_0}f(x)=a \Leftrightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{itemize}
+                \item[$(\Rightarrow)$] \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x\in \Bo_{\delta_{\epsilon}}(x_0): |f(x)-a|<\epsilon\]
+                Значит $\forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0):$
+                \[|f(x_1)-f(x_2)|=|f(x_1)-a+a-f(x_2)|\leq|f(x_1)-a|+|f(x_2)-a|<2\epsilon\]
+                \item[$(\Leftarrow)$] \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0: \forall x_1,x_2\in \Bo_{\delta_{\epsilon}}(x_0): |f(x_1)-f(x_2)|<\epsilon\]
+                \[\forall x_n: x_n\to x_0,\ x_n\ne x_0\ \exists\ N_{\delta_{\epsilon}}\in \N,\ \forall n> N_{\delta_{\epsilon}}: |x_n-x_0|<\delta_{\epsilon}\]
+                \[\Rightarrow \forall n,m>N_{\delta_{\epsilon}}: |f(x_n)-f(x_m)|<\epsilon \Rightarrow \exists\lims f(x_n)=a\]
+                $t_n: t_n\to x_0,\ t_n\ne x_0,\ \exists \lims f(t_n)=b$. Рассмотрим последовательность $y_n: x_1, t_1, x_2, t_2, \dots,\ y_n\to x_0$ если $a\ne b$ то последовательность $f(y_n)$  будет иметь два частичных предела $\Rightarrow a=b$.
+            \end{itemize}
+        \end{proof} 
+\newpage

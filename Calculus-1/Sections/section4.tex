@@ -1,0 +1,304 @@
+\section{Числовые последовательности}
+    \subsection{Предел последовательности}
+        \begin{definition}
+            Отображение $\{a_n\}: \N\to \R$ называется последовательностью.
+        \end{definition} 
+        \begin{comm}
+            Далее, в обозначении последовательности будем опускать скобки и писать $a_n$.
+        \end{comm} 
+        \begin{definition}
+            Говорят, что $a_n$ ограничена сверху (снизу), если ее образ ограничен сверху (снизу).
+        \end{definition} 
+        \begin{definition}
+            Пусть последовательность номеров $n_k$ - образ $\phi: \N\to \N$ и $\forall k: n_{k+1}>n_k$. Тогда для любой последовательности $a_n$ последовательность $a_{n_k}$ называется подпоследовательностью $a_n$.
+        \end{definition} 
+        \begin{definition}
+            Рассмотрим последовательность $a_n$. Если $\exists \ a\in \R$, такое что 
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N: \forall n>N_{\epsilon}: |a_n-a|<\epsilon\]
+            то говорят, что последовательность $a_n$ сходится, а число $a$ называется пределом последовательности $a_n$ и обозначается
+            \[\lim\limits_{n\to \infty} a_n=a\]
+        \end{definition}
+        \begin{theorem}
+            Если $a_n$ сходится, то ее предел единственный.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $\exists\ a,b\in \R: a\ne b$ - два предела последовательности $a_n$. Тогда
+            \[\exists\ N_1: \forall n>N_1: |a_n-a|<\frac{|a-b|}{3}\  \ \text{и}\ \ \exists\ N_2: \forall n>N_2: |a_n-b|<\frac{|a-b|}{3}\]
+            Тогда $\forall n>N = \max{(N_1, N_2)}$ получаем, что $a_n\in B_{\frac{|a-b|}{3}}(a)$ и $a_n\in B_{\frac{|a-b|}{3}}(b)$, но $B_{\frac{|a-b|}{3}}(a)\cap B_{\frac{|a-b|}{3}}(b)= \emptyset \Rightarrow$ получаем противоречие.
+        \end{proof} 
+        \begin{theorem}
+            Пусть $\exists\ \lims a_n=a$, тогда $\forall a_{n_k}\ \exists\ \lims a_{n_k}=a$.
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0\ \exists\ N_{\epsilon}\ \forall n>N_{\epsilon}: |a_n-a|<\epsilon \Rightarrow \forall n_k>N_{\epsilon}:\\ |a_{n_k}-a|<\epsilon$
+        \end{proof} 
+        % \begin{comm}
+        %     $\forall k\in \Z$ отображение $\Z \setminus \{..., k-1\} \to \R$ тоже будем называть последовательностью.
+        % \end{comm} 
+        \
+        \begin{comm}\tab
+            \begin{enumerate}
+                \item Если $\exists \lims a_n=a$, то $\exists \lims a_{n+k}=a$.
+                \item Если $\exists\ \lims a_n=a$ и $b_n$ отличается от $a_n$ конечным числом членов, то $\exists \lims b_n=a$.
+            \end{enumerate}
+        \end{comm} 
+        \begin{theorem} (Теорема об отделимости)\\
+            Пусть $\exists \lims a_n=a$ и $b\ne a$. Тогда $\exists\ \epsilon>0\ \exists\ N_{\epsilon}: B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}=\emptyset$.
+        \end{theorem} 
+        \begin{proof}
+            Предположим, что выполнено обратное: $\forall \epsilon>0\ \forall \ N_{\epsilon}:\\
+            B_{\epsilon}(b)\cap \{a_n\}_{n=N_{\epsilon}}^{\infty}\ne \emptyset$. Возьмем $\epsilon = \frac{|b-a|}{3}$, сразу получаем противоречие.
+        \end{proof} 
+        \begin{comm}
+            Теорема об отделимости равносильна следующему утверждению: $\exists\ \epsilon>0: \mathring{B_{\epsilon}}(b)\cap \{a_n\}_{n=1}^{\infty}=\emptyset$, причем если $b\notin \{a_n\}_{n=1}^{\infty}$, то $B_{\epsilon}(b)\cap\{a_n\}_{n=1}^{\infty}=\emptyset$.
+        \end{comm} 
+        \subsection{О-символика. Бесконечно малые и бесконечно большие последовательности}
+        \begin{definition}
+            Рассмотрим пару последовательностей $a_n$ и $b_n$. Если\\ $\exists\ \lims \frac{a_n}{b_n}=0$, то говорят, что последовательность $a_n$ - это о-малое от $b_n$, и обозначают $a_n=\om(b_n)$, при $n\to \infty$. 
+        \end{definition} 
+        \begin{definition}
+            Если $\exists\ M>0: |\frac{a_n}{b_n}|\leq M\ \forall n$, то говорят, что последовательность $a_n$ - это O-большое от $b_n$, и обозначают $a_n=O(b_n)$, при $n\to \infty$.
+        \end{definition} 
+        \begin{examples}\tab
+            \begin{enumerate}
+                \item $\frac{\sin n}{n}\to 0 \Leftrightarrow \sin n = \om(n)$
+                \item $\frac{\cos n}{n}\to 0 \Leftrightarrow \cos n = \om(n)$
+                \item $\frac{\sqrt{n}+1}{n}\to 0 \Leftrightarrow \sqrt{n}+1 = \om(n)$
+            \end{enumerate}
+        \end{examples}
+        \begin{comm}
+            $O(1)$ - обозначение класса ограниченных последовательностей.
+        \end{comm} 
+        \begin{definition}
+            Последовательность $a_n$ называется бесконечно малой, если 
+            \[a_n=\om(1)\ (\Leftrightarrow \lim\limits_{n\to \infty}a_n=0)\]
+        \end{definition} 
+        \begin{definition}
+            Последовательность $a_n$ называется бесконечно большой, если 
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n|>\epsilon\] 
+            такие последовательности обозначаются $\lims a_n=\infty$ (это всего лишь обозначение, конечно у последовательности $a_n$ не существует предела)\\
+            Если в определении $a_n>\epsilon$, то пишут $\lims a_n=+\infty$.\\
+            Если в определении $a_n<-\epsilon$, то пишут $\lims a_n=-\infty$.
+        \end{definition} 
+        \begin{theorem} (Исчисление бесконечно малых)\\
+            Пусть $a_n=\bar{\bar{o}}{(1)}, n\to \infty,\ b_n=\bar{\bar{o}}{(1)}, n\to \infty$ и $c_n=O(1)$. Тогда $\forall c\in \R$:
+            \begin{enumerate}
+                \item $ca_n=\bar{\bar{o}}{(1)}$
+                \item $a_n+b_n=\bar{\bar{o}}{(1)}$
+                \item $a_n b_n=\bar{\bar{o}}{(1)}$
+                \item $c_n a_n=\bar{\bar{o}}{(1)}$
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0\ \exists\ N_1,\ \forall n>N_1: |a_n|<\epsilon,\ \exists\ N_2,\ \forall n>N_2: |b_n|<\epsilon$.\\Возьмем $n>\max\{N_1,N_2\}$. Также по определению $\exists\ M>0: |c_n|<M$. Тогда:
+            \begin{enumerate}
+                \item $|c a_n|=|c|\ |a_n|<|c|\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $|c|\epsilon$ - тоже $\Rightarrow c a_n=\bar{\bar{o}}{(1)}$.
+                \item $|a_n+b_n|\leq|a_n|+|b_n|<\epsilon+\epsilon=2\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $2\epsilon$ - тоже $\Rightarrow a_n+b_n=\bar{\bar{o}}{(1)}$.
+                \item $|a_n b_n| = |a_n|\ |b_n|<\epsilon\cdot\epsilon=\epsilon^2$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $\epsilon^2$ - тоже $\Rightarrow a_n b_n=\bar{\bar{o}}{(1)}$.
+                \item $|c_n a_n|=|c_n|\ |a_n|<M\epsilon$. Поскольку $\epsilon$ принимает любое вещественное положительное значение, то величина $M\epsilon$ - тоже $\Rightarrow c_n a_n =\bar{\bar{o}}{(1)}$.
+            \end{enumerate}
+        \end{proof} 
+        \begin{theorem}
+            Пусть $a_n$ - бесконечно большая и $a_n\ne 0$, тогда $\frac{1}{a_n}$ - бесконечно малая.
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n|>\epsilon \Rightarrow \frac{1}{|a_n|}<\frac{1}{\epsilon} \Rightarrow \frac{1}{a_n}=\bar{\bar{o}}{(1)}$
+        \end{proof} 
+        \begin{lemma}
+            $\lim\limits_{n\to \infty}a_n=a \Leftrightarrow a_n-a=\om(1)$ т.е $a_n=a+\bar{\bar{o}}{(1)}$
+        \end{lemma} 
+        \begin{proof}
+            Из определения предела для $a_n$ получаем: $|a_n-a|<\epsilon$, а это и означает что $a_n-a=\bar{\bar{o}}{(1)}$.
+        \end{proof} 
+        \newpage
+    \subsection{Арифметические свойства сходящихся последовательностей}
+        \begin{theorem}
+            Пусть $\exists \lim\limits_{n\to\infty} a_n=a,\ \exists \lim\limits_{n\to\infty} b_n=b$, тогда
+            \begin{enumerate}
+                \item $\exists \lim\limits_{n\to\infty} (a_n+b_n) = a+b$
+                \item $\exists \lim\limits_{n\to\infty} (ca_n) = ca$
+                \item $\exists \lim\limits_{n\to\infty} (a_n b_n) = ab$
+                \item Если дополнительно $\forall n: b_n\ne 0$ и $b\ne 0$, то $\exists \lim\limits_{n\to\infty} (\frac{a_n}{b_n})=\frac{a}{b}$
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof}
+            Пользуясь тем, что $a_n=a+\bar{\bar{o}}{(1)},\ b_n=b+\bar{\bar{o}}{(1)}$ и исчислением бесконечно малых, получаем:
+            \begin{enumerate}
+                \item $a_n+b_n=a+\om(1)+b+\om(1)=a+b+\om(1)$.
+                \item $ca_n=c(a+\om(1))=ca+c\om(1)=ca+\bar{\bar{o}}{(1)}$.
+                \item $a_n b_n=(a+\om(1))(b+\om(1))=ab+a \bar{\bar{o}}{(1)}+b \bar{\bar{o}}{(1)}+\bar{\bar{o}}{(1)}\bar{\bar{o}}{(1)}=ab+\bar{\bar{o}}{(1)}$.
+                \item $\cfrac{a_n}{b_n}-\cfrac{a}{b}=\cfrac{a_n b-ab_n}{bb_n}=\cfrac{b(a+\bar{\bar{o}}{(1)})-a(b+\bar{\bar{o}}{(1)})}{b(b+\bar{\bar{o}}{(1)})}=\cfrac{ab-ab+b \bar{\bar{o}}{(1)}-a \bar{\bar{o}}{(1)}}{b^2+b \bar{\bar{o}}{(1)}}=\\=\cfrac{1}{b^2+\bar{\bar{o}}{(1)}}\ \bar{\bar{o}}{(1)}=O(1) \bar{\bar{o}}{(1)}=\bar{\bar{o}}{(1)}$.
+            \end{enumerate}
+        \end{proof}
+        %\begin{comm}
+        %    т.к $b\ne 0,\ b_n\ne 0\ \forall n$, то 0 отделен от $b_n$, т.е $\exists\ \epsilon>0:\\
+        %    B_{\epsilon}(0)\cap b_n=\emptyset \Rightarrow |b_n|>\epsilon \Rightarrow \frac{1}{|b_n|}<\frac{1}{\epsilon}$.
+        %\end{comm}
+        \begin{theorem}
+            Пусть $\exists\ \lim\limits_{n\to \infty} a_n=a$ и $a_n\geq 0,\ \forall n$. Тогда $a\geq 0$.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $a<0$, тогда $\exists\ N,\ \forall n>N: |a-a_n|<\frac{|a|}{3} \Rightarrow$ начиная с $N$ все члены $a_n$ отрицательные $\Rightarrow$ получаем противоречие.
+        \end{proof} 
+        %   \begin{comm}
+        %       Если $a_n>0,\ a\geq 0$, то $\frac{1}{n}\to 0$
+        %   \end{comm}
+        \begin{consequense}
+            Пусть $\exists \lims a_n =a,\ \exists \lims b_n=b$ и пусть $\forall n: a_n\geq b_n$. Тогда $a\geq b$.
+        \end{consequense}  
+        \begin{proof}
+            Рассмотрим последовательность $a_n-b_n\geq 0$.\\ $a_n-b_n\to a-b\geq 0$.
+        \end{proof} 
+        \begin{theorem} (Теорема о двух милиционерах)\\
+            Пусть $\exists \lims a_n =a,\ \exists \lims b_n=a: a_n\leq b_n$ и пусть $a_n\leq c_n\leq b_n,\ \forall n$, тогда $\exists \lims c_n=a$.
+        \end{theorem} 
+        \begin{proof}
+            $\forall \epsilon>0\ \exists\ N_1,\ \forall n>N_1: |a_n-a|<\epsilon,\ \exists\ N_2,\ \forall n>N_2:\\
+            |b_n-a|<\epsilon \Rightarrow \forall n > N=\max\{N_1,N_2\}: a-\epsilon < a_n\leq c_n \leq b_n < a+\epsilon\\
+            \Rightarrow |c_n-a|<\epsilon$.
+        \end{proof}
+        \subsection{Монотонные последовательности}
+        \begin{definition} \tab
+            \begin{enumerate}
+                \item Если $\forall n: a_{n+1}>a_n$, то $a_n$ (строго) возрастает.
+                \item Если $\forall n: a_{n+1}\geq a_n$, то $a_n$ не убывает.
+                \item Если $\forall n: a_{n+1}<a_n$, то $a_n$ (строго) убывает.
+                \item Если $\forall n: a_{n+1}\leq a_n$, то $a_n$ не возрастает.
+            \end{enumerate}
+            Такие последовательности называют монотонными.
+        \end{definition} 
+        \begin{theorem}
+            Если последовательность неубывает (невозраствает) и ограничена сверху (снизу), то у нее есть предел.
+        \end{theorem}
+        \begin{proof}
+            Докажем для неубывающей, ограниченной сверху. $a_n$ - ограничена сверху $\Rightarrow \exists\ a=\sup a_n \Rightarrow \forall \epsilon>0\ \exists\ a_{N_{\epsilon}}: a-\epsilon<a_{N_{\epsilon}}<a$,\ $a_n$ - неубывает $\Rightarrow \forall n>N_{\epsilon}: a_n>a-\epsilon \Rightarrow a-a_n<\epsilon$.
+        \end{proof}
+        \subsection{Неравенство Бернулли и Бином Ньютона}
+        \begin{theorem} (Неравенство Бернулли)\\
+            Пусть $x_k\in \R$ и $\forall k: x_k>0$ или $\forall k: x_k\in (-1, 0)$. Тогда
+            \[\prod\limits_{k=1}^n(1+x_k)\geq 1+\sum\limits_{k=1}^nx_k\]
+        \end{theorem} 
+        \begin{proof}
+            Индукция по $n$.
+            База: $n=1: 1+x_1\geq 1+x_1$.\\
+            Шаг: пусть при $n$ утверждение верно. Тогда
+            \[\prod\limits_{k=1}^{n+1}(1+x_k)\geq(1+x_{n+1})(1+\sum\limits_{k=1}^n x_k)=1+\sum\limits_{k=1}^{n+1}x_k+(\sum\limits_{k=1}^{n}x_k)\cdot x_{n+1}> 1+\sum\limits_{k=1}^{n+1}x_k\]
+        \end{proof}
+        \begin{definition}
+            Число $\frac{n!}{k!(n-k)!}$ называется биномиальным коэффициентом и обозначается $C_n^k$.
+        \end{definition} 
+        \begin{comm}
+            По определнию считается, что $0!=1$.
+        \end{comm} 
+        \begin{theorem} (Бином Ньютона)
+            \[(a+b)^n=\sum\limits_{k=0}^n C_n^k a^k b^{n-k}\]
+        \end{theorem} 
+        \begin{proof}
+            Индукция по $n$. База: для $n=1$ верно. Пусть верно для $n$. Распишем выражение для $n+1$:
+            \[(a+b)^{n+1}=(a+b)\sum\limits_{k=0}^n C_n^k a^k b^{n-k}=\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}\]
+            Сдвинем нумерацию в первой сумме:
+            \[\sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}\]
+            Получаем, что
+            \begin{multline*}
+            \sum\limits_{k=0}^n C_n^k a^{k+1} b^{n-k}+\sum\limits_{k=0}^n C_n^k a^k b^{n-k+1}=\sum\limits_{m=1}^{n+1} C_n^{m-1} a^{m} b^{n-m+1}+\sum\limits_{m=0}^n C_n^m a^m b^{n-m+1}=\\=C_n^n a^{n+1}b^0+\sum\limits_{m=1}^n(C_n^{m-1}+C_n^m)a^n b^{n-m+1}+C_n^0a^0b^{n+1}=\sum\limits_{m=0}^{n+1}C_{n+1}^m a^m b^{n-m+1}
+            \end{multline*}
+        \end{proof}
+    \subsection{Число e}
+        \begin{lemma} \tab
+            \begin{enumerate}
+                \item $a_n=(1+\frac{1}{n})^n$ возрастает.
+                \item $b_n=(1+\frac{1}{n})^{n+1}$ убывает.
+            \end{enumerate}
+        \end{lemma} 
+        \begin{proof}
+            \begin{multline*}
+                1.\ \ \cfrac{a_{n+1}}{a_n}=\cfrac{(1+\cfrac{1}{n+1})^{n+1}}{(1+\cfrac{1}{n})^{n}}=\cfrac{(n+2)^{n+1}\ n^n}{(n+1)^{2n+1}}=\cfrac{(n^2+2n)^n\ (n+2)}{(n^2+2n+1)^n\ (n+1)}=
+                \\=(1-\cfrac{1}{(n+1)^2})^n (\cfrac{n+2}{n+1})\geq(1-\cfrac{n}{(n+1)^2})\cdot \cfrac{n+2}{n+1}=\\
+                =\cfrac{n^2+n+1}{n^2+2n+1}\cdot \cfrac{n+2}{n+1}=\cfrac{n^3+3n^2+3n+2}{n^3+3n^2+3n+1}>1
+            \end{multline*}
+            \begin{multline*}
+                2.\ \ \cfrac{b_n}{b_{n+1}}=\cfrac{(1+\cfrac{1}{n})^{n+1}}{(1+\cfrac{1}{n+1})^{n+2}}=\cfrac{(n+1)^{2n+3}}{n^{n+1}(n+2)^{n+2}}=\cfrac{(n^2+2n+1)^{n+1}\ (n+1)}{(n^2+2n)^{n+1}\ (n+2)}=\\
+                =(1+\cfrac{1}{n^2+2n})^{n+1}\ \cfrac{n+1}{n+2}>(1+\cfrac{n+1}{n^2+2n})\ \cfrac{n+1}{n+2}=\\
+                =\cfrac{n^2+3n+1}{n^2+2n}\cdot \cfrac{n+1}{n+2}=\cfrac{n^3+4n^2+4n+1}{n^3+4n^2+4n}>1
+            \end{multline*}
+        \end{proof} 
+        \begin{theorem}
+            $\exists \lims (1+\frac{1}{n})^n$
+        \end{theorem} 
+        \begin{proof}
+            $\forall n,\ a_n<b_n$, т.к. $b_n=a_n(1+\frac{1}{n})\Rightarrow \forall n,m: a_n<b_m\\
+            \Rightarrow a_n$ - ограничена $\Rightarrow \exists\ \lims a_n$
+        \end{proof} 
+        \begin{definition}
+            $\lims (1+\frac{1}{n})^n=e$
+        \end{definition} 
+    \subsection{Сходимость последовательностей и частичные пределы}
+        \begin{theorem}
+            Если $a_n$ ограничена, то у нее существует сходящаяся подпоследовательность. 
+        \end{theorem}
+        \begin{proof}\tab
+            \begin{enumerate}
+                \item Образ $a_n$ бесконечен. Тогда $\exists\ a$ - предельная точка образа. Тогда в проколотой окрестности $a$ есть хотя бы одна точка, возьмем эту точку, назовем ее $a_{n_1}$, далее возьмем новую проколотую окрестность $a$ так, чтобы $a_{n_1}$ в нее не попадало, возьмем в ней $a_{n_2}$ такую, что $n_2>n_1$ и так далее. Получим подпоследовательность, сходящуюся к $a$. 
+                \item Образ $a_n$ конечен. Тогда $\exists\ a$ из образа, встречающаяся в последовательности бесконечно много раз. Тогда возьмем постоянную (стационарную) подпоследовательность.
+            \end{enumerate}
+        \end{proof} 
+        \begin{theorem} (Критерий Коши)\\
+            Последовательность $a_n$ сходится тогда и только тогда, когда
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N,\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon\]
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{itemize}
+                \item[$(\Rightarrow)$] $\exists \lims a_n =a \Leftrightarrow \forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N_{\epsilon}: |a_n-a|<\frac{\epsilon}{2}$. Тогда $\forall m,n>N_{\epsilon}: |a_m-a_n|=|(a_m-a)+(a-a_n)|\leq |a_m-a|+|a-a_n|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$. 
+                \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon$. Фиксируем $m$, тогда\\ $a_m-\epsilon<a_n<a_m+\epsilon \Rightarrow a_n$ - ограничена $\Rightarrow \exists\ a_{k_n}\to a,\ n\to \infty$. Поскольку $k_n\geq n > N$, то $|a_n-a_{k_n}|<\epsilon$. Тогда $|a_n-a|=|a_n-a_{k_n}+a_{k_n}-a|<\\<|a_n-a_{k_n}|+|a_{k_n}-a|<2\epsilon$\ ($2\epsilon$ пробегает все вещественные положительные числа) 
+            \end{itemize}
+        \end{proof} 
+        \begin{definition}
+            Последовательность $a_n$, удовлетворяющая условию
+            \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N,\ \forall n,m>N_{\epsilon}: |a_n-a_m|<\epsilon\]
+            называется фундаментальной.
+        \end{definition} 
+        \begin{example}
+                \[a_n=\sum\limits_{k=1}^n\frac{1}{k^2}\ \ \text{- сходится, поскольку:}\] 
+                \[|a_n-a_m|=|\sum\limits_{k=1}^n\frac{1}{k^2}-\sum\limits_{k=1}^m\frac{1}{k^2}|=|\sum\limits_{k=m+1}^n\frac{1}{k^2}|<|\sum\limits_{k=m+1}^n (\frac{1}{k-1}-\frac{1}{k})|=\frac{1}{m}-\frac{1}{n}<\frac{1}{m}<\epsilon\]
+                \[a_n=\sum\limits_{k=1}^n\frac{1}{k}\ \ \text{- расходится, поскольку:}\]
+                \[|a_n-a_m|=|\sum\limits_{k=n+1}^{2n}\frac{1}{k}|>\frac{1}{2n}n=\frac{1}{2}\]
+        \end{example}
+        \begin{definition}
+            Если у $a_n$ есть сходящаяся подпоследовательность $a_{n_k}$, то\\ $\lim\limits_{k\to \infty}a_{n_k}=a$ называется частичным пределом последовательности $a_n$.
+        \end{definition} 
+        \begin{theorem}
+            Рассмотрим $a_n$, и пусть $A\subset \R$ - множество всех частичных пределов $a_n$. Тогда $A$ замкнуто.
+        \end{theorem} 
+        \begin{proof}
+            $\forall x\in \R\setminus A \Rightarrow x\not\in A \Rightarrow \exists\ B_{\epsilon}(x): B_{\epsilon}(x)\cap\{a_n\}_{n=1}^{\infty}$ - конечно. Тогда $\forall x^{\prime}\in B_{\epsilon}(x)\ \exists\ B_{\epsilon^{\prime}}(x^{\prime})$, что $B_{\epsilon^{\prime}}(x^{\prime})\cap\{a_n\}_{n=1}^{\infty}$ конечно $\Rightarrow \forall x^{\prime} \not\in A\\ \Rightarrow B_{\epsilon}(x)\subset \R\setminus A\Rightarrow \R\setminus A$ - открыто.
+        \end{proof} 
+        \begin{definition}
+            Пусть $a_n$ ограничена. Тогда $\exists\ \max A$ и $\min A$ частичные пределы, которые называют верхним пределом $\uplim\limits_{n\to \infty}a_n$ и нижним пределом $\lowlim\limits_{n\to \infty}a_n$ соответственно. 
+        \end{definition} 
+        \begin{theorem}
+            Пусть  $a_n$ ограничена. Тогда 
+            \[\uplim\limits_{n\to \infty}a_n=\lims \sup\{a_k\}_{k=n}^{\infty},\ \lowlim\limits_{n\to \infty}a_n=\lims \inf\{a_k\}_{k=n}^{\infty}\]
+        \end{theorem} 
+        \begin{proof}
+            Докажем для верхнего: 
+            \[\sup \{a_k\}_{k=n+1}^{\infty} \leq \sup \{a_k\}_{k=n}^{\infty}\] 
+            $\Rightarrow \sup\{a_k\}_{k=n}^{\infty}$ ограничена снизу и невозрастает $\Rightarrow \exists\ \lims \sup\{a_k\}_{k=n}^{\infty}=\alpha$. Значит 
+            \[\forall \epsilon>0: (\alpha+\epsilon,+\infty)\cap \{a_n\}_{n=1}^{\infty}\]
+            конечно. С другой стороны 
+            \[\forall \epsilon>0: (\alpha-\epsilon, \alpha+\epsilon)\cap \{a_n\}_{n=1}^{\infty}\] 
+            бесконечно
+            $\Rightarrow \alpha$ - частичный предел $\Rightarrow$ $\alpha=\uplim\limits_{n\to \infty}a_n$.
+        \end{proof} 
+        \begin{theorem}
+            $\exists \lims a_n=a \Leftrightarrow$ $\uplim\limits_{n\to \infty}a_n=a$ и $\lowlim\limits_{n\to \infty}a_n=a$.
+        \end{theorem} 
+        \begin{proof}\tab
+            \begin{itemize}
+                \item[($\Rightarrow$)] Если последовательность сходится к $a$, то все частичные пределы сходятся к $a$.
+                \item[$(\Leftarrow)$] \[\inf \{a_k\}_{k=n}^{\infty}\leq a_n\leq \sup \{a_k\}_{k=n}^{\infty}\] по лемме о двух милиционерах $a_n \to a$. 
+            \end{itemize}
+        \end{proof} 
+        \begin{definition}
+            Если $a_n$ имеет бесконечно большую подпоследовательность, то используют обозначения $\uplim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$ и $\lowlim\limits_{n\to \infty}a_n=\infty\ (+\infty,\ -\infty)$
+        \end{definition}
+\newpage

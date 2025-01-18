@@ -1,0 +1,149 @@
+\section{Топология вещественной прямой}
+    \subsection{Окрестность точки. Классификация точек относительно подмножеств действительных чисел}
+        \begin{definition}
+            $\forall x\in \R,\ \forall \epsilon>0: B_{\epsilon}(x)=(x-\epsilon, x+\epsilon)$. Множество $B_{\epsilon}(x)$ называется $\epsilon$-окрестностью точки $x$.
+        \end{definition}
+        \begin{definition}
+            $\forall x\in \R,\ \forall \epsilon>0: \mathring{B}_{\epsilon}(x)=(x-\epsilon,x)\cup(x,x+\epsilon)$.  Множество $\mathring{B}_{\epsilon}(x)$ называется проколотой $\epsilon$-окрестностью точки $x$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in A\subset \R$ называется внутренней точкой множества $A$, если $\exists \ B_{\epsilon}(x)\subset A$. Множество всех внутренних точек $x\in A$ называется внутренностью множетсва $A$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in \R\setminus A$ называется внешней точкой для множества $A\subset \R$, если $x$ - внутренняя точка для $\R\setminus A$. Множество всех внешних точек $x\in A$ называется внешностью множетсва $A$.
+        \end{definition}
+        \begin{definition}
+            Точка называется граничной для множества $A\subset \R$, если она не является ни внешней ни внутренней для $A$ (в любой ее окрестности есть как точки из $A$ так точки из $\R \setminus A$). Множество всех граничных точек называется границей множества $A$ и обозначается $\partial A$.
+        \end{definition}
+        \begin{definition}
+            Точка $x\in \R$ называется предельной точкой множества $A\subset \R$, если в любой проколотой окрестности точки $x$ бесконечно много точек $A$, т.е\\
+            $\forall\ \epsilon >0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$. Множество всех предельных точек $A$ обозначается $A^{\prime}$
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in A$ называется изолированной точкой $A\subset \R$, если $\exists \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)=\emptyset$.
+        \end{definition} 
+        \begin{definition}
+            Точка $x\in \R$ называется точкой прикосновения $A\subset \R$, если $\forall \ \epsilon>0: A\cap {B}_{\epsilon}(x)\ne\emptyset$.
+        \end{definition} 
+        \begin{statement}
+            Точки прикосновения множества $A$ являются либо внутренними, либо граничными.
+        \end{statement}
+        \begin{proof}
+            Точка прикосновения не может являться внешней точкой, поскольку в этом случае $\exists\ \epsilon>0: B_{\epsilon}(x)\in \R\setminus A$, что противоречит с условием $\forall \ \epsilon>0: A\cap {B}_{\epsilon}(x)\ne\emptyset$
+            $\Rightarrow$ она либо внутренняя либо граничная.
+        \end{proof}
+        \begin{statement}
+            Точки прикосновения являются либо предельными, либо изолированными.
+        \end{statement}  
+        \begin{proof}
+            Если $\forall \ \epsilon>0: A\cap \mathring{B}_{\epsilon}(x)\ne\emptyset$, то $x$ - предельная. Если $\exists\ \epsilon > 0: A\cap\mathring{B}_{\epsilon}(x)=\emptyset$, но по определению $\forall \ \epsilon>0: A\cap B_{\epsilon}(x)\ne\emptyset\\
+            \Rightarrow x\in A \Rightarrow x$ - изолированная.
+        \end{proof} 
+        \begin{definition} (Множество Кантора)\\
+            Разбиваем отрезок $[0,1]$ на три части и выбрасываем середину, затем каждый из получившихся отрезков разбиваем на три части и выбрасываем середину, и т.д.
+            \begin{itemize}
+                \item Суммарная длина всех выброшенных интервалов равна $1$.
+                \item Концов отрезков счетное множество.
+                \item Общее количество точек имеет мощность континуума.
+            \end{itemize}
+    \subsection{Открытые и замкнутые множества}
+        \end{definition} 
+        \begin{definition}
+            Множество называется открытым, если все его точки - внутренние.
+        \end{definition}
+        \begin{example} 
+            Любой интервал - открытое множество 
+        \end{example}
+        \begin{definition}
+            Множество $A\subset \R$ называется замкнутым, если его дополнение $\R\setminus A$ открыто.
+        \end{definition} 
+        \begin{example}
+            Отрезок - замкнутое множество.
+        \end{example}
+        \begin{comm}
+            По определению считаем, что $\emptyset$ и $\R$ и открыты и замкнуты одновременно.
+        \end{comm} 
+        \begin{theorem} (Критерии замкнутости множества)\\
+            Следующие условия эквивалентны:
+            \begin{itemize}
+                \item[(0)] $A\subset \R$ - замкнуто. 
+                \item[(1)] $\partial A\subset A$,
+                \item[(2)] Все точки прикосновения содержатся в $A$,
+                \item[(3)] $A^{\prime}\subset A$.
+            \end{itemize}
+            \begin{proof}
+                Докажем по цепочке $(0)\Rightarrow (1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (0)$.
+                \begin{enumerate}
+                    \item $(0)\Rightarrow (1):A$ - замкнуто $\Rightarrow \R\setminus A$ - открыто $\Rightarrow \partial A \not\subset\R\setminus A \Rightarrow \partial A\subset A$.
+                    \item $(1)\Rightarrow (2):$ Все точки прикосновения являются граничными или внутренними. Поскольку $\partial A\subset A$ то все точки прикосновения содержатся в $A$.
+                    \item $(2)\Rightarrow (3):$ Если $x$ - предельная, то $x\in A$ или $x$ - точка прикосновения. Поскольку все точки прикосновения содержатся в $A$, то и все предельные точки содержатся в $A$.
+                    \item $(3)\Rightarrow (0): A^{\prime}\subset A\Rightarrow \forall x\in \R\setminus A: x\not\in A^{\prime}\Rightarrow \forall x\in\R\setminus A\ \exists\ \mathring{B}_{\epsilon}: \mathring{B}_{\epsilon}(x)\cap A=\emptyset\\
+                    \Rightarrow B_{\epsilon}(x)\cap A=\emptyset\ (\text{т.к}\ x\not\in A) \Rightarrow x$ - внешняя точка $A,\ B_{\epsilon}(x)\subset\R\setminus A\\
+                    \Rightarrow \R\setminus A$ - открыто $\Rightarrow A$ - замкнуто. 
+                \end{enumerate}
+            \end{proof}
+        \end{theorem}
+        \begin{theorem}
+            Пусть $A$ - множество индексов. Пусть $\{U_{\alpha}\}_{\alpha\in A}$ - открытые,\\
+            $\{X_{\alpha}\}_{\alpha\in A}$ - замкнутые. Тогда:
+            \begin{enumerate}
+                \item $\bigcup\limits_{\alpha} U_{\alpha}$ - открыто (объединение открытых множетсв - открыто).
+                \item $\bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто (конечное пересечение открытых множеств - открыто).
+                \item $\bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто (конечное объединение замкнутых множеств - замкнуто).
+                \item $\bigcap\limits_{\alpha} X_{\alpha}$ - замкнуто (пересечение замкнутых множеств - замкнуто).
+            \end{enumerate}
+        \end{theorem} 
+        \begin{proof} \tab
+            \begin{enumerate}
+                \item Пусть $u\in \bigcup\limits_{\alpha} U_{\alpha} \Rightarrow \exists\ \alpha_0: u\in U_{\alpha_0}\Rightarrow \exists\ B(u)\in U_{\alpha_0}\Rightarrow B(u)\in \bigcup\limits_{\alpha} U_{\alpha}\\
+                \Rightarrow \bigcup\limits_{\alpha} U_{\alpha}$ - открыто.
+                \item Пусть $u\in \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \forall i\in \{1,\dots, n\}\ \exists\ \epsilon_i: B_{\epsilon_i}(u)\in U_{\alpha_i}\Rightarrow \exists\ \epsilon_0 = \min\{\epsilon_{i}\}\\
+                \Rightarrow B_{\epsilon_{0}}\subset U_{\alpha_i}\ \forall i \Rightarrow B_{\epsilon_{0}}\subset \bigcap\limits_{i=1}^n U_{\alpha_i} \Rightarrow \bigcap\limits_{i=1}^n U_{\alpha_i}$ - открыто.
+                \item Поскольку $\bigcap\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcup\limits_{\alpha}A_{\alpha})$ (доказано ранее), то $\R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}=\\
+                =\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$. Так как $X_{\alpha_i}$ - замкнуто, то $\R \setminus X_{\alpha_i}$ - открыто. Тогда по пункту 2 получаем: $\bigcap\limits_{i=1}^n(\R \setminus X_{\alpha_i})$ - открыто $\Rightarrow \R \setminus \bigcup\limits_{i=1}^n X_{\alpha_i}$ - открыто \\
+                $\Rightarrow \bigcup\limits_{i=1}^n X_{\alpha_i}$ - замкнуто.
+                \item Поскольку $\bigcup\limits_{\alpha}(A\setminus A_{\alpha}) = A\setminus (\bigcap\limits_{\alpha}A_{\alpha})$ (доказано ранее), то $\R \setminus \bigcap\limits_{\alpha} X_{\alpha}=\\
+                =\bigcup\limits_{\alpha}(\R \setminus X_{\alpha})$. Так как $X_{\alpha}$ - замкнуто, то $\R \setminus X_{\alpha}$ - открыто. Тогда по пункту 1 получаем: $\bigcup\limits_{\alpha}(\R \setminus X_{\alpha})$ - открыто $\Rightarrow \R \setminus \bigcap\limits_{\alpha} X_{\alpha}$ - открыто $\Rightarrow \bigcap\limits_{\alpha}X_{\alpha}$ - замкнуто.
+            \end{enumerate}
+        \end{proof} 
+        \begin{examples} \tab
+            \begin{enumerate}
+                \item $\bigcap\limits_{n=1}^{\infty}(-\frac{1}{n}, 1+\frac{1}{n})=[0,1]$.
+                \item $\bigcup\limits_{n=1}^{\infty}[\frac{1}{n}, 1-\frac{1}{n}]=(0,1)$.
+            \end{enumerate}
+        \end{examples}
+        \begin{theorem}
+            Если $A$ - ограничено сверху или снизу и замкнуто, то существует $\max{A}$ или $\min{A}$ соответственно.
+        \end{theorem} 
+        \begin{proof}
+            Докажем для ограниченного сверху. По принципу полноты Вейерштрасса $\exists\ \alpha=\sup{A}$. По свойству точной верхней грани:\\
+            $\forall\epsilon>0\ \exists\ a\in (\alpha-\epsilon, \alpha]\Rightarrow \alpha$ - точка прикосновения $\Rightarrow \alpha \in A\Rightarrow \alpha=\max{A}$.
+        \end{proof}
+    \subsection{Компакты}
+        \begin{definition}
+            Говорят, что семейство $\{A\}_{\alpha}$ является покрытием множества $B$, если $B\subset \bigcup\limits_{\alpha}A_{\alpha}$
+        \end{definition} 
+        \begin{definition}
+            Рассмотрим $X\subset \R$. Если для любого покрытия $X$ открытыми множествами $\{A\}_{\alpha}$ существует $\{\alpha_i\}_{i=1}^n$ - конечное подпокрытие такое, что \\
+            $X\subset \bigcup\limits_{i=1}^n A_{\alpha_i}$, то $X$ называется компактным множеством или компактом.
+        \end{definition} 
+        \begin{theorem}
+            Любой отрезок является компактом.
+        \end{theorem} 
+        \begin{proof}
+            Пусть $[a,b]\subset \bigcup\limits_{\alpha}A_{\alpha},\ A_{\alpha}$ - открытые и нельзя выделить конечное подпокрытие. Тогда $[a,b]=[a_1,b_1]$ делим отрезок пополам и выбираем половину $[a_2,b_2]$, у которой нельзя выделить конечное подпокрытие и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых нельзя выделить конечное подпокрытие и длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n \Rightarrow \exists\ \alpha_0: c\in A_{\alpha_0}$. Поскольку $A_{\alpha_0}$ - открыто, то $\exists\ B_{\epsilon}(c)\subset A_{\alpha_0}$ $\Rightarrow \exists\ n_{\alpha_0}: [a_{n_{\alpha_0}},b_{n_{\alpha_0}}]\subset A_{\alpha_0}$ получаем противоречие.
+        \end{proof} 
+        \begin{theorem} (Лемма Гейне-Бореля)\footnote{На самом деле, утверждение верно и для $\R^n$}\\
+            $A$ - компакт в $\R$ $\Leftrightarrow A$ - замкнуто и ограничено.
+        \end{theorem} 
+        \begin{proof}
+            Без доказательства.
+        \end{proof}
+    \subsection{Теорема Больцано-Вейерштрасса}
+        \begin{theorem} (Больцано-Вейерштрасса)\\
+            Если $A\subset \R$ - ограниченное и бесконечное множетсво, то в нем есть хотя бы одна предельная точка (т.е. $A^{\prime}\ne \emptyset$).
+        \end{theorem} 
+        \begin{proof}
+            т.к $A$ - ограничено, то $\exists\ \sup{A}=b,\ \inf{A}=a\\ \Rightarrow A\subset [a_1,b_1] = [a,b]$. Поделим отрезок $[a_1,b_1]$ пополам и возьмем половину $[a_2,b_2]$ в которой бесконечно много элементов из множества $A$ и т.д. Получаем систему вложенных отрезков $\{[a_n,b_n]\}_{n=1}^{\infty}$, у которых длина стремится к нулю $\Rightarrow \exists!\ c\in [a_n,b_n]\ \forall n\Rightarrow \forall \epsilon>0\ \exists\ n_{\epsilon}: [a_{n_{\epsilon}},b_{n_{\epsilon}}]\subset B_{\epsilon}(c) \Rightarrow$ существует бесконечно много элементов в $\mathring{B}_{\epsilon}(c)\Rightarrow c\in A^{\prime}$.
+        \end{proof}
+\newpage
