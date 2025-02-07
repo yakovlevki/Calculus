@@ -1,0 +1,72 @@
+\ProvidesPackage{preamble}
+
+% Корректное отображение шрифтов и символов
+\usepackage[T2A]{fontenc} 
+\usepackage[english, russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Отступы от краев страницы
+\usepackage[left=2cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+
+% Корректная работа с кириллицей (чтобы работал Ctrl+F)
+\usepackage{cmap}
+
+% Картинки и графики
+\usepackage{graphicx}
+\usepackage{tikz}
+% \usepackage{asymptote}
+
+% Удобная команда для отступов
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Для удобства
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+
+% Красивые phi, epsilon и пустое множетсво
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
+
+% Для верхнего и нижнего предела
+% \DeclareMathOperator*\lowlim{\underline{lim}}
+% \DeclareMathOperator*\uplim{\overline{lim}}
+
+% Математические окружения
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{comm}{Замечание}
+\newtheorem*{statement}{Утверждение}
+\newtheorem*{example}{Пример}
+\newtheorem*{examples}{Примеры}
+\newtheorem*{axiom}{Аксиома}
+% В этом конспекте не будет нумерации, а как следствие счетчиков
+
+% Настройка заголовков
+\usepackage{titlesec}
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+% Настройка гиперссылок
+\usepackage{hyperref}
+\usepackage{xcolor}
+\definecolor{linkcolor}{HTML}{225ae2}
+\definecolor{urlcolor}{HTML}{225ae2}
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true
+}
+
+\usepackage{import}
