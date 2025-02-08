@@ -26,7 +26,7 @@
     \item \[\int (f(x) \pm g(x))dx = \int f(x) dx \pm \int g(x) dx\]
     \item (Замена переменной)\\
     Пусть $F(x)$ - первообразная для $f(x)$ на $(a, b)$.\\
-    Пусть $\phi(x) \in \mathcal{D}(\alpha, \beta)$ и $\phi((\alpha, \beta)) \subset (a, b)$
+    Пусть $\phi(t) \in \mathcal{D}(\alpha, \beta)$ и $\phi((\alpha, \beta)) \subset (a, b)$
     Тогда $F(\phi(t))$ является первообразной для $F'(\phi(t))\cdot\phi'(t)$ на $(\alpha, \beta)$.
     \begin{align*}
         \int f(x) dx = \int f(\phi(t))\phi'(t) dt ,\text{где} \ x = \phi(t)
@@ -40,10 +40,10 @@
 \end{statement}
 \begin{comm}
     Неопределённый интеграл - операция на дифференциалах: 
-    \[\int dF(x) = F(x)\]
+    \[\int dF(x) = F(x) + C\]
 \end{comm}
 \subsection{Таблица неопределенных интегралов}
-    \begin{tabular}{p{8cm}|p{0.5\textwidth}}
+    \begin{tabular}{p{7.5cm}|p{0.5\textwidth}}
         \toprule
         \[\int(x^\alpha)dx = \frac{x^{\alpha + 1}}{\alpha + 1} + C, \ \alpha \neq -1\] & \[\int\frac{dx}{x} = ln|x| + \begin{cases}C_1,\ x>0\\C_2,\ x<0\end{cases}\] \\
         \midrule
@@ -55,15 +55,15 @@
    % Когда-нибудь здесь будет полная табличка в соответствии с учебником - но не сейчас)
 \subsection{Интегрирование рациональных дробей}
 \[\int\frac{P(x)}{Q(x)}dx,\ P(x),\ Q(x) - \text{многочлены}\]
-\[Q(x) = (x-a_1)^{\alpha_1}\dots(x-a_n)^{\alpha_n}(x^2+p_1x+q_1)^{\beta_1}\dots(x^2+p_mx+q_m)^{\beta_k}\]
+\[Q(x) = (x-a_1)^{\alpha_1}\dots(x-a_n)^{\alpha_n}(x^2+p_1x+q_1)^{\beta_1}\dots(x^2+p_kx+q_k)^{\beta_k}\]
 \begin{multline*}
     \int\frac{P(x)}{Q(x)}dx = \int(\tilde{P} + \sum \limits_{i=1}^{\alpha_1}\frac{\aleph_{1i}}{(x-a_1)^{\alpha_{1i}}} +\dots+ \sum \limits_{i=1}^{\alpha_n}\frac{\aleph_{ni}}{(x-a_n)^{\alpha_{ni}}} + \\
     + \sum \limits_{j=1}^{\beta_1}\frac{\rho_{1j}x + \omega_{1j}}{(x^2+p_1x+q_1)^{\beta_{1i}}} + \dots + \sum \limits_{j=1}^{\beta_k}\frac{\rho_{kj}x + \omega_{kj}}{(x^2+p_1x+q_1)^{\beta_{kj}}}) dx
 \end{multline*}
 \begin{enumerate}
-    \item \[\int\frac{dx}{(x-a)^n} = \int\frac{d(x-a)}{(x-a)^n} = \begin{cases}\ln|x-a|,\ n = 1\\ \frac{(x-a)^{1-n}}{1-n}, \ n > 1\end{cases}\]
+    \item \[\int\frac{dx}{(x-a)^n} = \int\frac{d(x-a)}{(x-a)^n} = \begin{cases}\ln|x-a|,\ n = 1\\ \cfrac{(x-a)^{1-n}}{1-n}, \ n > 1\end{cases}\]
     \item \[\int\frac{\alpha x+\beta}{(x^2+px+q)^k}dx = \int\frac{\alpha x+\beta}{(x^2+px+q)^k}d(x+\frac{p}{2}) = \int\frac{(\alpha_1 t+\beta_1)dt}{(t^2+q_1^2)^k}\]
     Далее осталось рассмотреть два интеграла:
-    \[\int\frac{tdt}{(t^2+q_1^2)^k} = \frac{1}{2}\int\frac{dt^2}{(t^2+q_1^2)^k} = \frac{1}{2}\int\frac{d(t^2+q_1^2)}{(t^2+q_1^2)^k} = \begin{cases}\frac{1}{2}\ln(t^2+q_1^2),\ k = 1\\ \cfrac{(t^2+q_1^2)^{1-n}}{2(1-k)}, \ k > 1\end{cases}\]
+    \[\int\frac{tdt}{(t^2+q_1^2)^k} = \frac{1}{2}\int\frac{dt^2}{(t^2+q_1^2)^k} = \frac{1}{2}\int\frac{d(t^2+q_1^2)}{(t^2+q_1^2)^k} = \begin{cases}\cfrac{1}{2}\ln(t^2+q_1^2),\ k = 1\\ \cfrac{(t^2+q_1^2)^{1-k}}{2(1-k)}, \ k > 1\end{cases}\]
     А второй на следующей лекции)
 \end{enumerate}
