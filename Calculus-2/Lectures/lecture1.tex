@@ -1,4 +1,5 @@
 \section{Неопределенный интеграл}
+\subsection{Первообразная и неопреленный интеграл}
 \begin{definition}
     Пусть $f(x)$ определена на $(a, b)$. Если существует $F(x)$ определённая на $(a, b)$ такая, что $F(x) \in \mathcal{D}(a, b)$ и $F'(x) = f(x)$, то $F(x)$ называется первообразной функцией для $f(x)$.
 \end{definition}
@@ -11,14 +12,14 @@
     \[\int f(x)dx = \{F(x) + C\},\ C = const, \ C\in\R\]
 \end{theorem}
 \begin{proof}
-    $(F(x) + C)' = f(x) + 0 = f(x)$.\\
+    \[(F(x) + C)' = f(x) + 0 = f(x)\]
     Пусть $\phi(x)$ -  первообразная $f(x)$. Тогда:
     \begin{align*}
         (\phi(x) - F(x))' = f(x) - f(x) = 0
     \end{align*}
     т.е. по следствию из теоремы Лагранжа $\phi(x) - F(x) = const$, ч.т.д.
 \end{proof}
-\begin{statement} (Свойства неопределённого интеграла)
+\subsection{Свойства неопределённого интеграла}
 \begin{enumerate}
     \item $\forall c \in \R: $
     \[\int c\cdot f(x)dx = c\cdot \int f(x)dx\]
@@ -37,33 +38,66 @@
     \[\int uv' dx = uv - \int u'v dx\]
     \[\int udv = uv - \int vdu\]
 \end{enumerate}
-\end{statement}
 \begin{comm}
     Неопределённый интеграл - операция на дифференциалах: 
     \[\int dF(x) = F(x) + C\]
 \end{comm}
 \subsection{Таблица неопределенных интегралов}
-    \begin{tabular}{p{7.5cm}|p{0.5\textwidth}}
+    \begin{tabular}{p{8cm}|p{0.5\textwidth}}
         \toprule
-        \[\int(x^\alpha)dx = \frac{x^{\alpha + 1}}{\alpha + 1} + C, \ \alpha \neq -1\] & \[\int\frac{dx}{x} = ln|x| + \begin{cases}C_1,\ x>0\\C_2,\ x<0\end{cases}\] \\
+        \[\int x^\alpha\ dx = \frac{x^{\alpha + 1}}{\alpha + 1} + C, \ \alpha \neq -1\] & \[\int\frac{dx}{x} = ln|x| + \begin{cases}C_1,\ x>0\\C_2,\ x<0\end{cases}\] \\
         \midrule
-        \[\int\frac{dx}{1 + x^2} = \arctg x + C\] & \[\int \cos(x)dx = \sin(x) + C\] \\
+        \[\int \sin{x}\ dx = -\cos{x}+C\] & \[\int \cos{x}\ dx = \sin{x} + C\] \\
         \midrule
-        \[\int\frac{dx}{\sqrt{1 - x^2}} = \arcsin x + C\] & \[\int\frac{dx}{1 - x^2} = \frac{1}{2}\ln\ \vline\frac{1+x}{1-x}\ \vline + C\] \\
+        \[\int e^x\ dx = e^x+C\] & \[\int a^x\ dx = \frac{a^x}{\ln{a}}+C\]\\
+        \midrule
+        \[\int -\frac{1}{\sin^2{x}}\ dx=\ctg{x}+C\] & \[\int \frac{1}{\cos^2{x}}\ dx=\tg{x}+C\] \\
+        \midrule
+        \[\int\frac{dx}{\sqrt{1 - x^2}} = \arcsin x + C\] & \[\int\frac{dx}{1 + x^2} = \arctg x + C\] \\
         \bottomrule
     \end{tabular}
-   % Когда-нибудь здесь будет полная табличка в соответствии с учебником - но не сейчас)
-\subsection{Интегрирование рациональных дробей}
-\[\int\frac{P(x)}{Q(x)}dx,\ P(x),\ Q(x) - \text{многочлены}\]
+    \newpage
+    \begin{tabular}{p{7.5cm}|p{0.5\textwidth}}
+        \toprule
+        \[\int\frac{dx}{1 - x^2} = \frac{1}{2}\ln\ \vline\frac{1+x}{1-x}\ \vline + C\] & \null \\
+        \bottomrule
+    \end{tabular}
+\begin{comm}
+    Все равенства верны только на промежутках.
+\end{comm} 
+\subsection{Интегрирование рациональных функций}
+Хотим научиться находить интеграл
+\[\int\frac{P(x)}{Q(x)}\ dx\]
+где $P(x),\ Q(x)$ - многочлены. Разложим $Q(x)$ на неприводимые многочлены:
 \[Q(x) = (x-a_1)^{\alpha_1}\dots(x-a_n)^{\alpha_n}(x^2+p_1x+q_1)^{\beta_1}\dots(x^2+p_kx+q_k)^{\beta_k}\]
+Теперь разложим дробь в сумму простейших:
 \begin{multline*}
-    \int\frac{P(x)}{Q(x)}dx = \int(\tilde{P} + \sum \limits_{i=1}^{\alpha_1}\frac{\aleph_{1i}}{(x-a_1)^{\alpha_{1i}}} +\dots+ \sum \limits_{i=1}^{\alpha_n}\frac{\aleph_{ni}}{(x-a_n)^{\alpha_{ni}}} + \\
-    + \sum \limits_{j=1}^{\beta_1}\frac{\rho_{1j}x + \omega_{1j}}{(x^2+p_1x+q_1)^{\beta_{1i}}} + \dots + \sum \limits_{j=1}^{\beta_k}\frac{\rho_{kj}x + \omega_{kj}}{(x^2+p_1x+q_1)^{\beta_{kj}}}) dx
+    \int\frac{P(x)}{Q(x)}\ dx = \int(\tilde{P} + \sum \limits_{i=1}^{\alpha_1}\frac{\aleph_{1i}}{(x-a_1)^{\alpha_{1i}}} +\dots+ \sum \limits_{i=1}^{\alpha_n}\frac{\aleph_{ni}}{(x-a_n)^{\alpha_{ni}}} + \\
+    + \sum \limits_{j=1}^{\beta_1}\frac{\rho_{1j}x + \omega_{1j}}{(x^2+p_1x+q_1)^{\beta_{1i}}} + \dots + \sum \limits_{j=1}^{\beta_k}\frac{\rho_{kj}x + \omega_{kj}}{(x^2+p_1x+q_1)^{\beta_{kj}}})\ dx
 \end{multline*}
+Осталось понять как интегрировать слагаемые вида
+\[\int \frac{dx}{(x-a)^n}\ \ \text{и}\ \ \int \frac{\alpha x+\beta}{(x^2+px+q)^k}\ dx\]
 \begin{enumerate}
-    \item \[\int\frac{dx}{(x-a)^n} = \int\frac{d(x-a)}{(x-a)^n} = \begin{cases}\ln|x-a|,\ n = 1\\ \cfrac{(x-a)^{1-n}}{1-n}, \ n > 1\end{cases}\]
-    \item \[\int\frac{\alpha x+\beta}{(x^2+px+q)^k}dx = \int\frac{\alpha x+\beta}{(x^2+px+q)^k}d(x+\frac{p}{2}) = \int\frac{(\alpha_1 t+\beta_1)dt}{(t^2+q_1^2)^k}\]
-    Далее осталось рассмотреть два интеграла:
-    \[\int\frac{tdt}{(t^2+q_1^2)^k} = \frac{1}{2}\int\frac{dt^2}{(t^2+q_1^2)^k} = \frac{1}{2}\int\frac{d(t^2+q_1^2)}{(t^2+q_1^2)^k} = \begin{cases}\cfrac{1}{2}\ln(t^2+q_1^2),\ k = 1\\ \cfrac{(t^2+q_1^2)^{1-k}}{2(1-k)}, \ k > 1\end{cases}\]
-    А второй на следующей лекции)
+    \item \[\int\frac{dx}{(x-a)^n}  = \begin{cases}\ln|x-a|,\ n = 1\\ \cfrac{(x-a)^{1-n}}{1-n}, \ n > 1\end{cases}\]
+    \item Сначала преобразуем знаменатель:
+    \[x^2+px+q=(x+\frac{p}{2})^2+(q-\frac{p^2}{4})\]
+    причем $q-\frac{p^2}{4}>0$, поскольку у $x^2+px+q$ нет вещественных корней. Сделаем замену 
+    \[t=x+\frac{p}{2} \Rightarrow x= t-\frac{p}{2},\ q_1^2=q-\frac{p^2}{4}\]
+    \[\int\frac{\alpha x+\beta}{(x^2+px+q)^k}\ dx = \int \frac{\alpha t-\frac{\alpha p}{2}+\beta}{(t^2+q_1^2)^k}\ d(t-\frac{p}{2})=\int \frac{\alpha_1 t+\beta_1}{(t^2+q_1^2)^k}\ dt\]
+    где $\alpha_1=\alpha,\ \beta_1=\beta-\frac{\alpha p}{2}$. Далее осталось рассмотреть два интеграла:
+    \[\int \frac{t}{(t^2+q_1^2)^k}\ dt\ \ \text{и}\ \ I_k=\int \frac{dt}{(t^2+q_1^2)^k}\]
+    \begin{itemize}
+        \item[(i)] 
+        \begin{multline*}
+            \int\frac{t}{(t^2+q_1^2)^k}\ dt = \frac{1}{2}\int\frac{dt^2}{(t^2+q_1^2)^k} =\\
+            = \frac{1}{2}\int\frac{d(t^2+q_1^2)}{(t^2+q_1^2)^k} = \begin{cases}\cfrac{1}{2}\ln(t^2+q_1^2),\ k = 1\\ \cfrac{(t^2+q_1^2)^{1-k}}{2(1-k)}, \ k > 1\end{cases}
+        \end{multline*}
+        \item[(ii)] 
+        \begin{multline*}
+            I_k=\int \frac{dt}{(t^2+q^2)^k}=\frac{t}{(t^2+q^2)^k}-\int t d(\frac{1}{t^2+q^2})^k=\\
+            =\frac{t}{(t^2+q^2)^k}+2k\int \left(\frac{t^2}{(t^2+q^2)^{k+1}}+q^2-q^2\right)dt=\\
+            =\frac{t}{(t^2+q^2)^k}+2kI_K-2kq^2 I_{k+1}
+        \end{multline*}
+        \[I_{k+1}=\frac{1}{2kq^2}\cdot \frac{t}{(t^2+q^2)^k}+\frac{2k-1}{2kq^2}I_k\]
+    \end{itemize}
 \end{enumerate}
