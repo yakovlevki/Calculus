@@ -4,18 +4,21 @@
 \end{comm}
 \subsection{Метод Остроградского}
 \begin{multline*}
-    \frac{P(x)}{Q(x)}=\frac{P(x)}{\prod\limits_{i=1}^{n}(x-a_i)^{\alpha_i}\cdot \prod\limits_{j=1}^{k}(x^2+b_j x+c_j)^{\beta_j}}=\\
+    \int \frac{P(x)}{Q(x)}\ dx=\int \frac{P(x)}{\prod\limits_{i=1}^{n}(x-a_i)^{\alpha_i}\cdot \prod\limits_{j=1}^{k}(x^2+b_j x+c_j)^{\beta_j}}\ dx=\\
     =\frac{P_1(x)}{\prod\limits_{i=1}^{n}(x-a_i)^{\alpha_i-1}\cdot \prod\limits_{j=1}^{k}(x^2+b_j x+c_j)^{\beta_j-1}}+\\
-    +\int \frac{P_2(x)dx}{\prod\limits_{i=1}^{n}(x-a_i)\cdot \prod\limits_{j=1}^{k}(x^2+b_j x+c_j)}
+    +\int \frac{P_2(x)}{\prod\limits_{i=1}^{n}(x-a_i)\cdot \prod\limits_{j=1}^{k}(x^2+b_j x+c_j)}\ dx
 \end{multline*}
 \section{Интеграл Римана}
 \subsection{Интегрируемость по Риману}
 \begin{definition}
     $\{x_i\}_{i=0}^n\subset [a,b]$ называется разбиением отрезка, если \\
     $a=x_0<\dots<x_n=b$. Обозначается $T_{[a,b]}^+$. Если $b=x_0>\dots>x_n=a$, то обозначают $T_{[a,b]}^-$.\\
-    Отрезки $[x_{i-1},x_i]$ или $[x_i, x_{i-1}]$ называются отрезками разбиения,\\
-    $\Delta x_i := x_i-x_{i-1}$ \\
-    Диаметром разбиения называется $d(T)=\max|x_i-x_{i-1}|$. 
+    Отрезки $[x_{i-1},x_i]$ или $[x_i, x_{i-1}]$ называются отрезками разбиения, их обычно обозначают $\Delta_i$. Длина отрезка $\Delta_i$ обозначается $\Delta x_i := x_i-x_{i-1}$. \\
+    Диаметром разбиения называется $d(T)=\max|x_i-x_{i-1}| = \max{\Delta x_i}$. 
+\end{definition} 
+\begin{definition}
+    Пусть $T_{[a,b]}$ - разбиение. Разметкой для $T_{[a,b]}$ называется множество точек $\{\xi_i\}_{i=1}^n$ такое, что $\forall i \ \xi_i \in \Delta_i$.\\
+    Если $\{\xi_i\}_{i=1}^n$ является разметкой для $\{x_i\}_{i=0}^n$, то множество $\{\{x_i\}_{i=0}^n, \{\xi_i\}_{i=1}^n\}$ называется размеченым разбиением и обозначается $T(\xi)$.
 \end{definition} 
 \begin{definition}
     Сумма 
@@ -23,12 +26,8 @@
     называется интегральной суммой. Иногда ее обозначают $\sigma_T(\xi)$
 \end{definition} 
 \begin{definition}
-    Рассмотрим $T_{[a,b]}$, если взяты точки (разметка) $\{\xi_i\}_i=1^n, \forall i,\\
-    \xi \in \Delta x_i$, то $\{\{x_i\}_{i=0}^n \{\xi_i\}_{i=1}^n\}$ называется размеченым разбиемием и обозначается $T(\xi)$.
-\end{definition} 
-\begin{definition}
     Пусть $f(x)$ определена на $[a,b]$. Рассмотрим $T_{[a,b]}(\xi)$. Если \\
-    \[\exists\ I\in \R: \forall \epsilon>0\ \exists\ \delta>0,\ \text{что}\ \forall\ T(\xi)\subset d(T)<\delta:\ 
+    \[\exists\ I\in \R: \forall \epsilon>0\ \exists\ \delta>0,\ \text{что}\ \forall\ T(\xi)\subset \{T:d(T)<\delta\}:\ 
     \vline\ \sum\limits_{i=1}^{N}f(\xi_i)(x_i-x_{i-1})-I\ \vline <\epsilon\]
     то говорят, что $f(x)$ интегрируема по Риману на $[a,b]$, а число $I$ называют интегралом Римана на размеченых разбиениях на отрезке $[a,b]$. Интеграл Римана обозначают
     \[I=\int\limits_{a}^{b}f(x)dx\ \ \text{или}\ \ I=\int\limits_{b}^{a}f(x)dx\]
@@ -53,7 +52,7 @@
     $|f(x_n)|>n$ и пусть
     \[\exists\ \lim\limits_{d\to 0}\left( \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1}) \right)=I\] 
     то есть 
-    \[\vline\ \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1})\ \vline<1\]
+    \[\vline\ \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1})-I\ \vline<1\]
     это означает, что 
     \[I+\sum\limits_{i=1,i\ne k}^{N} f(\xi_i)(x_i-x_{i-1})-1<f(\xi_k)(x_k-x_{k-1})<I+\sum\limits_{i=1,i\ne k}^{N} f(\xi_i)(x_i-x_{i-1})+1\]
     $\widetilde{x}$ лежит на этом отрезке $\Rightarrow$ с какого то номера все точки лежат в этом отрезке.
