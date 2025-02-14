@@ -1,12 +1,13 @@
 \subsection{Суммы Дарбу}
 Далее рассматриваем разбиения $T_+$
 \begin{definition}
-    Пусть $T_{1[a,b]},\ T_{2[a,b]}$ - разбиения отрезка ${a,b}$ такие, что $T_1\subset T_2$. Тогда $T_2$ называется измельчением $T_1$.
+    Пусть $T_{1}$ и $T_{2}$ - разбиения отрезка $[a,b]$ такие, что $T_1\subset T_2$. Тогда $T_2$ называется измельчением $T_1$.
 \end{definition} 
 \begin{definition}
-    Пусть $f(x)$ ограничена на $[a,b]$. Пусть $\{x_i\}_{i=1}^n=T$ - разбиение $[a,b]$ и $m_i=\inf\limits_{[x_i, x_{i+1}]} f(x), M_i=\sup\limits_{[x_i, x_{i+1}]}$. Тогда 
+    Пусть $f(x)$ ограничена на $[a,b],\ \{x_i\}_{i=1}^n=T$ - разбиение $[a,b]$
+    \[m_i=\inf\limits_{[x_i, x_{i+1}]} f(x),\ M_i=\sup\limits_{[x_i, x_{i+1}]}f(x)\] 
     \[\overline{\overline{S}}_f(T)=\sum\limits_{i=0}^{n-1}m_i(x_{i+1}-x_i),\ \underline{\underline{S}}_f(T)=\sum\limits_{i=0}^{n-1}M_i(x_{i+1}-x_i)\]
-    $\overline{\overline{S}}_f(T)$ называется верхней суммой Дарбу, а $\underline{\underline{S}}_f(T)$ нижней суммой Дарбу.
+    Тогда $\overline{\overline{S}}_f(T)$ называется верхней суммой Дарбу, а $\underline{\underline{S}}_f(T)$ нижней суммой Дарбу.
 \end{definition} 
 \begin{lemma} (1)
     Пусть $T_1$ - измельчение $T$. Тогда $\overline{\overline{S}}(T)\leq \overline{\overline{S}}(T_1)$ и $\underline{\underline{S}}(T)\geq \underline{\underline{S}}(T_1)$
@@ -21,7 +22,7 @@
     Рассмотрим $T=T_1\cup T_2$. Тогда $T$ является измельчением и $T_1$ и $T_2$. Тогда по предыдущей лемме:
     \[\overline{\overline{S}}(T_1)\leq \overline{\overline{S}}(T)\ \ \text{и}\ \ \underline{\underline{S}}(T)\leq \underline{\underline{S}}(T_2)\]
 \end{proof} 
-\begin{lemma} (3) $\forall T_{[a,b]}:$
+\begin{lemma} (3) $\forall\ T_{[a,b]}:$
     \[\overline{\overline{S}}(T)=\inf\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})\]
     \[\underline{\underline{S}}(T)=\sup\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})\]
 \end{lemma} 
@@ -37,11 +38,11 @@
 \end{proof} 
 \begin{theorem}
     $f(x)\in \mathcal{R}[a,b] \Leftrightarrow f$ - ограничена и $\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0:$
-    \[\forall T_{[a,b]}\ \text{с}\ d(T)<\delta_{\epsilon}: \underline{\underline{S_f}}(T)-\overline{\overline{S}}(T)<\epsilon\]
+    \[\forall\ T_{[a,b]}: d(T)<\delta_{\epsilon}: \underline{\underline{S_f}}(T)-\overline{\overline{S}}(T)<\epsilon\]
 \end{theorem} 
 \begin{proof}
     $(\Rightarrow):$
-    \[\exists I=\int\limits_{a}^{b}f(x)dx \Rightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon},\ \forall T(\xi),\ d(T)<\delta_{\epsilon}\]
+    \[\exists\ I=\int\limits_{a}^{b}f(x)dx \Rightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall T(\xi): d(T)<\delta_{\epsilon}\]
     \[I-\frac{\epsilon}{3}<\sigma_f(T(\xi))<I+\frac{\epsilon}{3}\]
     \[\vline\ \overline{\overline{S_f}}(T)-I\ \vline \leq \frac{\epsilon}{3},\ \ \  \vline\ \underline{\underline{S_f}}(T)-I\ \vline \leq \frac{\epsilon}{3}\]
     $\Rightarrow \underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon$\\
@@ -50,7 +51,7 @@
     \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\]
     из леммы 2 по аксиоме полноты: 
     \[\exists\ I, \forall\ T_1, T_2: \overline{\overline{S}}(T)\leq I\leq\underline{\underline{S}}(T)\ \ (1)\]
-    из $(*)$ следует, что $I$ - единтсвенно, но 
+    из $(*)$ следует, что $I$ - единственно, но 
     \[\forall T(\xi): \overline{\overline{S}}(T)\leq \sigma_f(T(\xi))\leq \underline{\underline{S}}(T)\ \ (2)\]
     из (1) и (2) получаем:
     \[\vline\ \sigma_f(T(\xi))-I \ \vline<\epsilon\]
@@ -76,5 +77,4 @@
         <\sum\limits_{i=1}^{n}(f(x_i)-f(x_{i-1}))\cdot \frac{\epsilon}{f(b)-f(a)}=\\
         =\frac{\epsilon}{f(b)f(a)}\cdot (f(b)-f(a))=\epsilon
     \end{multline*}
-    тестовый коммит
 \end{proof} 
