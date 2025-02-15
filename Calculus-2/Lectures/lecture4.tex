@@ -1,0 +1,91 @@
+\subsection{Критерий Лебега интегрируемости по Риману}
+\begin{definition}
+    Пусть $A\subset \R$, и если $\forall \epsilon>0\ \exists\ \{(a_i,b_i)\}_{i=1}^{\infty}$ (или конечное) таких, что 
+    \[A\subset \bigcup\limits_i(a_i,b_i),\ \sup\limits_n \sum\limits_{i=1}^{N}|b_i-a_i|< \epsilon\]
+     то $A$ называется множеством меры 0 по Лебегу и обозначается $\mu(a)=0$ 
+\end{definition} 
+\begin{theorem} (Свойства множеств с Лебеговой мерой 0)\\
+    \begin{enumerate}
+        \item $B\in A,\ \mu(A)=0 \Rightarrow \mu(b)=0$
+        \item $\{A_i\}_{i=1}^{\infty},\ \mu(A_i)=0 \Rightarrow \mu(\bigcup\limits_i^{\infty} A_i)=0$
+    \end{enumerate}
+\end{theorem} 
+\begin{proof}
+    \begin{enumerate}
+        \item Временно очев (допишу)
+        \item $\forall i\ \exists\ \{(a_{i_l},b_{i_l})\}_{i=1}^{\infty}:$
+        \[A_i\subset \bigcup\limits_{l=1}^{\infty} (a_{i_l},b_{i_l}),\ \sum\limits_{l} |b_{i_l}-a_{i_l}|<\frac{\epsilon}{2^i}\]
+        \[\bigcup\limits_i A_i \subset \bigcup\limits_i\left(\bigcup\limits_l (a_{i_l},b_{i_l})\right),\ \sum\limits_{i}\left(\sum\limits_{l} |b_{i_l}-a_{i_l}|\right)<\sum\limits_{i=1}^{n}\frac{\epsilon}{2^i}=\epsilon\]
+    \end{enumerate}
+\end{proof} 
+\begin{theorem} (Критерий Лебега интегрируемости по Риману)\\
+    $f(x)\in \mathcal{R}[a,b] \Leftrightarrow f(x)$ ограничена и множество точек разрыва $P$ функции $f(x)$ имеет $\mu(P)=0$.
+\end{theorem} 
+\subsection{Свойства интеграла Римана}
+\begin{enumerate}
+    \item (Интегрируемость на подотрезках)\\
+    Если $f(x)\in \mathcal{R}[a,b],\ [c,d]\subset [a,b]$, то $f(x)\in \mathcal{R}[c,d]$.
+\begin{proof}
+    Так как $f(x)\in \mathcal{R}[a,b]$, то $\forall T_{[a,b]}(\xi): \sigma_f(T_{[a,b]}(\xi))\to I$. Значит если $\{c,d\}\in T_{[a,b]}$, то $\sigma_f(T_{[a,b]\cup \{c,d\}}(\xi))$. 
+    \begin{multline*}
+        \epsilon> \underline{\underline{S}}_{[a,b]\cup \{c,d\}}-\overline{\overline{S}}^{{[a,b]\cup \{c,d\}}}=\sum\limits_{k=1}^{i}(M_i-m_i)(x_k-x_{k-1})+\sum\limits_{k=i+1}^{j}(M_k-m_k)(x_k-x_{k-1})+\\
+        +\sum\limits_{k=j+1}^{N}(M_k-m_k)(x_k-x_{k-1})\geq \sum\limits_{k=i+1}^{j}(M_k-m_k)(x_k-x_{k-1})=\underline{\underline{S}}_{[c,d]}-\overline{\overline{S}}_{[c,d]}
+    \end{multline*}
+\end{proof} 
+\item (Аддитивность)\\
+Если $f(x)\in \mathcal{R}[a,b],\ c\in [a,b]$, то 
+\[\int\limits_{a}^{b}f(x)\ dx=\int\limits_{a}^{c} f(x)\ dx+\int\limits_{c}^{b}f(x)\ dx\]
+\begin{proof}
+    Пусть $c\in T_{[a,b]}(\xi)$. Тогда
+    \[\sigma_f(T_{[a,b]})=\sigma_f(T_{[a,c]})+\sigma_f(T_{[c,b]})\]
+    \[\sigma_f(T_{[a,c]}) \to \int\limits_{a}^{c}f(x)\ dx,\ \sigma_f(T_{[c,b]})\to \int\limits_{c}^{b}f(x)\ dx\]
+    отсюда
+    \[\sigma_f(T_{[a,b]})\to \int\limits_{a}^{b}f(x)\ dx\]
+    Теперь пусть $c\not\in T_{[a,b]}$. Рассмотрим $T_{[a,b]\cup c}'=T_{[a,b]}\cup \{c\}$
+        \[\sigma_f(T_{[a,b]})-\sigma_f(T_{[a,b]\cup c}')=f(\xi_j)(x_j-x_{j-1})-f(\xi_j')(c-x_{j-1})-f(\xi_j'')(x_j-c)\to 0\]
+\end{proof} 
+\begin{comm}
+    Если $f(x)\in \mathcal{R}[a,c],\ b<c$, то
+    \[\int\limits_{a}^{b}f(x)\ dx=\int\limits_{a}^{c}f(x)dx+\int\limits_{c}^{b}f(x)\ dx\]
+\end{comm} 
+\item (Линейность)\\
+Пусть $f(x),g(x)\in \mathcal{R}[a,b]$. Тогда $\forall \alpha,\beta \in \R: \alpha f(x)+\beta g(x) \in \mathcal{R}[a,b]$
+\[\int\limits_{a}^{b}(\alpha f(x)+\beta g(x))\ dx=\alpha\cdot \int\limits_{a}^{b} f(x)\ dx+\beta\cdot \int\limits_{a}^{b}g(x)\ dx\]
+\begin{proof}
+    \[\sigma_{\alpha f(x)+\beta g(x)}(T)=\alpha\sigma_f(T)+\beta\sigma_g(T)\]
+\end{proof}
+\item Пусть $f(x)\in \mathcal{R}[a,b], f(x)\geq 0$. Тогда
+\[\int\limits_{a}^{b}f(x)\ dx\geq 0\]
+\begin{proof}
+    \[f(x)\geq 0 \Rightarrow \sigma_f(T)\geq 0 \Rightarrow \int\limits_{a}^{b} f(x)\ dx\]
+\end{proof} 
+\begin{consequense}
+    Если $f(x), g(x)\in \mathcal{R}[a,b]$ и $f(x)\geq g(x)$ на $[a,b]$, то 
+    \[\int\limits_{a}^{b}f(x)\ dx\geq \int\limits_{a}^{b}g(x)\ dx\]
+\end{consequense}
+\item Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\geq 0,\ \exists\ c\in[a,b]$, что $f(x)$ непрерывна в точке $c$ и $f(c)>0$. Тогда 
+\[\int\limits_{a}^{b}f(x)\ dx>0\]
+\begin{proof}
+    По теореме об отделимости\\
+    $\exists\ \delta>0: f(x)>\frac{f(c)}{2}$ в $(c-\delta, c+\delta):$
+    \[\int\limits_{a}^{b}f(x)\ dx\geq \int\limits_{c-\delta}^{c+\delta}f(x)\ dx>\int\limits_{c-\delta}^{c+\delta}\frac{f(c)}{2}\ dx=\frac{f(c)}{2}\cdot 2\delta=\delta f(c)>0\]
+\end{proof} 
+\item
+$f(x), g(x)\in \mathcal{R}[a,b]$. Тогда $f(x)\cdot g(x)\in \mathcal{R}[a,b]$
+\begin{proof}
+    \begin{multline}
+        f(x')g(x')-f(x'')g(x'')=f(x')g(x')-f(x')g(x'')+f(x')g(x'')-f(x'')g(x'')=\\
+        =f(x')(g(x')-g(x''))+g(x'')(f(x')-f(x''))
+    \end{multline}
+    Пусть $M_1=\sup\limits_{[a,b]}|f(x)|,\ M_2=\sup\limits_{[a,b]}|g(x)|$
+    \begin{equation*}
+        \underline{\underline{S}}_{f\cdot g}-\overline{\overline{S}}_{f\cdot g}\leq M_1(\underline{\underline{S}}_g-\overline{\overline{S}}_g)+M_2(\underline{\underline{S}}_f-\overline{\overline{S}}_f)
+    \end{equation*}
+    \begin{multline*}
+        \sup\limits_{x',x''\in[x_i,x_{i-1}]}(f(x')g(x')-f(x'')g(x''))=(M_i(f(x)g(x))-m_i(f(x)g(x)))=\\
+        =\sup\limits_{x',x''\in[x_i,x_{i-1}]}(f(x')(g(x')-g(x''))+g(x'')(f(x')-f(x'')))\leq\\
+        \leq \sup|f(x)|\cdot \sup(g(x')-g(x''))+\\
+        +\sup|g(x)|\sup(f(x')f(x''))\leq M_1 (M_{ig}-m_{ig})+M_2(M_{if}-m_{if})
+    \end{multline*}
+\end{proof} 
+\end{enumerate}
