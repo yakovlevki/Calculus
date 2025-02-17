@@ -39,8 +39,8 @@
 \renewcommand{\emptyset}{\varnothing}
 
 % Для верхнего и нижнего предела
-% \DeclareMathOperator*\lowlim{\underline{lim}}
-% \DeclareMathOperator*\uplim{\overline{lim}}
+\DeclareMathOperator*\lowlim{\underline{lim}}
+\DeclareMathOperator*\uplim{\overline{lim}}
 
 % Математические окружения
 \theoremstyle{definition}
@@ -53,6 +53,10 @@
 \newtheorem*{example}{Пример}
 \newtheorem*{examples}{Примеры}
 \newtheorem*{axiom}{Аксиома}
+
+\newcounter{thmcount}
+\newtheorem{numtheorem}[thmcount]{Теорема}
+
 
 % Настройка заголовков
 \usepackage{titlesec}
