@@ -9,29 +9,32 @@
     \[\overline{\overline{S}}_f(T)=\sum\limits_{i=0}^{n-1}m_i(x_{i+1}-x_i),\ \underline{\underline{S}}_f(T)=\sum\limits_{i=0}^{n-1}M_i(x_{i+1}-x_i)\]
     Тогда $\overline{\overline{S}}_f(T)$ называется нижней суммой Дарбу, а $\underline{\underline{S}}_f(T)$ верхней суммой Дарбу.
 \end{definition} 
-\begin{lemma} (1)
-    Пусть $T_1$ - измельчение $T$. Тогда $\overline{\overline{S}}(T)\leq \overline{\overline{S}}(T_1)$ и $\underline{\underline{S}}(T)\geq \underline{\underline{S}}(T_1)$
-\end{lemma} 
+\begin{numlemma}
+    Пусть $T_1$ - измельчение $T$. Тогда
+    \[\overline{\overline{S}}(T)\leq \overline{\overline{S}}(T_1)\ \ \text{и}\ \ \underline{\underline{S}}(T)\geq \underline{\underline{S}}(T_1)\]
+\end{numlemma} 
 \begin{proof}
-    Дополним $T$ до измельчения: $T_1=T\cup \{x_j'\in [x_j, x_{j+1}]\}$. Тогда 
+    Докажем для нижней суммы. Рассмотрим случай, когда\\
+    $T_1=T\cup \{x_j'\},\ x_j'\in [x_j, x_{j+1}]$. Тогда сократятся все отрезки кроме $[x_j,x_{j+1}]:$
     \begin{multline*}
-        \overline{\overline{S}}(T_1)-\overline{\overline{S}}(T)=m_{1j}(x_j'-x_j)+m_{2j}(x_{j+1}-x_j')-\\
-        -m_j(x_j'-x_j)-m_j(x_{j+1}-x_j')\geq 0
+        \overline{\overline{S}}(T_1)-\overline{\overline{S}}(T)=m_{1j}(x_j'-x_j)+m_{2j}(x_{j+1}-x_j')-m_j(x_{j+1}-m_j)=\\
+        =m_{1j}(x_j'-x_j)+m_{2j}(x_{j+1}-x_j')-m_j(x_j'-x_j)-m_j(x_{j+1}-x_j')\geq 0
     \end{multline*}
+    значит, по индукции, это верно для любого измельчения.
 \end{proof} 
-\begin{lemma} (2) 
+\begin{numlemma}
     \[\forall\ T_1, T_2: \overline{\overline{S}}(T_1)\leq \underline{\underline{S}}(T_2)\]
-\end{lemma} 
+\end{numlemma} 
 \begin{proof}
     Рассмотрим объединение любых двух разбиений $T_1$ и $T_2$:\\ $T=T_1\cup T_2$. Тогда $T$ является измельчением и $T_1$ и $T_2$. Тогда по лемме 1 получаем:
     \[\overline{\overline{S}}(T_1)\leq \overline{\overline{S}}(T)\ \ \text{и}\ \ \underline{\underline{S}}(T)\leq \underline{\underline{S}}(T_2) \Rightarrow \overline{\overline{S}}(T_1)\leq \underline{\underline{S}}(T_2)\]
 \end{proof} 
-\begin{lemma} (3) $\forall\ T_{[a,b]}:$
+\begin{numlemma} $\forall\ T_{[a,b]}:$
     \[\overline{\overline{S}}(T)=\inf\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})\]
     \[\underline{\underline{S}}(T)=\sup\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})\]
-\end{lemma} 
+\end{numlemma} 
 \begin{proof}
-    Рассмотрим множество $\{X_i: X_i\subset \R\}_{i=1}^n$ такое, что\\
+    Докажем для верхней суммы. Рассмотрим множество $\{X_i: X_i\subset \R\}_{i=1}^n$ такое, что\\
     $X_i$ - ограничено $\forall i$, а также $\{a_i\}_{i=1}^n: a_i\geq 0 \ \forall i$ Тогда
     \[\forall \epsilon>0,\ \forall i=\{1,\dots,n\}\ \exists\ x_i\in X_i: x_i>\sup X_i-\epsilon\] 
     Значит 
@@ -42,9 +45,9 @@
     отсюда получаем:
     \[\sup\limits_{\{x_i\}} \sum\limits_{i=1}^{n}a_i x_i=\sum\limits_{i=1}^{n}a_i \sup X_i\]
 \end{proof} 
-\begin{theorem}
+\begin{theorem} (Критерий Дарбу интегрируемости по Риману)\\
     $f(x)\in \mathcal{R}[a,b] \Leftrightarrow f$ - ограничена и 
-    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall\ T_{[a,b]}: d(T)<\delta_{\epsilon}: \underline{\underline{S_f}}(T)-\overline{\overline{S}}(T)<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall\ T_{[a,b]}: d(T)<\delta_{\epsilon}: \underline{\underline{S_f}}(T)-\overline{\overline{S}}_f(T)<\epsilon\]
 \end{theorem} 
 \begin{proof} \ 
     \begin{itemize}

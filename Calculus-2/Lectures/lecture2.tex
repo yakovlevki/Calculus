@@ -25,7 +25,7 @@
 \begin{definition}
     Сумма 
     \[\sigma_{[a,b]}=\sum\limits_{i=1}^{N}f(\xi_i)(x_i-x_{i-1})\]
-    называется интегральной суммой. Иногда ее обозначают $\sigma_T(\xi)$
+    называется интегральной суммой. Иногда ее обозначают $\sigma_T(\xi)$ или $\sigma(T_{[a,b]}(\xi))$
 \end{definition} 
 \begin{definition}
     Пусть $f(x)$ определена на $[a,b]$. Рассмотрим $T_{[a,b]}(\xi)$. Если \\
@@ -52,10 +52,10 @@
     Предположим, что $\exists \{x_n\}_{n=1}^{\infty}\subset [a,b],\ \exists \lim\limits_{n\to \infty}x_n=\widetilde{x}$, что\\
     $|f(x_n)|>n$ и пусть
     \[\exists\ \lim\limits_{d\to 0}\left( \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1}) \right)=I\] 
-    то есть 
+    Возьмем $\epsilon=1$. Тогда  
     \[\vline\ \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1})-I\ \vline<1\]
-    Возмем $\Delta_k$ такой, что $\widetilde{x}\in \Delta_k$. Тогда
+    Возмем $\Delta_k$ такой, что $\widetilde{x}\in \Delta_k \Rightarrow f(x)$ - неограничена на $\Delta_k$. Тогда, зафиксировав точки в остальных отрезках разбиения, получим
     \[I-\sum\limits_{i=1,i\ne k}^{N} f(\xi_i)(x_i-x_{i-1})-1<f(\xi_k)(x_k-x_{k-1})<I-\sum\limits_{i=1,i\ne k}^{N} f(\xi_i)(x_i-x_{i-1})+1\]
-    с какого то номера все точки лежат в этом отрезке.
+    противоречие с тем, что $f(x)$ принимает сколь угодно большие  на $\Delta_k$.
 \end{proof} 
 
