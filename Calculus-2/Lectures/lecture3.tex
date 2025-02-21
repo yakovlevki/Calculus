@@ -1,4 +1,4 @@
-\subsection{Суммы Дарбу}
+\subsection{Суммы Дарбу. Критерий Дарбу интегрируемости по Риману}
 Далее рассматриваем разбиения $T^+$
 \begin{definition}
     Пусть $T_{1}$ и $T_{2}$ - разбиения отрезка $[a,b]$ такие, что $T_1\subset T_2$. Тогда $T_2$ называется измельчением $T_1$.
@@ -17,7 +17,7 @@
     Докажем для нижней суммы. Рассмотрим случай, когда\\
     $T_1=T\cup \{x_j'\},\ x_j'\in [x_j, x_{j+1}]$. Тогда сократятся все отрезки кроме $[x_j,x_{j+1}]:$
     \begin{multline*}
-        \overline{\overline{S}}(T_1)-\overline{\overline{S}}(T)=m_{1j}(x_j'-x_j)+m_{2j}(x_{j+1}-x_j')-m_j(x_{j+1}-m_j)=\\
+        \overline{\overline{S}}(T_1)-\overline{\overline{S}}(T)=m_{1j}(x_j'-x_j)+m_{2j}(x_{j+1}-x_j')-m_j(x_{j+1}-x_j)=\\
         =m_{1j}(x_j'-x_j)+m_{2j}(x_{j+1}-x_j')-m_j(x_j'-x_j)-m_j(x_{j+1}-x_j')\geq 0
     \end{multline*}
     значит, по индукции, это верно для любого измельчения.
@@ -34,7 +34,8 @@
     \[\underline{\underline{S}}(T)=\sup\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})\]
 \end{numlemma} 
 \begin{proof}
-    Докажем для верхней суммы. Рассмотрим множество $\{X_i: X_i\subset \R\}_{i=1}^n$ такое, что\\
+    Докажем для верхней суммы. Рассмотрим множество \\
+    $\{X_i: X_i\subset \R\}_{i=1}^n$ такое, что\\
     $X_i$ - ограничено $\forall i$, а также $\{a_i\}_{i=1}^n: a_i\geq 0 \ \forall i$ Тогда
     \[\forall \epsilon>0,\ \forall i=\{1,\dots,n\}\ \exists\ x_i\in X_i: x_i>\sup X_i-\epsilon\] 
     Значит 
