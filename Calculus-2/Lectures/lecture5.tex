@@ -4,74 +4,92 @@
 \begin{proof}
     $\forall x', x'' \in [a, b]$:
     \begin{align*}
-        |\frac{1}{f(x')} - \frac{1}{f(x'')}| = |\frac{f(x'') - f(x')}{f(x')f(x'')}| \leq \frac{1}{\delta^2}|f(x'')-f(x')|
+        \vline\ \frac{1}{f(x')} - \frac{1}{f(x'')}\ \vline =\ \vline \frac{f(x'') - f(x')}{f(x')f(x'')}\ \vline \leq \frac{1}{\delta^2}\cdot\ \vline f(x'')-f(x')\ \vline
     \end{align*}
     Дальнейшее доказательство аналогично предыдущему (\textit{возможно, распишем подробнее}).
 \end{proof}
-\begin{comm}
+\begin{consequense}
     Из пунктов 6 и 7 следует интегрируемость дроби $\frac{f(x)}{g(x)}$.
-\end{comm}
+\end{consequense}
 \begin{numtheorem}
     $f(x) \in \mathcal{R}[a, b]$. Тогда $|f(x)| \in \mathcal{R}[a, b]$
 \end{numtheorem}
 \begin{proof}
     $\forall x', x'' \in [a, b]$:
     \begin{align*}
-        ||f(x')| - |f(x'')|| = \leq |f(x')-f(x'')|
+        \vline\ |f(x')| - |f(x'')|\ \vline \leq |f(x')-f(x'')|
     \end{align*}
     Далее совпадает с предыдущим доказательством.
 \end{proof}
 \begin{comm}
-    Обратное утверждение неверно:\\
-    $f = \begin{cases}
+    Обратное утверждение неверно:
+    \[f(x) = \begin{cases}
         1, \ x\in\mathbb{Q}\subset [0, 1]\\
         -1, x\notin\mathbb{Q}
-    \end{cases} \Rightarrow |f(x)| \equiv 1$ на отрезке $[0, 1]$
+    \end{cases}\]
+    $\Rightarrow |f(x)| \equiv 1$ на отрезке $[0, 1]$.
 \end{comm}
 \begin{numtheorem}
-    $f(x) \in \mathcal{R}[a, b]$. Тогда $|\int_{a}^{b}f dx|\leq \int_{a}^{b}|f| dx$
+    $f(x) \in \mathcal{R}[a, b]$. Тогда 
+    \[\vline\ \int\limits_{a}^{b}f(x)\ dx\ \vline\leq \int\limits_{a}^{b} |f(x)|\ dx\]
 \end{numtheorem}
 \begin{proof}
-    $|\sigma_f| \leq \sigma_{|f|}$
+    \[|\sigma_f| \leq \sigma_{|f|}\]
 \end{proof}
 \begin{comm}
-    $\int_{a}^{b}|f| dx \leq \sup \limits_{[a, b]} |f|\cdot\int_{a}^{b}1 dx$
+    \[\int\limits_{a}^{b}|f(x)|\ dx \leq \sup \limits_{[a, b]} |f(x)|\cdot\int\limits_{a}^{b}1\ dx\]
 \end{comm}
 \setcounter{thmcount}{0}
-\begin{theorem}[1-я теорема о среднем]
-    Пусть $f(x), g(x) \in \mathcal{R}[a, b], g \geq 0$.\\
-    $M = \sup f, m = \inf f$. Тогда $\exists \mu: m\leq\mu\leq M: \int_{a}^{b}f\cdot g dx = \mu\cdot\int_{a}^{b}g dx$
+\begin{theorem} (1-я теорема о среднем)\\
+    Пусть $f(x), g(x) \in \mathcal{R}[a, b], g \geq 0,\ M = \sup f(x),\ m = \inf f(x)$. Тогда\\
+    $\exists\ \mu\in [m,M]$:
+    \[\int\limits_{a}^{b}f(x)\cdot g(x)\ dx = \mu\cdot\int\limits_{a}^{b}g(x)\ dx\]
 \end{theorem}
 \begin{proof}
-    $m\cdot \sigma_g(T) \leq \sigma_{fg}(T) \leq M\cdot\sigma_g(T)$. Тогда:
-    \[m\cdot \int_{a}^{b} g dx \leq \int_{a}^{b} fg dx \leq M\cdot\int_{a}^{b} g dx\]
+    \[m\cdot \sigma_g(T) \leq \sigma_{f\cdot g}(T) \leq M\cdot\sigma_g(T)\]
+    Тогда
+    \[m\cdot \int\limits_{a}^{b} g(x)\ dx \leq \int\limits_{a}^{b} f(x)\cdot g(x)\ dx \leq M\cdot\int\limits_{a}^{b} g(x)\ dx\]
     Рассмотрим случаи:
-    \[1. \int_{a}^{b} g dx = 0 \Rightarrow \int_{a}^{b} fg dx = 0 \ \ \text{с любым} \ \mu;\]
-    \[2. \int_{a}^{b} g dx = 0 \Rightarrow m\leq \frac{\int_{a}^{b} fg dx}{\int_{a}^{b} g dx}\leq M \Rightarrow \ \mu, \text{ равное дроби, подойдёт.}\]
+    \begin{enumerate}
+        \item 
+        \[\int\limits_{a}^{b} g(x)\ dx = 0 \Rightarrow \int\limits_{a}^{b} f(x)\cdot g(x)\ dx = 0\]
+        В этом случае равенство верно для любого $\mu$.
+        \item
+        \[\int\limits_{a}^{b} g(x)\ dx = 0 \Rightarrow m\leq \cfrac{\int\limits_{a}^{b} f(x)\cdot g(x)\ dx}{\int\limits_{a}^{b} g(x)\ dx}\leq M\]
+        Значит, подойдет $\mu$, равное значению этой дроби
+    \end{enumerate}
 \end{proof}
 \subsection{Интеграл с переменным верхним пределом}
-\[\int_{a}^{x} f(x) dx\]
+\begin{definition}
+    Интегралом с переменным верхним пределом называется интеграл вида:
+    \[\int\limits_{a}^{x} f(x)\ dx\]
+\end{definition} 
 \begin{theorem}
-    Пусть $f(x)\in \mathcal{R}[a, b]$. Тогда $\int_{a}^{x} f(t) dt = F(x) \in \mathcal{C}[a, b]$.
+    Пусть $f(x)\in \mathcal{R}[a, b]$. Тогда
+    \[\int\limits_{a}^{x} f(t)\ dt = F(x)\]
+    где $F(x) \in \mathcal{C}[a, b]$.
 \end{theorem}
-\begin{proof}
-    \[\forall x_0 \ \ |F(x_0 + \Delta x) - F(x_0)| = |\int_{x_0}^{x_0 + \Delta x} f(t) dt| \leq M_{f([a, b])}\cdot |\Delta x| \rightarrow 0\]
+\begin{proof} 
+    $\forall x_0\in [a,b]:$
+    \[|F(x_0 + \Delta x) - F(x_0)| =\ \vline\int\limits_{x_0}^{x_0 + \Delta x} f(t) dt\ \vline \leq M_{f([a, b])}\cdot |\Delta x| \rightarrow 0\]
 \end{proof}
 \begin{theorem}
-    Пусть $f(x)\in \mathcal{R}[a, b]$ и $f$ непрерывна в $x_0 \in [a, b]$. Тогда $\int_{a}^{x} f(t) dt = F(x)$ имеет производную в $x_0$ и $F'(x_0) = f(x_0)$.
+    Пусть $f(x)\in \mathcal{R}[a, b]$ и $f$ непрерывна в $x_0 \in [a, b]$. Тогда
+    \[\int_{a}^{x} f(t)\ dt = F(x)\]
+    имеет производную в $x_0$ и $F'(x_0) = f(x_0)$.
 \end{theorem}
 \begin{proof}
     \begin{multline*}
-        |\frac{F(x_0 + \Delta x) - F(x_0)}{\Delta x} - f(x_0)| =\\= |\frac{1}{\Delta x}\int_{x_0}^{x_0 + \Delta x} f(x) dx - f(x_0)\cdot\frac{1}{\Delta x}\int_{x_0}^{x_0 + \Delta x} 1\ dx| =\\= |\frac{1}{\Delta x}\int_{x_0}^{x_0 + \Delta x} (f(x) - f(x_0)) dx| \leq \sup \limits_{[a, b]}|f(x) - f(x_0)|\cdot 1 \longrightarrow 0.
+        \vline\ \frac{F(x_0 + \Delta x) - F(x_0)}{\Delta x} - f(x_0)\ \vline =\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} f(x)\ dx - \frac{f(x_0)}{\Delta x} \cdot \int\limits_{x_0}^{x_0 + \Delta x} 1\ dx\ \vline =\tab[3cm]\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} (f(x) - f(x_0))\ dx\ \vline \leq \sup \limits_{[a, b]}|f(x) - f(x_0)|\cdot 1 \longrightarrow 0.
     \end{multline*}
 \end{proof}
 \begin{consequense}
-    Пусть $f(x) \in \mathcal{C}(a, b)$. Тогда $\forall c \in (a, b)$
-    \[\exists \ (\int_{c}^{x} f(t)dt)' = f(x), \text{ то есть } \int_{c}^{x} f(t)dt - \ \text{первообразная} \ f(x)\].
+    Пусть $f(x) \in \mathcal{C}(a, b)$. Тогда $\forall c \in (a, b)$:
+    \[\exists \ \left(\int\limits_{c}^{x} f(t)dt\right)' = f(x), \text{ то есть } \int\limits_{c}^{x} f(t)dt\ \text{-}\ \text{первообразная} \ f(x)\]
 \end{consequense}
 \begin{proof}
     Очевидно.
 \end{proof}
 \begin{comm}
-    Интервал в формулировке следствия взят для применимости теоремы к неограниченным на интервале функциям (напр. $\tg(x)$ на $[0, \pi]$), для которых тем не менее применима предыдущая теорема по аналогичным рассуждениям.
+    Интервал в формулировке следствия взят для применимости теоремы к неограниченным на интервале функциям (например $\tg(x)$ на $[0, \pi]$), для которых тем не менее применима предыдущая теорема по аналогичным рассуждениям.
 \end{comm}
