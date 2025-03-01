@@ -1,0 +1,77 @@
+\subsection{Формула Ньютона-Лейбница}
+\begin{theorem} (Формула Ньютона-Лейбница)\\
+    Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\in \mathcal{C}([a,b]\setminus \{x_i\}_{i=1}^{n})$. Пусть $\exists\ F(X),\\
+    F(x)\in \mathcal{D}([a,b]\setminus \{x_i\}_{i=1}^{n}),\ F'(x)=f(x),\ F(x)\in \mathcal{C}[a,b]$. Тогда 
+    \[\int\limits_{a}^{b}f(x)\ dx=F(b)-F(a)\]
+\end{theorem} 
+\begin{proof}
+    Пусть сначала $f(x)\in \mathcal{C}(a,b),\ F'(x)=f(x)$ на $(a,b)$. Но интеграл
+    \[\int\limits_{a}^{x}f(t)\ dt\]
+    тоже первообразная $f(x)$ на $(a,b) \Rightarrow \exists\ C:$
+    \[F(x)+C=\int\limits_{a}^{x}f(t)\ dt\]
+    $\Rightarrow F(a)+C=0$. Тогда 
+    \[F(b)-F(a)=\int\limits_{a}^{b} f(t)\ dt\]
+    Общий случай:
+        \[F(b)-F(a)=\sum\limits_{i=1}^{n+1}(F(x_i)-F(x_{i-1}))=\sum\limits_{i=1}^{n+1} \int\limits_{x_{i-1}}^{x_i} f(t)\ dt=\int\limits_{a}^{b} f(t)\ dt\]
+\end{proof} 
+\subsection{Замена переменной в интеграле}
+\begin{theorem}
+    Пусть $f(x)\in \mathcal{C}(a,b),\ \phi(t)\in \mathcal{C}^1(\alpha, \beta),\ \phi((\alpha, \beta))\subset (a,b).\\
+    \forall \alpha_0, \beta_0\in (\alpha, \beta)$ и $a_0=\phi(\alpha_0),\ b_0=\phi(\beta_0)$. Тогда
+    \[\int\limits_{a_0}^{b_0}f(x)\ dx=\int\limits_{\alpha_0}^{\beta_0}f(\phi(t))\cdot \phi'(t)\ dt\]
+\end{theorem} 
+\begin{proof}
+    $f\in \mathcal{C}(a,b) \Rightarrow \exists\ F'(x)=f(x)$
+    \[\int\limits_{a_0}^{b_0}f(x)\ dx= F(b_0)-F(a_0)\]
+    Но $(F(\phi(t)))'=F'(\phi(t))\cdot \phi(t)$, а значит
+    \[\int\limits_{\alpha_0}^{\beta_0}f(\phi(t))\cdot\phi'(t)\ dt=F(\phi(\beta_0))-F(\phi(\alpha_0))\]
+\end{proof} 
+\subsection{Интегрирование по частям}
+\begin{theorem} (Интегрирование по частям)\\
+    Пусть $f(x),\ g(x)\in \mathcal{C}[a,b]$
+    \[\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx=f(x)\cdot g(x)|_a^b-\int\limits_{a}^{b}f'(x)g(x)\ dx\]
+\end{theorem} 
+\begin{proof}
+    \[f(x)\cdot g(x)|_a^b=\int\limits_{a}^{b}(f(x)\cdot g(x))'\ dx=\int\limits_{a}^{b}f'(x)g(x)\ dx+\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx\]
+\end{proof} 
+\newpage
+\section{Длина кривой}
+\subsection{Кривая в $\R^n$}
+
+\begin{definition}
+    Кривой в $\R^n$ называется непрерывное отображение:
+    \[\bar{\gamma}: [a,b]\to \R^n\]
+\end{definition} 
+\begin{comm}
+    \[\bar{\gamma}=\begin{pmatrix}
+       \gamma_1(t)\\
+       \vdots\\
+       \gamma_n(t) 
+    \end{pmatrix}\]
+\end{comm} 
+% Пример того, что окружность можно задать параметрически разными способами
+\begin{definition}
+    Рассмотрим $\bar{\gamma}: [a,b]\to \R^n$. Если $\exists\ t_1\ne t_2: \bar{\gamma}(t_1)=\bar{\gamma}(t_2)$, то $\bar{\gamma}(t_1)$ называется точкой самопересечения. Мощность подмножеста $[a,b]$, точки которого переходят в $\bar{\gamma}(t_1)$ называются кратностью точки самопересечения. Если кривая не имеет точек пересечения, то она называется простой.
+\end{definition} 
+\begin{definition}
+    Если $\bar{\gamma}(t)$ имеет единственную точку самопересечения\\
+    $\bar{\gamma}(a)=\bar{\gamma}(b)$, то кривая называется простой замкнутой.
+\end{definition} 
+\begin{definition}
+    Множество точек $\{\bar{\gamma}(t_i)\}_{i=0}^n$ называется разбиением кривой, если $\{t_i\}_{i=0}^n$ является разбиением отрезка $[a,b]$. Обозначается $T_{\gamma}$.
+\end{definition} 
+\begin{definition}
+    $L(T_{\bar{\gamma}})$ - множество отрезков $\{[\bar{\gamma}(t_{i-1}),\bar{\gamma}(t_i)]\}_{i=1}^n$ называется вписанной в $\bar{\gamma}(t)$ ломаной, а число $|L(T_{\bar{\gamma}})|$ - длиной ломаной.
+\end{definition} 
+\begin{statement}
+    Если $T'_{\bar{\gamma}}$ - измельчение $T_{\bar{\gamma}}$, то 
+    \[|L(T_{\bar{\gamma}})|\leq |L(T'_{\bar{\gamma}})|\]
+\end{statement} 
+\begin{proof}
+    Очевидно.
+\end{proof} 
+\begin{definition}
+    Если множество $\{|L(T_{\bar{\gamma}})|\}_{T_{\bar{\gamma}}}$ ограничено, то кривая $\bar{\gamma}(t)$ называется спрямляемой, а
+    \[\sup\limits_{T_{\bar{\gamma}}}\{|L(T_{\bar{\gamma}})|\}=|\bar{\gamma}|\]
+    называется длиной кривой.
+\end{definition} 
