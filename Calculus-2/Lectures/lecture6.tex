@@ -14,7 +14,7 @@
     Общий случай:
         \[F(b)-F(a)=\sum\limits_{i=1}^{n+1}(F(x_i)-F(x_{i-1}))=\sum\limits_{i=1}^{n+1} \int\limits_{x_{i-1}}^{x_i} f(t)\ dt=\int\limits_{a}^{b} f(t)\ dt\]
 \end{proof} 
-\subsection{Замена переменной в интеграле}
+\subsection{Замена переменной и интегрирование по частям}
 \begin{theorem}
     Пусть $f(x)\in \mathcal{C}(a,b),\ \phi(t)\in \mathcal{C}^1(\alpha, \beta),\ \phi((\alpha, \beta))\subset (a,b).\\
     \forall \alpha_0, \beta_0\in (\alpha, \beta)$ и $a_0=\phi(\alpha_0),\ b_0=\phi(\beta_0)$. Тогда
@@ -26,7 +26,6 @@
     Но $(F(\phi(t)))'=F'(\phi(t))\cdot \phi(t)$, а значит
     \[\int\limits_{\alpha_0}^{\beta_0}f(\phi(t))\cdot\phi'(t)\ dt=F(\phi(\beta_0))-F(\phi(\alpha_0))\]
 \end{proof} 
-\subsection{Интегрирование по частям}
 \begin{theorem} (Интегрирование по частям)\\
     Пусть $f(x),\ g(x)\in \mathcal{C}[a,b]$
     \[\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx=f(x)\cdot g(x)|_a^b-\int\limits_{a}^{b}f'(x)g(x)\ dx\]
