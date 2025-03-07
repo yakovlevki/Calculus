@@ -1,0 +1,24 @@
+\begin{theorem}
+    Пусть $\bar{\gamma}(t) = (x_1(t), x_2(t), \dots, x_n(t)) \in C^1[a,b]$. Тогда $\bar{\gamma}(t)$ спрямляема и $$|\bar{\gamma}| = \int_{a}^{b} \sqrt{\sum_{j = 1}^{n} x_j^{'2}(t)} dt$$
+\end{theorem}
+\begin{proof}
+    \begin{multline*}
+        |L(T_{\bar{\gamma}})| = \sum_{i = 1}^{N} \sqrt{ \sum_{j = 1}^{n}(x_j(t_i) - x_j(t_{i - 1}))^2} =\\ \sum_{i = 1}^{N} \sqrt{\sum_{j = 1}^{n} x_j^{'2}(\xi_{ij}) \cdot (t_i - t_{i - 1})^2} =\\ \sum_{i = 1}^{N} \sqrt{\sum_{j = 1}^{n} x_j^{'2} (\xi_{ij})} (t_i - t_{i - 1}) \leqslant M \cdot \sqrt{n} \cdot (b - a)
+    \end{multline*}
+    $\Longrightarrow \bar{\gamma}$ спрямляема.
+    
+        \[\left| |L(T_{\bar{\gamma}})| - \sigma_{\sqrt{\sum_{j = 1}^{n} x_j^{'2}}}\right| = \]
+        \[\sum_{i = 1}^{N} \sqrt{\sum_{j = 1}^{n} x_j^{'2} (\xi_{ij})} (t_i - t_{i - 1}) - \sum_{i = 1}^{N} \sqrt{\sum_{j = 1}^{n} x_j^{'2} (\nu_{i})}(t_i - t_{i - 1})\]
+
+        \[
+        \left|
+            \sqrt{\sum_{i = 1}^{k} a_i^2} - \sqrt{\sum_{i = 1}^{k} b_i^2}
+        \right| = \left|
+            \frac{\sum_{i = 1}^{k} (a_i - b_i) (a_i + b_i)}{\sqrt{\epsilon} + \sqrt{\epsilon}} \leqslant \sum_{i = 1}^{k} |a_i - b_i|
+        \right|
+        \]
+
+        $\Rightarrow | |L(T_{\bar{\gamma}}| - \int_{a}^{b} \sqrt{\sum_{j = 1}^{n} x_{j}^{'2}(t)} dt | < 2 \epsilon n (b-a)$
+
+    $\forall \epsilon > 0 \exists L(T^{*}_{\bar{\gamma}})$, что $|L(T^{*}_{\bar{\gamma}}) | > |\bar{\gamma}| - \epsilon$
+\end{proof}
