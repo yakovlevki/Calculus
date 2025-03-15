@@ -1,0 +1,67 @@
+\subsection{Площадь плоской фигуры}
+\begin{definition}
+    Множество $\{(x,y): (x-x_0)^2+(y-y_0)^2<\epsilon^2\}$ называется $\epsilon$-окрестностью точки $(x_0,y_0)$.
+\end{definition}
+\begin{definition}
+    Множество $A\in \R^2$ называется ограниченым, если $\exists R>0: A\subset \{(x,y): x^2+y^2\leq R^2\}$.
+\end{definition}  
+\begin{definition}
+    Ограниченое множество $A\subset \R^2$ называется фигурой.
+\end{definition} 
+\begin{definition}
+    Пусть $A=\{A_{\alpha}\}_{\alpha}$. Функция $\mu: A\to \R$ называется площадью, если 
+    \begin{enumerate}
+        \item $\mu(A)\geq 0$
+        \item Если $\exists\ \mu(A_1),\ \mu(A_2)$ и $A_1\cap A_2 =\emptyset$, то $\exists\ \mu(A_1 \cup A_2)=\mu(A_1)+\mu(A_2)$.
+        \item Если $\exists\ \mu(A_1)$ и $A_2$ конгруэнтна $A_1$, то $\exists\ \mu(A_2)=\mu(A_1)$.
+        \item Если $\exists\ \mu(A_1),\ \mu(A_2)$ и $A_1\subset A_2$, то $\mu(A_1)\leq \mu(A_2)$.
+        \item Площадь прямоугольника со сторонами $a$ и $b$ равна $ab$.
+    \end{enumerate}
+\end{definition} 
+\begin{comm}
+    Существует площадь отрезка и площадь точки и они равны нулю.\\
+    По определению считаем, что $\mu(\emptyset)=0$
+\end{comm} 
+\begin{statement}
+    Существует площадь треугольника равная $\frac{1}{2}ah$.
+\end{statement} 
+\begin{proof}
+    очев.
+\end{proof} 
+\begin{definition}
+    Фигура, полученная конечным объединением непересекающихся треугольников называется многоугольником.
+\end{definition} 
+\begin{theorem}
+    Площадь многоугольной фигуры не зависит от разбиения на треугольники.
+\end{theorem} 
+\begin{proof}
+    Без доказательства ("Это не моя теорема, это не анализ")
+\end{proof} 
+\begin{definition}
+    Для любой фигуры $A$, замкнутая многоугольная фигура\\
+    $A\subset P$ называется описаной. Открытая многоугольная фигура $Q\subset A$ называется вписаной.
+\end{definition} 
+\begin{comm}
+    Для любой фигуры существует описаная и вписаная (пустое множество).
+\end{comm} 
+\begin{definition}
+    Число $\mu^*(A)=\inf\limits_{A\subset P}\mu(P)$ называется верхней площадью $A$.\\
+    Число $\mu_*(A)=\sup\limits_{Q\subset A}\mu(Q)$ называется нижней площадью $A$.
+\end{definition} 
+\begin{definition}
+    Если $\mu^*(A)=\mu_*(A)$, то $\exists\ \mu(A)=\mu^*(A)=\mu_*(A)$. Такое множество $A$ называется квадрируемым.
+\end{definition} 
+\begin{theorem}
+    (Первый критерий квадрируемости)\\
+    Фигура $A$ квадрируема $\Leftrightarrow \forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon$
+\end{theorem} 
+\begin{proof}
+    \begin{itemize}
+        \item[$(\Rightarrow)$] $A$ - квадрируема $\Rightarrow \mu^*(A)=\mu_*(A)$, но \\
+        $\forall \epsilon>0\ \exists\ P_{\epsilon}: \mu(P_{\epsilon})-\mu^*(A)<\frac{\epsilon}{2}\\ 
+        \forall \epsilon>0\ \exists\ Q_{\epsilon}: \mu_*(A)-\mu(Q_{\epsilon})<\frac{\epsilon}{2}$.
+        $\Rightarrow \mu(P_\epsilon)-\mu(Q_{\epsilon})<\epsilon$.
+        \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon \Rightarrow \mu^*(A)-\mu_*(A)<\epsilon \Rightarrow \mu^*(A)=\mu_*(A)$
+    \end{itemize}
+    
+\end{proof} 
