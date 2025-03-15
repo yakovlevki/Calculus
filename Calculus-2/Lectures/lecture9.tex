@@ -1,0 +1,31 @@
+\begin{theorem}
+    (2-й критерий квадрируемости)\\
+    Фигура $A$ квадрируема $\Leftrightarrow \mu(\partial A)=0$.
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item[$(\Rightarrow)$] $A$ - квадрируема $\Rightarrow \forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon}: \mu(P_{\epsilon})-\mu(Q_{\epsilon}) <\epsilon\ \partial A\subset P\setminus Q,\ Q$ - внутренние точки $A,\ \R^2\setminus P$ - внешние точки $A$. В частности $\partial A\subset P_{\epsilon}\setminus Q_{\epsilon} \Rightarrow \mu^*(\partial A)<\epsilon \Rightarrow \mu(A)=0$.
+        \item[$(\Leftarrow)$] 
+        \begin{lemma}
+            Если $B$ покрывается $P$ с $\mu(P)<\epsilon$, то $\exists\ h>0$, что $B\subset \cup$(квадратная сетка с шагом h),\ $\mu(\cup(\text{кв.}))<72\epsilon$.
+        \end{lemma}   
+        \begin{proof}
+            $P=\cup \Delta \Rightarrow P=\cup(\text{прямоугольные треугольники})$ с $\mu<\epsilon \Rightarrow P\subset \cup(\text{прямоугольники})$ с $\mu<2\epsilon \Rightarrow P\subset \cup(\text{квадраты})$ с $\mu<4\epsilon \Rightarrow P\subset (\text{квадраты со сторонами, параллельными осям}),\ \mu<8\epsilon \Rightarrow$ возьмем $h$, равное стороне наименьшего квадрата, и построим сетку с шагом $h \Rightarrow \mu(\cup(\text{кв.}))<72\epsilon$. 
+        \end{proof} 
+        $\mu(\partial A)=0 \Rightarrow \forall \epsilon>0\ \exists\ P_{\epsilon}\supset \partial A,\ \mu(P_{\epsilon})<\epsilon \Rightarrow \exists\ h>0,\ \partial A\subset \cup (\text{кв.})=A_2$ c $\mu()<72\epsilon$.\\ $A_1=\cup(\text{квадраты сетки, которые целиком состоят из внутренних точек A})\\
+        \Rightarrow A\subset A_1\cup A_2 \Rightarrow A_1\cup A_2=P,\ A_1=Q,\ \mu(P)-\mu(Q)=\mu(A_2)<72\epsilon$
+    \end{itemize}
+\end{proof} 
+\begin{theorem}
+    Если $\bar{\gamma}(t)$ - простая спрямляемая фигура, то $\mu(\bar{\gamma}(t))=0$.
+\end{theorem} 
+\begin{proof}
+    Делим $\bar{\gamma}(t)$ на $n$ одинаковых по длине кусков. $\{\bar{\gamma}(t_k)\}_{k=1}^{n+1}$. $\bar{\gamma}(t)\subset \cup(\text{квадратов с центрами в}\  \bar{\gamma}(t_k)\ \text{и стороной}\ |\frac{2\bar{\gamma}(t)|}{n}|)$. $\mu(\cup(\text{кв...}))<\frac{4|\bar{\gamma}(t)|^2}{n^2}\cdot (n+1)\to 0$.
+\end{proof} 
+\begin{theorem}
+    Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\geq 0$, тогда $A=\{(x,y): x\in[a,b],\ 0\leq y\leq f(x)\}$ квадрируема и 
+    \[\mu(A)=\int\limits_{a}^{b}f(x)\ dx\]
+\end{theorem} 
+\begin{proof}
+    $f(x)\in \mathcal{R}[a,b] \Rightarrow \forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta: \underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon$
+\end{proof} 
