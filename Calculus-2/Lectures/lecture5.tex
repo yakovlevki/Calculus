@@ -6,7 +6,11 @@
     \begin{align*}
         \vline\ \frac{1}{f(x')} - \frac{1}{f(x'')}\ \vline =\ \vline \frac{f(x'') - f(x')}{f(x')f(x'')}\ \vline \leq \frac{1}{\delta^2}\cdot\ \vline f(x'')-f(x')\ \vline
     \end{align*}
-    Дальнейшее доказательство аналогично предыдущему (\textit{возможно, распишем подробнее}).
+    Дальнейшее доказательство аналогично предыдущему (\textit{на всякий случай приведём аналогичную выкладку, необходимую для доказательства})
+    \begin{multline*}
+        M_i(\frac{1}{f(x)})-m_i(\frac{1}{f(x)})=\sup(\frac{1}{f(x')}-\frac{1}{f(x'')})\leq\\
+        \leq\frac{1}{\delta^2}\sup|f(x'')-f(x')|=\frac{1}{\delta^2}(M_{if}-m_{if})
+    \end{multline*}
 \end{proof}
 \begin{consequense}
     Из пунктов 6 и 7 следует интегрируемость дроби $\frac{f(x)}{g(x)}$.
@@ -67,22 +71,22 @@
     \[\int\limits_{a}^{x} f(x)\ dx\]
 \end{definition} 
 \begin{theorem}
-    Пусть $f(x)\in \mathcal{R}[a, b]$. Тогда
-    \[\int\limits_{a}^{x} f(t)\ dt = F(x)\]
-    где $F(x) \in \mathcal{C}[a, b]$.
+    Пусть $f(x)\in \mathcal{R}[a, b]$. Тогда функция
+    \[\phi(x) = \int\limits_{a}^{x} f(t)\ dt\]
+    непрерывна на $[a, b]$.
 \end{theorem}
 \begin{proof} 
     $\forall x_0\in [a,b]:$
-    \[|F(x_0 + \Delta x) - F(x_0)| =\ \vline\int\limits_{x_0}^{x_0 + \Delta x} f(t) dt\ \vline \leq M_{f([a, b])}\cdot |\Delta x| \rightarrow 0\]
+    \[|\phi(x_0 + \Delta x) - \phi(x_0)| =\ \vline\int\limits_{x_0}^{x_0 + \Delta x} f(t) dt\ \vline \leq M_{f([a, b])}\cdot |\Delta x| \rightarrow 0\]
 \end{proof}
 \begin{theorem}
-    Пусть $f(x)\in \mathcal{R}[a, b]$ и $f$ непрерывна в $x_0 \in [a, b]$. Тогда
-    \[\int_{a}^{x} f(t)\ dt = F(x)\]
-    имеет производную в $x_0$ и $F'(x_0) = f(x_0)$.
+    Пусть $f(x)\in \mathcal{R}[a, b]$ и $f$ непрерывна в $x_0 \in [a, b]$. Тогда функция
+    \[\phi(x) = \int_{a}^{x} f(t)\ dt\]
+    имеет производную в $x_0$ и $\phi'(x_0) = f(x_0)$.
 \end{theorem}
 \begin{proof}
     \begin{multline*}
-        \vline\ \frac{F(x_0 + \Delta x) - F(x_0)}{\Delta x} - f(x_0)\ \vline =\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} f(x)\ dx - \frac{f(x_0)}{\Delta x} \cdot \int\limits_{x_0}^{x_0 + \Delta x} 1\ dx\ \vline =\tab[3cm]\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} (f(x) - f(x_0))\ dx\ \vline \leq \sup \limits_{[a, b]}|f(x) - f(x_0)|\cdot 1 \longrightarrow 0.
+        \vline\ \frac{\phi(x_0 + \Delta x) - \phi(x_0)}{\Delta x} - f(x_0)\ \vline =\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} f(x)\ dx - \frac{f(x_0)}{\Delta x} \cdot \int\limits_{x_0}^{x_0 + \Delta x} 1\ dx\ \vline =\tab[3cm]\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} (f(x) - f(x_0))\ dx\ \vline \leq \sup \limits_{[a, b]}|f(x) - f(x_0)|\cdot 1 \longrightarrow 0.
     \end{multline*}
 \end{proof}
 \begin{consequense}

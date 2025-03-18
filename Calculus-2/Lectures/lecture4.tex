@@ -2,9 +2,9 @@
 \begin{definition}
     Пусть $A\subset \R$, и если $\forall \epsilon>0\ \exists\ \{(a_i,b_i)\}_{i=1}^{\infty}$ (или конечное) таких, что 
     \[A\subset \bigcup\limits_i(a_i,b_i),\ \sup\limits_n \sum\limits_{i=1}^{N}|b_i-a_i|< \epsilon\]
-     то $A$ называется множеством меры 0 по Лебегу и обозначается $\mu(A)=0$ 
+    Тогда $A$ называется множеством меры 0 по Лебегу. Обозначается $\mu(A)=0$.
 \end{definition} 
-\begin{theorem} (Свойства множеств с Лебеговой мерой 0)
+\begin{theorem} (Свойства множеств с мерой 0 по Лебегу)
     \begin{enumerate}
         \item $B\subset A,\ \mu(A)=0 \Rightarrow \mu(B)=0$
         \item $\{A_i\}_{i=1}^{\infty},\ \mu(A_i)=0 \Rightarrow \mu(\bigcup\limits_i^{\infty} A_i)=0$
@@ -82,22 +82,19 @@
 \begin{numtheorem}
     $f(x), g(x)\in \mathcal{R}[a,b]$. Тогда $f(x)\cdot g(x)\in \mathcal{R}[a,b]$
 \end{numtheorem}
-\begin{proof}
-    \begin{multline*}
-        f(x')g(x')-f(x'')g(x'')=\\=f(x')g(x')-f(x')g(x'')+f(x')g(x'')-f(x'')g(x'')=\\
-        =f(x')(g(x')-g(x''))+g(x'')(f(x')-f(x''))
-    \end{multline*}
-    Пусть 
+\begin{proof} Пусть 
     \[M_1=\sup\limits_{[a,b]}|f(x)|,\ M_2=\sup\limits_{[a,b]}|g(x)|\]
-    \begin{equation*}
-        \underline{\underline{S}}_{f\cdot g}-\overline{\overline{S}}_{f\cdot g}\leq M_1(\underline{\underline{S}}_g-\overline{\overline{S}}_g)+M_2(\underline{\underline{S}}_f-\overline{\overline{S}}_f)
-    \end{equation*}
-    В дальшейшей выкладке супремум рассматривается по всем $x',x''\in[x_i,x_{i-1}]$
+    Ограничим значение $\underline{\underline{S}}_{f\cdot g}-\overline{\overline{S}}_{f\cdot g}$, ограничив разность точных граней на одном отрезке разбиения: (далее супремум рассматривается по всем $x',x''\in[x_i,x_{i-1}]$)
     \begin{multline*}
-        \sup(f(x')g(x')-f(x'')g(x''))=\\
-        =M_i(f(x)g(x))-m_i(f(x)g(x))=\tab[7cm]\\
+        M_i(f(x)g(x))-m_i(f(x)g(x))=\sup(f(x')g(x')-f(x'')g(x''))=\\
+        =\sup(f(x')g(x')-f(x')g(x'')+f(x')g(x'')-f(x'')g(x''))=\tab[3cm]\\
         =\sup(f(x')(g(x')-g(x''))+g(x'')(f(x')-f(x'')))\leq\tab[1.5cm]\\
         \tab[3cm]\leq \sup|f(x)|\cdot \sup(g(x')-g(x''))+\sup|g(x)|\cdot \sup(f(x')-f(x''))\leq \\
         \leq M_1 (M_{ig}-m_{ig})+M_2(M_{if}-m_{if})
     \end{multline*}
+    Отсюда, домножив неравенства на длины соответствующих отрезков и сложив, получим
+    \begin{equation*}
+        \underline{\underline{S}}_{f\cdot g}-\overline{\overline{S}}_{f\cdot g}\leq M_1(\underline{\underline{S}}_g-\overline{\overline{S}}_g)+M_2(\underline{\underline{S}}_f-\overline{\overline{S}}_f)
+    \end{equation*}
+    Отсюда из интегрируемости $f$ и $g$ и критерия Дарбу $f(x)g(x) \in \mathcal{R}[a, b]$.  
 \end{proof}

@@ -34,17 +34,19 @@
     \[\underline{\underline{S}}(T)=\sup\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})\]
 \end{numlemma} 
 \begin{proof}
-    Докажем для верхней суммы. Рассмотрим множество \\
-    $\{X_i: X_i\subset \R\}_{i=1}^n$ такое, что\\
-    $X_i$ - ограничено $\forall i$, а также $\{a_i\}_{i=1}^n: a_i\geq 0 \ \forall i$ Тогда
+    Докажем для верхней суммы, для нижней аналогично.\\ Докажем более общее утверждение - рассмотрим некоторое семейство множеств $\{X_i: X_i\subset \R\}_{i=1}^n$ и множество $\{a_i\}_{i=1}^n$ такие, что $\forall i \ X_i$ ограничено и $a_i \geq 0$.\\
+    Каждое $X_i$ из принципа полноты Вейерштрасса имеет супремум, и при этом
     \[\forall \epsilon>0,\ \forall i=\{1,\dots,n\}\ \exists\ x_i\in X_i: x_i>\sup X_i-\epsilon\] 
-    Значит 
+    Домножив каждое из неравенств на число ($i$-е нер-во на $a_i$) и сложив, получим
     \[\sum\limits_{i=1}^{n}a_i x_i>\sum\limits_{i=1}^{n}a_i \sup X_i-\epsilon\cdot \sum\limits_{i=1}^{n}a_i\] 
+    Отсюда в силу свойства супремума
     \[\sup\limits_{\{x_i\}} \sum\limits_{i=1}^{n}a_i x_i\geq \sum\limits_{i=1}^{n}a_i \sup X_i\]
-    но 
+    но при этом
     \[\sum\limits_{i=1}^{n}a_i x_i \leq \sum\limits_{i=1}^{n} a_i\sup X_i\]
-    отсюда получаем:
+    Значит,
     \[\sup\limits_{\{x_i\}} \sum\limits_{i=1}^{n}a_i x_i=\sum\limits_{i=1}^{n}a_i \sup X_i\]
+    При $X_i = f([x_{i-1}, x_i])$ (ограничены в силу интегрируемости $f$) и $a_i = x_i - x_{i-1}$ получим
+    \[\sup\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1}) = \sum\limits_{i=1}^{n}\sup\limits_{\{\xi_i\}}f(\xi_i)(x_i-x_{i-1}) = \underline{\underline{S}}(T)\]
 \end{proof} 
 \begin{theorem} (Критерий Дарбу интегрируемости по Риману)\\
     $f(x)\in \mathcal{R}[a,b] \Leftrightarrow f$ - ограничена и 
@@ -84,6 +86,7 @@
     \begin{align*}
     \underline{\underline{S}}(T)-\overline{\overline{S}}(T)=\sum\limits_{i=1}^{n}(M_i-m_i)(x_i-x_{i-1})=\\=\sum\limits_{i=1}^{n}(f(x_{i_{max}})-f(x_{i_{min}}))(x_i-x_{i-1})<\epsilon(b-a)
     \end{align*}
+    ($x_{i_{min}}$ и $x_{i_{max}}$ существуют по второй теореме Вейерштрасса)
 \end{proof} 
 \begin{theorem}
     Пусть $f(x)$ - монотонна на $[a,b]$. Тогда $f(x)\in \mathcal{R}[a,b]$
