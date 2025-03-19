@@ -55,7 +55,7 @@
 \begin{proof} \ 
     \begin{itemize}
         \item[$(\Rightarrow):$]
-        \[\exists\ I=\int\limits_{a}^{b}f(x)\ dx \Rightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall T(\xi): d(T)<\delta_{\epsilon}\]
+        \[\exists\ I=\int\limits_{a}^{b}f(x)\ dx \Rightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall T(\xi): d(T)<\delta_{\epsilon}:\]
         \[I-\frac{\epsilon}{3}<\sigma_f(T(\xi))<I+\frac{\epsilon}{3}\]
         \[\vline\ \overline{\overline{S_f}}(T)-I\ \vline \leq \frac{\epsilon}{3},\ \ \  \vline\ \underline{\underline{S_f}}(T)-I\ \vline \leq \frac{\epsilon}{3}\]
         $\Rightarrow \underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon$.
@@ -65,13 +65,13 @@
         \end{equation}
         из леммы 2 по аксиоме полноты: 
         \begin{equation}
-            \exists\ I\in \R,\ \forall\ T_1, T_2: \overline{\overline{S}}(T)\leq I\leq\underline{\underline{S}}(T)
+            \exists\ I\in \R,\ \forall\ T: \overline{\overline{S}}(T)\leq I\leq\underline{\underline{S}}(T)
         \end{equation}
-        из $(1)$ следует, что $I$ - единственно, но 
+        из $(1)$ следует, что $I$ - единственно, а также известно, что
         \begin{equation}
             \forall\ T(\xi): \overline{\overline{S}}(T)\leq \sigma_f(T(\xi))\leq \underline{\underline{S}}(T)
         \end{equation}
-         из (2) и (3) получаем:
+        значит из (2) и (3) получаем:
         \[\vline\ \sigma_f(T(\xi))-I \ \vline<\epsilon\]    
     \end{itemize}
 \end{proof} 
@@ -99,4 +99,5 @@
         <\sum\limits_{i=1}^{n}(f(x_i)-f(x_{i-1}))\cdot \frac{\epsilon}{f(b)-f(a)}=\\
         =\frac{\epsilon}{f(b)-f(a)}\cdot (f(b)-f(a))=\epsilon
     \end{multline*}
+    Поскольку $f(x)$ неубывает на $[a,b]$, то минимум на этом отрезке достигается в $f(a)$, а максимум в $f(b)$. Значит, при выносе $\frac{\epsilon}{f(b)-f(a)}$ за скобку, сумма слагаемых вида $f(x_i)-f(x_{i-1})$ схлопнется в $f(b)-f(a)$.
 \end{proof} 

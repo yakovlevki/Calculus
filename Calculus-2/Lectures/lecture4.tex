@@ -7,15 +7,15 @@
 \begin{theorem} (Свойства множеств с мерой 0 по Лебегу)
     \begin{enumerate}
         \item $B\subset A,\ \mu(A)=0 \Rightarrow \mu(B)=0$
-        \item $\{A_i\}_{i=1}^{\infty},\ \mu(A_i)=0 \Rightarrow \mu(\bigcup\limits_i^{\infty} A_i)=0$
+        \item $\{A_i\}_{i=1}^{\infty},\ \mu(A_i)=0 \Rightarrow \mu(\bigcup\limits_{i=1}^{\infty} A_i)=0$
     \end{enumerate}
 \end{theorem} 
 \begin{proof} \
     \begin{enumerate}
         \item Очевидно
         \item $\forall i\ \exists\ \{(a_{i_l},b_{i_l})\}_{i=1}^{\infty}:$
-        \[A_i\subset \bigcup\limits_{l=1}^{\infty} (a_{i_l},b_{i_l}),\ \sum\limits_{l} |b_{i_l}-a_{i_l}|<\frac{\epsilon}{2^i}\]
-        \[\bigcup\limits_i A_i \subset \bigcup\limits_i\left(\bigcup\limits_l (a_{i_l},b_{i_l})\right),\ \sum\limits_{i}\left(\sum\limits_{l} |b_{i_l}-a_{i_l}|\right)<\sum\limits_{i=1}^{n}\frac{\epsilon}{2^i}=\epsilon\]
+        \[A_i\subset \bigcup\limits_{l=1}^{\infty} (a_{i_l},b_{i_l}),\ \sum\limits_{l=1} |b_{i_l}-a_{i_l}|<\frac{\epsilon}{2^i}\]
+        \[\bigcup\limits_{i=1}^{\infty} A_i \subset \bigcup\limits_{i=1}^{\infty}\left(\bigcup\limits_{l=1}^{\infty} (a_{i_l},b_{i_l})\right),\ \sum\limits_{i=1}^{\infty}\left(\sum\limits_{l=1}^{\infty} |b_{i_l}-a_{i_l}|\right)<\sum\limits_{i=1}^{\infty}\frac{\epsilon}{2^i}=\epsilon\]
     \end{enumerate}
 \end{proof} 
 \begin{theorem} (Критерий Лебега интегрируемости по Риману)\\

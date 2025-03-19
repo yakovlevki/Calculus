@@ -28,8 +28,8 @@
 \begin{comm}
     Обратное утверждение неверно:
     \[f(x) = \begin{cases}
-        1, \ x\in\mathbb{Q}\subset [0, 1]\\
-        -1, x\notin\mathbb{Q}
+        \tab[0.35cm] 1, \ x\in\mathbb{Q}\subset [0, 1]\\
+        -1,\ x\notin\mathbb{Q}
     \end{cases}\]
     $\Rightarrow |f(x)| \equiv 1$ на отрезке $[0, 1]$.
 \end{comm}
@@ -47,7 +47,7 @@
 \subsection{Первая теорема о среднем}
 
 \begin{theorem} (Первая теорема о среднем)\\
-    Пусть $f(x), g(x) \in \mathcal{R}[a, b], g \geq 0,\ M = \sup f(x),\ m = \inf f(x)$. Тогда\\
+    Пусть $f(x), g(x) \in \mathcal{R}[a, b],\ g(x) \geq 0,\ M = \sup f(x),\ m = \inf f(x)$. Тогда\\
     $\exists\ \mu\in [m,M]$:
     \[\int\limits_{a}^{b}f(x)\cdot g(x)\ dx = \mu\cdot\int\limits_{a}^{b}g(x)\ dx\]
 \end{theorem}
@@ -61,23 +61,23 @@
         \[\int\limits_{a}^{b} g(x)\ dx = 0 \Rightarrow \int\limits_{a}^{b} f(x)\cdot g(x)\ dx = 0\]
         В этом случае равенство верно для любого $\mu$.
         \item
-        \[\int\limits_{a}^{b} g(x)\ dx = 0 \Rightarrow m\leq \cfrac{\int\limits_{a}^{b} f(x)\cdot g(x)\ dx}{\int\limits_{a}^{b} g(x)\ dx}\leq M\]
+        \[\int\limits_{a}^{b} g(x)\ dx \ne 0 \Rightarrow m\leq \cfrac{\int\limits_{a}^{b} f(x)\cdot g(x)\ dx}{\int\limits_{a}^{b} g(x)\ dx}\leq M\]
         Значит, подойдет $\mu$, равное значению этой дроби
     \end{enumerate}
 \end{proof}
 \subsection{Интеграл с переменным верхним пределом}
 \begin{definition}
     Интегралом с переменным верхним пределом называется интеграл вида:
-    \[\int\limits_{a}^{x} f(x)\ dx\]
+    \[\int\limits_{a}^{x} f(t)\ dt\]
 \end{definition} 
 \begin{theorem}
-    Пусть $f(x)\in \mathcal{R}[a, b]$. Тогда функция
+    Пусть $f(t)\in \mathcal{R}[a, b]$. Тогда функция
     \[\phi(x) = \int\limits_{a}^{x} f(t)\ dt\]
     непрерывна на $[a, b]$.
 \end{theorem}
 \begin{proof} 
-    $\forall x_0\in [a,b]:$
-    \[|\phi(x_0 + \Delta x) - \phi(x_0)| =\ \vline\int\limits_{x_0}^{x_0 + \Delta x} f(t) dt\ \vline \leq M_{f([a, b])}\cdot |\Delta x| \rightarrow 0\]
+    $\forall x_0\in [a,b]$ и $\Delta x\to 0:$
+    \[|\phi(x_0 + \Delta x) - \phi(x_0)| =\ \vline\int\limits_{x_0}^{x_0 + \Delta x} f(t)\ dt\ \vline \leq M_{f([a, b])}\cdot |\Delta x| \rightarrow 0\]
 \end{proof}
 \begin{theorem}
     Пусть $f(x)\in \mathcal{R}[a, b]$ и $f$ непрерывна в $x_0 \in [a, b]$. Тогда функция
