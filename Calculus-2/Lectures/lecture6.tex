@@ -23,11 +23,11 @@
 \begin{proof}
     $f\in \mathcal{C}(a,b) \Rightarrow \exists\ F'(x)=f(x)$
     \[\int\limits_{a_0}^{b_0}f(x)\ dx= F(b_0)-F(a_0)\]
-    Но $(F(\phi(t)))'=F'(\phi(t))\cdot \phi(t)$, а значит
+    Но $(F(\phi(t)))'=F'(\phi(t))\cdot \phi'(t)$, а значит
     \[\int\limits_{\alpha_0}^{\beta_0}f(\phi(t))\cdot\phi'(t)\ dt=F(\phi(\beta_0))-F(\phi(\alpha_0))\]
 \end{proof} 
 \begin{theorem} (Интегрирование по частям)\\
-    Пусть $f(x),\ g(x)\in \mathcal{C}[a,b]$
+    Пусть $f(x),\ g(x)\in \mathcal{C}^1[a,b]$
     \[\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx=f(x)\cdot g(x)|_a^b-\int\limits_{a}^{b}f'(x)g(x)\ dx\]
 \end{theorem} 
 \begin{proof}

@@ -2,9 +2,11 @@
     (2-й критерий квадрируемости)\\
     Фигура $A$ квадрируема $\Leftrightarrow \mu(\partial A)=0$.
 \end{theorem}
-\begin{proof}
+\begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow)$] $A$ - квадрируема $\Rightarrow \forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon}: \mu(P_{\epsilon})-\mu(Q_{\epsilon}) <\epsilon\ \partial A\subset P\setminus Q,\ Q$ - внутренние точки $A,\ \R^2\setminus P$ - внешние точки $A$. В частности $\partial A\subset P_{\epsilon}\setminus Q_{\epsilon} \Rightarrow \mu^*(\partial A)<\epsilon \Rightarrow \mu(A)=0$.
+        \item[$(\Rightarrow)$] $A$ - квадрируема $\Rightarrow \forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon}: \mu(P_{\epsilon})-\mu(Q_{\epsilon}) <\epsilon,\ \partial A\subset P\setminus Q,\\
+        Q$ - внутренние точки $A,\ \R^2\setminus P$ - внешние точки $A$. В частности,\\
+        $\partial A\subset P_{\epsilon}\setminus Q_{\epsilon} \Rightarrow \mu^*(\partial A)<\epsilon \Rightarrow \mu(A)=0$.
         \item[$(\Leftarrow)$] 
         \begin{lemma}
             Если $B$ покрывается $P$ с $\mu(P)<\epsilon$, то существует $h>0$ такое, что $B\subset \cup$(квадратная сетка с шагом h),\ $\mu(\cup(\text{кв.}))<72\epsilon$.
@@ -20,7 +22,8 @@
     Если $\bar{\gamma}(t)$ - простая спрямляемая фигура, то $\mu(\bar{\gamma}(t))=0$.
 \end{theorem} 
 \begin{proof}
-    Делим $\bar{\gamma}(t)$ на $n$ одинаковых по длине кусков. $\{\bar{\gamma}(t_k)\}_{k=1}^{n+1}$. $\bar{\gamma}(t)\subset \cup(\text{квадратов с центрами в}\  \bar{\gamma}(t_k)\ \text{и стороной}\ |\frac{2\bar{\gamma}(t)|}{n}|)$. $\mu(\cup(\text{кв...}))<\frac{4|\bar{\gamma}(t)|^2}{n^2}\cdot (n+1)\to 0$.
+    Делим $\bar{\gamma}(t)$ на $n$ одинаковых по длине кусков. $\{\bar{\gamma}(t_k)\}_{k=1}^{n+1}$. $\bar{\gamma}(t)\subset \cup(\text{квадратов с центрами в}\  \bar{\gamma}(t_k)\ \text{и стороной}\ |\frac{2\bar{\gamma}(t)|}{n}|)$. 
+    \[\mu(\cup(\text{кв...}))<\frac{4|\bar{\gamma}(t)|^2}{n^2}\cdot (n+1)\to 0\]
 \end{proof} 
 \begin{theorem}
     Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\geq 0$, тогда $A=\{(x,y): x\in[a,b],\ 0\leq y\leq f(x)\}$ квадрируема и 
