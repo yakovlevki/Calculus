@@ -1,7 +1,8 @@
 \subsection{Формула Ньютона-Лейбница}
 \begin{theorem} (Формула Ньютона-Лейбница)\\
-    Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\in \mathcal{C}([a,b]\setminus \{x_i\}_{i=1}^{n})$. Пусть $\exists\ F(x):\\
-    F(x)\in \mathcal{D}([a,b]\setminus \{x_i\}_{i=1}^{n}),\ F'(x)=f(x),\ F(x)\in \mathcal{C}[a,b]$. Тогда 
+    Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\in \mathcal{C}([a,b]\setminus \{x_i\}_{i=1}^{n})$.
+    \[\exists\ F(x): \ F(x)\in \mathcal{D}([a,b]\setminus \{x_i\}_{i=1}^{n}),\ F'(x)=f(x),\ F(x)\in \mathcal{C}[a,b]\] 
+    Тогда: 
     \[\int\limits_{a}^{b}f(x)\ dx=F(b)-F(a)\]
 \end{theorem} 
 \begin{proof}
@@ -12,7 +13,7 @@
     $\Rightarrow F(a)+C=0$. Тогда 
     \[F(b)-F(a)=\int\limits_{a}^{b} f(t)\ dt\]
     Общий случай:
-        \[F(b)-F(a)=\sum\limits_{i=1}^{n+1}(F(x_i)-F(x_{i-1}))=\sum\limits_{i=1}^{n+1} \int\limits_{x_{i-1}}^{x_i} f(t)\ dt=\int\limits_{a}^{b} f(t)\ dt\]
+        \[F(b)-F(a)=\sum\limits_{i=1}^{n-1}(F(x_{i+1})-F(x_{i}))=\sum\limits_{i=1}^{n-1} \int\limits_{x_{i-1}}^{x_i} f(t)\ dt=\int\limits_{a}^{b} f(t)\ dt\]
 \end{proof} 
 \subsection{Замена переменной и интегрирование по частям}
 \begin{theorem}
