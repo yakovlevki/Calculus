@@ -1,3 +1,4 @@
+\subsection{Спрямляемость гладкой кривой и формула ее длины}
 \begin{theorem}
     Пусть 
     \[\bar{\gamma}(t) = 
@@ -25,18 +26,22 @@
         \sum_{i = 1}^{N} \sum_{j = 1}^{n} |x_j^{'} (\xi_{ij}) - x_j^{'} (\nu_i)| \cdot (t_i - t_{i - 1}) < \epsilon \cdot n \cdot (b - a)
         %\left| \frac{\sum_{i = 1}^{k} (a_i - b_i) (a_i + b_i)}{\sqrt{\epsilon} + \sqrt{\epsilon}} \leqslant \sum_{i = 1}^{k} |a_i - b_i| \right|
     \end{multline*}
+    Последняя оценка сделана с применением леммы, которая доказана чуть ниже
     \[\forall \epsilon > 0 \ \exists\ \delta_{\epsilon} > 0,\ d(T) < \delta_{\epsilon}\]
     \[\Rightarrow \left| |L(T_{\bar{\gamma}})| - \int\limits_{a}^{b} \sqrt{\sum_{j = 1}^{n} x_{j}^{'2}(t)} dt \right| < 2 \epsilon n (b-a)\]
     $\forall \epsilon > 0 \ \exists\ L(T^{*}_{\bar{\gamma}})$, что $|L(T^{*}_{\bar{\gamma}}) | > |\bar{\gamma}| - \epsilon$ (свойство точной верхней грани). \newline
     Измельчаем $T_{\bar{\gamma}}^{*}$ до тех пор, пока $d(T_{\bar{\gamma}}^{**}) < \delta_{\epsilon}$.
 \end{proof}
+\begin{lemma}
+    \[\left| \sqrt{\sum\limits_{i = 1}^{k} a_i^2} - \sqrt{\sum_{i = 1}^{k} b_i^2} \right| \leq \sum\limits_{i = 1}^{k} |a_i - b_i|\]
+\end{lemma}
+\begin{proof}
+    \begin{multline*}
+        \left| \sqrt{\sum\limits_{i = 1}^{k} a_i^2} - \sqrt{\sum_{i = 1}^{k} b_i^2} \right| = \left| \frac{\sum\limits_{i = 1}^{k}\left( (a_i - b_i) (a_i + b_i)\right)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}} \right| =\\
+        = \left| \left( \frac{(a_i + b_i)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}}\right) \cdot \sum\limits_{i = 1}^{k} (a_i - b_i) \right| \leq (*)\\ 
+        \leq 1 \cdot \left| \sum\limits_{i=1}^{n}(a_i-b_i)\right| \leq \sum\limits_{i = 1}^{k} |a_i - b_i|
+    \end{multline*}
+    \[(*):\ \ \ \  a_i \leq  \sqrt{\sum\limits_{i = 1}^{k} a_i^2},\ b_i \leq \sqrt{\sum\limits_{i = 1}^{k} b_i^2}\ \Rightarrow\ \frac{(a_i + b_i)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}} \leq 1\]
+\end{proof} 
 
-\begin{statement}
-        \[\left|
-            \sqrt{\sum_{i = 1}^{k} a_i^2} - \sqrt{\sum_{i = 1}^{k} b_i^2}
-        \right| = 
-        \left|
-            \frac{\sum_{i = 1}^{k} (a_i - b_i) \cdot (a_i + b_i)}{\sqrt{\sum_{i = 1}^{k} a_i^2} + \sqrt{\sum_{i = 1}^{k} b_i^2}}
-        \right| \leqslant \sum_{i = 1}^{k} |a_i - b_i|\]
-\end{statement}
 
