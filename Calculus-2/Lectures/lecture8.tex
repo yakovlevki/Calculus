@@ -1,6 +1,7 @@
-\subsection{Площадь плоской фигуры}
+\subsection{Квадрируемые фигуры}
+Далее работаем в $\R^2$.
 \begin{definition}
-    Множество $\{(x,y): (x-x_0)^2+(y-y_0)^2<\epsilon^2\}$ называется $\epsilon$-окрестностью точки $(x_0,y_0)$.
+    Множество $\{(x,y): (x-x_0)^2+(y-y_0)^2<\epsilon^2\}\subset \R^2$ называется $\epsilon$-окрестностью точки $(x_0,y_0)$.
 \end{definition}
 \begin{definition}
     Множество $A\in \R^2$ называется ограниченым, если $\exists R>0: A\subset \{(x,y): x^2+y^2\leq R^2\}$.
@@ -23,10 +24,10 @@
     По определению считаем, что $\mu(\emptyset)=0$
 \end{comm} 
 \begin{statement}
-    Существует площадь треугольника равная $\frac{1}{2}ah$.
+    Существует площадь треугольника равная половине произведения основания на высоту.
 \end{statement} 
 \begin{proof}
-    очев.
+    Рассмотрим произвольный треугольник. Проведем в нем высоту, тогда он разобьется на два прямоугольных треугольника, которые можно достроить до прямоугольников. Тогда площадь искомого треугольника равна сумме половин площадей достроеных прямоугольников. 
 \end{proof} 
 \begin{definition}
     Фигура, полученная конечным объединением непересекающихся треугольников называется многоугольником.
@@ -40,27 +41,32 @@
 \begin{definition}
     Для любой фигуры $A$, замкнутая многоугольная фигура\\
     $P\supset A$ называется описанной. Открытая многоугольная фигура $Q\subset A$ называется вписанной.
-\end{definition} 
+\end{definition}
 \begin{comm}
-    Для любой фигуры существует описаная и вписаная (пустое множество).
+    Далее, если фигура обозначена $P$, то считаем ее замкнутой описанной, а если $Q$ то открытой вписанной. 
+\end{comm} 
+\begin{comm}
+    Для любой фигуры существует описаная (поскольку любая фигура ограничена) и вписаная (пустое множество).
 \end{comm} 
 \begin{definition}
     Число $\mu^*(A)=\inf\limits_{A\subset P}\mu(P)$ называется верхней площадью $A$.\\
     Число $\mu_*(A)=\sup\limits_{Q\subset A}\mu(Q)$ называется нижней площадью $A$.
 \end{definition} 
 \begin{definition}
-    Если $\mu^*(A)=\mu_*(A)$, то $\exists\ \mu(A)=\mu^*(A)=\mu_*(A)$. Такое множество $A$ называется квадрируемым.
+    Если $\mu^*(A)=\mu_*(A)$, то $\exists\ \mu(A)=\mu^*(A)=\mu_*(A)$. Такая фигура $A$ называется квадрируемой.
 \end{definition} 
+\subsection{Первый и второй критерии квадрируемости}
 \begin{theorem}
     (Первый критерий квадрируемости)\\
     Фигура $A$ квадрируема $\Leftrightarrow \forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon$
 \end{theorem} 
-\begin{proof}
+\begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow)$] $A$ - квадрируема $\Rightarrow \mu^*(A)=\mu_*(A)$, но \\
-        $\forall \epsilon>0\ \exists\ P_{\epsilon}: \mu(P_{\epsilon})-\mu^*(A)<\frac{\epsilon}{2}\\ 
-        \forall \epsilon>0\ \exists\ Q_{\epsilon}: \mu_*(A)-\mu(Q_{\epsilon})<\frac{\epsilon}{2}$.
-        $\Rightarrow \mu(P_\epsilon)-\mu(Q_{\epsilon})<\epsilon$.
-        \item[$(\Leftarrow)$] $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon \Rightarrow \mu^*(A)-\mu_*(A)<\epsilon \Rightarrow \mu^*(A)=\mu_*(A)$
+        \item[$(\Rightarrow):$] $A$ - квадрируема $\Rightarrow \mu^*(A)=\mu_*(A)$, но
+        \[\forall \epsilon>0\ \exists\ P_{\epsilon}: \mu(P_{\epsilon})-\mu^*(A)<\frac{\epsilon}{2}\]
+        \[\forall \epsilon>0\ \exists\ Q_{\epsilon}: \mu_*(A)-\mu(Q_{\epsilon})<\frac{\epsilon}{2}\]
+        \[\Rightarrow \mu(P_\epsilon)-\mu(Q_{\epsilon})<\epsilon\]
+        \item[$(\Leftarrow):$] 
+        \[\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon \Rightarrow \mu^*(A)-\mu_*(A)<\epsilon \Rightarrow \mu^*(A)=\mu_*(A)\]
     \end{itemize}
 \end{proof} 
