@@ -19,13 +19,13 @@
 \begin{theorem}
     Пусть $f(x)\in \mathcal{C}(a,b),\ \phi(t)\in \mathcal{C}^1(\alpha, \beta),\ \phi((\alpha, \beta))\subset (a,b).\\
     \forall \alpha_0, \beta_0\in (\alpha, \beta)$ и $a_0=\phi(\alpha_0),\ b_0=\phi(\beta_0)$. Тогда
-    \[\int\limits_{a_0}^{b_0}f(x)\ dx=\int\limits_{\alpha_0}^{\beta_0}f(\phi(t))\cdot \phi'(t)\ dt\]
+    \[\int\limits_{a_0}^{b_0}f(x)\ dx=\int\limits_{\alpha_0}^{\beta_0}f'(\phi(t))\cdot \phi'(t)\ dt\]
 \end{theorem} 
 \begin{proof}
     $f\in \mathcal{C}(a,b) \Rightarrow \exists\ F'(x)=f(x)$
     \[\int\limits_{a_0}^{b_0}f(x)\ dx= F(b_0)-F(a_0)\]
     Но $(F(\phi(t)))'=F'(\phi(t))\cdot \phi'(t)$, а значит
-    \[\int\limits_{\alpha_0}^{\beta_0}f(\phi(t))\cdot\phi'(t)\ dt=F(\phi(\beta_0))-F(\phi(\alpha_0))\]
+    \[\int\limits_{\alpha_0}^{\beta_0}f'(\phi(t))\cdot\phi'(t)\ dt=F(\phi(\beta_0))-F(\phi(\alpha_0))\]
 \end{proof} 
 \begin{theorem} (Интегрирование по частям)\\
     Пусть $f(x),\ g(x)\in \mathcal{C}^1[a,b]$
