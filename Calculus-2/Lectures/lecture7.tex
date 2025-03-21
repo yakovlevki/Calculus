@@ -38,8 +38,8 @@
 \begin{proof}
     \begin{multline*}
         \left| \sqrt{\sum\limits_{i = 1}^{k} a_i^2} - \sqrt{\sum_{i = 1}^{k} b_i^2} \right| = \left| \frac{\sum\limits_{i = 1}^{k}\left( (a_i - b_i) (a_i + b_i)\right)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}} \right| =\\
-        = \left| \left( \frac{(a_i + b_i)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}}\right) \cdot \sum\limits_{i = 1}^{k} (a_i - b_i) \right| \leq (*)\\ 
-        \leq 1 \cdot \left| \sum\limits_{i=1}^{n}(a_i-b_i)\right| \leq \sum\limits_{i = 1}^{k} |a_i - b_i|
+        =\left| \sum\limits_{i = 1}^{k}\left( (a_i - b_i)\cdot \frac{(a_i + b_i)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}}\right) \right| \leq (*)\\ 
+        \leq \left| \sum\limits_{i=1}^{n} 1\cdot (a_i-b_i)\right| \leq \sum\limits_{i = 1}^{k} |a_i - b_i|
     \end{multline*}
     \[(*):\ \ \ \  a_i \leq  \sqrt{\sum\limits_{i = 1}^{k} a_i^2},\ b_i \leq \sqrt{\sum\limits_{i = 1}^{k} b_i^2}\ \Rightarrow\ \frac{(a_i + b_i)}{\sqrt{\sum\limits_{i = 1}^{k} a_i^2} + \sqrt{\sum\limits_{i = 1}^{k} b_i^2}} \leq 1\]
 \end{proof} 
