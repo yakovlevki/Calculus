@@ -1,0 +1,144 @@
+\newpage
+\section{Функции ограниченной вариации}
+% \subsection{}
+\begin{definition}
+    Пусть $f(x)$ определена на $[a,b],\ T_{[a,b]}$ - разбиение отрезка $[a,b]$. Сумма вида 
+    \[V(f,t)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\]
+    называется вариацией функции на данном разбиении $T$
+\end{definition} 
+\begin{definition}
+    Если $\exists\ M>0$ такое, что $\forall T_{[a,b]}: V(f,T)\leq M$, то функция называется функцией ограниченной вариации на $[a,b]$, а величина
+    \[\sup\limits_{T}V(f,T)= V_a^b f(x)=\text{var}_{[a,b]}f(x)\] % нужно написать declaremathoperator
+    называется полной вариацией функции на отрезке $[a,b]$
+\end{definition} 
+\begin{examples}
+    В разработке
+    % Пример 1 (полная вариация за исключением конечного числа точек)\\
+    % Пример 2 (когда это невозможно)
+\end{examples}
+\subsection{Свойства функций ограниченой вариации}
+\begin{numtheorem}
+    Если $f\in \mathcal{V}[a,b]$, то $f$ - ограничена на $[a,b]$.
+\end{numtheorem}
+\begin{proof}
+    Временно очев.
+\end{proof}
+\begin{numtheorem}
+    Пусть $T_{[a,b]}'$ - измельчение $T_{[a,b]}$. Тогда $V(f, T)\leq V(f, T')$
+\end{numtheorem} 
+\begin{proof}
+    Временно очев (модуль суммы меньше или равен суммы модулей).
+\end{proof} 
+\begin{numtheorem}
+    Если $f\in \mathcal{V} [a,b]$, то $\forall \alpha\in \R$:
+    \[V_a^b(\alpha\cdot f(x))=|\alpha|\cdot V_a^b f(x)\] 
+\end{numtheorem} 
+\begin{numtheorem}
+    Если $f,g\in \mathcal{V}[a,b]$, то $f+g\in \mathcal{V}[a,b]$
+\end{numtheorem} 
+\begin{proof}
+    \[V_a^b(f(x)+g(x))\leq V_a^b f(x)+V_a^b g(x)\]
+\end{proof} 
+\begin{numtheorem}
+    Если $f,g\in \mathcal{V}[a,b]$, то $f(x)\cdot g(x)\in \mathcal{V}[a,b]$
+\end{numtheorem} 
+\begin{proof}
+    \begin{multline*}
+        |f(x_i)g(x_i)-f(x_{i-1})+f(x_i)g(x_{i-1})-f(x_i)g(x_{i-1}\leq\\
+        \leq M_1\cdot |f(x_i)-f(x_{i-1}|+M_2\cdot |g(x_i)-g(x_{i-1})|
+    \end{multline*}
+\end{proof} 
+\begin{numtheorem}
+    Если $f,g\in \mathcal{V}[a,b],\ g\geq \epsilon>0$, то $\frac{f}{g}\in \mathcal{V}[a,b]$
+\end{numtheorem} 
+\begin{numtheorem}
+    Если $f(x)$ монотонна на $[a,b],\ V_a^b f(x)=f(b)\cdot f(a)$ (при $f$ неубывающей) 
+\end{numtheorem}
+\begin{numtheorem} (Аддитивность)\\
+    Если $c\in (a,b),\ f\in \mathcal{V}[a,c]$ и $f\in \mathcal{V}[a,b]$, то $f\in \mathcal{V}[a,b]$ и 
+    \[V_a^b=V_a^c+V_c^b\]
+\end{numtheorem} 
+\begin{proof}
+    Рассмотрим 
+    \[V(f,T_{[a,b]})\leq V(f, T_{[a,b]\cup \{c\}})=V(f, T_{[a,c]})+V(f,T_{[c,b]})\]
+    Значит
+    \[V_a^b f(x)\leq V_a^c f(x)+V_c^bf(x)\]
+    С другой стороны, рассмотрим $V(f, T_{[a,c]})+V(f, T_{[c,b]})=V(f, T_{a,b}\ni c)$ Значит
+    \[V_a^c+V_c^b=\sup V(f,T_{[a,b]}\ni c)\leq V_a^b f(x)\] 
+\end{proof} 
+\begin{theorem}
+    Если $f(x)\in \mathcal{V}[a,b]$, то $\exists\ h(x),\ v(x)$ - монотонно неубывющие на $[a,b]$ такие, что $f(x)=v(x)-h(x)$.
+\end{theorem} 
+\begin{proof}
+    Пусть
+    \[v(x)=V_a^x f(x)\]
+    Рассмотрим функцию $h(x)=v(x)-f(x)$. Пусть $x_1,\ x_2\in [a,b],\ x_2>x_2$:
+    \[h(x_2)-h(x_1)=V_{x_1}^{x_2}f(x)-(f(x_2)-f(x_1))\geq 0\]
+    так как 
+    \[V_{x_1}^{x_2}\geq|f(x_2)-f(x_1)|\]
+    $\Rightarrow h(x)$ - неубывает.
+\end{proof} 
+\subsection{Липшицевы функции}
+\begin{definition}
+Функция $f(x)$, опеределенная на $(a,b)$ называется липшицевой если $\exists\ M>0$ такое, что $\forall x_1,x_2\in [a,b]:$
+\[|f(x_2)-f(x_1)|\leq M\cdot |x_2-x_1|\]
+Часто обозначают $f(x)\in \text{Lip}[a,b]$ или $f\in \text{Lip}_1[a,b]$
+\end{definition} 
+\begin{theorem}
+    Если $f(x)\in \text{Lip}_1[a,b]$, то $f\in \mathcal{V}[a,b]$
+\end{theorem} 
+\begin{proof}
+    \[V(f,T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\leq \sum\limits_{i=1}^{n}|x_i-x_{i-1}|=M\cdot (b-a)\]
+\end{proof} 
+\begin{theorem}
+    Если $f(x)\in C^1[a,b]$, то $f(x)\in \mathcal{V}[a,b]$ и 
+    \[V_a^b f(x)=\int\limits_{a}^{b}|f'(x)|\ dx\]
+\end{theorem} 
+\begin{proof}
+    Если $f\in C^1[a,b]$, то $f\in \text{Lip}_1[a,b]$, так как
+    \[|f(x_2)-f(x_1)|=|f'(\xi)(x_2-x_1)\leq \max\limits_{x\in [a,b]}|f'(x)|\cdot|(x_2-x_1)|\]
+    \begin{multline*}
+        V(f, T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|=\sum\limits_{i=1}^{n} |f'(\xi)(x_i-x_{i-1})|=\\
+        =\sum\limits_{i=1}^{n} |f'(\xi)| (x_i-x_{i-1})\to \int\limits_{a}^{b}|f'(x)|\ dx
+    \end{multline*}
+    $\Rightarrow \forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta:$
+    \[|V(f,T)-\int\limits_{a}^{b}|f'(x)|\ dx|<\epsilon\]
+    По определению верхней грани $\forall \epsilon>0\ \exists\ V(f,T_{\epsilon})$, что
+    \[V_a^b f(x)-V(f,T_{\epsilon})<\epsilon\]
+    измельчаем $T_{\epsilon}$, значит $T_{\epsilon}*$ с $d(T_{\epsilon}*)<\delta$:
+    \begin{multline*}
+        |V_a^b f(x)-\int\limits_{a}^{b}|f'(x)|\ dx+V(f,T_{\epsilon}*-V(f, T_{\epsilon}*))|\leq\\
+        \leq |V_a^b f(x)-V(f, T_{\epsilon}*)|+\left|\int\limits_{a}^{b}|f(x)|\ dx-V(f,T_{\epsilon}*)\right|<2\epsilon
+    \end{multline*}
+    Значит
+    \[\left|V_a^b f(x)-\int\limits_{a}^{b}|f'(x)|\ dx \right|<2\cdot \epsilon\]
+\end{proof}
+% Тут должна быть вставка про лестницу кантора
+\section{Интеграл Римана-Стилтьеса}
+\begin{definition}
+    Пусть $f(x),\ g(x)$ определены на $[a,b]$. $\forall T(\xi)$ сумма 
+    \[\sum\limits_{i=1}^{n} f(\xi_i)(g(x_i)-g(x_{i-1}))=\sigma_g(f,T)\]
+    называется интегральной суммой Римана-Стилтьеса.
+\end{definition} 
+\begin{definition}
+    Если существует предел
+    \[\lim\limits_{d\to 0}\sigma_g(f, T(\xi))=\int\limits_{a}^{b}f(x)\ d(g(x))\]
+    то он называется интегралом Римана-Стилтьеса.
+\end{definition}
+\subsection{Свойства интеграла Римана-Стилтьеса}
+\begin{numtheorem}
+    $\forall \alpha,\ \beta\in \R$:
+    \[\int\limits_{a}^{b}(\alpha\cdot f(x))\ d(\beta\cdot g(x))=\alpha \cdot \beta \int\limits_{a}^{b} f(x)\ d(g(x))\]
+\end{numtheorem} 
+\begin{theorem}
+    Если существуют интегралы
+    \[\int\limits_{a}^{b}f_1(x)\ d(g(x)),\ \int\limits_{a}^{b}f_2(x)\ d(g(x))\]
+    то существует интеграл 
+    \[\int\limits_{a}^{b}(f_1+f_2)\ d(g(x))=\int\limits_{a}^{b}f_1(x)\ d(g(x))+\int\limits_{a}^{b}f_2(x)\ d(g(x))\]
+\end{theorem} 
+\begin{theorem}
+    Если существуют интегралы
+    \[\int\limits_{a}^{b}f(x)\ d(g_1(x)),\ \int\limits_{a}^{b}f(x)\ d(g_2(x))\]
+    то существует интегал 
+    \[\int\limits_{a}^{b}f(x)\ d(g_1(x)+g_2(x))=\int\limits_{a}^{b}f(x)\ d(g_1)+\int\limits_{a}^{b}f(x)\ d(g_2)\]
+\end{theorem} 
