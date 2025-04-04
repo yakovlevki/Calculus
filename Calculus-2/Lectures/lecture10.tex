@@ -11,12 +11,12 @@
     \[\sup\limits_{T}V(f,T)= \variation\limits_{a}^{b} f(x)=\text{var}_{[a,b]}f(x)\] % нужно написать declaremathoperator
     называется полной вариацией функции на отрезке $[a,b]$
 \end{definition} 
-\begin{examples}
-    В разработке
+% \begin{examples}
+    % В разработке
     % Пример 1 (полная вариация за исключением конечного числа точек)\\
     % Пример 2 (когда это невозможно)
-\end{examples}
-\subsection{Свойства функций ограниченой вариации}
+% \end{examples}
+\subsection{Свойства функций ограниченной вариации}
 \begin{numtheorem}
     Если $f\in \mathcal{V}[a,b]$, то $f$ - ограничена на $[a,b]$.
 \end{numtheorem}
@@ -44,8 +44,8 @@
 \end{numtheorem} 
 \begin{proof}
     \begin{multline*}
-        |f(x_i)g(x_i)-f(x_{i-1})+f(x_i)g(x_{i-1})-f(x_i)g(x_{i-1}\leq\\
-        \leq M_1\cdot |f(x_i)-f(x_{i-1}|+M_2\cdot |g(x_i)-g(x_{i-1})|
+        |f(x_i)g(x_i)-f(x_{i-1})g(x_i)+f(x_{i-1})g(x_{i})-f(x_{i-1})g(x_{i-1})\leq\\
+        \leq M_1\cdot |f(x_i)-f(x_{i-1})|+M_2\cdot |g(x_i)-g(x_{i-1})|
     \end{multline*}
 \end{proof} 
 \begin{numtheorem}
@@ -76,7 +76,7 @@
 \begin{proof}
     Пусть
     \[v(x)=\variation\limits_{a}^{x} f(x)\]
-    Рассмотрим функцию $h(x)=v(x)-f(x)$. Пусть $x_1,\ x_2\in [a,b],\ x_2>x_2$:
+    Рассмотрим функцию $h(x)=v(x)-f(x)$. Пусть $x_1,\ x_2\in [a,b],\ x_2>x_1$:
     \[h(x_2)-h(x_1)=\variation\limits_{x_1}^{x_2}f(x)-(f(x_2)-f(x_1))\geq 0\]
     так как 
     \[\variation\limits_{x_1}^{x_2}\geq|f(x_2)-f(x_1)|\]
@@ -84,7 +84,7 @@
 \end{proof} 
 \subsection{Липшицевы функции}
 \begin{definition}
-Функция $f(x)$, опеределенная на $(a,b)$ называется липшицевой если $\exists\ M>0$ такое, что $\forall x_1,x_2\in [a,b]:$
+Функция $f(x)$, опеределенная на $(a,b)$, называется липшицевой, если $\exists\ M>0$ такое, что $\forall x_1,x_2\in [a,b]:$
 \[|f(x_2)-f(x_1)|\leq M\cdot |x_2-x_1|\]
 Часто обозначают $f(x)\in \text{Lip}[a,b]$ или $f\in \text{Lip}_1[a,b]$
 \end{definition} 
@@ -105,7 +105,7 @@
         V(f, T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|=\sum\limits_{i=1}^{n} |f'(\xi)(x_i-x_{i-1})|=\\
         =\sum\limits_{i=1}^{n} |f'(\xi)| (x_i-x_{i-1})\to \int\limits_{a}^{b}|f'(x)|\ dx
     \end{multline*}
-    $\Rightarrow \forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta$:
+    $\Rightarrow \forall \epsilon>0\ \exists\ \delta>0,\ \forall T,\ d(T)<\delta$:
     \[\left|V(f,T)-\int\limits_{a}^{b}|f'(x)|\ dx\right|<\epsilon\]
     По определению точной верхней грани: $\forall \epsilon>0\ \exists\ V(f,T_{\epsilon})$ такое, что
     \[\variation\limits_{a}^{b} f(x)-V(f,T_{\epsilon})<\epsilon\]

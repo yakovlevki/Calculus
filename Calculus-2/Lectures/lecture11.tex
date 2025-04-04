@@ -1,0 +1,120 @@
+\begin{numtheorem}
+    (Аддитивность)\\
+    Если существуют 
+    \[\int\limits_{a}^{b}f(x)\ d(g(x)),\ \int\limits_{a}^{c}f(x)\ d(g(x)),\ \int\limits_{c}^{b}f(x)\ d(g(x))\]
+    то 
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))=\int\limits_{a}^{c}f(x)\ d(g(x)) + \int\limits_{c}^{b}f(x)\ d(g(x))\]
+\end{numtheorem} 
+\begin{proof}
+\begin{multline*}
+    \int\limits_{a}^{b}f(x)\ d(g(x))=\lim\limits_{d\to 0} \sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\lim\limits_{d\to 0, c\in T}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\\
+    =\lim\limits_{d\to 0}\sum\limits_{i=1}^{n_1}f(\xi_i)(g(x_i)-g(x_{i-1}))+\lim\limits_{d\to 0}\sum\limits_{i=n+1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\int\limits_{a}^{c}f(x)\ d(g(x)) + \int\limits_{c}^{b}f(x)\ d(g(x))
+\end{multline*}
+\end{proof} 
+\begin{comm}
+    Если существует
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
+    то существуют
+    \[\int\limits_{a}^{c}f(x)\ d(g(x)),\ \int\limits_{b}^{c}f(x)\ d(g(x))\]
+    и верно их равенство
+\end{comm} 
+\begin{comm}
+    Если существуют
+    \[\int\limits_{a}^{c}f(x)\ d(g(x)),\ \int\limits_{c}^{b}f(x)\ d(g(x))\]
+    то Интеграл
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
+    не обязательно существует.
+\end{comm} 
+\begin{example}
+    \[f(x)=\begin{cases}
+        0,\ x\in [-1,0],\\
+        1,\ x\in (0, 1] 
+    \end{cases}\
+        g(x)=\begin{cases}
+            0,\ x\in [-1,0),\\
+            1,\ x\in [0, 1]
+    \end{cases}
+    \]
+    \[\int\limits_{-1}^{0}f(x)\ d(g(x))=\lim\limits_{d\to 0}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_{i})-g(x_{i-1}))=0\]
+    \[\int\limits_{0}^{1}f(x)\ d(g(x))=\lim\limits_{d\to 0}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_{i})-g(x_{i-1}))=0\]
+    \[\int\limits_{-1}^{1}f(x)\ d(g(x))=\lim\limits_{d\to 0}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_{i})-g(x_{i-1}))=\lim\limits_{d\to 0} f(\xi_j)(g(x_j)-g(x_{j-1}))\]
+    При разной разметке будет получаться 1 или 0, значит, предела не существует.
+\end{example}
+\begin{numtheorem}
+    (Интегрирование по частям)\\
+    Если существут интеграл
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
+    то существует
+    \[\int\limits_{a}^{b}g(x)\ d(f(x))\]
+    причем
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))=f(x)\cdot g(x)|_a^b - \int\limits_{a}^{b}g(x)\ d(f(x))\]
+\end{numtheorem} 
+\begin{proof}
+    \begin{multline*}
+        \sum\limits_{i=1}^{n}g(\xi_i)(f(x_i)-f(x_{i-1}))=g(\xi_1)(f(x_1)-f(a))+\\+g(\xi_2)(f(x_2)-f(x_1))+\dots+g(\xi_{n-1})(f(x_{n-1})-f(x_{n-2}))+\\+g(\xi_{n})(f(b)-f(x_{n-1}))=-g(\xi_1)f(a)-\\-f(x_1)(g(\xi_2)-g(\xi_1))-\dots-f(x_{n-1})(g(\xi_n)-g(\xi_{n-1}))+g(\xi_n)f(b)+\\
+        +f(b)g(b)-f(b)g(b)-f(a)g(a)+f(a)g(a)=\\ %добавили и вычли
+        =-f(a)(g(\xi_1)-g(a))-\dots-f(b)(g(b)-g(\xi_n))+f(b)g(b)-f(a)g(a)
+    \end{multline*}
+    Утремим диаметр разбиения к нулю, и получим утверждение теоремы
+\end{proof} 
+\begin{theorem}
+    Если $f(x)\in \mathcal{C}[a,b],\ g(x)\in \mathcal{V}[a,b]$, то существует интеграл
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
+\end{theorem} 
+\begin{proof}
+    Пусть $g(x)$ монотонно возрастает. $\forall T:$
+    \[\underline{\underline{S}}(T)=\sum\limits_{i=1}^{n}M_i(g(x_i)-g(x_{i-1})),\ \overline{\overline{S}}(T)=\sum\limits_{i=1}^{n}m_i(g(x_i)-g(x_{i-1}))\]
+    $f(x)\in \mathcal{C}[a,b] \Rightarrow f(x)$ - равномерно непрерывна, на $[a,b]$. Значит\\
+    $\forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta: M_i-m_i<\epsilon$, что означает
+    \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\cdot (g(b)-g(a)) \Rightarrow \inf\limits_T \underline{\underline{S}}(T)=\sup\limits_T \overline{\overline{S}}(T)=I\]
+    \[|\sigma_f(g,T)-I|<\epsilon\cdot (g(b)-g(a))\]
+    значит существует предел
+    \[\lim\limits_{d\to 0}\sigma_f(g,T)=I\]
+\end{proof} 
+\begin{comm}
+    В условиях теоремы существует интеграл
+    \[\int\limits_{a}^{b} g(x)\ d(f(x))\]
+    по теореме об интегрировании по частям.
+\end{comm} 
+\begin{theorem}
+    (Связь интеграла Римана и итеграла Римана-Стилтьеса)\\
+    Если $f(x)\in \mathcal{V}[a,b],\ g(x)\in \mathcal{D}[a,b],\ g'(x)\in \mathcal{R}[a,b]$, то
+    \[(S)\int\limits_{a}^{b}f(x)\ d(g(x))=(R)\int\limits_{a}^{b}f(x)g'(x)\ dx\]
+\end{theorem} 
+\begin{proof}
+    Оба интеграла существуют по условиям теоремы, значит достаточно будет доказать для какой-то выбраной разметки. По формуле Лагранжа:
+    \[\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\xi_i)g'(\zeta)(x_i-x_{i-1})\]
+    Теперь возьмем в качестве разметки игтеграла Римана-Стилтьеса разметку $\zeta_i$, и получаем равенство
+    \[\sum\limits_{i=1}^{n}f(\zeta_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\zeta_i)g'(\zeta)(x_i-x_{i-1})\]
+\end{proof} 
+\begin{theorem}
+    (Первая теорема о среднем)\\ 
+    Пусть $f(x)\in \mathcal{C}[a,b], g(x)$ монотонно возрастает. Тогда $\exists\ c\in [a,b]$ такая, что
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))=f(c)(g(b)-g(a))\]
+\end{theorem} 
+\begin{proof}
+    Если $g(b)=g(a)$ то равенство верно.
+    Пусть $g(b)>g(a),\ m=\min f(x), M=\max f(x)$
+    \[m\cdot(g(b)-g(a))\leq\overline{\overline{S}}(T) \leq\int\limits_{a}^{b}f(x)\ d(g(x))\leq \underline{\underline{S}}(T)\leq M\cdot(g(b)-g(a))\]
+    отсюда
+    \[m\leq \frac{\int\limits_{a}^{b}f(x)\ d(g(x))}{g(b)\cdot g(a)}\leq M\]
+\end{proof} 
+\begin{theorem}
+    (Вторая теорема о среднем)\\
+    Пусть $f(x)\in \mathcal{C}[a,b],\ g(x)$ монотонно возрастает. Тогда $\exists\ c\in [a,b]$ такая, что
+    \[\int\limits_{a}^{b}g(x)\ d(f(x))=g(a)\cdot(f(c)-f(a))+g(b)\cdot (f(b)-f(c))\]
+\end{theorem} 
+\begin{proof}
+    \[\int\limits_{a}^{b}g(x)\ d(f(x))=g(b)f(b)-g(a)f(a)-f(c)(g(b)-g(a))=g(a)(f(c)-f(a))+g(b)(f(b)-f(c))\]
+\end{proof} 
+\begin{consequense}
+    (Вторая теорема о среднем для интеграла Римана)\\
+    Пусть $f(x)\in \mathcal{C}[a,b], g(x)$ монотонно возрастает. Тогда
+    \[(R)\int\limits_{a}^{b}f(x)g(x)\ dx=g(a)\cdot \int\limits_{a}^{c}f(x)\ dx+g(b)\cdot \int\limits_{c}^{b}f(x)\ dx\]
+\end{consequense} 
+\begin{proof}
+    \begin{multline*}
+        (R)\int\limits_{a}^{b}f(x)g(x)\ dx=(S) \int\limits_{a}^{b}g(x)\ d\left(\int\limits_{a}^{x}f(t)\ dt\right)=\\
+        =g(a)\cdot \int\limits_{a}^{c}f(t)\ dt+g(b)\cdot \int\limits_{c}^{b}f(t)\ dt
+    \end{multline*}
+\end{proof} 
