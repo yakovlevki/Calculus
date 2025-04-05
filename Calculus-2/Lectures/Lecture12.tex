@@ -25,7 +25,7 @@
     Несобственынй интеграл
     \[\int\limits_{a}^{\omega}f(x)\ dx\]
     сходится тогда и только тогда, когда
-    \[\forall \epsilon>0\ \exists\ \delta\in [a,\omega),\ \forall x_1,x_2\in [\delta, \omega): \left|\int\limits_{x_1}^{x}f(t)\ dt\right|<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ \delta\in [a,\omega),\ \forall x_1,x_2\in [\delta, \omega): \left|\int\limits_{x_1}^{x_2}f(t)\ dt\right|<\epsilon\]
 \end{theorem} 
 \begin{proof}
     Рассмотрим функцию
@@ -39,13 +39,13 @@
     (Линейность)\\
     $\forall \alpha,\ \beta\in \R$ если существуют
     \[\int\limits_{a}^{\omega}f(x)\ dx,\ \int\limits_{a}^{\omega}g(x)\ dx\]
-    то существут интеграл
+    то существует интеграл
     \[\int\limits_{a}^{\omega}(\alpha f(x)+\beta g(x))=\alpha \int\limits_{a}^{\omega}f(x)\ dx+\beta \int\limits_{a}^{\omega}g(x)\ dx\]
 \end{numtheorem}
 \begin{numtheorem}
     Пусть $f(x),\ g(x)\in \mathcal{C}^1[a,b]$. Если существуют два объекта из трех:
     \[\int\limits_{a}^{\omega} f(x)g'(x)\ dx,\ \int\limits_{a}^{\omega}f'(x)g(x)\ dx,\ \lim\limits_{x\to \omega}f(x)g(x)\]
-    то существут и третий и верна формула
+    то существует и третий и верна формула
     \[\int\limits_{a}^{\omega}f(x)g'(x)\ dx=f(x)g(x)|_a^{\omega}-\int\limits_{a}^{\omega}f'(x)g(x)\ dx\]
 \end{numtheorem}  
 \begin{numtheorem}
@@ -63,7 +63,7 @@
 \begin{numtheorem}
     Если $\forall a'\in [a, \omega)$ существует
     \[\int\limits_{a}^{a'}f(x)\ dx\]
-    и если существут несобственный интеграл
+    и если существует несобственный интеграл
     \[\left|\int\limits_{a}^{\omega}f(x)\ dx\right|\leq \int\limits_{a}^{\omega}|f(x)|\ dx\]
 \end{numtheorem} 
 \begin{definition}
@@ -78,7 +78,7 @@
     \[\int\limits_{a}^{a'}f(x)\ dx\]
     и интеграл
     \[\int\limits_{a}^{\omega}|f(x)|\ dx\]
-    сходится, то интерал
+    сходится, то интеграл
     \[\int\limits_{a}^{\omega}f(x)\ dx\]
     сходится
 \end{statement} 
@@ -106,7 +106,7 @@
     \[\int\limits_{a}^{\omega}f(x)\ dx\]
     Если не существует интеграла
     \[\int\limits_{a}^{\omega}f(x)\ dx\]
-    то не существут интеграла
+    то не существует интеграла
     \[\int\limits_{a}^{\omega}g(x)\ dx\]
 \end{theorem} 
 \begin{proof}
@@ -130,7 +130,7 @@
     (Признаки Абеля и Дирихле)\\
     Пусть $f(x)\in \mathcal{C}[a,\omega),\ g(x)$ монотонна на $[a,\omega)$, а также $|f(x)|\leq C,\ |g(x)|\leq C$. Тогда 
     \begin{itemize}
-        \item[($\mathcal{A}$):] Если существут интеграл 
+        \item[($\mathcal{A}$):] Если существует интеграл 
         \[\int\limits_{a}^{\omega}f(x)\ dx\]
         то существует интеграл
         \[\int\limits_{a}^{\omega}f(x)g(x)\ dx\]
@@ -167,9 +167,9 @@
 \end{theorem} 
 \begin{proof}
     \[f(x)=\frac{f(x)+f(-x)}{2}+\frac{f(x)-f(-x)}{2}\]
-    Возьмем интегал от $-A$ до $A$, второе слагаемое всегда ноль.
+    Возьмем интеграл от $-A$ до $A$, второе слагаемое всегда ноль.
 \end{proof} 
 \begin{comm}
-    Аналогочно определяется главное значение с особенностью в точке $c\in (a,b)$:
+    Аналогично определяется главное значение с особенностью в точке $c\in (a,b)$:
     \[\text{v.p.}\int\limits_{a}^{b}f(x)\ dx=\lim\limits_{\epsilon\to 0+0}\left(\int\limits_{a}^{c-\epsilon}f(x)\ dx+\int\limits_{c+\epsilon}^{b}f(x)\ dx\right)\]
 \end{comm} 
