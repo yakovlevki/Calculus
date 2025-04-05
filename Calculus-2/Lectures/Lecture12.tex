@@ -1,0 +1,175 @@
+\newpage
+\section{Несобственный интеграл}
+\subsection{Определение несобственного интеграла}
+\begin{definition}
+    Если $f(x)\in \mathcal{R}[a,a_1],\ \forall a_1\in [a,b)$, то 
+    \[\lim\limits_{a_1\to b-0}\int\limits_{a}^{a_1}f(x)\ dx=\int\limits_{a}^{b}f(x)\ dx\]
+    называется несобственным интегралом первого рода.
+    Если этот предел существует, то интеграл называется сходящимся, если не существует - расходящимся. 
+\end{definition} 
+\begin{definition}
+    Если $f(x)\in \mathcal{R}[a,a_1],\ \forall a_1\in (a, +\infty)$, то
+    \[\lim\limits_{a\to +\infty} \int\limits_{a}^{a_1}f(x)\ dx=\int\limits_{a}^{b}f(x)\ dx\]
+    называется несобственным интегралом второго рода. Если этот предел существует, то интеграл называется сходящимся, если не существует - расходящимся.
+\end{definition} 
+\begin{comm}
+    В дольнейшем обычно будем рассматривать интегралы
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    где $\omega$ - число или знак\ $+\infty\ (-\infty)$.
+\end{comm} 
+\begin{comm}
+    Если на отрезке интегрирования несобственного интеграла есть несколько особых точек, то интеграл сходится, если он сходится во всех своих особых точках. Такие интегралы также могут рассматриваться в дальнейших рассуждениях.
+\end{comm}
+\subsection{Критерий Коши сходимости несобственного интеграла}
+\begin{theorem}
+    Несобственынй интеграл
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    сходится тогда и только тогда, когда
+    \[\forall \epsilon>0\ \exists\ \delta\in [a,\omega),\ \forall x_1,x_2\in [\delta, \omega): \left|\int\limits_{x_1}^{x}f(t)\ dt\right|<\epsilon\]
+\end{theorem} 
+\begin{proof}
+    Рассмотрим функцию
+    \[F(x)=\int\limits_{a}^{x}f(t)\ dt\]
+    \[\int\limits_{x_1}^{x}f(t)\ dt=F(x)-F(x_1)\]
+    и запишем критерий Коши существования предела $F(x)$.
+\end{proof} 
+\subsection{Свойства несобственного интеграла}
+\setcounter{thmcount}{0}
+\begin{numtheorem}
+    (Линейность)\\
+    $\forall \alpha,\ \beta\in \R$ если существуют
+    \[\int\limits_{a}^{\omega}f(x)\ dx,\ \int\limits_{a}^{\omega}g(x)\ dx\]
+    то существут интеграл
+    \[\int\limits_{a}^{\omega}(\alpha f(x)+\beta g(x))=\alpha \int\limits_{a}^{\omega}f(x)\ dx+\beta \int\limits_{a}^{\omega}g(x)\ dx\]
+\end{numtheorem}
+\begin{numtheorem}
+    Пусть $f(x),\ g(x)\in \mathcal{C}^1[a,b]$. Если существуют два объекта из трех:
+    \[\int\limits_{a}^{\omega} f(x)g'(x)\ dx,\ \int\limits_{a}^{\omega}f'(x)g(x)\ dx,\ \lim\limits_{x\to \omega}f(x)g(x)\]
+    то существут и третий и верна формула
+    \[\int\limits_{a}^{\omega}f(x)g'(x)\ dx=f(x)g(x)|_a^{\omega}-\int\limits_{a}^{\omega}f'(x)g(x)\ dx\]
+\end{numtheorem}  
+\begin{numtheorem}
+    Рассмотрим несобственный интеграл 
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    и пусть $\phi(t)\in \mathcal{C}^1[a,b),\ a\leq \phi(t)\leq \omega,\ \phi(\alpha)=a,\ \lim\limits_{t\to \beta}\phi(t)=\omega$
+    \[\int\limits_{a}^{\omega}f(x)\ dx=\int\limits_{\alpha}^{\beta} f(\phi(t))\phi'(t)\ dt\]
+\end{numtheorem} 
+\begin{numtheorem}
+    Пусть существуют несобственные интегралы
+    \[\int\limits_{a}^{\omega}f(x)\ dx,\ \int\limits_{a}^{\omega}g(x)\ dx\]
+    Если $f(x)\leq g(x)$, то
+    \[\int\limits_{a}^{\omega}f(x)\ dx\leq \int\limits_{a}^{\omega}g(x)\ dx\]
+\end{numtheorem} 
+\begin{numtheorem}
+    Если $\forall a'\in [a, \omega)$ существует
+    \[\int\limits_{a}^{a'}f(x)\ dx\]
+    и если существут несобственный интеграл
+    \[\left|\int\limits_{a}^{\omega}f(x)\ dx\right|\leq \int\limits_{a}^{\omega}|f(x)|\ dx\]
+\end{numtheorem} 
+\begin{definition}
+    Если существует интеграл
+    \[\int\limits_{a}^{\omega}|f(x)|\ dx\]
+    то интеграл
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]\
+    называется абсолютно сходящимся.
+\end{definition} 
+\begin{statement}
+    Если $\forall a'\in [a, \omega]$ существует интегал
+    \[\int\limits_{a}^{a'}f(x)\ dx\]
+    и интеграл
+    \[\int\limits_{a}^{\omega}|f(x)|\ dx\]
+    сходится, то интерал
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    сходится
+\end{statement} 
+\begin{proof}
+    По критерию Коши и неравентсву
+    \[\left|\int\limits_{a_1}^{a_2}f(x)\ dx\right|\leq \int\limits_{a_1}^{a_2}|f(x)|\ dx<\epsilon\]
+\end{proof} 
+\begin{definition}
+    Если интеграл 
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    сходится, а интеграл 
+    \[\int\limits_{a}^{\omega}|f(x)|\ dx\]
+    расходится, то интеграл 
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    называется условно сходящимся.
+\end{definition} 
+%ПРИМЕР НЕОГРАНИЧЕНОЙ СХОДЯЩЕЙСЯ ФУНКЦИИ
+\subsection{Признаки сходимости несобственных интегралов}
+\begin{theorem}
+    (Признак Вейерштрасса)\\
+    Пусть $0\leq f(x)\leq g(x)$ на $[a],\omega$.\\
+    Если существует интеграл
+    \[\int\limits_{a}^{\omega}g(x)\ dx\]
+    то существует интеграл
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    Если не существует интеграла
+    \[\int\limits_{a}^{\omega}f(x)\ dx\]
+    то не существут интеграла
+    \[\int\limits_{a}^{\omega}g(x)\ dx\]
+\end{theorem} 
+\begin{proof}
+    По теореме Вейерштрасса.
+\end{proof}
+\begin{theorem}
+    Пусть $0\leq f(x)\leq g(x)$ и существует передел
+    \[\lim\limits_{x\to \omega}\frac{f(x)}{g(x)}=1\]
+    Тогда интегралы
+    \[\int\limits_{a}^{\omega}f(x)\ dx,\ \int\limits_{a}^{\omega}g(x)\ dx\] 
+    существуют или не существуют одновременно.
+\end{theorem} 
+\begin{proof}
+    $\forall \epsilon>0\ \exists\ A,\ \forall x\in [A, \omega)$:
+    \[|\frac{f(x)}{g(x)}-1|<\epsilon \Rightarrow 1-\epsilon<\frac{f(x)}{g(x)}<1+\epsilon\]
+    значит
+    \[(1-\epsilon)\cdot g(x)<f(x)<(1+\epsilon)\cdot g(x)\]
+    далее воспользуемся признаком Вейерштрасса.
+\end{proof} 
+\begin{theorem}
+    (Признаки Абеля и Дирихле)\\
+    Пусть $f(x)\in \mathcal{C}[a,\omega),\ g(x)$ монотонна на $[a,\omega)$, а также $|f(x)|\leq C,\ |g(x)|\leq C$. Тогда 
+    \begin{itemize}
+        \item[($\mathcal{A}$):] Если существут интеграл 
+        \[\int\limits_{a}^{\omega}f(x)\ dx\]
+        то существует интеграл
+        \[\int\limits_{a}^{\omega}f(x)g(x)\ dx\]
+        \item[($\mathcal{D}$):] Если $g(x)\to 0$ при $x\to \omega$ и
+        \[\left|\int\limits_{a}^{a'}f(x)\ dx\right|\leq C,\ \forall a'\in [a,\omega]\]
+        то существует интеграл
+        \[\int\limits_{a}^{\omega}f(x)g(x)\ dx\]
+    \end{itemize}
+\end{theorem} 
+\begin{proof}
+    \begin{multline*}
+        \left|\int\limits_{x_1}^{x_2}f(x)g(x)\ dx\right|=\left|g(x_1)\cdot \int\limits_{x_1}^{c}f(x)\ dx+g(x_2)\cdot \int\limits_{c}^{x_2}f(x)\ dx\right|\leq\\\
+        \leq |g(x_1)|\cdot \left|\int\limits_{x_1}^{c}f(x)\ dx\right|+|g(x_2)|\cdot \left|\int\limits_{c}^{x^2}f(x)\ dx\right|\leq
+    \end{multline*} 
+    $(\mathcal{A}):\ \leq C\cdot 2\epsilon$\\
+    $(\mathcal{D}):\ \leq \epsilon \cdot 4C$
+\end{proof} 
+\begin{example} Интеграл 
+    \[\int\limits_{1}^{+\infty}\frac{\sin{x}}{x}\ dx\]
+    сходится, но интеграл
+    \[\int\limits_{1}^{+\infty}\left|\frac{\sin{x}}{x}\right|\ dx\]
+    расходится, так как
+    \[\frac{1}{2x}-\frac{\cos{2x}}{2x}=\frac{1-\cos{2x}}{2x}=\frac{\sin^2{x}}{x}\leq \frac{|\sin{x}|}{x}\]
+\end{example}
+\subsection{Главное значение интеграла в смысле Коши}
+\begin{definition}
+    Пусть $f(x)$ определена на $\R$ и $f(x)\in \mathcal{R}[a,b],\ \forall a,b$. Величина
+    \[\lim\limits_{A\to +\infty}\int\limits_{-A}^{A}f(x)\ dx=\text{v.p.} \int\limits_{-\infty}^{+\infty}f(x)\ dx\]
+    называется главным значением интеграла в смысле Коши. % Интегралом несобств не является
+\end{definition} 
+\begin{theorem}
+    Главное значение интеграла в смысле Коши существует, если сходится несобственный интеграл
+    \[\int\limits_{0}^{+\infty}(f(x)+f(-x))\ dx\]
+\end{theorem} 
+\begin{proof}
+    \[f(x)=\frac{f(x)+f(-x)}{2}+\frac{f(x)-f(-x)}{2}\]
+    Возьмем интегал от $-A$ до $A$, второе слагаемое всегда ноль.
+\end{proof} 
+\begin{comm}
+    Аналогочно определяется главное значение с особенностью в точке $c\in (a,b)$:
+    \[\text{v.p.}\int\limits_{a}^{b}f(x)\ dx=\lim\limits_{\epsilon\to 0+0}\left(\int\limits_{a}^{c-\epsilon}f(x)\ dx+\int\limits_{c+\epsilon}^{b}f(x)\ dx\right)\]
+\end{comm} 

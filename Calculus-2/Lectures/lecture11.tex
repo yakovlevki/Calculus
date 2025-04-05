@@ -83,6 +83,7 @@
     по теореме об интегрировании по частям.
 \end{comm} 
 \subsection{Связь интеграла Римана и интеграла Римана-Стилтьеса}
+Знаки $(R)$ и $(S)$ обозначают что рассматривается интеграл по Риману и Риману-Стилтьесу соответственно.
 \begin{theorem}
     Если $f(x)\in \mathcal{V}[a,b],\ g(x)\in \mathcal{D}[a,b],\ g'(x)\in \mathcal{R}[a,b]$, то
     \[(S)\int\limits_{a}^{b}f(x)\ d(g(x))=(R)\int\limits_{a}^{b}f(x)g'(x)\ dx\]
@@ -101,7 +102,7 @@
 \end{theorem} 
 \begin{proof}
     Если $g(b)=g(a)$ то равенство верно.
-    Пусть $g(b)>g(a),\ m=\min f(x), M=\max f(x)$
+    Пусть $g(b)>g(a),\\ m=\min\limits_{[a,b]} f(x), M=\max\limits_{[a,b]} f(x)$
     \[m\cdot(g(b)-g(a))\leq\overline{\overline{S}}(T) \leq\int\limits_{a}^{b}f(x)\ d(g(x))\leq \underline{\underline{S}}(T)\leq M\cdot(g(b)-g(a))\]
     отсюда
     \[m\leq \frac{\int\limits_{a}^{b}f(x)\ d(g(x))}{g(b)- g(a)}\leq M\]
