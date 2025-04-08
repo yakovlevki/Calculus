@@ -46,7 +46,7 @@
 \end{numtheorem}
 \begin{numtheorem}
     (Интегрирование по частям)\\
-    Пусть $f(x),\ g(x)\in \mathcal{C}^1[a,b]$. Если существуют два объекта из трех:
+    Пусть $f(x),\ g(x)\in \mathcal{C}^1[a,\omega]$. Если существуют два объекта из трех:
     \[\int\limits_{a}^{\omega} f(x)g'(x)\ dx,\ \int\limits_{a}^{\omega}f'(x)g(x)\ dx,\ \lim\limits_{x\to \omega}f(x)g(x)\]
     то существует и третий и верна формула
     \[\int\limits_{a}^{\omega}f(x)g'(x)\ dx=f(x)g(x)|_a^{\omega}-\int\limits_{a}^{\omega}f'(x)g(x)\ dx\]
@@ -55,7 +55,7 @@
     (Замена переменной)\\
     Рассмотрим несобственный интеграл 
     \[\int\limits_{a}^{\omega}f(x)\ dx\]
-    и пусть $\phi(t)\in \mathcal{C}^1[a,b),\ a\leq \phi(t)\leq \omega,\ \phi(\alpha)=a,\ \lim\limits_{t\to \beta}\phi(t)=\omega$
+    и пусть $\phi(t)\in \mathcal{C}^1[\alpha,\beta),\ a\leq \phi(t)\leq \omega,\ \phi(\alpha)=a,\ \lim\limits_{t\to \beta}\phi(t)=\omega$
     \[\int\limits_{a}^{\omega}f(x)\ dx=\int\limits_{\alpha}^{\beta} f(\phi(t))\phi'(t)\ dt\]
 \end{numtheorem} 
 \begin{numtheorem}
@@ -65,9 +65,11 @@
     \[\int\limits_{a}^{\omega}f(x)\ dx\leq \int\limits_{a}^{\omega}g(x)\ dx\]
 \end{numtheorem} 
 \begin{numtheorem}
-    Если $\forall a'\in [a, \omega)$ существует
+    Если $\forall a'\in [a, \omega)$ существует интеграл
     \[\int\limits_{a}^{a'}f(x)\ dx\]
-    и если существует несобственный интеграл
+    а также существует несобственный интеграл
+    \[\int\limits_{a}^{\omega}|f(x)|\ dx\]
+    то
     \[\left|\int\limits_{a}^{\omega}f(x)\ dx\right|\leq \int\limits_{a}^{\omega}|f(x)|\ dx\]
 \end{numtheorem} 
 \begin{definition}
