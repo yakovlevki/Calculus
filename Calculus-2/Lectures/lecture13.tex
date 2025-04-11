@@ -3,6 +3,11 @@
 \subsection{Основные определения}
 Обозначим
 \[\R^n=\prod\limits_{i=1}^{n}\R,\ \ \|\bar{x}\|=\sqrt{(\bar{x},\bar{x})}=\sqrt{\sum\limits_{i=1}^{n}x_i^2}\]
+\[\bar{x}=\begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+\end{pmatrix}\in \R^n\]
 \begin{definition}
     Расстоянием между $\bar{x}$ и $\bar{y}$ называется функция $\rho(\bar{x}, \bar{y})$, для которой выполнено:
     \begin{enumerate}
@@ -14,21 +19,21 @@
     В рамках нашего курса можно использовать обозначение $\rho(\bar{x}, \bar{y})=\|\bar{x}-\bar{y}\|$
 \end{definition} 
 \begin{definition} Окрестностью или шаром $\bar{x_0}$ будем называть множества\\
-    \[B_{\epsilon}(\bar{x_0})=\{\bar{x}: \rho(\bar{x}, \bar{x_0})<\epsilon\}\]
-    \[\mathring{B_{\epsilon}}(\bar{x_0})=\{\bar{x}: 0<\rho(\bar{x}, \bar{x_0})<\epsilon\}\]
+    \[B_{\epsilon}(\bar{x}_0)=\{\bar{x}: \rho(\bar{x}, \bar{x}_0)<\epsilon\}\]
+    \[\mathring{B_{\epsilon}}(\bar{x}_0)=\{\bar{x}: 0<\rho(\bar{x}, \bar{x}_0)<\epsilon\}\]
 \end{definition}
 \begin{definition}
     Множество $A\subset \R^n$ называется ограниченным, если 
     \[\exists\ R>0: A\subset B_{R}(\bar{0})\]
 \end{definition}
 \begin{definition}
-    Последовательность $\{\bar{x_k}\}_{k=1}^{\infty}$ называется сходящейся, если 
-    \[\exists\ \bar{x_0}: \forall \epsilon>0\ \exists\ K\in \N,\ \forall k>K: \rho(\bar{x_0}, \bar{x})<\epsilon\]
+    Последовательность $\{\bar{x}_k\}_{k=1}^{\infty}$ называется сходящейся, если 
+    \[\exists\ \bar{x}_0: \forall \epsilon>0\ \exists\ K\in \N,\ \forall k>K: \rho(\bar{x}_0, \bar{x})<\epsilon\]
     В этом случае говорят, что существует предел
-    \[\lim\limits_{k\to \infty}\bar{x_k}=\bar{x_0}\]
+    \[\lim\limits_{k\to \infty}\bar{x}_k=\bar{x}_0\]
 \end{definition} 
 \begin{theorem}
-    \[\exists\ \lim\limits_{k\to \infty}\bar{x_k}=\bar{x_0}\ \Leftrightarrow\ \forall i=1,...,n:\ \exists\ \lim\limits_{k\to \infty}x_{k_i}=x_0\]
+    \[\exists\ \lim\limits_{k\to \infty}\bar{x}_k=\bar{x}_0\ \Leftrightarrow\ \forall i=1,...,n:\ \exists\ \lim\limits_{k\to \infty}x_{k_i}=x_0\]
 \end{theorem} 
 \begin{proof}\tab
     \begin{itemize}
@@ -39,7 +44,7 @@
     \end{itemize}
 \end{proof} 
 \begin{theorem} (Теорема Больцано-Вейерштрасса)\\
-    Если последовательность $\{\bar{x_k}\}_{k=1}^{\infty}$ ограничена, то у нее существует сходящаяся подпоследовательность $\{\bar{x_{k_m}}\}_{m=1}^{\infty}$
+    Если последовательность $\{\bar{x}_k\}_{k=1}^{\infty}$ ограничена, то у нее существует сходящаяся подпоследовательность $\{\bar{x}_{k_m}\}_{m=1}^{\infty}$
 \end{theorem} 
 \begin{proof}
     \[\{x_{k_1}\} - \text{ограничена} \Rightarrow \exists\ \text{сходящаяся подпоследовательность}\ \{x_{k_{1_1}}\}\]
@@ -89,7 +94,7 @@
     \end{itemize}
 \end{proof} 
 \begin{definition}
-    Пусть $A,B\subset R^n$. Расстоянием между множествами $A$ и $B$ называется 
+    Пусть $A,B\subset \R^n$. Расстоянием между множествами $A$ и $B$ называется 
     \[\rho(A,B)=\inf\limits_{\bar{a}\in A,\bar{b}\in B}\rho(\bar{a}, \bar{b})\]
 \end{definition} 
 \begin{theorem}
