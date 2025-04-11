@@ -1,0 +1,101 @@
+\newpage
+\section{Функции нескольких переменных}
+\subsection{Основные определения}
+Обозначим
+\[\R^n=\prod\limits_{i=1}^{n}\R,\ \ \|\bar{x}\|=\sqrt{(\bar{x},\bar{x})}=\sqrt{\sum\limits_{i=1}^{n}x_i^2}\]
+\begin{definition}
+    Расстоянием между $\bar{x}$ и $\bar{y}$ называется функция $\rho(\bar{x}, \bar{y})$, для которой выполнено:
+    \begin{enumerate}
+        \item $\rho(\bar{x}, \bar{y})\geq 0$
+        \item $\rho(\bar{x}, \bar{y})=0 \Leftrightarrow \bar{x}=\bar{y}$
+        \item $\rho(\bar{x}, \bar{y})=\rho(\bar{y}, \bar{x})$
+        \item $\rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, \bar{z})+\rho(\bar{z}, \bar{y})$
+    \end{enumerate}
+    В рамках нашего курса можно использовать обозначение $\rho(\bar{x}, \bar{y})=\|\bar{x}-\bar{y}\|$
+\end{definition} 
+\begin{definition} Окрестностью или шаром $\bar{x_0}$ будем называть множества\\
+    \[B_{\epsilon}(\bar{x_0})=\{\bar{x}: \rho(\bar{x}, \bar{x_0})<\epsilon\}\]
+    \[\mathring{B_{\epsilon}}(\bar{x_0})=\{\bar{x}: 0<\rho(\bar{x}, \bar{x_0})<\epsilon\}\]
+\end{definition}
+\begin{definition}
+    Множество $A\subset \R^n$ называется ограниченным, если 
+    \[\exists\ R>0: A\subset B_{R}(\bar{0})\]
+\end{definition}
+\begin{definition}
+    Последовательность $\{\bar{x_k}\}_{k=1}^{\infty}$ называется сходящейся, если 
+    \[\exists\ \bar{x_0}: \forall \epsilon>0\ \exists\ K\in \N,\ \forall k>K: \rho(\bar{x_0}, \bar{x})<\epsilon\]
+    В этом случае говорят, что существует предел
+    \[\lim\limits_{k\to \infty}\bar{x_k}=\bar{x_0}\]
+\end{definition} 
+\begin{theorem}
+    \[\exists\ \lim\limits_{k\to \infty}\bar{x_k}=\bar{x_0}\ \Leftrightarrow\ \forall i=1,...,n:\ \exists\ \lim\limits_{k\to \infty}x_{k_i}=x_0\]
+\end{theorem} 
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:] \[\forall \epsilon>0\ \exists\ K,\ \forall k>K: \sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon \Rightarrow \forall i: |x_{k_i}-x_{0_i}|<\epsilon\]
+        \item[$(\Leftarrow)$:] \[\forall \epsilon>0\ \exists K_i,\ \forall k>K_i: |x_{k_i}-x_{0_i}|<\epsilon\]
+        Пусть $K=\max\limits_i K_i$. Тогда
+        \[\sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon\]
+    \end{itemize}
+\end{proof} 
+\begin{theorem} (Теорема Больцано-Вейерштрасса)\\
+    Если последовательность $\{\bar{x_k}\}_{k=1}^{\infty}$ ограничена, то у нее существует сходящаяся подпоследовательность $\{\bar{x_{k_m}}\}_{m=1}^{\infty}$
+\end{theorem} 
+\begin{proof}
+    \[\{x_{k_1}\} - \text{ограничена} \Rightarrow \exists\ \text{сходящаяся подпоследовательность}\ \{x_{k_{1_1}}\}\]
+    \[\{x_{k_2}\} - \text{ограничена} \Rightarrow \exists\ \text{сходящаяся подпоследовательность}\ \{x_{k_{2_2}}\}\]
+    \[\vdots\]
+    \[\{x_{k_n}\} - \text{ограничена} \Rightarrow \exists\ \text{сходящаяся подпоследовательность}\ \{x_{k_{n_n}}\}\]
+\end{proof} 
+\begin{definition}
+    Множество $\Pi_{[\bar{a}, \bar{b}]}=\prod\limits_{i=1}^{n}[a_i,b_i]$ называется параллелепипедом.
+\end{definition} 
+\begin{theorem}
+    Если последовательность вложеных параллелепипедов такая, что
+    \[\{\Pi_{[\bar{a}, \bar{b}]}\}_{k=1}^{\infty},\ \forall k: \Pi_{[\bar{a}_{k+1}, \bar{b}_{k+1}]} \subset \Pi_{[\bar{a}_{k}, \bar{b}_{k}]},\ \max\limits_{1\leq i\leq n}|b_{k_i}-a_{k_i}| \to 0\]
+    то существует единственная точка $\xi$ такая, что $\forall k: \xi\in \Pi_{[\bar{a}_k, \bar{b}_k]}$.
+\end{theorem} 
+\begin{proof}
+    Очев.
+\end{proof}
+\subsection{Секвенциальная компактность}
+\begin{definition}
+    Множество $A\subset \R^n$ называется секвенциальным компактом, если 
+    \[\forall \{\bar{a}_k\}_{i=1}^{\infty}\subset A\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty}: \bar{a}_{i_m}\to \bar{a} \in A,\ m\to \infty\]
+\end{definition}  
+\begin{theorem}
+    $A$ - секвенциальный компакт $\Leftrightarrow A$ - замкнуто и ограничено. 
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:] Если $A$ - неограничено, то $\exists\ \{\bar{a}\}_{i=1}^{\infty},\ \|\bar{a}_i\|\to \infty \Rightarrow$ получаем противоречие.
+        Значит $A$ - ограничено и по теореме Больцано-Вейерштрасса:
+        \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
+        \item[$(\Leftarrow)$:] Аналогично из ограниченности:
+        \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
+    \end{itemize}
+\end{proof} 
+\begin{theorem}
+    $A$ - секвенциальный компакт тогда и только тогда, когда
+    \[\forall \{U_{\alpha}\}: A\subset \bigcup_{\alpha}U_{\alpha}\ \ \exists\ \{U_{\alpha_i}\}_{i=1}^N: A\subset \bigcup_{i=1}^N U_{\alpha_i}\]
+\end{theorem} 
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow):$] $\exists\ \prod\limits_{i=1}^{n}[a_i, a_i+d]\supset A$, поделим каждое ребро пополам и получим $2^n$ кубиков.
+        (\textit{будет расписано подробнее})
+        \item[$(\Leftarrow)$:] От противного: пусть $\exists\ \{\bar{a}_k\}_{k=1}^{\infty}$ - некоторая сходящаяся подпоследовательность. Тогда 
+        \[\forall \bar{y}\in A\ \exists\ B_{\epsilon_y}(\bar{y}): B_{\epsilon_y}(\bar{y})\cap \{\bar{x}_k\} - \text{конечно}\]
+        \[A\subset \bigcup_{y\in A}B_{\epsilon_y}(\bar{y}),\ \exists\ \bigcup_{i=1}^N B_{\epsilon_{y_i}}(\bar{y}_i)\supset A\]
+    \end{itemize}
+\end{proof} 
+\begin{definition}
+    Пусть $A,B\subset R^n$. Расстоянием между множествами $A$ и $B$ называется 
+    \[\rho(A,B)=\inf\limits_{\bar{a}\in A,\bar{b}\in B}\rho(\bar{a}, \bar{b})\]
+\end{definition} 
+\begin{theorem}
+    Пусть $A,B \subset \R^n$ - замкнутые и $A$ - ограничено. Если $A\cap B=\emptyset$, то $\rho(A,B)>0$. 
+\end{theorem} 
+\begin{proof}
+    От противного: пусть $\rho(A,B)=0 \Rightarrow \exists\ \{\bar{x}_k\}\subset A,\\ \{\bar{y}_k\}\in B: \rho(\bar{x}_k, \bar{y}_k)\to 0$, но $\{\bar{x}_k\}$ - ограничена $\Rightarrow \exists\ \bar{x}_{k_m}\to \bar{x},\ m\to \infty$
+    \[\rho(\bar{x}, \bar{y}_{k_m})\leq \rho(\bar{x}, \bar{x}_{k_m})+\rho(\bar{x}_{k_m}, \bar{y}_{k_m})<2\epsilon\ \Rightarrow\ \bar{y}_{k_m}\to \bar{x}\in B\]
+\end{proof} 
