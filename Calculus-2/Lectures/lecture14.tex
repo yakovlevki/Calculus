@@ -1,0 +1,51 @@
+\begin{theorem}
+    Пусть $A\subset \R^n$ - замкнуто, $\bar{x}\not\in A$. Тогда $\exists\ \bar{y}\in A: \rho(\bar{x}, \bar{y})=\rho(\bar{x}, A)$.
+\end{theorem} 
+\begin{proof}
+    \[\forall \epsilon>0\ \exists\ \bar{y}_{\epsilon}\in A: \rho(\bar{x}, \bar{y}_{\epsilon})<\rho(\bar{x}, A)+\epsilon\] 
+    Возьмем 
+    \[\forall m\in \N\ \exists\ \bar{y}_m: \rho(\bar{x}, \bar{y}_m)<\rho(\bar{x}, A)+\frac{1}{m} \Rightarrow \{\bar{y}_m\} - \text{ограничено}\] \
+    Значит
+    \[\exists\ \{\bar{y}_{m_k}\}_{k=1}^{\infty}: \bar{y}_{m_k} \to \bar{y},\ \rho(\bar{x}, \bar{y}_{m_k})<\rho(\bar{x}, A)+\frac{1}{m_k}\] 
+    после предельного перехода получим: 
+    \[\rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A),\ \rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A) \Rightarrow \rho(\bar{x}, \bar{y})= \rho(\bar{x}, A)\] 
+\end{proof} 
+\begin{theorem}
+    Пусть $A\subset \R^n$ - линейно связное, $B\subset \R^n,\ A\cap B \ne \emptyset,\\
+    A\cap (\R^n\setminus B)\ne \emptyset$. Тогда $A\cap \partial B \ne \emptyset$
+\end{theorem}
+\begin{proof}
+    Пусть $x_1\in A\cap B,\ x_2\in A\cap (\R^n\setminus B),\ \bar{\gamma}(t),\ t\in [0,1],\\
+    \bar{\gamma}(0)=x_1,\ \bar{\gamma}(1)=x_2,\ \tau=\sup\limits_{\bar{\gamma}(t)\in B}$ $\forall \epsilon>0\ \exists\ t_{\epsilon}\in (\tau-\epsilon, \tau),\ \bar{\gamma}(t_{\epsilon})\in B,\ t>\tau: \bar{\gamma}(t)\in \R^n\subset B \Rightarrow \bar{\gamma}(\tau)\in \partial B$
+\end{proof}  
+\begin{definition}
+    Открытытое линейно связное множество называется областью.
+\end{definition} 
+\begin{comm}
+    Замыкание области называют замкнутой областью
+\end{comm} 
+\subsection{Функции в $\R^n$}
+Будут рассматриваться функции $f: \R^n\to \R,\ f(\bar{x})=f(x_1, \dots, x_n)$
+\begin{definition}
+    Множество $\{\bar{x}: f(\bar{x})=C,\ C=\text{const}\}$ называется множеством (линией) уровня $C$.
+\end{definition} 
+\begin{definition} (Предел по Гейне)\\
+    Пусть $\forall \{\bar{x}_k\}_{k=1}^{\infty}\subset D(f),\ \bar{x}_k\to \bar{x}_0,\ \bar{x}_k\ne \bar{x}_0$. Тогда существует предел
+    \[\lim\limits_{k\to \infty}f(\bar{x}_k)=A\]
+    и $A$ называется пределом функции $f$ в точке $\bar{x}_0$.
+\end{definition} 
+\begin{definition} (Предел по Коши)\\
+    Если $\exists\ A\in \R:$
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x}\in \mathring{B}_{\delta_\epsilon}(\bar{x}_0)\cap D(f): |f(\bar{x})-A|<\epsilon\]
+    то сушествует предел 
+    \[\lim\limits_{\bar{x}\to x_0}f(\bar{x})=A\]
+\end{definition} 
+\begin{theorem}
+    Эти определения эквивалентны
+\end{theorem} 
+\begin{proof}
+    Без доказательства.
+\end{proof} 
+\begin{comm}
+    Свойства, доказанные для пределов в первом семестре, остаются верными для функций многих переменных и доказываются аналогично.
+\end{comm} 
