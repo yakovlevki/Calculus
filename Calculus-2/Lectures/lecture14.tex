@@ -8,15 +8,18 @@
     Значит
     \[\exists\ \{\bar{y}_{m_k}\}_{k=1}^{\infty}: \bar{y}_{m_k} \to \bar{y},\ \rho(\bar{x}, \bar{y}_{m_k})<\rho(\bar{x}, A)+\frac{1}{m_k}\] 
     после предельного перехода получим: 
-    \[\rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A),\ \rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A) \Rightarrow \rho(\bar{x}, \bar{y})= \rho(\bar{x}, A)\] 
+    \[\rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A),\ \rho(\bar{x}, \bar{y})\geq \rho(\bar{x}, A) \Rightarrow \rho(\bar{x}, \bar{y})= \rho(\bar{x}, A)\] 
 \end{proof} 
 \begin{theorem}
     Пусть $A\subset \R^n$ - линейно связное, $B\subset \R^n,\ A\cap B \ne \emptyset,\\
-    A\cap (\R^n\setminus B)\ne \emptyset$. Тогда $A\cap \partial B \ne \emptyset$
+    A\cap (\R^n\setminus B)\ne \emptyset$. Тогда $A\cap \partial B \ne \emptyset$.
 \end{theorem}
 \begin{proof}
-    Пусть $x_1\in A\cap B,\ x_2\in A\cap (\R^n\setminus B),\ \bar{\gamma}(t),\ t\in [0,1],\\
-    \bar{\gamma}(0)=x_1,\ \bar{\gamma}(1)=x_2,\ \tau=\sup\limits_{\bar{\gamma}(t)\in B}$ $\forall \epsilon>0\ \exists\ t_{\epsilon}\in (\tau-\epsilon, \tau),\ \bar{\gamma}(t_{\epsilon})\in B,\ t>\tau: \bar{\gamma}(t)\in \R^n\subset B \Rightarrow \bar{\gamma}(\tau)\in \partial B$
+    Пусть $x_1\in A\cap B,\ x_2\in A\cap (\R^n\setminus B),\ \bar{\gamma}(t)\subset A,\ t\in [0,1],\\
+    \bar{\gamma}(0)=x_1,\ \bar{\gamma}(1)=x_2$. Пусть  
+    \[\tau=\sup\limits_{\bar{\gamma}(t)\in B}\{t\} \Rightarrow \forall \epsilon>0\ \exists\ t_{\epsilon}\in (\tau-\epsilon, \tau),\ \bar{\gamma}(t_{\epsilon})\in B\] 
+    Тогда при $t>\tau$ получим
+    \[\bar{\gamma}(t)\in \R^n\subset B \Rightarrow \bar{\gamma}(\tau)\in \partial B\]
 \end{proof}  
 \begin{definition}
     Открытытое линейно связное множество называется областью.
