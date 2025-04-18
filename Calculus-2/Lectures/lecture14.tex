@@ -10,6 +10,10 @@
     после предельного перехода получим: 
     \[\rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A),\ \rho(\bar{x}, \bar{y})\geq \rho(\bar{x}, A) \Rightarrow \rho(\bar{x}, \bar{y})= \rho(\bar{x}, A)\] 
 \end{proof} 
+\begin{definition}
+    Множество $A\subset \R^n$ называется линейно связным, если любые две его точки можно соединить кривой, то есть
+    \[\forall x,y\in A\ \exists\ \bar{\gamma}: [0,1] \to A: \bar{\gamma}(0)=x,\ \bar{\gamma}(1)=y\]
+\end{definition} 
 \begin{theorem}
     Пусть $A\subset \R^n$ - линейно связное, $B\subset \R^n,\ A\cap B \ne \emptyset,\\
     A\cap (\R^n\setminus B)\ne \emptyset$. Тогда $A\cap \partial B \ne \emptyset$.
@@ -22,12 +26,10 @@
     \[\bar{\gamma}(t)\in \R^n\subset B \Rightarrow \bar{\gamma}(\tau)\in \partial B\]
 \end{proof}  
 \begin{definition}
-    Открытытое линейно связное множество называется областью.
+    Открытытое линейно связное множество называется областью.\\
+    Замыкание области называют замкнутой областью.
 \end{definition} 
-\begin{comm}
-    Замыкание области называют замкнутой областью
-\end{comm} 
-\subsection{Функции в $\R^n$}
+\subsection{Функции в \texorpdfstring{$\R^n$}{Rn}}
 Будут рассматриваться функции $f: \R^n\to \R,\ f(\bar{x})=f(x_1, \dots, x_n)$
 \begin{definition}
     Множество $\{\bar{x}: f(\bar{x})=C,\ C=\text{const}\}$ называется множеством (линией) уровня $C$.

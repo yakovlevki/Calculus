@@ -33,7 +33,7 @@
     \[\lim\limits_{k\to \infty}\bar{x}_k=\bar{x}_0\]
 \end{definition} 
 \begin{theorem}
-    \[\exists\ \lim\limits_{k\to \infty}\bar{x}_k=\bar{x}_0\ \Leftrightarrow\ \forall i=1,...,n:\ \exists\ \lim\limits_{k\to \infty}x_{k_i}=x_0\]
+    \[\exists\ \lim\limits_{k\to \infty}\bar{x}_k=\bar{x}_0\ \Leftrightarrow\ \forall i=1,...,n:\ \exists\ \lim\limits_{k\to \infty}x_{k_i}=x_{0_i}\]
 \end{theorem} 
 \begin{proof}\tab
     \begin{itemize}
@@ -74,9 +74,10 @@
 \begin{proof}\tab
     \begin{itemize}
         \item[$(\Rightarrow)$:] Если $A$ - неограничено, то $\exists\ \{\bar{a}\}_{i=1}^{\infty},\ \|\bar{a}_i\|\to \infty \Rightarrow$ получаем противоречие.
-        Значит $A$ - ограничено и по теореме Больцано-Вейерштрасса:
+        Тогда $A$ - ограничено и по теореме Больцано-Вейерштрасса:
         \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
-        \item[$(\Leftarrow)$:] Аналогично из ограниченности:
+        значит $A$ содержит все свои предельные точки, то есть $A$ - замкнуто.
+        \item[$(\Leftarrow)$:] Из ограниченности и замкнутости:
         \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
     \end{itemize}
 \end{proof} 
