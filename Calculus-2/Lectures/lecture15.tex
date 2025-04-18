@@ -1,0 +1,120 @@
+\begin{definition}
+    Пусть $\bar{x}_0\in D'(f)$. Рассмотрим кривую $\bar{\gamma}(t)$ определенную в окрестности $B(t_0),\ \bar{\gamma}(t_0)=\bar{x}_0$. Тогда если 
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall t\in \mathring{B}(t_0): |f(\bar{\gamma})-A|<\epsilon\]
+    то существует предел 
+    \[\lim\limits_{\bar{x}\to \bar{x}_0,\ \bar{x}\in \bar{\gamma}(t)}f(\bar{x})=A\]
+    и он называется пределом $f(\bar{x})$ вдоль кривой $\bar{\gamma}$.
+\end{definition} 
+% Пример из демидовича
+\begin{definition}
+    Если существует последовательность пределов
+    \[\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_1}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}}(\lim\limits_{x_{i_n}\to x_{0_n}}f(x_1,\dots,x_n)))\dots))=A\]
+    то $A$ называется повторным пределом. 
+\end{definition} 
+\begin{example}
+    \[f(x,y)=\begin{cases}
+        x\sin{\frac{1}{y}+y\sin{\frac{1}{x}}}\ ,\ x,y\ne 0\\
+        0\ ,\ (x, y)=0
+    \end{cases}
+    \]
+    На всех осях нет повторного предела.
+\end{example}
+\begin{theorem}
+    Если существует предел
+    \[\lim\limits_{\bar{x\to \bar{x}_0}}f(\bar{x})\]
+    и существует предел
+    \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_1}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}})\dots))\]
+    то сущесвует предел
+    \[\lim\limits_{x_{i_n}\to x_{0_n}}g(x_{i_n})=A\]
+\end{theorem} 
+\begin{proof}
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x\in \mathring{B}_{\delta}(\bar{x})}: |f(\bar{x})-A|\]
+    Далее устремляем $x_{i_{n-1}}\to x_{0_{n-1}}, \dots, x_{i_1}\to x_{0_1}$ и после предельного перехода получаем:
+    \[|g(x_{i_n})-A|\leq \epsilon\]
+\end{proof} 
+\subsection{Непрерывные функции}
+\begin{definition}
+    Если $\bar{x}_0\in D(f)m\ \bar{x}_0\in D'(f)$ и существует предел 
+    \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})=f(\bar{x}_0)\]
+    то $f(\bar{x})$ называется непрерывной в точке $\bar{x}_0$.
+\end{definition} 
+\begin{comm}
+    В изолированных точках считаем функцию непрерывной по определению.
+\end{comm} 
+\begin{comm}
+    Локальные свойства непрерывных функции, доказанные в первом семестре, остаются
+    верными для функций многих переменных и доказываются аналогично.
+\end{comm} 
+\begin{theorem}
+    Пусть $f(\bar{x})$ непрерывна в точке $\bar{x}_0$. Отображение
+    \[\bar{x}(t)=(x_1(t_1,\dots,t_k), \dots , x_n(t_1, \dots, t_k))\]
+    непрерывно в точке $\bar{t}_0$. Тогда $f(\bar{x}(\bar{t}))$ непрерывно в точке $\bar{t}_0$.
+\end{theorem} 
+\begin{proof}
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x}\in B_{\delta}(\bar{x}_0): |f(\bar{x})-f(\bar{x}_0)|<\epsilon\]
+    \[\exists\ \delta_1>0: \Pi_{(x_{0_1}-\delta, x_{0_1}+\delta)}\subset B_{\delta}(\bar{x}_0)\]
+    \[\exists\ \delta_2>0: \forall i=1,\dots, n: |x_i(\bar{t})-x_{0_i}|<\delta_1,\ \text{при}\ \rho(\bar{t}, \bar{t}_0)<\delta_2\]
+    значит
+    \[|f(\bar{x}(\bar{t}))-f(\bar{x}(\bar{t}_0))|<\epsilon\]
+\end{proof}
+\begin{theorem} (Теорема Вейерштрасса)\\
+    Пусть $A\subset \R^n$ - компакт, $f(\bar{x})\in \mathcal{C}(A)$. Тогда $f(\bar{x})$ ограничена на $A$ и достигает максимума и минимума.
+\end{theorem} 
+\begin{proof}
+    Пусть $f(\bar{x})$ неограничена, тогда $\forall n\in \N: \exists\ \bar{x}_n\in A$.\\
+    $|f(\bar{x}_n)|>n$, но существует сходящяяся подпоследовательность
+    \[\{x_{n_k}\}: \bar{x}_{n_k}\to \bar{x}\in A\] 
+    Но тогда
+    \[\lim\limits_{k\to \infty}f(\bar{x}_{n_k})=f(\bar{x})\]
+    значит функция ограничена.
+    Далее пусть \[\alpha=\sup\limits_{\bar{x}\in A}f(\bar{x}) \Rightarrow \forall m\in \N\ \exists\ \bar{x}_m: f(\bar{x}_m)>\alpha-\frac{1}{m}\] 
+    Существует сходящяяся подпоследовательность
+    \[\{\bar{x}_{m_k}\}_{k=1}^{\infty}: \bar{x}_{m_k}\to \bar{x}_0 \Rightarrow f(\bar{x}_0)\geq \alpha\] но $f(\bar{x}_0)\leq f(\bar{x}_0) \Rightarrow \alpha= f(\bar{x}_0)$ 
+\end{proof} 
+\begin{theorem}
+    Пусть $A\subset \R^n$ - линейно связное, $f(\bar{x})\in \mathcal{C}(A)$. Тогда
+    \[\forall \bar{x}_1, \bar{x}_2\in A: f(x_1)=\alpha,\ f(x_2)=\beta, \alpha<\beta\]
+    тогда $\forall \gamma\in (\alpha, \beta)\ \exists\ \bar{c}\in A: f(\bar{c})=\gamma$
+\end{theorem} 
+\begin{proof}
+    Рассмотрим $\bar{\gamma}(t)\subset A,\ \bar{\gamma}(0)=x_1,\ \bar{\gamma}(1)=x_2$. По предыдущей теореме $f(\bar{\gamma}(t))$ принимает при некотором $t'\in [0,1]$ значение $f(\bar{\gamma}(t'))=\gamma$.
+\end{proof} 
+\begin{definition}
+    Пусть $f(\bar{x})$ определена на $A\subset \R^n$ и
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x}_1, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|<\epsilon\] 
+    тогда $f(\bar{x})$ называется равномерно непрерывной на $A$.
+\end{definition} 
+\begin{theorem}
+    Пусть $A$ - компакт, $f(\bar{x})\in \mathcal{C}(A)$, то $f(\bar{x})$ равномерно непрерывна на $A$.
+\end{theorem} 
+\begin{proof}
+    Пусть 
+    \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ \bar{x}_{1}, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|\geq \epsilon_0\]
+    \[\forall m\in \N\ \exists\ \bar{x}_{1_{\frac{1}{m}}},\ \bar{x}_{2_{\frac{1}{m}}},\ \rho(\bar{x}_{1_{\frac{1}{m}}}, \bar{x}_{2_{\frac{1}{m}}})<\frac{1}{m}: |f(\bar{x}_{1_{\frac{1}{m}}})-f(\bar{x}_{2_{\frac{1}{m}}})|\geq \epsilon_0\]
+    существует сходящяяся подпоследовательность
+    \[\{\bar{x}_{i_{\frac{1}{m_k}}}\}: \bar{x}_{i_{\frac{1}{m}_k}}\to \bar{x}_0\]
+    \[\rho(\bar{x}_0, \bar{x}_{2_{\frac{1}{m_k}}})\leq \rho(\bar{x}_0, \bar{x}_{1_{\frac{1}{m_k}}})+\rho(\bar{x}_{1_{\frac{1}{m_k}}}), \bar{x}_{2_{\frac{1}{m_k}}}<\epsilon+\frac{1}{m_k}\]
+    значит 
+    \[\bar{x}_{2_{\frac{1}{m_k}}}\to \bar{x}_0\]
+    поскольку $f(\bar{x})\in \mathcal{С}(A)$, то
+    \[\lim\limits f(x_{1_{\frac{1}{m_k}}})=f(\bar{x}_0),\ \lim\limits f(x_{2_{\frac{1}{m_k}}})=f(\bar{x}_0)\]
+    противоречие.
+\end{proof} 
+\subsection{Дифференциальное исчисление функций многих переменных}
+\begin{definition}
+    Пусть $f(\bar{x})$ определена в $B(\bar{x}_0)$. Если существует предел
+    \[\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)=f'_{x_i}(\bar{x}_0)=\lim\limits_{\Delta x_i\to 0}\frac{f(x_{01}, x_{02}, \dots, x_{0i}+\Delta x_i, \dots, x_{0n})-f(\bar{x}_0)}{\Delta x_i}\]
+    то он называется частной производной функции по $i$-й переменной.
+\end{definition} 
+\begin{definition}
+    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется второй частной производной.
+    (Много разных обозначений).
+\end{definition} 
+\begin{comm}
+    Аналогично определяется частная производная любого порядка.
+\end{comm}
+\begin{definition}
+    Пусть $f(\bar{x})$ определена в $B(\bar{x}_0)$. Если существует набор $\{A_i\}_{i=1}^n$ такой, что
+    \[f(\bar{x}+\Delta \bar{x})-f(\bar{x})=\sum\limits_{i=1}^{n}A_i \Delta x_i +\bar{\bar{o}}{(\rho(\bar{x}, \bar{x}_0))}\]
+    то $f(\bar{x})$ называется дифференцируемой в точке $\bar{x}_0$
+\end{definition} 
