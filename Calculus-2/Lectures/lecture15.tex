@@ -1,5 +1,5 @@
 \begin{definition}
-    Пусть $\bar{x}_0\in D'(f)$. Рассмотрим кривую $\bar{\gamma}(t)$ определенную в окрестности $B(t_0),\ \bar{\gamma}(t_0)=\bar{x}_0$. Тогда если 
+    Пусть $\bar{x}_0\in D'(f)$. Рассмотрим кривую $\bar{\gamma}(t)$, определенную в окрестности $B(t_0),\ \bar{\gamma}(t_0)=\bar{x}_0$. Тогда если 
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall t\in \mathring{B}(t_0): |f(\bar{\gamma})-A|<\epsilon\]
     то существует предел 
     \[\lim\limits_{\bar{x}\to \bar{x}_0,\ \bar{x}\in \bar{\gamma}(t)}f(\bar{x})=A\]
@@ -21,14 +21,14 @@
 \end{example}
 \begin{theorem}
     Если существует предел
-    \[\lim\limits_{\bar{x\to \bar{x}_0}}f(\bar{x})\]
+    \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})\]
     и существует предел
     \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_1}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}})\dots))\]
-    то сущесвует предел
+    то существует предел
     \[\lim\limits_{x_{i_n}\to x_{0_n}}g(x_{i_n})=A\]
 \end{theorem} 
 \begin{proof}
-    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x\in \mathring{B}_{\delta}(\bar{x})}: |f(\bar{x})-A|\]
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x}\in \mathring{B}_{\delta}(\bar{x}_0): |f(\bar{x})-A|<\epsilon\]
     Далее устремляем $x_{i_{n-1}}\to x_{0_{n-1}}, \dots, x_{i_1}\to x_{0_1}$ и после предельного перехода получаем:
     \[|g(x_{i_n})-A|\leq \epsilon\]
 \end{proof} 
@@ -62,22 +62,22 @@
 \end{theorem} 
 \begin{proof}
     Пусть $f(\bar{x})$ неограничена, тогда $\forall n\in \N: \exists\ \bar{x}_n\in A$.\\
-    $|f(\bar{x}_n)|>n$, но существует сходящяяся подпоследовательность
+    $|f(\bar{x}_n)|>n$, но существует сходящаяся подпоследовательность
     \[\{x_{n_k}\}: \bar{x}_{n_k}\to \bar{x}\in A\] 
     Но тогда
     \[\lim\limits_{k\to \infty}f(\bar{x}_{n_k})=f(\bar{x})\]
     значит функция ограничена.
     Далее пусть \[\alpha=\sup\limits_{\bar{x}\in A}f(\bar{x}) \Rightarrow \forall m\in \N\ \exists\ \bar{x}_m: f(\bar{x}_m)>\alpha-\frac{1}{m}\] 
-    Существует сходящяяся подпоследовательность
+    Существует сходящаяся подпоследовательность
     \[\{\bar{x}_{m_k}\}_{k=1}^{\infty}: \bar{x}_{m_k}\to \bar{x}_0 \Rightarrow f(\bar{x}_0)\geq \alpha\] но $f(\bar{x}_0)\leq f(\bar{x}_0) \Rightarrow \alpha= f(\bar{x}_0)$ 
 \end{proof} 
 \begin{theorem}
-    Пусть $A\subset \R^n$ - линейно связное, $f(\bar{x})\in \mathcal{C}(A)$. Тогда
-    \[\forall \bar{x}_1, \bar{x}_2\in A: f(x_1)=\alpha,\ f(x_2)=\beta, \alpha<\beta\]
+    Пусть $A\subset \R^n$ - линейно связное множество, $f(\bar{x})\in \mathcal{C}(A)$. Тогда
+    \[\forall \bar{x}_1, \bar{x}_2\in A: f(\bar{x}_1)=\alpha,\ f(\bar{x}_2)=\beta, \alpha<\beta\]
     тогда $\forall \gamma\in (\alpha, \beta)\ \exists\ \bar{c}\in A: f(\bar{c})=\gamma$
 \end{theorem} 
 \begin{proof}
-    Рассмотрим $\bar{\gamma}(t)\subset A,\ \bar{\gamma}(0)=x_1,\ \bar{\gamma}(1)=x_2$. По предыдущей теореме $f(\bar{\gamma}(t))$ принимает при некотором $t'\in [0,1]$ значение $f(\bar{\gamma}(t'))=\gamma$.
+    Рассмотрим $\bar{\gamma}(t)\subset A,\ \bar{\gamma}(0)=\bar{x}_1,\ \bar{\gamma}(1)=\bar{x}_2$. По предыдущей теореме $f(\bar{\gamma}(t))$ принимает при некотором $t'\in [0,1]$ значение $f(\bar{\gamma}(t'))=\gamma$.
 \end{proof} 
 \begin{definition}
     Пусть $f(\bar{x})$ определена на $A\subset \R^n$ и
@@ -91,7 +91,7 @@
     Пусть 
     \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ \bar{x}_{1}, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|\geq \epsilon_0\]
     \[\forall m\in \N\ \exists\ \bar{x}_{1_{\frac{1}{m}}},\ \bar{x}_{2_{\frac{1}{m}}},\ \rho(\bar{x}_{1_{\frac{1}{m}}}, \bar{x}_{2_{\frac{1}{m}}})<\frac{1}{m}: |f(\bar{x}_{1_{\frac{1}{m}}})-f(\bar{x}_{2_{\frac{1}{m}}})|\geq \epsilon_0\]
-    существует сходящяяся подпоследовательность
+    существует сходящаяся подпоследовательность
     \[\{\bar{x}_{i_{\frac{1}{m_k}}}\}: \bar{x}_{i_{\frac{1}{m}_k}}\to \bar{x}_0\]
     \[\rho(\bar{x}_0, \bar{x}_{2_{\frac{1}{m_k}}})\leq \rho(\bar{x}_0, \bar{x}_{1_{\frac{1}{m_k}}})+\rho(\bar{x}_{1_{\frac{1}{m_k}}}), \bar{x}_{2_{\frac{1}{m_k}}}<\epsilon+\frac{1}{m_k}\]
     значит 
@@ -103,12 +103,12 @@
 \subsection{Дифференциальное исчисление функций многих переменных}
 \begin{definition}
     Пусть $f(\bar{x})$ определена в $B(\bar{x}_0)$. Если существует предел
-    \[\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)=f'_{x_i}(\bar{x}_0)=\lim\limits_{\Delta x_i\to 0}\frac{f(x_{01}, x_{02}, \dots, x_{0i}+\Delta x_i, \dots, x_{0n})-f(\bar{x}_0)}{\Delta x_i}\]
+    \[f'_{x_i}(\bar{x}_0)=\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)=\lim\limits_{\Delta x_i\to 0}\frac{f(x_{01}, x_{02}, \dots, x_{0i}+\Delta x_i, \dots, x_{0n})-f(\bar{x}_0)}{\Delta x_i}\]
     то он называется частной производной функции по $i$-й переменной.
 \end{definition} 
 \begin{definition}
-    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется второй частной производной.
-    (Много разных обозначений).
+    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется второй частной производной. Обозначения:
+    \[(f'_{x_i}(\bar{x}))'_{x_i}=\frac{\partial^2 {f}}{\partial {x_i}^2},\ (f'_{x_i}(\bar{x}))'_{x_j}=\frac{\partial^2 {f}}{\partial {x_i}\partial {x_j}}\]
 \end{definition} 
 \begin{comm}
     Аналогично определяется частная производная любого порядка.
