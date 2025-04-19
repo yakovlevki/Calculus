@@ -8,7 +8,7 @@
 % Пример из демидовича
 \begin{definition}
     Если существует последовательность пределов
-    \[\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_1}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}}(\lim\limits_{x_{i_n}\to x_{0_n}}f(x_1,\dots,x_n)))\dots))=A\]
+    \[\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_2}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}}(\lim\limits_{x_{i_n}\to x_{0_n}}f(x_1,\dots,x_n)))\dots))=A\]
     то $A$ называется повторным пределом. 
 \end{definition} 
 \begin{example}
@@ -23,7 +23,7 @@
     Если существует предел
     \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})\]
     и существует предел
-    \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_1}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}})\dots))\]
+    \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_2}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}})\dots))\]
     то существует предел
     \[\lim\limits_{x_{i_n}\to x_{0_n}}g(x_{i_n})=A\]
 \end{theorem} 
@@ -42,7 +42,7 @@
     В изолированных точках считаем функцию непрерывной по определению.
 \end{comm} 
 \begin{comm}
-    Локальные свойства непрерывных функции, доказанные в первом семестре, остаются
+    Локальные свойства непрерывных функций, доказанные в первом семестре, остаются
     верными для функций многих переменных и доказываются аналогично.
 \end{comm} 
 \begin{theorem}
@@ -63,40 +63,41 @@
 \begin{proof}
     Пусть $f(\bar{x})$ неограничена, тогда $\forall n\in \N: \exists\ \bar{x}_n\in A$.\\
     $|f(\bar{x}_n)|>n$, но существует сходящаяся подпоследовательность
-    \[\{x_{n_k}\}: \bar{x}_{n_k}\to \bar{x}\in A\] 
+    \[\{\bar{x}_{n_k}\}: \bar{x}_{n_k}\to \bar{x}\in A\] 
     Но тогда
     \[\lim\limits_{k\to \infty}f(\bar{x}_{n_k})=f(\bar{x})\]
     значит функция ограничена.
     Далее пусть \[\alpha=\sup\limits_{\bar{x}\in A}f(\bar{x}) \Rightarrow \forall m\in \N\ \exists\ \bar{x}_m: f(\bar{x}_m)>\alpha-\frac{1}{m}\] 
     Существует сходящаяся подпоследовательность
-    \[\{\bar{x}_{m_k}\}_{k=1}^{\infty}: \bar{x}_{m_k}\to \bar{x}_0 \Rightarrow f(\bar{x}_0)\geq \alpha\] но $f(\bar{x}_0)\leq f(\bar{x}_0) \Rightarrow \alpha= f(\bar{x}_0)$ 
+    \[\{\bar{x}_{m_k}\}_{k=1}^{\infty}: \bar{x}_{m_k}\to \bar{x}_0 \Rightarrow f(\bar{x}_0)\geq \alpha\] но $f(\bar{x}_0)\leq \alpha \Rightarrow \alpha= f(\bar{x}_0)$ 
 \end{proof} 
 \begin{theorem}
-    Пусть $A\subset \R^n$ - линейно связное множество, $f(\bar{x})\in \mathcal{C}(A)$. Тогда
-    \[\forall \bar{x}_1, \bar{x}_2\in A: f(\bar{x}_1)=\alpha,\ f(\bar{x}_2)=\beta, \alpha<\beta\]
-    тогда $\forall \gamma\in (\alpha, \beta)\ \exists\ \bar{c}\in A: f(\bar{c})=\gamma$
+    Пусть $A\subset \R^n$ - линейно связное множество, $f(\bar{x})\in \mathcal{C}(A)$,
+    \[\forall \bar{x}_1, \bar{x}_2\in A: f(\bar{x}_1)=\alpha,\ f(\bar{x}_2)=\beta,\ \alpha<\beta\]
+    Тогда
+    \[\forall \gamma\in (\alpha, \beta)\ \exists\ \bar{c}\in A: f(\bar{c})=\gamma\]
 \end{theorem} 
 \begin{proof}
-    Рассмотрим $\bar{\gamma}(t)\subset A,\ \bar{\gamma}(0)=\bar{x}_1,\ \bar{\gamma}(1)=\bar{x}_2$. По предыдущей теореме $f(\bar{\gamma}(t))$ принимает при некотором $t'\in [0,1]$ значение $f(\bar{\gamma}(t'))=\gamma$.
+    Рассмотрим $\bar{\gamma}(t)\subset A,\ \bar{\gamma}(0)=\bar{x}_1,\ \bar{\gamma}(1)=\bar{x}_2$. Тогда по теореме о промежуточном значении $f(\bar{\gamma}(t))$ принимает при некотором $t'\in [0,1]$ значение $f(\bar{\gamma}(t'))=\gamma$.
 \end{proof} 
 \begin{definition}
     Пусть $f(\bar{x})$ определена на $A\subset \R^n$ и
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall \bar{x}_1, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|<\epsilon\] 
     тогда $f(\bar{x})$ называется равномерно непрерывной на $A$.
 \end{definition} 
-\begin{theorem}
+\begin{theorem} (Теорема Кантора)\\
     Пусть $A$ - компакт, $f(\bar{x})\in \mathcal{C}(A)$, то $f(\bar{x})$ равномерно непрерывна на $A$.
 \end{theorem} 
 \begin{proof}
-    Пусть 
+    От противного 
     \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ \bar{x}_{1}, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|\geq \epsilon_0\]
     \[\forall m\in \N\ \exists\ \bar{x}_{1_{\frac{1}{m}}},\ \bar{x}_{2_{\frac{1}{m}}},\ \rho(\bar{x}_{1_{\frac{1}{m}}}, \bar{x}_{2_{\frac{1}{m}}})<\frac{1}{m}: |f(\bar{x}_{1_{\frac{1}{m}}})-f(\bar{x}_{2_{\frac{1}{m}}})|\geq \epsilon_0\]
     существует сходящаяся подпоследовательность
-    \[\{\bar{x}_{i_{\frac{1}{m_k}}}\}: \bar{x}_{i_{\frac{1}{m}_k}}\to \bar{x}_0\]
-    \[\rho(\bar{x}_0, \bar{x}_{2_{\frac{1}{m_k}}})\leq \rho(\bar{x}_0, \bar{x}_{1_{\frac{1}{m_k}}})+\rho(\bar{x}_{1_{\frac{1}{m_k}}}), \bar{x}_{2_{\frac{1}{m_k}}}<\epsilon+\frac{1}{m_k}\]
+    \[\{\bar{x}_{i_{\frac{1}{m_k}}}\}: \bar{x}_{i_{\frac{1}{m_k}}}\to \bar{x}_0\]
+    \[\rho(\bar{x}_0, \bar{x}_{2_{\frac{1}{m_k}}})\leq \rho(\bar{x}_0, \bar{x}_{1_{\frac{1}{m_k}}})+\rho(\bar{x}_{1_{\frac{1}{m_k}}}, \bar{x}_{2_{\frac{1}{m_k}}})<\epsilon+\frac{1}{m_k}\]
     значит 
     \[\bar{x}_{2_{\frac{1}{m_k}}}\to \bar{x}_0\]
-    поскольку $f(\bar{x})\in \mathcal{С}(A)$, то
+    поскольку $f(\bar{x})\in \mathcal{C}(A)$, то
     \[\lim\limits f(x_{1_{\frac{1}{m_k}}})=f(\bar{x}_0),\ \lim\limits f(x_{2_{\frac{1}{m_k}}})=f(\bar{x}_0)\]
     противоречие.
 \end{proof} 
@@ -107,8 +108,8 @@
     то он называется частной производной функции по $i$-й переменной.
 \end{definition} 
 \begin{definition}
-    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется второй частной производной. Обозначения:
-    \[(f'_{x_i}(\bar{x}))'_{x_i}=\frac{\partial^2 {f}}{\partial {x_i}^2},\ (f'_{x_i}(\bar{x}))'_{x_j}=\frac{\partial^2 {f}}{\partial {x_i}\partial {x_j}}\]
+    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется частной производной. Если $\bar{x}_i\ne \bar{x}_j$, то она называется смешанной производной, если $\bar{x}_i=\bar{x}_j$, то она называется повторной производной.
+    \[(f'_{x_i}(\bar{x}))'_{x_i}=f''_{x_i x_i}(\bar{x})=\frac{\partial^2 {f}}{\partial {x_i}^2},\ (f'_{x_i}(\bar{x}))'_{x_j}=f''_{x_i x_j}(\bar{x})=\frac{\partial^2 {f}}{\partial {x_j}\partial {x_i}}\]
 \end{definition} 
 \begin{comm}
     Аналогично определяется частная производная любого порядка.
