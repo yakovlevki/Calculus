@@ -32,9 +32,9 @@
     Далее устремляем $x_{i_{n-1}}\to x_{0_{n-1}}, \dots, x_{i_1}\to x_{0_1}$ и после предельного перехода получаем:
     \[|g(x_{i_n})-A|\leq \epsilon\]
 \end{proof} 
-\subsection{Непрерывные функции}
+\subsection{Непрерывные функции нескольких переменных}
 \begin{definition}
-    Если $\bar{x}_0\in D(f)m\ \bar{x}_0\in D'(f)$ и существует предел 
+    Если $\bar{x}_0\in D(f),\ \bar{x}_0\in D'(f)$ и существует предел 
     \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})=f(\bar{x}_0)\]
     то $f(\bar{x})$ называется непрерывной в точке $\bar{x}_0$.
 \end{definition} 
@@ -92,7 +92,7 @@
     От противного 
     \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ \bar{x}_{1}, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|\geq \epsilon_0\]
     \[\forall m\in \N\ \exists\ \bar{x}_{1_{\frac{1}{m}}},\ \bar{x}_{2_{\frac{1}{m}}},\ \rho(\bar{x}_{1_{\frac{1}{m}}}, \bar{x}_{2_{\frac{1}{m}}})<\frac{1}{m}: |f(\bar{x}_{1_{\frac{1}{m}}})-f(\bar{x}_{2_{\frac{1}{m}}})|\geq \epsilon_0\]
-    существует сходящаяся подпоследовательность
+    поскольку $A$ компакт, то последовательность ограничена и существует сходящаяся подпоследовательность:
     \[\{\bar{x}_{i_{\frac{1}{m_k}}}\}: \bar{x}_{i_{\frac{1}{m_k}}}\to \bar{x}_0\]
     \[\rho(\bar{x}_0, \bar{x}_{2_{\frac{1}{m_k}}})\leq \rho(\bar{x}_0, \bar{x}_{1_{\frac{1}{m_k}}})+\rho(\bar{x}_{1_{\frac{1}{m_k}}}, \bar{x}_{2_{\frac{1}{m_k}}})<\epsilon+\frac{1}{m_k}\]
     значит 
@@ -117,5 +117,7 @@
 \begin{definition}
     Пусть $f(\bar{x})$ определена в $B(\bar{x}_0)$. Если существует набор $\{A_i\}_{i=1}^n$ такой, что
     \[f(\bar{x}+\Delta \bar{x})-f(\bar{x})=\sum\limits_{i=1}^{n}A_i \Delta x_i +\bar{\bar{o}}{(\rho(\bar{x}, \bar{x}_0))}\]
-    то $f(\bar{x})$ называется дифференцируемой в точке $\bar{x}_0$
+    то $f(\bar{x})$ называется дифференцируемой в точке $\bar{x}_0$. главная линейная часть приращения 
+    \[df=\sum\limits_{i=1}^{n}A_i \Delta x_i\]
+    называется первым дифференциалом функции $f(\bar{x})$.
 \end{definition} 

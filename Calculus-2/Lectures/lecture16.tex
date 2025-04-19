@@ -1,0 +1,87 @@
+\begin{theorem}
+    Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то $f(\bar{x})$ непрерывна в точке $\bar{x}_0$.
+\end{theorem} 
+\begin{proof}
+    \begin{multline*}
+        |f(\bar{x})-f(\bar{x}_0)|=|\sum\limits_{i=1}^{n}A_i \Delta x_i +\bar{\bar{o}}{((\rho))}|\leq\\
+        \leq \sum\limits_{i=1}^{n}|A_i|\cdot|\Delta x_i|+|\bar{\bar{o}}{(\rho)}|\leq \epsilon\cdot \sum\limits_{i=1}^{n}|A_i|+\epsilon
+    \end{multline*}
+\end{proof} 
+\begin{theorem}
+    Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то в точке $\bar{x}_0$:
+    \[\forall i=1, \dots, n\ \exists\ \frac{\partial {f}}{\partial {x_i}}=A_i\]
+\end{theorem} 
+\begin{proof}
+    \begin{multline*}
+        \lim\limits_{\Delta x_i\to 0}\frac{f(x_{01},\dots,x_{0i}+\Delta x_i,\dots,x_{0n})-f(\bar{x}_0)}{\Delta x_i}=\\
+        =\lim\limits_{\Delta x_i\to 0}\frac{A_i \Delta x_i+\bar{\bar{o}}{(|\Delta x_i|)}}{\Delta x_i}=A_i=\frac{\partial {f}}{\partial {x_i}}(x_0)
+    \end{multline*}
+    Если $f(\bar{x})=x_i$, то $f(\bar{x})-f(\bar{x}_0)=\Delta x_i=df=dx_i$
+    отсюда
+    \[df=\sum\limits_{i=1}^{n} \frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)\ dx_i\]
+\end{proof} 
+\begin{theorem} (Достаточное условие дифференцируемости)\\
+    Пусть $\forall i=1,\dots, n$ в некоторой $B(\bar{x}_0)$ существуют $\frac{\partial {f}}{\partial {x_i}}$ и они непрерывны в $B(\bar{x}_0)$. Тогда $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$.
+\end{theorem} 
+\begin{proof}
+    Докажем в $\R^2$.
+    \begin{multline*}
+        f(x_0+\Delta x, y_0+\Delta y)-f(x_0, y_0)=\\
+        =f(x_0+\Delta x, y_0+\Delta y)-f(x_0, y_0+\Delta y)+f(x_0, y_0+\Delta y)-f(x_0, y_0)= (1)\\
+        =f'_x(x_0+\theta_1 \Delta x, y_0+\Delta y)\Delta x+f'_y(x_0,y_0+\theta_2 \Delta y) \Delta y= (2)+(3)\\
+        =f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y+\bar{\bar{o}}{(1)}\Delta x+\bar{\bar{o}}{(1)} \Delta y= (4)\\
+        =f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y+\bar{\bar{o}}{(\rho)}
+    \end{multline*}
+    (1): По теореме Лагранжа\\
+    (2):
+    \[f'_x(x_0+\theta_1 \Delta x, y_0+\Delta y)=f'_x(x_0,y_0)+\bar{\bar{o}}{(1)},\ \rho \to 0\]
+    (3):
+    \[f'_x(x_0, y_0+\theta_2 \Delta y)=f'_y(x_0,y_0)+\bar{\bar{o}}{(1)},\ \rho \to 0\]
+    (4): \[\frac{\bar{\bar{o}}{(1)}\Delta x+\bar{\bar{o}}{(1)} \Delta y}{\rho}=\bar{\bar{o}}{(1)}\]
+\end{proof} 
+\begin{comm}
+    Аналогичное доказательство можно провернуть для $\R^n$.
+\end{comm}
+\begin{definition}
+    Пусть $f(\bar{x})$ определена в $B(\bar{x}_0)$. Обозначим $y_0=f(\bar{x}_0)$, плоскость
+    \[y-y_0=\sum\limits_{i=1}^{n}A_i \Delta x_i\]
+    называется касательной к графику $y=f(\bar{x})$ в точке $\bar{x}_0$, если для любой прямой, проходящей через точки $(\bar{x}_0, f(\bar{x}_0))$ и $(\bar{x}, f(\bar{x}))$ ее угол с нормалью к плоскости стремится к $\frac{\pi}{2}$ при $\bar{x}\to \bar{x}_0$.
+\end{definition} 
+\begin{theorem} (Геометрический смысл дифференциала и уравнение касательной)\\
+    Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то 
+    \[y-y_0=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)(x_i-x_{0i})\]
+\end{theorem} 
+\begin{proof}
+    Пусть $X_i=x_{01}+(x_i-x_{0i})t,\\ Y=f(\bar{x}_0)+(f(\bar{x})-f(\bar{x}_0))t,\ t\in [0,1]$
+    \[\cos{\alpha}=\frac{\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i-x_{0i})-(f(\bar{x})-f(\bar{x}_0))}{\sqrt{1+\sum\limits_{i=1}^{n}(\frac{\partial {f}}{\partial {x_i}})^2}\cdot \sqrt{(f(\bar{x})-f(\bar{x}_0))^2+\sum\limits_{i=1}^{n}(x_i-x_{i0})^2}}\leq \frac{|\bar{\bar{o}}{(\rho)}|}{c\rho}\to 0\]
+    Значит $\alpha \to \frac{\pi}{2}$.
+\end{proof} 
+\begin{theorem} (Дифференциал сложной функции и инвариантность формы первого дифференциала)\\
+    Пусть $f(\bar{x})$ дифференцируема в $\Omega\in \R^n,\ \bar{x}(\bar{t}): \R^n\to \R^n,\ \bar{x}(\bar{t})$ дифференцируемы в $\Omega_1\in \R^n$ и $\forall \bar{t}\in \Omega_1: \bar{x}(\bar{t})\in \Omega$. Тогда $f(\bar{\bar{t}})$ дифференцируема в $\Omega$.
+\end{theorem} 
+\begin{proof}
+    $\forall \bar{x}_0\in \Omega$:
+    \[f(\bar{x}+\Delta \bar{x})-f(\bar{x}_0)=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i-x_{0i})+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}(x_i-x_{0i})^2}\ \right)}\]
+    \begin{multline*}
+        f(\bar{x}(t+\Delta t))-f(\bar{x}(\bar{t}_0))=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i(\bar{t})-x_i(\bar{t}_0))+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}(x_i(\bar{t})-x_i(t_0))^2}\ \right)}=\\
+        =\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\left(\sum\limits_{j=1}^{k}\frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}\right)+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}\left(\sum\limits_{j=1}^{k}\frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}\right)^2}\right)}=\\
+        =\sum\limits_{j=1}^{k}\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}+\bar{\bar{o}}{(O(\rho))}=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})\right)+\bar{\bar{o}}{(\rho)}.
+    \end{multline*}
+\end{proof} 
+\begin{theorem}
+    Пусть $f(\bar{x})\in \mathcal{C}^2(\Omega)$. Тогда $\forall i,j:$
+    \[\frac{\partial^2 {f}}{\partial {x_i}\partial{x_j}}=\frac{\partial^2 {f}}{\partial {x_j}\partial{x_i}}\]
+\end{theorem} 
+\begin{proof} 
+    Пусть $\Delta f(x)=f(x+\Delta x)-f(x)$. Докажем в $\R^2$
+    \begin{multline*}
+        \Delta_x(\Delta_y f(x,y))=\Delta_x(f(x,y+\Delta_y)-f(x,y))=\\
+        =f(x+\Delta x, y+\Delta y)-f(x+\Delta x, y)-f(x,y+\Delta y)+f(x,y)
+    \end{multline*}
+    \begin{multline*}
+        \Delta_y(\Delta_x f(x,y))=\Delta_y(f(x+\Delta x,y)-f(x,y))=\\
+        =f(x+\Delta x, y+\Delta y)-f(x,y+\Delta y)-f(x+\Delta x,y)+f(x,y)
+    \end{multline*}
+    \[\Delta_x\Delta_y f(x,y)= (1) = f(x+\Delta x, y+\theta_1 \Delta y)\Delta y-f'_y(x, y+\theta_2 \Delta y)\Delta y\]
+    (\textit{Продолжение на лекции 17})
+\end{proof} 
