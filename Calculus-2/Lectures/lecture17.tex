@@ -1,0 +1,58 @@
+\begin{definition}
+    Пусть
+    \[l=\begin{pmatrix}
+        \cos{\alpha_1} & \cos{\alpha_2} & \dots & \cos{\alpha_n}
+    \end{pmatrix},\
+    \sum\limits_{i=1}^{n}\cos^2{\alpha_i}=1
+    \]
+    Предел
+    \[\frac{\partial {f}}{\partial {\bar{l}}}=\lim\limits_{\Delta t\to 0}\frac{f(x_1+\Delta t \cdot \cos{\alpha_1},\dots,x_n+\Delta t \cdot \cos{\alpha_n})-f(\bar{x})}{\Delta t}\]
+    называется производной по направлению.
+\end{definition} 
+\begin{theorem}
+    Если $f(\bar{x})$ дифференцируема в $B(\bar{x}_0)$, то
+    \[\frac{\partial {f}}{\partial {\bar{l}}}(x_0)=\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\cdot \cos{\alpha_i}\right)\]
+\end{theorem} 
+\begin{proof}
+    \begin{multline*}
+        \lim\limits_{\Delta t\to 0}\frac{f(x_1+\Delta t \cdot \cos{\alpha_1},\dots,x_n+\Delta t \cdot \cos{\alpha_n})-f(\bar{x})}{\Delta t}=\\
+        =\lim\limits_{\Delta t\to 0}\frac{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\cdot \Delta t\cdot \cos{\alpha_i}\right)+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}\Delta t^2\cdot \cos{\alpha_i}}\right)}}{\Delta t}=\\
+        =\sum\limits_{i=1}^{n}\left( \frac{\partial {f}}{\partial {x_i}}\cdot \cos{\alpha_i}\right)
+    \end{multline*}
+\end{proof}
+\begin{definition}\
+    Градиентом функции $f$ называется ковектор
+    \[
+    \grad{f}=\begin{pmatrix}
+        \frac{\partial {f}}{\partial {x_1}} & \dots & \frac{\partial {f}}{\partial {x_n}}
+    \end{pmatrix}
+    \]
+\end{definition} 
+\begin{theorem}
+    Производная функции $f(\bar{x})$ по направлению $\grad{f}$ имеет максимальное по модулю значение по сравнению со всеми остальными производными по направлению.
+\end{theorem} 
+\begin{proof}
+    Для любого направления $\bar{l}$:
+    \[\left|\frac{\partial {f}}{\partial {\bar{l}}}\right|=\left|\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\cdot \cos{\alpha_i}\right)\right|\leq \sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2 \cdot 1}\]
+    \[\left|\frac{\partial {f}}{\partial {\grad{f}}}\right|=\left|\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\frac{\partial {f}}{\partial {x_i}}}{\sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2}}\right|=\sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2}\]
+\end{proof} 
+\begin{definition}
+    Пусть $f(\bar{x})\in \mathcal{C}^2(\Omega)$.
+    \[\delta(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\Delta x_i)=\sum\limits_{i=1}^{n}\left(\sum\limits_{j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial{x_j}}\delta x_j\right)\Delta x_i\]
+    Соответствующая квадратичная форма
+    \[d^2f=\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial{x_j}} d x_i dx_j\]
+    называется вторым дифференциалом функции $f$. Если $f\in \mathcal{C}^k$, то последовательно определяются дифференциалы до $k$ порядка.
+\end{definition} 
+\begin{theorem} (Формула Тейлора с остаточным членом в форме Лагранжа)\\
+    Пусть $f(\bar{x})\in \mathcal{C}^k(B(\bar{x}_0))$. Тогда $\forall \bar{x}\in B(\bar{x}_0)\ \exists\ \theta\in [0,1]$ такое, что
+    \[f(\bar{x})=\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot d^m f(\bar{x}_0)+\frac{1}{k!}\cdot d^k f(x_0+\theta(\bar{x}-\bar{x}_0))\] 
+\end{theorem} 
+\begin{proof}
+    Пусть $X_1=x_{01}+(x_1-x_{01})t, \dots, X_n=x_{0n}+(x_n-x_{0n})t,\\ t\in [0,1]$
+    \[F(t)=f(X_1(t),\dots, X_n(t))\]
+    \begin{multline*}
+        f(\bar{x})=F(1)=\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot F^{(m)}(0)\cdot (1-0)+\frac{1}{k!}\cdot F^{(k)}(\theta)(1-0)=\\\
+        =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\sum\limits_{i_1,\dots,i_m=1}^{n}\frac{\partial^m {f}}{\partial {x_{i_1}} \dots \partial x_{i_m}}\cdot (x_{i_1}-x_{0i_1})\dots (x_{i_m}-x_{0i_m})+\\
+        +\frac{1}{k!}\sum\limits_{i_1,\dots,i_k=1}^{n}\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0+\theta(\bar{x}-\bar{x}_0)) (x_{i_1}-x_{0i_1})\dots (x_{i_k}-x_{0i_k})
+    \end{multline*}
+\end{proof} 

@@ -18,7 +18,7 @@
     \end{enumerate}
     В рамках нашего курса можно использовать обозначение $\rho(\bar{x}, \bar{y})=\|\bar{x}-\bar{y}\|$
 \end{definition} 
-\begin{definition} Окрестностью или шаром $\bar{x}_0$ будем называть множества\\
+\begin{definition} Окрестностью точки $\bar{x}_0$ или шаром c центром в точке $\bar{x}_0$ будем называть множества
     \[B_{\epsilon}(\bar{x}_0)=\{\bar{x}: \rho(\bar{x}, \bar{x}_0)<\epsilon\}\]
     \[\mathring{B_{\epsilon}}(\bar{x}_0)=\{\bar{x}: 0<\rho(\bar{x}, \bar{x}_0)<\epsilon\}\]
 \end{definition}
@@ -38,7 +38,7 @@
 \begin{proof}\tab
     \begin{itemize}
         \item[$(\Rightarrow)$:] \[\forall \epsilon>0\ \exists\ K,\ \forall k>K: \sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon \Rightarrow \forall i: |x_{k_i}-x_{0_i}|<\epsilon\]
-        \item[$(\Leftarrow)$:] \[\forall \epsilon>0\ \exists K_i,\ \forall k>K_i: |x_{k_i}-x_{0_i}|<\epsilon\]
+        \item[$(\Leftarrow)$:] \[\forall \epsilon>0\ \exists\ K_i,\ \forall k>K_i: |x_{k_i}-x_{0_i}|<\epsilon\]
         Пусть $K=\max\limits_i K_i$. Тогда
         \[\sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon\]
     \end{itemize}
@@ -58,7 +58,7 @@
 \begin{theorem}
     Если последовательность вложенных параллелепипедов такая, что
     \[\{\Pi_{[\bar{a}, \bar{b}]}\}_{k=1}^{\infty},\ \forall k: \Pi_{[\bar{a}_{k+1}, \bar{b}_{k+1}]} \subset \Pi_{[\bar{a}_{k}, \bar{b}_{k}]},\ \max\limits_{1\leq i\leq n}|b_{k_i}-a_{k_i}| \to 0\]
-    то существует единственная точка $\xi$ такая, что $\forall k: \xi\in \Pi_{[\bar{a}_k, \bar{b}_k]}$.
+    то существует единственная точка $\xi$, что $\forall k: \xi\in \Pi_{[\bar{a}_k, \bar{b}_k]}$.
 \end{theorem} 
 \begin{proof}
     Очев.
@@ -66,7 +66,7 @@
 \subsection{Секвенциальная компактность}
 \begin{definition}
     Множество $A\subset \R^n$ называется секвенциальным компактом, если 
-    \[\forall \{\bar{a}_k\}_{i=1}^{\infty}\subset A\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty}: \bar{a}_{i_m}\to \bar{a} \in A,\ m\to \infty\]
+    \[\forall \{\bar{a}_k\}_{i=1}^{\infty}\subset A\ \ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty}: \bar{a}_{i_m}\to \bar{a} \in A,\ m\to \infty\]
 \end{definition}  
 \begin{theorem}
     $A$ - секвенциальный компакт $\Leftrightarrow A$ - замкнуто и ограничено. 
@@ -102,7 +102,9 @@
     Пусть $A,B \subset \R^n$ - замкнутые и $A$ - ограничено. Если $A\cap B=\emptyset$, то $\rho(A,B)>0$. 
 \end{theorem} 
 \begin{proof}
-    От противного: пусть $\rho(A,B)=0 \Rightarrow \exists\ \{\bar{x}_k\}\subset A,\\ \{\bar{y}_k\}\in B: \rho(\bar{x}_k, \bar{y}_k)\to 0$, но $\{\bar{x}_k\}$ - ограничена $\Rightarrow \exists\ \bar{x}_{k_m}\to \bar{x},\ m\to \infty$
+    От противного:
+    \[\rho(A,B)=0 \Rightarrow \exists\ \{\bar{x}_k\}\subset A,\ \exists\ \{\bar{y}_k\}\subset B: \rho(\bar{x}_k, \bar{y}_k)\to 0\] 
+    но $\{\bar{x}_k\}$ - ограничена $\Rightarrow \exists\ \bar{x}_{k_m}\to \bar{x},\ m\to \infty$
     \[\rho(\bar{x}, \bar{y}_{k_m})\leq \rho(\bar{x}, \bar{x}_{k_m})+\rho(\bar{x}_{k_m}, \bar{y}_{k_m})<2\epsilon\ \Rightarrow\ \bar{y}_{k_m}\to \bar{x}\in B\]
 \end{proof}
 
