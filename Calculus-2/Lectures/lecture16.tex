@@ -82,12 +82,16 @@
         \Delta_y(\Delta_x f(x,y))=\Delta_y(f(x+\Delta x,y)-f(x,y))=\\
         =f(x+\Delta x, y+\Delta y)-f(x,y+\Delta y)-f(x+\Delta x,y)+f(x,y)
     \end{multline*}
+    Значит
+    \[\Delta_x(\Delta_y f(x,y))=\Delta_y(\Delta_x f(x,y))\]
     \begin{multline*}
         \Delta_x(\Delta_y f(x,y))=\Delta_x (f(x,y+\Delta y)-f(x,y))=\\
-        =\Delta_x(f'_y(x,y+\Delta_y)\Delta_y)=f''_{xy}(x+\theta_1\Delta x,y+\theta_2\Delta y)\Delta y \Delta x
+        =\Delta_x(f'_y(x,y+\Delta_y)\Delta y)=f''_{yx}(x+\theta_1\Delta x,y+\theta_2\Delta y)\Delta y \Delta x
     \end{multline*}
-    Аналогично
-        \[\Delta_y(\Delta_x f(x,y))=f''_{xy}(x+\theta_3 \Delta x, y+\theta_4 \Delta y)\Delta x\Delta y\]
-    Устремим $\sqrt{\Delta x^2+\Delta y^2}\to 0$. Значит
+    \begin{multline*}
+        \Delta_y(\Delta_x f(x,y))=\Delta_y (f(x+\Delta x,y)-f(x,y))=\\
+        =\Delta_y(f'_x(x+\Delta x,y)\Delta x)=f''_{xy}(x+\theta_3 \Delta x, y+\theta_4 \Delta y)\Delta x\Delta y
+    \end{multline*}
+    Устремив $\sqrt{\Delta x^2+\Delta y^2}\to 0$, получим
     \[f''_{xy}(x,y)=f''_{yx}(x,y)\]
 \end{proof} 
