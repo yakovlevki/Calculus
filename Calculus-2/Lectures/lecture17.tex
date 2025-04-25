@@ -57,13 +57,14 @@
     \[F(t)=f(X_1(t),\dots, X_n(t))\]
     \begin{multline*}
         f(\bar{x})=F(1)=\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot F^{(m)}(0)\cdot (1-0)+\frac{1}{k!}\cdot F^{(k)}(\theta)(1-0)=\\\
-        =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\sum\limits_{i_1,\dots,i_m=1}^{n}\frac{\partial^m {f}}{\partial {x_{i_1}} \dots \partial x_{i_m}}\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})+\tab[1.3cm]\\
-        +\frac{1}{k!}\sum\limits_{i_1,\dots,i_k=1}^{n}\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0+\theta(\bar{x}-\bar{x}_0)) \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})
+        =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\sum\limits_{i_1,\dots,i_m=1}^{n}\frac{\partial^m {f}}{\partial {x_{i_1}} \dots \partial x_{i_m}}(\bar{x}_0)\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})+\tab[1.3cm]\tab[2cm]\\
+        \tab[2cm]+\frac{1}{k!}\sum\limits_{i_1,\dots,i_k=1}^{n}\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0+\theta(\bar{x}-\bar{x}_0)) \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
+        =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot d^m (x_0)+\frac{1}{k!}\cdot d^k f(x_0+\theta (\bar{x}-\bar{x}_0))
     \end{multline*}
 \end{proof} 
 \begin{lemma}\footnote{На лекции считалось очевидным}
     \[F^{(m)}(0)=\sum\limits_{i_1,\dots,i_m=1}^{n}\frac{\partial^m {f}}{\partial {x_{i_1}}\dots\partial x_{i_m}}(\bar{x}_0) \cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j}) \eqno(1)\]
-    \[F^{(k)}(\theta)=\sum\limits_{i_1,\dots,i_k=1}^{n} \frac{\partial^k {f}}{\partial {x_{i_1}\dots \partial x_{i_k}}}((\bar{x}_0)+\theta(\bar{x}_1-\bar{x}_0))\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j}) \eqno(2)\]
+    \[F^{(k)}(\theta)=\sum\limits_{i_1,\dots,i_k=1}^{n} \frac{\partial^k {f}}{\partial {x_{i_1}\dots \partial x_{i_k}}}((\bar{x}_0)+\theta(\bar{x}_1-\bar{x}_0))\cdot \prod\limits_{j=1}^{k}(x_{i_j}-x_{0i_j}) \eqno(2)\]
 \end{lemma} 
 \begin{proof}
     Индукция по $m$. База при $m=1$:
@@ -71,10 +72,10 @@
     Пусть для $m$ верно. Тогда 
     \begin{multline*}
         F^{(m+1)}(t)=(F^{(m)}(t))'_t=\\
-        =\left(\sum\limits_{i_1,\dots,i_m=1}^{n} \frac{\partial^m {f}}{\partial {x_{i_1}}\dots \partial x_{i_m}}(\bar{x}_0+t(\bar{x}_1-\bar{x}_0))\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})\right)'_t=\\
-        =\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^m {f}}{\partial {x_{i_1}}\dots \partial x_{i_m}}(\bar{x}_0+t(\bar{x}_1-\bar{x}_0))\right)'_t\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
-        =\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}_1-\bar{x}_0))\cdot (x_{i_{m+1}}-x_{0i_{m+1}})\right)\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
-        =\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}_1-\bar{x}_0))\right)\cdot \prod\limits_{j=1}^{m+1}(x_{i_j}-x_{0i_j})
+        =\left(\sum\limits_{i_1,\dots,i_m=1}^{n} \frac{\partial^m {f}}{\partial {x_{i_1}}\dots \partial x_{i_m}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})\right)'_t=\\
+        =\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^m {f}}{\partial {x_{i_1}}\dots \partial x_{i_m}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\right)'_t\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
     \end{multline*}
+    \[=\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\cdot (x_{i_{m+1}}-x_{0i_{m+1}})\right)\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\]
+    \[=\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\right)\cdot \prod\limits_{j=1}^{m+1}(x_{i_j}-x_{0i_j})\]
     Отсюда, подставив нужные точки, получаем утверждения леммы.
 \end{proof} 
