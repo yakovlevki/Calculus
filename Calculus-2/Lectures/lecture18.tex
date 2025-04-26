@@ -1,0 +1,79 @@
+\begin{theorem}(Формула Тейлора с остаточным членом в форме Пеано)\\\
+    Пусть $f(\bar{x})\in \mathcal{C}^k(B(\bar{x}_0))$. Тогда
+    \[f(\bar{x})=\sum\limits_{m=0}^{k}\frac{1}{n!}d^k f(\bar{x}_0)+\bar{\bar{o}}{(\rho^k)}, \rho\to 0\] 
+\end{theorem} 
+\begin{proof}
+    \begin{multline*}
+        f(\bar{x})=\sum\limits_{m=1}^{k}\frac{1}{m!} d^m f(\bar{x}_0)+\frac{1}{k!}d^k f(\bar{x}_0+\theta(\bar{x}=\bar{x}_0))=\\
+        =\sum\limits_{m=0}^{k} \frac{1}{m!} d^m(f(\bar{x}_0))+\frac{1}{k!}(d^kf(\bar{x}_0+\theta(\bar{x}-\bar{x}_0))-d^k f(\bar{x}_0))
+    \end{multline*}
+    \begin{multline*}
+        \frac{r_k(\bar{x},\bar{x}_0)}{\rho^k}=\\=\frac{1}{k!}\sum\limits_{i_1,\dots, i_k=1}^{n}\left(\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0+\theta (\bar{x}-\bar{x}_0))-\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0)\right)\cdot \frac{\Delta x_{i_1}}{\rho}\dots \frac{\Delta x_{i_k}}{\rho}
+    \end{multline*}
+\end{proof} 
+\subsection{Экстремум функции}
+\begin{definition}
+    Пусть $f(\bar{x})$ определелена в $B(\bar{x}_0),\ \forall x\in \mathring{B}(\bar{x}_0): f(\bar{x})>f(\bar{x}_0)\\ (f(\bar{x})<f(\bar{x}_0))$. Тогда в точке $\bar{x}_0$ у функции $f(\bar{x})$ существует минимум (максимум).
+\end{definition} 
+\begin{theorem} (Необходимое условие существования экстремума)\\
+    Пусть $f(\bar{x})$ имеет в точке $\bar{x}_0$ минимум (максимум). Тогда
+    \[\exists\ \frac{\partial {f}}{\partial {x_i}}(\bar{x}_0) \Rightarrow \frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)=0\]
+    Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то $df(\bar{x}_0)=0$. 
+\end{theorem} 
+\begin{proof}
+    Рассмотрим \
+    \[g(x_i)=f(x_{01,},\dots,x_{0i-1},x_i,x_{0i+1},\dots,x_{0i_n})\]
+    У $g(x_i)$ в точке $x_{0i}$ достигается минимум, $\exists\ g'_{x_{0i}} \Rightarrow g'_{x_i}=0$. Если $f(\bar{x})$ - дифференцируема и $\forall i\ \exists\ \frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)$, то $df(\bar{x}_0)=0$.
+\end{proof} 
+\begin{theorem} (Достаточное условие существования экстремума)\\
+    Пусть $f(\bar{x})\in \mathcal{C}^2(B(\bar{x})),\ df(\bar{x}_0)$. Если 
+    \[d^2f(\bar{x}_0)>0\ (d^2f(\bar{x}_0)<0)\] 
+    то в точке $\bar{x}_0$ достигается минимум (максимум). Если в некоторой $B(\bar{x}): d^2f(\bar{x}_0)$ знакопеременен, то не существует экстремума.
+\end{theorem} 
+\begin{proof}
+    \[f(\bar{x})-f(\bar{x}_0)=\frac{1}{2}d^2f(\bar{x}_0)+\bar{\bar{o}}{(\rho^2)}\]
+    \[\frac{f(\bar{x})-f(\bar{x}_0)}{\rho^2}=\frac{1}{2}\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i} \partial x_j}(\bar{x}_0)\frac{\Delta x_i}{\rho}\cdot \frac{\Delta x_j}{\rho}+\bar{\bar{o}}{(1)}\]
+    % тут было про то что длина вектора который подст в квадр форму =1 значит она всегда на единичной сфере, а сфера - конмакт, значит
+    Существует $\alpha>0$: 
+    \[\frac{1}{2}\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial x_j}(\bar{x}_0) \frac{\Delta x_i}{\rho}\cdot \frac{\Delta x_j}{\rho}\]
+    Значит
+    \[\frac{f(\bar{x})-f(\bar{x}_0)}{\rho^2}\geq \frac{\alpha}{2}\]
+    Получили, что $\bar{x}_0$ - точка минимума.\\
+    Докажем вторую чать теоремы: $\exists\ \overline{\Delta x_1},\ \overline{\Delta x_2}$, что
+    \[\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i} \partial x_j}(\bar{x}_0)\Delta x_{1j}\Delta x_{1i}=-\beta^2<0\]
+    \[\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i} \partial x_j}(\bar{x}_0)\Delta x_{2i}\Delta x_{2j}=\gamma^2>0\]
+    Тогда $\forall t>0$:
+    \[d^2f(\bar{x}_0)(t \overline{\Delta x_1}, t\overline{\Delta x_1})=-t^2\beta^2\]
+    \[d^2f(\bar{x}_0)(t \overline{\Delta x_2}, t\overline{\Delta x_2})=t^2\gamma^2\]
+    При сколь угодно маленьких знгачениях $t$ мы получаем точки сколь угодно близкие к $\bar{x}_0$, но с одной стороны положительные, а с другой отрицательные.
+\end{proof} 
+\subsection{Теорема о неявной функции}
+\begin{definition}% все так и надо
+    Пусть $F(\bar{x},y)$ определена на $\Omega\subset \R^{n+1}$. Пусть $\Omega_{\bar{x}}$ - проекция $\Omega$ на $\R^n$ вдоль $y$. Если $\exists\ A\subset \Omega_{\bar{x}}$ и $\exists\ f(\bar{x})$, определенная на $A$, такая что $F(\bar{x}, f(\bar{x}))\equiv 0$ на $A$, то говорят, что уравнение $F(\bar{x}, y)=0$ задает на $A$ неявную функцию $y=f(\bar{x})$.
+\end{definition} 
+\begin{theorem} (Теорема о неявной функции)\\
+    Пусть $F(\bar{x},y)\in \mathcal{C}^1(\Omega),\ F(\bar{x}_0,y_0)=0,\ F'_y(\bar{x}_0,y_0)>0\ (F'_y(\bar{x}_0,y_0)<0)$. Тогда существуют $B(\bar{x}_0)\in \Omega_{\bar{x}}$ и единственная $f(\bar{x})$, определенная на $B(\bar{x}_0)$ такие, что $y_0=f(\bar{x}_0),\ F(\bar{x},f(\bar{x}))\equiv 0$ при $\bar{x}\in B(\bar{x}_0)$ и $f(\bar{x})\in \mathcal{C}^1(B(\bar{x}_0))$ и для любого $i$:
+    \[\frac{\partial {f}}{\partial {x_i}}=-\frac{\frac{\partial {F}}{\partial {x_i}}}{\frac{\partial {F}}{\partial {y}}}\]
+\end{theorem} 
+\begin{proof}
+    Пусть 
+    \[f_{\bar{x}_0}(y)=F(\bar{x}_0,y)\] 
+    тогда $\exists\ \delta>0$:
+    \[g_{\bar{x}_0}(y_0-\delta)<0,\ g_{\bar{x}_0}(y_0+\delta)>0\]
+    Так как 
+    \[g_{\bar{x}_0}(y_0)=0,\ (g_{\bar{x}_0}(y))'_y|_{y=y_0}>0\]
+    Значит функция сторого возрастает и проходит через ноль, то есть при $y_0+\delta$ она больше нуля, а при $y_0-\delta$ меньше нуля. Пусть
+    \[h_{y_0-\delta}(\bar{x})=F(\bar{x},y_0)\] 
+    Тогда 
+    \[\exists\ \delta_1>0: h_{y_0-\delta}(\bar{x})<0,\ \forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\]
+    \[F(\bar{x}, y_0+\delta)=h_{y_0+\delta}(\bar{x}),\ \forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\]
+    \[\forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\ \text{для}\ g_{\bar{x}}(y)\ \exists\ !\ y_{\bar{x}},\ g_{\bar{x}}(y_{\bar{x}})=F(\bar{x},y_{\bar{x}})=0\]
+    Значит соответсвие $\bar{x}\to y_{\bar{x}}$ это и есть $f(\bar{x})$.\\
+    \textit{продолжение на лекции 19}
+    %Далее доказываем формулу. Рассмотрим точки $(\bar{x}_1, f(\bar{x}_1)),\ (\bar{x}_2, f(\bar{x}_2))$. Пусть
+    %\[\phi(t)=F(\bar{x}_1+(\bar{x}_2-\bar{x_1}))t,\ f(\bar{x}_1)+(f(\bar{x}_2)-f(\bar{x}_1)t)\]
+    %\begin{multline*}
+    %    0=F(\bar{x}_2, f(\bar{x}_2))-F(\bar{x}_1, f(\bar{x}_1))=\sum\limits_{i=1}^{n} \frac{\partial {F}}{\partial {x_i}}(\xi) (x_{1i}-x_{2i})=\sum\limits_{i=1}^{n} \frac{\partial {F}}{\partial {x_i}}(\bar{x}_1)(x_{1i}-x_{2i})+\\
+    %    + \left(\sum\limits_{i=1}^{n}\frac{\partial {F}}{\partial {x_i}}(\bar{x}_1+(\bar{x}_2-\bar{x}_1)\xi f(\bar{x}_1)+(f(\bar{x}_2)-f(\bar{x}_1))\xi)-\frac{\partial {F}}{\partial {x_i}}(\bar{x}_1)(x_{1i}-x_{2i})\right)=\bar{\bar{o}}{(1)}
+    %\end{multline*}
+\end{proof} 

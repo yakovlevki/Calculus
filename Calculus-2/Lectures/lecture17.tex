@@ -1,3 +1,4 @@
+\subsection{Производная по направлению}
 \begin{definition}
     Пусть
     \[\bar{l}=\begin{pmatrix}
@@ -16,7 +17,7 @@
 \begin{proof}
     \begin{multline*}
         \lim\limits_{\Delta t\to 0}\frac{f(x_1+\Delta t \cdot \cos{\alpha_1},\dots,x_n+\Delta t \cdot \cos{\alpha_n})-f(\bar{x})}{\Delta t}=\\
-        =\lim\limits_{\Delta t\to 0}\frac{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\cdot \Delta t\cdot \cos{\alpha_i}\right)+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}\Delta t^2\cdot \cos{\alpha_i}}\right)}}{\Delta t}=\\
+        =\lim\limits_{\Delta t\to 0}\frac{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\cdot \Delta t\cdot \cos{\alpha_i}\right)+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}\Delta t^2\cdot \cos^2{\alpha_i}}\right)}}{\Delta t}=\\
         =\sum\limits_{i=1}^{n}\left( \frac{\partial {f}}{\partial {x_i}}\cdot \cos{\alpha_i}\right)
     \end{multline*}
 \end{proof}
@@ -47,6 +48,7 @@
     \[d^2f=\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial{x_j}} d x_i dx_j\]
     называется вторым дифференциалом функции $f$. Если $f\in \mathcal{C}^k(\Omega)$, то последовательно определяются дифференциалы до $k$ порядка.
 \end{definition} 
+\subsection{Формула Тейлора}
 \begin{theorem} (Формула Тейлора с остаточным членом в форме Лагранжа)\\
     Пусть $f(\bar{x})\in \mathcal{C}^k(B(\bar{x}_0))$. Тогда $\forall \bar{x}\in B(\bar{x}_0)\ \exists\ \theta\in [0,1]$ такое, что
     \[f(\bar{x})=\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot d^m f(\bar{x}_0)+\frac{1}{k!}\cdot d^k f(x_0+\theta(\bar{x}-\bar{x}_0))\] 
@@ -74,8 +76,8 @@
         F^{(m+1)}(t)=(F^{(m)}(t))'_t=\\
         =\left(\sum\limits_{i_1,\dots,i_m=1}^{n} \frac{\partial^m {f}}{\partial {x_{i_1}}\dots \partial x_{i_m}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})\right)'_t=\\
         =\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^m {f}}{\partial {x_{i_1}}\dots \partial x_{i_m}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\right)'_t\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
+        =\sum\limits_{i_1,\dots,i_m,i_{m+1}=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\cdot (x_{i_{m+1}}-x_{0i_{m+1}})\right)\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
+    =\sum\limits_{i_1,\dots,i_m,i_{m+1}=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\right)\cdot \prod\limits_{j=1}^{m+1}(x_{i_j}-x_{0i_j})
     \end{multline*}
-    \[=\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\cdot (x_{i_{m+1}}-x_{0i_{m+1}})\right)\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\]
-    \[=\sum\limits_{i_1,\dots,i_m=1}^{n} \left(\frac{\partial^{(m+1)} {f}}{\partial {x_{i_1}}\dots \partial x_{i_m} \partial x_{i_{m+1}}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\right)\cdot \prod\limits_{j=1}^{m+1}(x_{i_j}-x_{0i_j})\]
     Отсюда, подставив нужные точки, получаем утверждения леммы.
 \end{proof} 
