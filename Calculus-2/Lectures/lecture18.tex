@@ -4,7 +4,7 @@
 \end{theorem} 
 \begin{proof}
     \begin{multline*}
-        f(\bar{x})=\sum\limits_{m=1}^{k}\frac{1}{m!} d^m f(\bar{x}_0)+\frac{1}{k!}d^k f(\bar{x}_0+\theta(\bar{x}=\bar{x}_0))=\\
+        f(\bar{x})=\sum\limits_{m=0}^{k-1}\frac{1}{m!} d^m f(\bar{x}_0)+\frac{1}{k!}d^k f(\bar{x}_0+\theta(\bar{x}-\bar{x}_0))=\\
         =\sum\limits_{m=0}^{k} \frac{1}{m!} d^m(f(\bar{x}_0))+\frac{1}{k!}(d^kf(\bar{x}_0+\theta(\bar{x}-\bar{x}_0))-d^k f(\bar{x}_0))
     \end{multline*}
     \begin{multline*}
@@ -21,12 +21,13 @@
     Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то $df(\bar{x}_0)=0$. 
 \end{theorem} 
 \begin{proof}
-    Рассмотрим \
-    \[g(x_i)=f(x_{01,},\dots,x_{0i-1},x_i,x_{0i+1},\dots,x_{0i_n})\]
-    У $g(x_i)$ в точке $x_{0i}$ достигается минимум, $\exists\ g'_{x_{0i}} \Rightarrow g'_{x_i}=0$. Если $f(\bar{x})$ - дифференцируема и $\forall i\ \exists\ \frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)$, то $df(\bar{x}_0)=0$.
+    Рассмотрим функцию\
+    \[g_i(x)=f(x_{01,},\dots,x_{0i-1},x_i,x_{0i+1},\dots,x_{0n})\]
+    которая получена подстановкой координат $\bar{x}_0$ во все переменные кроме $i$.\\
+    У $g_i(x)$ в точке $x_{0i}$ достигается минимум, значит по необходимому условию для функции одной переменной: $\exists\ g'_i(x_{0i}) \Rightarrow g'_i(x_{0i})=0$. Если $f(\bar{x})$ - дифференцируема и $\forall i\ \exists\ \frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)$, то $df(\bar{x}_0)=0$.
 \end{proof} 
 \begin{theorem} (Достаточное условие существования экстремума)\\
-    Пусть $f(\bar{x})\in \mathcal{C}^2(B(\bar{x})),\ df(\bar{x}_0)$. Если 
+    Пусть $f(\bar{x})\in \mathcal{C}^2(B(\bar{x})),\ df(\bar{x}_0)=0$. Если 
     \[d^2f(\bar{x}_0)>0\ (d^2f(\bar{x}_0)<0)\] 
     то в точке $\bar{x}_0$ достигается минимум (максимум). Если в некоторой $B(\bar{x}): d^2f(\bar{x}_0)$ знакопеременен, то не существует экстремума.
 \end{theorem} 
@@ -35,7 +36,7 @@
     \[\frac{f(\bar{x})-f(\bar{x}_0)}{\rho^2}=\frac{1}{2}\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i} \partial x_j}(\bar{x}_0)\frac{\Delta x_i}{\rho}\cdot \frac{\Delta x_j}{\rho}+\bar{\bar{o}}{(1)}\]
     % тут было про то что длина вектора который подст в квадр форму =1 значит она всегда на единичной сфере, а сфера - конмакт, значит
     Существует $\alpha>0$: 
-    \[\frac{1}{2}\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial x_j}(\bar{x}_0) \frac{\Delta x_i}{\rho}\cdot \frac{\Delta x_j}{\rho}\]
+    \[\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial x_j}(\bar{x}_0) \frac{\Delta x_i}{\rho}\cdot \frac{\Delta x_j}{\rho}\geq \alpha\]
     Значит
     \[\frac{f(\bar{x})-f(\bar{x}_0)}{\rho^2}\geq \frac{\alpha}{2}\]
     Получили, что $\bar{x}_0$ - точка минимума.\\

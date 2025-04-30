@@ -41,6 +41,7 @@
     \[\left|\frac{\partial {f}}{\partial {(\grad{f})}}\right|=\sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2}\geq \left|\frac{\partial {f}}{\partial {\bar{l}}}\right|\]
 
 \end{proof} 
+\subsection{Формула Тейлора}
 \begin{definition}
     Пусть $f(\bar{x})\in \mathcal{C}^2(\Omega)$.
     \[\delta(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\Delta x_i)=\sum\limits_{i=1}^{n}\left(\sum\limits_{j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial{x_j}}\delta x_j\right)\Delta x_i\]
@@ -48,7 +49,6 @@
     \[d^2f=\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i}\partial{x_j}} d x_i dx_j\]
     называется вторым дифференциалом функции $f$. Если $f\in \mathcal{C}^k(\Omega)$, то последовательно определяются дифференциалы до $k$ порядка.
 \end{definition} 
-\subsection{Формула Тейлора}
 \begin{theorem} (Формула Тейлора с остаточным членом в форме Лагранжа)\\
     Пусть $f(\bar{x})\in \mathcal{C}^k(B(\bar{x}_0))$. Тогда $\forall \bar{x}\in B(\bar{x}_0)\ \exists\ \theta\in [0,1]$ такое, что
     \[f(\bar{x})=\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot d^m f(\bar{x}_0)+\frac{1}{k!}\cdot d^k f(x_0+\theta(\bar{x}-\bar{x}_0))\] 
@@ -61,7 +61,7 @@
         f(\bar{x})=F(1)=\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot F^{(m)}(0)\cdot (1-0)+\frac{1}{k!}\cdot F^{(k)}(\theta)(1-0)=\\\
         =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\sum\limits_{i_1,\dots,i_m=1}^{n}\frac{\partial^m {f}}{\partial {x_{i_1}} \dots \partial x_{i_m}}(\bar{x}_0)\cdot \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})+\tab[1.3cm]\tab[2cm]\\
         \tab[2cm]+\frac{1}{k!}\sum\limits_{i_1,\dots,i_k=1}^{n}\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0+\theta(\bar{x}-\bar{x}_0)) \prod\limits_{j=1}^{m}(x_{i_j}-x_{0i_j})=\\
-        =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot d^m (x_0)+\frac{1}{k!}\cdot d^k f(x_0+\theta (\bar{x}-\bar{x}_0))
+        =\sum\limits_{m=0}^{k-1}\frac{1}{m!}\cdot d^m f(x_0)+\frac{1}{k!}\cdot d^k f(x_0+\theta (\bar{x}-\bar{x}_0))
     \end{multline*}
 \end{proof} 
 \begin{lemma}\footnote{На лекции считалось очевидным}
@@ -70,7 +70,10 @@
 \end{lemma} 
 \begin{proof}
     Индукция по $m$. База при $m=1$:
-    \[F'(t)=(f(X_1(t),\dots,X_n(t)))'_t=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t}}=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0+t(\bar{x}_1-\bar{x}_0))(x_i-x_{0i})\]
+    \begin{multline*}
+        F'(t)=(f(X_1(t),\dots,X_n(t)))'_t=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))\cdot \frac{d {x_i}}{d {t}}(t)=\\
+        =\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0+t(\bar{x}-\bar{x}_0))(x_i-x_{0i})
+    \end{multline*}
     Пусть для $m$ верно. Тогда 
     \begin{multline*}
         F^{(m+1)}(t)=(F^{(m)}(t))'_t=\\
