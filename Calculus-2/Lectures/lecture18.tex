@@ -58,7 +58,7 @@
 \end{theorem} 
 \begin{proof}
     Пусть 
-    \[f_{\bar{x}_0}(y)=F(\bar{x}_0,y)\] 
+    \[g_{\bar{x}_0}(y)=F(\bar{x}_0,y)\] 
     тогда $\exists\ \delta>0$:
     \[g_{\bar{x}_0}(y_0-\delta)<0,\ g_{\bar{x}_0}(y_0+\delta)>0\]
     Так как 
@@ -68,13 +68,22 @@
     Тогда 
     \[\exists\ \delta_1>0: h_{y_0-\delta}(\bar{x})<0,\ \forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\]
     \[F(\bar{x}, y_0+\delta)=h_{y_0+\delta}(\bar{x}),\ \forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\]
-    \[\forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\ \text{для}\ g_{\bar{x}}(y)\ \exists\ !\ y_{\bar{x}},\ g_{\bar{x}}(y_{\bar{x}})=F(\bar{x},y_{\bar{x}})=0\]
+    \[\forall \bar{x}\in B_{\delta_1}(\bar{x}_0)\ \text{для}\ g_{\bar{x}}(y)\ \exists\ !\ y_{\bar{x}}: g_{\bar{x}}(y_{\bar{x}})=F(\bar{x},y_{\bar{x}})=0\]
     Значит соответсвие $\bar{x}\to y_{\bar{x}}$ это и есть $f(\bar{x})$.\\
-    \textit{продолжение на лекции 19}
-    %Далее доказываем формулу. Рассмотрим точки $(\bar{x}_1, f(\bar{x}_1)),\ (\bar{x}_2, f(\bar{x}_2))$. Пусть
-    %\[\phi(t)=F(\bar{x}_1+(\bar{x}_2-\bar{x_1}))t,\ f(\bar{x}_1)+(f(\bar{x}_2)-f(\bar{x}_1)t)\]
-    %\begin{multline*}
-    %    0=F(\bar{x}_2, f(\bar{x}_2))-F(\bar{x}_1, f(\bar{x}_1))=\sum\limits_{i=1}^{n} \frac{\partial {F}}{\partial {x_i}}(\xi) (x_{1i}-x_{2i})=\sum\limits_{i=1}^{n} \frac{\partial {F}}{\partial {x_i}}(\bar{x}_1)(x_{1i}-x_{2i})+\\
-    %    + \left(\sum\limits_{i=1}^{n}\frac{\partial {F}}{\partial {x_i}}(\bar{x}_1+(\bar{x}_2-\bar{x}_1)\xi f(\bar{x}_1)+(f(\bar{x}_2)-f(\bar{x}_1))\xi)-\frac{\partial {F}}{\partial {x_i}}(\bar{x}_1)(x_{1i}-x_{2i})\right)=\bar{\bar{o}}{(1)}
+    % \textit{продолжение на лекции 19}
+    % Далее доказываем формулу. Рассмотрим точки $(\bar{x}_1, f(\bar{x}_1)),\ (\bar{x}_2, f(\bar{x}_2))$. Пусть
+    % \[\phi(t)=F(\bar{x}_1+(\bar{x}_2-\bar{x_1}))t,\ f(\bar{x}_1)+(f(\bar{x}_2)-f(\bar{x}_1)t)\]
+    % \begin{multline*}
+    %     0=F(\bar{x}_2, f(\bar{x}_2))-F(\bar{x}_1, f(\bar{x}_1))=\sum\limits_{i=1}^{n} \frac{\partial {F}}{\partial {x_i}}(\xi) (x_{1i}-x_{2i})=\sum\limits_{i=1}^{n} \frac{\partial {F}}{\partial {x_i}}(\bar{x}_1)(x_{1i}-x_{2i})+\\
+    %     + \left(\sum\limits_{i=1}^{n}\frac{\partial {F}}{\partial {x_i}}(\bar{x}_1+(\bar{x}_2-\bar{x}_1)\xi f(\bar{x}_1)+(f(\bar{x}_2)-f(\bar{x}_1))\xi)-\frac{\partial {F}}{\partial {x_i}}(\bar{x}_1)(x_{1i}-x_{2i})\right)=\bar{\bar{o}}{(1)}
     %\end{multline*}
+    Пусть 
+    \[\phi(t)=F(\bar{x}_0+(\bar{x}-\bar{x}_0)t,\ f(\bar{x}_0)+(f(\bar{x})-f(\bar{x}_0)t)\]
+    \[\phi(0)=F(\bar{x}_0, f(\bar{x}_0)))=\phi(1)=F(\bar{x}, f(\bar{x}))=0\]
+    отсюда
+    \[\phi'(\xi)=0=\sum\limits_{i=1}^{n}\frac{\partial {F}}{\partial {x_i}}(\xi)(x_i-x_{0i})+\frac{\partial {F}}{\partial {y}}(\xi)(f(\bar{x})-f(\bar{x}_0))\]
+    \begin{multline*}
+        (f(\bar{x})-f(\bar{x}_0))=-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\xi)}{\frac{\partial {F}}{\partial {y}}(\xi)}(x_i-x_{0i})=\\
+        =-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}(x_i-x_{0i})+\left(\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}-\frac{\frac{\partial {F}}{\partial {x_i}}(\xi)}{\frac{\partial {F}}{\partial {y}}(\xi)}(x_i-x_{0i})\right)(x_i-x_{0i})
+    \end{multline*} 
 \end{proof} 

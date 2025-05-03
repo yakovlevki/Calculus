@@ -1,0 +1,168 @@
+\begin{definition}
+    Отображение $\bar{F}:\R^n\to \R^k$ такое, что
+    \[\bar{F}=\begin{pmatrix}
+        f_1(x_1,\dots,x_n)\\
+        \vdots\\
+        f_k(x_1,\dots,x_n)
+    \end{pmatrix}
+    \]
+    называется дифференцируемой, если $\forall i=1,\dots k: f_i$ - дифференцируема. 
+\end{definition} 
+\begin{statement}
+    Если $\bar{F}: \R^n\to \R^k$ дифференцируемо, то полное приращение имеет главную линейную часть вида
+    \[A\cdot \begin{pmatrix}
+        \Delta x_1\\
+        \vdots\\
+        \Delta x_n
+    \end{pmatrix}\]
+\end{statement} 
+\begin{proof}
+    \begin{multline*}
+        \begin{pmatrix}
+            f_1(\bar{x}_0+\Delta \bar{x})\\
+            \vdots\\
+            f_k(\bar{x}_0+\Delta \bar{x})
+        \end{pmatrix}
+        -\begin{pmatrix}
+            f_1(\bar{x}_0)\\
+            \vdots\\
+            \bar{x}_0
+        \end{pmatrix}
+        =\begin{pmatrix}
+            df_1+\bar{\bar{o}}{(\|\Delta x\|)}\\
+            \vdots\\
+            df_k+\bar{\bar{o}}{(\|\Delta x\|)}
+        \end{pmatrix}=
+        \\=\begin{pmatrix}
+            \sum\limits_{i=1}^{n}\frac{\partial {f_1}}{\partial {x_i}}\Delta x_i\\
+            \vdots\\
+            \sum\limits_{i=1}^{n}\frac{\partial {f_k}}{\partial {x_i}}\Delta x_i
+        \end{pmatrix}-\bar{\bar{o}}{(\|\Delta x\|)}=
+        \begin{pmatrix}
+            \frac{\partial {f_1}}{\partial {x_1}} & \dots & \frac{\partial {f_1}}{\partial {x_n}}\\
+            \vdots & \null & \vdots\\
+            \frac{\partial {f_k}}{\partial {x_1}} & \dots & \frac{\partial {f_k}}{\partial {n}}
+        \end{pmatrix}
+        \cdot 
+        \begin{pmatrix}
+            \Delta x_1\\
+            \vdots\\
+            \Delta x_n
+        \end{pmatrix}    
+        +\bar{\bar{o}}{(\|x\|)}    
+    \end{multline*} 
+\end{proof} 
+    \begin{definition}
+        Матрица
+        \[J=\begin{pmatrix}
+            \frac{\partial {f_1}}{\partial {x_1}} & \dots & \frac{\partial {f_1}}{\partial {x_n}}\\
+            \vdots & \null & \vdots\\
+            \frac{\partial {f_k}}{\partial {x_1}} & \dots & \frac{\partial {f_k}}{\partial {n}}
+        \end{pmatrix}\]
+        называется матрицей Якоби. Если $k=n$ то 
+        \[\det{J}=\frac{D(f_1,\dots,f_n)}{D(x_1,\dots,x_n)}\]
+        называется якобианом.
+    \end{definition} 
+\begin{theorem} (Теорема о неявном отображении)\\
+    Пусть $\bar{F}: \R^{n+m}\to \R^m$ непрерывно дифференцируемо в $B(\bar{x}_0,\bar{y}_0),\\ \bar{F}(\bar{x}_0, \bar{y}_0)=0,\ \frac{D(f_1,\dots, f_m)}{D(y_1,\dots,y_m)}\ne 0$ в $B(\bar{x}_0, \bar{y}_0)$. Тогда существует единственное непрерывное дифференцируемое отображение
+    \[\bar{\Phi}=\begin{pmatrix}
+        \phi_1(\bar{x})\\
+        \vdots\\
+        \phi_m(\bar{x})
+    \end{pmatrix}
+    \]
+    такое, что $\bar{\Phi}(\bar{x}_0)=\bar{y}_0,\ \bar{F}(\bar{x}, \bar{\Phi}(\bar{x}))\equiv 0$ в $B(\bar{x}_0, \bar{y}_0)$.
+\end{theorem} 
+\begin{proof}
+    Докажем по индукции. База: при $m=1$ - это теорема о неявной функции.
+    \[
+        \det{J}=\begin{vmatrix}
+            \frac{\partial {f_1}}{\partial {y_1}} & \dots & \frac{\partial {f_1}}{\partial {y_n}} & \frac{\partial {f_m}}{\partial {y_{m+1}}}\\
+            \vdots & \null & \vdots\\
+            \frac{\partial {f_k}}{\partial {y_1}} & \dots & \frac{\partial {f_m}}{\partial {y_n}} & \frac{\partial {f_m}}{\partial {y_{m+1}}}\\
+            \frac{\partial {f_{m+1}}}{\partial {y_1}} & \dots & \frac{\partial {f_{m+1}}}{\partial {y_m}} & \frac{\partial {f_{m+1}}}{\partial {y_{m+1}}}
+        \end{vmatrix}
+    \]
+    имеет ненулевой минор, значит система
+    \[\begin{cases}
+        f_1 = 0,\\
+        \vdots\\
+        f_m=0
+    \end{cases}
+    \]
+    разрешима:
+    \[\begin{cases}
+        y_1=\psi_1(\bar{x},y_{m+1}),\\
+        \vdots\\
+        y_m=\psi_m(\bar{x}, y_{m+1})
+    \end{cases}
+    \]
+    Подставим решение в систему:
+    \[\begin{cases}
+        f_1(\bar{x}, \psi_1(\bar{x}, y_{m+1}), \dots, \psi_m(\bar{x}, y_{m+1}))\equiv 0\\
+        \vdots\\
+        f_m(\bar{x}, \psi_1(\bar{x}, y_{m+1}), \dots, \psi_m(\bar{x}, y_{m+1}))\equiv 0\\
+        f_{m+1}(\bar{x}, \psi_1(\bar{x}, y_{m+1}),\dots,y_{m+1})=g(\bar{x}, y_{m+1})
+    \end{cases}
+    \]
+    возьмем у всех этих уравнений производную по $y_{m+1}$
+    \[\begin{cases}
+        \frac{\partial {f_1}}{\partial {y_1}} \frac{\partial {\psi_1}}{\partial {y_{m+1}}}+\frac{\partial {f_1}}{\partial {y_2}} \frac{\partial {\psi_2}}{\partial {y_{m+1}}}+ \dots +\frac{\partial {f_1}}{\partial {y_m}} \frac{\partial {\psi_m}}{\partial {y_{m+1}}}+\frac{\partial {f_1}}{\partial {y_{m+1}}}=0\\
+        \vdots\\
+        \frac{\partial {f_m}}{\partial {y_1}} \frac{\partial {\psi_1}}{\partial {y_{m+1}}}+\frac{\partial {f_m}}{\partial {y_2}} \frac{\partial {\psi_2}}{\partial {y_{m+1}}}+ \dots +\frac{\partial {f_m}}{\partial {y_m}} \frac{\partial {\psi_m}}{\partial {y_{m+1}}}+\frac{\partial {f_m}}{\partial {y_{m+1}}}=0\\
+        \frac{\partial {f_{m+1}}}{\partial {y_1}} \frac{\partial {\psi_1}}{\partial {y_{m+1}}}+\frac{\partial {f_{m+1}}}{\partial {y_2}} \frac{\partial {\psi_2}}{\partial {y_{m+1}}}+ \dots +\frac{\partial {f_{m+1}}}{\partial {y_m}} \frac{\partial {\psi_m}}{\partial {y_{m+1}}}+\frac{\partial {f_{m+1}}}{\partial {y_{m+1}}}=\frac{\partial {g}}{\partial {y_{m+1}}}
+    \end{cases}
+    \]
+    Умножим каждую строку на алгебраическое дополнение к элементу последнего стоблца, а затем сложим уравнения. По теореме о фальшивом разложении получим:
+    \[\det{J}=\frac{\partial {g}}{\partial {y_{m+1}}}\cdot \begin{vmatrix}
+        \frac{\partial {f_1}}{\partial {y_1}} & \dots & \frac{\partial {f_1}}{\partial {y_m}}\\
+        \vdots & \null & \vdots\\
+        \frac{\partial {f_m}}{\partial {y_1}} & \dots & \frac{\partial {f_m}}{\partial {y_m}}
+    \end{vmatrix} \Rightarrow \frac{\partial {g}}{\partial {y_{m+1}}}\ne 0
+    \]
+    \[g(\bar{x}), y_{m+1}=0 \Rightarrow y_{m+1}=\phi_{m+1}(\bar{x})\]
+    отсюда
+    \[y_1=\phi(\bar{x})=\psi_1(\bar{x}, \phi_{m+1}(\bar{x}))\]
+    Непрерывность и дифференцируемость следует из теоремы о неявной функции.
+\end{proof} 
+\begin{comm} (О вычислении производных)\\
+    \[\begin{cases}
+        f_1(\bar{x}, \bar{y})=0\\
+        \vdots\\
+        f_m(\bar{x}, \bar{y})=0
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \sum\limits_{i=1}^{n}\frac{\partial {f_1}}{\partial {x_1}}dx_i+\sum\limits_{j=1}^{m}\frac{\partial {f}}{\partial {y_j}}dy_j=0\\
+        \vdots\\
+        \sum\limits_{i=1}^{n}\frac{\partial {f_m}}{\partial {x_i}}dx_i+\sum\limits_{j=1}^{m}\frac{\partial {f}}{\partial {y_j}}dy_j=0
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        dy_1=\sum\limits_{i=1}^{n}(\ )_i dx_i\\
+        \vdots\\
+        dy_m=\sum\limits_{i=1}^{n}(\ )_i dx_i
+    \end{cases}
+    \]
+\end{comm} 
+\begin{theorem} (Теорема об обратном отображении)\\
+    Пусть $\bar{F}: \R_x^n\to \R_y^n$ непрерывно дифференцируемо в $B(\bar{x}_0),\ \det{J}\ne 0$ в $B(\bar{x}_0)$. Тогда существует единственное отображение $\bar{F}^{-1}: \R_y^n\to \R_x^n$ непрерывно дифференцируемое в образе $B(\bar{x}_0)$.
+\end{theorem} 
+\begin{proof}
+    %Рассмотрим отображение из $\R^{2n}$ в $\R^n$:
+    Рассмотрим систему
+    \[\begin{cases}
+        f_1(x_1,\dots,x_n)-y_1=0\\
+        f_2(x_1,\dots,x_n)-y_2=0\\
+        \vdots\\
+        f_n(x_1m,\dots,x_n)-y_n=0
+    \end{cases}
+    \]
+    По теореме о неявном отображении получим решение:
+    \[\begin{cases}
+        x_1=\phi_1(\bar{y})\\
+        \vdots\\
+        x_n=\phi_n(\bar{y})
+    \end{cases}
+    \]
+\end{proof} 
