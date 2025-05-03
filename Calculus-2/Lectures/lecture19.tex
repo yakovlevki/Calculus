@@ -1,3 +1,4 @@
+\subsection{Теорема о неявном отображении}
 \begin{definition}
     Отображение $\bar{F}:\R^n\to \R^k$ такое, что
     \[\bar{F}=\begin{pmatrix}
@@ -99,10 +100,10 @@
     \]
     Подставим решение в систему:
     \[\begin{cases}
-        f_1(\bar{x}, \psi_1(\bar{x}, y_{m+1}), \dots, \psi_m(\bar{x}, y_{m+1}))\equiv 0,\\
+        f_1(\bar{x}, \psi_1(\bar{x}, y_{m+1}), \dots, \psi_m(\bar{x}, y_{m+1}), y_{m+1})\equiv 0,\\
         \vdots\\
-        f_m(\bar{x}, \psi_1(\bar{x}, y_{m+1}), \dots, \psi_m(\bar{x}, y_{m+1}))\equiv 0,\\
-        f_{m+1}(\bar{x}, \psi_1(\bar{x}, y_{m+1}),\dots,y_{m+1})=g(\bar{x}, y_{m+1}).
+        f_m(\bar{x}, \psi_1(\bar{x}, y_{m+1}), \dots, \psi_m(\bar{x}, y_{m+1}), y_{m+1})\equiv 0,\\
+        f_{m+1}(\bar{x}, \psi_1(\bar{x}, y_{m+1}),\dots,\psi_m(\bar{x}, y_{m+1}), y_{m+1})=g(\bar{x}, y_{m+1}).
     \end{cases}
     \]
     возьмем у всех этих уравнений производную по $y_{m+1}$
