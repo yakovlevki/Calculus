@@ -1,8 +1,7 @@
 \subsection{Формула Ньютона-Лейбница}
 \begin{theorem} (Формула Ньютона-Лейбница)\\
-    Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\in \mathcal{C}([a,b]\setminus \{x_i\}_{i=1}^{n})$.
-    \[\exists\ F(x): \ F(x)\in \mathcal{D}([a,b]\setminus \{x_i\}_{i=1}^{n}),\ F'(x)=f(x),\ F(x)\in \mathcal{C}[a,b]\] 
-    Тогда: 
+    Пусть $f(x)\in \mathcal{R}[a,b],\ f(x)\in \mathcal{C}([a,b]\setminus \{x_i\}_{i=1}^{n})$, а также $\exists\ F(x)$ такая, что
+    $F(x)\in \mathcal{D}([a,b]\setminus \{x_i\}_{i=1}^{n}),\ F'(x)=f(x),\ F(x)\in \mathcal{C}[a,b]$. Тогда: 
     \[\int\limits_{a}^{b}f(x)\ dx=F(b)-F(a)\]
 \end{theorem} 
 \begin{proof}
@@ -13,7 +12,7 @@
     $\Rightarrow F(a)+C=0$. Тогда 
     \[F(b)-F(a)=\int\limits_{a}^{b} f(t)\ dt\]
     Общий случай:
-        \[F(b)-F(a)=\sum\limits_{i=1}^{n-1}(F(x_{i+1})-F(x_{i}))=\sum\limits_{i=1}^{n-1} \int\limits_{x_{i-1}}^{x_i} f(t)\ dt=\int\limits_{a}^{b} f(t)\ dt\]
+        \[F(b)-F(a)=\sum\limits_{i=1}^{n-1}(F(x_{i+1})-F(x_{i}))=\sum\limits_{i=1}^{n-1}\left(\ \int\limits_{x_{i-1}}^{x_i} f(t)\ dt\ \right)=\int\limits_{a}^{b} f(t)\ dt\]
 \end{proof} 
 \subsection{Замена переменной и интегрирование по частям}
 \begin{theorem}
@@ -41,14 +40,13 @@
 \begin{definition}
     Кривой в $\R^n$ называется непрерывное отображение:
     \[\bar{\gamma}: [a,b]\to \R^n\]
-\end{definition} 
-\begin{comm}
+    где
     \[\bar{\gamma}=\begin{pmatrix}
-       \gamma_1(t)\\
+       x_1(t)\\
        \vdots\\
-       \gamma_n(t) 
+       x_n(t) 
     \end{pmatrix}\]
-\end{comm} 
+\end{definition} 
 % Пример того, что окружность можно задать параметрически разными способами
 \begin{definition}
     Рассмотрим $\bar{\gamma}: [a,b]\to \R^n$. Если $\exists\ t_1\ne t_2: \bar{\gamma}(t_1)=\bar{\gamma}(t_2)$, то $\bar{\gamma}(t_1)$ называется точкой самопересечения. Мощность подмножеста $[a,b]$, точки которого переходят в $\bar{\gamma}(t_1)$ называется кратностью точки самопересечения. Если кривая не имеет точек самопересечения, то она называется простой.
@@ -61,7 +59,9 @@
     Множество точек $\{\bar{\gamma}(t_i)\}_{i=0}^N$ называется разбиением кривой, если $\{t_i\}_{i=0}^N$ является разбиением отрезка $[a,b]$. Обозначается $T_{\gamma}$.
 \end{definition} 
 \begin{definition}
-    $L(T_{\bar{\gamma}})$ - множество отрезков $\{[\bar{\gamma}(t_{i-1}),\bar{\gamma}(t_i)]\}_{i=1}^N$ называется вписанной в $\bar{\gamma}(t)$ ломаной, а число $|L(T_{\bar{\gamma}})|$ - длиной ломаной.
+    Множество отрезков $L(T_{\bar{\gamma}})=\{[\bar{\gamma}(t_{i-1}),\bar{\gamma}(t_i)]\}_{i=1}^N$ называется вписанной в $\bar{\gamma}(t)$ ломаной, а число
+    \[|L(T_{\bar{\gamma}})| = \sum_{i = 1}^{N} \sqrt{ \sum_{j = 1}^{n}(x_j(t_i) - x_j(t_{i - 1}))^2}\]
+    длиной ломаной.
 \end{definition} 
 \begin{statement}
     Если $T'_{\bar{\gamma}}$ - измельчение $T_{\bar{\gamma}}$, то 

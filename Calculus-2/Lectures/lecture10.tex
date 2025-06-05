@@ -1,38 +1,49 @@
 \newpage
 \section{Интеграл Римана-Стилтьеса}
-\subsection{Функции ограниченной вариации}
+\subsection{Функции ограниченной вариации и их свойства}
 \begin{definition}
-    Пусть $f(x)$ определена на $[a,b],\ T_{[a,b]}$ - разбиение отрезка $[a,b]$. Сумма вида 
-    \[V(f,t)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\]
-    называется вариацией функции на данном разбиении $T$
+    Пусть $f(x)$ определена на $[a,b],\ T$ - разбиение отрезка $[a,b]$. Сумма вида 
+    \[V(f,T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\]
+    называется вариацией функции на данном разбиении $T$.
 \end{definition} 
 \begin{definition}
-    Если $\exists\ M>0$ такое, что $\forall T_{[a,b]}: V(f,T)\leq M$, то функция называется функцией ограниченной вариации на $[a,b]$, а величина
+    Если $\exists\ M>0$ такое, что $\forall\ T_{[a,b]}: V(f,T)\leq M$, то функция называется функцией ограниченной вариации на $[a,b]$, а величина
     \[\variation\limits_{a}^{b} f(x)=\text{var}_{[a,b]}f(x)=\sup\limits_{T}V(f,T)\] % нужно написать declaremathoperator
-    называется полной вариацией функции на отрезке $[a,b]$
+    называется полной вариацией функции на отрезке $[a,b]$. Если $f(x)$ - функция ограниченой вариации на $[a,b]$, то пишут $f(x)\in \mathcal{V}[a,b]$.
 \end{definition} 
 % \begin{examples}
     % В разработке
     % Пример 1 (полная вариация за исключением конечного числа точек)\\
     % Пример 2 (когда это невозможно)
 % \end{examples}
-\subsection{Свойства функций ограниченной вариации}
 \begin{numtheorem}
     Если $f\in \mathcal{V}[a,b]$, то $f$ - ограничена на $[a,b]$.
 \end{numtheorem}
 \begin{proof}
-    Временно очев.
+    Возьмем произвольную точку $x\in [a,b]$. Тогда, взяв разбиение $T=\{a,x,b\}$, получим
+    \[|f(x)-f(a)|+|f(b)-f(x)|\leq\sup\limits_{T}\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|=\variation\limits_{a}^{b}f(x)\]
+    значит 
+    \[|f(x)-f(a)|\leq \variation\limits_{a}^{b}f(x)\]
+    \[|f(x)|\leq |f(a)+(f(x)-f(a))|\leq |f(a)|+|f(x)-f(a)|\leq |f(a)|+\variation\limits_{a}^{b}f(x)\]
 \end{proof}
 \begin{numtheorem}
     Пусть $T_{[a,b]}'$ - измельчение $T_{[a,b]}$. Тогда $V(f, T)\leq V(f, T')$
 \end{numtheorem} 
 \begin{proof}
-    Временно очев (модуль суммы меньше или равен суммы модулей).
+    Рассмотрим случай $T'=T\cup \{x_j'\}$. Тогда
+    \[V(f,T')-V(f,T)=|f(x_j')-f(x_j)|+|f(x_{j+1})-f(x_j')|-|f(x_{j+1})-f(x_j)|\geq 0\]
+    значит, по индукции, это верно для любого измельчения.
 \end{proof} 
 \begin{numtheorem}
     Если $f\in \mathcal{V} [a,b]$, то $\forall \alpha\in \R$:
     \[\variation\limits_{a}^{b}(\alpha\cdot f(x))=|\alpha|\cdot \variation\limits_{a}^{b} f(x)\] 
 \end{numtheorem} 
+\begin{proof}
+    \begin{multline*}
+        \variation\limits_{a}^{b}(\alpha\cdot f(x))=\sup\limits_T \sum\limits_{i=1}^{n}(|\alpha|\cdot|f(x_i)-f(x_{i-1})|)=\\
+        =|\alpha|\cdot \sup\limits_T \sum\limits_{i=1}^{n}(|f(x_i)-f(x_{i-1})|)=|\alpha|\cdot \variation\limits_{a}^{b}f(x)
+    \end{multline*} 
+\end{proof} 
 \begin{numtheorem}
     Если $f,g\in \mathcal{V}[a,b]$, то $f+g\in \mathcal{V}[a,b]$
 \end{numtheorem} 
@@ -44,7 +55,7 @@
 \end{numtheorem} 
 \begin{proof}
     \begin{multline*}
-        |f(x_i)g(x_i)-f(x_{i-1})g(x_i)+f(x_{i-1})g(x_{i})-f(x_{i-1})g(x_{i-1})\leq\\
+        |f(x_i)g(x_i)-f(x_{i-1})g(x_i)+f(x_{i-1})g(x_{i})-f(x_{i-1})g(x_{i-1})|\leq\\
         \leq M_1\cdot |f(x_i)-f(x_{i-1})|+M_2\cdot |g(x_i)-g(x_{i-1})|
     \end{multline*}
 \end{proof} 
@@ -55,6 +66,12 @@
     Если $f(x)$ монотонна на $[a,b]$, то
     \[\variation\limits_{a}^{b} f(x)=|f(b)- f(a)|\]
 \end{numtheorem}
+\begin{proof}
+    Пусть $f(x)$ монотонно неубывает. Тогда
+    \[V(f,T)=\sum\limits_{i=1}^{n}|(f(x_i)-f(x_{i-1}))|=\sum\limits_{i=1}^{n}(f(x_i)-f(x_{i-1}))=f(b)-f(a)\]
+    а значит
+    \[\variation\limits_{a}^{b}f(x)=|f(b)-f(a)|\]
+\end{proof} 
 \begin{numtheorem} (Аддитивность)\\
     Если $c\in (a,b),\ f\in \mathcal{V}[a,c]$ и $f\in \mathcal{V}[b,c]$, то $f\in \mathcal{V}[a,b]$ и 
     \[\variation\limits_{a}^{b}f(x)=\variation\limits_{a}^{c}f(x)+\variation\limits_{b}^{c}f(x)\]
@@ -116,7 +133,7 @@
     \end{multline*}
 \end{proof}
 % Тут должна быть вставка про лестницу кантора
-\subsection{Определение интеграла Римана-Стилтьеса}
+\subsection{Интеграл Римана-Стилтьеса и его свойства}
 \begin{definition}
     Пусть $f(x),\ g(x)$ определены на $[a,b]$. $\forall T(\xi)$ сумма 
     \[\sum\limits_{i=1}^{n} f(\xi_i)(g(x_i)-g(x_{i-1}))=\sigma_g(f,T)\]
@@ -127,7 +144,6 @@
     \[\lim\limits_{d\to 0}\sigma_g(f, T(\xi))=\int\limits_{a}^{b}f(x)\ d(g(x))\]
     то он называется интегралом Римана-Стилтьеса.
 \end{definition}
-\subsection{Свойства интеграла Римана-Стилтьеса}
 \begin{numtheorem}
     $\forall \alpha,\ \beta\in \R$:
     \[\int\limits_{a}^{b}(\alpha\cdot f(x))\ d(\beta\cdot g(x))=\alpha \cdot \beta \int\limits_{a}^{b} f(x)\ d(g(x))\]

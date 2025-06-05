@@ -81,21 +81,20 @@
 \end{proof}
 \begin{theorem}
     Пусть $f(x)\in \mathcal{R}[a, b]$ и $f$ непрерывна в $x_0 \in [a, b]$. Тогда функция
-    \[\phi(x) = \int_{a}^{x} f(t)\ dt\]
+    \[\phi(x) = \int\limits_{a}^{x} f(t)\ dt\]
     имеет производную в $x_0$ и $\phi'(x_0) = f(x_0)$.
 \end{theorem}
 \begin{proof}
     \begin{multline*}
-        \vline\ \frac{\phi(x_0 + \Delta x) - \phi(x_0)}{\Delta x} - f(x_0)\ \vline =\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} f(x)\ dx - \frac{f(x_0)}{\Delta x} \cdot \int\limits_{x_0}^{x_0 + \Delta x} 1\ dx\ \vline =\tab[3cm]\\=\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} (f(x) - f(x_0))\ dx\ \vline \leq \sup \limits_{[x_0, x_0+\Delta x]}|f(x) - f(x_0)|\cdot 1 \longrightarrow 0.
+        \vline\ \frac{\phi(x_0 + \Delta x) - \phi(x_0)}{\Delta x} - f(x_0)\ \vline =\\
+        =\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} f(x)\ dx - \frac{f(x_0)}{\Delta x} \cdot \int\limits_{x_0}^{x_0 + \Delta x} 1\ dx\ \vline =\tab[4.7cm]\\
+        =\ \vline\frac{1}{\Delta x}\cdot \int\limits_{x_0}^{x_0 + \Delta x} (f(x) - f(x_0))\ dx\ \vline \leq \sup \limits_{[x_0, x_0+\Delta x]}|f(x) - f(x_0)| \longrightarrow 0.
     \end{multline*}
 \end{proof}
 \begin{consequense}
     Пусть $f(x) \in \mathcal{C}(a, b)$. Тогда $\forall c \in (a, b)$:
-    \[\exists \ \left(\int\limits_{c}^{x} f(t)dt\right)' = f(x), \text{ то есть } \int\limits_{c}^{x} f(t)dt\ \text{-}\ \text{первообразная} \ f(x)\]
+    \[\exists \ \left(\int\limits_{c}^{x} f(t)\ dt\right)' = f(x), \text{ то есть } \int\limits_{c}^{x} f(t)\ dt\ \text{-}\ \text{первообразная} \ f(x)\]
 \end{consequense}
-\begin{proof}
-    Очевидно.
-\end{proof}
 \begin{comm}
     Интервал в формулировке следствия взят для применимости теоремы к неограниченным на интервале функциям (например $\tg(x)$ на $[0, \pi]$), для которых тем не менее применима предыдущая теорема по аналогичным рассуждениям.
 \end{comm}
