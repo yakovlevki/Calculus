@@ -6,7 +6,7 @@
 \begin{definition}
     Пусть $f(x)$ ограничена на $[a,b],\ \{x_i\}_{i=0}^n=T$ - разбиение $[a,b]$
     \[m_i=\inf\limits_{[x_i, x_{i+1}]} f(x),\ M_i=\sup\limits_{[x_i, x_{i+1}]}f(x)\] 
-    \[\overline{\overline{S}}_f(T)=\sum\limits_{i=0}^{n-1}m_i(x_{i+1}-x_i),\ \underline{\underline{S}}_f(T)=\sum\limits_{i=0}^{n-1}M_i(x_{i+1}-x_i)\]
+    \[\overline{\overline{S}}_f(T)=\sum\limits_{i=1}^{n}m_i(x_{i}-x_{i-1}),\ \underline{\underline{S}}_f(T)=\sum\limits_{i=1}^{n}M_i(x_{i}-x_{i-1})\]
     Тогда $\overline{\overline{S}}_f(T)$ называется нижней суммой Дарбу, а $\underline{\underline{S}}_f(T)$ верхней суммой Дарбу.
 \end{definition} 
 \begin{numlemma}
@@ -23,7 +23,7 @@
     значит, по индукции, это верно для любого измельчения.
 \end{proof} 
 \begin{numlemma}
-    \[\forall\ T_1, T_2: \overline{\overline{S}}(T_1)\leq \underline{\underline{S}}(T_2)\]
+    \[\forall\ T_1, T_2:\ \overline{\overline{S}}(T_1)\leq \underline{\underline{S}}(T_2)\]
 \end{numlemma} 
 \begin{proof}
     Рассмотрим объединение любых двух разбиений $T_1$ и $T_2$:\\ $T=T_1\cup T_2$. Тогда $T$ является измельчением и $T_1$ и $T_2$. Тогда по лемме 1 получаем:
@@ -45,17 +45,18 @@
     \[\sum\limits_{i=1}^{n}a_i x_i \leq \sum\limits_{i=1}^{n} a_i\sup X_i\]
     Значит,
     \[\sup\limits_{\{x_i\}} \sum\limits_{i=1}^{n}a_i x_i=\sum\limits_{i=1}^{n}a_i \sup X_i\]
-    При $X_i = f([x_{i-1}, x_i])$ (ограничены в силу интегрируемости $f$) и $a_i = x_i - x_{i-1}$ получим
+    При $X_i = f([x_{i-1}, x_i])$, ограниченных в силу интегрируемости $f(x)$, и\\
+    $a_i = x_i - x_{i-1}$ получим
     \[\sup\limits_{\{\xi_i\}}\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1}) = \sum\limits_{i=1}^{n}\sup\limits_{\{\xi_i\}}f(\xi_i)(x_i-x_{i-1}) = \underline{\underline{S}}(T)\]
 \end{proof} 
 \begin{theorem} (Критерий Дарбу интегрируемости по Риману)\\
     $f(x)\in \mathcal{R}[a,b] \Leftrightarrow f$ - ограничена и 
-    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall\ T_{[a,b]}: d(T)<\delta_{\epsilon}: \underline{\underline{S_f}}(T)-\overline{\overline{S}}_f(T)<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall\ T_{[a,b]}:\ d(T)<\delta_{\epsilon}:\ \underline{\underline{S_f}}(T)-\overline{\overline{S}}_f(T)<\epsilon\]
 \end{theorem} 
 \begin{proof} \ 
     \begin{itemize}
         \item[$(\Rightarrow):$]
-        \[\exists\ I=\int\limits_{a}^{b}f(x)\ dx \Rightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall T(\xi): d(T)<\delta_{\epsilon}:\]
+        \[\exists\ I=\int\limits_{a}^{b}f(x)\ dx \Rightarrow \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall\ T(\xi): d(T)<\delta_{\epsilon}:\]
         \[I-\frac{\epsilon}{3}<\sigma_f(T(\xi))<I+\frac{\epsilon}{3}\]
         \[\vline\ \overline{\overline{S_f}}(T)-I\ \vline \leq \frac{\epsilon}{3},\ \ \  \vline\ \underline{\underline{S_f}}(T)-I\ \vline \leq \frac{\epsilon}{3}\]
         $\Rightarrow \underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon$.
@@ -81,12 +82,12 @@
 \end{theorem} 
 \begin{proof}
     $f(x)\in \mathcal{C}[a,b] \Rightarrow f(x)$ - равномерно непрерывна на $[a,b]$, т.е
-    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0, \forall x_1, x_2\in [a,b]: |x_1-x_2|<\delta_{\epsilon}: |f(x_1)-f(x_2)|<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0, \forall x_1, x_2\in [a,b]:\ |x_1-x_2|<\delta_{\epsilon}:\ |f(x_1)-f(x_2)|<\epsilon\]
     Пусть $T: d(T)<\delta$. Тогда:
     \begin{align*}
     \underline{\underline{S}}(T)-\overline{\overline{S}}(T)=\sum\limits_{i=1}^{n}(M_i-m_i)(x_i-x_{i-1})=\\=\sum\limits_{i=1}^{n}(f(x_{i_{max}})-f(x_{i_{min}}))(x_i-x_{i-1})<\epsilon(b-a)
     \end{align*}
-    ($x_{i_{min}}$ и $x_{i_{max}}$ существуют по второй теореме Вейерштрасса)
+    поскольку $x_{i_{min}}$ и $x_{i_{max}}$ существуют по второй теореме Вейерштрасса.
 \end{proof} 
 \begin{theorem}
     Пусть $f(x)$ - монотонна на $[a,b]$. Тогда $f(x)\in \mathcal{R}[a,b]$

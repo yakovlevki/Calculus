@@ -11,13 +11,13 @@
 \newpage
 \section{Интеграл Римана}
 \subsection{Интегрируемость по Риману}
-\begin{definition}
-    $\{x_i\}_{i=0}^n\subset [a,b]$ называется разбиением отрезка, если \\
-    $a=x_0<\dots<x_n=b$. Обозначается $T_{[a,b]}^+$. Если $b=x_0>\dots>x_n=a$, то обозначают $T_{[a,b]}^-$.\\
-    Отрезки $[x_{i-1},x_i]$ или $[x_i, x_{i-1}]$ называются отрезками разбиения, их обычно обозначают $\Delta_i$.\\
-    Длина отрезка $\Delta_i$ обозначается $\Delta x_i := x_i-x_{i-1}$. \\
-    Длина наибольшего из отрезков называется диаметром разбиения \\
-    $d(T)=\max|x_i-x_{i-1}| = \max{\Delta x_i}$. 
+\begin{definition}\tab
+    \begin{enumerate}
+        \item Множество точек $\{x_i\}_{i=0}^n\subset [a,b]$ называется разбиением отрезка, если $a=x_0<\dots<x_n=b$. Обозначается $T_{[a,b]}^+$. Если $b=x_0>\dots>x_n=a$, то обозначают $T_{[a,b]}^-$.
+        \item Отрезки $[x_{i-1},x_i]$ или $[x_i, x_{i-1}]$ называются отрезками разбиения, их обычно обозначают $\Delta_i$.
+        \item Длина отрезка $\Delta_i$ обозначается $\Delta x_i := x_i-x_{i-1}$.
+        \item Длина наибольшего из отрезков называется диаметром разбиения \[d(T)=\max|x_i-x_{i-1}| = \max{\Delta x_i}\]
+    \end{enumerate} 
 \end{definition} 
 \begin{definition}
     Пусть $T_{[a,b]}$ - разбиение отрезка $[a,b]$. Разметкой для $T_{[a,b]}$ называется множество точек $\{\xi_i\}_{i=1}^n$ такое, что $\forall i: \xi_i \in \Delta_i$.\\
@@ -41,7 +41,7 @@
     где $d$ - диаметр разбиения.
 \end{comm} 
 \begin{statement}
-    \[\text{Если}\ \exists\ \int\limits_{a}^{b}f(x)\ dx,\ \text{то}\ \ \exists\ \int\limits_{b}^{a}f(x)\ dx\ \ \text{и}\ \int\limits_{a}^{b}f(x)\ dx=-\int\limits_{b}^{a}f(x)\ dx\]
+    \[\exists\ \int\limits_{a}^{b}f(x)\ dx,\ \Rightarrow \ \exists\ \int\limits_{b}^{a}f(x)\ dx\ \ \text{и}\ \int\limits_{a}^{b}f(x)\ dx=-\int\limits_{b}^{a}f(x)\ dx\]
 \end{statement} 
 \begin{definition}
     Класс функций, интегрируемых на $[a,b]$ по Риману, обозначается $\mathcal{R}[a,b]$.
@@ -50,8 +50,9 @@
     Если $f(x)\in \mathcal{R}[a,b]$, то $f(x)$ - ограничена на $[a,b]$.
 \end{theorem} 
 \begin{proof}
-    Предположим, что $\exists \{x_n\}_{n=1}^{\infty}\subset [a,b],\ \exists \lim\limits_{n\to \infty}x_n=\widetilde{x}$, что\\
-    $|f(x_n)|>n$ и пусть
+    Предположим, что 
+    \[\exists\ \{x_n\}_{n=1}^{\infty}\subset [a,b],\ x_n\to\widetilde{x}\in [a,b]:\ |f(x_n)|>n\]
+    и пусть
     \[\exists\ \lim\limits_{d\to 0}\left( \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1}) \right)=I\] 
     Возьмем $\epsilon=1$. Тогда  
     \[\vline\ \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1})-I\ \vline<1\]

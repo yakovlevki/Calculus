@@ -8,7 +8,7 @@
 \end{definition} 
 \begin{definition}
     Если $\exists\ M>0$ такое, что $\forall T_{[a,b]}: V(f,T)\leq M$, то функция называется функцией ограниченной вариации на $[a,b]$, а величина
-    \[\sup\limits_{T}V(f,T)= \variation\limits_{a}^{b} f(x)=\text{var}_{[a,b]}f(x)\] % нужно написать declaremathoperator
+    \[\variation\limits_{a}^{b} f(x)=\text{var}_{[a,b]}f(x)=\sup\limits_{T}V(f,T)\] % нужно написать declaremathoperator
     называется полной вариацией функции на отрезке $[a,b]$
 \end{definition} 
 % \begin{examples}
@@ -53,7 +53,7 @@
 \end{numtheorem} 
 \begin{numtheorem}
     Если $f(x)$ монотонна на $[a,b]$, то
-    \[\variation\limits_{a}^{b} f(x)=f(b)\cdot f(a)\]
+    \[\variation\limits_{a}^{b} f(x)=|f(b)- f(a)|\]
 \end{numtheorem}
 \begin{numtheorem} (Аддитивность)\\
     Если $c\in (a,b),\ f\in \mathcal{V}[a,c]$ и $f\in \mathcal{V}[b,c]$, то $f\in \mathcal{V}[a,b]$ и 
@@ -92,7 +92,7 @@
     Если $f(x)\in \text{Lip}_1[a,b]$, то $f\in \mathcal{V}[a,b]$
 \end{theorem} 
 \begin{proof}
-    \[V(f,T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\leq \sum\limits_{i=1}^{n}|x_i-x_{i-1}|=M\cdot (b-a)\]
+    \[V(f,T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\leq M\cdot\sum\limits_{i=1}^{n}|x_i-x_{i-1}|=M\cdot (b-a)\]
 \end{proof} 
 \begin{theorem}
     Если $f(x)\in C^1[a,b]$, то $f(x)\in \mathcal{V}[a,b]$ и 
