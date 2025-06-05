@@ -7,10 +7,8 @@
 \end{numtheorem} 
 \begin{proof}
 \begin{multline*}
-    \int\limits_{a}^{b}f(x)\ d(g(x))=\lim\limits_{d\to 0} \sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\\
-    =\lim\limits_{d\to 0, c\in T}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\tab[3cm]\\
-    =\lim\limits_{d\to 0}\sum\limits_{i=1}^{n_1}f(\xi_i)(g(x_i)-g(x_{i-1}))+\\
-    \tab[3cm]+\lim\limits_{d\to 0}\sum\limits_{i=n+1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\\=\int\limits_{a}^{c}f(x)\ d(g(x)) + \int\limits_{c}^{b}f(x)\ d(g(x))
+    \int\limits_{a}^{b}f(x)\ d(g(x))=\lim\limits_{d\to 0, c\in T}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\tab[3cm]\\
+    =\lim\limits_{d\to 0}\sum\limits_{i=1}^{n_1}f(\xi_i)(g(x_i)-g(x_{i-1}))+\lim\limits_{d\to 0}\sum\limits_{i=n+1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\\=\int\limits_{a}^{c}f(x)\ d(g(x)) + \int\limits_{c}^{b}f(x)\ d(g(x))
 \end{multline*}
 \end{proof} 
 \begin{comm}
@@ -69,8 +67,9 @@
     \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
 \end{theorem}
 \begin{proof}
-    Пусть $g(x)$ монотонно возрастает. $f(x)\in \mathcal{C}[a,b]$ значит\\
-    $f(x)$ - равномерно непрерывна, на $[a,b] \Rightarrow \forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta: M_i-m_i<\epsilon$\\ 
+    Пусть $g(x)$ монотонно возрастает. $f(x)\in \mathcal{C}[a,b]$, значит\\
+    $f(x)$ - равномерно непрерывна на $[a,b]$, следовательно
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta: M_i-m_i<\epsilon\]
     а значит
     \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\cdot (g(b)-g(a)) \Rightarrow \inf\limits_T \underline{\underline{S}}(T)=\sup\limits_T \overline{\overline{S}}(T)=I\]
     \[|\sigma_f(g,T)-I|<\epsilon\cdot (g(b)-g(a))\]
@@ -83,48 +82,50 @@
     по теореме об интегрировании по частям.
 \end{comm} 
 \subsection{Связь интеграла Римана и интеграла Римана-Стилтьеса}
-Знаки $(R)$ и $(S)$ обозначают что рассматривается интеграл по Риману и Риману-Стилтьесу соответственно.
+Знаки $(R)$ и $(S)$ обозначают, что рассматривается интеграл по Риману и Риману-Стилтьесу соответственно.
 \begin{theorem}
     Если $f(x)\in \mathcal{V}[a,b],\ g(x)\in \mathcal{D}[a,b],\ g'(x)\in \mathcal{R}[a,b]$, то
-    \[(S)\int\limits_{a}^{b}f(x)\ d(g(x))=(R)\int\limits_{a}^{b}f(x)g'(x)\ dx\]
+    \[(S)\int\limits_{a}^{b}f(x)\ d(g(x))=(R)\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx\]
 \end{theorem} 
 \begin{proof}
     Оба интеграла существуют по условиям теоремы, значит достаточно будет доказать для какой-то выбраной разметки. По формуле Лагранжа:
-    \[\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\xi_i)g'(\zeta)(x_i-x_{i-1})\]
+    \[\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\xi_i)\cdot g'(\zeta)(x_i-x_{i-1})\]
     Теперь возьмем в качестве разметки игтеграла Римана-Стилтьеса разметку $\zeta_i$, и получаем равенство
-    \[\sum\limits_{i=1}^{n}f(\zeta_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\zeta_i)g'(\zeta)(x_i-x_{i-1})\]
+    \[\sum\limits_{i=1}^{n}f(\zeta_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\zeta_i)g'(\zeta_i)(x_i-x_{i-1})\]
 \end{proof} 
 \subsection{Теоремы о среднем}
 \begin{theorem}
-    (Первая теорема о среднем)\\ 
-    Пусть $f(x)\in \mathcal{C}[a,b], g(x)$ монотонно возрастает. Тогда $\exists\ c\in [a,b]$ такая, что
+    (Первая теорема о среднем для интеграла Римана-Стилтьеса)\\ 
+    Пусть $f(x)\in \mathcal{C}[a,b],\ g(x)$ монотонно возрастает. Тогда $\exists\ c\in [a,b]$ такая, что
     \[\int\limits_{a}^{b}f(x)\ d(g(x))=f(c)(g(b)-g(a))\]
 \end{theorem} 
 \begin{proof}
     Если $g(b)=g(a)$ то равенство верно.
     Пусть $g(b)>g(a),\\ m=\min\limits_{[a,b]} f(x), M=\max\limits_{[a,b]} f(x)$
-    \[m\cdot(g(b)-g(a))\leq\overline{\overline{S}}(T) \leq\int\limits_{a}^{b}f(x)\ d(g(x))\leq \underline{\underline{S}}(T)\leq M\cdot(g(b)-g(a))\]
+    \[m\cdot(g(b)-g(a))\leq\int\limits_{a}^{b}f(x)\ d(g(x))\leq M\cdot(g(b)-g(a))\]
     отсюда
     \[m\leq \frac{\int\limits_{a}^{b}f(x)\ d(g(x))}{g(b)- g(a)}\leq M\]
 \end{proof} 
 \begin{theorem}
-    (Вторая теорема о среднем)\\
+    (Вторая теорема о среднем для интеграла Римана-Стилтьеса)\\
     Пусть $f(x)\in \mathcal{C}[a,b],\ g(x)$ монотонно возрастает. Тогда $\exists\ c\in [a,b]$ такая, что
     \[\int\limits_{a}^{b}g(x)\ d(f(x))=g(a)\cdot(f(c)-f(a))+g(b)\cdot (f(b)-f(c))\]
 \end{theorem} 
-\begin{proof}
+\begin{proof} Возьмем интеграл по частям и применим первую теорему о среднем:
     \begin{multline*}
-        \int\limits_{a}^{b}g(x)\ d(f(x))=g(b)f(b)-g(a)f(a)-f(c)(g(b)-g(a))=\\=g(a)(f(c)-f(a))+g(b)(f(b)-f(c))
+        \int\limits_{a}^{b}g(x)\ d(f(x))=f(x)\cdot g(x)|^b_a-\int\limits_{a}^{b}f(x)\ d(g(x))=\\=
+        g(b)f(b)-g(a)f(a)-f(c)(g(b)-g(a))=\\
+        =g(a)(f(c)-f(a))+g(b)(f(b)-f(c))
     \end{multline*}
 \end{proof} 
 \begin{consequense}
     (Вторая теорема о среднем для интеграла Римана)\\
-    Пусть $f(x)\in \mathcal{C}[a,b], g(x)$ монотонно возрастает. Тогда
-    \[(R)\int\limits_{a}^{b}f(x)g(x)\ dx=g(a)\cdot \int\limits_{a}^{c}f(x)\ dx+g(b)\cdot \int\limits_{c}^{b}f(x)\ dx\]
+    Пусть $f(x)\in \mathcal{C}[a,b],\ g(x)$ монотонно возрастает. Тогда
+    \[(R)\int\limits_{a}^{b}f(x)\cdot g(x)\ dx=g(a)\cdot \int\limits_{a}^{c}f(x)\ dx+g(b)\cdot \int\limits_{c}^{b}f(x)\ dx\]
 \end{consequense} 
-\begin{proof}
+\begin{proof} Перейдем к интегралу Римана-Стилтьеса и воспользуемся второй теоремой о среднем для него:
     \begin{multline*}
-        (R)\int\limits_{a}^{b}f(x)g(x)\ dx=(S) \int\limits_{a}^{b}g(x)\ d\left(\int\limits_{a}^{x}f(t)\ dt\right)=\\
+        (R)\int\limits_{a}^{b}f(x)\cdot g(x)\ dx=(S) \int\limits_{a}^{b}g(x)\ d\left(\int\limits_{a}^{x}f(t)\ dt\right)=\\
         =g(a)\cdot \int\limits_{a}^{c}f(t)\ dt+g(b)\cdot \int\limits_{c}^{b}f(t)\ dt
     \end{multline*}
 \end{proof} 

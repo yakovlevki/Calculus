@@ -87,11 +87,13 @@
 \end{theorem} 
 \begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow):$] $\exists\ \prod\limits_{i=1}^{n}[a_i, a_i+d]\supset A$, поделим каждое ребро пополам и получим $2^n$ кубиков.
-        (\textit{будет расписано подробнее})
-        \item[$(\Leftarrow)$:] От противного: пусть $\exists\ \{\bar{a}_k\}_{k=1}^{\infty}$ - некоторая сходящаяся подпоследовательность. Тогда 
-        \[\forall \bar{y}\in A\ \exists\ B_{\epsilon_y}(\bar{y}): B_{\epsilon_y}(\bar{y})\cap \{\bar{x}_k\} - \text{конечно}\]
-        \[A\subset \bigcup_{y\in A}B_{\epsilon_y}(\bar{y}),\ \exists\ \bigcup_{i=1}^N B_{\epsilon_{y_i}}(\bar{y}_i)\supset A\]
+        \item[$(\Rightarrow):$] $\exists\ \prod\limits_{i=1}^{n}[a_i, a_i+d]\supset A$, поделим каждое ребро пополам и получим $2^n$ кубиков. Пусть $U_i$ - кубик, значит 
+        \[A\subset \bigcup\limits_{i=1}^{2^n} U_i\]
+        \item[$(\Leftarrow)$:] От противного: пусть $\{\bar{x}_i\}_{i=1}^{\infty}\subset A$ - некоторая последовательность, у которой нет сходящейся подпоследовательности. Тогда 
+        \[\forall \bar{y}\in A\ \exists\ B_{\epsilon_y}(\bar{y}): B_{\epsilon_y}(\bar{y})\cap \{\bar{x}_i\}_{i=1}^{\infty} - \text{конечно}\]
+        Из компактности $A$, получаем
+        \[A\subset \bigcup_{\bar{y}\in A}B_{\epsilon_{\bar{y}}}(\bar{y}),\ \exists\ \bigcup_{i=1}^n B_{\epsilon_{y_i}}(\bar{y}_i)\supset A\]
+        получаем противоречие с тем, что последовательность бесконечная.
     \end{itemize}
 \end{proof} 
 \begin{definition}

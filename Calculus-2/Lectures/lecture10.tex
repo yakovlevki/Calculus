@@ -84,7 +84,7 @@
     \[\variation\limits_{a}^{b}f(x)=|f(b)-f(a)|\]
 \end{proof} 
 \begin{numtheorem} (Аддитивность)\\
-    Если $c\in (a,b),\ f\in \mathcal{V}[a,c]$ и $f\in \mathcal{V}[b,c]$, то $f\in \mathcal{V}[a,b]$ и 
+    Если $c\in (a,b),\ f(x)\in \mathcal{V}[a,c]$ и $f(x)\in \mathcal{V}[b,c]$, то $f(x)\in \mathcal{V}[a,b]$ и 
     \[\variation\limits_{a}^{b}f(x)=\variation\limits_{a}^{c}f(x)+\variation\limits_{b}^{c}f(x)\]
 \end{numtheorem} 
 \begin{proof}
@@ -93,7 +93,7 @@
     значит
     \[\variation\limits_{a}^{b} f(x)\leq \variation\limits_{a}^{c} f(x)+\variation\limits_{c}^{b} f(x)\]
     С другой стороны, рассмотрим 
-    \[V(f, T_{[a,c]})+V(f, T_{[c,b]})=V(f, T_{a,b}\ni c)\]
+    \[V(f, T_{[a,c]})+V(f, T_{[c,b]})=V(f, T_{[a,b]}\ni c)\]
     отсюда получим
     \[\variation\limits_{a}^{c}f(x)+\variation\limits_{c}^{b}f(x)=\sup V(f,T_{[a,b]}\ni c)\leq \variation\limits_{a}^{b} f(x)\] 
 \end{proof} 
@@ -114,10 +114,10 @@
 \begin{definition}
 Функция $f(x)$, опеределенная на $(a,b)$, называется липшицевой, если $\exists\ M>0$ такое, что $\forall x_1,x_2\in [a,b]:$
 \[|f(x_2)-f(x_1)|\leq M\cdot |x_2-x_1|\]
-Часто обозначают $f(x)\in \text{Lip}[a,b]$ или $f\in \text{Lip}_1[a,b]$
+Часто обозначают $f(x)\in \text{Lip}[a,b]$ или $f(x)\in \text{Lip}_1[a,b]$
 \end{definition} 
 \begin{theorem}
-    Если $f(x)\in \text{Lip}_1[a,b]$, то $f\in \mathcal{V}[a,b]$
+    Если $f(x)\in \text{Lip}_1[a,b]$, то $f(x)\in \mathcal{V}[a,b]$
 \end{theorem} 
 \begin{proof}
     \[V(f,T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|\leq M\cdot\sum\limits_{i=1}^{n}|x_i-x_{i-1}|=M\cdot (b-a)\]
@@ -127,33 +127,34 @@
     \[\variation\limits_{a}^{b} f(x)=\int\limits_{a}^{b}|f'(x)|\ dx\]
 \end{theorem} 
 \begin{proof}
-    Если $f\in C^1[a,b]$, то $f\in \text{Lip}_1[a,b]$, так как по формуле Лагранжа:
-    \[|f(x_2)-f(x_1)|=|f'(\xi)(x_2-x_1)|\leq \max\limits_{x\in [a,b]}|f'(x)|\cdot|(x_2-x_1)|\]
+    Если $f(x)\in C^1[a,b]$, то $f\in \text{Lip}_1[a,b]$, так как по формуле Лагранжа:
+    \[|f(x_2)-f(x_1)|=|f'(\xi)\cdot (x_2-x_1)|\leq \max\limits_{x\in [a,b]}|f'(x)|\cdot|x_2-x_1|\]
     \begin{multline*}
-        V(f, T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|=\sum\limits_{i=1}^{n} |f'(\xi)(x_i-x_{i-1})|=\\
-        =\sum\limits_{i=1}^{n} |f'(\xi)| (x_i-x_{i-1})\to \int\limits_{a}^{b}|f'(x)|\ dx
+        V(f, T)=\sum\limits_{i=1}^{n}|f(x_i)-f(x_{i-1})|=\sum\limits_{i=1}^{n} |f'(\xi)\cdot (x_i-x_{i-1})|=\\
+        =\sum\limits_{i=1}^{n} (|f'(\xi)|\cdot (x_i-x_{i-1}))\to \int\limits_{a}^{b}|f'(x)|\ dx
     \end{multline*}
     $\Rightarrow \forall \epsilon>0\ \exists\ \delta>0,\ \forall T,\ d(T)<\delta$:
     \[\left|V(f,T)-\int\limits_{a}^{b}|f'(x)|\ dx\right|<\epsilon\]
     По определению точной верхней грани: $\forall \epsilon>0\ \exists\ V(f,T_{\epsilon})$ такое, что
     \[\variation\limits_{a}^{b} f(x)-V(f,T_{\epsilon})<\epsilon\]
-    измельчаем $T_{\epsilon}$, значит $T_{\epsilon}^*$ с $d(T_{\epsilon}^*)<\delta$:
+    измельчаем $T_{\epsilon}$ до $T_{\epsilon}^*$ с $d(T_{\epsilon}^*)<\delta$:
     \begin{multline*}
         \left| \variation\limits_{a}^{b} f(x)-\int\limits_{a}^{b}|f'(x)|\ dx \right|=\\=\left|\variation\limits_{a}^{b} f(x)-\int\limits_{a}^{b}|f'(x)|\ dx+V(f,T_{\epsilon}^*)-V(f, T_{\epsilon}^*)\right|\leq\\
-        \leq \left|\variation\limits_{a}^{b} f(x)-V(f, T_{\epsilon}*)\right|+\left|\int\limits_{a}^{b}|f(x)|\ dx-V(f,T_{\epsilon}*)\right|<2\epsilon
+        \leq \left|\variation\limits_{a}^{b} f(x)-V(f, T_{\epsilon}^*)\right|+\left|\int\limits_{a}^{b}|f(x)|\ dx-V(f,T_{\epsilon}^*)\right|<2\epsilon
     \end{multline*}
 \end{proof}
 % Тут должна быть вставка про лестницу кантора
 \subsection{Интеграл Римана-Стилтьеса и его свойства}
 \begin{definition}
-    Пусть $f(x),\ g(x)$ определены на $[a,b]$. $\forall T(\xi)$ сумма 
+    Пусть $f(x),\ g(x)$ определены на $[a,b]$. $\forall\ T(\xi)$ сумма 
     \[\sum\limits_{i=1}^{n} f(\xi_i)(g(x_i)-g(x_{i-1}))=\sigma_g(f,T)\]
     называется интегральной суммой Римана-Стилтьеса.
 \end{definition} 
 \begin{definition}
     Если существует предел
-    \[\lim\limits_{d\to 0}\sigma_g(f, T(\xi))=\int\limits_{a}^{b}f(x)\ d(g(x))\]
-    то он называется интегралом Римана-Стилтьеса.
+    \[\lim\limits_{d\to 0}\sigma_g(f, T(\xi))\]
+    то он называется интегралом Римана-Стилтьеса и обозначается
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
 \end{definition}
 \begin{numtheorem}
     $\forall \alpha,\ \beta\in \R$:
@@ -169,5 +170,5 @@
     Если существуют интегралы
     \[\int\limits_{a}^{b}f(x)\ d(g_1(x)),\ \int\limits_{a}^{b}f(x)\ d(g_2(x))\]
     то существует интегал 
-    \[\int\limits_{a}^{b}f(x)\ d(g_1(x)+g_2(x))=\int\limits_{a}^{b}f(x)\ d(g_1)+\int\limits_{a}^{b}f(x)\ d(g_2)\]
+    \[\int\limits_{a}^{b}f(x)\ d(g_1(x)+g_2(x))=\int\limits_{a}^{b}f(x)\ d(g_1(x))+\int\limits_{a}^{b}f(x)\ d(g_2(x))\]
 \end{numtheorem} 
