@@ -17,7 +17,7 @@
     % Пример 2 (когда это невозможно)
 % \end{examples}
 \begin{numtheorem}
-    Если $f\in \mathcal{V}[a,b]$, то $f$ - ограничена на $[a,b]$.
+    Если $f(x)\in \mathcal{V}[a,b]$, то $f$ - ограничена на $[a,b]$.
 \end{numtheorem}
 \begin{proof}
     Возьмем произвольную точку $x\in [a,b]$. Тогда, взяв разбиение $T=\{a,x,b\}$, получим
@@ -35,7 +35,7 @@
     значит, по индукции, это верно для любого измельчения.
 \end{proof} 
 \begin{numtheorem}
-    Если $f\in \mathcal{V} [a,b]$, то $\forall \alpha\in \R$:
+    Если $f(x)\in \mathcal{V} [a,b]$, то $\forall \alpha\in \R$:
     \[\variation\limits_{a}^{b}(\alpha\cdot f(x))=|\alpha|\cdot \variation\limits_{a}^{b} f(x)\] 
 \end{numtheorem} 
 \begin{proof}
@@ -45,23 +45,34 @@
     \end{multline*} 
 \end{proof} 
 \begin{numtheorem}
-    Если $f,g\in \mathcal{V}[a,b]$, то $f+g\in \mathcal{V}[a,b]$
+    Если $f(x),g(x)\in \mathcal{V}[a,b]$, то $f+g\in \mathcal{V}[a,b]$
 \end{numtheorem} 
 \begin{proof}
     \[\variation\limits_{a}^{b} (f(x)+g(x))\leq \variation\limits_{a}^{b} f(x)+\variation\limits_{a}^{b} g(x)\]
 \end{proof} 
 \begin{numtheorem}
-    Если $f,g\in \mathcal{V}[a,b]$, то $f(x)\cdot g(x)\in \mathcal{V}[a,b]$
+    Если $f(x),g(x)\in \mathcal{V}[a,b]$, то $f(x)\cdot g(x)\in \mathcal{V}[a,b]$
 \end{numtheorem} 
 \begin{proof}
     \begin{multline*}
         |f(x_i)g(x_i)-f(x_{i-1})g(x_i)+f(x_{i-1})g(x_{i})-f(x_{i-1})g(x_{i-1})|\leq\\
-        \leq M_1\cdot |f(x_i)-f(x_{i-1})|+M_2\cdot |g(x_i)-g(x_{i-1})|
+        \leq \sup\limits_{x\in [a,b]}|g(x)|\cdot |f(x_i)-f(x_{i-1})|+\sup\limits_{x\in [a,b]}|f(x)|\cdot |g(x_i)-g(x_{i-1})|=\\
+        =M_1\cdot |f(x_i)-f(x_{i-1})|+M_2\cdot |g(x_i)-g(x_{i-1})|
     \end{multline*}
+    значит
+    \[\variation\limits_{a}^{b}(f(x)\cdot g(x))=M_1\cdot \variation\limits_{a}^{b}f(x)+M_2\cdot \variation\limits_{a}^{b}g(x)\]
 \end{proof} 
 \begin{numtheorem}
-    Если $f,g\in \mathcal{V}[a,b],\ g\geq \epsilon>0$, то $\frac{f}{g}\in \mathcal{V}[a,b]$
+    Если $g(x)\in \mathcal{V}[a,b],\ g\geq \epsilon>0$, то $\frac{1}{g}(x)\in \mathcal{V}[a,b]$
 \end{numtheorem} 
+\begin{proof}
+    \[\left|\frac{1}{g(x_i)}-\frac{1}{g(x_{i-1})}\right|=\left|\frac{g(x_i)-g(x_{i-1})}{g(x_i)\cdot g(x_{i-1})}\right|\leq \frac{|g(x_i)\cdot g(x_{i-1})|}{\epsilon^2}\]
+    значит
+    \[\variation\limits_{a}^{b}(\frac{1}{g(x)})=\frac{1}{\epsilon^2}\cdot \variation\limits_{a}^{b}g(x)\]
+\end{proof} 
+\begin{consequense}
+    Если $g(x), f(x)\in \mathcal{V}[a,b],\ g\geq \epsilon>0$, то $\frac{f}{g}(x)\in \mathcal{V}[a,b]$
+\end{consequense} 
 \begin{numtheorem}
     Если $f(x)$ монотонна на $[a,b]$, то
     \[\variation\limits_{a}^{b} f(x)=|f(b)- f(a)|\]
