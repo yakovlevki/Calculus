@@ -1,6 +1,6 @@
 \begin{definition}
     Пусть $\bar{x}_0\in D'(f)$. Рассмотрим кривую $\bar{\gamma}(t)$, определенную в окрестности $B(t_0),\ \bar{\gamma}(t_0)=\bar{x}_0$. Тогда если 
-    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall t\in \mathring{B}(t_0): |f(\bar{\gamma})-A|<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall t\in \mathring{B}(t_0): |f(\bar{\gamma}(t))-A|<\epsilon\]
     то существует предел 
     \[\lim\limits_{\bar{x}\to \bar{x}_0,\ \bar{x}\in \bar{\gamma}(t)}f(\bar{x})=A\]
     и он называется пределом $f(\bar{x})$ вдоль кривой $\bar{\gamma}$.
@@ -13,8 +13,8 @@
 \end{definition} 
 \begin{example}
     \[f(x,y)=\begin{cases}
-        x\sin{\frac{1}{y}+y\sin{\frac{1}{x}}}\ ,\ x,y\ne 0\\
-        0\ ,\ (x, y)=0
+        x\sin{\frac{1}{y}+y\sin{\frac{1}{x}}}\ ,\ (x,y)\ne (0,0)\\
+        0,\ (x, y)=0
     \end{cases}
     \]
     На всех осях нет повторного предела.
@@ -23,7 +23,7 @@
     Если существует предел
     \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})\]
     и существует предел
-    \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_2}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}})\dots))\]
+    \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_2}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}}f(\bar{x}))\dots))\]
     то существует предел
     \[\lim\limits_{x_{i_n}\to x_{0_n}}g(x_{i_n})=A\]
 \end{theorem} 
