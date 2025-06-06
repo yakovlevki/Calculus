@@ -57,7 +57,7 @@
 \end{definition} 
 \begin{theorem}
     Если последовательность вложенных параллелепипедов такая, что
-    \[\{\Pi_{[\bar{a}, \bar{b}]}\}_{k=1}^{\infty},\ \forall k: \Pi_{[\bar{a}_{k+1}, \bar{b}_{k+1}]} \subset \Pi_{[\bar{a}_{k}, \bar{b}_{k}]},\ \max\limits_{1\leq i\leq n}|b_{k_i}-a_{k_i}| \to 0\]
+    \[\{\Pi_{[\bar{a}_k, \bar{b}_k]}\}_{k=1}^{\infty},\ \forall k: \Pi_{[\bar{a}_{k+1}, \bar{b}_{k+1}]} \subset \Pi_{[\bar{a}_{k}, \bar{b}_{k}]},\ \max\limits_{1\leq i\leq n}|b_{k_i}-a_{k_i}| \to 0\]
     то существует единственная точка $\xi$, что $\forall k: \xi\in \Pi_{[\bar{a}_k, \bar{b}_k]}$.
 \end{theorem} 
 \begin{proof}
@@ -66,14 +66,14 @@
 \subsection{Секвенциальная компактность}
 \begin{definition}
     Множество $A\subset \R^n$ называется секвенциальным компактом, если 
-    \[\forall \{\bar{a}_k\}_{i=1}^{\infty}\subset A\ \ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty}: \bar{a}_{i_m}\to \bar{a} \in A,\ m\to \infty\]
+    \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\subset A\ \ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty}: \bar{a}_{i_m}\to \bar{a} \in A,\ m\to \infty\]
 \end{definition}  
 \begin{theorem}
     $A$ - секвенциальный компакт $\Leftrightarrow A$ - замкнуто и ограничено. 
 \end{theorem}
 \begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow)$:] Если $A$ - неограничено, то $\exists\ \{\bar{a}\}_{i=1}^{\infty},\ \|\bar{a}_i\|\to \infty \Rightarrow$ получаем противоречие.
+        \item[$(\Rightarrow)$:] Если $A$ - неограничено, то $\exists\ \{\bar{a}_i\}_{i=1}^{\infty},\ \|\bar{a}_i\|\to \infty \Rightarrow$ получаем противоречие.
         Тогда $A$ - ограничено и по теореме Больцано-Вейерштрасса:
         \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
         значит $A$ содержит все свои предельные точки, то есть $A$ - замкнуто.
@@ -82,7 +82,7 @@
     \end{itemize}
 \end{proof} 
 \begin{theorem}
-    $A$ - секвенциальный компакт тогда и только тогда, когда
+    $A$ - секвенциальный компакт $\Leftrightarrow A$ - компакт, то есть
     \[\forall \{U_{\alpha}\}: A\subset \bigcup_{\alpha}U_{\alpha}\ \ \exists\ \{U_{\alpha_i}\}_{i=1}^N: A\subset \bigcup_{i=1}^N U_{\alpha_i}\]
 \end{theorem} 
 \begin{proof}\tab
@@ -107,7 +107,8 @@
 \begin{proof}
     От противного:
     \[\rho(A,B)=0 \Rightarrow \exists\ \{\bar{x}_k\}\subset A,\ \exists\ \{\bar{y}_k\}\subset B: \rho(\bar{x}_k, \bar{y}_k)\to 0\] 
-    но $\{\bar{x}_k\}$ - ограничена $\Rightarrow \exists\ \bar{x}_{k_m}\to \bar{x},\ m\to \infty$
+    но $\{\bar{x}_k\}$ - ограничена и $A$ - замкнуто $\Rightarrow \exists\ \bar{x}_{k_m}\to \bar{x}\in A,\ m\to \infty$
     \[\rho(\bar{x}, \bar{y}_{k_m})\leq \rho(\bar{x}, \bar{x}_{k_m})+\rho(\bar{x}_{k_m}, \bar{y}_{k_m})<2\epsilon\ \Rightarrow\ \bar{y}_{k_m}\to \bar{x}\in B\]
+    Значит $\bar{x}\in A\cap B$ - противоречие.
 \end{proof}
 

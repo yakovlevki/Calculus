@@ -1,12 +1,12 @@
 \begin{theorem}
     Пусть $A\subset \R^n$ - замкнуто, $\bar{x}\not\in A$. Тогда $\exists\ \bar{y}\in A: \rho(\bar{x}, \bar{y})=\rho(\bar{x}, A)$.
 \end{theorem} 
-\begin{proof}
+\begin{proof} По свойству точной нижней грани:
     \[\forall \epsilon>0\ \exists\ \bar{y}_{\epsilon}\in A: \rho(\bar{x}, \bar{y}_{\epsilon})<\rho(\bar{x}, A)+\epsilon\] 
     Возьмем 
     \[\forall m\in \N\ \exists\ \bar{y}_m: \rho(\bar{x}, \bar{y}_m)<\rho(\bar{x}, A)+\frac{1}{m} \Rightarrow \{\bar{y}_m\} - \text{ограничено}\] \
     Значит
-    \[\exists\ \{\bar{y}_{m_k}\}_{k=1}^{\infty}: \bar{y}_{m_k} \to \bar{y},\ \rho(\bar{x}, \bar{y}_{m_k})<\rho(\bar{x}, A)+\frac{1}{m_k}\] 
+    \[\exists\ \{\bar{y}_{m_k}\}_{k=1}^{\infty}: \bar{y}_{m_k} \to \bar{y}\in A,\ \rho(\bar{x}, \bar{y}_{m_k})<\rho(\bar{x}, A)+\frac{1}{m_k}\] 
     после предельного перехода получим: 
     \[\rho(\bar{x}, \bar{y})\leq \rho(\bar{x}, A),\ \rho(\bar{x}, \bar{y})\geq \rho(\bar{x}, A) \Rightarrow \rho(\bar{x}, \bar{y})= \rho(\bar{x}, A)\] 
 \end{proof} 
@@ -23,7 +23,7 @@
     \bar{\gamma}(0)=x_1,\ \bar{\gamma}(1)=x_2$. Пусть  
     \[\tau=\sup\limits_{\bar{\gamma}(t)\in B}\{t\} \Rightarrow \forall \epsilon>0\ \exists\ t_{\epsilon}\in (\tau-\epsilon, \tau),\ \bar{\gamma}(t_{\epsilon})\in B\] 
     Тогда при $t>\tau$ получим
-    \[\bar{\gamma}(t)\in \R^n\subset B \Rightarrow \bar{\gamma}(\tau)\in \partial B\]
+    \[\bar{\gamma}(t)\in \R^n\subset A \Rightarrow \bar{\gamma}(\tau)\in A\cap \partial B\]
 \end{proof}  
 \begin{definition}
     Открытое линейно связное множество называется областью.\\
