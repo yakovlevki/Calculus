@@ -1,15 +1,15 @@
 \begin{theorem}
-    Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то $f(\bar{x})$ непрерывна в точке $\bar{x}_0$.
+    $f(\bar{x})$ дифференцируема в точке $\bar{x}_0 \Rightarrow f(\bar{x})$ непрерывна в точке $\bar{x}_0$.
 \end{theorem} 
 \begin{proof}
     \begin{multline*}
-        |f(\bar{x})-f(\bar{x}_0)|=|\sum\limits_{i=1}^{n}A_i \Delta x_i +\bar{\bar{o}}{((\rho))}|\leq\\
+        |f(\bar{x})-f(\bar{x}_0)|=\left|\sum\limits_{i=1}^{n}A_i \Delta x_i +\bar{\bar{o}}{((\rho))}\right|\leq\\
         \leq \sum\limits_{i=1}^{n}|A_i|\cdot|\Delta x_i|+|\bar{\bar{o}}{(\rho)}|\leq \epsilon\cdot \sum\limits_{i=1}^{n}|A_i|+\epsilon
     \end{multline*}
 \end{proof} 
 \begin{theorem}
     Если $f(\bar{x})$ дифференцируема в точке $\bar{x}_0$, то в точке $\bar{x}_0$:
-    \[\forall i=1, \dots, n\ \exists\ \frac{\partial {f}}{\partial {x_i}}=A_i\]
+    \[\forall i=1, \dots, n:\ \exists\ \frac{\partial {f}}{\partial {x_i}}=A_i\]
 \end{theorem} 
 \begin{proof}
     \begin{multline*}
@@ -32,6 +32,7 @@
         =f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y+\bar{\bar{o}}{(1)}\Delta x+\bar{\bar{o}}{(1)} \Delta y= (4)\\
         =f'_x(x_0,y_0)\Delta x+f'_y(x_0,y_0)\Delta y+\bar{\bar{o}}{(\rho)}
     \end{multline*}
+    Пояснения:\\
     (1): По теореме Лагранжа\\
     (2):
     \[f'_x(x_0+\theta_1 \Delta x, y_0+\Delta y)=f'_x(x_0,y_0)+\bar{\bar{o}}{(1)},\ \rho \to 0\]

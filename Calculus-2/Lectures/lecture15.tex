@@ -21,7 +21,7 @@
 \end{example}
 \begin{theorem}
     Если существует предел
-    \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})\]
+    \[\lim\limits_{\bar{x}\to \bar{x}_0}f(\bar{x})=A\]
     и существует предел
     \[g(x_{i_n})=\lim\limits_{x_{i_1}\to x_{0_1}}(\lim\limits_{x_{i_2}\to x_{0_2}}(\dots(\lim\limits_{x_{i_{n-1}}\to x_{0_{n-1}}}f(\bar{x}))\dots))\]
     то существует предел
@@ -93,7 +93,7 @@
     \[\exists\ \epsilon_0>0,\ \forall \delta>0\ \exists\ \bar{x}_{1}, \bar{x}_2,\ \rho(\bar{x}_1, \bar{x}_2)<\delta: |f(\bar{x}_1)-f(\bar{x}_2)|\geq \epsilon_0\]
     \[\forall m\in \N\ \exists\ \bar{x}_{1_{\frac{1}{m}}},\ \bar{x}_{2_{\frac{1}{m}}},\ \rho(\bar{x}_{1_{\frac{1}{m}}}, \bar{x}_{2_{\frac{1}{m}}})<\frac{1}{m}: |f(\bar{x}_{1_{\frac{1}{m}}})-f(\bar{x}_{2_{\frac{1}{m}}})|\geq \epsilon_0\]
     поскольку $A$ компакт, то последовательность ограничена и существует сходящаяся подпоследовательность:
-    \[\{\bar{x}_{i_{\frac{1}{m_k}}}\}: \bar{x}_{i_{\frac{1}{m_k}}}\to \bar{x}_0\]
+    \[\{\bar{x}_{1_{\frac{1}{m_k}}}\}: \bar{x}_{1_{\frac{1}{m_k}}}\to \bar{x}_0\]
     \[\rho(\bar{x}_0, \bar{x}_{2_{\frac{1}{m_k}}})\leq \rho(\bar{x}_0, \bar{x}_{1_{\frac{1}{m_k}}})+\rho(\bar{x}_{1_{\frac{1}{m_k}}}, \bar{x}_{2_{\frac{1}{m_k}}})<\epsilon+\frac{1}{m_k}\]
     значит 
     \[\bar{x}_{2_{\frac{1}{m_k}}}\to \bar{x}_0\]
@@ -108,8 +108,8 @@
     то он называется частной производной функции по $i$-й переменной.
 \end{definition} 
 \begin{definition}
-    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется частной производной. Если $\bar{x}_i\ne \bar{x}_j$, то она называется смешанной производной, если $\bar{x}_i=\bar{x}_j$, то она называется повторной производной.
-    \[(f'_{x_i}(\bar{x}))'_{x_i}=f''_{x_i x_i}(\bar{x})=\frac{\partial^2 {f}}{\partial {x_i}^2},\ (f'_{x_i}(\bar{x}))'_{x_j}=f''_{x_i x_j}(\bar{x})=\frac{\partial^2 {f}}{\partial {x_j}\partial {x_i}}\]
+    Если у функции $f(\bar{x})\ \exists\ f'_{x_i}(\bar{x})$ в некоторой $B(\bar{x}_0)$ и существует $(f'_{x_i}(\bar{x}))'_{x_j}$, то она называется второй частной производной. Если $\bar{x}_i\ne \bar{x}_j$, то она называется смешанной производной, если $\bar{x}_i=\bar{x}_j$, то она называется повторной производной.
+    \[(f'_{x_i}(\bar{x}))'_{x_i}=f''_{x_i x_i}(\bar{x})=\frac{\partial^2 {f}}{\partial {x_i}^2}(\bar{x}),\ (f'_{x_i}(\bar{x}))'_{x_j}=f''_{x_i x_j}(\bar{x})=\frac{\partial^2 {f}}{\partial {x_j}\partial {x_i}}(\bar{x})\]
 \end{definition} 
 \begin{comm}
     Аналогично определяется частная производная любого порядка.
