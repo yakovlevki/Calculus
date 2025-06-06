@@ -67,12 +67,11 @@
     \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
 \end{theorem}
 \begin{proof}
-    Пусть $g(x)$ монотонно возрастает. $f(x)\in \mathcal{C}[a,b]$, значит\\
-    $f(x)$ - равномерно непрерывна на $[a,b]$, следовательно
+    $f(x)\in \mathcal{C}[a,b]$, значит $f(x)$ - равномерно непрерывна на $[a,b]$:
     \[\forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta: M_i-m_i<\epsilon\]
     а значит
-    \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\cdot (g(b)-g(a)) \Rightarrow \inf\limits_T \underline{\underline{S}}(T)=\sup\limits_T \overline{\overline{S}}(T)=I\]
-    \[|\sigma_f(g,T)-I|<\epsilon\cdot (g(b)-g(a))\]
+    \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\cdot \variation\limits_{a}^{b}g(x) \Rightarrow \inf\limits_T \underline{\underline{S}}(T)=\sup\limits_T \overline{\overline{S}}(T)=I\]
+    \[|\sigma_f(g,T)-I|<\epsilon\cdot \variation\limits_{a}^{b}g(x)\]
     значит существует предел
     \[\lim\limits_{d\to 0}\sigma_f(g,T)=I\]
 \end{proof} 
