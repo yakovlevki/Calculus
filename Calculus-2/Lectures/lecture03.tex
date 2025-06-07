@@ -5,7 +5,7 @@
 \end{definition} 
 \begin{definition}
     Пусть $f(x)$ ограничена на $[a,b],\ \{x_i\}_{i=0}^n=T$ - разбиение $[a,b]$
-    \[m_i=\inf\limits_{[x_i, x_{i+1}]} f(x),\ M_i=\sup\limits_{[x_i, x_{i+1}]}f(x)\] 
+    \[m_i=\inf\limits_{[x_{i-1}, x_{i}]} f(x),\ M_i=\sup\limits_{[x_{i-1}, x_{i}]}f(x)\] 
     \[\overline{\overline{S}}_f(T)=\sum\limits_{i=1}^{n}m_i(x_{i}-x_{i-1}),\ \underline{\underline{S}}_f(T)=\sum\limits_{i=1}^{n}M_i(x_{i}-x_{i-1})\]
     Тогда $\overline{\overline{S}}_f(T)$ называется нижней суммой Дарбу, а $\underline{\underline{S}}_f(T)$ верхней суммой Дарбу.
 \end{definition} 
