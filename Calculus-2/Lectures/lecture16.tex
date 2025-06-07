@@ -74,16 +74,23 @@
     следовательно $\alpha \to \frac{\pi}{2}$.
 \end{proof} 
 \begin{theorem} (Дифференциал сложной функции и инвариантность формы первого дифференциала)\\
-    Пусть $f(\bar{x})$ дифференцируема в $\Omega\in \R^n,\ \bar{x}(\bar{t}): \R^n\to \R^n,\ \bar{x}(\bar{t})$ дифференцируемы в $\Omega_1\in \R^n$ и $\forall \bar{t}\in \Omega_1: \bar{x}(\bar{t})\in \Omega$. Тогда $f(\bar{\bar{t}})$ дифференцируема в $\Omega$.
+    Пусть $f(\bar{x})$ дифференцируема в $\Omega\subset \R^n,\ \bar{x}(\bar{t}): \R^k\to \R^n,\ \bar{x}(\bar{t})$ дифференцируемы в $\Omega_1\subset \R^k$ и $\forall \bar{t}\in \Omega_1: \bar{x}(\bar{t})\in \Omega$. Тогда $f(\bar{x}(\bar{t}))$ дифференцируема в $\Omega_1$.
 \end{theorem} 
 \begin{proof}
     $\forall \bar{x}_0\in \Omega$:
     \[f(\bar{x}_0+\Delta \bar{x})-f(\bar{x}_0)=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i-x_{0i})+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}(x_i-x_{0i})^2}\ \right)}\]
     \begin{multline*}
-        f(\bar{x}(t+\Delta t))-f(\bar{x}(\bar{t}_0))=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i(\bar{t})-x_i(\bar{t}_0))+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}(x_i(\bar{t})-x_i(t_0))^2}\ \right)}=\\
+        f(\bar{x}(\bar{t}_0+\Delta \bar{t}))-f(\bar{x}(\bar{t}_0))=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i(\bar{t})-x_i(\bar{t}_0))+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}(x_i(\bar{t})-x_i(t_0))^2}\ \right)}=\\
         =\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\left(\sum\limits_{j=1}^{k}\frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}\right)+\bar{\bar{o}}{\left(\sqrt{\sum\limits_{i=1}^{n}\left(\sum\limits_{j=1}^{k}\frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}\right)^2}\right)}=\\
         =\sum\limits_{j=1}^{k}\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}+\bar{\bar{o}}{(O(\rho))}=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})\right)+\bar{\bar{o}}{(\rho)}.
     \end{multline*}
+    Значит
+    \[df=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x}}{\partial {t_j}}\right) dt_j\]
+    Заметим, что если подставить дифференциал функции $x_i(\bar{t})$:
+    \[dx_i=\sum\limits_{j=1}^{k}\frac{\partial {f}}{\partial {x_i}}\ dt_j\]
+    В дифференциал функции $f(\bar{x})$, то получим
+    \[df = \sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\ dx_i=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\left(\sum\limits_{j=1}^{k}\frac{\partial {x}}{\partial {t_j}}\ dt_j\right)=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x}}{\partial {t_j}}\right) dt_j\]
+    что совпадает с выражением дифференциала, полученным в доказательстве теоремы. Значит первый дифференциал инвариантен относительно выбора системы координат. 
 \end{proof} 
 \begin{theorem}
     Пусть $f(\bar{x})\in \mathcal{C}^2(\Omega)$. Тогда $\forall i,j:$
