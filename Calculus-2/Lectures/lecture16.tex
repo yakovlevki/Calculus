@@ -53,9 +53,25 @@
     \[y-y_0=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(\bar{x}_0)(x_i-x_{0i})\]
 \end{theorem} 
 \begin{proof}
-    Пусть $X_i=x_{0i}+(x_i-x_{0i})t,\\ Y=f(\bar{x}_0)+(f(\bar{x})-f(\bar{x}_0))t,\ t\in [0,1]$
+    Проведем через $(\bar{x}_0, f(\bar{x}_0))$ и произвольную $(\bar{x}, f(\bar{x}))$ секущую, ее параметрическое уравнение имеет вид:
+    \[\begin{cases}
+        X_i=x_{0i}+(x_i-x_{0i})t,\\
+        Y=f(\bar{x}_0)+(f(\bar{x})-f(\bar{x}_0))t.
+    \end{cases}
+    \]
+    где $i=1,\dots,n$. Тогда можем выписать ее направляющий вектор:
+    \[\begin{pmatrix}
+        x_1-x_{01},\ \dots,\ x_n-x_{0n},\ f(\bar{x})-f(\bar{x}_0)
+    \end{pmatrix}
+    \]
+    теперь выпишем вектор нормали к плоскости:
+    \[\begin{pmatrix}
+        \frac{\partial {f}}{\partial {x_1}},\ \dots,\ \frac{\partial {f}}{\partial {x_n}},\ -1
+    \end{pmatrix}
+    \]
+    значит
     \[\cos{\alpha}=\frac{\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}(x_i-x_{0i})-(f(\bar{x})-f(\bar{x}_0))}{\sqrt{1+\sum\limits_{i=1}^{n}(\frac{\partial {f}}{\partial {x_i}})^2}\cdot \sqrt{(f(\bar{x})-f(\bar{x}_0))^2+\sum\limits_{i=1}^{n}(x_i-x_{i0})^2}}\leq \frac{|\bar{\bar{o}}{(\rho)}|}{c\rho}\to 0\]
-    Значит $\alpha \to \frac{\pi}{2}$.
+    следовательно $\alpha \to \frac{\pi}{2}$.
 \end{proof} 
 \begin{theorem} (Дифференциал сложной функции и инвариантность формы первого дифференциала)\\
     Пусть $f(\bar{x})$ дифференцируема в $\Omega\in \R^n,\ \bar{x}(\bar{t}): \R^n\to \R^n,\ \bar{x}(\bar{t})$ дифференцируемы в $\Omega_1\in \R^n$ и $\forall \bar{t}\in \Omega_1: \bar{x}(\bar{t})\in \Omega$. Тогда $f(\bar{\bar{t}})$ дифференцируема в $\Omega$.
