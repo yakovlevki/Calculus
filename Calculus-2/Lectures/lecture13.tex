@@ -37,7 +37,9 @@
 \end{theorem} 
 \begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow)$:] \[\forall \epsilon>0\ \exists\ K,\ \forall k>K: \sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon \Rightarrow \forall i: |x_{k_i}-x_{0_i}|<\epsilon\]
+        \item[$(\Rightarrow)$:] \[\forall \epsilon>0\ \exists\ K,\ \forall k>K: \sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon\]
+        отсюда $\forall i$:
+        \[|x_{k_i}-x_{0_i}|\leq \sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2} <\epsilon\]
         \item[$(\Leftarrow)$:] \[\forall \epsilon>0\ \exists\ K_i,\ \forall k>K_i: |x_{k_i}-x_{0_i}|<\epsilon\]
         Пусть $K=\max\limits_i K_i$. Тогда
         \[\sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon\]
@@ -84,10 +86,11 @@
 \begin{theorem}
     $A$ - секвенциальный компакт $\Leftrightarrow A$ - компакт, то есть
     \[\forall \{U_{\alpha}\}: A\subset \bigcup_{\alpha}U_{\alpha}\ \ \exists\ \{U_{\alpha_i}\}_{i=1}^N: A\subset \bigcup_{i=1}^N U_{\alpha_i}\]
+    где $U_i$ - открыто.
 \end{theorem} 
 \begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow):$] $A$ - замкнуто и ограничено, значит
+        \item[$(\Rightarrow):$] $A$ - замкнуто и ограничено, значит, из ограниченности
         \[\exists\ \Pi=\prod\limits_{i=1}^{n}[a_i, a_i+d]\supset A\] 
         Предположим, что существует покрытие открытыми $U_i$, такое, что из него нельзя выбрать конечное подпокрытие. Поделим $\Pi$ пополам и получим $2^n$ кубиков. Если какой-то из них не покрывается конечным числом $U_i$, то вновь поделим его на $2^n$ кубиков и так далее. Получим поледовательность вложенных параллелепипедов (кубиков), у которых длина стороны стремится к нулю. Значит существует единственная точка $\xi$, которая лежит в их пересечении. Поскольку $\xi \in A$, то она содержится в каком-то из кубиков, значит он и есть конечное подпокрытие, получаем противоречие. 
         \item[$(\Leftarrow)$:] От противного: пусть $\{\bar{x}_i\}_{i=1}^{\infty}\subset A$ - некоторая последовательность, у которой нет сходящейся подпоследовательности. Тогда 

@@ -34,7 +34,7 @@
     Производная функции $f(\bar{x})$ по направлению $\grad{f}$ имеет максимальное по модулю значение по сравнению со всеми остальными производными по направлению.
 \end{theorem} 
 \begin{proof}
-    Для любого направления $\bar{l}$:
+    Для любого направления $\bar{l}$, по неравентсву Коши-Буняковского:
     \[\left|\frac{\partial {f}}{\partial {\bar{l}}}\right|=\left|\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\cdot \cos{\alpha_i}\right)\right|\leq \sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2}\cdot 1\]
     \[\left|\frac{\partial {f}}{\partial {(\grad{f})}}\right|=\left|\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\frac{\partial {f}}{\partial {x_i}}}{\sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2}}\right|=\sqrt{\sum\limits_{i=1}^{n}\left(\frac{\partial {f}}{\partial {x_i}}\right)^2}\]
     Отсюда
