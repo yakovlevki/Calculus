@@ -8,7 +8,7 @@
 \begin{proof}
 \begin{multline*}
     \int\limits_{a}^{b}f(x)\ d(g(x))=\lim\limits_{d\to 0, c\in T}\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\tab[3cm]\\
-    =\lim\limits_{d\to 0}\sum\limits_{i=1}^{n_1}f(\xi_i)(g(x_i)-g(x_{i-1}))+\lim\limits_{d\to 0}\sum\limits_{i=n+1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\\=\int\limits_{a}^{c}f(x)\ d(g(x)) + \int\limits_{c}^{b}f(x)\ d(g(x))
+    =\lim\limits_{d\to 0}\sum\limits_{i=1}^{n_1}f(\xi_i)(g(x_i)-g(x_{i-1}))+\lim\limits_{d\to 0}\sum\limits_{i=n_1+1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\\=\int\limits_{a}^{c}f(x)\ d(g(x)) + \int\limits_{c}^{b}f(x)\ d(g(x))
 \end{multline*}
 \end{proof} 
 \begin{comm}
@@ -67,12 +67,12 @@
     \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
 \end{theorem}
 \begin{proof}
-    $f(x)\in \mathcal{C}[a,b]$, значит $f(x)$ - равномерно непрерывна на $[a,b]$:
+    $f(x)\in \mathcal{C}[a,b]$, значит, $f(x)$ - равномерно непрерывна на $[a,b]$:
     \[\forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta: M_i-m_i<\epsilon\]
     а значит
     \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\cdot \variation\limits_{a}^{b}g(x) \Rightarrow \inf\limits_T \underline{\underline{S}}(T)=\sup\limits_T \overline{\overline{S}}(T)=I\]
     \[|\sigma_f(g,T)-I|<\epsilon\cdot \variation\limits_{a}^{b}g(x)\]
-    значит существует предел
+    значит, существует предел
     \[\lim\limits_{d\to 0}\sigma_f(g,T)=I\]
 \end{proof} 
 \begin{comm}
@@ -87,9 +87,9 @@
     \[(S)\int\limits_{a}^{b}f(x)\ d(g(x))=(R)\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx\]
 \end{theorem} 
 \begin{proof}
-    Оба интеграла существуют по условиям теоремы, значит достаточно будет доказать для какой-то выбраной разметки. По формуле Лагранжа:
+    Оба интеграла существуют по условиям теоремы, значит, достаточно будет доказать для какой-то выбранной разметки. По формуле Лагранжа:
     \[\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\xi_i)\cdot g'(\zeta)(x_i-x_{i-1})\]
-    Теперь возьмем в качестве разметки игтеграла Римана-Стилтьеса разметку $\zeta_i$, и получаем равенство
+    Теперь возьмем в качестве разметки интеграла Римана-Стилтьеса разметку $\zeta_i$, и получаем равенство
     \[\sum\limits_{i=1}^{n}f(\zeta_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\zeta_i)g'(\zeta_i)(x_i-x_{i-1})\]
 \end{proof} 
 \subsection{Теоремы о среднем}
@@ -99,7 +99,7 @@
     \[\int\limits_{a}^{b}f(x)\ d(g(x))=f(c)(g(b)-g(a))\]
 \end{theorem} 
 \begin{proof}
-    Если $g(b)=g(a)$ то равенство верно.
+    Если $g(b)=g(a)$, то равенство верно.
     Пусть $g(b)>g(a),\\ m=\min\limits_{[a,b]} f(x), M=\max\limits_{[a,b]} f(x)$
     \[m\cdot(g(b)-g(a))\leq\int\limits_{a}^{b}f(x)\ d(g(x))\leq M\cdot(g(b)-g(a))\]
     отсюда

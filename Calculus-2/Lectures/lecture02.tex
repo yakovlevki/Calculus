@@ -21,7 +21,7 @@
 \end{definition} 
 \begin{definition}
     Пусть $T_{[a,b]}$ - разбиение отрезка $[a,b]$. Разметкой для $T_{[a,b]}$ называется множество точек $\{\xi_i\}_{i=1}^n$ такое, что $\forall i: \xi_i \in \Delta_i$.\\
-    Если $\{\xi_i\}_{i=1}^n$ является разметкой для $\{x_i\}_{i=0}^n$, то пара $\left(\{x_i\}_{i=0}^n, \{\xi_i\}_{i=1}^n\right)$ называется размеченым разбиением и обозначается $T(\xi)$.
+    Если $\{\xi_i\}_{i=1}^n$ является разметкой для $\{x_i\}_{i=0}^n$, то пара $\left(\{x_i\}_{i=0}^n, \{\xi_i\}_{i=1}^n\right)$ называется размеченным разбиением и обозначается $T(\xi)$.
 \end{definition} 
 \begin{definition}
     Сумма 
@@ -56,7 +56,7 @@
     \[\exists\ \lim\limits_{d\to 0}\left( \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1}) \right)=I\] 
     Возьмем $\epsilon=1$. Тогда  
     \[\vline\ \sum\limits_{i=0}^{N}f(\xi_i)(x_i-x_{i-1})-I\ \vline<1\]
-    Возмем $\Delta_k$ такой, что $\widetilde{x}\in \Delta_k \Rightarrow f(x)$ - неограничена на $\Delta_k$. Тогда, зафиксировав точки в остальных отрезках разбиения, получим
+    Возьмем $\Delta_k$ такой, что $\widetilde{x}\in \Delta_k \Rightarrow f(x)$ - неограничена на $\Delta_k$. Тогда, зафиксировав точки в остальных отрезках разбиения, получим
     \[I-\sum\limits_{i=1,i\ne k}^{N} f(\xi_i)(x_i-x_{i-1})-1<f(\xi_k)(x_k-x_{k-1})<I-\sum\limits_{i=1,i\ne k}^{N} f(\xi_i)(x_i-x_{i-1})+1\]
     противоречие с тем, что $f(x)$ принимает сколь угодно большие  на $\Delta_k$.
 \end{proof} 

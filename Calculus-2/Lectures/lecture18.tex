@@ -5,7 +5,7 @@
 \begin{proof}
     \begin{multline*}
         f(\bar{x})=\sum\limits_{m=0}^{k-1}\frac{1}{m!} d^m f(\bar{x}_0)+\frac{1}{k!}d^k f(\bar{x}_0+\theta(\bar{x}-\bar{x}_0))=\\
-        =\sum\limits_{m=0}^{k} \frac{1}{m!} d^m(f(\bar{x}_0))+\frac{1}{k!}(d^kf(\bar{x}_0+\theta(\bar{x}-\bar{x}_0))-d^k f(\bar{x}_0))
+        =\sum\limits_{m=0}^{k} \frac{1}{m!} d^mf(\bar{x}_0)+\frac{1}{k!}(d^kf(\bar{x}_0+\theta(\bar{x}-\bar{x}_0))-d^k f(\bar{x}_0))
     \end{multline*}
     \begin{multline*}
         \frac{r_k(\bar{x},\bar{x}_0)}{\rho^k}=\\=\frac{1}{k!}\sum\limits_{i_1,\dots, i_k=1}^{n}\left(\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0+\theta (\bar{x}-\bar{x}_0))-\frac{\partial^k {f}}{\partial {x_{i_1}}\dots \partial x_{i_k}}(\bar{x}_0)\right)\cdot \frac{\Delta x_{i_1}}{\rho}\dots \frac{\Delta x_{i_k}}{\rho}
@@ -31,7 +31,7 @@
     \[d^2f(\bar{x}_0)>0\ (d^2f(\bar{x}_0)<0)\] 
     то в точке $\bar{x}_0$ достигается минимум (максимум). Если в некоторой $B(\bar{x}): d^2f(\bar{x}_0)$ знакопеременен, то не существует экстремума.
 \end{theorem} 
-\begin{proof}
+\begin{proof} По формуле Тейлора с остаточным членом в форме Пеано:
     \[f(\bar{x})-f(\bar{x}_0)=\frac{1}{2}d^2f(\bar{x}_0)+\bar{\bar{o}}{(\rho^2)}\]
     \[\frac{f(\bar{x})-f(\bar{x}_0)}{\rho^2}=\frac{1}{2}\sum\limits_{i,j=1}^{n}\frac{\partial^2 {f}}{\partial {x_i} \partial x_j}(\bar{x}_0)\frac{\Delta x_i}{\rho}\cdot \frac{\Delta x_j}{\rho}+\bar{\bar{o}}{(1)}\]
     % тут было про то что длина вектора который подст в квадр форму =1 значит она всегда на единичной сфере, а сфера - конмакт, значит

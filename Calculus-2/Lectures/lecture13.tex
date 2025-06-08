@@ -42,7 +42,7 @@
         \[|x_{k_i}-x_{0_i}|\leq \sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2} <\epsilon\]
         \item[$(\Leftarrow)$:] \[\forall \epsilon>0\ \exists\ K_i,\ \forall k>K_i: |x_{k_i}-x_{0_i}|<\epsilon\]
         Пусть $K=\max\limits_i K_i$. Тогда
-        \[\sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon\]
+        \[\sqrt{\sum\limits_{i=1}^{n}(x_{k_i}-x_{0_i})^2}<\epsilon\cdot \sqrt{n}\]
     \end{itemize}
 \end{proof} 
 \begin{theorem} (Теорема Больцано-Вейерштрасса)\\
@@ -78,7 +78,7 @@
         \item[$(\Rightarrow)$:] Если $A$ - неограничено, то $\exists\ \{\bar{a}_i\}_{i=1}^{\infty},\ \|\bar{a}_i\|\to \infty \Rightarrow$ получаем противоречие.
         Тогда $A$ - ограничено и по теореме Больцано-Вейерштрасса:
         \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
-        значит $A$ содержит все свои предельные точки, то есть $A$ - замкнуто.
+        значит, $A$ содержит все свои предельные точки, то есть $A$ - замкнуто.
         \item[$(\Leftarrow)$:] Из ограниченности и замкнутости:
         \[\forall \{\bar{a}_i\}_{i=1}^{\infty}\ \exists\ \{\bar{a}_{i_m}\}_{m=1}^{\infty},\ \bar{a}_{i_m} \to \bar{a}\in A\]
     \end{itemize}
