@@ -11,7 +11,12 @@
 \end{definition} 
 \begin{statement}
     Если $\bar{F}: \R^n\to \R^k$ дифференцируемо, то полное приращение имеет главную линейную часть вида
-    \[J\cdot \begin{pmatrix}
+    \[\begin{pmatrix}
+        \frac{\partial {f_1}}{\partial {x_1}} & \dots & \frac{\partial {f_1}}{\partial {x_n}}\\
+        \vdots & \null & \vdots\\
+        \frac{\partial {f_k}}{\partial {x_1}} & \dots & \frac{\partial {f_k}}{\partial {x_n}}
+    \end{pmatrix}
+    \cdot \begin{pmatrix}
         \Delta x_1\\
         \vdots\\
         \Delta x_n
@@ -38,7 +43,7 @@
             \sum\limits_{i=1}^{n}\frac{\partial {f_1}}{\partial {x_i}}\Delta x_i\\
             \vdots\\
             \sum\limits_{i=1}^{n}\frac{\partial {f_k}}{\partial {x_i}}\Delta x_i
-        \end{pmatrix}-\bar{\bar{o}}{(\|\Delta x\|)}=
+        \end{pmatrix}+\bar{\bar{o}}{(\|\Delta x\|)}=
         \begin{pmatrix}
             \frac{\partial {f_1}}{\partial {x_1}} & \dots & \frac{\partial {f_1}}{\partial {x_n}}\\
             \vdots & \null & \vdots\\
@@ -79,9 +84,9 @@
     Докажем по индукции. База: при $m=1$ - это теорема о неявной функции.
     \[
         \det{J}=\begin{vmatrix}
-            \frac{\partial {f_1}}{\partial {y_1}} & \dots & \frac{\partial {f_1}}{\partial {y_n}} & \frac{\partial {f_1}}{\partial {y_{m+1}}}\\
+            \frac{\partial {f_1}}{\partial {y_1}} & \dots & \frac{\partial {f_1}}{\partial {y_m}} & \frac{\partial {f_1}}{\partial {y_{m+1}}}\\
             \vdots & \null & \vdots\\
-            \frac{\partial {f_m}}{\partial {y_1}} & \dots & \frac{\partial {f_m}}{\partial {y_n}} & \frac{\partial {f_m}}{\partial {y_{m+1}}}\\
+            \frac{\partial {f_m}}{\partial {y_1}} & \dots & \frac{\partial {f_m}}{\partial {y_m}} & \frac{\partial {f_m}}{\partial {y_{m+1}}}\\
             \frac{\partial {f_{m+1}}}{\partial {y_1}} & \dots & \frac{\partial {f_{m+1}}}{\partial {y_m}} & \frac{\partial {f_{m+1}}}{\partial {y_{m+1}}}
         \end{vmatrix}
     \]
@@ -122,7 +127,8 @@
         \frac{\partial {f_m}}{\partial {y_1}} & \dots & \frac{\partial {f_m}}{\partial {y_m}}
     \end{vmatrix} \Rightarrow \frac{\partial {g}}{\partial {y_{m+1}}}\ne 0
     \]
-    \[g(\bar{x}), y_{m+1}=0 \Rightarrow y_{m+1}=\phi_{m+1}(\bar{x})\]
+    По теореме о неявной функции:
+    \[g(\bar{x}, y_{m+1})=0 \Rightarrow y_{m+1}=\phi_{m+1}(\bar{x})\]
     отсюда
     \[y_1=\phi(\bar{x})=\psi_1(\bar{x}, \phi_{m+1}(\bar{x}))\]
     Непрерывность и дифференцируемость следует из теоремы о неявной функции.
