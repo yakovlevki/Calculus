@@ -60,15 +60,15 @@
         =M_1\cdot |f(x_i)-f(x_{i-1})|+M_2\cdot |g(x_i)-g(x_{i-1})|
     \end{multline*}
     значит
-    \[\variation\limits_{a}^{b}(f(x)\cdot g(x))=M_1\cdot \variation\limits_{a}^{b}f(x)+M_2\cdot \variation\limits_{a}^{b}g(x)\]
+    \[\variation\limits_{a}^{b}(f(x)\cdot g(x))\leq M_1\cdot \variation\limits_{a}^{b}f(x)+M_2\cdot \variation\limits_{a}^{b}g(x)\]
 \end{proof} 
 \begin{numtheorem}
     Если $g(x)\in \mathcal{V}[a,b],\ g\geq \epsilon>0$, то $\frac{1}{g}(x)\in \mathcal{V}[a,b]$
 \end{numtheorem} 
 \begin{proof}
-    \[\left|\frac{1}{g(x_i)}-\frac{1}{g(x_{i-1})}\right|=\left|\frac{g(x_i)-g(x_{i-1})}{g(x_i)\cdot g(x_{i-1})}\right|\leq \frac{|g(x_i)\cdot g(x_{i-1})|}{\epsilon^2}\]
+    \[\left|\frac{1}{g(x_i)}-\frac{1}{g(x_{i-1})}\right|=\left|\frac{g(x_i)-g(x_{i-1})}{g(x_i)\cdot g(x_{i-1})}\right|\leq \frac{|g(x_i)- g(x_{i-1})|}{\epsilon^2}\]
     значит
-    \[\variation\limits_{a}^{b}(\frac{1}{g(x)})=\frac{1}{\epsilon^2}\cdot \variation\limits_{a}^{b}g(x)\]
+    \[\variation\limits_{a}^{b}(\frac{1}{g(x)})\leq \frac{1}{\epsilon^2}\cdot \variation\limits_{a}^{b}g(x)\]
 \end{proof} 
 \begin{consequense}
     Если $g(x), f(x)\in \mathcal{V}[a,b],\ g\geq \epsilon>0$, то $\frac{f}{g}(x)\in \mathcal{V}[a,b]$
@@ -84,8 +84,8 @@
     \[\variation\limits_{a}^{b}f(x)=|f(b)-f(a)|\]
 \end{proof} 
 \begin{numtheorem} (Аддитивность)\\
-    Если $c\in (a,b),\ f(x)\in \mathcal{V}[a,c]$ и $f(x)\in \mathcal{V}[b,c]$, то $f(x)\in \mathcal{V}[a,b]$ и 
-    \[\variation\limits_{a}^{b}f(x)=\variation\limits_{a}^{c}f(x)+\variation\limits_{b}^{c}f(x)\]
+    Если $c\in (a,b),\ f(x)\in \mathcal{V}[a,c]$ и $f(x)\in \mathcal{V}[c, b]$, то $f(x)\in \mathcal{V}[a,b]$ и 
+    \[\variation\limits_{a}^{b}f(x)=\variation\limits_{a}^{c}f(x)+\variation\limits_{c}^{b}f(x)\]
 \end{numtheorem} 
 \begin{proof}
     Рассмотрим 
@@ -107,7 +107,7 @@
     Рассмотрим функцию $h(x)=v(x)-f(x)$. Пусть $x_1,\ x_2\in [a,b],\ x_2>x_1$:
     \[h(x_2)-h(x_1)=\variation\limits_{x_1}^{x_2}f(x)-(f(x_2)-f(x_1))\geq 0\]
     так как 
-    \[\variation\limits_{x_1}^{x_2}\geq|f(x_2)-f(x_1)|\]
+    \[\variation\limits_{x_1}^{x_2}f(x)\geq|f(x_2)-f(x_1)|\]
     $\Rightarrow h(x)$ - неубывает.
 \end{proof} 
 \subsection{Липшицевы функции}
