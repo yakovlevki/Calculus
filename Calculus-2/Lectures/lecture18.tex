@@ -81,10 +81,10 @@
     \[\phi(t)=F(\bar{x}_0+(\bar{x}-\bar{x}_0)t,\ f(\bar{x}_0)+(f(\bar{x})-f(\bar{x}_0)t)\]
     \[\phi(0)=F(\bar{x}_0, f(\bar{x}_0)))=0,\ \phi(1)=F(\bar{x}, f(\bar{x}))=0\]
     отсюда, по теореме Ролля, существует $\xi\in (0,1)$, такая, что $\phi'(\xi)=0$.
-    \[\phi'(\xi)=\sum\limits_{i=1}^{n}\frac{\partial {F}}{\partial {x_i}}(\xi)(x_i-x_{0i})+\frac{\partial {F}}{\partial {y}}(\xi)(f(\bar{x})-f(\bar{x}_0))=0\]
+    \[\phi'(\xi)=\sum\limits_{i=1}^{n}\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0+\xi(\bar{x}-\bar{x}_0))(x_i-x_{0i})+\frac{\partial {F}}{\partial {y}}(\bar{x}_0+\xi(\bar{x}-\bar{x}_0))(f(\bar{x})-f(\bar{x}_0))=0\]
     \begin{multline*}
-        (f(\bar{x})-f(\bar{x}_0))=-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\xi)}{\frac{\partial {F}}{\partial {y}}(\xi)}(x_i-x_{0i})=\\
-        =-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}(x_i-x_{0i})+\sum\limits_{i=1}^{n}\left(\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}-\frac{\frac{\partial {F}}{\partial {x_i}}(\xi)}{\frac{\partial {F}}{\partial {y}}(\xi)}\right)(x_i-x_{0i})=\\
+        (f(\bar{x})-f(\bar{x}_0))=-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0+\xi(\bar{x}-\bar{x}_0))}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0+\xi(\bar{x}-\bar{x}_0))}(x_i-x_{0i})=\\
+        =-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}(x_i-x_{0i})+\sum\limits_{i=1}^{n}\left(\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}-\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0+\xi(\bar{x}-\bar{x}_0))}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0+\xi(\bar{x}-\bar{x}_0))}\right)(x_i-x_{0i})=\\
         =-\sum\limits_{i=1}^{n}\frac{\frac{\partial {F}}{\partial {x_i}}(\bar{x}_0)}{\frac{\partial {F}}{\partial {y}}(\bar{x}_0)}(x_i-x_{0i})+\bar{\bar{o}}{(\rho)}
     \end{multline*} 
 \end{proof} 

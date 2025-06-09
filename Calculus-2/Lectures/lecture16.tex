@@ -85,11 +85,11 @@
         =\sum\limits_{j=1}^{k}\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})+\bar{\bar{o}}{(\rho)}+\bar{\bar{o}}{(O(\rho))}=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}(t_j-t_{0j})\right)+\bar{\bar{o}}{(\rho)}.
     \end{multline*}
     Значит
-    \[df=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x}}{\partial {t_j}}\right) dt_j\]
+    \[df=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}\right) dt_j\]
     Заметим, что если подставить дифференциал функции $x_i(\bar{t})$:
     \[dx_i=\sum\limits_{j=1}^{k}\frac{\partial {f}}{\partial {x_i}}\ dt_j\]
     В дифференциал функции $f(\bar{x})$, то получим
-    \[df = \sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\ dx_i=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\left(\sum\limits_{j=1}^{k}\frac{\partial {x}}{\partial {t_j}}\ dt_j\right)=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x}}{\partial {t_j}}\right) dt_j\]
+    \[df = \sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\ dx_i=\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\left(\sum\limits_{j=1}^{k}\frac{\partial {x_i}}{\partial {t_j}}\ dt_j\right)=\sum\limits_{j=1}^{k}\left(\sum\limits_{i=1}^{n}\frac{\partial {f}}{\partial {x_i}}\cdot \frac{\partial {x_i}}{\partial {t_j}}\right) dt_j\]
     что совпадает с выражением дифференциала, полученным в доказательстве теоремы. Значит первый дифференциал инвариантен относительно выбора системы координат. 
 \end{proof} 
 \begin{theorem}
