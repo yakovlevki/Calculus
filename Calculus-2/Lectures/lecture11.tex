@@ -71,9 +71,9 @@
     \[\forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta: M_i-m_i<\epsilon\]
     а значит
     \[\underline{\underline{S}}(T)-\overline{\overline{S}}(T)<\epsilon\cdot \variation\limits_{a}^{b}g(x) \Rightarrow \inf\limits_T \underline{\underline{S}}(T)=\sup\limits_T \overline{\overline{S}}(T)=I\]
-    \[|\sigma_f(g,T)-I|<\epsilon\cdot \variation\limits_{a}^{b}g(x)\]
+    \[|\sigma_g(f,T)-I|<\epsilon\cdot \variation\limits_{a}^{b}g(x)\]
     значит, существует предел
-    \[\lim\limits_{d\to 0}\sigma_f(g,T)=I\]
+    \[\lim\limits_{d\to 0}\sigma_g(f,T)=I\]
 \end{proof} 
 \begin{comm}
     В условиях теоремы существует интеграл
@@ -88,7 +88,7 @@
 \end{theorem} 
 \begin{proof}
     Оба интеграла существуют по условиям теоремы, значит, достаточно будет доказать для какой-то выбранной разметки. По формуле Лагранжа:
-    \[\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\xi_i)\cdot g'(\zeta)(x_i-x_{i-1})\]
+    \[\sum\limits_{i=1}^{n}f(\xi_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\xi_i)\cdot g'(\zeta_i)(x_i-x_{i-1})\]
     Теперь возьмем в качестве разметки интеграла Римана-Стилтьеса разметку $\zeta_i$, и получаем равенство
     \[\sum\limits_{i=1}^{n}f(\zeta_i)(g(x_i)-g(x_{i-1}))=\sum\limits_{i=1}^{n}f(\zeta_i)g'(\zeta_i)(x_i-x_{i-1})\]
 \end{proof} 
