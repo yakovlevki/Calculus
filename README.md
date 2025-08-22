@@ -4,4 +4,4 @@
 Автор: [Кирилл Яковлев](https://t.me/fourkenz), 208 группа
 ## ВАЖНО!
 Конспект выполнен в первую очередь в личных целях, поэтому в нём возможны ошибки, опечатки, неточности и местами он может отклоняться от слов лектора.  
-О ошибках можно сообщить в личные сообщения в [телеграме](https://t.me/fourkenz) или (экспериментально) заполнив [гугл-форму](https://docs.google.com/forms/d/e/1FAIpQLSdAt7OgisJ7FRR-bL3PkTsg7kkh4mRLFdfH--WOGodGMs52IQ/viewform?usp=header).
+О ошибках можно сообщить в личные сообщения в [телеграме](https://t.me/fourkenz) или (*экспериментально*) заполнив [гугл-форму](https://docs.google.com/forms/d/e/1FAIpQLSdAt7OgisJ7FRR-bL3PkTsg7kkh4mRLFdfH--WOGodGMs52IQ/viewform?usp=header).
