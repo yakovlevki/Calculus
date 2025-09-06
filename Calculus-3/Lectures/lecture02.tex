@@ -1,0 +1,162 @@
+\begin{theorem} (Признак Коши)\\
+    Пусть дан ряд 
+    \[\sum_{n=1}^{\infty}a_n \eqno{(1)}\]
+    такой, что $\forall n: a_n\geq 0$.
+    \begin{enumerate}
+        \item Если $\forall n: \sqrt[n]{a_n}\leq q<1$, то ряд (1) сходится.
+        \item Если $\exists\ \{n_k\}_{k=1}^{\infty}$, что $\sqrt[n]{a_{n_k}}\geq 1$, то ряд (1) расходится.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} \tab
+    \begin{enumerate}
+        \item $\sqrt[n]{a_n}\leq q<1 \Rightarrow a_n\leq q^n \Rightarrow$ ряд (1) сходится по признаку сравнения.
+        \item $\sqrt[n]{a_{n_k}} \Rightarrow a_n\not\to 0 \Rightarrow$ ряд (1) расходится.
+    \end{enumerate}
+\end{proof}
+\begin{consequense} (Признак Коши в предельной форме)
+    \begin{enumerate}
+        \item Если $\uplim\limits_{n\to \infty}\sqrt[n]{a_n}=q<1$- сходится
+        \item Если $\uplim\limits_{n\to \infty}\sqrt[n]{a_n}>1$ - расходится
+    \end{enumerate}
+\end{consequense}
+\begin{proof}
+    Очев.
+\end{proof}
+\begin{example} Пример, что при $q=1$ ряд может как сходиться, так и расходиться:
+    \begin{enumerate}
+        \item 
+        \[\sqrt[n]{\frac{1}{n}} \to 1\]
+        расходится
+        \item 
+        \[\sqrt[n]{\frac{1}{n^2}} \to 1\]
+        сходится
+    \end{enumerate}
+\end{example}
+\begin{theorem} (Интегральный признак) \\
+    Пусть $f(x)$ определена на $[1,+\infty)$, монотонно убывает и неотрицательна (монотонно возрастает и неположительна). Тогда ряд и интеграл
+    \[\sum_{n=1}^{\infty}f(n),\ \int\limits_{1}^{\infty}f(x)\ dx\]
+    сходятся или расходятся одновременно.
+\end{theorem}
+\begin{proof}
+    $\forall k\in \N: f(k)\geq f(x)\geq f(k+1)$ на $[k, k+1]$. Проинтегрируем неравентсво на этом отрезке:
+    \[f(k)\geq \int\limits_{k}^{k+1}f(x)\ dx\geq f(k+1)\]
+    теперь просуммируем
+    \[\sum_{k=1}^{N}f(k)\geq \int\limits_{1}^{N+1}f(x)\ dx\geq \sum_{k=2}^{N+1}f(k)\]
+\end{proof}
+\newpage
+\begin{example}(Степенно-логарифмический ряд)\\
+    \begin{enumerate}
+        \item 
+    \[\int\limits_{1}^{\infty}\frac{dx}{x^{\alpha}}\ \text{при}\ \begin{cases}
+        \alpha>1 - \text{сходится}\\
+        \alpha\leq 1 - \text{расходится}
+    \end{cases}\]
+    значит
+    \[\sum_{n=1}^{\infty}\frac{1}{n^{\alpha}}\ \text{при}\ \begin{cases}
+        \alpha>1 - \text{сходится}\\
+        \alpha\leq 1 - \text{расходится}
+    \end{cases}\]
+    \item
+    \[\int\limits_{2}^{\infty}\frac{dx}{x\cdot \ln^{\beta}{x}}\ \text{при}\ \begin{cases}
+        \beta>1 - \text{сходится}\\
+        \beta\leq 1 - \text{расходится}
+    \end{cases}\]
+    значит
+    \[\sum_{n=2}^{\infty}\frac{1}{n\cdot \ln^{\beta}{n}}\ \text{при}\ \begin{cases}
+        \beta>1 - \text{сходится}\\
+        \beta\leq 1 - \text{расходится}
+    \end{cases}\]
+    \item
+    \[\int\limits_{10}^{\infty}\frac{dx}{x\cdot \ln{x}\cdot \ln^{\gamma}{x}}\ \text{при}\ \begin{cases}
+        \gamma>1 - \text{сходится}\\
+        \gamma\leq 1 - \text{расходится}
+    \end{cases}\]
+    значит
+    \[\sum_{n=1}^{\infty}\frac{1}{x\cdot \ln{x}\cdot \ln^{\gamma}{x}}\ \text{при}\ \begin{cases}
+        \gamma>1 - \text{сходится}\\
+        \gamma\leq 1 - \text{расходится}
+    \end{cases}\]
+    \end{enumerate}
+\end{example}
+\begin{theorem} (Схема Куммера)\\
+    \begin{enumerate}
+        \item Если $\forall n\geq N$ существует последовательность $\{c_n\}_{n=1}^{\infty},\ c_n>0$ и существует $\alpha>0$ такая, что
+        \[c_n\cdot \frac{a_n}{a_{n+1}}-c_{n+1}\geq \alpha\]
+        то ряд
+        \[\sum_{n=1}^{\infty}a_n\]
+        сходится.
+        \item Если ряд
+    \[\sum_{n=1}^{\infty}\frac{1}{c_n}\]
+    расходится и 
+    \[c_n\cdot \frac{a_n}{a_{n+1}}-c_{n+1}\leq 0\]
+    то ряд
+    \[\sum_{n=1}^{\infty}a_n\]
+    расходится.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item \[c_N\cdot a_N-c_N\cdot a_{N+1}\geq \alpha\cdot a_{N+1}\]
+        \[\vdots\]
+        \[c_{N+k-1}\cdot a_{N+k-1}-c_{N+k}\cdot a_{N+k}\geq \alpha\cdot a_{N+k}\]
+        теперь сложим все неравенства
+        \[c_N\cdot a_N-c_{N+k}\cdot a_{N+k}\geq \alpha\cdot \sum_{m=1}^{k}a_{N+m}\]
+        \[c_N\cdot a_N\geq \alpha\cdot \sum_{m=1}^{k}a_{N+m}\]
+        значит ряд
+        \[\sum_{m=1}^{\infty}a_{N+m}\]
+        сходится
+        \item 
+        \[c_N\cdot a_N-c_{N+1}\cdot a_{N+1}\leq 0\]
+        \[\frac{c_N}{c_{N+1}}\leq \frac{a_{N+1}}{a_N}\]
+        \[\frac{\frac{1}{c_{N+1}}}{\frac{1}{c_N}}\leq \frac{a_{N+1}}{a_N}\]
+        \[\vdots\]
+        \[\frac{\frac{1}{c_{N+k}}}{\frac{1}{c_{N+k-1}}}\leq \frac{a_{N+k}}{a_{N+k-1}}\]
+        \[\frac{\frac{1}{c_{N+1}}}{\frac{1}{c_N}}\leq \frac{a_{N+k}}{a_N}\]
+        по признаку сравнения
+        \[\frac{1}{c_{N+k}}\leq \frac{1}{a_N\cdot c_N}\cdot a_{N+k}\]
+        отсюда
+        \[\sum_{k=1}^{\infty}a_{N+k}\]
+    \end{enumerate}
+\end{proof}
+\begin{example}\tab
+        Рассмотрим ряд
+        \[\sum_{n=1}^{\infty}a_n \eqno(1)\]
+        \begin{enumerate}
+        \item (Признак Д'Аламбера)\\
+        Возьмем $c_n=1$:
+        \[1\cdot \frac{a_n}{a_{n+1}}-1\geq \alpha\]
+        значит если
+        \[\frac{a_n}{a_{n+1}}\geq 1+\alpha\]
+        то ряд (1) сходится. Если
+        \[1\cdot \frac{a_n}{a_{n+1}}-1\leq 0\]
+        значит если
+        \[\frac{a_n}{a_{n+1}}\leq 1\]
+        то ряд (1) расходится.\\
+        Запишем в предельной форме:\\
+        Если 
+        \[\exists\ \lim\limits_{n\to\infty}\frac{a_n}{a_{n+1}}=q>1\]
+        то ряд (1) сходится. Если
+        \[\exists\ \lim\limits_{n\to\infty}\frac{a_n}{a_{n+1}}=q<1\]
+        то ряд (2) расходится.
+        \item (Признак Раабе)\\
+        Возьмем $c_n=n$:
+        \[n\cdot \frac{a_n}{a_{n+1}}-(n+1)\geq \alpha\]
+        Значит если
+        \[n\cdot (\frac{a_n}{a_{n+1}}-1)\geq 1+\alpha\]
+        то ряд (1) сходится. Теперь
+        \[n\cdot \frac{a_n}{a_{n+1}}-n-1\leq 0\]
+        Значит если
+        \[n\cdot (\frac{a_n}{a_{n+1}}-1)\leq 1\]
+        то ряд (1) расходится.
+        Запишем в предельной форме:\\
+        Если
+        \[\exists\ \lim\limits_{n\to\infty}n\cdot(\frac{a_n}{a_{n+1}}-1)=q>1\]
+        то ряд (1) сходится. Если
+        \[\exists\ \lim\limits_{n\to\infty}n\cdot(\frac{a_n}{a_{n+1}}-1)=q<1\]
+        то ряд (1) расходится.
+        \item (Признак Бертрана, без доказательства, знать формулировку)\\
+        Возьмем $c_n=n\cdot \ln(n)$
+        \item (Признак Гаусса, без доказательства, знать формулировку)\\
+        Выводится из признака Бертрана.
+    \end{enumerate}
+\end{example}
