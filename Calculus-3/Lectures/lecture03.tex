@@ -1,0 +1,114 @@
+\subsection{Знакопеременные ряды}
+\begin{definition}
+    Если для ряда
+    \[\sum_{n=1}^{\infty}a_n \eqno{(1)}\]
+    ряд
+    \[\sum_{n=1}^{\infty}|a_n|\]
+    сходится, то ряд (1) называется абсолютно сходящимся.
+\end{definition}
+\begin{statement}
+    Если ряд
+    \[\sum_{n=1}^{\infty}a_n\]
+    абсолютно сходится, то он сходится.
+\end{statement}
+\begin{proof}
+    По критерию Коши:
+    \[\left|\ \sum_{n=k}^{\infty}a_n\ \right|\leq \sum_{n=k}^{\infty}|a_n|<\epsilon\]
+\end{proof}
+\begin{definition}
+    Биекция $\sigma: \N\to \N$ называется перестановкой $\N$.
+\end{definition}
+\begin{theorem}
+    Если ряд
+    \[\sum_{n=1}^{\infty}a_n \eqno{(1)}\]
+    абсолютно сходится, то для любой перестановки $\sigma$ натурального ряда, ряд
+    \[\sum_{n=1}^{\infty}a_{\sigma(n)} \eqno{(2)}\]
+    абсолютно сходится и их суммы равны.
+\end{theorem}
+\begin{proof}
+    Пусть $a_n\geq 0$. Рассмотрим
+    \[S_K^{\sigma}=\sum_{n=1}^{K}a_{\sigma(n)}\]
+    Пусть $N=\max\limits_{1\leq n\leq K}{\sigma(n)}$. Тогда
+    \[S_K^{\sigma}\leq S_N \Rightarrow S_K^{\sigma}\leq S \Rightarrow \exists\ S^{\sigma}=\lim\limits_{K\to \infty}S_K^{\sigma}\ \text{и}\ S^{\sigma}=S\]
+    Используя что (2) абсолютно сходится, аналогично, поменяв ряды местами, получим:
+    \[S\leq S^{\sigma} \Rightarrow S=S^{\sigma}\]
+    тогда
+    \[\sum_{n=1}^{\infty}|a_n|=\sum_{n=1}^{\infty}|a_{\sigma(n)}|\]
+    далее рассмотрим
+    \[\sum_{n=1}^{\infty}(a_n+|a_n|)=\sum_{n=1}^{\infty}(a_{\sigma(n)}+|a_{\sigma(n)}|)\]
+    отсюда
+    \[\sum_{n=1}^{\infty}a_n=\sum_{n=1}^{\infty}a_{\sigma(n)}\]
+\end{proof}
+\begin{definition}
+    Рассмотрим ряды
+    \[\sum_{n=1}^{\infty}a_n,\ \sum_{n=1}^{\infty}b_n\]
+    а также всевозможные попарные произведения
+    \[\{a_n\cdot b_k\}_{n=1,k=1}^{\infty,\ \ \infty}\]
+    \[\begin{matrix}
+        a_1b_1 & a_1b_2 & a_1b_3 & \dots\\
+        a_2b_1 & a_2b_2 & a_2b_3 & \dots\\
+        a_3b_1 & a_3b_2 & a_3b_3 & \dots
+    \end{matrix} \eqno(*)\]
+    Ряд 
+    \[\sum_{m=1}^{\infty}(a_nb_k)_m\]
+    называется произведением рядов по прямоугольной схеме ($*$).
+\end{definition}
+\begin{definition}
+    Пусть два ряда
+    \[\sum_{n=1}^{\infty}a_n=A,\ \sum_{n=1}^{\infty}b_n=B\]
+    сходятся абсолютно. Тогда
+    \[\sum_{m=1}^{\infty}(a_n b_k)_m\]
+    сходится абсолютно и равен $AB$.
+\end{definition}
+\begin{proof}
+    Рассмотрим частичную сумму ряда
+    \[\sum_{m=1}^{\infty}(a_n b_k)_m:\ S_{N^2}=S_N^a\cdot S_N^b\ \text{и}\ S_{N^2} \to AB,\ N\to \infty\]
+    \[S_{N^2+M,\ (1\leq M\leq 2N)}=S_{N^2}+\sum_{m=1}^{N^2+M}(a_n\cdot b_k)_m=S_{N,M}\]
+    \[|S_{N,M}|\leq |b_{N+1}|\cdot(|a_1|+\dots+|a_{N+1}|)+|a_{N+1}|\cdot (|b_1|+\dots+|b_N|)<\epsilon\]
+    % пояснить почему ряд сходится абсолютно
+\end{proof}
+\begin{definition}
+    Если ряд
+    \[\sum_{n=1}^{\infty}a_n \eqno{(*)}\]
+    сходится, а ряд
+    \[\sum_{n=1}^{\infty}|a_n|\]
+    расходится, то ряд ($*$) называется условно сходящимся.
+\end{definition}
+\begin{statement}
+    Пусть ряд
+    \[\sum_{n=1}^{\infty}a_n\]
+    условно сходится. Обозначим
+    \[a_n^+\begin{cases}
+        a_n,\ a_n>0,\\
+        0,\ a_n\leq 0.
+    \end{cases},\ a_n^-=\begin{cases}
+        0,\ a_n\geq 0,\\
+        a_n,\ a_n<0.
+    \end{cases}\]
+    Тогда ряды
+    \[\sum_{n=1}^{\infty}a_n^+ \eqno(1)\]
+    \[\sum_{n=1}^{\infty}a_n^- \eqno(2)\]
+    расходтся к $+\infty$ и $-\infty$ соответсвенно.
+\end{statement}
+\begin{proof}
+    Если оба ряда сходятся, то
+    \[\sum_{n=1}^{\infty}|a_n|=\sum_{n=1}^{\infty}a_n^+-\sum_{n=1}^{\infty}a_n^-\]
+    сходится, противоречие.
+    Если ряд (1) сходится, а (2) расходится, то
+    \[\sum_{n=1}^{\infty}a_n^-=\sum_{n=1}^{\infty}a_n-\sum_{n=1}^{\infty}a_n^+\]
+    сходится. Аналогично случай, когда $(2)$ сходится, а $(1)$ расходится.
+\end{proof}
+\begin{theorem} (Теорема Римана)\\
+    Если ряд
+    \[\sum_{n=1}^{\infty}a_n\]
+    сходится условно, то $\forall \sigma_a$ такая, что
+    \[\sum_{n=1}^{\infty}a_{\sigma_a(n)}=a\]
+    $\exists\ \sigma_{\pm \infty}$ такая, что
+    \[\sum_{n=1}^{\infty}a_{\sigma_{\pm \infty}}=\pm \infty\]
+    $\exists\ \sigma$ такая, что
+    \[\sum_{n=1}^{\infty}a_{\sigma(n)}\]
+    расходится, но частичные суммы ограничены.
+\end{theorem}
+\begin{proof}
+    доказали картинками)))))
+\end{proof}
