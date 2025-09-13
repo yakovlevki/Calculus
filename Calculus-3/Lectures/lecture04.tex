@@ -1,4 +1,4 @@
-\begin{theorem}
+\begin{theorem} (Признаки Абеля и Дирихле)\\
     Рассмотрим $\{a_n\}_{n=1}^{\infty},\ \{b_n\}_{n=1}^{\infty}$.
     \begin{itemize}
         \item[($\mathcal{A}$):] Если 
@@ -6,8 +6,8 @@
         сходится, а $b_n$ монотонна и ограничена, то
         \[\sum_{n=1}^{\infty}a_n\cdot b_n\]
         сходится.
-        \item[($\mathcal{D}$):] Если
-        \[\left|\sum_{n=1}^{\infty}a_n\right|<M\]
+        \item[($\mathcal{D}$):] Если существует $M$ такая, что $\forall N\in \N$:
+        \[\left|\ \sum_{n=1}^{N}a_n\ \right|<M\]
         и $b_n$ монотонно сходится к 0, то
         \[\sum_{n=1}^{\infty}a_n\cdot b_n\]
         сходится. 
@@ -15,27 +15,29 @@
 \end{theorem}
 \begin{proof}
     Оценим 
-    \[\left|\sum_{n=k}^{m}a_n\cdot b_n\right|\]
+    \[\left|\ \sum_{n=k}^{m}a_n\cdot b_n\ \right|\]
     Введем
-    \[A_l=\sum_{n=k}^{l}a_n,\ A_{k-1}=0\]
-    \begin{multline}
-        \sum_{n=k}^{m}a_n\cdot b_n=\sum_{n=k}^{m}(A_n-A_{n-1})\cdot b_n=\sum_{n=k}^{m}A_n\cdot b_n=\sum_{n=k+1}^{m}A_{n-1}\cdot b_n=\\
+    \[A_p=\sum_{n=k}^{p}a_n,\ A_{0}=0\ \Rightarrow\ a_n=A_n-A_{n-1}\]
+    отсюда
+    \begin{multline*}
+        \sum_{n=k}^{m}a_n\cdot b_n=\sum_{n=k}^{m}(A_n-A_{n-1})\cdot b_n=\sum_{n=k}^{m}A_n\cdot b_n-\sum_{n=k+1}^{m}A_{n-1}\cdot b_n=\\
         =\sum_{n=k}^{m}A_n\cdot b_n-\sum_{n=k}^{m-1}A_n\cdot b_{n+1}=\sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m
-    \end{multline}
+    \end{multline*}
     \begin{itemize}
         \item[($\mathcal{A}$):] 
-        \[|(1)|\leq \epsilon\cdot (|b_k-b_m|+|b_m|)<\epsilon\cdot 3B\] % по критерию коши
+        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m\ \right|\leq \epsilon\cdot (|b_k-b_m|+|b_m|)<\epsilon\cdot 3B\] % по критерию коши
         \item[($\mathcal{D}$):]
-        \[|(1)|\leq 2M(|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
+        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m\ \right|\leq 2M\cdot (|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
     \end{itemize}
 \end{proof}
 \begin{consequense} (Признак Лейбница)\\
     Если $a_n$ монотонно убывает и $a_n\to 0$, то 
-    \[\sum_{n=1}^{\infty}(-1)^n a_n\]
+    \[\sum_{n=1}^{\infty}(-1)^n\cdot a_n \eqno{(*)}\]
     сходится
 \end{consequense}
 \begin{proof}
-    Очев по признаку Дирихле.
+    \[\left|\ \sum_{n=1}^{\infty}(-1)^n \ \right|\leq 1,\ \forall N\in \N\]
+    Значит, по признаку Дирихле, ряд $(*)$ сходится. 
 \end{proof}
 \subsection{Функциональные последовательности и ряды}
 \begin{definition}
@@ -57,7 +59,7 @@
 \begin{definition}
     Пусть $\forall n: f_n(x)$ определены на $A\subset \R$. Если 
     \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
-    то говорять, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$ и пишут $f_n(x)\rightrightarrows f(x)$.
+    то говорят, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$ и пишут $f_n(x)\rightrightarrows f(x)$.
 \end{definition}
 \begin{examples}\tab
     \begin{enumerate}

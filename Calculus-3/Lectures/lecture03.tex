@@ -16,7 +16,7 @@
     \[\left|\ \sum_{n=k}^{\infty}a_n\ \right|\leq \sum_{n=k}^{\infty}|a_n|<\epsilon\]
 \end{proof}
 \begin{definition}
-    Биекция $\sigma: \N\to \N$ называется перестановкой $\N$.
+    Биекция $\sigma: \N\to \N$ называется перестановкой натурального ряда.
 \end{definition}
 \begin{theorem}
     Если ряд
@@ -27,14 +27,19 @@
 \end{theorem}
 \begin{proof}
     Пусть $a_n\geq 0$. Рассмотрим
-    \[S_K^{\sigma}=\sum_{n=1}^{K}a_{\sigma(n)}\]
-    Пусть $N=\max\limits_{1\leq n\leq K}{\sigma(n)}$. Тогда
-    \[S_K^{\sigma}\leq S_N \Rightarrow S_K^{\sigma}\leq S \Rightarrow \exists\ S^{\sigma}=\lim\limits_{K\to \infty}S_K^{\sigma}\ \text{и}\ S^{\sigma}=S\]
-    Используя что (2) абсолютно сходится, аналогично, поменяв ряды местами, получим:
+    \[S_k^{\sigma}=\sum_{n=1}^{k}a_{\sigma(n)}\]
+    Пусть $N=\max\limits_{1\leq n\leq k}{\sigma(n)},\ S_n\to S$. Тогда
+    \[S_k^{\sigma}\leq S_N \Rightarrow S_k^{\sigma}\leq S \Rightarrow \exists\ S^{\sigma}=\lim\limits_{k\to \infty}S_k^{\sigma}\]
+    Используя, что (2) абсолютно сходится, аналогично, поменяв ряды местами, получим:
     \[S\leq S^{\sigma} \Rightarrow S=S^{\sigma}\]
     тогда
     \[\sum_{n=1}^{\infty}|a_n|=\sum_{n=1}^{\infty}|a_{\sigma(n)}|\]
-    далее рассмотрим
+    заметим, что
+    \[a+|a|=\begin{cases}
+        2a,\ a\geq 0,\\
+        0,\ a<0.
+    \end{cases}\]
+    значит
     \[\sum_{n=1}^{\infty}(a_n+|a_n|)=\sum_{n=1}^{\infty}(a_{\sigma(n)}+|a_{\sigma(n)}|)\]
     отсюда
     \[\sum_{n=1}^{\infty}a_n=\sum_{n=1}^{\infty}a_{\sigma(n)}\]
@@ -44,28 +49,35 @@
     \[\sum_{n=1}^{\infty}a_n,\ \sum_{n=1}^{\infty}b_n\]
     а также всевозможные попарные произведения
     \[\{a_n\cdot b_k\}_{n=1,k=1}^{\infty,\ \ \infty}\]
+    Будем записывать ряд по схеме:
     \[\begin{matrix}
         a_1b_1 & a_1b_2 & a_1b_3 & \dots\\
         a_2b_1 & a_2b_2 & a_2b_3 & \dots\\
-        a_3b_1 & a_3b_2 & a_3b_3 & \dots
+        a_3b_1 & a_3b_2 & a_3b_3 & \dots\\
+        \vdots & \vdots & \vdots
     \end{matrix} \eqno(*)\]
-    Ряд 
+    то есть, запишем в порядке: $a_1b_1,\ a_1b_2,\ a_2b_2,\ a_2b_1,\ a_1b_3,\ a_2b_3,\ a_3b_3,\ a_3b_2,\ a_3b_1,\ \dots$\\
+    Тогда ряд 
     \[\sum_{m=1}^{\infty}(a_nb_k)_m\]
     называется произведением рядов по прямоугольной схеме ($*$).
 \end{definition}
-\begin{definition}
+\begin{statement}
     Пусть два ряда
     \[\sum_{n=1}^{\infty}a_n=A,\ \sum_{n=1}^{\infty}b_n=B\]
     сходятся абсолютно. Тогда
-    \[\sum_{m=1}^{\infty}(a_n b_k)_m\]
+    \[\sum_{m=1}^{\infty}(a_n b_k)_m \eqno{(*)}\]
     сходится абсолютно и равен $AB$.
-\end{definition}
+\end{statement}
 \begin{proof}
-    Рассмотрим частичную сумму ряда
-    \[\sum_{m=1}^{\infty}(a_n b_k)_m:\ S_{N^2}=S_N^a\cdot S_N^b\ \text{и}\ S_{N^2} \to AB,\ N\to \infty\]
-    \[S_{N^2+M,\ (1\leq M\leq 2N)}=S_{N^2}+\sum_{m=1}^{N^2+M}(a_n\cdot b_k)_m=S_{N,M}\]
-    \[|S_{N,M}|\leq |b_{N+1}|\cdot(|a_1|+\dots+|a_{N+1}|)+|a_{N+1}|\cdot (|b_1|+\dots+|b_N|)<\epsilon\]
-    % пояснить почему ряд сходится абсолютно
+    Рассмотрим подпоследовательность частичных сумм ряда ($*$), которые имеют вид $S_{N^2}$:
+    \[S_{N^2}=S_N^a\cdot S_N^b \Rightarrow S_{N^2} \to AB,\ N\to \infty\]
+    Теперь перейдем к общему виду $S_{N^2+M},\ (1\leq M\leq 2N)$ и покажем, что вклад членов, добавляемых к квадратной частичной сумме, бесконечно мал
+    \[S_{N^2+M}=S_{N^2}+\sum_{m=N^2+1}^{N^2+M}(a_n\cdot b_k)_m\]
+    обозначим
+    \[S_{N,M}=S_{N^2+M}-S_{N^2}=\sum_{m=N^2+1}^{N^2+M}(a_n\cdot b_k)_m\]
+    \[|S_{N,M}|\leq |b_{N+1}|\cdot(|a_1|+\dots+|a_{N+1}|)+|a_{N+1}|\cdot (|b_1|+\dots+|b_N|)\to 0\]
+    поскольку частичные суммы каждого ряда ограничены и члены, по необходимому признаку, стремятся к нулю. Значит $S_{N^2+M}\to AB$.
+    % пояснить почему ряд сходится абсолютно!!!!!!!
 \end{proof}
 \begin{definition}
     Если ряд
@@ -88,7 +100,7 @@
     Тогда ряды
     \[\sum_{n=1}^{\infty}a_n^+ \eqno(1)\]
     \[\sum_{n=1}^{\infty}a_n^- \eqno(2)\]
-    расходтся к $+\infty$ и $-\infty$ соответсвенно.
+    расходятся к $+\infty$ и $-\infty$ соответственно.
 \end{statement}
 \begin{proof}
     Если оба ряда сходятся, то
@@ -96,7 +108,7 @@
     сходится, противоречие.
     Если ряд (1) сходится, а (2) расходится, то
     \[\sum_{n=1}^{\infty}a_n^-=\sum_{n=1}^{\infty}a_n-\sum_{n=1}^{\infty}a_n^+\]
-    сходится. Аналогично случай, когда $(2)$ сходится, а $(1)$ расходится.
+    сходится, противоречие. Аналогичное противоречие в случае, когда $(2)$ сходится, а $(1)$ расходится. Значит оба ряда расходятся.
 \end{proof}
 \begin{theorem} (Теорема Римана)\\
     Если ряд
@@ -110,5 +122,6 @@
     расходится, но частичные суммы ограничены.
 \end{theorem}
 \begin{proof}
-    доказали картинками)))))
+    доказали картинками)))))\\
+    \textit{доказательство появится немного позже}
 \end{proof}

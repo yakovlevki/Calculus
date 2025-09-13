@@ -15,21 +15,32 @@
 \end{proof}
 \begin{consequense} (Признак Коши в предельной форме)
     \begin{enumerate}
-        \item Если $\uplim\limits_{n\to \infty}\sqrt[n]{a_n}=q<1$, то ряд ($*$) сходится
-        \item Если $\uplim\limits_{n\to \infty}\sqrt[n]{a_n}>1$, то ряд ($*$) расходится
+        \item Если 
+        \[\uplim\limits_{n\to \infty}\sqrt[n]{a_n}=q<1\] 
+        то ряд ($*$) сходится
+        \item Если 
+        \[\uplim\limits_{n\to \infty}\sqrt[n]{a_n}=q>1\]
+        то ряд ($*$) расходится
     \end{enumerate}
 \end{consequense}
-\begin{proof}
-    Очев.
+\begin{proof}\tab
+    \begin{enumerate}
+    \item $q<1$, значит, начиная с некоторого номера, выполнено: $\sqrt[n]{a_n}<Q<1$ следовательно, по утверждению теоремы ряд $(*)$ сходится.
+    \item $q>1$, значит, начиная с некоторого номера, выполнено: $\sqrt[n]{a_n}>1$ следовательно, по утверждению теоремы ряд $(*)$ расходится.
+    \end{enumerate}
 \end{proof}
-\begin{example} Пример, что при $q=1$ ряд может как сходиться, так и расходиться:
+\begin{example} При $q=1$ ряд может как сходиться, так и расходиться:
     \begin{enumerate}
         \item 
         \[\sqrt[n]{\frac{1}{n}} \to 1\]
-        расходится
+        и ряд
+        \[\sum_{n=1}^{\infty}\frac{1}{n}\]
+        расходится.
         \item 
         \[\sqrt[n]{\frac{1}{n^2}} \to 1\]
-        сходится
+        и ряд
+        \[\sum_{n=1}^{\infty}\frac{1}{n^2}\]
+        сходится.
     \end{enumerate}
 \end{example}
 \begin{theorem} (Интегральный признак) \\
@@ -38,12 +49,12 @@
     сходятся или расходятся одновременно.
 \end{theorem}
 \begin{proof}
-    $\forall k\in \N: f(k)\geq f(x)\geq f(k+1)$ на $[k, k+1]$. Проинтегрируем неравентсво на этом отрезке:
+    $f(x)$ монотонно убывает, значит $\forall k\in \N$ и $x\in [k, k+1]: f(k)\geq f(x)\geq f(k+1)$. Проинтегрируем неравенство на этом отрезке:
     \[f(k)\geq \int\limits_{k}^{k+1}f(x)\ dx\geq f(k+1)\]
     теперь просуммируем
     \[\sum_{k=1}^{N}f(k)\geq \int\limits_{1}^{N+1}f(x)\ dx\geq \sum_{k=2}^{N+1}f(k)\]
+    отсюда получаем утверждение теоремы.
 \end{proof}
-\newpage
 \begin{example}(Степенно-логарифмическая шкала)
     \begin{enumerate}
         \item 
@@ -116,8 +127,8 @@
         \[\sum_{m=1}^{k}a_{N+m}\leq \frac{c_N\cdot a_N}{\alpha}\]
         и ряд сходится.
         \item 
-        \[c_N\cdot a_N-c_{N+1}\cdot a_{N+1}\leq 0\]
-        \[\frac{c_N}{c_{N+1}}\leq \frac{a_{N+1}}{a_N}\]
+        \[c_n\cdot a_n-c_{n+1}\cdot a_{n+1}\leq 0\]
+        \[\frac{c_n}{c_{n+1}}\leq \frac{a_{n+1}}{a_n} \Leftrightarrow \cfrac{\frac{1}{c_{n+1}}}{\frac{1}{c_n}}\leq \frac{a_{n+1}}{a_n}\]
         Рассмотрим неравенства для $n=N,\ N+1,\ \dots,\ N+k-1$:
         \[\begin{cases}
             \cfrac{\frac{1}{c_{N+1}}}{\frac{1}{c_N}}\leq \frac{a_{N+1}}{a_N}\\
@@ -129,10 +140,10 @@
         \[\frac{1}{c_{N+k}}\leq \frac{1}{a_N\cdot c_N}\cdot a_{N+k}\]
         отсюда, по признаку сравнения, ряд
         \[\sum_{k=1}^{\infty}a_{N+k}\]
-        расходится.
+        расходится, значит расходится и ряд $(*)$.
     \end{enumerate}
 \end{proof}
-\begin{example}\tab
+\begin{examples}\tab
         Рассмотрим ряд
         \[\sum_{n=1}^{\infty}a_n \eqno(*)\]
         \begin{enumerate}
@@ -169,7 +180,18 @@
         то ряд ($*$) расходится.
         \item (Признак Бертрана, без доказательства, знать формулировку)\\
         Возьмем $c_n=n\cdot \ln(n)$
+        Если
+        \[\ln{n}\cdot(n(\frac{a_n}{a_{n+1}})-1)\geq 1+\alpha\]
+        то ряд $(*)$ сходится. Если
+        \[\ln{n}\cdot(n(\frac{a_n}{a_{n+1}})-1)\leq 1\]
+        то ряд $(*)$ расходится. Запишем в предельной форме:\\
+        Если 
+        \[\exists\ \lim\limits_{n\to\infty}(\ln{n}\cdot(n(\frac{a_n}{a_{n+1}})-1))=q>1\]
+        то ряд ($*$) сходится. Если
+        \[\exists\ \lim\limits_{n\to\infty}(\ln{n}\cdot(n(\frac{a_n}{a_{n+1}})-1))=q<1\]
+        то ряд ($*$) расходится.
         \item (Признак Гаусса, без доказательства, знать формулировку)\\
-        Выводится из признака Бертрана.
+        Выводится из признака Бертрана.\\
+        \textit{Формулировка появится позже.}
     \end{enumerate}
-\end{example}
+\end{examples}

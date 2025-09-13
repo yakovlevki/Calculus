@@ -12,7 +12,7 @@
     \[\lim\limits_{n\to \infty}S_n=S\]
     то 
     \[\sum_{n=1}^{\infty}a_n\]
-    называется сходящимся, а $S$ суммой ряда.
+    называется сходящимся, а $S$ - суммой ряда.
 \end{definition}
 \begin{definition}
     Рассмотрим ряд
@@ -25,11 +25,11 @@
     Ряд
     \[\sum_{n=1}^{\infty}a_n\]
     сходится тогда и только тогда, когда
-    \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N,\ \forall k,m>N_{\epsilon}: \left|\sum_{n=k}^{m}a_n\right|<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ N_{\epsilon}\in \N,\ \forall k,m>N_{\epsilon}: \left|\ \sum_{n=k+1}^{m}a_n\ \right|<\epsilon\]
 \end{theorem}
 \begin{proof}
-    Очевидно по критерию коши для последовательности
-    \[\sum_{n=k}^{m}a_n=S_m-S_{k-1}\]
+    По критерию коши для последовательности $S_n$:
+    \[\left|\ \sum_{n=k+1}^{m}a_n\ \right|=|S_m-S_{k}|<\epsilon\]
 \end{proof}
 \begin{theorem}
     Пусть даны ряды
@@ -47,41 +47,40 @@
     Очев.
 \end{proof}
 \begin{theorem} (Необходимое условие сходимости ряда)\\
-    Если
+    Если ряд
     \[\sum_{n=1}^{\infty}a_n\]
     сходится, то $a_n\to 0$.
 \end{theorem}
 \begin{proof}
-    \[\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}(S_n-S_{n-1})=0\]
+    Ряд сходится, значит существует предел
+    \[\lim\limits_{n\to\infty}S_n=S\]
+    \[\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}(S_n-S_{n-1})=S-S=0\]
 \end{proof}
 \subsection{Знакопостоянные ряды}
 В этом разделе считаем, что $\forall n\in \N: a_n\geq 0$ или $a_n\leq 0$.
 \begin{theorem}
     Рассмотрим ряд
-    \[\sum_{n=1}^{\infty}a_n,\ a_n\geq 0\]
+    \[\sum_{n=1}^{\infty}a_n,\ a_n\geq 0 \eqno{(*)}\]
     Если последовательность $S_n$ ограничена, то этот ряд сходится.
 \end{theorem}
 \begin{proof}
-    По теореме Вейерштрасса для последовательности $S_n$.
+    Поскольку $a_n>0$, то последовательность $S_n$ возрастает. Тогда по теореме Вейерштрасса у $S_n$ существует предел, значит ряд $(*)$ сходится.
 \end{proof}
 \begin{theorem} (Признак сравнения)\\
-    Пусть даны два ряда
-    \[\sum_{n=1}^{\infty}a_n\ (a_n\geq 0),\ \sum_{n=1}^{\infty}b_n\ (b_n\geq 0)\]
-    и $0\leq a_n\leq b_n$. Тогда если ряд
-    \[\sum_{n=1}^{\infty}b_n\]
-    сходится, то ряд
-    \[\sum_{n=1}^{\infty}a_n\]
-    сходится. Если ряд
-    \[\sum_{n=1}^{\infty}a_n\]
-    расходится, то ряд
-    \[\sum_{n=1}^{\infty}b_n\]
-    расходится.
+    Пусть даны ряды
+    \[\sum_{n=1}^{\infty}a_n\ (a_n\geq 0) \eqno{(1)}\]
+    \[\sum_{n=1}^{\infty}b_n\ (b_n\geq 0) \eqno{(2)}\]
+    и $0\leq a_n\leq b_n$. Тогда 
+    \begin{enumerate}
+        \item если ряд (2) сходится, то ряд (1) сходится.
+        \item если ряд (1) расходится, то ряд (2) расходится.
+    \end{enumerate}
 \end{theorem}
-\begin{proof} Очевидно из неравенства
+\begin{proof} Следует из неравенства на частичные суммы
     \[\sum_{n=1}^{N}a_n\leq \sum_{n=1}^{N}b_n\]
 \end{proof}
 \begin{theorem} (Признак сравнения в предельной форме)\\
-    Пусть даны два ряда
+    Пусть даны ряды
     \[\sum_{n=1}^{\infty}a_n\ (a_n\geq 0),\ \sum_{n=1}^{\infty}b_n\ (b_n > 0)\]
     Если существует предел
     \[\lim\limits_{n\to\infty}\frac{a_n}{b_n}=c>0\]
@@ -93,23 +92,23 @@
     \[(c-\epsilon)\cdot b_n<a_n<(c+\epsilon)\cdot b_n\]
     по признаку сравнения получаем утверждение теоремы.
 \end{proof}
-\begin{example}
-    Ряд
-    \[\sum_{n=1}^{\infty}\frac{1}{n}\]
-    расходится по Критерию Коши.
-\end{example}
-\begin{example}
-    \[\sum_{n=1}^{\infty}\frac{1}{n^{\alpha}}\]
-    при $\alpha<1$ расходится по признаку сравнения с рядом из предыдущего примера.
-\end{example}
-\begin{example} Ряд
-    \[\sum_{n=1}^{\infty}\frac{1}{(n+1)n}=\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=1\]
-    сходится.
-\end{example}
-\begin{example} Ряд
-    \[\sum_{n=1}^{\infty}\frac{1}{(n+1)^2}\]
-    сходится по признаку сравнения с рядом из предыдущего примера.
-\end{example}
+\newpage
+\begin{examples}\tab
+    \begin{enumerate}
+        \item Ряд
+        \[\sum_{n=1}^{\infty}\frac{1}{n}\]
+        расходится по Критерию Коши.
+        \item Ряд  
+        \[\sum_{n=1}^{\infty}\frac{1}{n^{\alpha}}\]
+        при $\alpha<1$ расходится по признаку сравнения с рядом из предыдущего примера.
+        \item  Ряд
+        \[\sum_{n=1}^{\infty}\frac{1}{(n+1)n}=\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)=1\]
+        сходится.
+        \item Ряд
+        \[\sum_{n=1}^{\infty}\frac{1}{(n+1)^2}\]
+        сходится по признаку сравнения с рядом из предыдущего примера.
+    \end{enumerate}
+\end{examples}
 \begin{exercise} Доказать, что при $\alpha>1$ ряд
     \[\sum_{n=1}^{\infty}\frac{1}{n^{\alpha}}\]
     сходится.
