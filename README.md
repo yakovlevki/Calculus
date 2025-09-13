@@ -8,4 +8,3 @@
 О ошибках можно сообщить в личные сообщения в [телеграме](https://t.me/fourkenz) или (*экспериментально*) заполнив [гугл-форму](https://docs.google.com/forms/d/e/1FAIpQLSdAt7OgisJ7FRR-bL3PkTsg7kkh4mRLFdfH--WOGodGMs52IQ/viewform?usp=header).
 ## Конспекты по другим предметам
 - [Алгебра](https://github.com/Egorchess/Algebra-3sem) (Егор Соколов)
-- [Дифференциальные уравнения](https://github.com/yakovlevki/Differential_Equations) (Кирилл Яковлев)
