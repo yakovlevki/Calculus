@@ -1,0 +1,109 @@
+\begin{theorem}
+    Рассмотрим $\{a_n\}_{n=1}^{\infty},\ \{b_n\}_{n=1}^{\infty}$.
+    \begin{itemize}
+        \item[($\mathcal{A}$):] Если 
+        \[\sum_{n=1}^{\infty}a_n\]
+        сходится, а $b_n$ монотонна и ограничена, то
+        \[\sum_{n=1}^{\infty}a_n\cdot b_n\]
+        сходится.
+        \item[($\mathcal{D}$):] Если
+        \[\left|\sum_{n=1}^{\infty}a_n\right|<M\]
+        и $b_n$ монотонно сходится к 0, то
+        \[\sum_{n=1}^{\infty}a_n\cdot b_n\]
+        сходится. 
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    Оценим 
+    \[\left|\sum_{n=k}^{m}a_n\cdot b_n\right|\]
+    Введем
+    \[A_l=\sum_{n=k}^{l}a_n,\ A_{k-1}=0\]
+    \begin{multline}
+        \sum_{n=k}^{m}a_n\cdot b_n=\sum_{n=k}^{m}(A_n-A_{n-1})\cdot b_n=\sum_{n=k}^{m}A_n\cdot b_n=\sum_{n=k+1}^{m}A_{n-1}\cdot b_n=\\
+        =\sum_{n=k}^{m}A_n\cdot b_n-\sum_{n=k}^{m-1}A_n\cdot b_{n+1}=\sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m
+    \end{multline}
+    \begin{itemize}
+        \item[($\mathcal{A}$):] 
+        \[|(1)|\leq \epsilon\cdot (|b_k-b_m|+|b_m|)<\epsilon\cdot 3B\] % по критерию коши
+        \item[($\mathcal{D}$):]
+        \[|(1)|\leq 2M(|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
+    \end{itemize}
+\end{proof}
+\begin{consequense} (Признак Лейбница)\\
+    Если $a_n$ монотонно убывает и $a_n\to 0$, то 
+    \[\sum_{n=1}^{\infty}(-1)^n a_n\]
+    сходится
+\end{consequense}
+\begin{proof}
+    Очев по признаку Дирихле.
+\end{proof}
+\subsection{Функциональные последовательности и ряды}
+\begin{definition}
+    Пусть $\forall n\in \N: f_n(x)$ определены на $A\subset \R$. Если $\forall x\in A$: 
+    \[\exists\ \lim\limits_{n\to\infty}f_n(x)=f(x)\]
+    то говорят, что $\{f_n(x)\}_{n=1}^{\infty}$ сходится на $A$ поточечно.
+\end{definition}
+\begin{examples}\tab
+    \begin{enumerate}
+        \item $\forall x\in[0,1]$
+        \[x^n\to \begin{cases}
+            1,\ x=1,\\
+            0,\ x\in [0,1].
+        \end{cases}\]
+        \item 
+        \[\sin{\frac{x}{n}}\to 0,\ \forall x\in \R\]
+    \end{enumerate}
+\end{examples}
+\begin{definition}
+    Пусть $\forall n: f_n(x)$ определены на $A\subset \R$. Если 
+    \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
+    то говорять, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$ и пишут $f_n(x)\rightrightarrows f(x)$.
+\end{definition}
+\begin{examples}\tab
+    \begin{enumerate}
+        \item На $[0,1]$
+        \[x^n \not\rightrightarrows \begin{cases}
+            1,\ x=1,\\
+            0,\ x\in [0,1].
+        \end{cases} \]
+        поскольку $\exists\ \epsilon_0>0,\ \forall N_{\epsilon}\ \exists\ n>N_{\epsilon},\ \exists\ x_{\epsilon_0}\in [0,1)$ такой, что $x_{\epsilon_0}^n>\epsilon_0$.
+        \item на $[0,\frac{1}{2}]: x^n\rightrightarrows 0$.
+        \item $f_n=x^n-x^{2n}$ на $[0,1]: f_n\rightrightarrows 0$.
+        \[f'_n=n(x^{n-1}-2x^{2n-1})=n\cdot x^{n-1}(1-2x^n)=0 \Rightarrow x_n=\frac{1}{\sqrt[n]{2}},\ f_n(x_n)=\frac{1}{4}\]
+        \item $f_n=\sin{\frac{x}{n}} \not\rightrightarrows 0$ на $\R$, но $\forall\ [a,b]: \sin{\frac{x}{n}}\rightrightarrows 0$.
+    \end{enumerate}
+\end{examples}
+\begin{theorem} (Первый критерий равномерной сходимости последовательности)\\
+    \[f_n(x) \overset{A}{\rightrightarrows} f(x) \Leftrightarrow \sup\limits_A|f_n(x)-f(x)|\to 0,\ n\to \infty\]
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item [$(\Rightarrow)$:] 
+        \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
+        значит
+        \[\sup\limits_A|f_n(x)-f(x)|<\epsilon\]
+        \item[$(\Leftarrow)$:]
+        \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon}: \sup\limits_A|f_n(x)-f(x)|<\epsilon\]
+        значит
+        \[|f_n(x)-f(x)|<\epsilon,\ \forall x\in A\]
+    \end{itemize}
+\end{proof}
+\begin{theorem} (Второй критерий равномерной сходимости последовательности)\\
+    \[f_n(x)\overset{A}{\rightrightarrows} f(x) \Leftrightarrow \forall \epsilon>0\ \exists\ N_{\epsilon}: \forall k,m>N_{\epsilon},\ \forall x\in A: |f_k(x)-f_m(x)|<\epsilon\]
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:] 
+        \[|f_k(x)-f_m(x)|=|f_k(x)-f(x)+f(x)-f_m(x)|\leq |f_k(x)-f(x)|+|f(x)-f_m(x)|<2\epsilon\]
+        \item[$(\Leftarrow)$:]
+        Заметим, что есть поточечная сходимость $f_n(x)\to f(x)$, тогда
+        \[|f_k(x)-f_m(x)|<\epsilon \Rightarrow |f_k(x)-f(x)|\leq \epsilon,\ n\to \infty\]
+    \end{itemize}    
+\end{proof}
+\begin{theorem} (Признак Вейерштрасса равномерной сходимотси последовательности)\\
+    Пусть $f_n(x)\to f(x)$ на $A$. Если 
+    \[\exists\ \{c_n\}_{n=1}^{\infty},\ c_n\geq 0,\ c_n\to 0: |f_n(x)-f(x)|\leq c_n \Rightarrow f_n\overset{A}{\rightrightarrows} f\]
+\end{theorem}
+\begin{proof}
+    Очев по первому критерию.
+\end{proof}
