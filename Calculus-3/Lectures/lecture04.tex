@@ -17,11 +17,11 @@
     Оценим 
     \[\left|\ \sum_{n=k}^{m}a_n\cdot b_n\ \right|\]
     Введем
-    \[A_p=\sum_{n=k}^{p}a_n,\ A_{0}=0\ \Rightarrow\ a_n=A_n-A_{n-1}\]
+    \[A_p=\sum_{n=k}^{p}a_n,\ A_{k-1}=0\ \Rightarrow\ a_n=A_n-A_{n-1}\]
     отсюда
     \begin{multline*}
         \sum_{n=k}^{m}a_n\cdot b_n=\sum_{n=k}^{m}(A_n-A_{n-1})\cdot b_n=\sum_{n=k}^{m}A_n\cdot b_n-\sum_{n=k+1}^{m}A_{n-1}\cdot b_n=\\
-        =\sum_{n=k}^{m}A_n\cdot b_n-\sum_{n=k}^{m-1}A_n\cdot b_{n+1}=\sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m
+        =\sum_{n=k}^{m}A_n\cdot b_n-\sum_{n=k}^{m-1}A_n\cdot b_{n+1}=\sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_m\cdot b_m
     \end{multline*}
     \begin{itemize}
         \item[($\mathcal{A}$):] 
