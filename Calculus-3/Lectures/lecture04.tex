@@ -25,9 +25,9 @@
     \end{multline*}
     \begin{itemize}
         \item[($\mathcal{A}$):] 
-        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m\ \right|\leq \epsilon\cdot (|b_k-b_m|+|b_m|)<\epsilon\cdot 3B\] % по критерию коши
+        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_m\cdot b_m\ \right|\leq \epsilon\cdot (|b_k-b_m|+|b_m|)<\epsilon\cdot 3B\] % по критерию коши
         \item[($\mathcal{D}$):]
-        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_M\cdot b_m\ \right|\leq 2M\cdot (|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
+        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_m\cdot b_m\ \right|\leq 2M\cdot (|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
     \end{itemize}
 \end{proof}
 \begin{consequense} (Признак Лейбница)\\
@@ -59,7 +59,7 @@
 \begin{definition}
     Пусть $\forall n: f_n(x)$ определены на $A\subset \R$. Если 
     \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
-    то говорят, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$ и пишут $f_n(x)\rightrightarrows f(x)$.
+    то говорят, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$, и пишут $f_n(x)\rightrightarrows f(x)$.
 \end{definition}
 \begin{examples}\tab
     \begin{enumerate}
@@ -96,7 +96,10 @@
 \begin{proof}\tab
     \begin{itemize}
         \item[$(\Rightarrow)$:] 
-        \[|f_k(x)-f_m(x)|=|f_k(x)-f(x)+f(x)-f_m(x)|\leq |f_k(x)-f(x)|+|f(x)-f_m(x)|<2\epsilon\]
+        \begin{multline*}
+            |f_k(x)-f_m(x)|=|f_k(x)-f(x)+f(x)-f_m(x)|\leq\\
+            \leq |f_k(x)-f(x)|+|f(x)-f_m(x)|<2\epsilon
+        \end{multline*}
         \item[$(\Leftarrow)$:]
         Заметим, что есть поточечная сходимость $f_n(x)\to f(x)$, тогда
         \[|f_k(x)-f_m(x)|<\epsilon \Rightarrow |f_k(x)-f(x)|\leq \epsilon,\ n\to \infty\]
