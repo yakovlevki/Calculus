@@ -6,12 +6,12 @@
     \[n>N_{\epsilon},\ \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in B_{\delta_{\epsilon}}(x_0)\cap A: |f_n(x)-f_n(x_0)|<\epsilon\]
     \begin{multline*}
         |f(x)-f(x_0)|=|f(x)-f_n(x)+f_n(x)-f_n(x_0)+f_n(x_0)-f(x_0)|\leq\\
-        \leq |f(x)-f_n(x_0)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|<3\epsilon
+        \leq |f(x)-f_n(x)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|<3\epsilon
     \end{multline*}
 \end{proof}
 \begin{theorem}
     Пусть $f_n(x)\overset{[a,b]}{\rightrightarrows} f(x),\ f_n\in \mathcal{C}[a,b]$. Тогда 
-    \[\int\limits_{a}^{x}f_n(x)\ dt\ \rightrightarrows \int\limits_{a}^{x}f(t)\ dt\]
+    \[\int\limits_{a}^{x}f_n(t)\ dt\ \rightrightarrows \int\limits_{a}^{x}f(t)\ dt\]
 \end{theorem}
 \begin{proof}
         \[\left|\ \int\limits_{a}^{x}f_n(x)-\int\limits_{a}^{x}f(x)\ \right|\leq \max\limits_{[a,b]}|f_n(x)-f(x)|\cdot |b-a|<\epsilon\cdot |b-a|\]
@@ -27,7 +27,7 @@
     \[f_n(x)\rightrightarrows \int\limits_{x_0}^{x}g(x)\ dx+\alpha=f(x)\]
 \end{proof}
 \begin{definition}
-    Рассмотрим $\{a_n(x)\}$ определенные на $A\subset \R$. Пара последовательностей 
+    Рассмотрим $\{a_n(x)\}$, определенные на $A\subset \R$. Пара последовательностей 
     \[\{\{a_n(x)\},\ \{S_n(x)=\sum_{k=1}^{n}a_k(x)\}\}\]
     называется функциональным рядом и обозначается 
     \[\sum_{n=1}^{\infty}a_n(x)\eqno{(*)}\]
@@ -36,7 +36,7 @@
         \item Если $S_n(x)\rightrightarrows S(x)$, то говорят, что сходится равномерно.
         \item Если сходится ряд
             \[\sum_{n=1}^{\infty}|a_n(x)| \eqno{(1)}\]
-            то говорят, что ряд $(*)$ сходится абсолютно, если ряд $(1)$ расходится, а ряд $(*)$ сходитя, то ряд $(*)$ сходится условно.
+            то говорят, что ряд $(*)$ сходится абсолютно, если ряд $(1)$ расходится, а ряд $(*)$ сходится, то ряд $(*)$ сходится условно.
     \end{enumerate}
 \end{definition}
 \begin{theorem} (Критерйи Коши)\\
@@ -78,7 +78,7 @@
     $x_0\in [a,b]$ и 
     \[\sum_{n=1}^{\infty}a_n'(x)\overset{[a,b]}\rightrightarrows g(x)\]
     Тогда
-    \[\sum_{n=1}^{\infty}a_n(x)\overset{[a,b]}{\rightrightarrows},\ S(x)\in \mathcal{C}^1[a,b],\ S'(x)=g(x)\]
+    \[\sum_{n=1}^{\infty}a_n(x)\overset{[a,b]}{\rightrightarrows}\ S(x)\in \mathcal{C}^1[a,b],\ S'(x)=g(x)\]
 \end{theorem}
 \begin{proof}
     очев.

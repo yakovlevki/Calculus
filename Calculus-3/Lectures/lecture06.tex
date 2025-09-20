@@ -1,0 +1,85 @@
+\subsection{Степенные ряды}
+\begin{definition}
+    Ряды вида 
+    \[\sum_{n=0}^{\infty}a_n(x-x_0)^n\]
+    называются степенными рядами. $a_n$ - коэффициэнты степенного ряда, $x_0$ - центр разложения.
+\end{definition}
+\begin{comm}
+    В центре разложения ряд сходится.
+\end{comm}
+\begin{comm}
+    Сдвиг $x-x_0\mapsto x$ не ограничивает общность ряда
+    \[\sum_{n=0}^{\infty}a_n x^n\]
+\end{comm}
+\begin{theorem} (Первая теорема Абеля)\\
+    Рассмотрим стеепнной ряд 
+    \[\sum_{n=0}^{\infty}a_nx^n \eqno{(*)}\]
+    Если существует $x'\in \R$, что ($*$) сходится, то для любых $x$, таких, что $|x|<|x'|$ ряд $(*)$ сходится. Если существует $x''\in \R$, что ряд $(*)$ расходится, то для любых $x$, таких что $|x|>|x''|$ ряд $(*)$ расходится.
+\end{theorem}
+\begin{proof}
+    Пусть $|x|<|x''|$.
+    \[\sum_{n=0}^{\infty}|a_n x^n|\sum_{n=0}^{\infty}|a_n (x')^n|\cdot \left|\frac{x}{x'}\right|^n\leq M\cdot \sum_{n=0}^{\infty}\left|\frac{x}{x'}\right|^n\]
+    Пусть $|x|>|x''|$. Если ряд $(*)$ сходится, то противоречие с предыдущим пунктом.
+\end{proof}
+\begin{comm}
+    Рассмотрим ряд
+    \[\sum_{n=0}^{\infty}a_n x^n \eqno{(*)}\]
+    Пусть $A\subset \R,\ A$ - все точки, в которых ряд ($*$) сходится, $a\ne \emptyset$.\\
+    Пусть $B\subset \R,\ B$ - все точки в которых ряд ($*$) расходится и пусть $B\ne \emptyset$.\\
+    Тогда из первой теоремы Абеля следует, что $A=\{0\}$ или $\exists\ a>0: (-a,a)\subset A$ (самый большой интервал), а также $\exists\ b>0: (-\infty, -b)\cap(b,+\infty)\subset B$.
+\end{comm}
+\begin{statement}
+    $a=b$ %предположим что это не так, тогда $a<b$ тогда по аксиоме полноты есть точка между ними, в которйо ряд расходится, получаем противоречие.
+\end{statement}
+\begin{definition}
+    $a=b$ называется радиусом сходимости степенного ряда и обозначается $R$. Если $R=0$, то $A=\{0\}$, если $B=\emptyset$, то $R:=+\infty$.
+\end{definition}
+\begin{theorem} (Формула Коши-Адамара)\\
+    Пусть дан ряд
+    \[\sum_{n=0}^{\infty}a_n x^n\]
+    Тогда
+    \[\frac{1}{R}=\uplim\limits_{n\to \infty}\sqrt[n]{|a_n|}\]
+    Если предел равен нулю, то $R=+\infty$. Если предел равен бесконечности, то $R=0$.
+\end{theorem}
+\begin{proof}
+    Применим признак Коши к ряду
+    \[\uplim\limits_{n\to \infty}\sqrt[n]{|a_n x^n|}=|x|\cdot \frac{1}{R}=\begin{cases}
+        l<1\ -\ \text{сходится, и}\ |x|<R,\\
+        l>1\ -\ \text{расходится, и}\ |x|>R  
+    \end{cases}\]
+\end{proof}
+\begin{theorem}
+    Рассмотрим ряд
+    \[\sum_{n=0}^{\infty}a_n x^n=S(x) \eqno{(*)}\]
+    и пусть $R>0$.
+    \begin{enumerate}
+        \item $\forall \epsilon>0$ на отрезке $[-R+\epsilon, R-\epsilon]$ ряд равномерно сходится.
+        \item $S(x)\in \mathcal{C}(-R,R)$.
+        \item 
+        \[\sum_{n=0}^{\infty}\frac{a_n}{n+1} x^{n+1}=\int\limits_{0}^{x}S(t)\ dt\]
+        \item $S(x)\in \mathcal{C}^{\infty}(-R,R)$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\tab
+    \begin{enumerate}
+        \item $|a_n x^n|=|a_n|\cdot (R-\epsilon)^n$ по признаку Вейерштрасса.
+        \item из пункта 1: $\forall \epsilon>0\ S(x)\in \mathcal{C}[-R+\epsilon,R-\epsilon] \Rightarrow S(x)\in \mathcal{C}(-R,R)$.
+        \item для пунктов 3 и 4:
+        \[\lim\limits_{n\to\infty}\sqrt[n]{n}=1\]
+        значит $\forall \alpha\in \R$ ряд
+        \[\sum_{n=1}^{\infty}a_n n^\alpha x^n\]
+        имеет тот же радиус $R$.
+    \end{enumerate}
+\end{proof}
+\begin{theorem} (Вторая теорема Абеля)\\
+    Рассмотрим ряд 
+    \[\sum_{n=0}^{\infty}a_n x^n=S(x),\ R>0\]
+    Пусть 
+    \[\sum_{n=0}^{\infty}a_n R^n\]
+    сходится. Тогда $S(x)\in \mathcal{C}[0,R]$ то есть
+    \[\exists\ \lim\limits_{x\to R-0}\left(\sum_{n=0}^{\infty}a_n x^n\right)=S(R)\]
+\end{theorem}
+\begin{proof}
+    \[\sum_{n=0}^{\infty}a_n x^n=\sum_{n=0}^{\infty}a_n R^n\cdot \left(\frac{x}{R}\right)^n\]
+    а этот ряд, по признаку Абеля, равномерно сходится на $[0,R]$.
+\end{proof}
