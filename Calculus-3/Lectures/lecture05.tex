@@ -2,8 +2,10 @@
     Пусть $f_n(x)\overset{A}{\rightrightarrows} f(x),\ f_n(x)$ непрерывна в точке $x_0\in A$. Тогда $f(x)$ непрерывна в точке $x_0$.
 \end{theorem}
 \begin{proof}
-    \[\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall n>N,\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
-    \[n>N_{\epsilon},\ \forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in B_{\delta_{\epsilon}}(x_0)\cap A: |f_n(x)-f_n(x_0)|<\epsilon\]
+    По определению равномерной сходимости:
+    \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N,\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
+    Возьмем $n>N_{\epsilon}$ и запишем определение непрерывности:
+    \[\forall \epsilon>0\ \exists\ \delta_{\epsilon}>0,\ \forall x\in B_{\delta_{\epsilon}}(x_0)\cap A: |f_n(x)-f_n(x_0)|<\epsilon\]
     \begin{multline*}
         |f(x)-f(x_0)|=|f(x)-f_n(x)+f_n(x)-f_n(x_0)+f_n(x_0)-f(x_0)|\leq\\
         \leq |f(x)-f_n(x)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|<3\epsilon
@@ -14,65 +16,67 @@
     \[\int\limits_{a}^{x}f_n(t)\ dt\ \rightrightarrows \int\limits_{a}^{x}f(t)\ dt\]
 \end{theorem}
 \begin{proof}
-        \[\left|\ \int\limits_{a}^{x}f_n(x)-\int\limits_{a}^{x}f(x)\ \right|\leq \max\limits_{[a,b]}|f_n(x)-f(x)|\cdot |b-a|<\epsilon\cdot |b-a|\]
+        \[\left|\ \int\limits_{a}^{x}f_n(t)\ dt-\int\limits_{a}^{x}f(t)\ dt\ \right|\leq \max\limits_{[a,b]}|f_n(t)-f(t)|\cdot |b-a|<\epsilon\cdot |b-a|\]
 \end{proof}
-\begin{theorem}
-    Пусть $\{f_n(x)\}_{n=1}^{\infty}$ такая, что $f_n(x)\in \mathcal{C}^1[a,b],\ \exists\ x_0\in [a,b]:\\
+\begin{theorem} (Теорема о почленном дифференцировании функциональных последовательностей)\\
+    Пусть $\{f_n(x)\}_{n=1}^{\infty}$ такая, что $f_n(x)\in \mathcal{C}^1[a,b],\ \exists\ x_0\in [a,b]:
+    \vspace{7pt}\\
     f_n(x_0)\to \alpha$. Пусть $f_n'(x)\overset{[a,b]}\rightrightarrows g(x)$. Тогда $f_n(x)\overset{[a,b]}\rightrightarrows f(x),\ f(x)\in \mathcal{C}^1[a,b]$ и\\
-    $f(x)=g(x)$.
+    $f'(x)=g(x)$.
 \end{theorem}
-\begin{proof}
-    \[\int\limits_{x_0}^{x}f_n'(x)\ dx\rightrightarrows \int\limits_{x_0}^{x}g(x)\ dx \Rightarrow f_n(x)-f_n(x_0) \rightrightarrows \int\limits_{x_0}^{x}g(x)\ dx\]
+\begin{proof} По предыдущей теореме и формуле Ньютона-Лейбница:
+    \[\int\limits_{x_0}^{x}f_n'(t)\ dt\rightrightarrows \int\limits_{x_0}^{x}g(t)\ dt\ \Rightarrow\ f_n(x)-f_n(x_0) \rightrightarrows \int\limits_{x_0}^{x}g(t)\ dt\]
     отсюда
-    \[f_n(x)\rightrightarrows \int\limits_{x_0}^{x}g(x)\ dx+\alpha=f(x)\]
+    \[f_n(x)\rightrightarrows \int\limits_{x_0}^{x}g(t)\ dt+\alpha=f(x)\]
 \end{proof}
 \begin{definition}
     Рассмотрим $\{a_n(x)\}$, определенные на $A\subset \R$. Пара последовательностей 
     \[\{\{a_n(x)\},\ \{S_n(x)=\sum_{k=1}^{n}a_k(x)\}\}\]
     называется функциональным рядом и обозначается 
-    \[\sum_{n=1}^{\infty}a_n(x)\eqno{(*)}\]
+    \[\sum_{n=1}^{\infty}a_n(x)\eqno{(1)}\]
     \begin{enumerate}
-        \item Если $\forall x\in A$ ряд $(*)$ сходится к $S(x)$, то говорят, что ряд сходится поточечно.
+        \item Если $\forall x\in A$ ряд $(1)$ сходится к $S(x)$, то говорят, что ряд сходится поточечно.
         \item Если $S_n(x)\rightrightarrows S(x)$, то говорят, что сходится равномерно.
         \item Если сходится ряд
-            \[\sum_{n=1}^{\infty}|a_n(x)| \eqno{(1)}\]
-            то говорят, что ряд $(*)$ сходится абсолютно, если ряд $(1)$ расходится, а ряд $(*)$ сходится, то ряд $(*)$ сходится условно.
+            \[\sum_{n=1}^{\infty}|a_n(x)| \eqno{(2)}\]
+            то говорят, что ряд $(1)$ сходится абсолютно, если ряд $(2)$ расходится, а ряд $(1)$ сходится, то ряд $(1)$ сходится условно.
     \end{enumerate}
 \end{definition}
-\begin{theorem} (Критерйи Коши)\\
+\begin{theorem} (Критерий Коши для функциональных рядов)
     \[\sum_{n=1}^{\infty}a_n(x)\overset{A}{\rightrightarrows}S(x)\]
     тогда и только тогда когда
-    \[\forall \epsilon>0\ \exists\ N_{\epsilon},\ \forall m,k>N_{\epsilon},\ \forall x\in A: \left|\ \sum_{n=k}^{\infty}a_n(x)\ \right|<\epsilon\]
+    \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall m,k>N_{\epsilon},\ \forall x\in A: \left|\ \sum_{n=k+1}^{m}a_n(x)\ \right|<\epsilon\]
 \end{theorem}
 \begin{proof}
-    Очевидно из критерия Коши для функциональных последовательностей.
+    По критерию Коши для функциональных последовательностей
+    \[\left|\ \sum_{n=k+1}^{m}a_n(x)\ \right|=|S_m(x)-S_k(x)|<\epsilon\]
 \end{proof}
-\begin{theorem} (Необходимое условие сходимости)\\
-    Если
+\begin{theorem} (Необходимое условие равномерной сходимости)\\
     \[\sum_{n=1}^{\infty}a_n(x)\overset{A}{\rightrightarrows}S(x)\]
-    то $|a_n(x)|\overset{A}{\rightrightarrows}0$
+    тогда и только тогда, когда $|a_n(x)|\overset{A}{\rightrightarrows}0$
 \end{theorem}
 \begin{proof}
-    Очев.
+    \[|a_n(x)|=|S_n-S_{n-1}|\rightrightarrows S(x)-S(x)=0\]
 \end{proof}
 \begin{theorem}
-    Пусть $\forall n: a_n(x)$ определены на $A$ и непрерывны в точке $x_0\in A$. Пусть
+    Пусть $\forall n: a_n(x)$ определены на $A$ и непрерывны в точке $x_0\in A$ и
     \[\sum_{n=1}^{\infty}a_n(x)\overset{A}{\rightrightarrows}S(x)\]
-    Тогда $S(x)$ непрерывная в точке $x_0$.
+    Тогда $S(x)$ непрерывна в точке $x_0$.
 \end{theorem}
 \begin{proof}
-    Очев по теореме для последовательностей.
+    $S_n(x)\overset{A}{\rightrightarrows}S(x)$ и $\forall n: a_n(x)$ непрерывна в точке $x_0$. Значит, $S_n(x)$ непрерывна в точке $x_0$ и по теореме для функциональных последовательностей, $S(x)$ непрерывна в точке $x_0$.
 \end{proof}
 \begin{theorem}
-    Пусть $a_n(x)\in \mathcal{C}[a,b]$
+    Пусть $a_n(x)\in \mathcal{C}[a,b]$ и
     \[\sum_{n=1}^{\infty}a_n(x)\overset{[a,b]}{\rightrightarrows} S(x)\]
     Тогда 
     \[\sum_{n=1}^{\infty}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)\rightrightarrows \int\limits_{a}^{x}S(t)\ dt=\int\limits_{a}^{x}\left(\sum_{n=1}^{\infty}a_n(x)\right)\]
 \end{theorem}
 \begin{proof}
-    очев.
+    \textit{будет чуть позже.}
+    %По предыдущей теореме $S(x)$ непрерывна на $[a,b]$.
 \end{proof}
-\begin{theorem}
+\begin{theorem} (Теорема о почленном дифференцировании функциональных рядов)\\
     Пусть $a_n(x)\in \mathcal{C}^1{[a,b]}$
     \[\sum_{n=1}^{\infty}a_n(x)=\alpha\]
     $x_0\in [a,b]$ и 
@@ -81,32 +85,39 @@
     \[\sum_{n=1}^{\infty}a_n(x)\overset{[a,b]}{\rightrightarrows}\ S(x)\in \mathcal{C}^1[a,b],\ S'(x)=g(x)\]
 \end{theorem}
 \begin{proof}
-    очев.
+    Очевидно по аналогичной теореме для функциональной последовательности $S_n(x)$.
 \end{proof}
 % тут мб пример с картинкой такой мемной ломаной
-\begin{theorem} (Признак Вейерштрасса)\\
+\begin{theorem} (Признак Вейерштрасса равномерной сходимости)\\
     Пусть $\forall n: |a_n(x)|<\alpha_n,\ \forall x\in A$. Если ряд
     \[\sum_{n=1}^{\infty}\alpha_n\]
     сходится, то
     \[\sum_{n=1}^{\infty}a_n(x)\overset{A}\rightrightarrows S(x)\]
 \end{theorem}
-\begin{proof}
-    \[\sum_{n=k}^{n}a_n(x)\leq \sum_{n=k}^{m}|a_n(x)|\leq \sum_{n=k}^{n}\alpha_n<\epsilon\]
+\begin{proof} По критерию Коши:
+    \[\left|\ \sum_{n=k+1}^{m}a_n(x)\ \right|\leq \sum_{n=k+1}^{m}|a_n(x)|\leq \sum_{n=k+1}^{m}\alpha_n<\epsilon\]
 \end{proof}
 \begin{theorem} (Признаки Абеля и Дирихле)\\
-    Рассмотрим пару последовательностей $\{a_n(x)\}_{n=1}^{\infty},\ \{a_n(x)\}_{n=1}^{\infty}$ на $A$.
+    Рассмотрим пару последовательностей $\{a_n(x)\}_{n=1}^{\infty},\ \{b_n(x)\}_{n=1}^{\infty}$ на $A$.
     \begin{itemize}
         \item[($\mathcal{A}$:)] Пусть 
         \[\sum_{n=1}^{\infty}a_n(x)\overset{A}\rightrightarrows S(x)\]
-        и $\exists\ M,\ \forall x\in A,\ \forall n: |b_n(x)|<M,\ \{b_n\}_{n=1}^{\infty}$ монотонна по номеру $\forall x\in A$.
-        \item[($\mathcal{D}$:)] Пусть $\forall x\in A,\ \forall N:$ 
+        и $\exists\ M>0,\ \forall x\in A,\ \forall n: |b_n(x)|<M$ и $b_n(x)$ монотонна $\forall x\in A$.
+        \item[($\mathcal{D}$:)] Пусть $\forall x\in A,\ \exists\ M>0,\ \forall N\in \N:$ 
         \[\left|\sum_{n=1}^{N}a_n(x)\right|\leq M\]
-        $\exists\ M,\ \forall x\in A,\ \forall n: |b_n(x)|<M,\ \{b_n(x)\}$ монотонна $\forall x\in A,\ b_n(x)\overset{A}\rightrightarrows 0$. Тогда 
+        и $b_n(x)$ монотонна $\forall x\in A$, причем $b_n(x)\overset{A}\rightrightarrows 0$. Тогда 
         \[\sum_{n=1}^{\infty}a_n(x)b_n(x) \overset{A}\rightrightarrows S(x)\]
     \end{itemize}
 \end{theorem}
-\begin{proof}
-        \[\sum_{n=k}^{m}A_n(x)(b_n(x)-b_{n+1}(x))+A_m(x)\cdot b_m(x) \eqno{(*)}\]
+\begin{proof} Аналогично как для числовых рядов. Введем:
+    \[A_p(x)=\sum_{n=k}^{p}a_n(x),\ A_{k-1}(x)=0\ \Rightarrow\ a_n(x)=A_n(x)-A_{n-1}(x)\]
+    отсюда
+    \begin{multline*}
+        \sum_{n=k}^{m}a_n(x)b_n(x)=\sum_{n=k}^{m}(A_n(x)-A_{n-1}(x))\ b_n(x)=\\
+        =\sum_{n=k}^{m}A_n(x) b_n(x)-\sum_{n=k+1}^{m}A_{n-1}(x) b_n(x)=\tab[3.5cm]\\
+        \tab[3.5cm]=\sum_{n=k}^{m}A_n(x) b_n(x)-\sum_{n=k}^{m-1}A_n(x) b_{n+1}(x)=\\
+        =\sum_{n=k}^{m-1}A_n(x)(b_n(x)-b_{n+1}(x))+A_m(x) b_m(x)
+    \end{multline*}
         \begin{itemize}
             \item[($\mathcal{A}$):] $|*|\leq \epsilon\cdot |b_{k}(x)-b_{m}(x)|+|b_m(x)|<\epsilon\cdot 3M$
             \item[($\mathcal{D}$):] $|*|\leq 2M\cdot 3\epsilon$

@@ -47,19 +47,19 @@
 \end{definition}
 \begin{examples}\tab
     \begin{enumerate}
-        \item $\forall x\in[0,1]$
+        \item $\forall x\in[0,1]$:
         \[x^n\to \begin{cases}
             1,\ x=1,\\
             0,\ x\in [0,1].
         \end{cases}\]
-        \item 
-        \[\sin{\frac{x}{n}}\to 0,\ \forall x\in \R\]
+        \item $\forall x\in \R$:
+        \[\sin{\frac{x}{n}}\to 0\]
     \end{enumerate}
 \end{examples}
 \begin{definition}
     Пусть $\forall n: f_n(x)$ определены на $A\subset \R$. Если 
     \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
-    то говорят, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$, и пишут $f_n(x)\rightrightarrows f(x)$.
+    то говорят, что $f_n(x)$ сходится равномерно к $f(x)$ на $A$, и пишут $f_n(x)\overset{A}\rightrightarrows f(x)$.
 \end{definition}
 \begin{examples}\tab
     \begin{enumerate}
@@ -70,28 +70,28 @@
         \end{cases} \]
         поскольку $\exists\ \epsilon_0>0,\ \forall N_{\epsilon}\ \exists\ n>N_{\epsilon},\ \exists\ x_{\epsilon_0}\in [0,1)$ такой, что $x_{\epsilon_0}^n>\epsilon_0$.
         \item на $[0,\frac{1}{2}]: x^n\rightrightarrows 0$.
-        \item $f_n=x^n-x^{2n}$ на $[0,1]: f_n\rightrightarrows 0$.
+        \item $f_n(x)=x^n-x^{2n}$ на $[0,1]: f_n\rightrightarrows 0$.
         \[f'_n=n(x^{n-1}-2x^{2n-1})=n\cdot x^{n-1}(1-2x^n)=0 \Rightarrow x_n=\frac{1}{\sqrt[n]{2}},\ f_n(x_n)=\frac{1}{4}\]
-        \item $f_n=\sin{\frac{x}{n}} \not\rightrightarrows 0$ на $\R$, но $\forall\ [a,b]: \sin{\frac{x}{n}}\rightrightarrows 0$.
+        \item $f_n(x)=\sin{\frac{x}{n}} \not\rightrightarrows 0$ на $\R$, но $\forall a,b,\ \forall x\in [a,b]: \sin{\frac{x}{n}}\rightrightarrows 0$.
     \end{enumerate}
 \end{examples}
-\begin{theorem} (Первый критерий равномерной сходимости последовательности)\\
-    \[f_n(x) \overset{A}{\rightrightarrows} f(x) \Leftrightarrow \sup\limits_A|f_n(x)-f(x)|\to 0,\ n\to \infty\]
+\begin{theorem} (Первый критерий равномерной сходимости последовательности)
+    \[f_n(x) \overset{A}{\rightrightarrows} f(x)\ \Leftrightarrow\ \sup\limits_A|f_n(x)-f(x)|\to 0\]
 \end{theorem}
 \begin{proof}\tab
     \begin{itemize}
         \item [$(\Rightarrow)$:] 
         \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
-        значит
+        значит $x\in A$:
         \[\sup\limits_A|f_n(x)-f(x)|<\epsilon\]
         \item[$(\Leftarrow)$:]
         \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon}: \sup\limits_A|f_n(x)-f(x)|<\epsilon\]
-        значит
-        \[|f_n(x)-f(x)|<\epsilon,\ \forall x\in A\]
+        значит $x\in A$:
+        \[|f_n(x)-f(x)|\leq \sup\limits_A|f_n(x)-f(x)|<\epsilon\]
     \end{itemize}
 \end{proof}
-\begin{theorem} (Второй критерий равномерной сходимости последовательности)\\
-    \[f_n(x)\overset{A}{\rightrightarrows} f(x) \Leftrightarrow \forall \epsilon>0\ \exists\ N_{\epsilon}: \forall k,m>N_{\epsilon},\ \forall x\in A: |f_k(x)-f_m(x)|<\epsilon\]
+\begin{theorem} (Второй критерий равномерной сходимости последовательности)
+    \[f_n(x)\overset{A}{\rightrightarrows} f(x)\ \Leftrightarrow\ \forall \epsilon>0\ \exists\ N_{\epsilon}: \forall k,m>N_{\epsilon},\ \forall x\in A: |f_k(x)-f_m(x)|<\epsilon\]
 \end{theorem}
 \begin{proof}\tab
     \begin{itemize}
@@ -101,14 +101,14 @@
             \leq |f_k(x)-f(x)|+|f(x)-f_m(x)|<2\epsilon
         \end{multline*}
         \item[$(\Leftarrow)$:]
-        Заметим, что есть поточечная сходимость $f_n(x)\to f(x)$, тогда
-        \[|f_k(x)-f_m(x)|<\epsilon \Rightarrow |f_k(x)-f(x)|\leq \epsilon,\ n\to \infty\]
+        Для каждого $x\in A$ применим критерий Коши для последовательностей. Значит, есть поточечная сходимость $f_n(x)\to f(x)$. Тогда после предельного перехода получим, что $\forall x\in A$:
+        \[|f_k(x)-f(x)|\leq \epsilon\]
     \end{itemize}    
 \end{proof}
-\begin{theorem} (Признак Вейерштрасса равномерной сходимотси последовательности)\\
-    Пусть $f_n(x)\to f(x)$ на $A$. Если 
-    \[\exists\ \{c_n\}_{n=1}^{\infty},\ c_n\geq 0,\ c_n\to 0: |f_n(x)-f(x)|\leq c_n \Rightarrow f_n\overset{A}{\rightrightarrows} f\]
+\begin{theorem} (Признак Вейерштрасса равномерной сходимотси последовательности)
+    Пусть $\forall x\in A: f_n(x)\to f(x)$. Если 
+    \[\exists\ \{c_n\}_{n=1}^{\infty},\ c_n\geq 0,\ c_n\to 0: |f_n(x)-f(x)|\leq c_n \Rightarrow f_n(x)\overset{A}{\rightrightarrows} f(x)\]
 \end{theorem}
-\begin{proof}
-    Очев по первому критерию.
+\begin{proof} Перейдем к супремуму:
+    \[0\leq \sup\limits_A|f_n(x)-f(x)|\leq c_n<\epsilon\]
 \end{proof}
