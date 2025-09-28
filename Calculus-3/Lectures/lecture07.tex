@@ -1,0 +1,100 @@
+\subsection{Ряды Тейлора}
+\begin{definition}
+    Пусть $f(x) \in C^\infty(B(x_0))$. Ряд вида
+    \[\sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\]
+    называется рядом Тейлора функции $f(x)$ с центром ряда $x_0$.
+\end{definition}
+\begin{comm}
+    Далее везде центр разложения в 0.
+\end{comm}
+\begin{theorem}
+    Пусть в $B(0)$
+    \[\sum_{n=0}^{\infty}a_n x^n = f(x)\]
+    Тогда
+    \[a_n = \frac{f^{(n)}(0)}{n!}\]
+\end{theorem}
+\begin{proof}
+    Очевидно.
+\end{proof}
+\begin{theorem}
+    Пусть $f(x) \in C^\infty(-a, a)$ и $|f^{(n)}(x)| \leqslant A^n, \ A > 0$.\\
+    Тогда
+    \[\sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n = f(x) \text{ на } (-a, a)\]
+\end{theorem}
+\begin{proof}
+    По ф. Тейлора с остаточным членом Лагранжа $\forall x \in (-a, a)$
+    \[f(x) = \sum_{n=0}^{N}\frac{f^{(n)}(0)}{n!}x^n + \frac{f^{(N+1)}(\xi)}{(N+1)!}x^{N+1}\]
+    Тогда
+    \[\left| f(x) - \sum_{n=0}^{N}\frac{f^{(n)}(0)}{n!}x^n \right| = \left| \frac{f^{(N+1)}(\xi)}{(N+1)!}x^{N+1}\right| \leqslant \frac{A^{N+1}\cdot a^{N+1}}{(N+1)!} \rightarrow 0\]
+\end{proof}
+\begin{example}
+    Рассмотрим функцию 
+    \[f(x) = \begin{cases}
+        e^{-\frac{1}{x^2}}, \ x \neq 0\\
+        0, \ x = 0
+    \end{cases}\]
+    Несложно проверить, что $f(x) \in C^\infty(B(0)), f^{(n)}(0) = 0$.\\
+    Значит,
+    \[\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n \equiv 0 \neq f(x)\] 
+\end{example}
+\begin{example}
+    Контрпример к обратному утверждению второй теоремы Абеля:\\
+    Рассмотрим ряд
+    \[\sum_{n=0}^{\infty}(-1)^nx^n\]
+    Этот ряд сходится на $(-1, 1)$, причём
+    \[\sum_{n=0}^{\infty}(-1)^nx^n = \frac{1}{1+x} \underset{x\rightarrow1-0}{\longrightarrow} \frac{1}{2}\]
+    но ряд
+    \[\sum_{n=0}^{\infty}(-1)^n\]
+    не сходится.
+\end{example}
+\begin{lemma}
+    Если $a_n \rightarrow A$ при $n \rightarrow \infty$, то
+    \[\frac{1}{N}\sum_{n=1}^{N}a_n \rightarrow A\]
+\end{lemma}
+\begin{proof}
+    \begin{multline*}
+        \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \left|\frac{\sum_{n=1}^{N}a_n - AN}{N}\right| \leqslant \frac{|\sum_{n=1}^{N}a_n - AN_1|}{N} + \\ +\frac{\sum_{n=N_1+1}^{N}|a_n - A|}{N} < \epsilon\frac{N-N_1}{N} + \epsilon < 2\epsilon
+    \end{multline*}
+\end{proof}
+\begin{theorem}(Таубер)
+    Пусть
+    \[\sum_{n=0}^{\infty}a_n x^n\]
+    сходится на $(-1, 1)$,
+    \[\exists \lim \limits_{x\rightarrow 1-0} \sum_{n=0}^{\infty}a_n x^n = A\]
+    и пусть $a_n = \overline{\overline{o}}(\frac{1}{n}), n \rightarrow \infty$.\\
+    Тогда 
+    \[\exists \sum_{n=0}^{\infty}a_n = A\]
+\end{theorem}
+\begin{proof}
+    Обозначим $\forall x \in (0, 1)$
+    \[N_x = \left[\frac{1}{1-x}\right]\]
+    и введём функцию
+    \[\phi(x) = \sum_{n=0}^{N_x}a_n - \sum_{n=0}^{\infty}a_n x^n\]
+    Если $\phi(x) \rightarrow 0$ при $x \rightarrow 1-0$, то теорема доказана.
+    \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) + \sum_{n=N+1}^{\infty}a_n x^n\]
+    \begin{multline*}
+        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+...x+x^{n-1})\right| \leqslant \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leqslant \\ \leqslant \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0 \text{ при } x \rightarrow 1-0
+    \end{multline*}
+    \begin{multline*}
+        \left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| < \frac{1}{N_x + 1}\sum_{n=N_x+1}^{\infty}\epsilon x^n < \frac{\epsilon}{N_x + 1}\sum_{n=0}^{\infty}x^n =\\= \frac{\epsilon}{N_x + 1} \cdot \frac{1}{1-x} < \epsilon
+    \end{multline*}
+    Отсюда $|\phi(x)| < 2\epsilon \ \forall n > N_x$.
+\end{proof}
+\subsection{Бесконечные произведения}
+\begin{definition}
+    Рассмотрим $\{u_n\}_{n=1}^{\infty}, \{\Pi_n = \prod \limits_{k=1}^{n}u_k\}_{n=1}^{\infty}$.\\
+    Пара последовательностей $\{\{u_n\}_{n=1}^{\infty}, \{\Pi_n\}_{n=1}^{\infty}\}$ называется бесконечным произведением чисел $\{u_n\}$, обозначается 
+    \[\prod \limits_{n=1}^{\infty}u_n\]
+    $u_n$ - общий член, $\Pi_n$ - частичное произведение.
+\end{definition}
+\begin{definition}
+    $\prod \limits_{n=1}^{\infty}u_n$ называется сходящимся, если $\exists \lim \limits_{n\rightarrow \infty} \Pi_n = a \neq 0$.\\
+    $\prod \limits_{n=1}^{\infty}u_n$ называется расходящимся, если $\nexists \lim \limits_{n\rightarrow \infty} \Pi_n$ или $\lim \limits_{n\rightarrow \infty} \Pi_n = 0$.
+    Если $\exists n: u_n = 0$, то $\prod \limits_{n=1}^{\infty}u_n$ называется расходящимся к 0.
+\end{definition}
+\begin{theorem}(Необходимое условие сходимости)
+    Если $\prod \limits_{n=1}^{\infty}u_n$ сходится, то $u_n \rightarrow 1$.
+\end{theorem}
+\begin{proof}
+    \[\lim \limits_{n \rightarrow \infty} u_n = \lim \limits_{n \rightarrow \infty} \frac{\Pi_n}{\Pi_{n-1}} = 1\]
+\end{proof}
