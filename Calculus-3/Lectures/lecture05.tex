@@ -70,11 +70,13 @@
     Пусть $a_n(x)\in \mathcal{C}[a,b]$ и
     \[\sum_{n=1}^{\infty}a_n(x)\overset{[a,b]}{\rightrightarrows} S(x)\]
     Тогда 
-    \[\sum_{n=1}^{\infty}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)\rightrightarrows \int\limits_{a}^{x}S(t)\ dt=\int\limits_{a}^{x}\left(\sum_{n=1}^{\infty}a_n(x)\right)\]
+    \[\sum_{n=1}^{\infty}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)\rightrightarrows \int\limits_{a}^{x}S(t)\ dt\]
 \end{theorem}
 \begin{proof}
-    \textit{будет чуть позже.}
-    %По предыдущей теореме $S(x)$ непрерывна на $[a,b]$.
+    \begin{multline*}
+        \int\limits_{a}^{x}\left(\sum_{n=1}^{\infty}a_n(t)\right) dt=\lim\limits_{k\to \infty}\int\limits_{a}^{x}\left(\sum\limits_{n=1}^{k}a_n(t)\right)dt=\\
+        =\lim\limits_{k\to \infty}\sum\limits_{n=1}^{k}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)=\sum_{n=1}^{\infty}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)
+    \end{multline*}
 \end{proof}
 \begin{theorem} (Теорема о почленном дифференцировании функциональных рядов)\\
     Пусть $a_n(x)\in \mathcal{C}^1{[a,b]}$

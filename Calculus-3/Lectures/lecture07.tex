@@ -8,13 +8,13 @@
     Далее везде центр разложения в 0.
 \end{comm}
 \begin{theorem}
-    Пусть в $B(0)$
+    Если в некоторой окрестности нуля выполнено равенство
     \[\sum_{n=0}^{\infty}a_n x^n = f(x)\]
-    Тогда
+    то
     \[a_n = \frac{f^{(n)}(0)}{n!}\]
 \end{theorem}
 \begin{proof}
-    Очевидно.
+    Подставим $x=0$, тогда $a_0=f(0)$. Продифференцируем и подставим $x=0$, тогда $a_1=f'(0)$. Снова продифференцируем и подставим $x=0$, тогда $a_2=\frac{f''(x)}{2}$. Продолжая выполнять эту операцию, для каждого n получим $a_n=\frac{f^{(n)}(x)}{n!}$.
 \end{proof}
 \begin{theorem}
     Пусть $f(x) \in C^\infty(-a, a)$ и $|f^{(n)}(x)| \leq A^n, \ A > 0$.\\
@@ -52,18 +52,18 @@
 \end{lemma}
 \begin{proof}
     \begin{multline*}
-        \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{\left|\sum\limits_{n=1}^{N}a_n - AN\right|}{N}\leq \\
-        \leq \frac{\left|\sum\limits_{n=1}^{N_1}a_n - AN_1\right|}{N}+\frac{\sum\limits_{n=N_1+1}^{N}|a_n - A|}{N} < \epsilon\cdot \frac{N-N_1}{N} + \epsilon < 2\epsilon
+        \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}a_n - AN\right|\leq \\
+        \leq \frac{1}{N}\left|\sum\limits_{n=1}^{N_1}a_n - AN_1\right|+\frac{1}{N}\sum\limits_{n=N_1+1}^{N}|a_n - A| < \epsilon\cdot \frac{N-N_1}{N} + \epsilon < 2\epsilon
     \end{multline*}
 \end{proof}
 \begin{theorem}(Теорема Таубера)\\
-    Пусть
+    Пусть степенной ряд
     \[\sum_{n=0}^{\infty}a_n x^n\]
-    сходится на $(-1, 1)$,
-    \[\exists \lim \limits_{x\rightarrow 1-0} \sum_{n=0}^{\infty}a_n x^n = A\]
-    и пусть $a_n = \overline{\overline{o}}(\frac{1}{n}), n \rightarrow \infty$.\\
-    Тогда 
-    \[\exists \sum_{n=0}^{\infty}a_n = A\]
+    сходится на $(-1, 1)$, существует
+    \[\lim \limits_{x\rightarrow 1-0} \sum_{n=0}^{\infty}a_n x^n = A\]
+    и пусть $a_n = \overline{\overline{o}}(\frac{1}{n}),\ n \to \infty$.\\
+    Тогда существует
+    \[\sum_{n=0}^{\infty}a_n = A\]
 \end{theorem}
 \begin{proof}
     Обозначим $\forall x \in (0, 1)$
@@ -73,11 +73,12 @@
     Если $\phi(x) \rightarrow 0$ при $x \rightarrow 1-0$, то теорема доказана.
     \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) + \sum_{n=N+1}^{\infty}a_n x^n\]
     \begin{multline*}
-        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+...x+x^{n-1})\right| \leq \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leq \\ 
-        \leq \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0 \text{ при } x \rightarrow 1-0
+        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+...x+x^{n-1})\right| \leq \\
+        \leq \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leq \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0,\ x \rightarrow 1-0
     \end{multline*}
     \begin{multline*}
-        \left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| < \frac{1}{N_x + 1}\sum_{n=N_x+1}^{\infty}\epsilon x^n < \frac{\epsilon}{N_x + 1}\sum_{n=0}^{\infty}x^n =\\= \frac{\epsilon}{N_x + 1} \cdot \frac{1}{1-x} < \epsilon
+        \left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| < \frac{1}{N_x + 1}\sum_{n=N_x+1}^{\infty}\epsilon x^n <\\
+        <\frac{\epsilon}{N_x + 1}\sum_{n=0}^{\infty}x^n = \frac{\epsilon}{N_x + 1} \cdot \frac{1}{1-x} < \epsilon
     \end{multline*}
     Отсюда $|\phi(x)| < 2\epsilon \ \forall n > N_x$.
 \end{proof}
