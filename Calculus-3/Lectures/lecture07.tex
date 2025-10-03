@@ -17,15 +17,15 @@
     Очевидно.
 \end{proof}
 \begin{theorem}
-    Пусть $f(x) \in C^\infty(-a, a)$ и $|f^{(n)}(x)| \leqslant A^n, \ A > 0$.\\
+    Пусть $f(x) \in C^\infty(-a, a)$ и $|f^{(n)}(x)| \leq A^n, \ A > 0$.\\
     Тогда
     \[\sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n = f(x) \text{ на } (-a, a)\]
 \end{theorem}
 \begin{proof}
-    По ф. Тейлора с остаточным членом Лагранжа $\forall x \in (-a, a)$
+    По формуле Тейлора с остаточным членом в форме Лагранжа $\forall x \in (-a, a)$:
     \[f(x) = \sum_{n=0}^{N}\frac{f^{(n)}(0)}{n!}x^n + \frac{f^{(N+1)}(\xi)}{(N+1)!}x^{N+1}\]
     Тогда
-    \[\left| f(x) - \sum_{n=0}^{N}\frac{f^{(n)}(0)}{n!}x^n \right| = \left| \frac{f^{(N+1)}(\xi)}{(N+1)!}x^{N+1}\right| \leqslant \frac{A^{N+1}\cdot a^{N+1}}{(N+1)!} \rightarrow 0\]
+    \[\left| f(x) - \sum_{n=0}^{N}\frac{f^{(n)}(0)}{n!}x^n \right| = \left| \frac{f^{(N+1)}(\xi)}{(N+1)!}x^{N+1}\right| \leq \frac{A^{N+1}\cdot a^{N+1}}{(N+1)!} \rightarrow 0\]
 \end{proof}
 \begin{example}
     Рассмотрим функцию 
@@ -33,16 +33,15 @@
         e^{-\frac{1}{x^2}}, \ x \neq 0\\
         0, \ x = 0
     \end{cases}\]
-    Несложно проверить, что $f(x) \in C^\infty(B(0)), f^{(n)}(0) = 0$.\\
+    Несложно проверить, что $f(x) \in C^\infty(B(0)),\ f^{(n)}(0) = 0$.\\
     Значит,
     \[\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n \equiv 0 \neq f(x)\] 
 \end{example}
-\begin{example}
-    Контрпример к обратному утверждению второй теоремы Абеля:\\
+\begin{example} (Контрпример к обратному утверждению второй теоремы Абеля)\\
     Рассмотрим ряд
-    \[\sum_{n=0}^{\infty}(-1)^nx^n\]
+    \[\sum_{n=0}^{\infty}(-1)^n x^n\]
     Этот ряд сходится на $(-1, 1)$, причём
-    \[\sum_{n=0}^{\infty}(-1)^nx^n = \frac{1}{1+x} \underset{x\rightarrow1-0}{\longrightarrow} \frac{1}{2}\]
+    \[\sum_{n=0}^{\infty}(-1)^n x^n = \frac{1}{1+x} \underset{x\rightarrow1-0}{\longrightarrow} \frac{1}{2}\]
     но ряд
     \[\sum_{n=0}^{\infty}(-1)^n\]
     не сходится.
@@ -53,10 +52,11 @@
 \end{lemma}
 \begin{proof}
     \begin{multline*}
-        \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \left|\frac{\sum_{n=1}^{N}a_n - AN}{N}\right| \leqslant \frac{|\sum_{n=1}^{N}a_n - AN_1|}{N} + \\ +\frac{\sum_{n=N_1+1}^{N}|a_n - A|}{N} < \epsilon\frac{N-N_1}{N} + \epsilon < 2\epsilon
+        \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{\left|\sum\limits_{n=1}^{N}a_n - AN\right|}{N}\leq \\
+        \leq \frac{\left|\sum\limits_{n=1}^{N_1}a_n - AN_1\right|}{N}+\frac{\sum\limits_{n=N_1+1}^{N}|a_n - A|}{N} < \epsilon\cdot \frac{N-N_1}{N} + \epsilon < 2\epsilon
     \end{multline*}
 \end{proof}
-\begin{theorem}(Таубер)
+\begin{theorem}(Теорема Таубера)\\
     Пусть
     \[\sum_{n=0}^{\infty}a_n x^n\]
     сходится на $(-1, 1)$,
@@ -73,7 +73,8 @@
     Если $\phi(x) \rightarrow 0$ при $x \rightarrow 1-0$, то теорема доказана.
     \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) + \sum_{n=N+1}^{\infty}a_n x^n\]
     \begin{multline*}
-        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+...x+x^{n-1})\right| \leqslant \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leqslant \\ \leqslant \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0 \text{ при } x \rightarrow 1-0
+        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+...x+x^{n-1})\right| \leq \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leq \\ 
+        \leq \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0 \text{ при } x \rightarrow 1-0
     \end{multline*}
     \begin{multline*}
         \left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| < \frac{1}{N_x + 1}\sum_{n=N_x+1}^{\infty}\epsilon x^n < \frac{\epsilon}{N_x + 1}\sum_{n=0}^{\infty}x^n =\\= \frac{\epsilon}{N_x + 1} \cdot \frac{1}{1-x} < \epsilon

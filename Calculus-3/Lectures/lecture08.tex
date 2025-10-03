@@ -1,0 +1,80 @@
+\begin{consequense}
+    Если произведение сходится, то общий член имеет вид 
+    \[u_n=1+a_n,\ a_n\to 0\]
+\end{consequense}
+\begin{theorem}
+    Произведение 
+    \[\prod\limits_{n=1}^{\infty}(1+a_n)\]
+    сходится тогда и только тогда, когда ряд
+    \[\sum\limits_{n=1}^{\infty}\ln{(1+a_n)}\]
+    сходится.
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item[($\Rightarrow$):] 
+        \[\Pi_{N}\text{ - сходится} \Rightarrow \ln(\Pi_N) \text{ - сходится},\ \ln(x)\in \mathcal{C}(0, +\infty) \Rightarrow \sum_{n=1}^N ln(1+a_n) \text{ - сходится}\]
+        \item[($\Leftarrow$):]
+        \[\sum_{n=1}^N \ln(1+a_n) \text{ - сходится} \Rightarrow e^{\left(\sum\limits_{n=1}^N \ln(1+a_n)\right)} \text{ - сходится} \Rightarrow \Pi_N \text{ - сходится}\]
+    \end{itemize}
+\end{proof}
+\begin{definition}
+    Произведение называется абсолютно сходящимся или условно сходящимся, если таковым является соответсвующий ряд из логарифмов. 
+\end{definition}
+\begin{theorem} Произведение
+    \[\prod\limits_{n=1}^{\infty}u_n\]
+    сходится абсолютно тогда и только тогда, когда ряд
+    \[\sum\limits_{n=1}^{\infty}|a_n|\]
+    сходится.
+\end{theorem}
+\begin{proof}
+    \[\lim\limits_{n\to\infty}\frac{|\ln(1+a_n)|}{|a_n|}=1\]
+    из этого следует утверждение в обе стороны.
+\end{proof}
+\begin{consequense}
+    Если $a_n$ знакопостоянны, то произведение и соответсвующий ряд из логарифмов сходятся или расходится одновременно.
+\end{consequense}
+\begin{theorem}
+    Пусть ряд
+    \[\sum\limits_{n=1}^{\infty}a_n\]
+    сходится. Тогда произведение 
+    \[\prod\limits_{n=1}^{\infty}(1+a_n)\]
+    сходится или расходится одновременно с рядом
+    \[\sum\limits_{n=1}^{\infty}a_n^2\]
+\end{theorem}
+\begin{proof}
+    \[\ln(1+a_n)-a_n=-\frac{a_n^2}{2}+\bar{\bar{o}}(a_n^2)\]
+    \[\lim\limits_{n\to\infty}\frac{\ln(1+a_n)-a_n}{a_n^2}=-\frac{1}{2}\]
+\end{proof}
+\begin{comm}
+    Можно рассматривать функциональные произведения
+    \[\prod\limits_{n=1}^{\infty}(1+a_n(x))\]
+    анализируя соответсвующий функциональный ряд из логарифмов.
+\end{comm}
+\begin{example} (Пример Эйлера)\\
+    Пусть $p_k$ обозначает $k$-е простое число. Тогда при $s>1$ 
+    \[\zeta(s)=\sum\limits_{n=1}^{\infty}\frac{1}{n^s}=\prod\limits_{k=1}^{\infty}(1-\frac{1}{p_k^s})^{-1}\]
+    \[\prod\limits_{k=1}^{N}\left(1-\frac{1}{p_k^s}\right)^{-1}=\prod\limits_{k=1}^{N}\left(\sum\limits_{l=0}^{\infty}\frac{1}{p^{ls}}\right)=\sum\frac{1}{(p_{k_1}^{l_1}\cdot p_{k_2}^{l_2}\cdot \dots\cdot p_{k_m}^{l_m})^s}\]
+    \[\sum\limits_{n=1}^{N}\frac{1}{n^s}<\sum\frac{1}{(p_{k_1}^{l_1}\cdot p_{k_2}^{l_2}\cdot \dots\cdot p_{k_m}^{l_m})^s}<\sum\limits_{n=1}^{\infty}\frac{1}{n^s}\]
+    Тогда
+    \[\sum\frac{1}{(p_{k_1}^{l_1}\cdot p_{k_2}^{l_2}\cdot \dots\cdot p_{k_m}^{l_m})^s} \to \sum\limits_{n=1}^{\infty}\frac{1}{n^s}=\zeta(s),\ N\to \infty\]
+    %все ряды сходятся абсолютно, 
+\end{example}
+\begin{theorem}
+    $\forall x\ne \pi k$:
+    \[\sin{x}=x\cdot \prod\limits_{n=1}^{\infty}\left(1-\frac{x^2}{\pi^2 n^2}\right)\]
+\end{theorem}
+\begin{proof}
+    $\forall n: \sin((2n+1)x)=(2n+1)\sin{x}\cdot P_n(\sin^2{x})$\\
+    это утверждение можно показать по индукции, с базой $\sin{3x}=3\sin{x}-4\sin^3{x}$\\
+    \[\sin{((2n+1)x)}=0 \Leftrightarrow x=\frac{\pi k}{2n+1},\ k\in \Z\]
+    при этом
+    \[P_n(\sin^2{x})=0,\ x=\frac{\pi k}{2n+1},\ k=1,\dots,n\]
+    \[P_n(\omega)=0 \Leftrightarrow \omega=\sin^2{\frac{\pi k}{2n+1}},\ k=1,\dots, n\]
+    Заметим, что
+    \[P_n(\sin^2{x})=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\to 1,\ x\to 0\]
+    Тогда
+    \[P_n(\omega)=\prod\limits_{k=1}^{n}(1-\frac{\omega^2}{\sin^2{\frac{\pi k}{2n+1}}})\]
+    \[P(\sin^2{x})=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\]
+    сделаем замену: $(2n+1)x=t$
+    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{\frac{t}{2n+1}}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
+\end{proof}

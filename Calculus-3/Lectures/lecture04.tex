@@ -50,7 +50,7 @@
         \item $\forall x\in[0,1]$:
         \[x^n\to \begin{cases}
             1,\ x=1,\\
-            0,\ x\in [0,1].
+            0,\ x\in [0,1).
         \end{cases}\]
         \item $\forall x\in \R$:
         \[\sin{\frac{x}{n}}\to 0\]
@@ -82,7 +82,7 @@
     \begin{itemize}
         \item [$(\Rightarrow)$:] 
         \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon},\ \forall x\in A: |f_n(x)-f(x)|<\epsilon\]
-        значит $x\in A$:
+        значит $\forall x\in A$:
         \[\sup\limits_A|f_n(x)-f(x)|<\epsilon\]
         \item[$(\Leftarrow)$:]
         \[\forall \epsilon>0\ \exists\ N_{\epsilon}: \forall n>N_{\epsilon}: \sup\limits_A|f_n(x)-f(x)|<\epsilon\]
