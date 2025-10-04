@@ -77,4 +77,23 @@
     \[P(\sin^2{x})=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\]
     сделаем замену: $(2n+1)x=t$
     \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{\frac{t}{2n+1}}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
+    \begin{lemma}
+        $\forall \{a_k\}_{k=1}^n\subset \R:$
+        \[\left|\prod\limits_{k=1}^{n}(1+a_k)-1\right|\leq \prod\limits_{k=1}^{n}(1+|a_k|)-1\]
+    \end{lemma}
+    \begin{proof}
+        Очев по индукции.
+    \end{proof}
+    Возьмем $\forall t\in \R,\ |t|<n, m<n$
+    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{m}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\cdot R_{n,m}(t) \Rightarrow \exists\ \lim\limits_{n\to\infty}R_{n,m}(t)=R_n(t)\]
+    Перейдем к пределу при $n\to \infty$:
+    \[\frac{\sin{t}}{t}=\prod\limits_{k=1}^{m}\left(1-\frac{t^2}{\pi^2 k^2}\right)\cdot R_m(t)\]
+    Вернемся к $R_{m,n}$:
+    \begin{multline*}
+        \left|\prod\limits_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\right|\leq \prod\limits_{k=m+1}^{n}\left(1+\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)-1\leq\\
+        \leq \prod\limits_{k=m+1}^{n}\left(1+\frac{t^2}{(\frac{2}{\pi}\cdot \pi k)^2}\right)-1=\prod\limits_{k=m+1}^{n}\left(1+\frac{t^2}{4k^2}\right)-1<\\
+        <\prod\limits_{k=m+1}^{\infty}\left(1+\frac{t^2}{4k^2}\right)-1\to 0
+    \end{multline*}
+    при $m\to \infty \Rightarrow R_m(t)\to 1,\ m\to \infty$. Значит
+    \[\sin{t}=t\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{t^2}{\pi^2 k^2}\right)\]
 \end{proof}
