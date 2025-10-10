@@ -1,0 +1,104 @@
+\begin{theorem}
+    Пусть $\phi(x),\ \psi(x)\in \mathcal{C}[a,b],\ f(x,y)\in \mathcal{C}(G)$. Тогда
+    \[F(y)=\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\in \mathcal{C}[a,b]\]
+\end{theorem}
+\begin{proof}
+    \begin{multline*}
+        F(y+\Delta y)-F(y)|=\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\-
+        \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ -\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg|\leq\\
+        \leq \Bigg|\int\limits_{\phi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx\ \Bigg|+\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ \Bigg|+\\
+        +\int\limits_{\phi(y)}^{\psi(y)}|f(x,y+\Delta y)-f(x,y)|\ dx\leq M\cdot \epsilon+M\cdot \epsilon+\epsilon\cdot \max\limits_{y}|\psi(y)-\phi(y)|
+    \end{multline*}
+    
+\end{proof}
+\begin{theorem}
+    Пусть $\phi(y),\ \psi(y)\in \mathcal{C}^1[a,b],\ f(x,y)\in \mathcal{C}(G),\ \exists\ f'_y(x,y)\in \mathcal{C}(G)$. Тогда $F(y)\in \mathcal{C}^1(G)$ и
+    \[F'(y)=\left(\ \int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\right)'=\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y)\ dx+f(\psi(y),y)\cdot \psi'(y)-f(\phi(y),y)\cdot \phi'(y)\]
+\end{theorem}
+\begin{proof}
+    \begin{multline*}
+        \frac{1}{\Delta y}(F(y+\Delta y)-F(y))=\\
+        =\frac{1}{\Delta y}\Bigg(\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\\
+        + \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg)=\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
+        -\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx +\frac{1}{\Delta y} \int\limits_{\phi(y)}^{\psi(y)}(f(x,y+\Delta y)-f(x,y))\ dx=\\
+        =\frac{1}{\Delta y}(\psi(y+\Delta y)-\psi(y))\cdot f(\psi(y+\theta_1\Delta y), y+\Delta y)-\\
+        -\frac{1}{\Delta y}(\phi(y+\Delta y)-\phi(y))f(\phi(y+\theta_2\Delta y), y+\Delta y)+\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y+\theta_3\Delta y)\ dx
+    \end{multline*}
+    Значит существует предел
+    \[\lim\limits_{\Delta y\to 0}\frac{F(y+\Delta y)-F(y)}{\Delta y}=\psi'(y)f(\psi(y),y)-\phi'(y)f(\phi(y),y)+\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y)\ dx\]
+\end{proof}
+\begin{theorem}
+    Пусть $f(x,y)\in \mathcal{C}([a,b]\times [c,d])$. Тогда 
+    \[\int\limits_{c}^{d}\left(\int\limits_{a}^{b}f(x,y)\ dx\right) dy=\int\limits_{a}^{b}\left(\int\limits_{c}^{d}f(x,y)\ dy\right) dx\]
+\end{theorem}
+\begin{proof}
+    Рассмотрим
+    \[F(t)=\int\limits_{c}^{t}\left(\int\limits_{a}^{b}f(x,y)\ dx\right) dy,\ G(t)=\int\limits_{a}^{b}\left(\int\limits_{c}^{t}f(x,y)\ dy\right)dx\]
+    Заметим, что $F(C)=G(C)=0$.
+    \[F'(t)=\int\limits_{a}^{b}f(x,y)\ dx,\ G'(t)=\int\limits_{a}^{b}f(x,t)\ dx\]
+    Значит $F(t)=G(t)$, в частности для $t=d$.
+\end{proof}
+\section{Несобственные интегралы с параметром}
+% коментарий по то кто такой омега
+\begin{definition}
+    Рассмотрим Несобственный интеграл 
+    \[\int\limits_{a}^{\omega}f(x,y)\ dx\]
+    Пусть на $Y\subset \R$:
+    \[\int\limits_{a}^{\omega}f(x,y)\ dx=F(y)\]
+    Если $\forall \epsilon>0\ \exists\ A\in [a,\omega): \forall a'>A,\ \forall y\in Y:$
+    \[\left|\int\limits_{a}^{a'}f(x,y)\ dx-F(y)\right|<\epsilon\]
+    то
+    \[\int\limits_{a}^{\omega}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
+\end{definition}
+Далее, без ограничения общности будем писать $\omega=+\infty$.
+\begin{theorem} (Критерий Коши)\\
+    \[\int\limits_{a}^{a'}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(t)\]
+    тогда и только тогда, когда $\forall \epsilon>0\ \exists\ A>a,\ \forall a_1,a_2>A$:
+    \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|<\epsilon\]
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:]
+        \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|=\left|\int\limits_{a_1}^{+\infty}f(x,y)\ dx-\int\limits_{a_2}^{+\infty}f(x,y)\ dx\right|< 2\epsilon\]
+        \item[$(\Leftarrow)$:]
+        \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|<\epsilon\]
+        Тогда при $a_2\to +\infty$:
+        \[\left|\int\limits_{a_1}^{+\infty}f(x,y)\ dx\right|\leq \epsilon\]
+    \end{itemize}
+\end{proof}
+\begin{theorem} (Признак Вейерштрасса равномерной сходимости)\\
+    Рассмотрим
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx,\ y\in Y\]
+    Если $\exists\ g(x)$ такая, что $|f(x,y)|<g(x)$ и сходится интеграл
+    \[\int\limits_{a}^{+\infty}g(x)\ dx\]
+    то интеграл 
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx\]
+    сходится равномерно на $Y$.
+\end{theorem}
+\begin{proof}
+    По критерию Коши:
+    \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|\leq \int\limits_{a_1}^{a_2}g(x)\ dx<\epsilon\]
+\end{proof}
+\begin{theorem} (Признаки Абеля и Дирихле равномерной сходимости)\\
+    Рассмотрим интеграл
+    \[\int\limits_{a}^{+\infty}f(x,y)\cdot g(x,y)\ dx,\ y\in Y\]
+    Пусть $|f(x,y)|,\ |g(x,y)|<M$
+    \begin{itemize}
+        \item[($\mathcal{A}$):] 
+        \[\int\limits_{a}^{+\infty}f(x,y)\ dx \overset{Y}{\rightrightarrows}\]
+        $g(x,y)$ монотонна $\forall y$. Тогда интеграл
+        \[\int\limits_{a}^{+\infty}f(x,y)\cdot g(x,y)\ dx\overset{Y}{\rightrightarrows}\]
+        \item[($\mathcal{D}$):]
+        \[\left|\int\limits_{a}^{A}f(x,y)\ dx\right|<M\]
+        $g(x,y)$ монотонна и $g(x)\overset{Y}{\rightrightarrows}0$. Тогда
+        \[\int\limits_{a}^{+\infty}f(x,y)\cdot g(x,y)\ dx\overset{Y}{\rightrightarrows}\]
+    \end{itemize}
+\end{theorem}
+\begin{proof} % по первой теореме о среднем.
+    \begin{multline*}
+        \left|\int\limits_{a_1}^{a_2}f(x,y)g(x,y)\ dx\right|=\left|g(a_1,y)\cdot \int\limits_{a_1}^{c}f(x,y)\ dx+ g(a_2,y)\cdot \int\limits_{c}^{a_2}f(x,y)\ dx\right|\leq \\
+        \leq |g(a_1,y)|\cdot \left|\int\limits_{a_1}^{c}f(x,y)\ dx \right|+|g(a_2,y)|\cdot \left|\int\limits_{c}^{a_2}f(x,y)\ dx\right|=(*)
+    \end{multline*}
+    $(\mathcal{A}):\ (*)\leq \epsilon\cdot M+\epsilon\cdot M$\\
+    $(\mathcal{D}):\ (*)\leq \epsilon\cdot 2M+\epsilon\cdot 2M$
+\end{proof}
