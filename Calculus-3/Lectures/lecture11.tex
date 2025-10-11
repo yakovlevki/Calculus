@@ -1,0 +1,51 @@
+\begin{theorem}
+    Пусть $f(x,y)\in \mathcal{C}([a,+\infty)\times [c,d])$ и 
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx \overset{[c,d]}{\rightrightarrows}F(y)\]
+    Тогда $F(y)\in \mathcal{C}[c,d]$.
+\end{theorem}
+\begin{proof}
+    \begin{multline*}
+        \left|\int\limits_{a}^{+\infty} f(x,y+\Delta y)\ dx-\int\limits_{a}^{+\infty} f(x,y)\ dx\right|\leq \left|\int\limits_{a}^{+\infty}f(x,y+\Delta y)\ dx-\int\limits_{a}^{A}f(x,y+\Delta y)\ dx\right|+\\
+        +\left|\int\limits_{a}^{A}f(x,y+\Delta y)\ dx-\int\limits_{a}^{A}f(x,y)\ dx\right|+\left|\int\limits_{a}^{A}f(x,y)\ dx-\int\limits_{a}^{+\infty}f(x,y)\ dx\right|<3\epsilon
+    \end{multline*}
+\end{proof}
+\begin{theorem}
+    Пусть $f(x,y)\in \mathcal{C}([a,+\infty]\times [c,d]),\ \exists\ f'_y(x,y)\in \mathcal{C}([a,+\infty]\times [c,d])$
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx=F(y),\ \int\limits_{a}^{+\infty}f'_y(x,y)\ dx\overset{[c,d]}{\rightrightarrows} G(y)\]
+    Тогда $\exists\ F'(y)=G(y)$.
+\end{theorem}
+\begin{proof}
+    Рассмотрим $\{x_n\}_{n=1}^{\infty},\ x_n\to +\infty$ и
+    \[F_n(y)=\int\limits_{a}^{x_n}f(x,y)\ dx\]
+    По теореме о дифференциравании функциональных последовательностей и теореме о дифференцировании собственных интегралов:
+    \[F_n'(y)\rightrightarrows G(y) \Rightarrow F'(y)=G(y)\]
+\end{proof}
+\begin{theorem}
+    Пусть $f(x,y)\in \mathcal{C}([a,+\infty]\times [c,d])$ и
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx\rightrightarrows F(y)\]
+    Тогда 
+    \[\int\limits_{c}^{d}\left(\int\limits_{a}^{+\infty}f(x,y)\ dx\right)dy=\int\limits_{a}^{+\infty}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx\]
+\end{theorem}
+\begin{proof}
+    Рассмотрим произвольную $\{x_n\}_{n=1}^{\infty},\ x_n\to +\infty$
+    \[\int\limits_{c}^{d}\left(\int\limits_{a}^{x_n}f(x,y)\ dx\right)dy=\int\limits_{a}^{x_n}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx\]
+    \begin{multline*}
+        \exists\ \lim\limits_{n\to\infty}\left(\int\limits_{c}^{d}F_n(y)\ dy\right)=\int\limits_{c}^{d}\left(\int\limits_{a}^{+\infty}f(x,y)\ dx\right)dy=\\
+        =\lim\limits_{n\to\infty}\int\limits_{a}^{x_n}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx=\int\limits_{a}^{+\infty}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx
+    \end{multline*}
+\end{proof}
+\begin{theorem} (Признак Дини равномерной сходимости последовательности)\\
+    Пусть $\forall n: f_n(x)\in \mathcal{C}[a,b],\ \forall x\in [a,b]: f_n(x)$ монотонны по $n$ и
+    \[\exists\ \lim\limits_{n\to\infty}f_n(x)=f(x)\in \mathcal{C}[a,b]\]
+    Тогда $f_n(x)\overset{[a,b]}{\rightrightarrows}f(x)$.
+\end{theorem}
+\begin{proof}
+    \[\forall x\in [a,b],\ \forall \epsilon>0\ \exists\ N_{\epsilon,x_0},\ \forall n\geq N_{\epsilon, x_0}: |f_n(x_0)-f(x_0)|<\epsilon\]
+    %По непрерывности $f_n(x)$:
+    \[\exists\ \delta_{\epsilon}>0,\ \forall x\in B_{\delta_{\epsilon}}(x_0): |f_{N_{\epsilon,x_0}}(x)-f(x)|<2\epsilon\]
+    Из монотонности следует, что для номеров, больших этого, неравенство верно
+    Рассмотрим накрытие: %тк компакт
+    \[[a,b]\subset \bigcup\limits_{x\in [a,b]}B_{\delta_{\epsilon}} \Rightarrow \exists\ \{x_i\}_{i=1}^k,\ [a,b]\subset \bigcup\limits_{i=1}^k B_{\delta_{\epsilon}}(x_i)\]
+    Возьмем $N_{\epsilon}=\max\limits_{i=1,\dots,k}(N_{\epsilon,x_i})$. Тогда
+    \[\forall x\in [a,b],\ \forall n>N_{\epsilon}: |f_n(x)-f(x)|<2\epsilon\]
+\end{proof}
