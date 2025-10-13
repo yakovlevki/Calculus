@@ -73,8 +73,8 @@
     Заметим, что
     \[P_n(\sin^2{x})=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\to 1,\ x\to 0\]
     Тогда
-    \[P_n(\omega)=\prod\limits_{k=1}^{n}(1-\frac{\omega^2}{\sin^2{\frac{\pi k}{2n+1}}})\]
-    \[P(\sin^2{x})=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\]
+    \[P_n(\omega)=\prod\limits_{k=1}^{n}(1-\frac{\omega}{\sin^2{\frac{\pi k}{2n+1}}})\]
+    \[P_n(\sin^2{x})=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\]
     сделаем замену: $(2n+1)x=t$
     \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{\frac{t}{2n+1}}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
     \begin{lemma}
@@ -85,7 +85,7 @@
         Очев по индукции.
     \end{proof}
     Возьмем $\forall t\in \R,\ |t|<n, m<n$
-    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{m}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\cdot R_{n,m}(t) \Rightarrow \exists\ \lim\limits_{n\to\infty}R_{n,m}(t)=R_n(t)\]
+    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{m}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\cdot R_{n,m}(t) \Rightarrow \exists\ \lim\limits_{n\to\infty}R_{n,m}(t)=R_m(t)\]
     Перейдем к пределу при $n\to \infty$:
     \[\frac{\sin{t}}{t}=\prod\limits_{k=1}^{m}\left(1-\frac{t^2}{\pi^2 k^2}\right)\cdot R_m(t)\]
     Вернемся к $R_{m,n}$:

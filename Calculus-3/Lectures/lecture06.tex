@@ -66,7 +66,7 @@
 \end{theorem}
 \begin{proof}\tab
     \begin{enumerate}
-        \item $|a_n x^n|=|a_n|\cdot (R-\epsilon)^n$ по признаку Вейерштрасса.
+        \item $|a_n x^n|\leq|a_n|\cdot (R-\epsilon)^n$ по признаку Вейерштрасса.
         \item из пункта 1: $\forall \epsilon>0: S(x)\in \mathcal{C}[-R+\epsilon,R-\epsilon] \Rightarrow S(x)\in \mathcal{C}(-R,R)$.
         \item Поскольку ряд $(*)$ равномерно сходится на любом отрезке внутри $[-R,R]$, то
         \[\int\limits_{0}^{x}S(t)\ dt=\int\limits_{0}^{x}\left(\sum_{n=0}^{\infty}a_n t^n\right)dt=\sum_{n=0}^{\infty}\left(\int\limits_{0}^{x}a_n t^n\ dt\right)=\sum_{n=0}^{\infty}\frac{a_n}{n+1}x^{n+1}\]

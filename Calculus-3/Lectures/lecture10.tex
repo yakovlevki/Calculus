@@ -4,9 +4,9 @@
 \end{theorem}
 \begin{proof}
     \begin{multline*}
-        F(y+\Delta y)-F(y)|=\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\-
-        \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ -\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg|\leq\\
-        \leq \Bigg|\int\limits_{\phi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx\ \Bigg|+\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ \Bigg|+\\
+        |F(y+\Delta y)-F(y)|=\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
+        -\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ -\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg|\leq\\
+        \leq \Bigg|\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx\ \Bigg|+\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx\ \Bigg|+\\
         +\int\limits_{\phi(y)}^{\psi(y)}|f(x,y+\Delta y)-f(x,y)|\ dx\leq M\cdot \epsilon+M\cdot \epsilon+\epsilon\cdot \max\limits_{y}|\psi(y)-\phi(y)|
     \end{multline*}
     
@@ -19,8 +19,8 @@
     \begin{multline*}
         \frac{1}{\Delta y}(F(y+\Delta y)-F(y))=\\
         =\frac{1}{\Delta y}\Bigg(\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\\
-        + \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg)=\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
-        -\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx +\frac{1}{\Delta y} \int\limits_{\phi(y)}^{\psi(y)}(f(x,y+\Delta y)-f(x,y))\ dx=\\
+        + \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg)=\frac{1}{\Delta y}\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
+        -\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\phi(y+\Delta y)}f(x,y+\Delta y)\ dx +\frac{1}{\Delta y} \int\limits_{\phi(y)}^{\psi(y)}(f(x,y+\Delta y)-f(x,y))\ dx=\\
         =\frac{1}{\Delta y}(\psi(y+\Delta y)-\psi(y))\cdot f(\psi(y+\theta_1\Delta y), y+\Delta y)-\\
         -\frac{1}{\Delta y}(\phi(y+\Delta y)-\phi(y))f(\phi(y+\theta_2\Delta y), y+\Delta y)+\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y+\theta_3\Delta y)\ dx
     \end{multline*}
@@ -35,7 +35,7 @@
     Рассмотрим
     \[F(t)=\int\limits_{c}^{t}\left(\int\limits_{a}^{b}f(x,y)\ dx\right) dy,\ G(t)=\int\limits_{a}^{b}\left(\int\limits_{c}^{t}f(x,y)\ dy\right)dx\]
     Заметим, что $F(C)=G(C)=0$.
-    \[F'(t)=\int\limits_{a}^{b}f(x,y)\ dx,\ G'(t)=\int\limits_{a}^{b}f(x,t)\ dx\]
+    \[F'(t)=\int\limits_{a}^{b}f(x,t)\ dx,\ G'(t)=\int\limits_{a}^{b}f(x,t)\ dx\]
     Значит $F(t)=G(t)$, в частности для $t=d$.
 \end{proof}
 \section{Несобственные интегралы с параметром}
@@ -52,8 +52,8 @@
 \end{definition}
 Далее, без ограничения общности будем писать $\omega=+\infty$.
 \begin{theorem} (Критерий Коши)\\
-    \[\int\limits_{a}^{a'}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(t)\]
-    тогда и только тогда, когда $\forall \epsilon>0\ \exists\ A>a,\ \forall a_1,a_2>A$:
+    \[\int\limits_{a}^{a'}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
+    тогда и только тогда, когда $\forall \epsilon>0\ \exists\ A>a,\ \forall a_1,a_2>A,\ \forall y\in Y$:
     \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|<\epsilon\]
 \end{theorem}
 \begin{proof}\tab

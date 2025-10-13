@@ -19,7 +19,7 @@
         \[\uplim\limits_{n\to \infty}\sqrt[n]{a_n}=q<1\] 
         то ряд ($*$) сходится
         \item Если 
-        \[\uplim\limits_{n\to \infty}\sqrt[n]{a_n}=q>1\]
+        \[\lowlim\limits_{n\to \infty}\sqrt[n]{a_n}=q>1\]
         то ряд ($*$) расходится
     \end{enumerate}
 \end{consequense}
@@ -82,13 +82,13 @@
         \beta\leq 1 - \text{расходится}
     \end{cases}\]
     \item
-    \[\int\limits_{10}^{\infty}\frac{dx}{x\cdot \ln^{\gamma}{(\ln{x})}}\ \text{при}\ 
+    \[\int\limits_{10}^{\infty}\frac{dx}{x\cdot \ln{x}\cdot \ln^{\gamma}{(\ln{x})}}\ \text{при}\ 
     \begin{cases}
         \gamma>1 - \text{сходится}\\
         \gamma\leq 1 - \text{расходится}
     \end{cases}\]
     значит
-    \[\sum_{n=10}^{\infty}\frac{1}{x\cdot \ln^{\gamma}({\ln{x}})}\ \text{при}\ 
+    \[\sum_{n=10}^{\infty}\frac{1}{n\cdot \ln{n}\cdot \ln^{\gamma}{(\ln{n})}}\ \text{при}\ 
     \begin{cases}
         \gamma>1 - \text{сходится}\\
         \gamma\leq 1 - \text{расходится}
@@ -115,7 +115,7 @@
         \item 
         Рассмотрим неравенства для $n=N,\ N+1,\ \dots,\ N+k-1$:
         \[\begin{cases}
-            c_N\cdot a_N-c_N\cdot a_{N+1}\geq \alpha\cdot a_{N+1},\\
+            c_N\cdot a_N-c_{N+1}\cdot a_{N+1}\geq \alpha\cdot a_{N+1},\\
             \tab[3.5cm] \vdots\\
             c_{N+k-1}\cdot a_{N+k-1}-c_{N+k}\cdot a_{N+k}\geq \alpha\cdot a_{N+k}.
         \end{cases}\]
@@ -179,6 +179,7 @@
         \[\exists\ \lim\limits_{n\to\infty}n\cdot(\frac{a_n}{a_{n+1}}-1)=q<1\]
         то ряд ($*$) расходится.
         \item (Признак Бертрана, без доказательства, знать формулировку)\\
+        \textit{(Возможно лажа, нужно проверить)}\\
         Возьмем $c_n=n\cdot \ln(n)$
         Если
         \[\ln{n}\cdot(n(\frac{a_n}{a_{n+1}})-1)\geq 1+\alpha\]
