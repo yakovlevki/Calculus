@@ -3,14 +3,54 @@
     \[F(y)=\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\in \mathcal{C}[a,b]\]
 \end{theorem}
 \begin{proof}
-    \begin{multline*}
-        |F(y+\Delta y)-F(y)|=\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
-        -\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ -\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg|\leq\\
-        \leq \Bigg|\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx\ \Bigg|+\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx\ \Bigg|+\\
-        +\int\limits_{\phi(y)}^{\psi(y)}|f(x,y+\Delta y)-f(x,y)|\ dx\leq M\cdot \epsilon+M\cdot \epsilon+\epsilon\cdot \max\limits_{y}|\psi(y)-\phi(y)|
-    \end{multline*}
-    
+\begin{multline*}
+    |F(y+\Delta y)-F(y)|=\Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
+    -\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx\ -\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg|\overset{(1)}{\leq}\\
+    \overset{(1)}{\leq} \Bigg|\ \int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx\ \Bigg|+\Bigg|\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx\ \Bigg|+\\
+    +\int\limits_{\phi(y)}^{\psi(y)}|f(x,y+\Delta y)-f(x,y)|\ dx\overset{(2)}{\leq} M\cdot \epsilon+M\cdot \epsilon+\epsilon\cdot \max\limits_{y}|\psi(y)-\phi(y)|
+\end{multline*}
+($1$):
+\begin{multline*}
+    \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx=\int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx+\\
+    \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx=\\
+    =\int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx
+\end{multline*}
+($2$): Первые два слагаемых оцениваются так: $f(x,y+\Delta y)\leq M$, так как $f\in \mathcal{C}(G)$ и, поскольку $\phi(y)$ и $\psi(y)$ непрерывны, то $|\phi(y+\Delta y)-\phi(y)|<\epsilon$ и\\
+$|\psi(y+\Delta y)-\psi(y)|<\epsilon$.\\
+Последнее слагаемое оценивается так: $f\in \mathcal{C}(G)$, значит,
+$f$ равномерно непрерывна (так как $G$ - компакт) $\Rightarrow$ при $\Delta y\to 0: |f(x,y+\Delta y)-f(x,y)|<\epsilon$
 \end{proof}
+\begin{figure}
+\[\begin{tikzpicture}[scale=1.5]
+    \draw[->] (-0.5, 0) -- (4.5,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
+    
+    \pgfmathdeclarefunction{phi}{1}{%
+        \pgfmathparse{0.8 + 0.4*sin(deg(1.2*#1)) + 0.2*cos(deg(3*#1))}%
+    }
+    \pgfmathdeclarefunction{psi}{1}{%
+        \pgfmathparse{3.2 + 0.5*sin(deg(0.8*#1)) + 0.3*cos(deg(2.5*#1)) + 0.1*sin(deg(5*#1))}%
+    }
+    
+    % Первая кривая φ(y)
+    \draw[thick] plot[domain=0.3:3.2,samples=100] ({phi(\x)}, \x);
+    \node[left] at ({phi(1.7)}, 1.7) {$\phi(y)$};
+    
+    % Вторая кривая ψ(y)
+    \draw[thick] plot[domain=0.3:3.2,samples=100] ({psi(\x)}, \x);
+    \node[right] at ({psi(1.7)}, 1.7) {$\psi(y)$};
+    
+    % Прямые, ограничивающие сверху и снизу
+    \draw[dashed] (0,0.3) -- (4,0.3);
+    \draw[dashed] (0,3.2) -- (4,3.2);
+
+    \node[left] at (0,0.3) {$a$};
+    \node[left] at (0,3.2) {$b$};
+    
+    % Подпись области
+    \node at (2.2,1.7) {$G$};
+\end{tikzpicture}\]
+\end{figure}
 \begin{theorem}
     Пусть $\phi(y),\ \psi(y)\in \mathcal{C}^1[a,b],\ f(x,y)\in \mathcal{C}(G),\ \exists\ f'_y(x,y)\in \mathcal{C}(G)$. Тогда $F(y)\in \mathcal{C}^1(G)$ и
     \[F'(y)=\left(\ \int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\right)'=\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y)\ dx+f(\psi(y),y)\cdot \psi'(y)-f(\phi(y),y)\cdot \phi'(y)\]
@@ -19,12 +59,14 @@
     \begin{multline*}
         \frac{1}{\Delta y}(F(y+\Delta y)-F(y))=\\
         =\frac{1}{\Delta y}\Bigg(\ \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\\
-        + \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg)=\frac{1}{\Delta y}\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
-        -\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\phi(y+\Delta y)}f(x,y+\Delta y)\ dx +\frac{1}{\Delta y} \int\limits_{\phi(y)}^{\psi(y)}(f(x,y+\Delta y)-f(x,y))\ dx=\\
-        =\frac{1}{\Delta y}(\psi(y+\Delta y)-\psi(y))\cdot f(\psi(y+\theta_1\Delta y), y+\Delta y)-\\
+        + \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\ \Bigg)\overset{(1)}{=}\frac{1}{\Delta y}\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\\
+        -\frac{1}{\Delta y}\int\limits_{\phi(y)}^{\phi(y+\Delta y)}f(x,y+\Delta y)\ dx +\frac{1}{\Delta y} \int\limits_{\phi(y)}^{\psi(y)}(f(x,y+\Delta y)-f(x,y))\ dx \overset{(2)}{=}\\
+        \overset{(2)}{=}\frac{1}{\Delta y}(\psi(y+\Delta y)-\psi(y))\cdot f(\psi(y+\theta_1\Delta y), y+\Delta y)-\\
         -\frac{1}{\Delta y}(\phi(y+\Delta y)-\phi(y))f(\phi(y+\theta_2\Delta y), y+\Delta y)+\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y+\theta_3\Delta y)\ dx
     \end{multline*}
-    Значит существует предел
+    (1): Аналогично предыдущей теореме\\
+    (2): Применяем теорему о среднем к первому и второму слагаемому, и теорему Лагранжа к третьему слагаемому ($0<\theta_1, \theta_2, \theta_3<1$)\\
+    Значит существует предел при $\Delta y\to 0$
     \[\lim\limits_{\Delta y\to 0}\frac{F(y+\Delta y)-F(y)}{\Delta y}=\psi'(y)f(\psi(y),y)-\phi'(y)f(\phi(y),y)+\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y)\ dx\]
 \end{proof}
 \begin{theorem}
@@ -34,36 +76,36 @@
 \begin{proof}
     Рассмотрим
     \[F(t)=\int\limits_{c}^{t}\left(\int\limits_{a}^{b}f(x,y)\ dx\right) dy,\ G(t)=\int\limits_{a}^{b}\left(\int\limits_{c}^{t}f(x,y)\ dy\right)dx\]
-    Заметим, что $F(C)=G(C)=0$.
     \[F'(t)=\int\limits_{a}^{b}f(x,t)\ dx,\ G'(t)=\int\limits_{a}^{b}f(x,t)\ dx\]
+    Отсюда $F(t)-G(t)=\widetilde{C}$. Заметим, что $F(C)=G(C)=0 \Rightarrow \widetilde{C}=0$.
     Значит $F(t)=G(t)$, в частности для $t=d$.
 \end{proof}
-\section{Несобственные интегралы с параметром}
+\subsection{Несобственные интегралы с параметром}
 % коментарий по то кто такой омега
 \begin{definition}
-    Рассмотрим Несобственный интеграл 
+    Рассмотрим несобственный интеграл 
     \[\int\limits_{a}^{\omega}f(x,y)\ dx\]
     Пусть на $Y\subset \R$:
     \[\int\limits_{a}^{\omega}f(x,y)\ dx=F(y)\]
     Если $\forall \epsilon>0\ \exists\ A\in [a,\omega): \forall a'>A,\ \forall y\in Y:$
-    \[\left|\int\limits_{a}^{a'}f(x,y)\ dx-F(y)\right|<\epsilon\]
+    \[\left|\ \int\limits_{a}^{a'}f(x,y)\ dx-F(y)\ \right|<\epsilon\]
     то
     \[\int\limits_{a}^{\omega}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
 \end{definition}
 Далее, без ограничения общности будем писать $\omega=+\infty$.
 \begin{theorem} (Критерий Коши)\\
-    \[\int\limits_{a}^{a'}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
+    \[\int\limits_{a}^{a'}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)=\int\limits_{a}^{+\infty} f(x,y)\ dx\]
     тогда и только тогда, когда $\forall \epsilon>0\ \exists\ A>a,\ \forall a_1,a_2>A,\ \forall y\in Y$:
-    \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|<\epsilon\]
+    \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|<\epsilon\]
 \end{theorem}
 \begin{proof}\tab
     \begin{itemize}
         \item[$(\Rightarrow)$:]
-        \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|=\left|\int\limits_{a_1}^{+\infty}f(x,y)\ dx-\int\limits_{a_2}^{+\infty}f(x,y)\ dx\right|< 2\epsilon\]
+        \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|=\left|\int\limits_{a_1}^{+\infty}f(x,y)\ dx-\int\limits_{a_2}^{+\infty}f(x,y)\ dx\right|< 2\epsilon\]
         \item[$(\Leftarrow)$:]
-        \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|<\epsilon\]
+        \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|<\epsilon\]
         Тогда при $a_2\to +\infty$:
-        \[\left|\int\limits_{a_1}^{+\infty}f(x,y)\ dx\right|\leq \epsilon\]
+        \[\left|\ \int\limits_{a_1}^{+\infty}f(x,y)\ dx\ \right|\leq \epsilon\]
     \end{itemize}
 \end{proof}
 \begin{theorem} (Признак Вейерштрасса равномерной сходимости)\\
@@ -77,7 +119,7 @@
 \end{theorem}
 \begin{proof}
     По критерию Коши:
-    \[\left|\int\limits_{a_1}^{a_2}f(x,y)\ dx\right|\leq \int\limits_{a_1}^{a_2}g(x)\ dx<\epsilon\]
+    \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|\leq \int\limits_{a_1}^{a_2}g(x)\ dx<\epsilon\]
 \end{proof}
 \begin{theorem} (Признаки Абеля и Дирихле равномерной сходимости)\\
     Рассмотрим интеграл
@@ -89,15 +131,15 @@
         $g(x,y)$ монотонна $\forall y$. Тогда интеграл
         \[\int\limits_{a}^{+\infty}f(x,y)\cdot g(x,y)\ dx\overset{Y}{\rightrightarrows}\]
         \item[($\mathcal{D}$):]
-        \[\left|\int\limits_{a}^{A}f(x,y)\ dx\right|<M\]
+        \[\left|\ \int\limits_{a}^{A}f(x,y)\ dx\ \right|<M\]
         $g(x,y)$ монотонна и $g(x)\overset{Y}{\rightrightarrows}0$. Тогда
         \[\int\limits_{a}^{+\infty}f(x,y)\cdot g(x,y)\ dx\overset{Y}{\rightrightarrows}\]
     \end{itemize}
 \end{theorem}
 \begin{proof} % по первой теореме о среднем.
     \begin{multline*}
-        \left|\int\limits_{a_1}^{a_2}f(x,y)g(x,y)\ dx\right|=\left|g(a_1,y)\cdot \int\limits_{a_1}^{c}f(x,y)\ dx+ g(a_2,y)\cdot \int\limits_{c}^{a_2}f(x,y)\ dx\right|\leq \\
-        \leq |g(a_1,y)|\cdot \left|\int\limits_{a_1}^{c}f(x,y)\ dx \right|+|g(a_2,y)|\cdot \left|\int\limits_{c}^{a_2}f(x,y)\ dx\right|=(*)
+        \left|\ \int\limits_{a_1}^{a_2}f(x,y)g(x,y)\ dx\ \right|=\left|\ g(a_1,y)\cdot \int\limits_{a_1}^{c}f(x,y)\ dx+ g(a_2,y)\cdot \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|\leq \\
+        \leq |g(a_1,y)|\cdot \left|\ \int\limits_{a_1}^{c}f(x,y)\ dx \ \right|+|g(a_2,y)|\cdot \left|\ \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|=(*)
     \end{multline*}
     $(\mathcal{A}):\ (*)\leq \epsilon\cdot M+\epsilon\cdot M$\\
     $(\mathcal{D}):\ (*)\leq \epsilon\cdot 2M+\epsilon\cdot 2M$
