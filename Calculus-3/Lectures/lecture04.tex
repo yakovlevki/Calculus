@@ -27,8 +27,10 @@
         \item[($\mathcal{A}$):] 
         \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_m\cdot b_m\ \right|\leq \epsilon\cdot (|b_k-b_m|+|b_m|)<\epsilon\cdot 3B\] % по критерию коши
         \item[($\mathcal{D}$):]
-        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_m\cdot b_m\ \right|\leq 2M\cdot (|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
+        \[\left|\ \sum_{n=k}^{m-1}A_n\cdot(b_n-b_{n+1})+A_m\cdot b_m\ \right|\overset{(1)}{\leq} 2M\cdot (|b_k-b_m|+|b_m|)<6M\cdot \epsilon\]
     \end{itemize}
+    (1):
+    \[|A_p|=\left|\ \sum\limits_{n=k}^{p} a_n\ \right|=\left|\ \sum\limits_{n=1}^{p}a_n-\sum\limits_{n=1}^{k-1}a_n\ \right|\leq 2M\]
 \end{proof}
 \begin{consequense} (Признак Лейбница)\\
     Если $a_n$ монотонно убывает и $a_n\to 0$, то 

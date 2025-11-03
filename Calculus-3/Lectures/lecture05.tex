@@ -76,7 +76,7 @@
 \begin{proof}
     $S_n(x)\overset{[a,b]}{\rightrightarrows} S(x)$. Проинтегрируем почленно:
     \[\int\limits_{a}^{x}S_n(t)\ dt \overset{[a,b]}{\rightrightarrows} \int\limits_{a}^{x} S(t)\ dt\]
-    что можно записать, как $\forall x\in [a,b]$:
+    что можно $\forall x\in [a,b]$ записать, как:
     \[\lim\limits_{k\to\infty}\ \int\limits_{a}^{x} \left(\sum\limits_{n=1}^{k} a_n(t)\right)dt=\int\limits_{a}^{x}\left(\sum\limits_{n=1}^{\infty}a_n(t)\right)dt\]
     Таким образом
     \begin{multline*}
@@ -109,12 +109,12 @@
     Рассмотрим пару последовательностей $\{a_n(x)\}_{n=1}^{\infty},\ \{b_n(x)\}_{n=1}^{\infty}$ на $A$.
     \begin{itemize}
         \item[($\mathcal{A}$:)] Пусть 
-        \[\sum_{n=1}^{\infty}a_n(x)\overset{A}\rightrightarrows S(x)\]
+        \[\sum_{n=1}^{\infty}a_n(x)\overset{A}\rightrightarrows\]
         и $\exists\ M>0,\ \forall x\in A,\ \forall n: |b_n(x)|<M$ и $b_n(x)$ монотонна $\forall x\in A$.
         \item[($\mathcal{D}$:)] Пусть $\forall x\in A,\ \exists\ M>0,\ \forall N\in \N:$ 
         \[\left|\sum_{n=1}^{N}a_n(x)\right|\leq M\]
         и $b_n(x)$ монотонна $\forall x\in A$, причем $b_n(x)\overset{A}\rightrightarrows 0$. Тогда 
-        \[\sum_{n=1}^{\infty}a_n(x)b_n(x) \overset{A}\rightrightarrows S(x)\]
+        \[\sum_{n=1}^{\infty}a_n(x)b_n(x) \overset{A}\rightrightarrows\]
     \end{itemize}
 \end{theorem}
 \begin{proof} Аналогично как для числовых рядов. Введем:
@@ -127,7 +127,9 @@
         =\sum_{n=k}^{m-1}A_n(x)(b_n(x)-b_{n+1}(x))+A_m(x) b_m(x)
     \end{multline*}
         \begin{itemize}
-            \item[($\mathcal{A}$):] $|*|\leq \epsilon\cdot |b_{k}(x)-b_{m}(x)|+|b_m(x)|<\epsilon\cdot 3M$
-            \item[($\mathcal{D}$):] $|*|\leq 2M\cdot 3\epsilon$
+            \item[($\mathcal{A}$):] 
+            \[\left|\sum_{n=k}^{m-1}A_n(x)(b_n(x)-b_{n+1}(x))+A_m(x) b_m(x)\right|\leq \epsilon\cdot 3M\]
+            \item[($\mathcal{D}$):] 
+            \[\left|\sum_{n=k}^{m-1}A_n(x)(b_n(x)-b_{n+1}(x))+A_m(x) b_m(x)\right|\leq 2M\cdot 3\epsilon\]
         \end{itemize}
 \end{proof}
