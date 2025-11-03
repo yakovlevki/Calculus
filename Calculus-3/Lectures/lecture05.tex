@@ -11,14 +11,14 @@
         \leq |f(x)-f_n(x)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|<3\epsilon
     \end{multline*}
 \end{proof}
-\begin{theorem}
+\begin{theorem} (Почленное интегрирование)\\
     Пусть $f_n(x)\overset{[a,b]}{\rightrightarrows} f(x),\ f_n\in \mathcal{C}[a,b]$. Тогда 
     \[\int\limits_{a}^{x}f_n(t)\ dt\ \rightrightarrows \int\limits_{a}^{x}f(t)\ dt\]
 \end{theorem}
 \begin{proof}
         \[\left|\ \int\limits_{a}^{x}f_n(t)\ dt-\int\limits_{a}^{x}f(t)\ dt\ \right|\leq \max\limits_{[a,b]}|f_n(t)-f(t)|\cdot |b-a|<\epsilon\cdot |b-a|\]
 \end{proof}
-\begin{theorem} (Теорема о почленном дифференцировании функциональных последовательностей)\\
+\begin{theorem} (Почленное дифференцирование)\\
     Пусть $\{f_n(x)\}_{n=1}^{\infty}$ такая, что $f_n(x)\in \mathcal{C}^1[a,b],\ \exists\ x_0\in [a,b]:
     \vspace{7pt}\\
     f_n(x_0)\to \alpha$. Пусть $f_n'(x)\overset{[a,b]}\rightrightarrows g(x)$. Тогда $f_n(x)\overset{[a,b]}\rightrightarrows f(x),\ f(x)\in \mathcal{C}^1[a,b]$ и\\
@@ -54,7 +54,7 @@
 \end{proof}
 \begin{theorem} (Необходимое условие равномерной сходимости)\\
     \[\sum_{n=1}^{\infty}a_n(x)\overset{A}{\rightrightarrows}S(x)\]
-    тогда и только тогда, когда $|a_n(x)|\overset{A}{\rightrightarrows}0$
+    Тогда $|a_n(x)|\overset{A}{\rightrightarrows}0$.
 \end{theorem}
 \begin{proof}
     \[|a_n(x)|=|S_n-S_{n-1}|\rightrightarrows S(x)-S(x)=0\]
@@ -67,19 +67,24 @@
 \begin{proof}
     $S_n(x)\overset{A}{\rightrightarrows}S(x)$ и $\forall n: a_n(x)$ непрерывна в точке $x_0$. Значит, $S_n(x)$ непрерывна в точке $x_0$ и по теореме для функциональных последовательностей, $S(x)$ непрерывна в точке $x_0$.
 \end{proof}
-\begin{theorem}
+\begin{theorem} (Почленное интегрирование)\\
     Пусть $a_n(x)\in \mathcal{C}[a,b]$ и
     \[\sum_{n=1}^{\infty}a_n(x)\overset{[a,b]}{\rightrightarrows} S(x)\]
     Тогда 
     \[\sum_{n=1}^{\infty}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)\rightrightarrows \int\limits_{a}^{x}S(t)\ dt\]
 \end{theorem}
 \begin{proof}
+    $S_n(x)\overset{[a,b]}{\rightrightarrows} S(x)$. Проинтегрируем почленно:
+    \[\int\limits_{a}^{x}S_n(t)\ dt \overset{[a,b]}{\rightrightarrows} \int\limits_{a}^{x} S(t)\ dt\]
+    что можно записать, как $\forall x\in [a,b]$:
+    \[\lim\limits_{k\to\infty}\ \int\limits_{a}^{x} \left(\sum\limits_{n=1}^{k} a_n(t)\right)dt=\int\limits_{a}^{x}\left(\sum\limits_{n=1}^{\infty}a_n(t)\right)dt\]
+    Таким образом
     \begin{multline*}
         \int\limits_{a}^{x}\left(\sum_{n=1}^{\infty}a_n(t)\right) dt=\lim\limits_{k\to \infty}\int\limits_{a}^{x}\left(\sum\limits_{n=1}^{k}a_n(t)\right)dt=\\
         =\lim\limits_{k\to \infty}\sum\limits_{n=1}^{k}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)=\sum_{n=1}^{\infty}\left(\int\limits_{a}^{x}a_n(t)\ dt\right)
     \end{multline*}
 \end{proof}
-\begin{theorem} (Теорема о почленном дифференцировании функциональных рядов)\\
+\begin{theorem} (Почленное дифференцирование)\\
     Пусть $a_n(x)\in \mathcal{C}^1{[a,b]}$
     \[\sum_{n=1}^{\infty}a_n(x_0)=\alpha\]
     где $x_0\in [a,b]$ и 
