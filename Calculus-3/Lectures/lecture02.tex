@@ -2,7 +2,7 @@
     Пусть дан знакоположительный ряд 
     \[\sum_{n=1}^{\infty}a_n \eqno{(*)}\]
     \begin{enumerate}
-        \item Если $\forall n>N: \sqrt[n]{a_n}\leq q<1$, то ряд ($*$) сходится.
+        \item Если $\exists\ 0<q<1,\ \forall n>N: \sqrt[n]{a_n}\leq q$, то ряд ($*$) сходится.
         \item Если $\exists\ \{n_k\}_{k=1}^{\infty}$, что $\sqrt[n]{a_{n_k}}\geq 1$, то ряд ($*$) расходится.
     \end{enumerate}
 \end{theorem}
@@ -48,7 +48,7 @@
     Пусть дан знакоположительный ряд
     \[\sum\limits_{n=1}^{\infty}a_n \eqno{(*)}\]
     \begin{enumerate}
-        \item Если $\forall n>N: \frac{a_{n+1}}{a_n}\leq q<1$, то ряд $(*)$ сходится.
+        \item Если $\exists\ 0<q<1,\ \forall n>N: \frac{a_{n+1}}{a_n}\leq q$, то ряд $(*)$ сходится.
         \item Если $\exists\ \{n_k\}_{k=1}^{\infty}: \frac{a_{n_k + 1}}{a_{n_k}}\geq 1$, то ряд $(*)$ расходится.
     \end{enumerate}
 \end{theorem}
@@ -58,9 +58,9 @@
         \[a_{N+1}\leq a_N\cdot q,\ \ a_{N+2}\leq a_{N+1}\cdot q\leq a_N\cdot q^2,\ \ \dots\]
         таким образом, $\forall k\in \N$:
         \[a_{N+k}\leq a_N\cdot q^k\]
-        сложив неравенства, получим
-        \[\sum\limits_{k=0}^{\infty}a_{N+k}\leq a_N\cdot \sum\limits_{k=0}^{\infty}q^k\]
-        $q<1$,\ значит ряд $(*)$ сходится по признаку сравнения с геометрической прогрессией.
+        По признаку сравнения с геометрической прогрессией, ряд
+        \[\sum\limits_{k=0}^{\infty}a_{N+k}\]
+        сходится, значит ряд $(*)$ также сходится.
         \item $\exists\ \{n_k\}_{k=1}^{\infty}: \frac{a_{n_k + 1}}{a_{n_k}}\geq 1 \Rightarrow a_n\not\to 0 \Rightarrow$ ряд ($*$) расходится.
     \end{enumerate}
 \end{proof}
@@ -215,17 +215,17 @@
         Возьмем $c_n=n$:
         \[n\cdot \frac{a_n}{a_{n+1}}-(n+1)\geq \alpha\]
         Значит если
-        \[n\cdot (\frac{a_n}{a_{n+1}}-1)\geq 1+\alpha\]
+        \[n\cdot \left(\frac{a_n}{a_{n+1}}-1\right)\geq 1+\alpha\]
         то ряд ($*$) сходится. Теперь
         \[n\cdot \frac{a_n}{a_{n+1}}-n-1\leq 0\]
         Значит если
-        \[n\cdot (\frac{a_n}{a_{n+1}}-1)\leq 1\]
+        \[n\cdot \left(\frac{a_n}{a_{n+1}}-1\right)\leq 1\]
         то ряд ($*$) расходится.
         Запишем в предельной форме:\\
         Если
-        \[\exists\ \lim\limits_{n\to\infty}n\cdot(\frac{a_n}{a_{n+1}}-1)=q>1\]
+        \[\exists\ \lim\limits_{n\to\infty}n\cdot\left(\frac{a_n}{a_{n+1}}-1\right)=q>1\]
         то ряд ($*$) сходится. Если
-        \[\exists\ \lim\limits_{n\to\infty}n\cdot(\frac{a_n}{a_{n+1}}-1)=q<1\]
+        \[\exists\ \lim\limits_{n\to\infty}n\cdot\left(\frac{a_n}{a_{n+1}}-1\right)=q<1\]
         то ряд ($*$) расходится.
         \item (Признак Бертрана, без доказательства, знать формулировку)\\
         Возьмем $c_n=n\cdot \ln(n)$
