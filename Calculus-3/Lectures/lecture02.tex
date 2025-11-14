@@ -230,23 +230,23 @@
         \item (Признак Бертрана, без доказательства, знать формулировку)\\
         Возьмем $c_n=n\cdot \ln(n)$
         Если
-        \[\left(\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}\right)-1\right)-1\right)\geq 1+\alpha\]
+        \[\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right)\geq 1+\alpha\]
         то ряд $(*)$ сходится. Если
-        \[\left(\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}\right)-1\right)-1\right)\leq 1\]
+        \[\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right)\leq 1\]
         то ряд $(*)$ расходится. Запишем в предельной форме:\\
         Если 
-        \[\exists\ \lim\limits_{n\to\infty}\left(\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}\right)-1\right)-1\right)=q>1\]
+        \[\exists\ \lim\limits_{n\to\infty}\left(\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right)\right)=q>1\]
         то ряд ($*$) сходится. Если
-        \[\exists\ \lim\limits_{n\to\infty}\left(\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}\right)-1\right)-1\right)=q<1\]
+        \[\exists\ \lim\limits_{n\to\infty}\left(\ln{n}\cdot\left(n\left(\frac{a_n}{a_{n+1}}-1\right)-1\right)\right)=q<1\]
         то ряд ($*$) расходится.
         \item (Признак Гаусса, без доказательства, знать формулировку)\\
         Выводится из признака Бертрана.\\
         \[\frac{a_n}{a_{n+1}}=\lambda+\frac{\mu}{n}+\frac{\theta_n}{n^{1+\epsilon}}\]
         где $\theta_n$ - ограниченная последовательность, $\epsilon>0$ - произвольное. Тогда при
         \begin{enumerate}
-            \item $\lambda>1 \Rightarrow (*)$ сходится, $\lambda<1 \Rightarrow (*)$ - расходится.
-            \item $\lambda=1: \mu>1 \Rightarrow (*)$ сходится, $\mu<1 \Rightarrow (*)$ расходится.
-            \item $\lambda=1,\ \mu=1 \Rightarrow (*)$ расходится.  
+            \item $\lambda>1 \Rightarrow (*)$ - сходится, $\lambda<1 \Rightarrow (*)$ - расходится.
+            \item $\lambda=1: \mu>1 \Rightarrow (*)$ - сходится, $\mu<1 \Rightarrow (*)$ - расходится.
+            \item $\lambda=1,\ \mu=1 \Rightarrow (*)$ - расходится.  
         \end{enumerate}
     \end{enumerate}
 \end{examples}

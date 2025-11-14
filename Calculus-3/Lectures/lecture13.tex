@@ -1,0 +1,95 @@
+\newpage
+\section{Эйлеровы интегралы}
+\subsection{Гамма-функция Эйлера}
+Рассмотрим последовательность
+\[\Gamma_n(x)=\cfrac{(n-1)!\ n^x}{\prod\limits_{k=0}^{n-1}(x+k)}\ \ \  x\neq 0, -1, -2,\dots\]
+Преобразуем это выражение:
+\begin{multline*}
+    \prod\limits_{k=0}^{n-1}(x+k)=\frac{1}{\prod\limits_{k=1}^{n-1}k\cdot x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})}=\\
+    =\frac{1}{(n-1)!\cdot x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})}
+\end{multline*}
+\[n^x=\frac{n^x}{(n-1)^x}\cdot \frac{(n-1)^x}{(n-2)^x}\cdot \dots\cdot \frac{2^x}{1^x}=\prod\limits_{k=1}^{n-1}\left(1+\frac{1}{k}\right)^x\]
+таким образом
+\begin{multline*}
+    \Gamma_n(x)=\frac{1}{x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})}\cdot \frac{n^x}{(n-1)^x}\cdot \frac{(n-1)^x}{(n-2)^x}\cdot \dots \cdot \frac{2^x}{1^x}=\\
+    =\frac{1}{x}\cdot \prod\limits_{k=1}^{n-1}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x
+\end{multline*}
+Поскольку $(1+\frac{x}{k})^{-1}(1+\frac{1}{k})^x=O(\frac{1}{k^2})$, то существует предел
+\[\lim\limits_{n\to\infty}\Gamma_n(x)=\frac{1}{x}\cdot \prod\limits_{k=1}^{\infty}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x\]
+Этот предел обозначают $\Gamma(x)$.
+\begin{definition}
+    $\Gamma(x)$ называется гамма-функцией Эйлера.
+\end{definition}
+\begin{theorem} (Основное функциональное соотношение)\\
+    $\forall x\in D(\Gamma)$:
+    \[\Gamma(x+1)=x\cdot \Gamma(x)\]
+\end{theorem}
+\begin{proof}
+    \[\lim\limits_{n\to\infty}\frac{\Gamma_n(x+1)}{\Gamma_n(x)}=\lim\limits_{n\to\infty}\ \cfrac{(n-1)!\ n^{x+1}\cdot \prod\limits_{k=0}^{n-1}(x+k)}{\prod\limits_{k=0}^{n-1}(x+k+1) (n-1)!\ n^x}=\lim\limits_{n\to\infty}\frac{nx}{x+n}=x\]
+\end{proof}
+\begin{theorem}
+    $\forall x>0$:
+    \[\Gamma(x)=\int\limits_{0}^{+\infty}t^{x-1}e^{-t}\ dt\]
+\end{theorem}
+\begin{proof}
+    \begin{multline*}
+        \int\limits_{0}^{1}(1-t)^n\ dt=\frac{1}{x}\cdot \int\limits_{0}^{1}(1-t)^n\ dt^x=\frac{n}{x}\int\limits_{0}^{1}t^x(1-t)^{n-1}\ dt=\dots=\\
+        =\frac{n!}{x(x+1)\dots(x+n-1)}\cdot \int\limits_{0}^{1}t^{x+n-1}\ dt=\frac{n!}{\prod\limits_{k=0}^{n}(x+k)}=\\=\frac{n!\ (n+1)^x}{\prod\limits_{k=0}^{n}(x+k)}\cdot \frac{1}{(n+1)^x}=\frac{1}{(n+1)^x}\cdot \Gamma_{n+1}(x)
+    \end{multline*}
+    \[\Gamma_{n+1}(x)=(n+1)^x\cdot \int\limits_{0}^{1}t^{x-1}(1-t)^n\ dt=\left|t=\frac{\tau}{n}\right|=\frac{(n+1)^x}{\tau^x}\cdot \int\limits_{0}^{n}\tau^{x-1}\left(1-\frac{\tau}{n}\right)^n\ d\tau\]
+    Поскольку
+    \[\lim\limits_{n\to\infty}\frac{(n+1)^x}{n^x}=1\]
+    то существует предел
+    \[\lim\limits_{n\to\infty}\ \int\limits_{0}^{n}\tau^{x-1}\left(1-\frac{\tau}{n}\right)^n\ d\tau=\Gamma(x)\]
+    и существует предел
+    \[\lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1} e^{-t}\ dt=\int\limits_{0}^{+\infty}t^{x-1}e^{-t}\ dt\]
+    Таким образом, условия теоремы равносильны    
+    \[\exists\ \lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1}(e^t-(1-\frac{t}{n})^n)\ dt=0\]
+    \[e^{\alpha}\geq 1-\alpha \ \Rightarrow\ e^{-\frac{t}{n}}\geq 1-\frac{t}{n}\ \Rightarrow\ e^{-t}\geq \left(1-\frac{t}{n}\right)^n\]
+    отсюда
+    \[0\leq \int\limits_{0}^{n}t^{x-1}\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right)\ dt\]
+    \[e^{\alpha}\geq 1+\alpha \ \Rightarrow\ e^{\frac{t}{n}}\geq 1+\frac{t}{n}\ \Rightarrow\ e^t\geq \left(1+\frac{t}{n}\right)^n\]
+    \begin{multline*}
+        \int\limits_{0}^{n}t^{x-1}\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right)\ dt=\int\limits_{0}^{n}t^{x-1}e^{-t}(1-e^t\left(1-\frac{t}{n}\right)^n)\ dt\leq\\
+        \leq \int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t}{n}\right)^n\left(1+\frac{t}{n}\right)^n\right)\ dt=\int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t^2}{n^2}\right)^n\right)\ dt\overset{(1)}{\leq}\\
+        \overset{(1)}{\leq}\int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t^2}{n}\right)\right)\ dt=\frac{1}{n}\int\limits_{0}^{n}t^{x+1}e^{-t}\ dt\leq \frac{C}{n}\to 0
+    \end{multline*}
+    (1): По неравентсву Бернулли
+\end{proof}
+\begin{statement}
+    \[\Gamma(n+1)=n!\]
+\end{statement}
+\begin{proof}
+    Индукция по $n$. База $n=0$:
+    \[\Gamma(1)=\int\limits_{0}^{+\infty}t^{1-1}e^{-t}\ dt=\int\limits_{0}^{+\infty}e^{-t}\ dt=1\]
+    Таким образом
+    \[\Gamma(0+1)=\Gamma(1)=1=0!\]
+    Шаг: Пусть верно для $n$, то есть
+    \[\Gamma(n)=(n-1)!\]
+    По основному функциональному соотношению:
+    \[\Gamma(n+1)=(n+1)\cdot \Gamma(n)=(n+1)\cdot n!=(n+1)!\]
+\end{proof}
+% тут есть какое-то замечание про распространение на отр часть но я хз
+\begin{theorem} (Формула дополнения для гамма-функции Эйлера)\\
+    $\forall x\not\in \Z$:
+    \[\Gamma(x)\cdot \Gamma(1-x)=\frac{\pi}{\sin{(\pi x)}}\]
+\end{theorem}
+\begin{proof}
+    Заметим, что
+    \[\Gamma(1-x)=-x\cdot \Gamma(-x)\]
+    отсюда
+    \begin{multline*}
+        \Gamma(x)\cdot \Gamma(1-x)=\Gamma(x)(-x)\Gamma(-x)=\\
+        =\frac{1}{x}\cdot \prod\limits_{k=1}^{\infty}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x\cdot (-x)\cdot \prod\limits_{k=0}^{\infty}\left(1-\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^{-x}=\\
+        =\frac{\pi}{\pi x}\prod\limits_{k=1}^{\infty}\left(1-\frac{x^2}{k^2}\right)^{-1}\cdot 1\overset{(1)}{=}\frac{\pi}{\sin{(\pi x)}}
+    \end{multline*}
+    (1): по формуле разложения синуса в бесконечное произведение:
+    \[\sin{(\pi x)}=\pi x\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{x^2}{k^2}\right)\] 
+\end{proof}
+% тут какое-то странное следствие
+\begin{example} (Интеграл Эйлера-Пуассона)\\
+    Заметим, что
+    \[\Gamma\left(\frac{1}{2}\right)\cdot \Gamma\left(\frac{1}{2}\right)=\frac{\pi}{\sin{\frac{\pi}{2}}}=\pi\]
+    Таким образом, можем посчитать интеграл
+    \[\int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx=2 \int\limits_{0}^{+\infty}e^{-t}\cdot t^{-\frac{1}{2}}\ dt=\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}\]
+\end{example}

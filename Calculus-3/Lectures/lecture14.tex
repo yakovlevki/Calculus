@@ -1,0 +1,37 @@
+\subsection{Формула Стирлинга}
+\begin{theorem} (Формула Стирлинга)\\
+    Для $|\alpha_n|\leq 2$:
+    \[n!=\sqrt{2\pi n}\cdot n^n e^{-n}\left(1+\frac{\alpha_n}{\sqrt{n}}\right)\]
+\end{theorem}
+\begin{proof}
+    \[n!=\Gamma(n+1)=\int\limits_{0}^{+\infty}t^n e^t\ dt\]
+    Исследуем подинтегральную функцию на максимум:
+    \[(t^n e^{-t})'=n\cdot t^{n-1} e^{-t}-t^n e^{-t}=0 \ \Rightarrow\ t_{\text{max}}=n\ \Rightarrow\ \max{(t^n e^{-t})}=n^n e^{-n}\]
+    отсюда
+    \[n!=n^n e^{-n}\cdot \int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt\]
+    \[\int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt=\int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt\]
+    Сделаем замену $-x^2=n\ln{\frac{t}{n}}+n-t=n\ln{\left(1+\frac{t-n}{n}\right)}+n-t$\\
+    По формуле Тейлора с остаточным членов в форме Лагранжа:
+    \[\ln{(1+\tau)}=\tau-\frac{\tau^2}{2}\cdot \frac{1}{(1+\theta\tau)^2},\ |\theta|<1\]
+    \begin{multline*}
+        n\ln{\left(1+\frac{t-n}{n}\right)}+n-t=\\
+        =n\left(\frac{t-n}{n}-\frac{(t-n)^2}{2n^2}\cdot \frac{1}{\left(1+\theta_n\cdot \frac{t-n}{n}\right)^2}\right)+n-t=\\
+        =-\frac{(t-n)^2}{2n}\cdot \frac{1}{\left(1+\theta_n\cdot \frac{t-n}{n}\right)^2}
+    \end{multline*}
+    отсюда, после раскрытия модуля
+    \[x=\frac{t-n}{\sqrt{2n}}\cdot \frac{1}{1+\theta_n\cdot \frac{t-n}{n}}=\frac{(t-n)\sqrt{\frac{n}{2}}}{n+\theta_n(t-n)}\]
+    \[nx+\theta_n(t-n)x=\sqrt{\frac{n}{2}}\cdot (t-n)\]
+    \[nx=(t-n)\left(\sqrt{\frac{n}{2}}-\theta_n x\right)\ \Rightarrow\ t-n=\frac{nx}{\sqrt{\frac{n}{2}}-\theta_n x}\ \Rightarrow\ t=\frac{nx+n\left(\sqrt{\frac{n}{2}}-\theta_n x\right)}{\sqrt{\frac{n}{2}}-\theta_n x}\]
+    отсюда
+    \begin{multline*}
+        dt=2x\cdot \frac{nx+n(\sqrt{\frac{n}{2}}-\theta_n x)}{\sqrt{\frac{n}{2}}-\theta_n x}\cdot \frac{\sqrt{\frac{n}{2}}-\theta_n x}{nx}\ dx=\\
+        =2(x+\sqrt{\frac{n}{2}}-\theta_n x)\ dx=(\sqrt{2n}+2(1-\theta_n)x)\ dx
+    \end{multline*}
+    после всех преобразований, получим
+    \begin{multline*}
+        \int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt=\int\limits_{-\infty}^{+\infty}e^{-x^2}\cdot(\sqrt{2n}+2(1+\theta_n)x)\ dx=\\
+        =\sqrt{2\pi n}+\int\limits_{-\infty}^{+\infty}(1-\theta_n)e^{-x^2}\ dx^2=\sqrt{2\pi n}+\beta_n,\ |\beta|\leq 4
+    \end{multline*}
+    итого
+    \[n!=n^n e^n(\sqrt{2\pi n}+\beta_n)=\sqrt{2\pi n}\cdot n^n e^{-n}\left(1+\frac{\alpha_n}{\sqrt{n}}\right)\]
+\end{proof}
