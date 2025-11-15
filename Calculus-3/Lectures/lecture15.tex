@@ -1,0 +1,86 @@
+\subsection{Бета-функция Эйлера}
+\begin{definition}
+    \[(\alpha, \beta)=\int\limits_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}\ dx,\ \alpha,\ \beta>0\]
+\end{definition}
+\begin{statement}
+    $B(\alpha, \beta)=B(\beta, \alpha)$
+\end{statement}
+\begin{proof}
+    \[B(\alpha, \beta)=\int\limits_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}\ dx=\left|t=1-x\right|=\int\limits_{0}^{1}t^{\beta-1}(1-t)^{\alpha-1}\ dt=B(\beta, \alpha)\]
+\end{proof}
+\begin{statement}
+    \[B(\alpha+1, \beta)=\frac{\alpha}{\alpha+\beta}\cdot B(\alpha, \beta)\]
+\end{statement} 
+\begin{proof}
+    \begin{multline*}
+        B(\alpha+1, \beta)=\int\limits_{0}^{1}x^{\alpha}(1-x)^{\beta-1}\ dx=-\frac{1}{\beta}\int\limits_{0}^{1}x^{\alpha}\ d((1-x)^{\beta})=\\
+        =\frac{\alpha}{\beta}\int\limits_{0}^{1}c^{\alpha-1}(1-x)^{\beta}\ dx=\frac{\alpha}{\beta}\int\limits_{0}^{1}x^{\alpha-1}(1-x)(1-x)^{\beta-1}\ dx=\\
+        =\frac{\alpha}{\beta}B(\alpha, \beta)-\frac{\alpha}{\beta}B(\alpha+1, \beta)
+    \end{multline*}
+    % дальше произошел очев, нужно дописать
+\end{proof}
+\begin{statement} % поговаривают что очевидна какая-то симметричность 
+    \[B(\alpha, \beta)=\int\limits_{0}^{+\infty}\frac{x^{\alpha-1}}{(1+x)^{\alpha+\beta}}\ dx\]
+\end{statement}
+\begin{proof}
+    \[\int\limits_{0}^{1}t^{\beta-1}(1-t)^{\alpha-1}\ dt=\left|t=\frac{1}{1+x}\right|=\int\limits_{0}^{+\infty}\frac{x^{\alpha-1}}{(1+x)^{\beta-1}(1+x)^{\alpha-1}(1+x)^2}\ dx\]
+\end{proof}
+\begin{theorem} (Связь между гамма и бета функциями)\\
+    \[B(\alpha,\ \beta)=\frac{\Gamma(\alpha)\cdot \Gamma(\beta)}{\Gamma(\alpha+\beta)},\ \alpha,\beta>0\]
+\end{theorem}
+\begin{proof} Сначала рассмотрим $\alpha,\ \beta>1$
+    \begin{multline*}
+        \Gamma(\alpha+\beta)\cdot B(\alpha, \beta)=\int\limits_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}\cdot \Gamma(\alpha+\beta) dx=\\
+        =\int\limits_{0}^{+\infty}\frac{x^{\alpha-1}}{(1+x)^{\alpha+\beta}}\cdot \left(\int\limits_{0}^{+\infty}t^{\alpha+\beta-1}e^{-t}\ dt\right) dx=\left|t=(1+x)y\right|=\\
+        =\int\limits_{0}^{+\infty}\frac{x^{\alpha-1}}{(1+x)^{\alpha+\beta}}\cdot \left(\int\limits_{0}^{+\infty}(1+x)^{\alpha+\beta}\cdot y^{\alpha+\beta-1}\cdot e^{-y-yx}\ dy\right)dx=\\
+        =\int\limits_{0}^{+\infty}\left(\int\limits_{0}^{+\infty}x^{\alpha-1}\cdot y^{\alpha+\beta-1}\cdot e^{-y}\cdot e^{-yx}\ dy\right)dx=\\
+        =\int\limits_{0}^{+\infty}y^{\alpha+\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}x^{\alpha-1}\cdot e^{-yx}\ dx\right)dy=\\
+        =\int\limits_{0}^{+\infty}y^{\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}(xy)^{\alpha-1}\cdot e^{-yx}\ d(yx)\right)dy=\\=\Gamma(\alpha)\cdot \Gamma(\beta)
+    \end{multline*}% тут из дифференциала x появился и по теореме для интегр с парам
+    Далее, используя реккурентную формулу, распространяем на случай\\
+    $\alpha, \beta>0$.
+\end{proof}
+\begin{comm}
+    Интегралы вида
+    \[\int\limits_{0}^{\frac{\pi}{2}}\sin^{\theta}x\cdot \cos^{\kappa}x\ dx\]
+    сводятся к бета-функции.
+\end{comm}
+\newpage
+\section{Ряды Фурье}
+\begin{definition}Выражения вида
+    \[\frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
+    называются тригонометрическими полиномами.
+\end{definition}
+\begin{definition} Система функций 
+    \[\{1,\ \{\cos{(nx)}\}_{n=1}^{\infty},\ \{\sin{(nx)}\}_{n=1}^{\infty}\}\]
+    называется тригонометрической системой.
+\end{definition}
+\begin{definition} Ряд вида
+    \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
+    называются тригонометрическими рядами.
+\end{definition}
+\begin{statement} (Свойства тригонометрической системы)\\
+    \[\int\limits_{0}^{\pi}1\ dx=\pi\]
+    \[dx=\pi,\ \forall n\geq 1\ \int\limits_{0}^{\pi}\sin^2{(nx)}\ dx=\int\limits_{0}^{\pi}\cos^2{(nx)}\ dx=\frac{\pi}{2}\]
+    \[\forall m,n\geq 1,\ m\neq n\ \int\limits_{0}^{\pi}\sin{(nx)}\cdot \sin{(mx)}\ dx=\int\limits_{0}^{\pi}\cos{(nx)}\cdot \cos{(mx)}\ dx=0\]
+    \[\forall n\geq 0,m\geq 1\ \int\limits_{0}^{\pi}\cos{(nx)}\cdot \sin{(mx)}\ dx=0\]
+\end{statement}
+\begin{proof}
+    Очев.
+\end{proof}
+\begin{consequense}
+    Тригонометрическая система ортогональна относительно канонического скалярного произведения для функций (интеграл).
+\end{consequense}
+\begin{theorem}
+    Пусть 
+    \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\overset{[-\pi,\pi]}{\rightrightarrows} f(x)\]
+    Тогда
+    \[a_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos{(nx)}\ dx,\ \ \ \ b_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin{(nx)}\ dx\]
+\end{theorem}
+\begin{proof}
+    $\forall k$
+    \[\frac{a_0}{2}\sin{(kx)}+\sum\limits_{n=1}^{\infty}(a_n\cdot \sin{(kx)}\cos{(nx)}+b_n\cdot \sin{kx}\sin{nx})\overset{[-\pi,\pi]}{\rightrightarrows} f(x)\sin{(kx)}\]
+    По теореме о почленном интегрировании:
+    \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin{kx}\ dx=\frac{1}{\pi}b_k\cdot \int\limits_{-\pi}^{\pi}\sin^2{(kx)}\ dx\]
+    Аналогично $a_k$.
+\end{proof}

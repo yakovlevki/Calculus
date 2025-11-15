@@ -5,8 +5,8 @@
 \[\Gamma_n(x)=\cfrac{(n-1)!\ n^x}{\prod\limits_{k=0}^{n-1}(x+k)}\ \ \  x\neq 0, -1, -2,\dots\]
 Преобразуем это выражение:
 \begin{multline*}
-    \prod\limits_{k=0}^{n-1}(x+k)=\frac{1}{\prod\limits_{k=1}^{n-1}k\cdot x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})}=\\
-    =\frac{1}{(n-1)!\cdot x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})}
+    \prod\limits_{k=0}^{n-1}(x+k)=\prod\limits_{k=1}^{n-1}k\cdot x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})=\\
+    =(n-1)!\cdot x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})
 \end{multline*}
 \[n^x=\frac{n^x}{(n-1)^x}\cdot \frac{(n-1)^x}{(n-2)^x}\cdot \dots\cdot \frac{2^x}{1^x}=\prod\limits_{k=1}^{n-1}\left(1+\frac{1}{k}\right)^x\]
 таким образом
