@@ -1,0 +1,55 @@
+\begin{comm}Из неравенства
+    \[|f(x)|\leq \frac{1+f^2(x)}{2}\]
+    следует, что если сущесвует интерал от квадрата, то существует и от модуля.
+\end{comm}
+\begin{theorem} (Принцип локализации Римана)\\
+    Пусть существует интегралы
+    \[\int\limits_{-\pi}^{\pi}f(x)\ dx,\ \ \int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
+    Тогда существование предела
+    \[\lim\limits_{N\to\infty}\left(\frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx_0)}+b_n\cdot \sin{(nx_0)})\right)=A\]
+    равносильно тому, что $\forall \delta>0$ сущесвтует 
+    \[\lim\limits_{N\to\infty}\frac{1}{\pi}\int\limits_{0}^{\delta}(f(x_0+t)+f(x_0-t))D_N(t)\ dt=A\]
+\end{theorem}
+\begin{proof}
+    \[F_N(x_0)=\frac{1}{\pi}\cdot \int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t)D_N(t))\ dt\]
+    значит формулировка теоремы равносильна утверждению, что $\forall \delta>0$
+    \[\lim\limits_{N\to\infty}\int\limits_{\delta}^{\pi}(f(x_0+t)+f(x_0-t))D_N(t)\ dt=0\]
+    \begin{multline*}
+        \lim\limits_{N\to\infty}\frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}\cdot\frac{f(x_0+t)+f(x_0-t)}{2}\cdot \cos{(Nt)}\ dt+\\
+        +\frac{1}{\pi}\cdot \frac{f(x_0+t)+f(x_0-t)}{2}\cdot \cot{\frac{t}{2}}\sin{(Nt)}\ dt
+    \end{multline*}
+    Пусть
+    \[h(t)=\begin{cases}
+        \frac{f(x_0+t)+f(x_0-t)}{2},\ t\in [\delta, \pi]\\
+        0,\ t\in [-\pi, \delta]
+    \end{cases}\]
+    тогда $I_1=a_N(h)\to 0,\ N\to \infty$. Теперь пусть
+    \[g(t)=\begin{cases}
+        \frac{f(x_0+t)+f(x_0-t)}{2}\cdot \cot{\frac{t}{2}},\ t\in [\delta, \pi]\\
+        0,\ t\in [-\pi,\delta)
+    \end{cases}\]
+    тогда $I_2=b_N(g)\to 0,\ N\to \infty$.
+\end{proof}
+\begin{theorem} (Признак сходимости Дини ряда Фурье)\\
+    Пусть $f(x)$ - $2\pi$ периодическая, существуют интегралы 
+    \[\int\limits_{-\pi}^{\pi}f(x)\ dx,\ \ \int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
+    для $x_0\in [-\pi,\pi]$ существуют пределы
+    \[\lim\limits_{x\to x_0-0}f(x)=f_-(x_0),\ \ \lim\limits_{x\to x_0+0}f(x)=f_+(x_0)\]
+    Если $\forall \delta>0$ таких, что существует интеграл
+    \[\int\limits_{0}^{\delta}\frac{|f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0)|}{t}\ dt\]
+    то ряд Фурье функции $f(x)$ сходится в точке $x_0$ и равен $\frac{f_+(x_0)+f_-(x_0)}{2}$
+\end{theorem}
+\begin{proof}
+    \begin{multline*}
+        \frac{1}{\pi}\int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t))D_N(t)\ dt-\frac{f_+(x_0)+f_-(x_0)}{2}\cdot \frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}D_N(t)\ dt=\\
+        =\frac{1}{\pi}\cdot \int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))D_N(t)\ dt=\\
+        =\frac{1}{\pi}\cdot \int\limits_{0}^{\delta}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))\cdot \frac{\sin{((n+\frac{1}{2})t)}}{2\sin{\frac{t}{2}}}\ dt+\\
+        \frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))\cdot \frac{\sin{((n+\frac{1}{2})t)}}{2\sin{\frac{t}{2}}}\ dt+
+    \end{multline*}
+    \[|I_1|\leq \frac{1}{\pi}\cdot \int\limits_{0}^{\delta}\frac{|f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0)|}{2\sin{\frac{t}{2}}}\ dt< \epsilon\]
+    $|I_2|<\epsilon$ при большом $N$ очевидно (как в принципе локализации Римана).
+\end{proof}
+\begin{consequense}
+    Если $f(x)$ в точке $x_0$ односторонне Гёльдерова, то теорема выполнена. Где Гёльдерова функция - это функция, для которой
+    \[|f(x)-f(y)|\leq C\cdot |x-y|^{\alpha}\]
+\end{consequense}

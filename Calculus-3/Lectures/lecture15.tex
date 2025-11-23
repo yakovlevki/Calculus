@@ -1,6 +1,6 @@
 \subsection{Бета-функция Эйлера}
 \begin{definition}
-    \[(\alpha, \beta)=\int\limits_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}\ dx,\ \alpha,\ \beta>0\]
+    \[B(\alpha, \beta)=\int\limits_{0}^{1}x^{\alpha-1}(1-x)^{\beta-1}\ dx,\ \alpha,\ \beta>0\]
 \end{definition}
 \begin{statement}
     $B(\alpha, \beta)=B(\beta, \alpha)$
@@ -14,7 +14,7 @@
 \begin{proof}
     \begin{multline*}
         B(\alpha+1, \beta)=\int\limits_{0}^{1}x^{\alpha}(1-x)^{\beta-1}\ dx=-\frac{1}{\beta}\int\limits_{0}^{1}x^{\alpha}\ d((1-x)^{\beta})=\\
-        =\frac{\alpha}{\beta}\int\limits_{0}^{1}c^{\alpha-1}(1-x)^{\beta}\ dx=\frac{\alpha}{\beta}\int\limits_{0}^{1}x^{\alpha-1}(1-x)(1-x)^{\beta-1}\ dx=\\
+        =\frac{\alpha}{\beta}\int\limits_{0}^{1}x^{\alpha-1}(1-x)^{\beta}\ dx=\frac{\alpha}{\beta}\int\limits_{0}^{1}x^{\alpha-1}(1-x)(1-x)^{\beta-1}\ dx=\\
         =\frac{\alpha}{\beta}B(\alpha, \beta)-\frac{\alpha}{\beta}B(\alpha+1, \beta)
     \end{multline*}
     % дальше произошел очев, нужно дописать
@@ -37,7 +37,7 @@
         =\int\limits_{0}^{+\infty}y^{\alpha+\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}x^{\alpha-1}\cdot e^{-yx}\ dx\right)dy=\\
         =\int\limits_{0}^{+\infty}y^{\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}(xy)^{\alpha-1}\cdot e^{-yx}\ d(yx)\right)dy=\\=\Gamma(\alpha)\cdot \Gamma(\beta)
     \end{multline*}% тут из дифференциала x появился и по теореме для интегр с парам
-    Далее, используя реккурентную формулу, распространяем на случай\\
+    Далее, используя рекуррентную формулу, распространяем на случай\\
     $\alpha, \beta>0$.
 \end{proof}
 \begin{comm}
@@ -55,13 +55,13 @@
     \[\{1,\ \{\cos{(nx)}\}_{n=1}^{\infty},\ \{\sin{(nx)}\}_{n=1}^{\infty}\}\]
     называется тригонометрической системой.
 \end{definition}
-\begin{definition} Ряд вида
+\begin{definition} Ряды вида
     \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
     называются тригонометрическими рядами.
 \end{definition}
 \begin{statement} (Свойства тригонометрической системы)\\
     \[\int\limits_{0}^{\pi}1\ dx=\pi\]
-    \[dx=\pi,\ \forall n\geq 1\ \int\limits_{0}^{\pi}\sin^2{(nx)}\ dx=\int\limits_{0}^{\pi}\cos^2{(nx)}\ dx=\frac{\pi}{2}\]
+    \[\forall n\geq 1\ \int\limits_{0}^{\pi}\sin^2{(nx)}\ dx=\int\limits_{0}^{\pi}\cos^2{(nx)}\ dx=\frac{\pi}{2}\]
     \[\forall m,n\geq 1,\ m\neq n\ \int\limits_{0}^{\pi}\sin{(nx)}\cdot \sin{(mx)}\ dx=\int\limits_{0}^{\pi}\cos{(nx)}\cdot \cos{(mx)}\ dx=0\]
     \[\forall n\geq 0,m\geq 1\ \int\limits_{0}^{\pi}\cos{(nx)}\cdot \sin{(mx)}\ dx=0\]
 \end{statement}
