@@ -1,0 +1,74 @@
+\begin{theorem}
+    Пусть $f$ - $2\pi$ периодическая, $f\in \mathcal{C}(\R)$, везде кроме конечного числа точек (на периоде) $\exists\ f^{\prime}(x)$ и $f^{\prime}(x)\in \mathcal{R}[\pi, \pi]$.
+    Тогда
+    \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\rightrightarrows f(x)\]
+\end{theorem}
+\begin{proof}
+    Из условий теоремы существует интерал
+    \[\int\limits_{-\pi}^{\pi}(f'(x))^2\ dx,\ f'(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(\alpha_n\cdot \cos{(nx)}+\beta_n\cdot \sin{(nx)})\]
+    \[a_n=-\frac{\beta_n}{n},\ b_n=\frac{\alpha_n}{n}\]
+    и, поскольку
+    \[\frac{|\alpha_n|}{n}\leq \alpha_n^2+\frac{1}{n^2},\ \frac{|\beta_n|}{n}\leq \beta_n^2+\frac{1}{n^2}\]
+\end{proof}% по первой теореме из раздела сходится именно к f
+\begin{consequense}
+    Если $f'(x)\in \mathcal{C}(\R)$ и гёльдерова во всех точках, то ряд Фурье $f(x)$ можно почленно дифференцировать.
+\end{consequense}
+\begin{proof}
+    очев.
+\end{proof}
+\begin{comm} (Про почленное интегрирование)\\
+    Пусть
+    \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
+    \[\int\limits_{0}^{x}\left(f(x)-\frac{a_0}{2}\right) dx=\sum\limits_{n=1}^{\infty}\left(-\frac{b_n}{n}\cdot \cos{(nx)}+\frac{a_n}{n}\cdot \sin{(nx)}\right)+\sum\limits_{n=1}^{\infty}\frac{b_n}{n}\]
+    \[\frac{|\alpha_n|}{n}\leq \alpha_n^2+\frac{1}{n^2},\ \frac{|\beta_n|}{n}\leq \beta_n^2+\frac{1}{n^2}\]
+\end{comm}
+\begin{examples}\tab % говорил что обязательные для экзамена примеры
+    \begin{enumerate}
+        \item Возьмем $f(x)=\frac{\pi-x}{2}$ на $(0,\pi)$ и продолжим ее периодически нечетным образом.
+        \begin{multline*}
+            b_n=\frac{2}{\pi}\int\limits_{0}^{\pi}\frac{\pi-x}{2}\cdot \sin{(nx)}\ dx=\\
+            =\frac{2}{\pi n}\cdot \frac{\pi-x}{2}\cdot \cos{(nx)}|_0^{\pi}-\frac{1}{\pi n}\int\limits_{0}^{\pi}\cos{(nx)}\ dx=\\
+            =-\frac{2}{\pi n}\cdot \left(-\frac{\pi}{2}\right)=\frac{1}{n}
+        \end{multline*}
+        \[f(x)=\sum\limits_{n=1}^{\infty}\frac{\sin{(nx)}}{n}\]
+        \item Возьмем $f(x)=|x|$ на $[-\pi,\pi]$ и периодически продолжим.
+            \[a_0=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}|x|\ dx=\frac{2}{\pi}\cdot \frac{\pi^2}{2}=\pi\]
+            \begin{multline*}
+                a_n=\frac{2}{\pi}\int\limits_{0}^{\pi}x\cdot \cos{(nx)}\ dx=\-frac{2}{\pi n}\int\limits_{0}^{\pi}\sin{(nx)}\ dx=\\=
+                \frac{2}{\pi n^2}\cdot \cos{(nx)}|_0^{\pi}=\frac{2}{\pi n^2}((-1)^n-1)=\begin{cases}
+                    0, n=2k\\
+                    -\frac{4}{\pi(2k+1)^2},\ n=2k+1
+                \end{cases}
+            \end{multline*}
+            \[f(x)=\frac{\pi}{2}-\frac{4}{\pi}\cdot \sum\limits_{k=0}^{\infty}\frac{\cos{((2k+1)x)}}{(2k+1)^2}\]
+            Отюда, поскольку ряд сходится равномерно от непрерывной функции к непрерывной функции, то можно подставить 0 и получить
+            \[\sum\limits_{k=0}^{\infty}\frac{1}{(2k+1)^2}=\frac{\pi^2}{8}\]
+            отсюда можно получить
+            \[\sum\limits_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}\]
+    \end{enumerate}
+\end{examples}
+\begin{definition}
+    Пусть 
+    \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
+    значит существуют $D_n(f)$
+    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_N(x)\]
+    называются суммами Фейера. %это типо средние арифметические частичных сумм ряда фурье
+    \[\Psi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}D_n(x)\]
+    называются ядрами Фейера. %это типо средние арифмет сумм фейера
+\end{definition}
+\begin{lemma} (Свойства ядер Фейера)
+    \begin{enumerate}
+        \item $\psi_N(x)$ - $2\pi$ периодическая, непрерывная, четная.
+        \item 
+        \[\Psi_N(x)=\frac{\sin^2{(\frac{N+1}{2}\cdot x)}}{2(N+1)\cdot \sin^2\frac{x}{2}}\]
+        \item
+        \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}\Psi(x)\ dx=1\]
+        \item $\forall \delta>0: $
+        \[\int\limits_{\delta}^{\pi}\Psi_N(x)\ dx\to 0\]
+        при $N\to \infty$.
+        \item $\Psi_N(x)\geq 0$
+    \end{enumerate}
+\end{lemma}
+\begin{proof} Докажем 4.
+    \[0\leq \int\limits_{\delta}^{\pi}\frac{\sin^2(\frac{N+1}{2}\cdot x)}{2(N+1)\cdot \sin^2{\frac{x}{2}}}\ dx\leq \frac{1}{2(N+1)}\cdot \int\limits_{\delta}^{\pi}\frac{dx}{\sin^2{\frac{x}{2}}}\leq \frac{C}{2(N+1)}\]
+\end{proof}
