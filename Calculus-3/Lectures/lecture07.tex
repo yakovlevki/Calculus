@@ -51,10 +51,18 @@
     \[\frac{1}{N}\sum_{n=1}^{N}a_n \rightarrow A\]
 \end{lemma}
 \begin{proof}
-    \begin{multline*}
-        \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}a_n - AN\right|\leq \\
-        \leq \frac{1}{N}\left|\sum\limits_{n=1}^{N_1}a_n - AN_1\right|+\frac{1}{N}\sum\limits_{n=N_1+1}^{N}|a_n - A| < \epsilon\cdot \frac{N-N_1}{N} + \epsilon < 2\epsilon
-    \end{multline*}
+    % \begin{multline*}
+    %     \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}a_n - AN\right|\leq \\
+    %     \leq \frac{1}{N}\left|\sum\limits_{n=1}^{N_1}a_n - AN_1\right|+\frac{1}{N}\sum\limits_{n=N_1+1}^{N}|a_n - A| < \epsilon\cdot \frac{N-N_1}{N} + \epsilon < 2\epsilon
+    % \end{multline*}
+    Оценим разность:
+    \[\left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}a_n - AN\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}(a_n - A)\right|\]
+    Фиксируем некоторое число $N_1 < N$ и разобьём сумму на две части:
+    \[\frac{1}{N}\sum\limits_{n=1}^{N}|a_n - A| = \frac{1}{N}\sum\limits_{n=1}^{N_1}|a_n - A| + \frac{1}{N}\sum\limits_{n=N_1 + 1}^{N}|a_n - A|\]
+    Так как $a_n \to A$, $ \forall \epsilon > 0 \ \exists N_1 : \ |a_n - A| < \epsilon$, тогда: 
+    \[\frac{1}{N}\sum\limits_{n=N_1 + 1}^{N}|a_n - A| < \frac{1}{N} \cdot \epsilon \cdot (N - N_1) = \epsilon \cdot \frac{N - N_1}{N}\]
+    Итог: 
+    \[\left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| \leq \frac{C}{N} + \epsilon < 2 \epsilon\]\
 \end{proof}
 \begin{theorem}(Теорема Таубера)\\
     Пусть степенной ряд
@@ -71,9 +79,9 @@
     и введём функцию
     \[\phi(x) = \sum_{n=0}^{N_x}a_n - \sum_{n=0}^{\infty}a_n x^n\]
     Если $\phi(x) \rightarrow 0$ при $x \rightarrow 1-0$, то теорема доказана.
-    \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) + \sum_{n=N+1}^{\infty}a_n x^n\]
+    \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) + \sum_{n=N_x+1}^{\infty}a_n x^n\]
     \begin{multline*}
-        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+...x+x^{n-1})\right| \leq \\
+        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+x^2+...+x^{n-1})\right| \leq \\
         \leq \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leq \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0,\ x \rightarrow 1-0
     \end{multline*}
     \begin{multline*}

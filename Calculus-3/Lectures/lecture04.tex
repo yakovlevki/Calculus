@@ -70,11 +70,11 @@
         \item На $[0,1]$
         \[x^n \not\rightrightarrows \begin{cases}
             1,\ x=1,\\
-            0,\ x\in [0,1].
+            0,\ x\in [0,1).
         \end{cases} \]
         поскольку $\exists\ \epsilon_0>0,\ \forall N_{\epsilon}\ \exists\ n>N_{\epsilon},\ \exists\ x_{\epsilon_0}\in [0,1)$ такой, что $x_{\epsilon_0}^n>\epsilon_0$.
         \item на $[0,\frac{1}{2}]: x^n\rightrightarrows 0$.
-        \item $f_n(x)=x^n-x^{2n}$ на $[0,1]: f_n\rightrightarrows 0$.
+        \item $f_n(x)=x^n-x^{2n}$ на $[0,1]: f_n\not\rightrightarrows 0$.
         \[f'_n=n(x^{n-1}-2x^{2n-1})=n\cdot x^{n-1}(1-2x^n)=0 \Rightarrow x_n=\frac{1}{\sqrt[n]{2}},\ f_n(x_n)=\frac{1}{4}\]
         \item $f_n(x)=\sin{\frac{x}{n}} \not\rightrightarrows 0$ на $\R$, но $\forall a,b,\ \forall x\in [a,b]: \sin{\frac{x}{n}}\rightrightarrows 0$.
     \end{enumerate}

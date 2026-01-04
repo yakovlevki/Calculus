@@ -19,10 +19,10 @@
         \[\left|\ \int\limits_{a}^{x}f_n(t)\ dt-\int\limits_{a}^{x}f(t)\ dt\ \right|\leq \max\limits_{[a,b]}|f_n(t)-f(t)|\cdot |b-a|<\epsilon\cdot |b-a|\]
 \end{proof}
 \begin{theorem} (Почленное дифференцирование)\\
-    Пусть $\{f_n(x)\}_{n=1}^{\infty}$ такая, что $f_n(x)\in \mathcal{C}^1[a,b],\ \exists\ x_0\in [a,b]:
-    \vspace{7pt}\\
-    f_n(x_0)\to \alpha$. Пусть $f_n'(x)\overset{[a,b]}\rightrightarrows g(x)$. Тогда $f_n(x)\overset{[a,b]}\rightrightarrows f(x),\ f(x)\in \mathcal{C}^1[a,b]$ и\\
-    $f'(x)=g(x)$.
+    Пусть $\{f_n(x)\}_{n=1}^{\infty}$ такая, что $f_n(x)\in \mathcal{C}^1[a,b],\ \exists\ x_0\in [a,b]: f_n(x_0)\to \alpha$.\vspace{0.2cm}\\
+    Пусть $f_n'(x)\overset{[a,b]}\rightrightarrows g(x)$. Тогда: 
+    \[f_n(x)\overset{[a,b]}\rightrightarrows f(x),\ f(x)\in \mathcal{C}^1[a,b] \text{ и }
+    f'(x)=g(x)\]
 \end{theorem}
 \begin{proof} По предыдущей теореме и формуле Ньютона-Лейбница:
     \[\int\limits_{x_0}^{x}f_n'(t)\ dt\rightrightarrows \int\limits_{x_0}^{x}g(t)\ dt\ \Rightarrow\ f_n(x)-f_n(x_0) \rightrightarrows \int\limits_{x_0}^{x}g(t)\ dt\]
