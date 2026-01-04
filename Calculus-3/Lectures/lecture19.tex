@@ -2,7 +2,7 @@
     Если $f(x)\in \mathcal{C}(\R)$ и $2\pi$ периодическая, то $\Phi_N(x)\overset{\R}{\rightrightarrows} f(x)$
 \end{theorem}
 \begin{proof}
-    \[F_N(x)=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}D_N(t)\cdot t(t+x)\ dt\]
+    \[F_N(x)=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}D_N(t)\cdot f(t+x)\ dt\]
     отсюда
     \[\Phi_N(x)=\frac{1}{\pi} \int\limits_{-\pi}^{\pi}\Psi_N(t)f(t+x)\ dt\]
     \begin{multline*}
@@ -21,7 +21,7 @@
     \textit{(была доказана устно, тоже будет пояснено)}
 \end{proof}
 \begin{theorem} (Равенство Парсеваля)\\
-    \[\frac{a_0^2}{2}+\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2)=\frac{1}{\pi}\int\limits_{\pi}^{\pi}f^2(x)\ dx\]
+    \[\frac{a_0^2}{2}+\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2)=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
 \end{theorem}
 \begin{proof}
     \begin{multline*}
@@ -33,5 +33,5 @@
     отсюда
     \[\epsilon>\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx-\frac{a_0^2}{2}-\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2)\]
     значит
-    \[\frac{a_0^2}{2}+\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2)=\frac{1}{\pi}\int\limits_{\pi}^{\pi}f^2(x)\ dx\]
+    \[\frac{a_0^2}{2}+\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2)=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
 \end{proof}

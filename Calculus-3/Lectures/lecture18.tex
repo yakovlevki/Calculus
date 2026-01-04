@@ -1,5 +1,5 @@
 \begin{theorem}
-    Пусть $f$ - $2\pi$ периодическая, $f\in \mathcal{C}(\R)$, везде кроме конечного числа точек (на периоде) $\exists\ f^{\prime}(x)$ и $f^{\prime}(x)\in \mathcal{R}[\pi, \pi]$.
+    Пусть $f$ - $2\pi$ периодическая, $f\in \mathcal{C}(\R)$, везде кроме конечного числа точек (на периоде) $\exists\ f^{\prime}(x)$ и $f^{\prime}(x)\in \mathcal{R}[-\pi, \pi]$.
     Тогда
     \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\rightrightarrows f(x)\]
 \end{theorem}
@@ -34,14 +34,14 @@
         \item Возьмем $f(x)=|x|$ на $[-\pi,\pi]$ и периодически продолжим.
             \[a_0=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}|x|\ dx=\frac{2}{\pi}\cdot \frac{\pi^2}{2}=\pi\]
             \begin{multline*}
-                a_n=\frac{2}{\pi}\int\limits_{0}^{\pi}x\cdot \cos{(nx)}\ dx=\-frac{2}{\pi n}\int\limits_{0}^{\pi}\sin{(nx)}\ dx=\\=
+                a_n=\frac{2}{\pi}\int\limits_{0}^{\pi}x\cdot \cos{(nx)}\ dx=-\frac{2}{\pi n}\int\limits_{0}^{\pi}\sin{(nx)}\ dx=\\=
                 \frac{2}{\pi n^2}\cdot \cos{(nx)}|_0^{\pi}=\frac{2}{\pi n^2}((-1)^n-1)=\begin{cases}
                     0, n=2k\\
                     -\frac{4}{\pi(2k+1)^2},\ n=2k+1
                 \end{cases}
             \end{multline*}
             \[f(x)=\frac{\pi}{2}-\frac{4}{\pi}\cdot \sum\limits_{k=0}^{\infty}\frac{\cos{((2k+1)x)}}{(2k+1)^2}\]
-            Отюда, поскольку ряд сходится равномерно от непрерывной функции к непрерывной функции, то можно подставить 0 и получить
+            Отсюда, поскольку ряд сходится равномерно от непрерывной функции к непрерывной функции, то можно подставить 0 и получить
             \[\sum\limits_{k=0}^{\infty}\frac{1}{(2k+1)^2}=\frac{\pi^2}{8}\]
             отсюда можно получить
             \[\sum\limits_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}\]
@@ -50,8 +50,8 @@
 \begin{definition}
     Пусть 
     \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
-    значит существуют $D_n(f)$
-    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_N(x)\]
+    значит, существуют $D_n(x)$
+    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_n(x)\]
     называются суммами Фейера. %это типо средние арифметические частичных сумм ряда фурье
     \[\Psi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}D_n(x)\]
     называются ядрами Фейера. %это типо средние арифмет сумм фейера
@@ -62,7 +62,7 @@
         \item 
         \[\Psi_N(x)=\frac{\sin^2{(\frac{N+1}{2}\cdot x)}}{2(N+1)\cdot \sin^2\frac{x}{2}}\]
         \item
-        \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}\Psi(x)\ dx=1\]
+        \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}\Psi_N(x)\ dx=1\]
         \item $\forall \delta>0: $
         \[\int\limits_{\delta}^{\pi}\Psi_N(x)\ dx\to 0\]
         при $N\to \infty$.

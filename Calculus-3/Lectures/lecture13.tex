@@ -33,7 +33,7 @@
 \end{theorem}
 \begin{proof}
     \begin{multline*}
-        \int\limits_{0}^{1}(1-t)^n\ dt=\frac{1}{x}\cdot \int\limits_{0}^{1}(1-t)^n\ dt^x=\frac{n}{x}\int\limits_{0}^{1}t^x(1-t)^{n-1}\ dt=\dots=\\
+        \int\limits_{0}^{1}t^{x-1}(1-t)^n\ dt=\frac{1}{x}\cdot \int\limits_{0}^{1}(1-t)^n\ dt^x=\frac{n}{x}\int\limits_{0}^{1}t^x(1-t)^{n-1}\ dt=\dots=\\
         =\frac{n!}{x(x+1)\dots(x+n-1)}\cdot \int\limits_{0}^{1}t^{x+n-1}\ dt=\frac{n!}{\prod\limits_{k=0}^{n}(x+k)}=\\=\frac{n!\ (n+1)^x}{\prod\limits_{k=0}^{n}(x+k)}\cdot \frac{1}{(n+1)^x}=\frac{1}{(n+1)^x}\cdot \Gamma_{n+1}(x)
     \end{multline*}
     \[\Gamma_{n+1}(x)=(n+1)^x\cdot \int\limits_{0}^{1}t^{x-1}(1-t)^n\ dt=\left|t=\frac{\tau}{n}\right|=\frac{(n+1)^x}{n^x}\cdot \int\limits_{0}^{n}\tau^{x-1}\left(1-\frac{\tau}{n}\right)^n\ d\tau\]
@@ -44,8 +44,8 @@
     и существует предел
     \[\lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1} e^{-t}\ dt=\int\limits_{0}^{+\infty}t^{x-1}e^{-t}\ dt\]
     Таким образом, условия теоремы равносильны    
-    \[\exists\ \lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1}\left(e^t-\left(1-\frac{t}{n}\right)^n\right)\ dt=0\]
-    \[e^{\alpha}\geq 1-\alpha \ \Rightarrow\ e^{-\frac{t}{n}}\geq 1-\frac{t}{n}\ \Rightarrow\ e^{-t}\geq \left(1-\frac{t}{n}\right)^n\]
+    \[\exists\ \lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1}\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right)\ dt=0\]
+    \[e^{\alpha}\geq 1+\alpha \ \Rightarrow\ e^{-\frac{t}{n}}\geq 1-\frac{t}{n}\ \Rightarrow\ e^{-t}\geq \left(1-\frac{t}{n}\right)^n\]
     отсюда
     \[0\leq \int\limits_{0}^{n}t^{x-1}\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right)\ dt\]
     \[e^{\alpha}\geq 1+\alpha \ \Rightarrow\ e^{\frac{t}{n}}\geq 1+\frac{t}{n}\ \Rightarrow\ e^t\geq \left(1+\frac{t}{n}\right)^n\]

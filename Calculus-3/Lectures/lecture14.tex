@@ -4,14 +4,14 @@
     \[n!=\sqrt{2\pi n}\cdot n^n e^{-n}\left(1+\frac{\alpha_n}{\sqrt{n}}\right)\]
 \end{theorem}
 \begin{proof}
-    \[n!=\Gamma(n+1)=\int\limits_{0}^{+\infty}t^n e^t\ dt\]
+    \[n!=\Gamma(n+1)=\int\limits_{0}^{+\infty}t^n e^{-t}\ dt\]
     Исследуем подынтегральную функцию на максимум:
     \[(t^n e^{-t})'=n\cdot t^{n-1} e^{-t}-t^n e^{-t}=0 \ \Rightarrow\ t_{\text{max}}=n\ \Rightarrow\ \max{(t^n e^{-t})}=n^n e^{-n}\]
     отсюда
     \[n!=n^n e^{-n}\cdot \int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt\]
     \[\int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt=\int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt\]
     Сделаем замену $-x^2=n\ln{\frac{t}{n}}+n-t=n\ln{\left(1+\frac{t-n}{n}\right)}+n-t$\\
-    По формуле Тейлора с остаточным членов в форме Лагранжа:
+    По формуле Тейлора с остаточным членом в форме Лагранжа:
     \[\ln{(1+\tau)}=\tau-\frac{\tau^2}{2}\cdot \frac{1}{(1+\theta\tau)^2},\ |\theta|<1\]
     \begin{multline*}
         n\ln{\left(1+\frac{t-n}{n}\right)}+n-t=\\
