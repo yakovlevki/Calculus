@@ -84,5 +84,24 @@
     colorlinks=true
 }
 
+% Список литературы
+\bibliographystyle{gost-numeric.bbx}
+\usepackage[parentracker=true,
+backend=biber,
+hyperref=false,
+bibencoding=utf8,
+style=numeric-comp,
+language=auto,
+autolang=other,
+citestyle=gost-numeric,
+defernumbers=true,
+bibstyle=gost-numeric,
+sorting=ntvy,
+]{biblatex}
+\addbibresource{library.bib}
+\DeclareFieldFormat{journaltitle}{#1\isdot}
+\DeclareFieldFormat[article]{title}{#1\isdot}
+\DeclareFieldFormat[book]{title}{#1\isdot}
+
 % Разбиение на файлы
 \usepackage{import}
