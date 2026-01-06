@@ -55,7 +55,7 @@
     \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
     значит, существуют $D_N(x)$ \\
     Обозначим:
-    \[F_N(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{\N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\] 
+    \[F_N(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\] 
     Тогда:
     \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_N(x)\]
     называются суммами Фейера. %это типо средние арифметические частичных сумм ряда фурье
@@ -66,7 +66,7 @@
     \begin{enumerate}
         \item $\psi_N(x)$ - $2\pi$ периодическая, непрерывная, четная.
         \item 
-        \[\Psi_N(x)=\frac{\sin^2{(\frac{N+1}{2}\cdot x)}}{2(N+1)\cdot \sin^2\frac{x}{2}}\]
+        \[\Psi_N(x)=\frac{\sin^2{(\frac{N+1}{2}\cdot x)}}{2(N+1)\cdot \sin^2(\frac{x}{2})}\]
         \item
         \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}\Psi_N(x)\ dx=1\]
         \item $\forall \delta>0: $
@@ -75,6 +75,9 @@
         \item $\Psi_N(x)\geq 0$
     \end{enumerate}
 \end{lemma}
-\begin{proof} Докажем 4.
-    \[0\leq \int\limits_{\delta}^{\pi}\frac{\sin^2(\frac{N+1}{2}\cdot x)}{2(N+1)\cdot \sin^2{\frac{x}{2}}}\ dx\leq \frac{1}{2(N+1)}\cdot \int\limits_{\delta}^{\pi}\frac{dx}{\sin^2{\frac{x}{2}}}\leq \frac{C}{2(N+1)}\]
+\begin{proof}\tab
+    \begin{itemize}
+        \item[2.] \[\sum\limits_{n=0}^N D_N(x) = \frac{1}{2\sin{(\frac{x}{2})}}\sum\limits_{n=0}^N \sin{(Nx+\frac{1}{2}x)} = \frac{1}{2\sin{(\frac{x}{2})}} \cdot \frac{\sin^2{(\frac{N+1}{2}x)}}{\sin{(\frac{x}{2})}}\]
+        \item[4.] \[0\leq \int\limits_{\delta}^{\pi}\frac{\sin^2(\frac{N+1}{2}\cdot x)}{2(N+1)\cdot \sin^2({\frac{x}{2}})}\ dx\leq \frac{1}{2(N+1)}\cdot \int\limits_{\delta}^{\pi}\frac{dx}{\sin^2({\frac{x}{2}})}\leq \frac{C}{2(N+1)}\]
+    \end{itemize}
 \end{proof}
