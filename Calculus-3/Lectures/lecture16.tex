@@ -79,33 +79,46 @@
 \begin{proof}
     При $n\to \infty$ ряд сходится, значит, по необходимому условию сходимости, выполнено $a_n\to 0, b_n\to 0$.
 \end{proof}
+\subsection{Ядро Дирихле} % (fold)
+% \label{sub:Ядро Дирихле}
+
+% subsection Ядро Дирихле (end)
 \begin{definition}
     $N$-м ядром Дирихле называется
     \[D_N(x)=\frac{1}{2}+\sum\limits_{n=1}^{N}\cos{(nx)}\]
 \end{definition}
 \begin{theorem} (Свойства ядер Дирихле)\\
     \begin{enumerate}
-        \item $D_n$ непрерывная, четная и $2\pi$-периодичная функция.
-        \item $D_n(0)=N+\frac{1}{2}$
+        \item $D_N$ непрерывная, четная и $2\pi$-периодичная функция.
+        \item $D_N(0)=N+\frac{1}{2}$
         \item \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}D_N(x)\ dx=1\]
         \item $\forall x\ne 2\pi k$.
-        \[D_n(x)=\frac{\sin{((N+\frac{1}{2})x)}}{2\cdot \sin{(\frac{x}{2})}}\]
+        \[D_N(x)=\frac{\sin{((N+\frac{1}{2})x)}}{2\cdot \sin{(\frac{x}{2})}}\]
     \end{enumerate}
 \end{theorem}
-\begin{proof}
-    \begin{enumerate}
+\begin{proof} \tab
+    \begin{enumerate} 
         \item Очев
         \item $D_N(0)=\frac{1}{2}+\sum\limits_{n=1}^{N}\cos{0}=N+\frac{1}{2}$
         \item \[\int\limits_{-\pi}^{\pi}D_N(x)\ dx=\int\limits_{-\pi}^{\pi}\ \left(\frac{1}{2}+\sum\limits_{n=1}^{N}\cos{(nx)}\right)=\int\limits_{-\pi}^{\pi}\frac{1}{2}\ dx+\sum\limits_{n=1}^{N}\left(\ \int\limits_{-\pi}^{\pi}\cos{(nx)}\ dx\right)=\pi\]
-        \item Домножим и поделим на $\sin{\frac{x}{2}}$, дальше очев.
+        % \item Домножим и поделим на $\sin{\frac{x}{2}}$, дальше очев.
+        \item Умножим обе части на \(2 \sin\left(\frac{x}{2}\right)\):
+        \[2 \sin\left(\frac{x}{2}\right) D_N(x) = \sin\left(\frac{x}{2}\right) + \sum_{n=1}^N 2 \cos(nx) \sin\left(\frac{x}{2}\right)\]
+        \[2 \cos(nx) \sin\left(\frac{x}{2}\right) = \sin\left(nx + \frac{x}{2}\right) - \sin\left(nx - \frac{x}{2}\right)\]
+        Подставляем в сумму:
+        \[2 \sin\left(\frac{x}{2}\right) D_N(x) = \sin\left(\frac{x}{2}\right) + \sum_{n=1}^N \left( \sin\left((n+\frac{1}{2})x\right) - \sin\left((n-\frac{1}{2})x\right)\right)\]
+        Все промежуточные слагаемые сокращаются, остаётся:
+        \[2 \sin\left(\frac{x}{2}\right) D_N(x) = \sin\left((N+\frac{1}{2})x\right)\]
+        Отсюда, при \(x \neq 2\pi k\):
+        \[D_N(x) = \frac{\sin\left((N+\frac{1}{2})x\right)}{2 \sin\left(\frac{x}{2}\right)}\]
     \end{enumerate}
 \end{proof}
 \begin{comm}
     \begin{multline*}
         F_N(x)=\frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})=\\
         =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi}\cdot \sum\limits_{n=1}^{N}\left(\cos{(nx)}\cdot \int\limits_{-\pi}^{\pi}f(t)\cos{(nt)}\ dt+\sin{(nx)}\cdot \int\limits_{-\pi}^{\pi}f(t) \sin{(nt)}\ dt\right)=\\
-        =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi} \int\limits_{-\pi}^{\pi}f(t)\cdot \sum\limits_{n=1}^{N}(\cos{(nx)}\cos{(nt)}+\sin{(nx)}\sin{(nt)})\ dt=\\
-        =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\cdot \sum\limits_{n=1}^{N}\cos{(n(x-t))}\ dt=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\cdot D_N(x-t)\ dt\overset{(1)}{=}\\
+        =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi} \int\limits_{-\pi}^{\pi}\left(f(t)\cdot \sum\limits_{n=1}^{N}(\cos{(nx)}\cos{(nt)}+\sin{(nx)}\sin{(nt)})\right) dt=\\
+        =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}\left(f(t)\cdot \sum\limits_{n=1}^{N}\cos{(n(x-t))}\right) dt=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\cdot D_N(x-t)\ dt\overset{(1)}{=}\\
         \overset{(1)}{=}\frac{1}{\pi}\cdot \int\limits_{x-\pi}^{x+\pi}f(x-\tau)D_N(\tau)\ d\tau=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(x-\tau)D_N(\tau)\ d\tau=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(x+\tau)D_N(\tau)\ d\tau
     \end{multline*}
     (1): Сделаем замену $t=x-\tau$.

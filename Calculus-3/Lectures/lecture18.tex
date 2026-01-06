@@ -7,11 +7,12 @@
     Из условий теоремы существует интерал
     \[\int\limits_{-\pi}^{\pi}(f'(x))^2\ dx,\ f'(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(\alpha_n\cdot \cos{(nx)}+\beta_n\cdot \sin{(nx)})\]
     \[a_n=-\frac{\beta_n}{n},\ b_n=\frac{\alpha_n}{n}\]
-    и, поскольку
-    \[\frac{|\alpha_n|}{n}\leq \alpha_n^2+\frac{1}{n^2},\ \frac{|\beta_n|}{n}\leq \beta_n^2+\frac{1}{n^2}\]
+    и, поскольку (используя неравенство: $2|ab| \leq a^2 + b^2$ )
+    \[|a_n| = \frac{|\alpha_n|}{n}\leq \frac{1}{2}\left(\alpha_n^2+\frac{1}{n^2}\right),\ |b_n| = \frac{|\beta_n|}{n}\leq \frac{1}{2}\left(\beta_n^2+\frac{1}{n^2}\right)\]
+    
 \end{proof}% по первой теореме из раздела сходится именно к f
 \begin{consequense}
-    Если $f'(x)\in \mathcal{C}(\R)$ и гёльдерова во всех точках, то ряд Фурье $f(x)$ можно почленно дифференцировать.
+    Если $f'(x)\in \mathcal{C}(\R)$ и Гёльдерова во всех точках, то ряд Фурье $f(x)$ можно почленно дифференцировать.
 \end{consequense}
 \begin{proof}
     очев.
@@ -19,8 +20,8 @@
 \begin{comm} (Про почленное интегрирование)\\
     Пусть
     \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
-    \[\int\limits_{0}^{x}\left(f(x)-\frac{a_0}{2}\right) dx=\sum\limits_{n=1}^{\infty}\left(-\frac{b_n}{n}\cdot \cos{(nx)}+\frac{a_n}{n}\cdot \sin{(nx)}\right)+\sum\limits_{n=1}^{\infty}\frac{b_n}{n}\]
-    \[\frac{|\alpha_n|}{n}\leq \alpha_n^2+\frac{1}{n^2},\ \frac{|\beta_n|}{n}\leq \beta_n^2+\frac{1}{n^2}\]
+    \[\int\limits_{0}^{x}\left(f(x)-\frac{a_0}{2}\right) dx=\sum\limits_{n=1}^{\infty}\left(\frac{a_n}{n}\cdot \sin{(nx)}-\frac{b_n}{n}\cdot \cos{(nx)}\right)+\sum\limits_{n=1}^{\infty}\frac{b_n}{n}\]
+    \[\frac{|\alpha_n|}{n}\leq \frac{1}{2}\left(\alpha_n^2+\frac{1}{n^2}\right),\ \frac{|\beta_n|}{n}\leq \frac{1}{2}\left(\beta_n^2+\frac{1}{n^2}\right)\]
 \end{comm}
 \begin{examples}\tab % говорил что обязательные для экзамена примеры
     \begin{enumerate}
@@ -47,13 +48,18 @@
             \[\sum\limits_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}\]
     \end{enumerate}
 \end{examples}
+\subsection{Ядро Фейера}
+
 \begin{definition}
     Пусть 
     \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
-    значит, существуют $D_n(x)$
-    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_n(x)\]
+    значит, существуют $D_N(x)$ \\
+    Обозначим:
+    \[F_N(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{\N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\] 
+    Тогда:
+    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_N(x)\]
     называются суммами Фейера. %это типо средние арифметические частичных сумм ряда фурье
-    \[\Psi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}D_n(x)\]
+    \[\Psi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}D_N(x)\]
     называются ядрами Фейера. %это типо средние арифмет сумм фейера
 \end{definition}
 \begin{lemma} (Свойства ядер Фейера)

@@ -14,21 +14,25 @@
     \[F_N(x_0)=\frac{1}{\pi}\cdot \int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t)D_N(t))\ dt\]
     значит, формулировка теоремы равносильна утверждению, что $\forall \delta>0$
     \[\lim\limits_{N\to\infty}\int\limits_{\delta}^{\pi}(f(x_0+t)+f(x_0-t))D_N(t)\ dt=0\]
+    Выразим ядро Дирихле в явной форме:
     \begin{multline*}
-        \lim\limits_{N\to\infty}\frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}\cdot\frac{f(x_0+t)+f(x_0-t)}{2}\cdot \cos{(Nt)}\ dt+\\
-        +\frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}\frac{f(x_0+t)+f(x_0-t)}{2}\cdot \ctg{\frac{t}{2}}\sin{(Nt)}\ dt
+        D_N(t) =\frac{\sin{((N+\frac{1}{2})t)}}{2\cdot \sin{(\frac{t}{2})}} = \frac{\sin{(Nt)}\cos{(\frac{t}{2})} + \cos{(Nt)}\sin{(\frac{t}{2})}}{2\cdot \sin{(\frac{t}{2})}} = \\
+        = \frac{1}{2}\left(\cos{(Nt)} + \ctg{(\frac{t}{2})} \sin{(Nt)} \right)
     \end{multline*}
-    Пусть
+    \begin{multline*}
+        \frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}\cdot\frac{f(x_0+t)+f(x_0-t)}{2}\cdot \cos{(Nt)}\ dt+\\
+        +\frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}\frac{f(x_0+t)+f(x_0-t)}{2}\cdot \ctg{(\frac{t}{2})}\sin{(Nt)}\ dt = I_1 + I_2
+    \end{multline*}
+    Определим две вспомогательные функции на $[-\pi, \pi]$:
     \[h(t)=\begin{cases}
         \frac{f(x_0+t)+f(x_0-t)}{2},\ t\in [\delta, \pi]\\
         0,\ t\in [-\pi, \delta]
-    \end{cases}\]
-    тогда $I_1=a_N(h)\to 0,\ N\to \infty$. Теперь пусть
+    \end{cases} \Longrightarrow I_1=a_N(h)\to 0,\ N\to \infty\]
     \[g(t)=\begin{cases}
         \frac{f(x_0+t)+f(x_0-t)}{2}\cdot \ctg{\frac{t}{2}},\ t\in [\delta, \pi]\\
         0,\ t\in [-\pi,\delta)
-    \end{cases}\]
-    тогда $I_2=b_N(g)\to 0,\ N\to \infty$.
+    \end{cases} \Longrightarrow I_2=b_N(g)\to 0,\ N\to \infty\]
+    По следствию коэффициенты Фурье интегрируемой функции стремятся к $0$
 \end{proof}
 \begin{theorem} (Признак сходимости Дини ряда Фурье)\\
     Пусть $f(x)$ - $2\pi$ периодическая, существуют интегралы 
@@ -40,16 +44,28 @@
     то ряд Фурье функции $f(x)$ сходится в точке $x_0$ и равен $\frac{f_+(x_0)+f_-(x_0)}{2}$
 \end{theorem}
 \begin{proof}
+    \[\frac{1}{\pi}\int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t))D_N(t)\ dt-\frac{f_+(x_0)+f_-(x_0)}{2}\cdot \frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}D_N(t)\ dt =\]
+    \[=\frac{1}{\pi}\cdot \int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))D_N(t)\ dt=\]
     \begin{multline*}
-        \frac{1}{\pi}\int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t))D_N(t)\ dt-\frac{f_+(x_0)+f_-(x_0)}{2}\cdot \frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}D_N(t)\ dt=\\
-        =\frac{1}{\pi}\cdot \int\limits_{0}^{\pi}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))D_N(t)\ dt=\\
         =\frac{1}{\pi}\cdot \int\limits_{0}^{\delta}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))\cdot \frac{\sin{((n+\frac{1}{2})t)}}{2\sin{\frac{t}{2}}}\ dt+\\
-        \frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))\cdot \frac{\sin{((n+\frac{1}{2})t)}}{2\sin{\frac{t}{2}}}\ dt+
+        \frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}(f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0))\cdot \frac{\sin{((n+\frac{1}{2})t)}}{2\sin{\frac{t}{2}}}\ dt
     \end{multline*}
     \[|I_1|\leq \frac{1}{\pi}\cdot \int\limits_{0}^{\delta}\frac{|f(x_0+t)+f(x_0-t)-f_+(x_0)-f_-(x_0)|}{2\sin{\frac{t}{2}}}\ dt< \epsilon\]
     $|I_2|<\epsilon$ при большом $N$ очевидно (как в принципе локализации Римана).
 \end{proof}
-\begin{consequense}
-    Если $f(x)$ в точке $x_0$ односторонне Гёльдерова, то теорема выполнена. Где Гёльдерова функция - это функция, для которой
+% \begin{consequense}
+%     Если $f(x)$ в точке $x_0$ односторонне Гёльдерова, то теорема выполнена. Где Гёльдерова функция - это функция, для которой
+%     \[|f(x)-f(y)|\leq C\cdot |x-y|^{\alpha}\]
+% \end{consequense}
+\begin{definition}
+    Гёльдерова функция - это функция, для которой выполнено:
     \[|f(x)-f(y)|\leq C\cdot |x-y|^{\alpha}\]
-\end{consequense}
+\end{definition}
+\begin{definition}
+    Условие Гёльдера в точке $x_0$  для односторонних пределов: \\
+    $\exists C>0, \alpha>0, \delta > 0 \ : \ \forall t \in (0,\delta):$
+    \[|f(x_0 + t) - f_{+}(x_0)| \leq Ct^\alpha, \ |f(x_0 - t) - f_{-}(x_0)| \leq Ct^\alpha\]
+\end{definition} 
+\begin{consequense}
+    Если функция удовлетворяет условию Гёльдера в точке $x_0$ (хотя бы односторонне), то теорема о сходимости Дини выполнима, т.е. ряд Фурье в этой точке сходится к среднему арифметическому односторонних пределов.
+\end{consequense} 
