@@ -13,7 +13,7 @@
 \end{comm}
 \begin{theorem} (Первая теорема Абеля)\\
     Рассмотрим степенной ряд 
-    \[\sum_{n=0}^{\infty}a_nx^n \eqno{(*)}\]
+    \[\sum_{n=0}^{\infty}a_n x^n \eqno{(*)}\]
     \begin{enumerate}
         \item Если существует $x_1\in \R$, что ($*$) сходится в точке $x_1$, то для любых $x$, таких, что $|x|<|x_1|$ ряд $(*)$ сходится.
         \item Если существует $x_2\in \R$, что ряд $(*)$ расходится в точке $x_2$, то для любых $x$, таких что $|x|>|x_2|$ ряд $(*)$ расходится.
@@ -22,7 +22,7 @@
 \begin{proof}\tab
     \begin{enumerate}
         \item Пусть $x: |x|<|x_1|$.
-        \[\sum_{n=0}^{\infty}|a_n x^n|=\sum_{n=0}^{\infty}\left(|a_n x_1^n|\cdot \left|\frac{x}{x_1}\right|^n\right)\overset{(1)}{\leq} M\cdot \sum_{n=0}^{\infty}\left|\frac{x}{x_1}\right|^n\]
+        \[|a_n x^n|=|a_n x_1^n|\cdot \left|\frac{x}{x_1}\right|^n \overset{(1)}{\leq} M\cdot \left|\frac{x}{x_1}\right|^n\]
         (1): Поскольку сходится ряд
         \[\sum\limits_{n=1}^{\infty}a_n x_1^n\]
         то $a_n x_1^n\to 0 \Rightarrow |a_n x_1^n|<M$\\

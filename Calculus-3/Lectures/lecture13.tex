@@ -14,7 +14,7 @@
     \Gamma_n(x)=\frac{1}{x(1+x)(1+\frac{x}{2})\dots(1+\frac{x}{n-1})}\cdot \frac{n^x}{(n-1)^x}\cdot \frac{(n-1)^x}{(n-2)^x}\cdot \dots \cdot \frac{2^x}{1^x}=\\
     =\frac{1}{x}\cdot \prod\limits_{k=1}^{n-1}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x
 \end{multline*}
-Поскольку $(1+\frac{x}{k})^{-1}(1+\frac{1}{k})^x=O(\frac{1}{k^2})$, то существует предел
+Поскольку $(1+\frac{x}{k})^{-1}(1+\frac{1}{k})^x=1+O(\frac{1}{k^2})$, то существует предел
 \[\lim\limits_{n\to\infty}\Gamma_n(x)=\frac{1}{x}\cdot \prod\limits_{k=1}^{\infty}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x\]
 Этот предел обозначают $\Gamma(x)$.
 \begin{definition}

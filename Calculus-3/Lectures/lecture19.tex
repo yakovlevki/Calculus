@@ -5,7 +5,7 @@
     \begin{multline*}
         F_N(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)}) = \\
         \hspace{-14cm} = \frac{1}{2\pi} \int\limits_{-\pi}^{\pi}f(t) \ dt + \\ % поправишь сам 
-        + \sum\limits_{n=1}^{N} \left( \frac{1}{\pi}\int\limits_{\pi}^{\pi}f(t) \cos{(nt)} \ dt \cdot \cos{(nx)} + \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(t) \sin{(nt)} \ dt \cdot \sin{(nx)} \right) = \\
+        + \sum\limits_{n=1}^{N} \left( \frac{1}{\pi}\int\limits_{-\pi}^{\pi} f(t) \cos{(nt)} \ dt \cdot \cos{(nx)} + \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(t) \sin{(nt)} \ dt \cdot \sin{(nx)} \right) = \\
         = \frac{1}{\pi}\int\limits_{-\pi}^{\pi} f(t) \left(\frac{1}{2} + \sum\limits_{n=1}^N \cos{(n(t-x))} dt \right) = \frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi} f(t+x) \cdot D_N(t) \ dt
     \end{multline*}
     Получили:

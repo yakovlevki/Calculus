@@ -19,7 +19,7 @@
 \begin{theorem}
     Пусть $f(x) \in C^\infty(-a, a)$ и $|f^{(n)}(x)| \leq A^n, \ A > 0$.\\
     Тогда
-    \[\sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}\cdot x^n = f(x) \text{ на } (-a, a)\]
+    \[\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}\cdot x^n = f(x) \text{ на } (-a, a)\]
 \end{theorem}
 \begin{proof}
     По формуле Тейлора с остаточным членом в форме Лагранжа $\forall x \in (-a, a)$:
@@ -48,27 +48,28 @@
 \end{example}
 \begin{lemma}
     Если $a_n \rightarrow A$ при $n \rightarrow \infty$, то
-    \[\frac{1}{N}\sum_{n=1}^{N}a_n \rightarrow A\]
+    \[\frac{1}{N}\sum_{n=1}^{N}a_n \rightarrow A,\ N\to \infty\]
 \end{lemma}
 \begin{proof}
     % \begin{multline*}
     %     \left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}a_n - AN\right|\leq \\
     %     \leq \frac{1}{N}\left|\sum\limits_{n=1}^{N_1}a_n - AN_1\right|+\frac{1}{N}\sum\limits_{n=N_1+1}^{N}|a_n - A| < \epsilon\cdot \frac{N-N_1}{N} + \epsilon < 2\epsilon
     % \end{multline*}
-    Оценим разность:
-    \[\left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}a_n - AN\right| = \frac{1}{N}\left|\sum\limits_{n=1}^{N}(a_n - A)\right|\]
-    Фиксируем некоторое число $N_1 < N$ и разобьём сумму на две части:
+    Оценим разность
+    \[\left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| = \frac{1}{N}\cdot \left|\sum\limits_{n=1}^{N}a_n - AN\right| = \frac{1}{N}\cdot \left|\sum\limits_{n=1}^{N}(a_n - A)\right|\]
+    \[a_n \to A \Rightarrow \forall \epsilon > 0 \ \exists\ N_1,\ \forall n>N_1: \ |a_n - A| < \epsilon\]
+    Возьмем число $N_1 < N$ и разобьём сумму на две части:
     \[\frac{1}{N}\sum\limits_{n=1}^{N}|a_n - A| = \frac{1}{N}\sum\limits_{n=1}^{N_1}|a_n - A| + \frac{1}{N}\sum\limits_{n=N_1 + 1}^{N}|a_n - A|\]
-    Так как $a_n \to A$, $ \forall \epsilon > 0 \ \exists N_1 : \ |a_n - A| < \epsilon$, тогда: 
+    Тогда 
     \[\frac{1}{N}\sum\limits_{n=N_1 + 1}^{N}|a_n - A| < \frac{1}{N} \cdot \epsilon \cdot (N - N_1) = \epsilon \cdot \frac{N - N_1}{N}\]
-    Итог: 
+    В итоге получаем
     \[\left|\frac{1}{N}\sum_{n=1}^{N}a_n - A\right| \leq \frac{C}{N} + \epsilon < 2 \epsilon\]\
 \end{proof}
 \begin{theorem}(Теорема Таубера)\\
     Пусть степенной ряд
     \[\sum_{n=0}^{\infty}a_n x^n\]
     сходится на $(-1, 1)$, существует
-    \[\lim \limits_{x\rightarrow 1-0} \sum_{n=0}^{\infty}a_n x^n = A\]
+    \[\lim \limits_{x\rightarrow 1-0}\left(\ \sum_{n=0}^{\infty}a_n x^n \right) = A\]
     и пусть $a_n = \overline{\overline{o}}(\frac{1}{n}),\ n \to \infty$.\\
     Тогда существует
     \[\sum_{n=0}^{\infty}a_n = A\]
@@ -78,18 +79,21 @@
     \[N_x = \left[\frac{1}{1-x}\right]\]
     и введём функцию
     \[\phi(x) = \sum_{n=0}^{N_x}a_n - \sum_{n=0}^{\infty}a_n x^n\]
-    Если $\phi(x) \rightarrow 0$ при $x \rightarrow 1-0$, то теорема доказана.
-    \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) + \sum_{n=N_x+1}^{\infty}a_n x^n\]
+    Если $\phi(x) \rightarrow 0$ при $x \rightarrow 1-0$, то теорема доказана. Разобьем исходный ряд на две суммы:
+    \[\sum\limits_{n=0}^{\infty}a_n x^n=\sum\limits_{n=0}^{N_x}a_n x^n+\sum\limits_{n=N_x+1}^{\infty}a_n x^n\]
+    Тогда
+    \[\phi(x) = \sum_{n=0}^{N_x}a_n(1-x^n) - \sum_{n=N_x+1}^{\infty}a_n x^n\]
     \begin{multline*}
-        \left|\sum_{n=0}^{N_x}a_n(1-x^n)\right| = \left|\sum_{n=0}^{N_x}a_n(1-x)(1+x+x^2+...+x^{n-1})\right| \leq \\
-        \leq \frac{1}{\frac{1}{1-x}}\sum_{n=0}^{N_x}|a_n|n \leq \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \rightarrow 0,\ x \rightarrow 1-0
+        \left|\ \sum_{n=0}^{N_x}a_n(1-x^n)\ \right| = \left|\ \sum_{n=0}^{N_x}a_n(1-x)(1+x+x^2+...+x^{n-1})\ \right| \overset{(1)}{\leq} \\
+        \overset{(1)}{\leq} \frac{1}{\frac{1}{1-x}}\cdot \sum_{n=0}^{N_x}|a_n|n \leq \frac{1}{N_x}\sum_{n=0}^{N_x}|a_nn| \overset{(2)}{\rightarrow} 0,\ x \rightarrow 1-0
     \end{multline*}
-    \begin{multline*}
-        \left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| < \frac{1}{N_x + 1}\sum_{n=N_x+1}^{\infty}\epsilon x^n <\\
-        <\frac{\epsilon}{N_x + 1}\sum_{n=0}^{\infty}x^n = \frac{\epsilon}{N_x + 1} \cdot \frac{1}{1-x} < \epsilon
-    \end{multline*}
-    Отсюда $|\phi(x)| < 2\epsilon \ \forall n > N_x$.
+    (1): Поскольку $x<1$, то $1+x+x^2+...+x^{n-1}<n$\\
+    (2): $a_n=\bar{\bar{o}}(\frac{1}{n}) \Rightarrow |a_n n|\to 0$, значит, по лемме все выражение стремится к 0.
+    \[\left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| \overset{(3)}{<} \frac{\epsilon}{N_x + 1}\sum_{n=N_x+1}^{\infty} x^n = \frac{\epsilon}{N_x + 1} \cdot \frac{x^{N_x+1}}{1-x} < \epsilon\]
+    (3): $a_n=\bar{\bar{o}}(\frac{1}{n}) \Rightarrow |a_n n|<\epsilon$, а также $\frac{1}{n}\leq \frac{1}{N_x+1}$\\
+    Отсюда $\forall n > N_x: |\phi(x)| < 2\epsilon$.
 \end{proof}
+\newpage
 \section{Бесконечные произведения}
 \begin{definition}
     Рассмотрим $\{u_n\}_{n=1}^{\infty}, \{\Pi_n = \prod \limits_{k=1}^{n}u_k\}_{n=1}^{\infty}$.\\
