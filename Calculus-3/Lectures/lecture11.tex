@@ -16,9 +16,11 @@
 \end{theorem}
 \begin{proof}
     Рассмотрим $\{x_n\}_{n=1}^{\infty},\ x_n\to +\infty$ и
-    \[F_n(y)=\int\limits_{a}^{x_n}f(x,y)\ dx\]
-    По теореме о дифференцировании функциональных последовательностей и теореме о дифференцировании собственных интегралов:
-    \[F_n'(y)\rightrightarrows G(y) \Rightarrow F'(y)=G(y)\]
+    \[F_n(y)=\int\limits_{a}^{x_n}f(x,y)\ dx\to F(y)\]
+    Дифференцируя по теореме для собственных интегралов, получим, что для каждого $n$ выполнено:
+    \[F'_n(y)=\int\limits_{a}^{x_n}f'_y(x,y)\ dx,\ F_n'(y)\overset{[c,d]}{\rightrightarrows} G(y)\]
+    тогда по теореме о почленном дифференцировании функциональных последовательностей:
+    \[F'(y)=G(y)\]
 \end{proof}
 \begin{theorem}
     Пусть $f(x,y)\in \mathcal{C}([a,+\infty)\times [c,d])$ и

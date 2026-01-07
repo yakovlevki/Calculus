@@ -1,3 +1,4 @@
+
 \begin{theorem}
     Пусть $\phi(y),\ \psi(y)\in \mathcal{C}[a,b],\ f(x,y)\in \mathcal{C}(G)$. Тогда
     \[F(y)=\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\in \mathcal{C}[a,b]\]
@@ -61,9 +62,19 @@ $f$ равномерно непрерывна (так как $G$ - компак�
     то
     \[\int\limits_{a}^{\omega}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
 \end{definition}
-Далее, без ограничения общности будем писать $\omega=+\infty$.
+\begin{statement}
+    Несобственный интеграл 
+    \[\int\limits_{a}^{\omega}f(x,y)\ dx \overset{Y}{\rightrightarrows}\]
+    тогда и только тогда когда
+    $\forall \epsilon>0\ \exists\ A\in [a,\omega), \forall a'>A,\ \forall y\in Y$:
+    \[\left|\ \int\limits_{a'}^{\omega}f(x,y)\ dx\ \right|<\epsilon\]
+\end{statement}
+\begin{proof}
+    \[\left|\ \int\limits_{a'}^{\omega}f(x,y)\ dx\ \right|=\left|\ \int\limits_{a}^{a'}f(x,y)\ dx-F(y) \ \right|\]
+\end{proof}
+\noindent Далее, без ограничения общности будем писать $\omega=+\infty$.
 \begin{theorem} (Критерий Коши равномерной сходимости)\\
-    \[\int\limits_{a}^{+\infty}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx\overset{Y}{\rightrightarrows}\]
     тогда и только тогда, когда $\forall \epsilon>0\ \exists\ A>a,\ \forall a_1,a_2>A,\ \forall y\in Y$:
     \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|<\epsilon\]
 \end{theorem}
@@ -90,6 +101,10 @@ $f$ равномерно непрерывна (так как $G$ - компак�
     По критерию Коши:
     \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|\leq \int\limits_{a_1}^{a_2}g(x)\ dx<\epsilon\]
 \end{proof}
+\begin{reminder} (Вторая теорема о среднем)\\
+    Пусть $f(x)\in \mathcal{C}[a,b]$, а $g(x)$ --- монотонна. Тогда $\exists\ c\in [a,b]$:
+    \[\int\limits_{a}^{b}f(x)\cdot g(x)\ dx=g(a)\cdot \int\limits_{a}^{c}f(x)\ dx+g(b)\cdot \int\limits_{c}^{b}f(x)\ dx\] 
+\end{reminder}
 \begin{theorem} (Признаки Абеля и Дирихле равномерной сходимости)\\
     Рассмотрим интеграл
     \[\int\limits_{a}^{+\infty}f(x,y)\cdot g(x,y)\ dx,\ y\in Y\]
@@ -107,9 +122,12 @@ $f$ равномерно непрерывна (так как $G$ - компак�
 \end{theorem}
 \begin{proof} % по первой теореме о среднем.
     \begin{multline*}
-        \left|\ \int\limits_{a_1}^{a_2}f(x,y)g(x,y)\ dx\ \right|=\left|\ g(a_1,y)\cdot \int\limits_{a_1}^{c}f(x,y)\ dx+ g(a_2,y)\cdot \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|\leq \\
-        \leq |g(a_1,y)|\cdot \left|\ \int\limits_{a_1}^{c}f(x,y)\ dx \ \right|+|g(a_2,y)|\cdot \left|\ \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|=(*)
+        \left|\ \int\limits_{a_1}^{a_2}f(x,y)g(x,y)\ dx\ \right|\overset{(1)}{=}\left|\ g(a_1,y)\cdot \int\limits_{a_1}^{c}f(x,y)\ dx+ g(a_2,y)\cdot \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|\leq \\
+        \leq |g(a_1,y)|\cdot \left|\ \int\limits_{a_1}^{c}f(x,y)\ dx \ \right|+|g(a_2,y)|\cdot \left|\ \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|
     \end{multline*}
-    $(\mathcal{A}):\ (*)\leq \epsilon\cdot M+\epsilon\cdot M$\\
-    $(\mathcal{D}):\ (*)\leq \epsilon\cdot 2M+\epsilon\cdot 2M$
+    (1): По второй теореме о среднем.\\
+    $(\mathcal{A})$:
+    \[|g(a_1,y)|\cdot \left|\ \int\limits_{a_1}^{c}f(x,y)\ dx \ \right|+|g(a_2,y)|\cdot \left|\ \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|\leq \epsilon\cdot M+\epsilon\cdot M\]
+    $(\mathcal{D})$:
+    \[|g(a_1,y)|\cdot \left|\ \int\limits_{a_1}^{c}f(x,y)\ dx \ \right|+|g(a_2,y)|\cdot \left|\ \int\limits_{c}^{a_2}f(x,y)\ dx\ \right|\leq \epsilon\cdot 2M+\epsilon\cdot 2M\]
 \end{proof}
