@@ -13,7 +13,7 @@
 \end{proof}
 \begin{theorem} (Почленное интегрирование)\\
     Пусть $f_n(x)\overset{[a,b]}{\rightrightarrows} f(x),\ f_n\in \mathcal{C}[a,b]$. Тогда 
-    \[\int\limits_{a}^{x}f_n(t)\ dt\ \rightrightarrows \int\limits_{a}^{x}f(t)\ dt\]
+    \[\int\limits_{a}^{x}f_n(t)\ dt\ \overset{[a,b]}{\rightrightarrows} \int\limits_{a}^{x}f(t)\ dt\]
 \end{theorem}
 \begin{proof}
         \[\left|\ \int\limits_{a}^{x}f_n(t)\ dt-\int\limits_{a}^{x}f(t)\ dt\ \right|\leq \max\limits_{[a,b]}|f_n(t)-f(t)|\cdot |b-a|<\epsilon\cdot |b-a|\]
@@ -37,7 +37,7 @@
     \[\sum_{n=1}^{\infty}a_n(x)\eqno{(1)}\]
     \begin{enumerate}
         \item Если $\forall x\in A$ ряд $(1)$ сходится к $S(x)$, то говорят, что ряд сходится поточечно.
-        \item Если $S_n(x)\rightrightarrows S(x)$, то говорят, что ряд $(1)$ сходится равномерно.
+        \item Если $S_n(x)\overset{A}{\rightrightarrows} S(x)$, то говорят, что ряд $(1)$ сходится равномерно на $A$. 
         \item Если сходится ряд
             \[\sum_{n=1}^{\infty}|a_n(x)| \eqno{(2)}\]
             то говорят, что ряд $(1)$ сходится абсолютно, если ряд $(2)$ расходится, а ряд $(1)$ сходится, то ряд $(1)$ сходится условно.
@@ -97,7 +97,7 @@
 \end{proof}
 % тут мб пример с картинкой такой мемной ломаной
 \begin{theorem} (Признак Вейерштрасса равномерной сходимости)\\
-    Пусть $\forall n: |a_n(x)|<\alpha_n,\ \forall x\in A$. Если ряд
+    Пусть $\forall n: |a_n(x)|\leq \alpha_n,\ \forall x\in A$. Если ряд
     \[\sum_{n=1}^{\infty}\alpha_n\]
     сходится, то
     \[\sum_{n=1}^{\infty}a_n(x)\overset{A}\rightrightarrows S(x)\]
