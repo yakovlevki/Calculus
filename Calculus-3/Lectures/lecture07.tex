@@ -91,7 +91,7 @@
     (2): $a_n=\bar{\bar{o}}(\frac{1}{n}) \Rightarrow |a_n n|\to 0$, значит, по лемме все выражение стремится к 0.
     \[\left|\sum_{n=N_x+1}^{\infty}a_n x^n\right| = \left|\sum_{n=N_x+1}^{\infty}\frac{a_n n}{n} x^n \right| \overset{(3)}{<} \frac{\epsilon}{N_x + 1}\sum_{n=N_x+1}^{\infty} x^n = \frac{\epsilon}{N_x + 1} \cdot \frac{x^{N_x+1}}{1-x} < \epsilon\]
     (3): $a_n=\bar{\bar{o}}(\frac{1}{n}) \Rightarrow |a_n n|<\epsilon$, а также $\frac{1}{n}\leq \frac{1}{N_x+1}$\\
-    Отсюда $\forall n > N_x: |\phi(x)| < 2\epsilon$.
+    Отсюда при $x\to 1-0:\ |\phi(x)| < 2\epsilon$.
 \end{proof}
 \newpage
 \section{Бесконечные произведения}
@@ -102,11 +102,15 @@
     $u_n$ - общий член, $\Pi_n$ - частичное произведение.
 \end{definition}
 \begin{definition}
-    $\prod \limits_{n=1}^{\infty}u_n$ называется сходящимся, если $\exists \lim \limits_{n\rightarrow \infty} \Pi_n = a \neq 0$.\\
-    $\prod \limits_{n=1}^{\infty}u_n$ называется расходящимся, если $\nexists \lim \limits_{n\rightarrow \infty} \Pi_n$ или $\lim \limits_{n\rightarrow \infty} \Pi_n = 0$.
-    Если $\exists n: u_n = 0$, то $\prod \limits_{n=1}^{\infty}u_n$ называется расходящимся к 0.
+    Произведение
+    \[\prod \limits_{n=1}^{\infty}u_n \eqno{(*)}\]
+    \begin{enumerate}
+        \item называется сходящимся, если $\exists \lim \limits_{n\rightarrow \infty} \Pi_n = a \neq 0$.\\
+        \item называется расходящимся, если $\nexists \lim \limits_{n\rightarrow \infty} \Pi_n$ или $\lim \limits_{n\rightarrow \infty} \Pi_n = 0$.\\
+        \item Если $\exists\ n: u_n = 0$, то произведение $(*)$ называется расходящимся к 0.
+    \end{enumerate}
 \end{definition}
-\begin{theorem}(Необходимое условие сходимости)
+\begin{theorem}(Необходимое условие сходимости бесконечного произведения)\\
     Если $\prod \limits_{n=1}^{\infty}u_n$ сходится, то $u_n \rightarrow 1$.
 \end{theorem}
 \begin{proof}

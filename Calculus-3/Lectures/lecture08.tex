@@ -2,6 +2,7 @@
     Если произведение сходится, то общий член имеет вид 
     \[u_n=1+a_n,\ a_n\to 0\]
 \end{consequense}
+\subsection{Связь бесконечных произведений и рядов}
 \begin{theorem}
     Произведение 
     \[\prod\limits_{n=1}^{\infty}(1+a_n)\]
@@ -12,23 +13,27 @@
 \begin{proof}\tab
     \begin{itemize}
         \item[($\Rightarrow$):] 
-        \[\Pi_{N}\text{ - сходится} \Rightarrow \ln(\Pi_N) \text{ - сходится},\ \ln(x)\in \mathcal{C}(0, +\infty) \Rightarrow \sum_{n=1}^N \ln(1+a_n) \text{ - сходится}\]
+        Пусть произведение сходится, тогда $\Pi_N\to \Pi$. Поскольку $\ln{x}\in \mathcal{C}(0,+\infty)$, то 
+        \[\sum\limits_{n=1}^{\infty}\ln{(1+a_n)}=\lim\limits_{N\to \infty} \ln{(\Pi_N)}=\ln{(\Pi)}\]
+        значит, ряд сходится.
         \item[($\Leftarrow$):]
-        \[\sum_{n=1}^N \ln(1+a_n) \text{ - сходится} \Rightarrow e^{\left(\sum\limits_{n=1}^N \ln(1+a_n)\right)} \text{ - сходится} \Rightarrow \Pi_N \text{ - сходится}\]
+        Пусть ряд сходится, тогда $S_N\to S$. Поскольку $\exp{x}\in \mathcal{C}(0,+\infty)$, то
+        \[\prod\limits_{n=1}^{\infty}(1+a_n)=\lim\limits_{N\to\infty} \exp{(S_N)}=\exp(S)\]
+        значит, произведение сходится.
     \end{itemize}
 \end{proof}
 \begin{definition}
     Произведение называется абсолютно сходящимся или условно сходящимся, если таковым является соответствующий ряд из логарифмов. 
 \end{definition}
 \begin{theorem} Произведение
-    \[\prod\limits_{n=1}^{\infty}u_n\]
+    \[\prod\limits_{n=1}^{\infty}(1+a_n)\]
     сходится абсолютно тогда и только тогда, когда ряд
     \[\sum\limits_{n=1}^{\infty}|a_n|\]
     сходится.
 \end{theorem}
 \begin{proof}
-    \[\lim\limits_{n\to\infty}\frac{|\ln(1+a_n)|}{|a_n|}=1\]
-    из этого следует утверждение в обе стороны.
+    \[\lim\limits_{n\to\infty}\frac{|\ln(1+a_n)|}{|a_n|}=1>0\]
+    отсюда, по признаку сравнения в предельной форме, получаем утверждение теоремы.
 \end{proof}
 \begin{consequense}
     Если $a_n$ знакопостоянны, то произведение и соответствующий ряд из логарифмов сходятся или расходятся одновременно.
@@ -42,8 +47,16 @@
     \[\sum\limits_{n=1}^{\infty}a_n^2\]
 \end{theorem}
 \begin{proof}
+    Разложим по формуле Тейлора:
     \[\ln(1+a_n)-a_n=-\frac{a_n^2}{2}+\bar{\bar{o}}(a_n^2)\]
     \[\lim\limits_{n\to\infty}\frac{\ln(1+a_n)-a_n}{a_n^2}=-\frac{1}{2}\]
+    Значит, по признаку сравнения в предельной форме, ряды 
+    \[\sum\limits_{n=1}^{\infty}(\ln{(1+a_n)-a_n}),\ \ \ \sum\limits_{n=1}^{\infty}a_n^2\]
+    сходятся или расходятся одновременно. При этом
+    \[\sum\limits_{n=1}^{\infty}\ln{(1+a_n)}=\sum\limits_{n=1}^{\infty}(\ln{(1+a_n)-a_n})+\sum\limits_{n=1}^{\infty}a_n\]
+    то есть ряды 
+    \[\sum\limits_{n=1}^{\infty}\ln{(1+a_n)}, \ \ \ \sum\limits_{n=1}^{\infty}(\ln{(1+a_n)}-a_n)\]
+    сходятся или расходятся одновременно. Таким образом, комбинируя эти факты, получаем утверждение теоремы.
 \end{proof}
 \begin{comm}
     Можно рассматривать функциональные произведения
@@ -52,7 +65,7 @@
 \end{comm}
 \begin{example} (Пример Эйлера)\\
     Пусть $p_k$ обозначает $k$-е простое число. Тогда при $s>1$ 
-    \[\zeta(s)=\sum\limits_{n=1}^{\infty}\frac{1}{n^s}=\prod\limits_{k=1}^{\infty}(1-\frac{1}{p_k^s})^{-1}\]
+    \[\zeta(s)=\sum\limits_{n=1}^{\infty}\frac{1}{n^s}=\prod\limits_{k=1}^{\infty}\left(1-\frac{1}{p_k^s}\right)^{-1}\]
     \[\prod\limits_{k=1}^{N}\left(1-\frac{1}{p_k^s}\right)^{-1}=\prod\limits_{k=1}^{N}\left(\sum\limits_{l=0}^{\infty}\frac{1}{p^{ls}}\right)=\sum\frac{1}{(p_{k_1}^{l_1}\cdot p_{k_2}^{l_2}\cdot \dots\cdot p_{k_m}^{l_m})^s}\]
     \[\sum\limits_{n=1}^{N}\frac{1}{n^s}<\sum\frac{1}{(p_{k_1}^{l_1}\cdot p_{k_2}^{l_2}\cdot \dots\cdot p_{k_m}^{l_m})^s}<\sum\limits_{n=1}^{\infty}\frac{1}{n^s}\]
     Тогда
@@ -60,41 +73,78 @@
     %все ряды сходятся абсолютно, 
 \end{example}
 \subsection{Разложение синуса в бесконечное произведение}
-\begin{theorem}
+\begin{lemma}
+    $\forall n\in \N$:
+    \[\sin((2n+1)x)=(2n+1)\sin{x}\cdot P_n(\sin^2{x})\]
+    где $P_n$ - многочлен $n$-й степени.
+\end{lemma}
+\begin{proof}
+    Это утверждение можно показать по индукции, с базой\\
+    $\sin{3x}=3\sin{x}-4\sin^3{x}$\\
+    Можно найти в \cite{3}.
+\end{proof}
+\begin{lemma}
+    $\forall \{a_k\}_{k=1}^n\subset \R:$
+    \[\left|\prod\limits_{k=1}^{n}(1+a_k)-1\right|\leq \prod\limits_{k=1}^{n}(1+|a_k|)-1\]
+\end{lemma}
+\begin{proof}
+    Будет расписано по индукции, пока что смотрите в \cite{3}.
+\end{proof}
+\begin{lemma}
+    Если $x\in [0,\frac{\pi}{2}]$, то $\frac{2x}{\pi}\leq \sin{x}\leq x$
+\end{lemma}
+\begin{theorem} (Разложение синуса в бесконечное произведение)\\
     $\forall x\ne \pi k$:
     \[\sin{x}=x\cdot \prod\limits_{n=1}^{\infty}\left(1-\frac{x^2}{\pi^2 n^2}\right)\]
 \end{theorem}
 \begin{proof}
-    $\forall n: \sin((2n+1)x)=(2n+1)\sin{x}\cdot P_n(\sin^2{x})$\\
-    это утверждение можно показать по индукции, с базой $\sin{3x}=3\sin{x}-4\sin^3{x}$\\
+    $\forall n\in \N$:
+    \[\sin((2n+1)x)=(2n+1)\sin{x}\cdot P_n(\sin^2{x})\]
     \[\sin{((2n+1)x)}=0 \Leftrightarrow x=\frac{\pi k}{2n+1},\ k\in \Z\]
     при этом
+    \[\sin{\frac{\pi k}{2n+1}}\neq 0\]
+    значит, обязан обнуляться многочлен:
     \[P_n(\sin^2{x})=0,\ x=\frac{\pi k}{2n+1},\ k=1,\dots,n\]
+    Таким образом, найдены все корни многочлена. Обозначим $\omega = \sin^2{x}$, тогда
     \[P_n(\omega)=0 \Leftrightarrow \omega=\sin^2{\frac{\pi k}{2n+1}},\ k=1,\dots, n\]
-    Заметим, что
-    \[P_n(\sin^2{x})=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\to 1,\ x\to 0\]
-    Тогда
-    \[P_n(\omega)=\prod\limits_{k=1}^{n}(1-\frac{\omega}{\sin^2{\frac{\pi k}{2n+1}}})\]
-    \[P_n(\sin^2{x})=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)=\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\]
-    сделаем замену: $(2n+1)x=t$
+    Разложим многочлен на множители:
+    \[P_n(\omega)=B\cdot \prod\limits_{k=1}^{n}\left(\omega-\sin^2\frac{\pi k}{2n+1}\right)\]
+    где $B$ - коэффциент при старшем члене. Преобразуем:
+    \begin{multline*}
+        P_n(\sin^2{x})=B\cdot \prod\limits_{k=1}^{n}\left(\sin^2{x}-\sin^2{\frac{\pi k}{2n+1}}\right)=\\
+        =B\cdot \prod\limits_{k=1}^{n}\left(-\sin^2{\frac{\pi k}{2n+1}}\right)\cdot \prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)=A\cdot \prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)
+    \end{multline*}
+    Таким образом, из начального соотношения, получим
+    \[\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}=A\cdot \prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
+    Перейдя к пределу при $x\to 0$ в обеих частях, получим
+    \[\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}\to 1,\ \ \ \prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\to 1\]
+    значит, $A=1$ и выражение имеет вид:
+    \[\frac{\sin((2n+1)x)}{(2n+1)\sin{x}}=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{x}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
+    сделаем замену $t=(2n+1)x$. Тогда
     \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{n}\left(1-\frac{\sin^2{\frac{t}{2n+1}}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
-    \begin{lemma}
-        $\forall \{a_k\}_{k=1}^n\subset \R:$
-        \[\left|\prod\limits_{k=1}^{n}(1+a_k)-1\right|\leq \prod\limits_{k=1}^{n}(1+|a_k|)-1\]
-    \end{lemma}
-    \begin{proof}
-        Очев по индукции.
-    \end{proof}
-    Возьмем $\forall t\in \R,\ |t|<n, m<n$
-    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{m}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\cdot R_{n,m}(t) \Rightarrow \exists\ \lim\limits_{n\to\infty}R_{n,m}(t)=R_m(t)\]
-    Перейдем к пределу при $n\to \infty$:
+    Возьмем $t\in \R,\ |t|<n, m<n$ и предаствим произведение в виде
+    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}=\prod\limits_{k=1}^{m}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\cdot R_{n,m}(t)\]
+    где 
+    \[R_{n,m}(t)=\prod\limits_{k=m+1}^{n}\left(1-\frac{\sin^2{\frac{t}{2n+1}}}{\sin^2{\frac{\pi k}{2n+1}}}\right)\]
+    Посмотрим на пределы при $n\to \infty$:
+    \[\frac{\sin{t}}{(2n+1)\cdot \sin{\frac{t}{2n+1}}}\to \frac{\sin{t}}{t},\ \ \ \prod\limits_{k=1}^{m}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)\to \prod\limits_{k=1}^{m}\left(1-\frac{t^2}{\pi^2 k^2}\right)\]
+    причем $R_{n,m}(t)$ выражается через них, значит существует предел
+    \[\lim\limits_{n\to\infty}R_{n,m}(t)=R_m(t)\]
+    Итак, перейдем к пределу при $n\to \infty$:
     \[\frac{\sin{t}}{t}=\prod\limits_{k=1}^{m}\left(1-\frac{t^2}{\pi^2 k^2}\right)\cdot R_m(t)\]
-    Вернемся к $R_{m,n}$:
+    Оценим к $R_{n,m}$, воспользовавшись леммами:
     \begin{multline*}
         \left|\prod\limits_{k=m+1}^{n}\left(1-\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)-1\right|\leq \prod\limits_{k=m+1}^{n}\left(1+\frac{\sin^2\frac{t}{2n+1}}{\sin^2\frac{\pi k}{2n+1}}\right)-1\leq\\
         \leq \prod\limits_{k=m+1}^{n}\left(1+\frac{t^2}{(\frac{2}{\pi}\cdot \pi k)^2}\right)-1=\prod\limits_{k=m+1}^{n}\left(1+\frac{t^2}{4k^2}\right)-1<\\
-        <\prod\limits_{k=m+1}^{\infty}\left(1+\frac{t^2}{4k^2}\right)-1\to 0
+        <\prod\limits_{k=m+1}^{\infty}\left(1+\frac{t^2}{4k^2}\right)-1
     \end{multline*}
-    при $m\to \infty \Rightarrow R_m(t)\to 1,\ m\to \infty$. Значит
+    Рассмотрим произведение
+    \[\prod\limits_{k=1}^{\infty}\left(1+\frac{t^2}{4k^2}\right)=C\]
+    оно сходится, поскольку сходится ряд 
+    \[\sum\limits_{k=1}^{\infty}\left|\frac{t^2}{4k^2}\right|\]
+    при этом
+    \[\prod\limits_{k=m+1}^{\infty}\left(1+\frac{t^2}{4k^2}\right)=\frac{\prod\limits_{k=1}^{\infty}\left(1+\frac{t^2}{4k^2}\right)}{\prod\limits_{k=1}^{m}\left(1+\frac{t^2}{4k^2}\right)}\to\frac{C}{C}=1,\ m\to \infty\]
+    Значит, $R_m(t)\to 1$ при $m\to \infty$.
+    Таким образом, получаем утверждение теоремы:
     \[\sin{t}=t\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{t^2}{\pi^2 k^2}\right)\]
 \end{proof}
