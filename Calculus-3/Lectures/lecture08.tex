@@ -104,10 +104,11 @@
         \overset{(1)}{=}\left|\ (1+a_n)\prod\limits_{k=1}^{n-1}(1+a_k)-(1+a_n)+a_n\ \right|=\tab[2cm]\\
         =\left|\ (1+a_n)\left(\prod\limits_{k=1}^{n-1}(1+a_k)-1\right)+a_n\ \right|\leq\\
         \tab[2cm]\leq |1+a_n|\cdot \left|\prod\limits_{k=1}^{n-1}(1+a_k)-1\right|+|a_n|\overset{(2)}{\leq}\\
-        \overset{(2)}{\leq}|1+a_n|\cdot \prod\limits_{k=1}^{n-1}(1+|a_k|)-1+|a_n|=\prod\limits_{k=1}^{n}(1+|a_k|)-1
+        \overset{(2)}{\leq}(1+|a_n|)\cdot \left(\prod\limits_{k=1}^{n-1}(1+|a_k|)-1\right)+|a_n|=\prod\limits_{k=1}^{n}(1+|a_k|)-1
     \end{multline*}
     (1): Добавили и вычли $a_n$.\\
-    (2): По предположению индукции.
+    (2): По предположению индукции и неравенству треугольника
+    \[|1+a_n|\leq 1+|a_n|\]
 \end{proof}
 \begin{lemma}
     Если $x\in [0,\frac{\pi}{2}]$, то $\frac{2x}{\pi}\leq \sin{x}\leq x$
