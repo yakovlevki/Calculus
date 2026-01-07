@@ -79,16 +79,35 @@
     где $P_n$ - многочлен $n$-й степени.
 \end{lemma}
 \begin{proof}
-    Это утверждение можно показать по индукции, с базой\\
-    $\sin{3x}=3\sin{x}-4\sin^3{x}$\\
-    Можно найти в \cite{3}.
+    Индукция по $n$. База $n=1$:
+    \[\sin{3x}=3\sin{x}-4\sin^3{x}\]
+    Шаг: Пусть верно для $m<2n+1$ (нам понадобятся только $2n-3$ и $2n-1$)
+    \[\sin{(2n+1)x}+\sin{(2n-3)x}=2\sin{(2n-1)x}\cdot \cos{2x}\]
+    Отсюда выразим $\sin{(2n+1)x}$ и подставим выражения для $2n-3$ и $2n-1$:
+    \begin{multline*}
+        \sin{(2n+1)x}=2\sin{(2n-1)x}\cdot \cos{2x}-\sin{(2n-3)x}=\\
+        =(2n-1)\sin{x}\cdot P_{n-1}(\sin^2{x})\cdot (1-2\sin^2{x})-(2n-3)\sin{x}\cdot P_{n-2}(\sin^2{x})=\\
+        =(2n+1)\sin{x}\cdot \Bigg(-\frac{2(2n-1)}{2n+1}\cdot P_n(\sin^2{x})+\frac{2n-1}{2n+1}\cdot P_{n-1}(\sin^2{x})-\frac{2n-3}{2n+1}\cdot P_{n-2}(\sin^2{x})\Bigg)
+    \end{multline*}
 \end{proof}
 \begin{lemma}
     $\forall \{a_k\}_{k=1}^n\subset \R:$
     \[\left|\prod\limits_{k=1}^{n}(1+a_k)-1\right|\leq \prod\limits_{k=1}^{n}(1+|a_k|)-1\]
 \end{lemma}
 \begin{proof}
-    Будет расписано по индукции, пока что смотрите в \cite{3}.
+    Индукция по $n$. База $n=1$:
+    \[|(1+a_1)-1|\leq (1+|a_1|-1)\]
+    Шаг: Пусть верно для $n_1$:
+    \[\left|\ \prod\limits_{k=1}^{n-1}(1+a_k)-1\ \right|\leq \prod\limits_{k=1}^{n-1}(1+|a_k|)-1\]
+    \begin{multline*}
+        \left|\ \prod\limits_{k=1}^{n}(1+a_k)-1\ \right|=\left|\ (1+a_n)\prod\limits_{k=1}^{n-1}(1+a_k)-1\ \right|\overset{(1)}{=}\\
+        \overset{(1)}{=}\left|\ (1+a_n)\prod\limits_{k=1}^{n-1}(1+a_k)-(1+a_n)+a_n\ \right|=\tab[2cm]\\
+        =\left|\ (1+a_n)\left(\prod\limits_{k=1}^{n-1}(1+a_k)-1\right)+a_n\ \right|\leq\\
+        \tab[2cm]\leq |1+a_n|\cdot \left|\prod\limits_{k=1}^{n-1}(1+a_k)-1\right|+|a_n|\overset{(2)}{\leq}\\
+        \overset{(2)}{\leq}|1+a_n|\cdot \prod\limits_{k=1}^{n-1}(1+|a_k|)-1+|a_n|=\prod\limits_{k=1}^{n}(1+|a_k|)-1
+    \end{multline*}
+    (1): Добавили и вычли $a_n$.\\
+    (2): По предположению индукции.
 \end{proof}
 \begin{lemma}
     Если $x\in [0,\frac{\pi}{2}]$, то $\frac{2x}{\pi}\leq \sin{x}\leq x$
