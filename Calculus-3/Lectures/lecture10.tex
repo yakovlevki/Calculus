@@ -12,45 +12,14 @@
 ($1$):
 \begin{multline*}
     \int\limits_{\phi(y+\Delta y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx=\int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx+\\
-    \int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx=\\
+    +\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx-\int\limits_{\phi(y)}^{\psi(y)}f(x,y+\Delta y)\ dx=\\
     =\int\limits_{\phi(y+\Delta y)}^{\phi(y)}f(x,y+\Delta y)\ dx+\int\limits_{\psi(y)}^{\psi(y+\Delta y)}f(x,y+\Delta y)\ dx
 \end{multline*}
-($2$): Первые два слагаемых оцениваются так: $f(x,y+\Delta y)\leq M$, так как $f\in \mathcal{C}(G)$ и, поскольку $\phi(y)$ и $\psi(y)$ непрерывны, то $|\phi(y+\Delta y)-\phi(y)|<\epsilon$ и\\
-$|\psi(y+\Delta y)-\psi(y)|<\epsilon$.\\
+($2$): Первые два слагаемых оцениваются так: $f(x,y+\Delta y)\leq M$, так как $f\in \mathcal{C}(G)$ и, поскольку $\phi(y)$ и $\psi(y)$ непрерывны, то
+\[|\phi(y+\Delta y)-\phi(y)|<\epsilon,\ \ |\psi(y+\Delta y)-\psi(y)|<\epsilon\]
 Последнее слагаемое оценивается так: $f\in \mathcal{C}(G)$, значит,
 $f$ равномерно непрерывна (так как $G$ - компакт) $\Rightarrow$ при $\Delta y\to 0: |f(x,y+\Delta y)-f(x,y)|<\epsilon$
 \end{proof}
-\begin{figure}
-\[\begin{tikzpicture}[scale=1.5]
-    \draw[->] (-0.5, 0) -- (4.5,0) node[right] {$x$};
-    \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
-    
-    \pgfmathdeclarefunction{phi}{1}{%
-        \pgfmathparse{0.8 + 0.4*sin(deg(1.2*#1)) + 0.2*cos(deg(3*#1))}%
-    }
-    \pgfmathdeclarefunction{psi}{1}{%
-        \pgfmathparse{3.2 + 0.5*sin(deg(0.8*#1)) + 0.3*cos(deg(2.5*#1)) + 0.1*sin(deg(5*#1))}%
-    }
-    
-    % Первая кривая φ(y)
-    \draw[thick] plot[domain=0.3:3.2,samples=100] ({phi(\x)}, \x);
-    \node[left] at ({phi(1.7)}, 1.7) {$\phi(y)$};
-    
-    % Вторая кривая ψ(y)
-    \draw[thick] plot[domain=0.3:3.2,samples=100] ({psi(\x)}, \x);
-    \node[right] at ({psi(1.7)}, 1.7) {$\psi(y)$};
-    
-    % Прямые, ограничивающие сверху и снизу
-    \draw[dashed] (0,0.3) -- (4,0.3);
-    \draw[dashed] (0,3.2) -- (4,3.2);
-
-    \node[left] at (0,0.3) {$a$};
-    \node[left] at (0,3.2) {$b$};
-    
-    % Подпись области
-    \node at (2.2,1.7) {$G$};
-\end{tikzpicture}\]
-\end{figure}
 \begin{theorem}
     Пусть $\phi(y),\ \psi(y)\in \mathcal{C}^1[a,b],\ f(x,y)\in \mathcal{C}(G),\ \exists\ f'_y(x,y)\in \mathcal{C}(G)$. Тогда $F(y)\in \mathcal{C}^1(G)$ и
     \[F'(y)=\left(\ \int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\right)'=\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y)\ dx+f(\psi(y),y)\cdot \psi'(y)-f(\phi(y),y)\cdot \phi'(y)\]
@@ -93,8 +62,8 @@ $f$ равномерно непрерывна (так как $G$ - компак�
     \[\int\limits_{a}^{\omega}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
 \end{definition}
 Далее, без ограничения общности будем писать $\omega=+\infty$.
-\begin{theorem} (Критерий Коши)\\
-    \[\int\limits_{a}^{a'}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)=\int\limits_{a}^{+\infty} f(x,y)\ dx\]
+\begin{theorem} (Критерий Коши равномерной сходимости)\\
+    \[\int\limits_{a}^{+\infty}f(x,y)\ dx\overset{Y}{\rightrightarrows} F(y)\]
     тогда и только тогда, когда $\forall \epsilon>0\ \exists\ A>a,\ \forall a_1,a_2>A,\ \forall y\in Y$:
     \[\left|\ \int\limits_{a_1}^{a_2}f(x,y)\ dx\ \right|<\epsilon\]
 \end{theorem}

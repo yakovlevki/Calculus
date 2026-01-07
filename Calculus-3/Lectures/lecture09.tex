@@ -7,7 +7,35 @@
 \subsection{Собственные интегралы с параметром}
     Пусть $\phi(y),\ \psi(y)\in \mathcal{C}[a,b],\ \phi(y)\leq \psi(y)$. Рассмотрим $G\subset \R^2: $
     \[G=\{(x,y): y\in [a,b],\ \phi(y)\leq x\leq \psi(y)\}\]
-    см. рисунок ниже
+\[\begin{tikzpicture}[scale=1.7]
+\draw[->] (-0.5, 0) -- (4.5,0) node[right] {$x$};
+\draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
+
+\pgfmathdeclarefunction{phi}{1}{%
+    \pgfmathparse{0.8 + 0.4*sin(deg(1.2*#1)) + 0.2*cos(deg(3*#1))}%
+}
+\pgfmathdeclarefunction{psi}{1}{%
+    \pgfmathparse{3.2 + 0.5*sin(deg(0.8*#1)) + 0.3*cos(deg(2.5*#1)) + 0.1*sin(deg(5*#1))}%
+}
+
+% Первая кривая φ(y)
+\draw[thick] plot[domain=0.3:3.2,samples=100] ({phi(\x)}, \x);
+\node[left] at ({phi(1.7)}, 1.7) {$\phi(y)$};
+
+% Вторая кривая ψ(y)
+\draw[thick] plot[domain=0.3:3.2,samples=100] ({psi(\x)}, \x);
+\node[right] at ({psi(1.7)}, 1.7) {$\psi(y)$};
+
+% Прямые, ограничивающие сверху и снизу
+\draw[dashed] (0,0.3) -- (4,0.3);
+\draw[dashed] (0,3.2) -- (4,3.2);
+
+\node[left] at (0,0.3) {$a$};
+\node[left] at (0,3.2) {$b$};
+
+% Подпись области
+\node at (2.2,1.7) {$G$};
+\end{tikzpicture}\]
 \begin{definition} Пусть $f(x,y)\in \mathcal{R}[\phi(y),\psi(y)]$. Интеграл
     \[F(y)=\int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\]
     называется собственным интегралом с параметром.
