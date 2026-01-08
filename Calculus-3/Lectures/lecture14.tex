@@ -16,7 +16,7 @@
     По формуле Тейлора с остаточным членом в форме Лагранжа:
     \[\ln{(1+\tau)}=\tau-\frac{\tau^2}{2}\cdot \frac{1}{(1+\theta\tau)^2},\ |\theta|<1\]
     \begin{multline*}
-        n\ln{\left(1+\frac{t-n}{n}\right)}+n-t=\\
+        -x^2=n\ln{\left(1+\frac{t-n}{n}\right)}+n-t=\\
         =n\left(\frac{t-n}{n}-\frac{(t-n)^2}{2n^2}\cdot \frac{1}{\left(1+\theta_n\cdot \frac{t-n}{n}\right)^2}\right)+n-t=\\
         =-\frac{(t-n)^2}{2n}\cdot \frac{1}{\left(1+\theta_n\cdot \frac{t-n}{n}\right)^2}
     \end{multline*}
@@ -31,7 +31,7 @@
     \end{multline*}
     после всех преобразований, получим
     \begin{multline*}
-        \int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt=\int\limits_{-\infty}^{+\infty}e^{-x^2}\cdot(\sqrt{2n}+2(1+\theta_n)x)\ dx=\\
+        \int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt=\int\limits_{-\infty}^{+\infty}e^{-x^2}\cdot(\sqrt{2n}+2(1-\theta_n)x)\ dx=\\
         =\sqrt{2\pi n}+\int\limits_{-\infty}^{+\infty}(1-\theta_n)e^{-x^2}\ dx^2=\sqrt{2\pi n}+\beta_n,\ |\beta|\leq 4
     \end{multline*}
     итого
