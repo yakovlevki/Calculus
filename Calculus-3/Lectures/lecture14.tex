@@ -11,6 +11,8 @@
     \[n!=n^n e^{-n}\cdot \int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt\]
     \[\int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt=\int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt\]
     Сделаем замену $-x^2=n\ln{\frac{t}{n}}+n-t=n\ln{\left(1+\frac{t-n}{n}\right)}+n-t$\\
+    Тогда дифференциал принимает вид
+    \[dt=2x\cdot \frac{t}{t-n}\ dx \eqno{(*)}\]
     По формуле Тейлора с остаточным членом в форме Лагранжа:
     \[\ln{(1+\tau)}=\tau-\frac{\tau^2}{2}\cdot \frac{1}{(1+\theta\tau)^2},\ |\theta|<1\]
     \begin{multline*}
@@ -22,7 +24,7 @@
     \[x=\frac{t-n}{\sqrt{2n}}\cdot \frac{1}{1+\theta_n\cdot \frac{t-n}{n}}=\frac{(t-n)\sqrt{\frac{n}{2}}}{n+\theta_n(t-n)}\]
     \[nx+\theta_n(t-n)x=\sqrt{\frac{n}{2}}\cdot (t-n)\]
     \[nx=(t-n)\left(\sqrt{\frac{n}{2}}-\theta_n x\right)\ \Rightarrow\ t-n=\frac{nx}{\sqrt{\frac{n}{2}}-\theta_n x}\ \Rightarrow\ t=\frac{nx+n\left(\sqrt{\frac{n}{2}}-\theta_n x\right)}{\sqrt{\frac{n}{2}}-\theta_n x}\]
-    отсюда
+    подставим $t-n$ и $t$ в выражение $(*)$ для дифференциала:
     \begin{multline*}
         dt=2x\cdot \frac{nx+n(\sqrt{\frac{n}{2}}-\theta_n x)}{\sqrt{\frac{n}{2}}-\theta_n x}\cdot \frac{\sqrt{\frac{n}{2}}-\theta_n x}{nx}\ dx=\\
         =2(x+\sqrt{\frac{n}{2}}-\theta_n x)\ dx=(\sqrt{2n}+2(1-\theta_n)x)\ dx
