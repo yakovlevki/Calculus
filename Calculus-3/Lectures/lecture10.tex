@@ -21,8 +21,13 @@
 Последнее слагаемое оценивается так: $f\in \mathcal{C}(G)$, значит,
 $f$ равномерно непрерывна (так как $G$ - компакт) $\Rightarrow$ при $\Delta y\to 0: |f(x,y+\Delta y)-f(x,y)|<\epsilon$
 \end{proof}
+\begin{reminder} (Первая теорема о среднем)\\
+    Пусть $f(x), g(x) \in \mathcal{R}[a, b],\ g(x) \geq 0,\ M = \sup f(x),\ m = \inf f(x)$. Тогда\\
+    $\exists\ \mu\in [m,M]$:
+    \[\int\limits_{a}^{b}f(x)\cdot g(x)\ dx = \mu\cdot\int\limits_{a}^{b}g(x)\ dx\]
+\end{reminder}
 \begin{theorem}
-    Пусть $\phi(y),\ \psi(y)\in \mathcal{C}^1[a,b],\ f(x,y)\in \mathcal{C}(G),\ \exists\ f'_y(x,y)\in \mathcal{C}(G)$. Тогда $F(y)\in \mathcal{C}^1(G)$ и
+    Пусть $\phi(y),\ \psi(y)\in \mathcal{C}^1[a,b],\ f(x,y)\in \mathcal{C}(G),\ \exists\ f'_y(x,y)\in \mathcal{C}(G)$. Тогда $F(y)\in \mathcal{C}^1[a,b]$ и
     \[F'(y)=\left(\ \int\limits_{\phi(y)}^{\psi(y)}f(x,y)\ dx\right)'=\int\limits_{\phi(y)}^{\psi(y)}f'_y(x,y)\ dx+f(\psi(y),y)\cdot \psi'(y)-f(\phi(y),y)\cdot \phi'(y)\]
 \end{theorem}
 \begin{proof}
