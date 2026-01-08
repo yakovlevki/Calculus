@@ -26,7 +26,7 @@
     Вычислим:
     \begin{enumerate}
         \item $\int\limits_{-\pi}^{\pi} f \cdot T_N \ dx$ 
-        \[ \int\limits_{-\pi}^{\pi} f \cdot T_N \ dx = \frac{A_0}{2} \int\limits_{-\pi}^{\pi} f \ dx + \sum\limits_{n=1}^{N}\left(A_n \cdot \int\limits_{-\pi}^{\pi} \cos{(nx)} \ dx + B_n \cdot \int\limits_{-\pi}^{\pi} \sin{(nx)}\ dx \right)\]
+        \[ \int\limits_{-\pi}^{\pi} f \cdot T_N \ dx = \frac{A_0}{2} \int\limits_{-\pi}^{\pi} f \ dx + \sum\limits_{n=1}^{N}\left(A_n \cdot \int\limits_{-\pi}^{\pi}f\cdot \cos{(nx)} \ dx + B_n \cdot \int\limits_{-\pi}^{\pi}f \cdot \sin{(nx)}\ dx \right)\]
         Используем определение коэффициентов Фурье:
         \[ \int\limits_{-\pi}^{\pi} f \ dx = \pi \cdot a_0, \ \int\limits_{-\pi}^{\pi} f \cdot \cos{(nx)} \ dx = \pi \cdot a_n, \ \int\limits_{-\pi}^{\pi} f \cdot \sin{(nx)} \ dx = \pi \cdot b_n\]
         \[\Longrightarrow  \int\limits_{-\pi}^{\pi} f \cdot T_N \ dx = \pi \left( \frac{A_0 \cdot a_0}{2} + \sum\limits_{n=1}^{N}(A_n a_n + B_n b_n)\right)\]
