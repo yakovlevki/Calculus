@@ -81,16 +81,16 @@
     отсюда
     \begin{multline*}
         \Gamma(x)\cdot \Gamma(1-x)=\Gamma(x)(-x)\Gamma(-x)=\\
-        =\frac{1}{x}\cdot \prod\limits_{k=1}^{\infty}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x\cdot (-x)\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^{-x}=\\
+        =\frac{1}{x}\cdot \prod\limits_{k=1}^{\infty}\left(1+\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^x\cdot (-x)\cdot \frac{1}{x}\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{x}{k}\right)^{-1}\left(1+\frac{1}{k}\right)^{-x}=\\
         =\frac{\pi}{\pi x}\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{x^2}{k^2}\right)^{-1}\cdot 1\overset{(1)}{=}\frac{\pi}{\sin{(\pi x)}}
     \end{multline*}
     (1): по формуле разложения синуса в бесконечное произведение:
     \[\sin{(\pi x)}=\pi x\cdot \prod\limits_{k=1}^{\infty}\left(1-\frac{x^2}{k^2}\right)\] 
 \end{proof}
 % тут какое-то странное следствие
-\begin{example} (Интеграл Эйлера-Пуассона)\\
+\begin{theorem} (Интеграл Эйлера-Пуассона)\\
     Заметим, что
     \[\Gamma\left(\frac{1}{2}\right)\cdot \Gamma\left(\frac{1}{2}\right)=\frac{\pi}{\sin{\frac{\pi}{2}}}=\pi\]
     Таким образом, можем посчитать интеграл
-    \[\int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx=\int\limits_{0}^{+\infty}e^{-t}\cdot t^{-\frac{1}{2}}\ dt=\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}\]
-\end{example}
+    \[\int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx=2 \int\limits_{0}^{+\infty}e^{-t}\cdot \frac{1}{2}\cdot t^{-\frac{1}{2}}\ dt=\Gamma\left(\frac{1}{2}\right)=\sqrt{\pi}\]
+\end{theorem}
