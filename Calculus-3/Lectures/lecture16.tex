@@ -2,7 +2,7 @@
     Пусть существуют интегралы
     \[\int\limits_{-\pi}^{\pi}f(x)\ dx,\ \ \int\limits_{-\pi}^{\pi}|f(x)|\ dx\]
     Тогда числа
-    \[a_n=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(x)\cdot \cos{(nx)}\ dx,\ \ b_n=\int\limits_{-\pi}^{\pi}f(x)\cdot \sin{(nx)}\ dx\]
+    \[a_n=\frac{1}{\pi} \int\limits_{-\pi}^{\pi}f(x)\cdot \cos{(nx)}\ dx,\ \ b_n=\frac{1}{\pi} \int\limits_{-\pi}^{\pi}f(x)\cdot \sin{(nx)}\ dx\]
     называются коэффициентами Фурье функции $f(x)$, а ряд
     \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
     называется рядом Фурье функции $f(x)$.
@@ -14,55 +14,46 @@
     \[F_N(x)=\frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
     Тогда
     \[\int\limits_{-\pi}^{\pi}(f(x)-F_N(x))^2\ dx=\min\limits_T \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx\]
-    где $T_N$ - тригонометрический полином степени не выше N.
+    где $T_N$ --- тригонометрический полином степени не выше $N$, $\min\limits_T$ означает, что минимум берется по всем тригонометрическим многочленам степени не превосходящей $N$.
 \end{theorem}
 \begin{proof}
     Пусть \[T_N = \frac{A_0}{2}+\sum\limits_{n=1}^{N} \left( A_n\cdot \cos{(nx)}+B_n\cdot \sin{(nx)} \right) \]
-    — произвольный тригонометрический полином степени $N$ с коэффициентами: $A_0, A_n, B_n$. \\
-    Хотим минимизировать:
-    \[ I = \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx \]
-    Раскрываем квадрат: 
-    \[ I = \int\limits_{-\pi}^{\pi} f^2 \ dx + 2\int\limits_{-\pi}^{\pi} f \cdot T_N \ dx + \int\limits_{-\pi}^{\pi} T_N^2 \ dx \]
-    Вычислим:
+    произвольный тригонометрический полином степени $N$.
+    Хотим минимизировать
+    \[ I = \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx = \int\limits_{-\pi}^{\pi} f^2(x) \ dx + 2\int\limits_{-\pi}^{\pi} f(x) \cdot T_N(x) \ dx + \int\limits_{-\pi}^{\pi} T_N^2(x) \ dx \]
+    Вычислим второй и третий интегралы через коэффициенты Фурье:
+        \[ \int\limits_{-\pi}^{\pi} f(x) \ dx = \pi \cdot a_0, \ \ \int\limits_{-\pi}^{\pi} f(x) \cdot \cos{(nx)} \ dx = \pi \cdot a_n, \ \ \int\limits_{-\pi}^{\pi} f(x) \cdot \sin{(nx)} \ dx = \pi \cdot b_n\]
     \begin{enumerate}
-        \item $\int\limits_{-\pi}^{\pi} f \cdot T_N \ dx$ 
-        \[ \int\limits_{-\pi}^{\pi} f \cdot T_N \ dx = \frac{A_0}{2} \int\limits_{-\pi}^{\pi} f \ dx + \sum\limits_{n=1}^{N}\left(A_n \cdot \int\limits_{-\pi}^{\pi}f\cdot \cos{(nx)} \ dx + B_n \cdot \int\limits_{-\pi}^{\pi}f \cdot \sin{(nx)}\ dx \right)\]
-        Используем определение коэффициентов Фурье:
-        \[ \int\limits_{-\pi}^{\pi} f \ dx = \pi \cdot a_0, \ \int\limits_{-\pi}^{\pi} f \cdot \cos{(nx)} \ dx = \pi \cdot a_n, \ \int\limits_{-\pi}^{\pi} f \cdot \sin{(nx)} \ dx = \pi \cdot b_n\]
-        \[\Longrightarrow  \int\limits_{-\pi}^{\pi} f \cdot T_N \ dx = \pi \left( \frac{A_0 \cdot a_0}{2} + \sum\limits_{n=1}^{N}(A_n a_n + B_n b_n)\right)\]
-        \item $\int\limits_{-\pi}^{\pi}  T_N^2 \ dx$ 
-        % Используем ортогональность:
+        \item
         \begin{multline*}
-            \int\limits_{-\pi}^{\pi}  T_N^2 \ dx = \int\limits_{-\pi}^{\pi} \left(\frac{A_0}{2}\right)^2 \ dx + \sum\limits_{n=1}^{N} \int\limits_{-\pi}^{\pi} \left( A_n\cdot \cos{(nx)}+B_n\cdot \sin{(nx)} \right)^2 = \\
+            \int\limits_{-\pi}^{\pi} f(x) \cdot T_N(x) \ dx =\\
+            = \frac{A_0}{2} \int\limits_{-\pi}^{\pi} f(x) \ dx\ +\ \sum\limits_{n=1}^{N}\left(A_n \int\limits_{-\pi}^{\pi}f(x)\cdot \cos{(nx)} \ dx + B_n \int\limits_{-\pi}^{\pi}f(x) \cdot \sin{(nx)}\ dx \right)=\\
+            = \pi \left( \frac{A_0 \cdot a_0}{2} + \sum\limits_{n=1}^{N}(A_n a_n + B_n b_n)\right)
+        \end{multline*}
+        \item
+        \begin{multline*}
+            \int\limits_{-\pi}^{\pi}  T_N^2(x) \ dx =\\
+            = \int\limits_{-\pi}^{\pi} \left(\frac{A_0}{2}\right)^2 \ dx + \sum\limits_{n=1}^{N} \int\limits_{-\pi}^{\pi} \left( A_n\cdot \cos{(nx)}+B_n\cdot \sin{(nx)} \right)^2 = \\
             = \pi \cdot \frac{A_0^2}{2} + \pi \cdot \sum\limits_{n=1}^{N} \left(A_n^2 + B_n^2\right)
         \end{multline*}
     \end{enumerate}
-    Возвращаемся к $I$:
-    \[ I = \int\limits_{-\pi}^{\pi} f^2 \ dx -2 \pi \left( \frac{A_0 a_0}{2} + \sum\limits_{n=1}^{N}(A_n a_n + B_n b_n)\right) + \pi \cdot \frac{A_0^2}{2} + \pi \cdot \sum\limits_{n=1}^{N} \left(A_n^2 + B_n^2\right) \]
-    Члены с $A_0$:
+    Таким образом
+    \[ I = \int\limits_{-\pi}^{\pi} f^2(x) \ dx -2 \pi \left( \frac{A_0 a_0}{2} + \sum\limits_{n=1}^{N}(A_n a_n + B_n b_n)\right) + \pi \cdot \frac{A_0^2}{2} + \pi \cdot \sum\limits_{n=1}^{N} \left(A_n^2 + B_n^2\right) \]
+    Преобразуем члены с $A_0, A_n$ и $B_n$:
     \[\pi \cdot \frac{A_0^2}{2} - 2 \pi \cdot \frac{A_0 a_0}{2} = \pi \left( \frac{A_0^2}{2} - A_0 a_0\right) = \pi \left( \frac{1}{2}\left( A_0 - a_0\right)^2 - \frac{1}{2} a_0^2 \right)\]
-    Члены с $A_n, B_n$:
     \[ \pi A_n^2 - 2\pi A_n a_n = \pi((A_n-a_n)^2 - a_n^2)\]
     \[ \pi B_n^2 - 2\pi B_n b_n = \pi((B_n-b_n)^2 - b_n^2)\]
-    Получаем: 
-    \[I = \int\limits_{-\pi}^{\pi} f^2 \ dx + \frac{\pi}{2}\left( A_0 - a_0\right)^2 +\pi \sum\limits_{n=1}^{N}\left( (A_n-a_n)^2 + (B_n-b_n)^2\right) - \frac{\pi}{2} a_0^2 - \pi \sum\limits_{n=1}^{N} (a_n^2 + b_n^2)\]
-    Обозначим (не зависит от $A_0, A_n, B_n$ )
-    \[C = \int\limits_{-\pi}^{\pi} f^2 \ dx - \frac{\pi}{2} a_0^2 - \pi \sum\limits_{n=1}^{N} (a_n^2 + b_n^2)\]
-    Итог: 
+    Значит
+    \begin{multline*}
+        I = \int\limits_{-\pi}^{\pi} f^2(x) \ dx + \frac{\pi}{2}\left( A_0 - a_0\right)^2 +\\+\pi \sum\limits_{n=1}^{N}\left( (A_n-a_n)^2 + (B_n-b_n)^2\right) - \frac{\pi}{2} a_0^2 - \pi \sum\limits_{n=1}^{N} (a_n^2 + b_n^2)
+    \end{multline*}
+    Члены не зависящие от $A_0, A_n$ и $B_n$, обозначим:
+    \[C = \int\limits_{-\pi}^{\pi} f^2(x) \ dx - \frac{\pi}{2} a_0^2 - \pi \sum\limits_{n=1}^{N} (a_n^2 + b_n^2)\]
+    тогда
     \[ I = C + \frac{\pi}{2}\left(A_0 - a_0\right)^2 + \pi \sum\limits_{n=1}^{N}\left( (A_n-a_n)^2 + (B_n-b_n)^2\right)\]
-    Поскольку $\pi > 0$ ясно, что $I$ минимально, когда все квадраты равны нулю $\Longrightarrow $ 
-    \[A_0 = a_0, \ A_n = a_n, \ B_n = b_n, \ \forall n\]
-    $\Longrightarrow T_N(x) = F_N(x)$
-    % \begin{multline*}
-    %     \int\limits_{-\pi}^{\pi}\left(f(x)-\frac{A_0}{2}-\sum\limits_{n=1}^{N}(A_n\cdot \cos{(nx)}+B_n\cdot \sin{(nx)})\right)^2 dx=\\
-    %     =\int\limits_{-\pi}^{\pi}f^2(x)\ dx-2\pi\cdot \frac{A_0^2}{4}+\pi\cdot \sum\limits_{n=1}^{N}(A_n^2+B_n^2)-2\cdot \frac{A_0}{2}\cdot \int\limits_{-\pi}^{\pi}f(x)\ dx-\\
-    %     -2\cdot \sum\limits_{n=1}^{N}\left(A_n\cdot \int\limits_{-\pi}^{\pi}f(x)\cdot \cos{(nx)}\ dx+B_n\cdot \int\limits_{-\pi}^{\pi}f(x)\cdot \sin{(nx)}\ dx\right)=\\
-    %     =\int\limits_{-\pi}^{\pi}f^2(x)\ dx+2\pi\cdot \frac{A_0^2}{4}+\pi\cdot \sum\limits_{n=1}^{N}(A_n^2+B_n^2)-4\pi\cdot \frac{A_0}{2}\cdot \frac{a_0}{2}-2\pi\cdot \sum\limits_{n=1}^{N}(A_n a_n+B_n b_n)+\\
-    %     +2\pi\cdot\frac{a_0^2}{4}+\pi\cdot \sum\limits_{n=1}^{N}(a_n^2+b_n^2)-2\pi\cdot \frac{a_0^2}{4}-\pi\cdot \sum\limits_{n=1}^{N}(a_n^2+b_n^2)=\\
-    %     =\int\limits_{-\pi}^{\pi}f^2(x)\ dx+2\pi\left(\frac{A_0}{2}-\frac{a_0}{2}\right)^2+\pi\cdot \sum\limits_{n=1}^{N}((A_n-a_n)^2+(B_n-b_n)^2)-\\
-    %     -2\pi\cdot \frac{a_0^2}{4}-\pi\cdot \sum\limits_{n-1}^{N}(a_n^2+b_n^2)
-    % \end{multline*}
-    % Первое слагаемое - констанста, она не от чего не зависит. Последние два слагаемых не зависят от $T$. Таким образом, у этой величины есть минимум, тогда и только тогда, когда $A_n=a_n$ и $B_n=b_n$, что и означает $T_N=F_N$.
+    Поскольку $\pi > 0$, ясно, что $I$ минимально, когда все квадраты равны нулю. Значит $\forall n$:
+    \[A_0 = a_0, \ A_n = a_n, \ B_n = b_n\]
+    а это и означает, что $T_N(x) = F_N(x)$.
 \end{proof}
 \begin{consequense} (Неравенство Бесселя)\\
     \[\frac{a^2_0}{2}+\sum\limits_{n=1}^{N}(a_n^2+b_n^2)\leq \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
