@@ -24,7 +24,7 @@
     Пусть \[T_N = \frac{A_0}{2}+\sum\limits_{n=1}^{N} \left( A_n\cdot \cos{(nx)}+B_n\cdot \sin{(nx)} \right) \]
     произвольный тригонометрический полином степени $N$.\\
     Хотим минимизировать
-    \[ I = \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx = \int\limits_{-\pi}^{\pi} f^2(x) \ dx + 2\int\limits_{-\pi}^{\pi} f(x) \cdot T_N(x) \ dx + \int\limits_{-\pi}^{\pi} T_N^2(x) \ dx \]
+    \[ I = \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx = \int\limits_{-\pi}^{\pi} f^2(x) \ dx - 2\int\limits_{-\pi}^{\pi} f(x) \cdot T_N(x) \ dx + \int\limits_{-\pi}^{\pi} T_N^2(x) \ dx \]
     Вычислим второй и третий интегралы через коэффициенты Фурье:
         \[ \int\limits_{-\pi}^{\pi} f(x) \ dx = \pi \cdot a_0, \ \ \int\limits_{-\pi}^{\pi} f(x) \cdot \cos{(nx)} \ dx = \pi \cdot a_n, \ \ \int\limits_{-\pi}^{\pi} f(x) \cdot \sin{(nx)} \ dx = \pi \cdot b_n\]
     \begin{enumerate}

@@ -18,23 +18,23 @@
         \leq \frac{1}{\pi}\cdot \int\limits_{-\pi}^{-\delta}\Psi_N(t)\cdot |f(t+x)-f(x)|\ dt+\frac{1}{\pi}\cdot \int\limits_{-\delta}^{\delta}\Psi_N(t)\cdot |f(t+x)-f(x)|\ dt+\\
         +\frac{1}{\pi}\cdot \int\limits_{\delta}^{\pi}\Psi_N(t)\cdot |f(t+x)-f(x)|\ dt\leq \frac{\epsilon}{\pi}+\frac{\epsilon}{\pi}\cdot 2M\cdot 2
     \end{multline*}
-    \textit{(будет пояснено)} % там по равномерной непрерывности разность оценивается
+    % там по равномерной непрерывности разность оценивается
 \end{proof}
 \begin{theorem} (Теорема Вейерштрасса о равномерном приближении непрерывной функции на отрезке многочленами)\\
-    Пусть $f(x)\in \mathcal{C}[a,b]$, а также $\forall \epsilon>0\ \exists P_{\epsilon}(x)$ такой, что
+    Пусть $f(x)\in \mathcal{C}[a,b]$, а также $\forall \epsilon>0\ \exists\ P_{\epsilon}(x)$ такой, что
     \[|f(x)-P_{\epsilon}(x)|<\epsilon,\ \forall x\in [a,b]\]
 \end{theorem}
 \begin{proof}
     Линейной заменой получим, что достаточно доказать для отрезка $[0,\pi]$, затем непрерывно продолжаем ее до отрезка $[-\pi,\pi]$. Тогда по теореме Фейера существует тригонометрический многочлен, приближающий функцию. Затем раскладываем синусы и косинусы по формулам Тейлора и получаем утверждение теоремы.\\
-    \textit{(была доказана устно, тоже будет пояснено)}
 \end{proof}
 \begin{theorem} (Равенство Парсеваля)\\
     \[\frac{a_0^2}{2}+\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2)=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
 \end{theorem}
 \begin{proof}
+    Делаем такое же преобразование, как в минимальном свойстве коэффициентов Фурье:
     \begin{multline*}
         \frac{1}{\pi}\int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx+\\
-        +2\left(\frac{a_0}{2}-\frac{A_0}{2}\right)+\sum\limits_{n=1}^{N}((a_n-A_n)^2+(b_n-B_n)^2)-\frac{a_0^2}{2}-\sum\limits_{n=1}^{N}(a_n^2+b_n^2)
+        +2\left(\frac{a_0}{2}-\frac{A_0}{2}\right)^2+\sum\limits_{n=1}^{N}((a_n-A_n)^2+(b_n-B_n)^2)-\frac{a_0^2}{2}-\sum\limits_{n=1}^{N}(a_n^2+b_n^2)
     \end{multline*}
     $\forall \epsilon>0\ \exists\ T_N(x)$ такой, что
     \[\epsilon>\frac{1}{\pi}\int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx\geq \frac{1}{\pi}\int\limits_{-\pi}^{\pi}f^2(x)\ dx-\frac{a_0^2}{2}-\sum\limits_{n=1}^{N}(a_n^2+b_n^2)\]
