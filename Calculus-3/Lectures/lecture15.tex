@@ -40,10 +40,14 @@
         =\int\limits_{0}^{+\infty}\frac{x^{\alpha-1}}{(1+x)^{\alpha+\beta}}\cdot \left(\int\limits_{0}^{+\infty}(1+x)^{\alpha+\beta}\cdot y^{\alpha+\beta-1}\cdot e^{-y-yx}\ dy\right)dx=\\
         =\int\limits_{0}^{+\infty}\left(\int\limits_{0}^{+\infty}x^{\alpha-1}\cdot y^{\alpha+\beta-1}\cdot e^{-y}\cdot e^{-yx}\ dy\right)dx=\\
         =\int\limits_{0}^{+\infty}y^{\alpha+\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}x^{\alpha-1}\cdot e^{-yx}\ dx\right)dy=\\
-        =\int\limits_{0}^{+\infty}y^{\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}(xy)^{\alpha-1}\cdot e^{-yx}\ d(yx)\right)dy=\\=\Gamma(\alpha)\cdot \Gamma(\beta)
+        =\int\limits_{0}^{+\infty}y^{\beta-1}\cdot e^{-y}\cdot \left(\int\limits_{0}^{+\infty}(xy)^{\alpha-1}\cdot e^{-yx}\ d(yx)\right)dy=\Gamma(\alpha)\cdot \Gamma(\beta)
     \end{multline*}% тут из дифференциала x появился и по теореме для интегр с парам
-    Далее, используя рекуррентную формулу, распространяем на случай\\
-    $\alpha, \beta>0$.
+    Далее, используя рекуррентную формулу, распространяем на $\alpha, \beta>0$:
+    \begin{multline*}
+        B(\alpha, \beta) = \frac{\alpha+\beta}{\alpha}B(\alpha+1, \beta) = \frac{(\alpha+ \beta)
+        (\alpha+\beta+1)}{\alpha\beta}B(\alpha+1, \beta + 1) =\\= \frac{(\alpha+ \beta)
+        (\alpha+\beta+1)}{\alpha\beta}\frac{\Gamma(\alpha+1)\Gamma(\beta + 1)}{\Gamma(\alpha + \beta + 2)} = \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha+\beta)}
+    \end{multline*}
 \end{proof}
 \begin{comm}
     Интегралы вида

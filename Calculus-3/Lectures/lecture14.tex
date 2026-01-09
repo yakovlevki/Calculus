@@ -10,9 +10,11 @@
     отсюда
     \[n!=n^n e^{-n}\cdot \int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt\]
     \[\int\limits_{0}^{+\infty}\left(\frac{t}{n}\right)^n e^{n-t}\ dt=\int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt\]
-    Сделаем замену $-x^2=n\ln{\frac{t}{n}}+n-t=n\ln{\left(1+\frac{t-n}{n}\right)}+n-t$\\
-    Тогда дифференциал принимает вид
-    \[dt=2x\cdot \frac{t}{t-n}\ dx \eqno{(*)}\]
+    Хотим сделать замену $-x^2=n\ln{\frac{t}{n}}+n-t=n\ln{\left(1+\frac{t-n}{n}\right)}+n-t$\\
+    Найдём связь дифференциалов при такой замене:
+    \begin{equation}
+    -2xdx = \left(\frac{n}{t} - 1\right) dt\Longrightarrow dt = 2x \ \frac{t}{t-n}\ dx
+    \end{equation}
     По формуле Тейлора с остаточным членом в форме Лагранжа:
     \[\ln{(1+\tau)}=\tau-\frac{\tau^2}{2}\cdot \frac{1}{(1+\theta\tau)^2},\ |\theta|<1\]
     \begin{multline*}
@@ -20,20 +22,24 @@
         =n\left(\frac{t-n}{n}-\frac{(t-n)^2}{2n^2}\cdot \frac{1}{\left(1+\theta_n\cdot \frac{t-n}{n}\right)^2}\right)+n-t=\\
         =-\frac{(t-n)^2}{2n}\cdot \frac{1}{\left(1+\theta_n\cdot \frac{t-n}{n}\right)^2}
     \end{multline*}
-    отсюда, после раскрытия модуля
+    отсюда для получения монотонной на $[0, n]$ и $[n, +\infty]$ замены такой, что $x$ и $t-n$ имели один знак, необходимо раскрыть модули таким образом:
     \[x=\frac{t-n}{\sqrt{2n}}\cdot \frac{1}{1+\theta_n\cdot \frac{t-n}{n}}=\frac{(t-n)\sqrt{\frac{n}{2}}}{n+\theta_n(t-n)}\]
     \[nx+\theta_n(t-n)x=\sqrt{\frac{n}{2}}\cdot (t-n)\]
     \[nx=(t-n)\left(\sqrt{\frac{n}{2}}-\theta_n x\right)\ \Rightarrow\ t-n=\frac{nx}{\sqrt{\frac{n}{2}}-\theta_n x}\ \Rightarrow\ t=\frac{nx+n\left(\sqrt{\frac{n}{2}}-\theta_n x\right)}{\sqrt{\frac{n}{2}}-\theta_n x}\]
-    подставим $t-n$ и $t$ в выражение $(*)$ для дифференциала:
+    подставим $t-n$ и $t$ в выражение $(1)$ для дифференциала:
     \begin{multline*}
         dt=2x\cdot \frac{nx+n(\sqrt{\frac{n}{2}}-\theta_n x)}{\sqrt{\frac{n}{2}}-\theta_n x}\cdot \frac{\sqrt{\frac{n}{2}}-\theta_n x}{nx}\ dx=\\
         =2(x+\sqrt{\frac{n}{2}}-\theta_n x)\ dx=(\sqrt{2n}+2(1-\theta_n)x)\ dx
     \end{multline*}
-    после всех преобразований, получим
+    После всех преобразований получим
     \begin{multline*}
         \int\limits_{0}^{+\infty}e^{n\ln{\frac{t}{n}}+n-t}\ dt=\int\limits_{-\infty}^{+\infty}e^{-x^2}\cdot(\sqrt{2n}+2(1-\theta_n)x)\ dx=\\
-        =\sqrt{2\pi n}+\int\limits_{-\infty}^{+\infty}(1-\theta_n)e^{-x^2}\ dx^2=\sqrt{2\pi n}+\beta_n,\ |\beta_n|\leq 4
+        =\sqrt{2\pi n}+2\int\limits_{-\infty}^{+\infty}x(1-\theta_n)e^{-x^2}\ dx=\sqrt{2\pi n}+\beta_n
     \end{multline*}
-    итого
-    \[n!=n^n e^{-n}(\sqrt{2\pi n}+\beta_n)=\sqrt{2\pi n}\cdot n^n e^{-n}\left(1+\frac{\alpha_n}{\sqrt{n}}\right)\]
+    где
+    \begin{multline*}
+        |\beta_n| = 2\left|\int\limits_{-\infty}^{+\infty}x(1-\theta_n)e^{-x^2}\ dx \right| \leqslant 2\int\limits_{-\infty}^{+\infty}|x||1-\theta_n|e^{-x^2}\ dx \leqslant 4\int\limits_{-\infty}^{+\infty}|x|e^{-x^2}\ dx = \\ = 8\int\limits_{0}^{+\infty}xe^{-x^2}\ dx = 4 \int\limits_{0}^{+\infty}e^{-x^2}\ dx^2 = 4\int\limits_{0}^{+\infty}e^{-t}\ dt = 4
+    \end{multline*}
+    Итого
+    \[n!=n^n e^{-n}(\sqrt{2\pi n}+\beta_n)=\sqrt{2\pi n}\cdot n^n e^{-n}\left(1+\frac{\alpha_n}{\sqrt{n}}\right),\ |\alpha_n| = \left|\frac{\beta_n}{\sqrt{2\pi}}\right| \leqslant 2\]
 \end{proof}

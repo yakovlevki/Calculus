@@ -7,18 +7,22 @@
     \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
     называется рядом Фурье функции $f(x)$.
 \end{definition}
+\begin{comm}Из неравенства
+    \[|f(x)|\leq \frac{1+f^2(x)}{2}\]
+    следует, что если существует интеграл от квадрата, то существует и от модуля.
+\end{comm}
 \begin{theorem}
     Пусть существуют интегралы
     \[\int\limits_{-\pi}^{\pi}f(x)\ dx,\ \ \int\limits_{-\pi}^{\pi}f^2(x)\ dx\]
     а также
     \[F_N(x)=\frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
     Тогда
-    \[\int\limits_{-\pi}^{\pi}(f(x)-F_N(x))^2\ dx=\min\limits_T \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx\]
-    где $T_N$ --- тригонометрический полином степени не выше $N$, $\min\limits_T$ означает, что минимум берется по всем тригонометрическим многочленам степени не превосходящей $N$.
+    \[\int\limits_{-\pi}^{\pi}(f(x)-F_N(x))^2\ dx=\min\limits_{T_N} \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx\]
+    где $T_N$ --- тригонометрический полином степени не выше $N$.
 \end{theorem}
 \begin{proof}
     Пусть \[T_N = \frac{A_0}{2}+\sum\limits_{n=1}^{N} \left( A_n\cdot \cos{(nx)}+B_n\cdot \sin{(nx)} \right) \]
-    произвольный тригонометрический полином степени $N$.
+    произвольный тригонометрический полином степени $N$.\\
     Хотим минимизировать
     \[ I = \int\limits_{-\pi}^{\pi}(f(x)-T_N(x))^2\ dx = \int\limits_{-\pi}^{\pi} f^2(x) \ dx + 2\int\limits_{-\pi}^{\pi} f(x) \cdot T_N(x) \ dx + \int\limits_{-\pi}^{\pi} T_N^2(x) \ dx \]
     Вычислим второй и третий интегралы через коэффициенты Фурье:
@@ -109,7 +113,9 @@
         F_N(x)=\frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})=\\
         =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi}\cdot \sum\limits_{n=1}^{N}\left(\cos{(nx)}\cdot \int\limits_{-\pi}^{\pi}f(t)\cos{(nt)}\ dt+\sin{(nx)}\cdot \int\limits_{-\pi}^{\pi}f(t) \sin{(nt)}\ dt\right)=\\
         =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi} \int\limits_{-\pi}^{\pi}\left(f(t)\cdot \sum\limits_{n=1}^{N}(\cos{(nx)}\cos{(nt)}+\sin{(nx)}\sin{(nt)})\right) dt=\\
-        =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}\left(f(t)\cdot \sum\limits_{n=1}^{N}\cos{(n(x-t))}\right) dt=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\cdot D_N(x-t)\ dt\overset{(1)}{=}\\
+        =\frac{1}{2\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\ dt+\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}\left(f(t)\cdot \sum\limits_{n=1}^{N}\cos{(n(x-t))}\right) dt=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(t)\cdot D_N(x-t)\ dt\overset{(1)}{=}
+    \end{multline*}
+    \begin{multline*}
         \overset{(1)}{=}\frac{1}{\pi}\cdot \int\limits_{x-\pi}^{x+\pi}f(x-\tau)D_N(\tau)\ d\tau=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(x-\tau)D_N(\tau)\ d\tau=\frac{1}{\pi}\cdot \int\limits_{-\pi}^{\pi}f(x+\tau)D_N(\tau)\ d\tau
     \end{multline*}
     (1): Сделаем замену $t=x-\tau$.

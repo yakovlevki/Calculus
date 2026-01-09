@@ -4,12 +4,19 @@
     \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\rightrightarrows f(x)\]
 \end{theorem}
 \begin{proof}
-    Из условий теоремы существует интерал
-    \[\int\limits_{-\pi}^{\pi}(f'(x))^2\ dx,\ f'(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(\alpha_n\cdot \cos{(nx)}+\beta_n\cdot \sin{(nx)})\]
+    Из условий теоремы существует интеграл
+    \[\int\limits_{-\pi}^{\pi}(f'(x))^2\ dx\]
+    то есть у $f'(x)$ есть ряд Фурье:
+    \[ f'(x)\sim \frac{\alpha_0}{2}+\sum\limits_{n=1}^{\infty}(\alpha_n\cdot \cos{(nx)}+\beta_n\cdot \sin{(nx)}) = \]
+    Найдём его коэффициенты (кроме $\alpha_0$):
+    \[\alpha_n = \int\limits_{-\pi}^{\pi}f'(x)\cos(nx)dx = -n\int\limits_{-\pi}^{\pi}f'(x)d(\sin(nx)) = n\int\limits_{-\pi}^{\pi}f(x)\sin(nx)\ dx = nb_n\]
+    Отсюда (и аналогично для $\beta_n$) имеем, что
     \[a_n=-\frac{\beta_n}{n},\ b_n=\frac{\alpha_n}{n}\]
     и, поскольку (используя неравенство: $2|ab| \leq a^2 + b^2$ )
     \[|a_n| = \frac{|\alpha_n|}{n}\leq \frac{1}{2}\left(\alpha_n^2+\frac{1}{n^2}\right),\ |b_n| = \frac{|\beta_n|}{n}\leq \frac{1}{2}\left(\beta_n^2+\frac{1}{n^2}\right)\]
-    
+    верно неравенство
+    \[|a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)}| \leqslant |a_n| + |b_n| \leqslant \frac{1}{n^2} + \frac{\alpha_n^2 + \beta_n^2}{2}\]
+    Ряд с такими коэффициентами сойдётся из неравенства Бесселя, то есть изначальный ряд Фурье сходится равномерно по признаку Вейерштрасса.
 \end{proof}% по первой теореме из раздела сходится именно к f
 \begin{consequense}
     Если $f'(x)\in \mathcal{C}(\R)$ и Гёльдерова во всех точках, то ряд Фурье $f(x)$ можно почленно дифференцировать.
@@ -53,13 +60,12 @@
 \begin{definition}
     Пусть 
     \[f(x)\sim \frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\]
-    значит, существуют $D_N(x)$ \\
     Обозначим:
     \[F_N(x) = \frac{a_0}{2}+\sum\limits_{n=1}^{N}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\] 
     Тогда:
-    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_N(x)\]
+    \[\Phi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}F_n(x)\]
     называются суммами Фейера. %это типо средние арифметические частичных сумм ряда фурье
-    \[\Psi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}D_N(x)\]
+    \[\Psi_N(x)=\frac{1}{N+1}\cdot \sum\limits_{n=0}^{N}D_n(x)\]
     называются ядрами Фейера. %это типо средние арифмет сумм фейера
 \end{definition}
 \begin{lemma} (Свойства ядер Фейера)
@@ -77,7 +83,7 @@
 \end{lemma}
 \begin{proof}\tab
     \begin{itemize}
-        \item[2.] \[\sum\limits_{n=0}^N D_N(x) = \frac{1}{2\sin{(\frac{x}{2})}}\sum\limits_{n=0}^N \sin{(Nx+\frac{1}{2}x)} = \frac{1}{2\sin{(\frac{x}{2})}} \cdot \frac{\sin^2{(\frac{N+1}{2}x)}}{\sin{(\frac{x}{2})}}\]
+        \item[2.] \[\sum\limits_{n=0}^N D_n(x) = \frac{1}{2\sin{(\frac{x}{2})}}\sum\limits_{n=0}^N \sin{(nx+\frac{1}{2}x)} = \frac{1}{2\sin{(\frac{x}{2})}} \cdot \frac{\sin^2{(\frac{N+1}{2}x)}}{\sin{(\frac{x}{2})}}\]
         \item[4.] \[0\leq \int\limits_{\delta}^{\pi}\frac{\sin^2(\frac{N+1}{2}\cdot x)}{2(N+1)\cdot \sin^2({\frac{x}{2}})}\ dx\leq \frac{1}{2(N+1)}\cdot \int\limits_{\delta}^{\pi}\frac{dx}{\sin^2({\frac{x}{2}})}\leq \frac{C}{2(N+1)}\]
     \end{itemize}
 \end{proof}
