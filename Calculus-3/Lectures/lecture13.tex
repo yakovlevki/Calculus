@@ -43,7 +43,7 @@
     \[\lim\limits_{n\to\infty}\ \int\limits_{0}^{n}\tau^{x-1}\left(1-\frac{\tau}{n}\right)^n\ d\tau=\Gamma(x)\]
     и существует предел
     \[\lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1} e^{-t}\ dt=\int\limits_{0}^{+\infty}t^{x-1}e^{-t}\ dt\]
-    Таким образом, условия теоремы равносильны тому, что разность этих пределов равно нулю:  
+    Таким образом, условия теоремы равносильны тому, что разность этих пределов равна нулю:  
     \[\lim\limits_{n\to\infty}\ \int\limits_{0}^{n}t^{x-1}\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right)\ dt=0\]
     \[e^{\alpha}\geq 1+\alpha \ \Rightarrow\ e^{-\frac{t}{n}}\geq 1-\frac{t}{n}\ \Rightarrow\ e^{-t}\geq \left(1-\frac{t}{n}\right)^n\]
     отсюда
@@ -52,10 +52,12 @@
     \begin{multline*}
         \int\limits_{0}^{n}t^{x-1}\left(e^{-t}-\left(1-\frac{t}{n}\right)^n\right)\ dt=\int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-e^t\left(1-\frac{t}{n}\right)^n\right)\ dt\leq\\
         \leq \int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t}{n}\right)^n\left(1+\frac{t}{n}\right)^n\right)\ dt=\int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t^2}{n^2}\right)^n\right)\ dt\overset{(1)}{\leq}\\
-        \overset{(1)}{\leq}\int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t^2}{n}\right)\right)\ dt=\frac{1}{n}\int\limits_{0}^{n}t^{x+1}e^{-t}\ dt\leq \frac{C}{n}\to 0
+        \overset{(1)}{\leq}\int\limits_{0}^{n}t^{x-1}e^{-t}\left(1-\left(1-\frac{t^2}{n}\right)\right)\ dt=\frac{1}{n}\int\limits_{0}^{n}t^{x+1}e^{-t}\ dt\overset{(2)}{\leq} \frac{C}{n}\to 0
     \end{multline*}
-    (1): По неравентсву Бернулли:
+    (1): По неравенству Бернулли:
     \[(1+x)^n\geq 1+nx\]
+    (2): 
+    \[C=\int\limits_{0}^{+\infty}t^{x+1}e^{-t}\ dt\]
 \end{proof}
 \begin{statement}
     \[\Gamma(n+1)=n!\]
