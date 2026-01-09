@@ -1,7 +1,7 @@
 \begin{theorem}
     Пусть $f$ - $2\pi$ периодическая, $f\in \mathcal{C}(\R)$, везде кроме конечного числа точек (на периоде) $\exists\ f^{\prime}(x)$ и $f^{\prime}(x)\in \mathcal{R}[-\pi, \pi]$.
     Тогда
-    \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\rightrightarrows f(x)\]
+    \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\overset{[-\pi,\pi]}{\rightrightarrows} f(x)\]
 \end{theorem}
 \begin{proof}
     Из условий теоремы существует интеграл
@@ -9,7 +9,7 @@
     то есть у $f'(x)$ есть ряд Фурье:
     \[ f'(x)\sim \frac{\alpha_0}{2}+\sum\limits_{n=1}^{\infty}(\alpha_n\cdot \cos{(nx)}+\beta_n\cdot \sin{(nx)}) = \]
     Найдём его коэффициенты (кроме $\alpha_0$):
-    \[\alpha_n = \int\limits_{-\pi}^{\pi}f'(x)\cos(nx)dx = -n\int\limits_{-\pi}^{\pi}f'(x)d(\sin(nx)) = n\int\limits_{-\pi}^{\pi}f(x)\sin(nx)\ dx = nb_n\]
+    \[\alpha_n = \int\limits_{-\pi}^{\pi}f'(x)\cos(nx)dx = \frac{1}{n}\int\limits_{-\pi}^{\pi}f'(x)d(\sin(nx)) = n\int\limits_{-\pi}^{\pi}f(x)\sin(nx)\ dx = nb_n\]
     Отсюда (и аналогично для $\beta_n$) имеем, что
     \[a_n=-\frac{\beta_n}{n},\ b_n=\frac{\alpha_n}{n}\]
     и, поскольку (используя неравенство: $2|ab| \leq a^2 + b^2$ )
@@ -55,7 +55,7 @@
             \[\sum\limits_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}\]
     \end{enumerate}
 \end{examples}
-\subsection{Ядро Фейера}
+\subsection{Ядра Фейера}
 
 \begin{definition}
     Пусть 
