@@ -82,10 +82,17 @@
     Тогда
     \[a_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos{(nx)}\ dx,\ \ \ \ b_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin{(nx)}\ dx\]
 \end{theorem}
-\begin{proof}
-    $\forall k$
-    \[\frac{a_0}{2}\sin{(kx)}+\sum\limits_{n=1}^{\infty}(a_n\cdot \sin{(kx)}\cos{(nx)}+b_n\cdot \sin{kx}\sin{nx})\overset{[-\pi,\pi]}{\rightrightarrows} f(x)\sin{(kx)}\]
-    По теореме о почленном интегрировании:
-    \[\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin{kx}\ dx=\frac{1}{\pi}b_k\cdot \int\limits_{-\pi}^{\pi}\sin^2{(kx)}\ dx\]
-    Аналогично $a_k$.
+\begin{proof} 
+    Покажем для $b_k$. Для каждого $k$ домножим на $\sin{(kx)}$:
+    \[\frac{a_0}{2}\sin{(kx)}+\sum\limits_{n=1}^{\infty}(a_n\cdot \sin{(kx)}\cos{(nx)}+b_n\cdot \sin{(kx)}\sin{(nx)})\overset{[-\pi,\pi]}{\rightrightarrows} f(x)\sin{(kx)}\]
+    Поскольку есть равномерная сходимость, то можем почленно интегрировать:
+    \[\frac{a_0}{2}\int\limits_{-\pi}^{\pi}\sin{(kx)}\ dx=0\]
+    \[a_n \int\limits_{-\pi}^{\pi} \sin{(kx)}\cos{(nx)}\ dx =0\]
+    \[b_n \int\limits_{-\pi}^{\pi} \sin{(kx)}\sin{(nx)}\ dx=\begin{cases}
+        0,\ k\neq n\\
+        \pi,\  k=n
+    \end{cases}\]
+    Таким образом
+    \[\int\limits_{-\pi}^{\pi}f(x)\sin{kx}\ dx=\pi \cdot b_k\]
+    Аналогично, домножая на $\cos{(kx)}$, можно получить выражение для $a_k$.
 \end{proof}
