@@ -9,12 +9,14 @@
     то есть у $f'(x)$ есть ряд Фурье:
     \[ f'(x)\sim \frac{\alpha_0}{2}+\sum\limits_{n=1}^{\infty}(\alpha_n\cdot \cos{(nx)}+\beta_n\cdot \sin{(nx)}) = \]
     Найдём его коэффициенты (кроме $\alpha_0$):
-    \[\alpha_n = \int\limits_{-\pi}^{\pi}f'(x)\cos(nx)dx = \frac{1}{n}\int\limits_{-\pi}^{\pi}f'(x)d(\sin(nx)) = n\int\limits_{-\pi}^{\pi}f(x)\sin(nx)\ dx = nb_n\]
+    \[\alpha_n = \int\limits_{-\pi}^{\pi}f'(x)\cos(nx)dx = \int\limits_{-\pi}^{\pi}\cos{(nx)}\ d(f(x)) = n\int\limits_{-\pi}^{\pi}f(x)\sin(nx)\ dx = nb_n\]
     Отсюда (и аналогично для $\beta_n$) имеем, что
     \[a_n=-\frac{\beta_n}{n},\ b_n=\frac{\alpha_n}{n}\]
-    и, поскольку (используя неравенство: $2|ab| \leq a^2 + b^2$ )
-    \[|a_n| = \frac{|\alpha_n|}{n}\leq \frac{1}{2}\left(\alpha_n^2+\frac{1}{n^2}\right),\ |b_n| = \frac{|\beta_n|}{n}\leq \frac{1}{2}\left(\beta_n^2+\frac{1}{n^2}\right)\]
-    верно неравенство
+    По неравенству
+    \[|ab| \leq \frac{a^2 + b^2}{2}\]
+    получим, что
+    \[|a_n| = \frac{|\beta_n|}{n}\leq \frac{1}{2}\left(\alpha_n^2+\frac{1}{n^2}\right),\ \ |b_n| = \frac{|\alpha_n|}{n}\leq \frac{1}{2}\left(\beta_n^2+\frac{1}{n^2}\right)\]
+    Тогда верно неравенство
     \[|a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)}| \leqslant |a_n| + |b_n| \leqslant \frac{1}{n^2} + \frac{\alpha_n^2 + \beta_n^2}{2}\]
     Ряд с такими коэффициентами сойдётся из неравенства Бесселя, то есть изначальный ряд Фурье сходится равномерно по признаку Вейерштрасса.
 \end{proof}% по первой теореме из раздела сходится именно к f
