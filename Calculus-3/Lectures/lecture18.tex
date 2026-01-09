@@ -1,4 +1,4 @@
-\begin{theorem}
+\begin{theorem} (Достаточное условие равномерной сходимости ряда Фурье)\\
     Пусть $f$ - $2\pi$ периодическая, $f\in \mathcal{C}(\R)$, везде кроме конечного числа точек (на периоде) $\exists\ f^{\prime}(x)$ и $f^{\prime}(x)\in \mathcal{R}[-\pi, \pi]$.
     Тогда
     \[\frac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cdot \cos{(nx)}+b_n\cdot \sin{(nx)})\overset{[-\pi,\pi]}{\rightrightarrows} f(x)\]
@@ -37,7 +37,7 @@
         \item Возьмем $f(x)=\frac{\pi-x}{2}$ на $(0,\pi)$ и продолжим ее периодически нечетным образом.
         \begin{multline*}
             b_n=\frac{2}{\pi}\int\limits_{0}^{\pi}\frac{\pi-x}{2}\cdot \sin{(nx)}\ dx=\\
-            =\frac{2}{\pi n}\cdot \frac{\pi-x}{2}\cdot \cos{(nx)}|_0^{\pi}-\frac{1}{\pi n}\int\limits_{0}^{\pi}\cos{(nx)}\ dx=\\
+            =-\frac{2}{\pi n}\cdot \frac{\pi-x}{2}\cdot \cos{(nx)} \Big{|}_0^{\pi}-\frac{1}{\pi n}\int\limits_{0}^{\pi}\cos{(nx)}\ dx=\\
             =-\frac{2}{\pi n}\cdot \left(-\frac{\pi}{2}\right)=\frac{1}{n}
         \end{multline*}
         \[f(x)=\sum\limits_{n=1}^{\infty}\frac{\sin{(nx)}}{n}\]
