@@ -1,0 +1,156 @@
+\section{Лекция 1}
+\subsection{Повторение построения интеграла Римана}
+Пусть $f$ --- функция на отрезке $[a,b]$. Выбиралось разбиение $T=\{\Delta_j\}_{j=1}^n$ отрезка $[a,b]$ и разметка $H=\{\xi_j\}_{j=1}^n$. Диаметром $d(T)$ разбиения $T$ называлась наибольшая из длин отрезков разбиения. Интегральной суммой на заданом размеченом разбиении называли следующее выражение:
+\[\sigma(f,T,H)=\sum\limits_{j=1}^{n}f(\xi_j)|\Delta_j|\]
+где $|\Delta_j|$ - длина отрезка $\Delta_j$. Тогда интералом Римана назывался предел
+\[I=\lim\limits_{d(T)\to 0}\sigma(f,T,H)\]
+Также интеграл Римана можно ввести через суммы Дарбу.
+Назовем верней и нижней суммой Дарбу соответственно выражения:
+\[\underline{\underline{S}}(f,T)=\sum\limits_{j=1}^{n}M_j\cdot |\Delta_j|,\ \ \overline{\overline{s}}(f,T)=\sum\limits_{j=1}^n m_j\cdot |\Delta_j|\]
+где
+\[M_j=\sup\limits_{x\in \Delta_j}f(x),\ \ m_j=\inf\limits_{x\in \Delta_j}f(x)\]
+Далее вводился верхний и нижний ингралы Дарбу
+\[I_*=\sup\limits_{T} \overline{\overline{s}}(f,T),\ \ I^* = \inf\limits_{T} \underline{\underline{S}}(f,T)\]
+Если верхний и нижний интегралы совпадают
+\[I=I_*=I^*\]
+то $I$ в точности интеграл Римана.\\
+Нашей целью является перенос этой конструкции в $\R^k$ при $k\geq 2$.
+\subsection{Кратный интеграл Римана}
+\begin{definition}
+    Замкнутым брусом в $\R^k$ называется декартово проиведение
+    \[R=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]\]
+\end{definition}
+\begin{definition}
+    Пусть дан брус 
+    $R=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]$, а $T_1,\dots,T_k$ являются разбиениями $[a_1,b_1], \dots, [a_k,b_k]$ соответсвенно. Тогда 
+    \[T=T_1\times\dots\times T_k\] 
+    называется разбиением бруса $R$. Брус из разбиения $T=T_1\times \dots\times T_k$ будем обозначать $\Delta_{j_1,\dots,j_k}$, а его объем $|\Delta_{j_1,\dots,j_k}|$. Разметкой разбиения также назовем множество $H=\{\xi_{j_1,\dots,j_k}\}_{j_1,\dots,j_k=1}^n$, где $\xi_{j_1,\dots,j_k}\in \Delta_{j_1,\dots,j_k}$.
+\end{definition}
+\begin{definition}
+    Интегральной суммой называется выражение
+    \[\sigma(f, T, H)=\sum\limits_{j_1=1}^{n_1}\sum\limits_{j_2=1}^{n_2}\dots \sum\limits_{j_k=1}^{n_k}=f(\xi_{j_1,\dots,j_k})\cdot |\Delta_{j_1,\dots,j_k}|\]
+    Для краткости будем писать
+    \[\sigma(f, T, H)=\sum\limits_{j} f(\xi_j)\cdot |\Delta_j|\]
+\end{definition}
+\noindentДля корректности определения осталось ввести понятие объема.
+\begin{definition}
+    Пусть $\Phi, \Phi_1, \Phi_2\subset \R^k$. Объемом назовем функцию, которая обладает следующими свойствами:
+\begin{enumerate}
+    \item $V(\Phi)\geq 0$
+    \item $\Phi_1=\Phi_2$
+    \item $V(\Phi)=V(\Phi_1)+V(\Phi_2)$, если $\Phi=\Phi_1\sqcup\Phi_2$
+    \item Объем единичного куба равен $1$.
+\end{enumerate}
+таким образом, объемом бруса $R$ называется
+\[V(R)=(b_1-a_1)\dots(b_k-a_k)\]
+\end{definition}
+\begin{definition}
+    Диаметром бруса $R$ назовем
+    \[\text{diam}(R)=\sqrt{(b_1-a_1)^2+\dots+(b_k-a_k)^2}\]
+Тогда диаметром разбиения $d(T)$ называется наибольший из диаметров $\Delta_j$.
+\end{definition}
+\begin{definition}
+    $I$ называется кратным интегралом функции $f$ по брусу $R$, если
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta\ \forall H: |\sigma(f,T,H)-I|<\epsilon\]
+\end{definition}
+\subsection{Суммы Дарбу}
+\begin{definition}
+    Назовем верней и нижней суммой Дарбу соответственно выражения:
+    \[\underline{\underline{S}}(f,T)=\sum\limits_{j} M_j\cdot |\Delta_j|, \ \ \overline{\overline{s}}(f,T)=\sum\limits_{j} m_j\cdot |\Delta_j|\]
+    где
+    \[M_j=\sup\limits_{x\in \Delta_j}f(x),\ \ m_j=\inf\limits_{x\in \Delta_j}f(x)\]
+\end{definition}
+\begin{definition}
+    Разбиение $T'=T'_1\times\dots\times T'_k$  называется измельчением разбиения $T=T_1\times\dots\times T_k$, если $\forall i=1,\dots,k:\ T'_i$ является имельчением $T_i$. 
+\end{definition}
+\noindent Рассмотрим аналогичные одномерному случаю свойства сумм Дарбу:
+\begin{statement}
+    Для любого разбиения $T$ и любой его разметки $H$:
+    \[\overline{\overline{s}}(f,T)\leq \sigma(f, T, H)\leq \underline{\underline{S}}(f, T)\]
+\end{statement}
+\begin{statement}
+    Если $T'$ --- измельчение $T$, то 
+        \[\overline{\overline{s}}(f,T)\leq \overline{\overline{s}}(f, T'),\ \underline{\underline{S}}(f,T')\leq \underline{\underline{S}}(f,T)\]
+\end{statement}
+\begin{proof}
+    Cравним $\overline{\overline{s}}(f, T)$ и $\overline{\overline{s}}(f, T')$, где $T'$ получена добавлением точки. После добавления, брус $\Delta_j$ разбился на два новых бруса $\Delta_j'$ и $\Delta_j''$, обозначим: $m_j', m_j''$ - инфинумы $f$ на $\Delta_j'$ и $\Delta_j''$ соответсвенно. Тогда 
+    \begin{multline*}
+        \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}(m_j'\cdot |\Delta_j'|+m_j''\cdot |\Delta_l''|-m_j(|\Delta_j'|+|\Delta_j''|))=\\
+        =\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j'|+(m_j''-m_j)\cdot |\Delta_j''|)\overset{(2)}{\geq} 0
+    \end{multline*}
+    (1): Суммируем только по тем брусам, которым прошел разрез\\
+    (2): $m_j'\geq m_j,\ m_j''\geq m_j$\\
+    Аналогично показывается, что $\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\geq 0$.
+\end{proof}
+\begin{statement}
+        Пусть к разбиению $T$ добавили $p$ точек (к разбиениям $T_1,\dots,T_k)$. Тогда 
+        \[0\leq \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\leq (M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
+        \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\leq(M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
+        где $M=\sup\limits_{x\in R}f(x),\ m=\inf\limits_{x\in R}f(x),\ d$ --- диаметр $R,\ \delta=d(T)$ - диаметр $T$.
+\end{statement}
+\begin{proof}
+    \begin{multline*}
+        \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j|+(m''_j)\cdot |\Delta_j''|)\overset{(2)}{\leq}\\
+        \overset{(2)}{\leq} \sum\limits_{j} ((M-m)\cdot |\Delta_j'|+(M-m)\cdot |\Delta_j''|)=(M-m)\sum\limits_{j}(|\Delta_j'|+|\Delta_j''|)=\\
+        =(M-m)\cdot |R_1|\leq (M-m)\cdot d^{k-1}\cdot \delta
+    \end{multline*}
+    где $|R_1|$ --- суммарный объём тех брусов, которые были разрезаны. Проделав эту операцию $p$ раз, получим искомое утверждение.\\
+    (1): Суммируем только по тем брусам, которым прошел разрез\\
+    (2): $m_j', m_j''\leq M,\ m_j\geq m$.
+    Аналогично для верхней суммы Дарбу.
+\end{proof}
+\begin{statement}
+    \[\overline{\overline{s}}(f,T)=\inf\limits_H\sigma(f,T,H),\ \ \underline{\underline{s}}(f,T)=\sup\limits_H\sigma(f,T,H)\]
+\end{statement}
+\begin{proof}
+    \[\sigma(f,T,H)=\sum\limits_{j}f(\xi_j)\cdot |\Delta_j|,\ \ \overline{\overline{s}}(f,T)=\sum\limits_{j}m_j\cdot |\Delta_j|\]
+    Поскольку $m_j$ --- инфинум, то
+    \[\forall \epsilon>0\ \exists\ \xi_j\in \Delta_j: 0\leq f(\xi_j)-m_j<\frac{\epsilon}{|R|}\]
+    отсюда
+    \[0\leq \sigma(f,T,H)-\overline{\overline{s}}(f,T)=\sum\limits_{j}(f(\xi_j)-m_j)\cdot |\Delta_j|<\sum\limits_{j}\frac{\epsilon}{|R|}\cdot |\Delta_j|\]
+    а это в точности означает, что
+    \[\overline{\overline{s}}(f,T)=\inf\limits_H\sigma(f,T,H)\]
+    Аналогично для верхней суммы Дарбу.
+\end{proof}
+\begin{statement}
+    Пусть $T'$ и $T''$ --- любые разбиения $R$. Тогда 
+    \[\overline{\overline{s}}(f,T')\leq \underline{\underline{S}}(f,T'')\] 
+\end{statement}
+\begin{proof}
+    Пусть $T$ объединяет в себе все разрезы $T_1$ и $T_2$. Тогда $T$ --- измельчение и для $T'$ и для $T''$. Тогда по доказанному выше свойству и определению сумм Дарбу, получим
+    \[\overline{\overline{s}}(f,T')\leq \underline{\underline{S}}(f,T)\leq \underline{\underline{S}}(f,T)\leq \underline{\underline{S}}(f,T'')\]
+\end{proof}
+\begin{definition}
+    Нижним интегралом Дарбу называется 
+    \[I_*=\sup\limits_T \overline{\overline{s}}(f,T),\]
+    верхним интегралом Дарбу называется
+    \[I^*=\inf\limits_T \underline{\underline{S}}(f,T)\]
+    Из определений ясно, что $I_*\leq I^*$.
+\end{definition}
+\subsection{Необходимое условие интегрируемости по Риману на брусе}
+\begin{theorem}(Необходимое условие интегрируемости по Риману на брусе)\\
+    Если существует интеграл $I$ от $f$ на $R$, то $f$ ограничена на $R$, то есть
+    \[f\in \mathcal{R}(R) \Rightarrow f\in \mathcal{B}(R)\]
+\end{theorem}
+\begin{proof}
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta\ \forall H: |\sigma(f,T,H)-I|<\epsilon\]
+    зафиксируем $j=j_0$
+    \[I-\epsilon<f(\xi_{j_0})\cdot |\Delta_{j_0}|+\sum\limits_{j\neq j_0} f(\xi_j)\cdot |\Delta_j|<I+\epsilon\]
+    для $j\neq j_0$ выберем произвольным образом $\xi_j$ и обозначим
+    \[c=\sum\limits_{j\neq j_0} f(\xi_j)\cdot |\Delta_j|\]
+    тогда $\forall \xi_{j_0}\in \Delta_{j_0}$:
+    \[\frac{I-\epsilon-c}{|\Delta_{j_0|}}<f(\xi_{j_0})<\frac{I+\epsilon-c}{|\Delta_{j_0|}}\]
+    значит $f$ ограничена на каждом $\Delta_{j_0} \Rightarrow f$ - ограничена на $R$.
+\end{proof}
+\begin{example}(Необходимое условие не является достаточным)\\
+    Рассмотрим
+    \[f(x_1,\dots,x_k)=\begin{cases}
+        1,\ x_1,\dots,x_k\in \Q\\
+        0,\ \text{иначе}
+    \end{cases}\]
+    \[\overline{\overline{s}}=\sum\limits_{j}m_j\cdot |\Delta_j|=\sum\limits_{j}0\cdot |\Delta_j|=0\]
+    \[\underline{\underline{S}}=\sum\limits_{j}M_j\cdot |\Delta_j|=\sum\limits_{j}1\cdot |\Delta_j|=|R|\]
+    Итак
+    \[\forall I\in \R\ \ \exists\ \epsilon=\frac{|R|}{3}>0,\ \forall \delta>0\ \ \exists\ T,H,\ d(T)<\delta: |\sigma(f,T,H)-I|\geq \epsilon\]
+    Значит функция не является интегрируемой.
+\end{example}

@@ -1,0 +1,109 @@
+\ProvidesPackage{preamble}
+
+% Корректное отображение шрифтов и символов
+\usepackage[T2A]{fontenc} 
+\usepackage[english, russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Отступы от краев страницы
+\usepackage[left=2cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+
+% Корректная работа с кириллицей (чтобы работал Ctrl+F)
+\usepackage{cmap}
+
+% Картинки и графики
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing} % какая то дичь
+% \usepackage{wrapfig}
+% \usepackage{asymptote}
+
+% Работа с таблицами
+\usepackage{booktabs}
+
+% Удобная команда для отступов
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Для удобства
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\C}{\mathbb{C}}
+
+% Красивые phi, epsilon и пустое множетсво
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
+
+% Для верхнего и нижнего предела, полной вариации функции
+\DeclareMathOperator*\lowlim{\underline{lim}}
+\DeclareMathOperator*\uplim{\overline{lim}}
+\DeclareMathOperator*\variation{V}
+\DeclareMathOperator*\grad{grad}
+
+
+% Математические окружения
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{comm}{Замечание}
+\newtheorem*{statement}{Утверждение}
+\newtheorem*{example}{Пример}
+\newtheorem*{examples}{Примеры}
+\newtheorem*{axiom}{Аксиома}
+\newtheorem*{exercise}{Упражнение}
+\newtheorem*{reminder}{Напоминание}
+
+% Для локальной нумерации
+\newcounter{thmcount}
+\newcounter{lemcount}
+\newtheorem{numtheorem}[thmcount]{Теорема}
+\newtheorem{numlemma}[lemcount]{Лемма}
+
+
+% Настройка заголовков
+\usepackage{titlesec}
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+% Настройка гиперссылок
+\usepackage{hyperref}
+\usepackage{xcolor}
+\definecolor{linkcolor}{HTML}{225ae2}
+\definecolor{urlcolor}{HTML}{225ae2}
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true
+}
+
+% Список литературы
+\bibliographystyle{gost-numeric.bbx}
+\usepackage[parentracker=true,
+backend=biber,
+hyperref=false,
+bibencoding=utf8,
+style=numeric-comp,
+language=auto,
+autolang=other,
+citestyle=gost-numeric,
+defernumbers=true,
+bibstyle=gost-numeric,
+sorting=ntvy,
+]{biblatex}
+\addbibresource{library.bib}
+\DeclareFieldFormat{journaltitle}{#1\isdot}
+\DeclareFieldFormat[article]{title}{#1\isdot}
+\DeclareFieldFormat[book]{title}{#1\isdot}
+
+% Разбиение на файлы
+\usepackage{import}
