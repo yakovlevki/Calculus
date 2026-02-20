@@ -18,13 +18,13 @@
 \subsection{Кратный интеграл Римана}
 \begin{definition}
     Замкнутым брусом в $\R^k$ называется декартово проиведение
-    \[R=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]\]
+    \[\Pi=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]\]
 \end{definition}
 \begin{definition}
     Пусть дан брус 
-    $R=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]$, а $T_1,\dots,T_k$ являются разбиениями $[a_1,b_1], \dots, [a_k,b_k]$ соответсвенно. Тогда 
+    $\Pi=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]$, а $T_1,\dots,T_k$ являются разбиениями $[a_1,b_1], \dots, [a_k,b_k]$ соответсвенно. Тогда 
     \[T=T_1\times\dots\times T_k\] 
-    называется разбиением бруса $R$. Брус из разбиения $T=T_1\times \dots\times T_k$ будем обозначать $\Delta_{j_1,\dots,j_k}$, а его объем $|\Delta_{j_1,\dots,j_k}|$. Разметкой разбиения также назовем множество $H=\{\xi_{j_1,\dots,j_k}\}_{j_1,\dots,j_k=1}^n$, где $\xi_{j_1,\dots,j_k}\in \Delta_{j_1,\dots,j_k}$.
+    называется разбиением бруса $\Pi$. Брус из разбиения $T=T_1\times \dots\times T_k$ будем обозначать $\Delta_{j_1,\dots,j_k}$, а его объем $|\Delta_{j_1,\dots,j_k}|$. Разметкой разбиения также назовем множество $H=\{\xi_{j_1,\dots,j_k}\}_{j_1,\dots,j_k=1}^n$, где $\xi_{j_1,\dots,j_k}\in \Delta_{j_1,\dots,j_k}$.
 \end{definition}
 \begin{definition}
     Интегральной суммой называется выражение
@@ -41,16 +41,16 @@
     \item $V(\Phi)=V(\Phi_1)+V(\Phi_2)$, если $\Phi=\Phi_1\sqcup\Phi_2$
     \item Объем единичного куба равен $1$.
 \end{enumerate}
-таким образом, объемом бруса $R$ называется
-\[V(R)=(b_1-a_1)\dots(b_k-a_k)\]
+таким образом, объемом бруса $\Pi$ называется
+\[V(\Pi)=(b_1-a_1)\dots(b_k-a_k)\]
 \end{definition}
 \begin{definition}
-    Диаметром бруса $R$ назовем
-    \[\text{diam}(R)=\sqrt{(b_1-a_1)^2+\dots+(b_k-a_k)^2}\]
+    Диаметром бруса $\Pi$ назовем
+    \[\text{diam}(\Pi)=\sqrt{(b_1-a_1)^2+\dots+(b_k-a_k)^2}\]
 Тогда диаметром разбиения $d(T)$ называется наибольший из диаметров $\Delta_j$.
 \end{definition}
 \begin{definition}
-    $I$ называется кратным интегралом функции $f$ по брусу $R$, если
+    $I$ называется кратным интегралом функции $f$ по брусу $\Pi$, если
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta\ \forall H: |\sigma(f,T,H)-I|<\epsilon\]
 \end{definition}
 \subsection{Суммы Дарбу}
@@ -73,7 +73,7 @@
         \[\overline{\overline{s}}(f,T)\leq \overline{\overline{s}}(f, T'),\ \underline{\underline{S}}(f,T')\leq \underline{\underline{S}}(f,T)\]
 \end{statement}
 \begin{proof}
-    Cравним $\overline{\overline{s}}(f, T)$ и $\overline{\overline{s}}(f, T')$, где $T'$ получена добавлением точки. После добавления, брус $\Delta_j$ разбился на два новых бруса $\Delta_j'$ и $\Delta_j''$, обозначим: $m_j', m_j''$ - инфинумы $f$ на $\Delta_j'$ и $\Delta_j''$ соответсвенно. Тогда 
+    Cравним $\overline{\overline{s}}(f, T)$ и $\overline{\overline{s}}(f, T')$, где $T'$ получена добавлением разреза. После добавления, брус $\Delta_j$ разбился на два новых бруса $\Delta_j'$ и $\Delta_j''$, обозначим: $m_j', m_j''$ - инфинумы $f$ на $\Delta_j'$ и $\Delta_j''$ соответсвенно. Тогда 
     \begin{multline*}
         \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}(m_j'\cdot |\Delta_j'|+m_j''\cdot |\Delta_l''|-m_j(|\Delta_j'|+|\Delta_j''|))=\\
         =\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j'|+(m_j''-m_j)\cdot |\Delta_j''|)\overset{(2)}{\geq} 0
@@ -83,18 +83,18 @@
     Аналогично показывается, что $\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\geq 0$.
 \end{proof}
 \begin{statement}
-        Пусть к разбиению $T$ добавили $p$ точек (к разбиениям $T_1,\dots,T_k)$. Тогда 
+        Пусть к разбиению $T$ добавили $p$ разрезов (к разбиениям $T_1,\dots,T_k)$. Тогда 
         \[0\leq \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\leq (M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
         \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\leq(M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
-        где $M=\sup\limits_{x\in R}f(x),\ m=\inf\limits_{x\in R}f(x),\ d$ --- диаметр $R,\ \delta=d(T)$ - диаметр $T$.
+        где $M=\sup\limits_{x\in R}f(x),\ m=\inf\limits_{x\in R}f(x),\ d$ --- диаметр $\Pi,\ \delta=d(T)$ - диаметр $T$.
 \end{statement}
 \begin{proof}
     \begin{multline*}
         \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j|+(m''_j)\cdot |\Delta_j''|)\overset{(2)}{\leq}\\
         \overset{(2)}{\leq} \sum\limits_{j} ((M-m)\cdot |\Delta_j'|+(M-m)\cdot |\Delta_j''|)=(M-m)\sum\limits_{j}(|\Delta_j'|+|\Delta_j''|)=\\
-        =(M-m)\cdot |R_1|\leq (M-m)\cdot d^{k-1}\cdot \delta
+        =(M-m)\cdot |\Pi_1|\leq (M-m)\cdot d^{k-1}\cdot \delta
     \end{multline*}
-    где $|R_1|$ --- суммарный объём тех брусов, которые были разрезаны. Проделав эту операцию $p$ раз, получим искомое утверждение.\\
+    где $|\Pi_1|$ --- суммарный объём тех брусов, которые были разрезаны. Проделав эту операцию $p$ раз, получим искомое утверждение.\\
     (1): Суммируем только по тем брусам, которым прошел разрез\\
     (2): $m_j', m_j''\leq M,\ m_j\geq m$.
     Аналогично для верхней суммы Дарбу.
@@ -113,7 +113,7 @@
     Аналогично для верхней суммы Дарбу.
 \end{proof}
 \begin{statement}
-    Пусть $T'$ и $T''$ --- любые разбиения $R$. Тогда 
+    Пусть $T'$ и $T''$ --- любые разбиения бруса $\Pi$. Тогда 
     \[\overline{\overline{s}}(f,T')\leq \underline{\underline{S}}(f,T'')\] 
 \end{statement}
 \begin{proof}
@@ -128,9 +128,9 @@
     Из определений ясно, что $I_*\leq I^*$.
 \end{definition}
 \subsection{Необходимое условие интегрируемости по Риману на брусе}
-\begin{theorem}(Необходимое условие интегрируемости по Риману на брусе)\\
-    Если существует интеграл $I$ от $f$ на $R$, то $f$ ограничена на $R$, то есть
-    \[f\in \mathcal{R}(R) \Rightarrow f\in \mathcal{B}(R)\]
+\begin{theorem}[Необходимое условие интегрируемости по Риману на брусе]
+    $\\$Если существует интеграл $I$ от $f$ на $\Pi$, то $f$ ограничена на $\Pi$, то есть
+    \[f\in \mathcal{R}(\Pi) \Rightarrow f\in \mathcal{B}(\Pi)\]
 \end{theorem}
 \begin{proof}
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta\ \forall H: |\sigma(f,T,H)-I|<\epsilon\]
@@ -140,17 +140,19 @@
     \[c=\sum\limits_{j\neq j_0} f(\xi_j)\cdot |\Delta_j|\]
     тогда $\forall \xi_{j_0}\in \Delta_{j_0}$:
     \[\frac{I-\epsilon-c}{|\Delta_{j_0|}}<f(\xi_{j_0})<\frac{I+\epsilon-c}{|\Delta_{j_0|}}\]
-    значит $f$ ограничена на каждом $\Delta_{j_0} \Rightarrow f$ - ограничена на $R$.
+    значит $f$ ограничена на каждом $\Delta_{j_0} \Rightarrow f$ - ограничена на $\Pi$.
 \end{proof}
-\begin{example}(Необходимое условие не является достаточным)\\
-    Рассмотрим
+\begin{example}[Необходимое условие не является достаточным]
+    $\\$Рассмотрим
     \[f(x_1,\dots,x_k)=\begin{cases}
         1,\ x_1,\dots,x_k\in \Q\\
         0,\ \text{иначе}
     \end{cases}\]
     \[\overline{\overline{s}}=\sum\limits_{j}m_j\cdot |\Delta_j|=\sum\limits_{j}0\cdot |\Delta_j|=0\]
-    \[\underline{\underline{S}}=\sum\limits_{j}M_j\cdot |\Delta_j|=\sum\limits_{j}1\cdot |\Delta_j|=|R|\]
+    \[\underline{\underline{S}}=\sum\limits_{j}M_j\cdot |\Delta_j|=\sum\limits_{j}1\cdot |\Delta_j|=|\Pi|\]
     Итак
-    \[\forall I\in \R\ \ \exists\ \epsilon=\frac{|R|}{3}>0,\ \forall \delta>0\ \ \exists\ T,H,\ d(T)<\delta: |\sigma(f,T,H)-I|\geq \epsilon\]
+    \[\forall I\in \R\ \ \exists\ \epsilon=\frac{|\Pi|}{3}>0,\ \forall \delta>0\ \ \exists\ T,H,\ d(T)<\delta: |\sigma(f,T,H)-I|\geq \epsilon\]
     Значит функция не является интегрируемой.
 \end{example}
+\newpage
+
