@@ -1,0 +1,122 @@
+\section{Лекция 3}
+\subsection{Мера Жордана в $\R^k$}
+\begin{definition}
+    Выберем семейство элементарных множеств $\Pi_i$. Тогда семейство множеств вида $\bigsqcup\limits_{i=1}^n \Pi_i$, замкнутое относительно пересечения и симметрической разности называется кольцом множеств.
+\end{definition}
+\begin{definition}
+    Пусть $\Phi$ -- ограниченное множество в $\R^k$. Тогда 
+    \begin{enumerate}
+        \item внешней мерой Жордана называется число
+            \[\mu^*(\Phi)=\inf \{\mu(P): P \text{ --- элементарное множество, такое, что } \Phi\subset P\}\]
+        \item внутренней мерой Жордана называется число
+            \[\mu_*(\Phi)=\sup \{\mu(Q): Q \text{ --- элементарное множество, такое, что } Q\subset\Phi\}\]
+        \item Если $\mu^*(\Phi)=\mu_*(\Phi)$, то назовем число 
+            \[\mu(\Phi)=\mu^*(\Phi)=\mu_*(\Phi)\]
+            мерой Жордана, а $\Phi$ измеримым по Жордану.
+        \item Если $\Pi_i$ --- элементарное множество, то по определению положим 
+        \[\mu\left(\ \bigsqcup\limits_{i=1}^n \Pi_i\right)=\sum\limits_{i=1}^{n}\mu(\Pi_i)\]
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    Функция 
+    \[\chi_i={\Phi}(x)=\begin{cases}
+        1,\ x\in \Phi,\\
+        0,\ x\not\in\Phi
+    \end{cases}\]        
+    называется индикатором множества $\Phi$.
+\end{definition}
+\begin{theorem}
+    Множество $\Phi$ измеримо по Жордану $\Leftrightarrow$ по любому брусу $\Pi$ такому, что $\Phi\subseteq \Pi$ существует интеграл от $\chi_{\Phi}$ по $\Pi$. При этом
+    \[\mu(\Phi)=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+\end{theorem}
+\newpage
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:] Пусть $\mu_*(\Phi)=\mu^*(\Phi)=\mu(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ P_{\epsilon}>\Phi>Q_{\epsilon}$:
+        \[\mu(P_{\epsilon})<\mu(\Phi)+\frac{\epsilon}{2},\ \ \mu(Q_{\epsilon})>\mu(\Phi)-\frac{\epsilon}{2}\]
+        \[P_{\epsilon}=\bigsqcup\limits_{i=1}^n \Pi_i\]
+        можно считать, что $P_{\epsilon}$ лежат внутри бруса $\Pi$, если это не так, то, не увеличив оценку, заменим $P_{\epsilon}$ на
+        \[\widehat{P}_{\epsilon}=\bigsqcup\limits_{i=1}^n (\Pi_i\cap \Pi)\]
+        \[P_{\epsilon}=\bigsqcup\limits_i \Pi_i,\ Q_{\epsilon}=\bigsqcup\limits_j \Pi_j'\]
+        продолжив все грани $\Pi_i$ и $\Pi_j'$, получим разбиение $T$ бруса $\Pi$, при этом поскольку
+        \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{p}\inf\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{p}\sup\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|\]
+        то $\overline{\overline{s}}(\chi_{\Phi},T)$ состоит из элементарных множеств, которые полностью содержатся в $\Phi$, а $\underline{\underline{S}}(\chi_{\Phi},T)$ из элементарных множеств, которые пересекаются с $\Phi$ хотя бы по одной точке. Значит 
+        %еще бы пояснить
+        \[\overline{\overline{s}}(\chi_{\Phi}, T)\geq \mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T)\leq \mu(P_{\epsilon})\]
+        таким образом
+        \[\Omega(\chi_{\Phi}, T)=\underline{\underline{S}}(\chi_{\Phi}, T)-\overline{\overline{s}}(\chi_{\Phi}, T)\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
+        значит существует
+        \[I=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+        \[\mu(Q_{\epsilon})\leq \overline{\overline{s}}(\chi_{\phi}, T)\leq I\leq \underline{\underline{S}}(\chi_{\phi}, T)\leq \mu(P_{\epsilon})\]
+        итак $\forall \epsilon>0$
+        \[|I-\mu(\Phi)|\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        значит
+        \[I=\mu(\Phi)\]
+        \item[$(\Leftarrow)$:] Пусть существует 
+        \[I=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\] 
+        $\forall \epsilon>0\ \exists$  разбиение $T$ такое, что
+        \[\Omega(\chi_{\Phi}, T)=\sum\limits_{p}(\sup\limits_{\Delta p}\chi_{\Phi}-\inf\limits_{\Delta p}\chi_{\Phi})\cdot |\Delta p|<\epsilon \eqno(*)\]
+        Заметим, что $\Delta p$ делятся на группы:
+        \begin{enumerate}
+            \item $\sup \chi_{\Phi}=\inf \chi_{\Phi}=1$ --- находится внутри
+            \item $\sup \chi_{\Phi}=1,\ \inf \chi_{\Phi}=0$ --- содержит границу
+            \item $\sup \chi_{\Phi}=\inf \chi_{\Phi}=0$ --- находится снаружи
+        \end{enumerate}
+        Определим $Q_{\epsilon}$ как объединение брусов из первой группы, а $P_{\epsilon}$ как объединение брусов из первой и второй группы. Заметим, что $\overline{\overline{s}}(\chi_{\Phi}, T)$ это в является объединением брусов из первой группы, а $\underline{\underline{S}}(\chi_{\Phi}, T)$ объединением ячеек из первой и второй группы. Значит
+        \[\overline{\overline{s}}(\chi_{\Phi}, T)=\mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T)= \mu(P_{\epsilon}) \eqno(*)\]
+        Таким образом
+        \[\Omega(\chi_{\Phi}, T)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})\]
+        \[\mu^*(\Phi)-\mu_*(\Phi)\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        Известно, что
+        \[\overline{\overline{s}}(\chi_{\Phi}, T)\leq I\leq \underline{\underline{S}}(\chi_{\Phi}, T)\]
+        \[\mu(Q_{\epsilon})\leq \mu(\Phi)\leq \mu(P_{\epsilon})\]
+        комбинируя эти результаты и используя соотношения $(*)$, получим
+        \[|I-\mu(\Phi)|\leq \Omega(\chi_{\Phi}, T)<\epsilon\]
+    \end{itemize}
+\end{proof}
+\begin{consequense}
+    Пусть $\Phi$ измеримо по Жордану и $\Phi\subset \Pi_1,\ \Phi\subset \Pi_2$. Тогда
+    \[\overbrace{\idotsint\limits_{\Pi_1}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi_2}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+\end{consequense}
+\begin{theorem}[Критерий измеримости по Жордану] $\\$
+    Следующие условия эквивалентны:
+    \begin{enumerate}
+        \item $\Phi$ измеримо по Жордану
+        \item $\forall \epsilon>0\ \exists$ элементарные множества $P_{\epsilon}, Q_{\epsilon}:\ Q_{\epsilon}\subset \Phi\subset P_{\epsilon}$ такие, что
+        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        \item $\mu(\partial \Phi)=0$
+    \end{enumerate}
+\end{theorem}
+\begin{proof} Докажем по схеме $(1)\Rightarrow(2) \Rightarrow(3) \Rightarrow (1)$
+    \begin{enumerate}
+        \item $(1) \Rightarrow (2)$:\\
+        Пусть $\Phi$ измеримо по Жордану. Тогда существует интеграл
+        \[\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+        Во второй части доказательства предыдуей теоремы было показано, что
+        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        \item $(2) \Rightarrow (3)$:\\
+        Пусть 
+        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        Заметим, что $P_{\epsilon}\setminus Q_{\epsilon}$ является элементарным множеством. Тогда
+        \[\partial \Phi \subset \overline{P_{\epsilon}\setminus Q_{\epsilon}}\]
+        при этом
+        \[\mu\left(\overline{P_{\epsilon}\setminus Q_{\epsilon}}\right)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        \item $(3) \Rightarrow (1)$:\\
+        Пусть $\mu(\partial \Phi)=0$. Тогда существует элементарное множество $R_{\epsilon}$, содержащее $\partial \Phi$ и такое, что $\mu(R_{\epsilon})<\epsilon$.
+        Продолжим грани брусов в его составе и получим разбиение $T$ бруса $\Pi$, который содержит $\Phi$. Поскольку
+        \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{p}\inf\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{p}\sup\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|\]
+        то $\overline{\overline{s}}(\chi_{\Phi},T)$ состоит из элементарных множеств, которые полностью содержатся в $\Phi$, а $\underline{\underline{S}}(\chi_{\Phi},T)$ из элементарных множеств, которые пересекаются с $\Phi$ хотя бы по одной точке. Отсюда понятно, что
+        \[\Omega(\chi_{\Phi}, T)\leq \mu(R_{\epsilon})<\epsilon\]
+        Значит, по предыдущей теореме $\Phi$ измеримо по Жордану.
+    \end{enumerate}
+\end{proof}
+\begin{example}[Неизмеримого по Жордану множества]$\\$
+    Пусть $\Q_{[0,1]}=\Q\cap [0,1]$. Заметим, что $(\Q_{[0,1]})^k\subset ([0,1])^k$ и\\
+    $\partial (\Q_{[0,1]})^k=([0,1])^k$. Таким образом $\mu(\partial(\Q_{[0,1]})^k)=1\neq 0$, значит, $(Q_{[0,1]})^k$ неизмеримо по Жордану.
+\end{example}
+\begin{example}[Ковер Серпинского] $\\$
+    Появится позже.
+\end{example}
+\begin{example}
+    Тут еще был какой-то пример.
+\end{example}

@@ -17,23 +17,23 @@
     $ \\$Следующие условия эквивалентны:
     \begin{enumerate}
         \item $f \in \mathcal{R}[a, b]$
-        \item $I^*(f) = I_*(f)$
+        \item $I^*(f, [a,b]) = I_*(f, [a,b])$
         \item $\forall \epsilon > 0 \ \exists\ \delta > 0: \forall T: d(T) < \delta: \Omega(f, T) < \epsilon$
-        \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$.
+        \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$
     \end{enumerate}
 \end{theorem}
 \noindent Рассмотрим аналогичное утверждение и докажем его
 \begin{theorem}[Критерий Дарбу интегрируемости на брусе]
     $ \\$Следующие условия эквивалентны:
     \begin{enumerate}
-        \item $f \in \mathcal{R}(\Pi)$;
-        \item $I^*(f, \Pi) = I_*(f, \Pi)$;
-        \item $\forall \epsilon > 0 \ \exists\ \delta > 0: \forall T,\ d(T) < \delta: \Omega(f, T) < \epsilon$;
-        \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$.
+        \item $f \in \mathcal{R}(\Pi)$
+        \item $I^*(f, \Pi) = I_*(f, \Pi)$
+        \item $\forall \epsilon > 0 \ \exists\ \delta > 0: \forall T,\ d(T) < \delta: \Omega(f, T) < \epsilon$
+        \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$
     \end{enumerate}
 \end{theorem}
 \newpage
-\begin{proof}\tab
+\begin{proof} Докажем по схеме $(1)\Rightarrow(2) \Rightarrow(4) \Rightarrow (3) \Rightarrow (1)$
     \begin{enumerate}
         \item $(1) \Rightarrow (2)$:
             \[\exists\ I\in \R: \forall \epsilon > 0\ \exists\ \delta > 0: \forall\ T, H,\ d(T) < \delta:|I - \sigma(f, T, H)| < \epsilon\]
@@ -52,7 +52,7 @@
         \item $(2)\Rightarrow(4)$:
             \[\sup \limits_{T} \underline{\underline{S}}(f, T) = \inf \limits_{T} \overline{\overline{s}}(f, T)\]
             По свойству точных граней $\forall \epsilon > 0 \ \exists\ T_1, T_2$:
-            \[0 \leq I - \overline{\overline{s}}(f, T_1) < \frac{\epsilon}{2},\ \  0 \leq I - \underline{\underline{S}}(f, T_2) < \frac{\epsilon}{2}\]
+            \[0 \leq I - \overline{\overline{s}}(f, T_1) < \frac{\epsilon}{2},\ \  0 \leq \underline{\underline{S}}(f, T_2)-I < \frac{\epsilon}{2}\]
             \[0 \leq \underline{\underline{S}}(f, T_2) - \overline{\overline{s}}(f, T_1) < \epsilon\]
             Тогда если $T=T_1\cup T_2$, то 
             \[0\leq \underline{\underline{S}}(f,T)-\overline{\overline{s}}(f,T)\leq \underline{\underline{S}}(f,T_2)-\overline{\overline{s}}(f,T_1)<\epsilon\]
@@ -79,3 +79,18 @@
         \[|I-\sigma(f,T,H)|\leq \underline{\underline{S}}(f,T)-\overline{\overline{s}}(f,T)<\epsilon\]
     \end{enumerate}
 \end{proof}
+\begin{theorem}
+    Пусть $\Pi$ --- замкнутый брус в $\R^k,\ f\in \mathcal{C}(\Pi)$. Тогда $f\in \mathcal{R}(\Pi)$.
+\end{theorem}
+\begin{proof}
+    Пусть $f\in \mathcal{C}(\Pi) \Rightarrow f$ - равномерно непрерывна на $\Pi\\
+    (f\in \mathcal{UC}(f))$:
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x_1,x_2,\ \rho(x_1,x_2)<\delta: |f(x_1)-f(x_2)|<\frac{\epsilon}{2|\Pi|}\]
+    Хотим показать, что
+    \[\Omega(f,T)=\sum\limits_{i}\omega_i\cdot |\delta_i|<\epsilon\]
+    При этом 
+    \[\omega_i=\sup\limits_{x_1\in \Delta_i}f(x_1)-\inf\limits_{x_2\in \Delta_i}f(x_2)\leq \frac{\epsilon}{2|\Pi|}\]
+    таким образом
+    \[\Omega(f,T)\leq \frac{\epsilon}{2|\Pi|}\sum\limits_{i}|\Delta_i|=\frac{\epsilon}{2}<\epsilon\]
+\end{proof}
+
