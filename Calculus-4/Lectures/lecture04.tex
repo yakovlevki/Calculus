@@ -1,0 +1,81 @@
+\section{Лекция 4}
+Напомним, что
+\[\mu_*(\Phi)=\sup\{\ \sum\limits_{i=1}^{n}|\Pi_i|: \bigsqcup\limits_{i=1}^n\Pi_i\subset \Phi\ \}\]
+\[\mu^*(\Phi)=\inf\{\ \sum\limits_{i=1}^{n}|\Pi_i|: \Phi\subset \bigsqcup\limits_{i=1}^n\Pi_i\ \}\]
+Далее, если это требуется, будем обозначать замкнутый брус как
+\[\overline{\Pi_i}=[a_1,b_1]\times \dots\times [a_k,b_k]\]
+и открытый брус как
+\[\Pi_i^o=(a_1,b_1)\times \dots\times (a_k,b_k)\]
+\subsection{Второе доказательство критерия измеримости по Жордану}
+Докажем теорему из предыдущей лекции другим, не использующим интегралы, способом.
+\begin{theorem} [Критерий измеримости по Жордану] $\\$
+    $\Phi$ измеримо по Жордану $\Leftrightarrow \forall \epsilon>0$ существуют элементарные $P_{\epsilon}, Q_{\epsilon}$ такие, что
+    \begin{enumerate}
+        \item $Q_{\epsilon}\subset \Phi\subset P_{{\epsilon}}$
+        \item $\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:]
+            Пусть $\mu^*(\Phi)=\mu_*(\Phi)$. Тогда, по свойствам точных граней, $\forall \epsilon>0\ \exists\ P_{\epsilon}, Q_{\epsilon}$ такие, что $\Phi\subset P_{\epsilon}, Q_{\epsilon}\subset \Phi$:
+            \[\mu(P_{\epsilon})<\mu_*(\Phi)+\frac{\epsilon}{2},\ \ \mu(Q_{\epsilon})>\mu^*(\Phi)+\frac{\epsilon}{2}\]
+            Вычитая из первого неравенства второе, получим
+            \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        \item[$(\Leftarrow)$:]
+            Знаем, что
+            \[\mu(P_{\epsilon})\geq \mu^*(\Phi)\geq \mu_*(\Phi)\geq \mu(Q_{\epsilon})\]
+            отсюда
+            \[\epsilon>\mu(P_{\epsilon})-\mu(Q_{\epsilon})\geq \mu^*(\Phi)-\mu_*(\Phi)\geq 0\]
+            таким образом $\forall \epsilon>0$:
+            \[\mu^*(\Phi)-\mu_*(\Phi)<\epsilon\]
+    \end{itemize}
+\end{proof}
+\begin{theorem} [Критерий измеримости по Жордану] $\\$
+    $\Phi$ измеримо по Жордану $\Leftrightarrow \mu^*(\partial \Phi)=0$ 
+\end{theorem}
+\begin{proof}\tab
+    \begin{itemize}
+        \item[$(\Rightarrow)$:]
+        Ипользуем предыдущую теорему: $\forall \epsilon>0\ \exists\ P_{\epsilon}, Q_{\epsilon},\ Q_{\epsilon}\subset \Phi\subset P_{\epsilon}$: 
+        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        Возьмем $x\in \partial \Phi$. Тогда в любой окрестности точки $x$ содержатся точки из $\Phi$ и из $\R^k\setminus \Phi$. Заметим, что
+        \[x\not\in \overline{P_{\epsilon}\setminus Q_{\epsilon}^o}\ \Leftrightarrow \left[\begin{matrix}
+            x\not\in \overline{P_{\epsilon}} \Rightarrow x\not\in \overline{\Phi}\\
+            \ x\in Q_{\epsilon}^o \Rightarrow x\in \Phi^o
+        \end{matrix}\right.\]
+        Итак, любая граничная точка обязана принадлежать этому замыканию, следовательно
+        \[\partial \Phi\subset \overline{P_{\epsilon}\setminus Q_{\epsilon}^o}\]
+        Поскольку $P_{\epsilon}$ и $Q_{\epsilon}^o$ --- элементарные множества, то
+        \[P_{\epsilon}\setminus Q_{\epsilon}^o=\bigsqcup\limits_i \Pi_i\]
+        внутренние точки $\Pi_i$ лежат и в $P_{\epsilon}$, но не лежат в $Q_{\epsilon}^o$
+        \[\mu(P_{\epsilon})=\mu(P_{\epsilon}\setminus Q_{\epsilon})+\mu(Q_{\epsilon})\leq\mu(P_{\epsilon}\setminus Q_{\epsilon}^o)+\mu(Q_{\epsilon})\]
+        отсюда
+        \[\mu(P_{\epsilon}\setminus Q_{\epsilon}^o)\leq\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        \item[$(\Leftarrow)$:] Пусть $\mu^*(\partial \Phi)=0 \Rightarrow \forall \epsilon>0$ существуют элементарные $T_{\epsilon}$ такие, что $\partial \Phi\subset T_{\epsilon}$ и $\mu(T_{\epsilon})<\epsilon$. Возьмем в качестве $Q_{\epsilon}$
+        \[Q_{\epsilon}=\bigsqcup\limits_i \Pi_i\]
+        Тогда в качестве $P_{\epsilon}$ подойдут $P_{\epsilon}=T_{\epsilon}\cup Q_{\epsilon}$. Таким образом
+        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})=\mu(Q_{\epsilon}\cup T_{\epsilon})-\mu(Q_{\epsilon})\leq \mu(T_{\epsilon})<\epsilon\]
+    \end{itemize}
+\end{proof}
+\subsection{Свойства меры Жордана на измеримых множествах}
+\begin{statement}
+    Семейство измеримых по Жордану множеств образует кольцо множеств.
+\end{statement}
+%\begin{proof}
+%    Пусть $\Phi_1, \Phi_2$ --- измеримые по Жордану множества.
+%\end{proof}
+\begin{statement}
+    На кольце измеримых по Жордану множеств, $\mu$ является конечно-аддитивной мерой.
+\end{statement}
+\begin{statement}
+    Пусть $\text{Isom}: \R^k\to \R^k$ --- отображение, которое прямые, параллельные осям координат переводит в прямые, параллельные осям координат. Тогда
+    \[\mu(\Phi)=\mu(\text{Isom}(\Phi))\]
+\end{statement}
+\begin{statement}
+    $\mu(\Phi)=0 \Leftrightarrow$ мера Лебега $\Phi$ равна нулю.
+\end{statement}
+\begin{definition}
+    Пусть $\Phi$ --- измеримо по Жордану, а $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
+    \[\overbrace{\idotsint\limits_{\Phi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+\end{definition}
