@@ -1,15 +1,15 @@
 \section{Лекция 1}
 \subsection{Повторение построения интеграла Римана}
-Пусть $f$ --- функция на отрезке $[a,b]$. Выбиралось разбиение $T=\{\Delta_j\}_{j=1}^n$ отрезка $[a,b]$ и разметка $H=\{\xi_j\}_{j=1}^n$. Диаметром $d(T)$ разбиения $T$ называлась наибольшая из длин отрезков разбиения. Интегральной суммой на заданом размеченом разбиении называли следующее выражение:
+Пусть $f$ --- функция на отрезке $[a,b]$. Выбиралось разбиение $T=\{\Delta_j\}_{j=1}^n$ отрезка $[a,b]$ и разметка $H=\{\xi_j\}_{j=1}^n$. Диаметром $d(T)$ разбиения $T$ называлась наибольшая из длин отрезков разбиения. Интегральной суммой на заданном размеченном разбиении называли следующее выражение:
 \[\sigma(f,T,H)=\sum\limits_{j=1}^{n}f(\xi_j)|\Delta_j|\]
 где $|\Delta_j|$ - длина отрезка $\Delta_j$. Тогда интералом Римана назывался предел
 \[I=\lim\limits_{d(T)\to 0}\sigma(f,T,H)\]
 Также интеграл Римана можно ввести через суммы Дарбу.
-Назовем верней и нижней суммой Дарбу соответственно выражения:
+Назовем верхней и нижней суммой Дарбу соответственно выражения:
 \[\underline{\underline{S}}(f,T)=\sum\limits_{j=1}^{n}M_j\cdot |\Delta_j|,\ \ \overline{\overline{s}}(f,T)=\sum\limits_{j=1}^n m_j\cdot |\Delta_j|\]
 где
 \[M_j=\sup\limits_{x\in \Delta_j}f(x),\ \ m_j=\inf\limits_{x\in \Delta_j}f(x)\]
-Далее вводился верхний и нижний ингралы Дарбу
+Далее вводились верхний и нижний ингралы Дарбу
 \[I_*=\sup\limits_{T} \overline{\overline{s}}(f,T),\ \ I^* = \inf\limits_{T} \underline{\underline{S}}(f,T)\]
 Если верхний и нижний интегралы совпадают
 \[I=I_*=I^*\]
@@ -17,12 +17,12 @@
 Нашей целью является перенос этой конструкции в $\R^k$ при $k\geq 2$.
 \subsection{Кратный интеграл Римана}
 \begin{definition}
-    Замкнутым брусом в $\R^k$ называется декартово проиведение
+    Замкнутым брусом в $\R^k$ называется декартово произведение
     \[\Pi=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]\]
 \end{definition}
 \begin{definition}
     Пусть дан брус 
-    $\Pi=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]$, а $T_1,\dots,T_k$ являются разбиениями $[a_1,b_1], \dots, [a_k,b_k]$ соответсвенно. Тогда 
+    $\Pi=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]$, а $T_1,\dots,T_k$ являются разбиениями $[a_1,b_1], \dots, [a_k,b_k]$ соответственно. Тогда 
     \[T=T_1\times\dots\times T_k\] 
     называется разбиением бруса $\Pi$. Брус из разбиения $T=T_1\times \dots\times T_k$ будем обозначать $\Delta_{j_1,\dots,j_k}$, а его объем $|\Delta_{j_1,\dots,j_k}|$. Разметкой разбиения также назовем множество $H=\{\xi_{j_1,\dots,j_k}\}_{j_1,\dots,j_k=1}^n$, где $\xi_{j_1,\dots,j_k}\in \Delta_{j_1,\dots,j_k}$.
 \end{definition}
@@ -55,7 +55,7 @@
 \end{definition}
 \subsection{Суммы Дарбу}
 \begin{definition}
-    Назовем верней и нижней суммой Дарбу соответственно выражения:
+    Назовем верхней и нижней суммой Дарбу соответственно выражения:
     \[\underline{\underline{S}}(f,T)=\sum\limits_{j} M_j\cdot |\Delta_j|, \ \ \overline{\overline{s}}(f,T)=\sum\limits_{j} m_j\cdot |\Delta_j|\]
     где
     \[M_j=\sup\limits_{x\in \Delta_j}f(x),\ \ m_j=\inf\limits_{x\in \Delta_j}f(x)\]
@@ -75,10 +75,10 @@
 \begin{proof}
     Cравним $\overline{\overline{s}}(f, T)$ и $\overline{\overline{s}}(f, T')$, где $T'$ получена добавлением разреза. После добавления, брус $\Delta_j$ разбился на два новых бруса $\Delta_j'$ и $\Delta_j''$, обозначим: $m_j', m_j''$ - инфинумы $f$ на $\Delta_j'$ и $\Delta_j''$ соответсвенно. Тогда 
     \begin{multline*}
-        \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}(m_j'\cdot |\Delta_j'|+m_j''\cdot |\Delta_l''|-m_j(|\Delta_j'|+|\Delta_j''|))=\\
+        \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}(m_j'\cdot |\Delta_j'|+m_j''\cdot |\Delta_j''|-m_j(|\Delta_j'|+|\Delta_j''|))=\\
         =\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j'|+(m_j''-m_j)\cdot |\Delta_j''|)\overset{(2)}{\geq} 0
     \end{multline*}
-    (1): Суммируем только по тем брусам, которым прошел разрез\\
+    (1): Суммируем только по тем брусам, по которым прошел разрез\\
     (2): $m_j'\geq m_j,\ m_j''\geq m_j$\\
     Аналогично показывается, что $\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\geq 0$.
 \end{proof}
@@ -95,7 +95,7 @@
         =(M-m)\cdot |\Pi_1|\leq (M-m)\cdot d^{k-1}\cdot \delta
     \end{multline*}
     где $|\Pi_1|$ --- суммарный объём тех брусов, которые были разрезаны. Проделав эту операцию $p$ раз, получим искомое утверждение.\\
-    (1): Суммируем только по тем брусам, которым прошел разрез\\
+    (1): Суммируем только по тем брусам, по которым прошел разрез\\
     (2): $m_j', m_j''\leq M,\ m_j\geq m$.
     Аналогично для верхней суммы Дарбу.
 \end{proof}
@@ -140,7 +140,7 @@
     \[c=\sum\limits_{j\neq j_0} f(\xi_j)\cdot |\Delta_j|\]
     тогда $\forall \xi_{j_0}\in \Delta_{j_0}$:
     \[\frac{I-\epsilon-c}{|\Delta_{j_0|}}<f(\xi_{j_0})<\frac{I+\epsilon-c}{|\Delta_{j_0|}}\]
-    значит $f$ ограничена на каждом $\Delta_{j_0} \Rightarrow f$ - ограничена на $\Pi$.
+    значит, $f$ ограничена на каждом $\Delta_{j_0} \Rightarrow f$ - ограничена на $\Pi$.
 \end{proof}
 \begin{example}[Необходимое условие не является достаточным]
     $\\$Рассмотрим
@@ -152,7 +152,7 @@
     \[\underline{\underline{S}}=\sum\limits_{j}M_j\cdot |\Delta_j|=\sum\limits_{j}1\cdot |\Delta_j|=|\Pi|\]
     Итак
     \[\forall I\in \R\ \ \exists\ \epsilon=\frac{|\Pi|}{3}>0,\ \forall \delta>0\ \ \exists\ T,H,\ d(T)<\delta: |\sigma(f,T,H)-I|\geq \epsilon\]
-    Значит функция не является интегрируемой.
+    Значит, функция не является интегрируемой.
 \end{example}
 \newpage
 

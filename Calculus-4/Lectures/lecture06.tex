@@ -1,0 +1,97 @@
+\section{Лекция 6}
+\subsection{Свойства интеграла Римана}
+\begin{statement}
+    Пусть $\Phi$ --- измеримо по Жордану, $f,g\in \mathcal{R}(\Phi)$. Тогда $\forall c_1, c_2:\ c_1\cdot f+c_2\cdot g\in \mathcal{R}(\Phi)$.
+\end{statement}
+\begin{statement}[Изменение на множестве меры ноль] $\\$
+    Пусть $\mu(E)=0, f\in \mathcal{R}(\Phi), g\in \mathcal{B}(\Phi),\ f\equiv g$ на $\Phi\setminus E$. Тогда $g\in \mathcal{R}(\Phi)$:
+    \[\idotsint f=\idotsint g\]
+\end{statement}
+\begin{proof}
+    $h=f-g\neq 0$ только на $E$. По следствию из какой-то теоремы существует интеграл от $h$, значит, существует и от $g$.
+\end{proof}
+\begin{statement} [Интегрируемость по подмножеству] $\\$
+    Пусть $f\in \mathcal{R}(\Phi), \Phi, \Phi'$ -- измеримы по Жордану и $\Phi'\subset \Phi$. Тогда $f\in \mathcal{R}(\Phi')$
+\end{statement}
+\begin{proof}
+    \[\idotsint\limits_{\Pi}f(x_1,\dots,x_k)\cdot \chi_{\Phi}\ dx_1 \dots dx_k\]
+    обозначим $f(x_1,\dots,x_k)\cdot \chi_{\Phi}=f_1,\ f(x_1,\dots,x_k)\cdot \chi_{\Phi'}=f_2$
+    \[\Omega(f,T)\overset{(1)}{=}\sum +\sum\limits_{i=0}^{n}< \epsilon\]
+    (1): Первая сумма по всем внутренним брусам $\Phi'$, а вторая по брусам, содержащим границу $\partial \Phi'$.
+    Первая сумма $<\frac{\epsilon}{2}$ полькольку она входит в состав $\Omega(f_1,T)$, а $\Omega(f_1,T)<\frac{\epsilon}{2}$ по критерию Дарбу.
+\end{proof}
+\begin{statement} [Аддитивность] $\\$
+    Пусть $\Phi, \Phi_1, \Phi_2$ --- измеримы по Жордану, $\Phi=\Phi_1\sqcup\Phi_2$
+    \[\idotsint\limits_{\Phi}f(x_1,\dots,x_k)dx_1 \dots dx_k=\idotsint\limits_{\Phi_1}f(x_1,\dots,x_k)dx_1 \dots dx_k+\idotsint\limits_{\Phi_2}f(x_1,\dots,x_k)dx_1 \dots dx_k\]
+\end{statement}
+%нужно проверить на индикаторах, пользуемся свойством три доказывая, что f инт на ф lra инт на ф_1 пересеч с ф_2
+\begin{statement} [Монотонность по функции] $\\$
+    Пусть $f,g\in \mathcal{R}(\Phi), f\geq g$ на $\Phi$. Тогда интеграл от $f$ не меньше интеграла от $g$.
+\end{statement}
+% составляем разность 
+\begin{statement} [Монотонность по множеству] $\\$
+    Пусть $f\in \mathcal{R}(\Phi), \Phi'\subset \Phi$ и $f\geq 0$ на $\Phi$. Тогда
+    \[\idotsint\limits_{\Phi} f\geq \idotsint\limits_{\Phi'} f\]
+\end{statement}
+%составляем разность и показываем что она geq 0
+\begin{statement} [Композиция с липшицевой функцией] $\\$
+    Пусть $f\in \mathcal{R}(\Phi),\ g\in \text{Lip}(f(\Phi))$. Тогда $g\circ f\in \mathcal{R}(\Phi)$.
+\end{statement}
+\begin{proof}
+    По критерию Дарбу
+    \[\Omega(f,T)<\epsilon \Rightarrow \Omega(g\circ f, T)<C\epsilon\]
+\end{proof}
+\begin{statement}\tab
+    \begin{enumerate}
+        \item
+        \[\idotsint\limits_{\Phi}f\leq \idotsint\limits_{\Phi}|f|\]
+        \item 
+        \[f\in \mathcal{R}(\Phi) \Rightarrow |f|^p\in \mathcal{R}(\Phi)\]
+        $g(x)=|x|^p,\ g\in \text{Lip}$
+        \item 
+        \[f_1,f_2\in \mathcal{R}(\Phi) \Rightarrow f_1\cdot f_2\in \mathcal{R}(\Phi)\]
+        \[f_1\cdot f_2=\frac{(f_1+f_2)^2-f_1^2-f_2^2}{2}\]
+        \item 
+        $f\in \mathcal{R}(\Phi),\ \exists \epsilon>0$ и $|f|\geq \epsilon$ на $\Phi$. Тогда $\frac{1}{f}\in \mathcal{R}(\Phi)$.\\
+        Поскольку $g(x)=\frac{1}{x}$ липшицева на $[-M,-\epsilon]\cup[\epsilon, M]$.
+    \end{enumerate}
+\end{statement}
+\begin{statement} [Теорема о среднем] $\\$
+    Пусть $f,g\in \mathcal{R}(\Phi),\ g\geq 0$ на $\Phi$. Тогда $\exists\ mu\in [m,M]$:
+    \[\idotsint\limits_{\Phi}f\cdot g=\mu\cdot \idotsint\limits_{\Phi}g\]
+    где
+    \[m=\inf\limits_{\Phi}f,\ M=\sup\limits_{\Phi}f\]
+\end{statement}
+\begin{proof}
+    \[m\cdot g\leq f\cdot g\leq M\cdot g\]
+    \[m\cdot \idotsint g\leq \idotsint f\cdot g\leq M\cdot \idotsint g\]
+    \[m\leq \frac{\idotsint f\cdot g}{\idotsint g}\leq M\]
+    Тогда 
+    \[\mu=\frac{\idotsint f\cdot g}{\idotsint g}\]
+\end{proof}
+% какое то 8 штрих
+%\begin{statement}
+%    Если $\Phi$ --- связно, а $f$ --- непрерывна, то $\exists \bar{x}'\in \Phi$
+%\end{statement}
+\begin{statement}[Оценка интеграла] $\\$
+    Пусть $f\in \mathcal{R}(\Phi)$. Тогда 
+    \[\left|\idotsint\limits_{\Phi}f\right|\leq \idotsint\limits_{\Phi}|f|\leq M\cdot \mu(\Phi)\]
+\end{statement}
+\begin{statement}[Абсолютная непрерывность интеграла] $\\$
+    Пусть $f\in \mathcal{R}(\Phi)$ --- фиксированна. 
+    $\forall \epsilon>0\ \exists\ \delta>0,\ E\subset\Phi,\ \mu(E)<\delta$:
+    \[\left|\idotsint\limits_{E}f\right|<\epsilon\]
+\end{statement}
+\begin{proof}
+    Возьмем $\delta=\frac{\epsilon}{M+1}$, где $M=\sup\limits_{\Phi}|f|$
+\end{proof}
+\subsection{Сведение кратного интеграла к повторному}
+Рассмотрим интегралы
+\[\iint\limits_{[a,b]\times [c,d]}f(x,y)\ dxdy\]
+\[\int\limits_{a}^{b}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx\]
+\[\int\limits_{c}^{d}\left(\int\limits_{a}^{b}f(x,y)\ dx\right)dy\]
+%тут первый пример
+%тут второй пример
+\begin{theorem}
+    Пусть $\Pi=\Pi_1\times \Pi_2,\ f\in \mathcal{R}(\Pi)\ \forall x'\in \Pi_1$
+\end{theorem}

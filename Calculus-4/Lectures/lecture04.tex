@@ -19,7 +19,7 @@
     \begin{itemize}
         \item[$(\Rightarrow)$:]
             Пусть $\mu^*(\Phi)=\mu_*(\Phi)$. Тогда, по свойствам точных граней, $\forall \epsilon>0\ \exists\ P_{\epsilon}, Q_{\epsilon}$ такие, что $\Phi\subset P_{\epsilon}, Q_{\epsilon}\subset \Phi$:
-            \[\mu(P_{\epsilon})<\mu_*(\Phi)+\frac{\epsilon}{2},\ \ \mu(Q_{\epsilon})>\mu^*(\Phi)+\frac{\epsilon}{2}\]
+            \[\mu(P_{\epsilon})<\mu_*(\Phi)+\frac{\epsilon}{2},\ \ \mu(Q_{\epsilon})>\mu^*(\Phi)-\frac{\epsilon}{2}\]
             Вычитая из первого неравенства второе, получим
             \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
         \item[$(\Leftarrow)$:]
@@ -69,7 +69,7 @@
     На кольце измеримых по Жордану множеств, $\mu$ является конечно-аддитивной мерой.
 \end{statement}
 \begin{statement}
-    Пусть $\text{Isom}: \R^k\to \R^k$ --- отображение, которое прямые, параллельные осям координат переводит в прямые, параллельные осям координат. Тогда
+    Пусть $\text{Isom}: \R^k\to \R^k$ --- отображение, которое прямые, параллельные осям координат, переводит в прямые, параллельные осям координат. Тогда
     \[\mu(\Phi)=\mu(\text{Isom}(\Phi))\]
 \end{statement}
 \begin{statement}
@@ -77,5 +77,6 @@
 \end{statement}
 \begin{definition}
     Пусть $\Phi$ --- измеримо по Жордану, а $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
-    \[\overbrace{\idotsint\limits_{\Phi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    \[\overbrace{\idotsint\limits_{\Phi}}^k f(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
 \end{definition}
+\newpage

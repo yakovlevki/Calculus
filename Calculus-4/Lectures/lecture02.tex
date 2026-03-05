@@ -59,13 +59,13 @@
         \item $(4) \Rightarrow (3)$:
             \[\forall \epsilon>0\ \exists\ T_{\epsilon}: \Omega(f,T_{\epsilon})<\frac{\epsilon}{2}\]
             Пусть разбиение $T_1$ получено из разбиения $T$ добавлением $p$ разрезов. Тогда
-            \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\leq (M-m)\cdot d^{k-1}\cdot d(T)\cdot p\]
+            \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T_1)\leq (M-m)\cdot d^{k-1}\cdot d(T)\cdot p\]
             \[0\leq \Omega(f,T_1)\leq \Omega(f,T_{\epsilon})<\frac{\epsilon}{2}\]
             \begin{multline*}
                 0\leq \Omega(f,T)-\Omega(f,T_1)=(\underline{\underline{S}}(f,T)-\overline{\overline{s}}(f,T))-(\underline{\underline{S}}(f,T_1)-\overline{\overline{s}}(f,T_1))=\\
                 =(\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T_1))-(\overline{\overline{s}}(f,T_1)-\overline{\overline{s}}(f,T))\leq 2(M-m)\cdot d^{k-1}\cdot d(T)\cdot p\overset{(1)}{<}\frac{\epsilon}{2}
             \end{multline*}
-            (1): при условии что мы берем 
+            (1): при условии, что мы берем 
             \[\delta:=\frac{\epsilon}{4(M-m)\cdot d^{k-1}\cdot p}>0\]
             Итак при $d(T)<\delta$:
             \[\Omega(f,T)=(\Omega(f,T)-\Omega(f,T_1))+\Omega(f,T_1)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
@@ -87,7 +87,7 @@
     (f\in \mathcal{UC}(f))$:
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x_1,x_2,\ \rho(x_1,x_2)<\delta: |f(x_1)-f(x_2)|<\frac{\epsilon}{2|\Pi|}\]
     Хотим показать, что
-    \[\Omega(f,T)=\sum\limits_{i}\omega_i\cdot |\delta_i|<\epsilon\]
+    \[\Omega(f,T)=\sum\limits_{i}\omega_i\cdot |\Delta_i|<\epsilon\]
     При этом 
     \[\omega_i=\sup\limits_{x_1\in \Delta_i}f(x_1)-\inf\limits_{x_2\in \Delta_i}f(x_2)\leq \frac{\epsilon}{2|\Pi|}\]
     таким образом

@@ -1,7 +1,7 @@
 \section{Лекция 3}
 \subsection{Мера Жордана в $\R^k$}
 \begin{definition}
-    Выберем семейство элементарных множеств $\Pi_i$. Тогда семейство множеств вида $\bigsqcup\limits_{i=1}^n \Pi_i$, замкнутое относительно пересечения и симметрической разности называется кольцом множеств.
+    Выберем семейство элементарных множеств $\Pi_i$. Тогда семейство множеств вида $\bigsqcup\limits_{i=1}^n \Pi_i$, замкнутое относительно пересечения и симметрической разности, называется кольцом множеств.
 \end{definition}
 \begin{definition}
     Пусть $\Phi$ -- ограниченное множество в $\R^k$. Тогда 
@@ -26,7 +26,7 @@
     называется индикатором множества $\Phi$.
 \end{definition}
 \begin{theorem}
-    Множество $\Phi$ измеримо по Жордану $\Leftrightarrow$ по любому брусу $\Pi$ такому, что $\Phi\subseteq \Pi$ существует интеграл от $\chi_{\Phi}$ по $\Pi$. При этом
+    Множество $\Phi$ измеримо по Жордану $\Leftrightarrow$ по любому брусу $\Pi$ такому, что $\Phi\subseteq \Pi$, существует интеграл от $\chi_{\Phi}$ по $\Pi$. При этом
     \[\mu(\Phi)=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
 \end{theorem}
 \newpage
@@ -62,7 +62,7 @@
             \item $\sup \chi_{\Phi}=1,\ \inf \chi_{\Phi}=0$ --- содержит границу
             \item $\sup \chi_{\Phi}=\inf \chi_{\Phi}=0$ --- находится снаружи
         \end{enumerate}
-        Определим $Q_{\epsilon}$ как объединение брусов из первой группы, а $P_{\epsilon}$ как объединение брусов из первой и второй группы. Заметим, что $\overline{\overline{s}}(\chi_{\Phi}, T)$ это в является объединением брусов из первой группы, а $\underline{\underline{S}}(\chi_{\Phi}, T)$ объединением ячеек из первой и второй группы. Значит
+        Определим $Q_{\epsilon}$ как объединение брусов из первой группы, а $P_{\epsilon}$ как объединение брусов из первой и второй группы. Заметим, что $\overline{\overline{s}}(\chi_{\Phi}, T)$ является объединением брусов из первой группы, а $\underline{\underline{S}}(\chi_{\Phi}, T)$ --- объединением ячеек из первой и второй группы. Значит
         \[\overline{\overline{s}}(\chi_{\Phi}, T)=\mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T)= \mu(P_{\epsilon}) \eqno(*)\]
         Таким образом
         \[\Omega(\chi_{\Phi}, T)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})\]
@@ -93,7 +93,7 @@
         \item $(1) \Rightarrow (2)$:\\
         Пусть $\Phi$ измеримо по Жордану. Тогда существует интеграл
         \[\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-        Во второй части доказательства предыдуей теоремы было показано, что
+        Во второй части доказательства предыдщуей теоремы было показано, что
         \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
         \item $(2) \Rightarrow (3)$:\\
         Пусть 
@@ -103,7 +103,7 @@
         при этом
         \[\mu\left(\overline{P_{\epsilon}\setminus Q_{\epsilon}}\right)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
         \item $(3) \Rightarrow (1)$:\\
-        Пусть $\mu(\partial \Phi)=0$. Тогда существует элементарное множество $R_{\epsilon}$, содержащее $\partial \Phi$ и такое, что $\mu(R_{\epsilon})<\epsilon$.
+        Пусть $\mu(\partial \Phi)=0$. Тогда существует элементарное множество $R_{\epsilon}$, содержащее $\partial \Phi$, такое, что $\mu(R_{\epsilon})<\epsilon$.
         Продолжим грани брусов в его составе и получим разбиение $T$ бруса $\Pi$, который содержит $\Phi$. Поскольку
         \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{p}\inf\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{p}\sup\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|\]
         то $\overline{\overline{s}}(\chi_{\Phi},T)$ состоит из элементарных множеств, которые полностью содержатся в $\Phi$, а $\underline{\underline{S}}(\chi_{\Phi},T)$ из элементарных множеств, которые пересекаются с $\Phi$ хотя бы по одной точке. Отсюда понятно, что

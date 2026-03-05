@@ -1,0 +1,96 @@
+\section{Лекция 5}
+\subsection{Интеграл по измеримому по Жордану множеству}
+\begin{comm}
+    Множество $\Phi$ измеримо по Жордану $\Leftrightarrow \overline{\Phi}$ измеримо по Жордану. Однако аналогичное утверждение неверно для понятия измеримости по Лебегу:
+    \[\nu(\Q_{[0,1]})=0,\ \ \nu(\overline{\Q_{[0,1]}})=1\] 
+\end{comm}
+Далее пусть $\Phi$ --- измеримое по Жордану множество.
+\begin{definition}
+    Пусть $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
+    \[\overbrace{\idotsint\limits_{\Phi}}^k f(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+\end{definition}
+\begin{statement}
+    Определение интеграла по измеримому по Жордану множеству $\Phi$ корректно.
+\end{statement}
+\begin{proof}
+    Пусть $\Phi \subset \Pi_1,\ \Phi\subset \Pi_2$, где $\Pi_1$ и $\Pi_2$ --- различные брусы. Озозначим $\widehat{f}=f\cdot \chi_{\Phi}$ и покажем, что
+    \[\exists\ \idotsint\limits_{\Pi_1} \widehat{f}(x_1,\dots,x_k)\ dx_1\dots dx_k\ \Leftrightarrow\ \exists\ \idotsint\limits_{\Pi_2} \widehat{f}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    и если интегралы существут, то они равны. Без ограничения общности, будем считать, что $\Pi_1\subset \Pi_2$: если это не так, то построим брус $\Pi$, содержащий $\Pi_1$ и $\Pi_2$ (это можно сделать взяв максимальные и минимальные координаты по каждой оси). Заметим, что если существует интеграл по $\Pi_i$, то существует интеграл по $\Pi$, поскольку $\widehat{f}\equiv 0$ на $\Pi\setminus \Pi_i$.
+    \begin{enumerate}
+        \item Пусть существует интеграл по $\Pi_2$. Покажем, что существует интеграл по $\Pi_1$. Пусть $T_2$ --- разбиение $\Pi_2$, тогда
+        \[\forall \epsilon>0\ \exists\ \delta>0\ \forall T_2,\ d(T_2)<\delta: \Omega(\widehat{f}, T_2)<\epsilon\]
+        Пусть $T_1$ --- произвольное разбиение бруса $\Pi_1$ такое, что $d(T_1)<\delta$. Существует $T_2$ --- разбиение бруса $\Pi_2$, которое на $\Pi_1$ совпадает с $T_1$, а на $\Pi_2\setminus \Pi_1$ является произвольным разбиением с диаметром меньшим $\delta$. Тогда при $d(T_1)<\delta$ имеем, что $d(T_2)<\delta$. Таким образом, $\Omega(\widehat{f}, T_2)$ содержит все слагаемые $\Omega(\widehat{f}, T_1)$. Значит $\forall \epsilon>0\ \exists\ \delta>0,\ \forall T_1,\ d(T_1)<\delta$:
+        \[\Omega(\widehat{f}, T_1)<\Omega(\widehat{f}, T_2)<\epsilon\]
+        \item Пусть существует интеграл по $\Pi_1$. Тогда
+        \[\forall \epsilon>0\ \exists\ T_1: \Omega(\widehat{f}, T_1)<\epsilon\]
+        Возьмем брус $\Pi_1'$ такой, что $\Pi_1\subset \Pi_1'\subset \Pi_2$. Обозначим $M=\sup\widehat{f}$, тогда
+        \[\mu(\Pi_1'\setminus \Pi_1)=\mu(\Pi_1')-\mu(\Pi_1)<\frac{\epsilon}{4M}\]
+        Рассмотри разбиение $T_2$ бруса $\Pi_2$ такое, что оно совпадает с $T_1$ на $\Pi_1$ и содержит разрезы по граням $\Pi_1'$. Тогда брусы разбиения $T_2$ можно разбить на три группы:
+        \begin{enumerate}
+            \item Брусы содержащиеся в $\Pi_1$
+            \item Брусы содержащиеся в $\Pi_1'\setminus \Pi_1$
+            \item Брусы содержащиеся в $\Pi_2\setminus \Pi_1'$
+        \end{enumerate}
+        Тогда $\Omega(\widehat{f}, T_2)$ равно $\Omega(\widehat{f}, T_1)$ плюс колебания $\widehat{f}$ на брусах из группы $(b)$ плюс колебания $\widehat{f}$ на брусах из группы $(c)$. Таким образом $\forall \epsilon>0\ \exists\ T_2:$
+        \[\Omega(\widehat{f}, T_2)\leq \frac{\epsilon}{2} + 2M\cdot \mu(\Pi_1'\setminus \Pi_1) + 0<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
+        \item Остается показать, что интегралы совпадают. Заметим, что
+        \[\idotsint\limits_{\Pi_2} \widehat{f}\ dx_1\dots dx_k=\idotsint\limits_{\Pi_1} \widehat{f}\ dx_1\dots dx_k+\idotsint\limits_{\Pi_2\setminus \Pi_1} \widehat{f}\ dx_1\dots dx_k\]
+        причем $\Pi_2\setminus \Pi_1$ не содержит $\Phi$. Значит
+        \[\idotsint\limits_{\Pi_2\setminus \Pi_1} \widehat{f}\ dx_1\dots dx_k=0\]
+        и интегралы по $\Pi_1$ и $\Pi_2$ совпадают.
+    \end{enumerate}
+\end{proof}
+\begin{statement}
+    Определение интеграла по брусу эквивалентно следующему: Для любой последовательности $(T_n, H_n)$ размеченых разбиений бруса $\Pi$, последовательность $\sigma(f, T_n, H_n)$ стремится к $I$ при $d(T_n)\to 0$.
+\end{statement}
+\begin{theorem} [Необходимое условие интегрируемости по $\Phi$] $\\$
+    $f\in \mathcal{R}(\Phi) \Rightarrow f\in \mathcal{B}(\Phi)$
+\end{theorem}
+\begin{proof}
+    Пусть $f\in \mathcal{R}(\Phi) \Rightarrow \widehat{f}\in \mathcal{R}(\Pi)$, где $\Phi\subset \Pi$ значит, по необходимому условию интегрируемости на брусе $\widehat{f}\in \mathcal{B}(\Pi)$. Поскольку $\Phi\subset \Pi$, то $\widehat{f}\in \mathcal{B}(\Phi) \Rightarrow f\in \mathcal{B}(\Phi)$.
+\end{proof}
+\begin{theorem}[Критерий Лебега интегрируемости по риману на $\Phi$] $\\$
+    $f\in \mathcal{R}(\Phi) \Leftrightarrow f\in \mathcal{B}(\Phi)$ и множество точек разрыва функции $f$ имеет меру нуль по Лебегу.
+\end{theorem}
+\begin{proof}
+    Без доказательства.
+\end{proof}
+\begin{theorem} [Достаточное условие интегрируемости на $\Phi$] $\\$
+    Если $f\in \mathcal{B}(\Phi)$ и мера Жордана от точек разрыва на $\Phi$ равна нулю, то $f\in \mathcal{R}(\Phi)$.
+\end{theorem}
+\begin{proof}
+    Пусть $E$ --- множество точек разрыва, по условию\\
+    $\mu(E)=0$. При этом $\Phi$ --- измеримое по Жордану, значит $\mu(\partial \Phi)=0$. Таким образом $\mu(\partial\Phi\cup E)=0\ \Rightarrow\ \forall \epsilon>0$ существует открытое элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\cup E\subset P_{\epsilon}$, причем $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi}f$. Возьмем $Q_{\epsilon}=\overline{\Phi}\setminus P_{\epsilon}$ и заметим, что $Q_{\epsilon}\subset \Phi$ и замкнуто. Таким образом, $Q_{\epsilon}$ --- компакт. Тогда, поскольку все точки разрыва находятся в $P_{\epsilon}$, то $f\in \mathcal{C}(Q_{\epsilon})$, а значит, что $f\in \mathcal{U}(Q_{\epsilon})$ (равномерно непрерывна). Если это потребуется, то разрежем $Q_{\epsilon}$ на части такого диаметра, чтобы колебания $f$ на каждой из частей было меньше чем $\frac{\epsilon}{2\mu(Q_{\epsilon})}$. Таким образом
+    \[\Omega(\widehat{f}, T)=\sum\limits_{P_{\epsilon}}+\sum\limits_{Q_{\epsilon}}\]
+    то есть сумма по всем брусам $P_{\epsilon}$ плюс сумма по всем брусам $Q_{\epsilon}$. При этом
+    \[\sum\limits_{P_{\epsilon}}<2M\cdot \mu(P_{\epsilon})<2M\cdot \frac{\epsilon}{4M}=\frac{\epsilon}{2}\]
+    \[\sum\limits_{Q_{\epsilon}}<\frac{\epsilon}{2\mu(Q_{\epsilon})}\cdot \mu(Q_{\epsilon})=\frac{\epsilon}{2}\]
+    значит $\Omega(\widehat{f}, T)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$.
+\end{proof}
+\begin{consequense}
+    Пусть $f$ ограничена и отлична от нуля только на множестве меры нуль по Жордану. Тогда для любого измеримого по Жордану множества $\Phi$ на котором определена функция $f$ существует интеграл
+    \[\idotsint\limits_{\Phi}f(x_1,\dots,x_k)\ dx_1\dots dx=0\]
+\end{consequense}
+\begin{proof}
+    Пусть $A=\{x: f(x)\neq 0\}$ обозначим $S=\text{supp}\hspace{0.05cm} f = \overline{A}$.
+    Тогда $\mu(S)=\mu(A\cup \partial A)=\mu((A\setminus \partial A)\sqcup \partial A)=\mu(A\setminus \partial A)+\mu(\partial A)=0$. В любом брусе найдется точка, в которой $f(x)=0$, иначе этот брус лежит в $S$, а тогда $\mu(S)>0$ и получаем противоречие. Значит для каждого разбиения существует разметка, такая, что $\sigma(f, T, H)=0$. По критерию Жордана интеграл
+    \[I=\idotsint\limits_{\Phi}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    а значит $I=\sigma(f, T, H)=0$.
+\end{proof}
+\begin{example} Для меры Лебега интеграл может как существовать так и не существовать
+    \begin{enumerate}
+        \item Функция Дирихле
+        \[D(x)=\begin{cases}
+            1,\ x\in \Q,\\
+            0,\ x\not\in \Q.
+        \end{cases}\]
+        отлична от нуля в рациональных точках, мера Лебега которых равна нулю, но $D(x)$ --- неинтегрируема.
+        \item Функция Римана
+        \[R(x)=\begin{cases}
+            \frac{1}{n},\ x=\frac{m}{n}\ \text{--- несократимая},\\
+            0,\ x\not\in \Q.
+        \end{cases}\]
+        отлична от нуля в рациональных точках, мера Лебега которых равна нулю и $R(x)\in \mathcal{R}[a,b]$.
+    \end{enumerate}
+\end{example}
+\newpage
