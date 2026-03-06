@@ -45,28 +45,21 @@
 \DeclareMathOperator*\uplim{\overline{lim}}
 \DeclareMathOperator*\variation{V}
 \DeclareMathOperator*\grad{grad}
-
+\DeclareMathOperator*\lip{Lip}
 
 % Математические окружения
 \theoremstyle{definition}
 \newtheorem*{definition}{Определение}
-\newtheorem*{theorem}{Теорема}
+\newtheorem{theorem}{Теорема}[section]
 \newtheorem*{consequense}{Следствие}
 \newtheorem*{lemma}{Лемма}
 \newtheorem*{comm}{Замечание}
-\newtheorem*{statement}{Утверждение}
+\newtheorem{statement}{Утверждение}[section]
 \newtheorem*{example}{Пример}
 \newtheorem*{examples}{Примеры}
 \newtheorem*{axiom}{Аксиома}
 \newtheorem*{exercise}{Упражнение}
 \newtheorem*{reminder}{Напоминание}
-
-% Для локальной нумерации
-\newcounter{thmcount}
-\newcounter{lemcount}
-\newtheorem{numtheorem}[thmcount]{Теорема}
-\newtheorem{numlemma}[lemcount]{Лемма}
-
 
 % Настройка заголовков
 \usepackage{titlesec}

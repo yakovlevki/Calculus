@@ -23,7 +23,7 @@
         \[\Omega(\widehat{f}, T_1)<\Omega(\widehat{f}, T_2)<\epsilon\]
         \item Пусть существует интеграл по $\Pi_1$. Тогда
         \[\forall \epsilon>0\ \exists\ T_1: \Omega(\widehat{f}, T_1)<\epsilon\]
-        Возьмем брус $\Pi_1'$ такой, что $\Pi_1\subset \Pi_1'\subset \Pi_2$. Обозначим $M=\sup\widehat{f}$, тогда
+        Возьмем брус $\Pi_1'$ такой, что $\Pi_1\subset \Pi_1'\subset \Pi_2$. Обозначим $M=\sup |\widehat{f}|$, тогда
         \[\mu(\Pi_1'\setminus \Pi_1)=\mu(\Pi_1')-\mu(\Pi_1)<\frac{\epsilon}{4M}\]
         Рассмотри разбиение $T_2$ бруса $\Pi_2$ такое, что оно совпадает с $T_1$ на $\Pi_1$ и содержит разрезы по граням $\Pi_1'$. Тогда брусы разбиения $T_2$ можно разбить на три группы:
         \begin{enumerate}
@@ -60,7 +60,7 @@
 \end{theorem}
 \begin{proof}
     Пусть $E$ --- множество точек разрыва, по условию\\
-    $\mu(E)=0$. При этом $\Phi$ --- измеримое по Жордану, значит $\mu(\partial \Phi)=0$. Таким образом $\mu(\partial\Phi\cup E)=0\ \Rightarrow\ \forall \epsilon>0$ существует открытое элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\cup E\subset P_{\epsilon}$, причем $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi}f$. Возьмем $Q_{\epsilon}=\overline{\Phi}\setminus P_{\epsilon}$ и заметим, что $Q_{\epsilon}\subset \Phi$ и замкнуто. Таким образом, $Q_{\epsilon}$ --- компакт. Тогда, поскольку все точки разрыва находятся в $P_{\epsilon}$, то $f\in \mathcal{C}(Q_{\epsilon})$, а значит, что $f\in \mathcal{U}(Q_{\epsilon})$ (равномерно непрерывна). Если это потребуется, то разрежем $Q_{\epsilon}$ на части такого диаметра, чтобы колебания $f$ на каждой из частей было меньше чем $\frac{\epsilon}{2\mu(Q_{\epsilon})}$. Таким образом
+    $\mu(E)=0$. При этом $\Phi$ --- измеримое по Жордану, значит $\mu(\partial \Phi)=0$. Таким образом $\mu(\partial\Phi\cup E)=0\ \Rightarrow\ \forall \epsilon>0$ существует открытое элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\cup E\subset P_{\epsilon}$, причем $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi}|f|$. Возьмем $Q_{\epsilon}=\overline{\Phi}\setminus P_{\epsilon}$ и заметим, что $Q_{\epsilon}\subset \Phi$ и замкнуто. Таким образом, $Q_{\epsilon}$ --- компакт. Тогда, поскольку все точки разрыва находятся в $P_{\epsilon}$, то $f\in \mathcal{C}(Q_{\epsilon})$, а значит, что $f\in \mathcal{U}(Q_{\epsilon})$ (равномерно непрерывна). Если это потребуется, то разрежем $Q_{\epsilon}$ на части такого диаметра, чтобы колебания $f$ на каждой из частей было меньше чем $\frac{\epsilon}{2\mu(Q_{\epsilon})}$. Таким образом
     \[\Omega(\widehat{f}, T)=\sum\limits_{P_{\epsilon}}+\sum\limits_{Q_{\epsilon}}\]
     то есть сумма по всем брусам $P_{\epsilon}$ плюс сумма по всем брусам $Q_{\epsilon}$. При этом
     \[\sum\limits_{P_{\epsilon}}<2M\cdot \mu(P_{\epsilon})<2M\cdot \frac{\epsilon}{4M}=\frac{\epsilon}{2}\]
@@ -77,7 +77,7 @@
     \[I=\idotsint\limits_{\Phi}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
     а значит $I=\sigma(f, T, H)=0$.
 \end{proof}
-\begin{example} Для меры Лебега интеграл может как существовать так и не существовать
+\begin{examples} Для меры Лебега интеграл может как существовать так и не существовать
     \begin{enumerate}
         \item Функция Дирихле
         \[D(x)=\begin{cases}
@@ -92,5 +92,5 @@
         \end{cases}\]
         отлична от нуля в рациональных точках, мера Лебега которых равна нулю и $R(x)\in \mathcal{R}[a,b]$.
     \end{enumerate}
-\end{example}
+\end{examples}
 \newpage

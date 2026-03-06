@@ -3,71 +3,116 @@
 \begin{statement}
     Пусть $\Phi$ --- измеримо по Жордану, $f,g\in \mathcal{R}(\Phi)$. Тогда $\forall c_1, c_2:\ c_1\cdot f+c_2\cdot g\in \mathcal{R}(\Phi)$.
 \end{statement}
-\begin{statement}[Изменение на множестве меры ноль] $\\$
-    Пусть $\mu(E)=0, f\in \mathcal{R}(\Phi), g\in \mathcal{B}(\Phi),\ f\equiv g$ на $\Phi\setminus E$. Тогда $g\in \mathcal{R}(\Phi)$:
-    \[\idotsint f=\idotsint g\]
+\begin{proof} Обозначим $h=c_1\cdot f+c_2\cdot g$. По критерию Дарбу:
+    \[\Omega(f,T_f)<\epsilon,\ \ \Omega(g, T_g)<\epsilon\]
+    Пусть $T$ --- разбиение, которое объединяет в себе все разрезы $T_f$ и $T_g$. Тогда 
+    \[\Omega(h, T)\leq c_1\cdot \Omega(f, T_f)+c_2\cdot \Omega(g, T_g)<(c_1+c_2)\epsilon\]
+\end{proof}
+\begin{statement}[Изменение на множестве меры нуль] $\\$
+    Пусть $\mu(E)=0,\ f\in \mathcal{R}(\Phi),\ g\in \mathcal{B}(\Phi),\ f\equiv g$ на $\Phi\setminus E$. Тогда $g\in \mathcal{R}(\Phi)$:
+    \[\idotsint\limits_{\Phi} f\ dx_1\dots dx_k=\idotsint\limits_{\Phi} g\ dx_1\dots dx_k\]
 \end{statement}
 \begin{proof}
-    $h=f-g\neq 0$ только на $E$. По следствию из какой-то теоремы существует интеграл от $h$, значит, существует и от $g$.
+    Пусть $h=f-g\neq 0$, она отлична от нуля только на $E$. По следствию из последней теоремы предыдущей лекции существует интеграл от $h$, причем он равен нулю. Значит, поскольку по условию существует интеграл от $f$, то существует и от $g$. В таком случае
+    \[\idotsint\limits_{\Phi}(f-g)\ dx_1\dots dx_k=0\ \Leftrightarrow\ \idotsint\limits_{\Phi} f\ dx_1\dots dx_k=\idotsint\limits_{\Phi} g\ dx_1\dots dx_k\]
 \end{proof}
 \begin{statement} [Интегрируемость по подмножеству] $\\$
-    Пусть $f\in \mathcal{R}(\Phi), \Phi, \Phi'$ -- измеримы по Жордану и $\Phi'\subset \Phi$. Тогда $f\in \mathcal{R}(\Phi')$
+    Пусть $f\in \mathcal{R}(\Phi),\ \Phi$ и $\Phi'$ -- измеримы по Жордану и $\Phi'\subset \Phi$. Тогда $f\in \mathcal{R}(\Phi')$.
 \end{statement}
-\begin{proof}
-    \[\idotsint\limits_{\Pi}f(x_1,\dots,x_k)\cdot \chi_{\Phi}\ dx_1 \dots dx_k\]
-    обозначим $f(x_1,\dots,x_k)\cdot \chi_{\Phi}=f_1,\ f(x_1,\dots,x_k)\cdot \chi_{\Phi'}=f_2$
-    \[\Omega(f,T)\overset{(1)}{=}\sum +\sum\limits_{i=0}^{n}< \epsilon\]
-    (1): Первая сумма по всем внутренним брусам $\Phi'$, а вторая по брусам, содержащим границу $\partial \Phi'$.
-    Первая сумма $<\frac{\epsilon}{2}$ полькольку она входит в состав $\Omega(f_1,T)$, а $\Omega(f_1,T)<\frac{\epsilon}{2}$ по критерию Дарбу.
+\begin{proof} Пусть $\Pi$ --- брус, такой, что $\Phi\subset \Pi$ и существует интеграл
+    \[\idotsint\limits_{\Pi}f\cdot \chi_{\Phi}\ dx_1 \dots dx_k\]
+    обозначим $f\cdot \chi_{\Phi}=f_1,\ f\cdot \chi_{\Phi'}=f_2$. Заметим, что $\Omega(f,T)$ состоит из суммы колебаний по всем внутренним брусам $\Phi'$ плюс суммы колебаний по брусам, содержащим границу $\partial \Phi'$:
+    \[\Omega(f_2,T)=S_1 +S_2\]
+    Поскольку все брусы из $S_1$ содержатся в $\Omega(f_1,T)$, то 
+    \[S_1\leq \Omega(f_1, T)<\frac{\epsilon}{2}\]
+    $\mu(\partial \Phi)=0$, значит $\forall \epsilon>0$ существует элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\subset P_{\epsilon}$ и $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi} |f|$. Тогда 
+    \[S_2\leq 2M\cdot \frac{\epsilon}{4M}=\frac{\epsilon}{2}\]
+    Таким образом $\forall \epsilon>0\ \exists\ T$:
+    \[\Omega(f_2, T)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
 \end{proof}
 \begin{statement} [Аддитивность] $\\$
-    Пусть $\Phi, \Phi_1, \Phi_2$ --- измеримы по Жордану, $\Phi=\Phi_1\sqcup\Phi_2$
-    \[\idotsint\limits_{\Phi}f(x_1,\dots,x_k)dx_1 \dots dx_k=\idotsint\limits_{\Phi_1}f(x_1,\dots,x_k)dx_1 \dots dx_k+\idotsint\limits_{\Phi_2}f(x_1,\dots,x_k)dx_1 \dots dx_k\]
+    Пусть $\Phi, \Phi_1, \Phi_2$ --- измеримы по Жордану, $\Phi=\Phi_1\sqcup\Phi_2$. Тогда
+    \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k=\idotsint\limits_{\Phi_1}f\ dx_1 \dots dx_k+\idotsint\limits_{\Phi_2}f\ dx_1 \dots dx_k\]
 \end{statement}
+\begin{proof}
+    Поскольку $\Phi=\Phi_1\sqcup \Phi_2$, то $f\cdot \chi_{\Phi}=f\cdot \chi_{\Phi_1}+f\cdot \chi_{\Phi_2}$. Причем $f\in \mathcal{R}(\Phi) \Rightarrow f\cdot \chi_{\Phi}\in \mathcal{R}(\Pi)$. Так как $\Phi_1$ и $\Phi_2$ --- подмножества $\Phi$,\\
+    то $f\in \mathcal{R}(\Phi_1),\ f\in \mathcal{R}(\Phi_2)$. Значит $f\cdot \chi_{\Phi_1}\in \mathcal{R}(\Pi),\ f\cdot \chi_{\Phi_2}\in \mathcal{R}(\Pi)$. Таким образом
+    \[\idotsint\limits_{\Pi}f\cdot \chi_{\Phi}\ dx_1\dots dx_k=\idotsint\limits_{\Pi}f\cdot \chi_{\Phi_1}\ dx_1\dots dx_k+\idotsint\limits_{\Pi}f\cdot \chi_{\Phi_2}\ dx_1\dots dx_k\]
+    а это в точности означает, что
+    \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k=\idotsint\limits_{\Phi_1}f\ dx_1\dots dx_k+\idotsint\limits_{\Phi_2}f\ dx_1\dots dx_k\]
+\end{proof}
 %нужно проверить на индикаторах, пользуемся свойством три доказывая, что f инт на ф lra инт на ф_1 пересеч с ф_2
 \begin{statement} [Монотонность по функции] $\\$
-    Пусть $f,g\in \mathcal{R}(\Phi), f\geq g$ на $\Phi$. Тогда интеграл от $f$ не меньше интеграла от $g$.
+    Пусть $f,g\in \mathcal{R}(\Phi)$ и $f\geq g$ на $\Phi$. Тогда
+    \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k\geq \idotsint\limits_{\Phi}g\ dx_1\dots dx_k\]
 \end{statement}
-% составляем разность 
+\begin{proof}
+    Пусть $h=f-g\geq 0$. Заметим, что $\sigma(h, T, H)\geq 0$. Тогда по линейности
+    \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k-\idotsint\limits_{\Phi}g\ dx_1\dots dx_k=\idotsint\limits_{\Phi}h\ dx_1\dots dx_k\geq 0\]
+\end{proof}
 \begin{statement} [Монотонность по множеству] $\\$
     Пусть $f\in \mathcal{R}(\Phi), \Phi'\subset \Phi$ и $f\geq 0$ на $\Phi$. Тогда
-    \[\idotsint\limits_{\Phi} f\geq \idotsint\limits_{\Phi'} f\]
+    \[\idotsint\limits_{\Phi'} f dx_1 \dots dx_k\leq \idotsint\limits_{\Phi} f dx_1\dots dx_k\]
 \end{statement}
-%составляем разность и показываем что она geq 0
+\begin{proof}
+    Пусть $f\in \mathcal{R}(\Phi)$. Тогда $f\in \mathcal{R}(\Phi')$. Пусть $\Phi\subset\Pi$, тогда $f\cdot \chi_{\Phi}\in \mathcal{R}(\Pi)$ и $f\cdot \chi_{\Phi'}\in \mathcal{R}(\Pi)$. Поскольку $f\geq 0$ и $\chi_{\Phi'}\leq \chi_{\Phi}$, то $f\cdot \chi_{\Phi'}\leq f\cdot \chi_{\Phi}$. Отсюда
+    \[\idotsint\limits_{\Pi} f\cdot \chi_{\Phi'}\ dx_1 \dots dx_k\leq \idotsint\limits_{\Pi} f\cdot \chi_{\Phi}\ dx_1\dots dx_k\]
+    а это в точности означает, что
+    \[\idotsint\limits_{\Phi'} f dx_1 \dots dx_k\leq \idotsint\limits_{\Phi} f dx_1\dots dx_k\]
+\end{proof}
+\begin{definition}
+    Функция для которой выполнено
+    \[\exists\ C>0\ \forall x_1,x_2\in [a,b]: |g(x_1)-g(x_2)|\leq C\cdot |x_1-x_2|\]
+    называется Липшицевой на отрезке $[a,b]$, обозначается $g\in \lip([a,b])$.
+\end{definition}
 \begin{statement} [Композиция с липшицевой функцией] $\\$
     Пусть $f\in \mathcal{R}(\Phi),\ g\in \text{Lip}(f(\Phi))$. Тогда $g\circ f\in \mathcal{R}(\Phi)$.
 \end{statement}
 \begin{proof}
-    По критерию Дарбу
-    \[\Omega(f,T)<\epsilon \Rightarrow \Omega(g\circ f, T)<C\epsilon\]
+    Пусть $\Delta_j$ --- брус разбиения $T$. Тогда 
+    \[\omega(g\circ f, \Delta_j)\leq C\cdot \omega(f,\Delta_j)\]
+    Возьмем сумму по всем брусам разбиения $\Delta_j$. Тогда
+    \[\Omega(g\circ f,T)\leq C\cdot \Omega(f, T)\]
+    Поскольку $f\in \mathcal{R}(\Phi)$, то $\forall \epsilon>0\ \exists\ T: \Omega(f,T)<\frac{\epsilon}{C}$. Тогда
+    \[\Omega(g\circ f, T)<C\cdot \frac{\epsilon}{C}=\epsilon\]
 \end{proof}
-\begin{statement}\tab
-    \begin{enumerate}
-        \item
-        \[\idotsint\limits_{\Phi}f\leq \idotsint\limits_{\Phi}|f|\]
-        \item 
-        \[f\in \mathcal{R}(\Phi) \Rightarrow |f|^p\in \mathcal{R}(\Phi)\]
-        $g(x)=|x|^p,\ g\in \text{Lip}$
-        \item 
-        \[f_1,f_2\in \mathcal{R}(\Phi) \Rightarrow f_1\cdot f_2\in \mathcal{R}(\Phi)\]
-        \[f_1\cdot f_2=\frac{(f_1+f_2)^2-f_1^2-f_2^2}{2}\]
-        \item 
-        $f\in \mathcal{R}(\Phi),\ \exists \epsilon>0$ и $|f|\geq \epsilon$ на $\Phi$. Тогда $\frac{1}{f}\in \mathcal{R}(\Phi)$.\\
-        Поскольку $g(x)=\frac{1}{x}$ липшицева на $[-M,-\epsilon]\cup[\epsilon, M]$.
-    \end{enumerate}
-\end{statement}
+\begin{consequense} Пусть $f\in \mathcal{R}(\Phi)$. Тогда
+    \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Phi}|f|\ dx_1 \dots dx_k\]
+\end{consequense}
+\begin{proof}
+    Возьмем $g(x)=|x|$. Тогда $f\in \mathcal{R}(\Phi) \Rightarrow |f|\in \mathcal{R}(\Phi)$. При этом $f\leq |f|$, значит, по утверждению 6.5:
+    \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Phi}|f|\ dx_1 \dots dx_k\]
+\end{proof}
+\begin{consequense} 
+    Пусть $f\in \mathcal{R}(\Phi)$. Тогда $|f|^p\in \mathcal{R}(\Phi)$.
+\end{consequense}
+\begin{proof}
+    Возьмем $g(x)=|x|^p$ и заметим, что $g\in \lip([-M,M])$.
+\end{proof}
+\begin{consequense}
+    Пусть $f_1,f_2\in \mathcal{R}(\Phi)$. Тогда $f_1\cdot f_2\in \mathcal{R}(\Phi)$.
+\end{consequense}
+\begin{proof} Возьмем $g(x)=x^2$. Тогда $f_1^2, f_2^2, (f_1+f_2)^2\in \mathcal{R}(\Phi)$. Значит
+    \[f_1\cdot f_2=\frac{(f_1+f_2)^2-f_1^2-f_2^2}{2}\in \mathcal{R}(\Phi)\]
+\end{proof}
+\begin{consequense}
+    Пусть $f\in \mathcal{R}(\Phi),\ \exists\ \epsilon>0$ такой, что на $\Phi: |f|\geq \epsilon$. Тогда\\
+    $f^{-1}\in \mathcal{R}(\Phi)$.
+\end{consequense}
+\begin{proof}
+    Возьмем $g(x)=\frac{1}{x}$, она Липшицева на $[-M,-\epsilon]\cup[\epsilon, M]$.
+\end{proof}
 \begin{statement} [Теорема о среднем] $\\$
-    Пусть $f,g\in \mathcal{R}(\Phi),\ g\geq 0$ на $\Phi$. Тогда $\exists\ mu\in [m,M]$:
-    \[\idotsint\limits_{\Phi}f\cdot g=\mu\cdot \idotsint\limits_{\Phi}g\]
+    Пусть $f,g\in \mathcal{R}(\Phi),\ g\geq 0$ на $\Phi$. Тогда $\exists\ \mu\in [m,M]$:
+    \[\idotsint\limits_{\Phi}f\cdot g\ dx_1\dots dx_k=\mu\cdot \idotsint\limits_{\Phi}g\ dx_1\dots dx_k\]
     где
     \[m=\inf\limits_{\Phi}f,\ M=\sup\limits_{\Phi}f\]
 \end{statement}
-\begin{proof}
-    \[m\cdot g\leq f\cdot g\leq M\cdot g\]
-    \[m\cdot \idotsint g\leq \idotsint f\cdot g\leq M\cdot \idotsint g\]
-    \[m\leq \frac{\idotsint f\cdot g}{\idotsint g}\leq M\]
+\begin{proof} Заметим, что $m\cdot g\leq f\cdot g\leq M\cdot g$. Отсюда
+    \[m\cdot \idotsint\limits_{\Phi} g\ dx_1\dots dx_k\leq \idotsint\limits_{\Phi} f\cdot g\ dx_1\dots dx_k\leq M\cdot \idotsint\limits_{\Phi} g\ dx_1 \dots dx_k\]
+    \[m\leq \cfrac{\idotsint\limits_{\Phi} f\cdot g\ dx_1\dots dx_k}{\idotsint\limits_{\Phi} g\ dx_1\dots dx_k}\leq M\]
     Тогда 
-    \[\mu=\frac{\idotsint f\cdot g}{\idotsint g}\]
+    \[\mu=\cfrac{\idotsint\limits_{\Phi} f\cdot g\ dx_1\dots dx_k}{\idotsint\limits_{\Phi} g\ dx_1\dots dx_k}\]
 \end{proof}
 % какое то 8 штрих
 %\begin{statement}
@@ -75,23 +120,31 @@
 %\end{statement}
 \begin{statement}[Оценка интеграла] $\\$
     Пусть $f\in \mathcal{R}(\Phi)$. Тогда 
-    \[\left|\idotsint\limits_{\Phi}f\right|\leq \idotsint\limits_{\Phi}|f|\leq M\cdot \mu(\Phi)\]
-\end{statement}
-\begin{statement}[Абсолютная непрерывность интеграла] $\\$
-    Пусть $f\in \mathcal{R}(\Phi)$ --- фиксированна. 
-    $\forall \epsilon>0\ \exists\ \delta>0,\ E\subset\Phi,\ \mu(E)<\delta$:
-    \[\left|\idotsint\limits_{E}f\right|<\epsilon\]
+    \[\left|\idotsint\limits_{\Phi}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(\Phi)\]
 \end{statement}
 \begin{proof}
-    Возьмем $\delta=\frac{\epsilon}{M+1}$, где $M=\sup\limits_{\Phi}|f|$
+    Пусть $\Pi$ --- брус, такой, что $\Phi\subset \Pi$. Тогда 
+    \[\idotsint\limits_{\Phi}|f|\ dx_1\dots dx_n=\idotsint\limits_{\Pi}|f\cdot \chi_{\Phi}|\ dx_1\dots dx_n\]
+    Заметим, что
+    \begin{multline*}
+        \left|\idotsint\limits_{\Pi} f\cdot \chi_{\Phi}\ dx_1 \dots dx_k\right|\leq \idotsint\limits_{\Pi} |f\cdot \chi_{\Phi}|\ dx_1 \dots dx_k\leq\\
+        \leq M\cdot \idotsint\limits_{\Pi} \chi_{\Phi}\ dx_1 \dots dx_k=M\cdot \mu(\Phi)
+    \end{multline*}
+    а это и означает, что
+    \[\left|\idotsint\limits_{\Phi}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(\Phi)\]
 \end{proof}
-\subsection{Сведение кратного интеграла к повторному}
-Рассмотрим интегралы
-\[\iint\limits_{[a,b]\times [c,d]}f(x,y)\ dxdy\]
-\[\int\limits_{a}^{b}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx\]
-\[\int\limits_{c}^{d}\left(\int\limits_{a}^{b}f(x,y)\ dx\right)dy\]
+\begin{statement}[Абсолютная непрерывность интеграла] $\\$
+    Пусть $f\in \mathcal{R}(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ \delta>0,\ E\subset\Phi,\ \mu(E)<\delta$:
+    \[\left|\idotsint\limits_{E}f\ dx_1 \dots dx_k \right|<\epsilon\]
+\end{statement}
+\begin{proof}
+    Возьмем $\delta=\frac{\epsilon}{M+1}$, где $M=\sup\limits_{\Phi}|f|$. Тогда
+    \[\left|\idotsint\limits_{E}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(E)<M\cdot \frac{\epsilon}{M+1}<\epsilon\]
+\end{proof}
+%\subsection{Сведение кратного интеграла к повторному}
+%Рассмотрим интегралы
+%\[\iint\limits_{[a,b]\times [c,d]}f(x,y)\ dxdy\]
+%\[\int\limits_{a}^{b}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx\]
+%\[\int\limits_{c}^{d}\left(\int\limits_{a}^{b}f(x,y)\ dx\right)dy\]
 %тут первый пример
 %тут второй пример
-\begin{theorem}
-    Пусть $\Pi=\Pi_1\times \Pi_2,\ f\in \mathcal{R}(\Pi)\ \forall x'\in \Pi_1$
-\end{theorem}
