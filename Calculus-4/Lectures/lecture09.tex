@@ -1,0 +1,79 @@
+\section{Лекция 9}
+\begin{lemma}
+    Пусть $\Phi$ --- выпуклое подмножество в $\R^k$. В некоторой окрестности $U(\Phi)$ определена функция $\phi: U(\Phi)\to \R,\ \phi\in \mathcal{C}^1(\Phi)$. Тогда $\forall \overline{x}, \overline{y}\ \exists\ \overline{\xi}\in [\overline{x}, \overline{y}]$:
+    \[\phi(\overline{x})-\phi(\overline{y})=\langle \grad \phi(\overline{\xi}, \overline{x}-\overline{y}) \rangle\]
+\end{lemma}
+\begin{proof}
+    Пусть для $t\in [0,1]$: $h(t):=\phi(\overline{y}+t\cdot (\overline{x}-\overline{y}))$. Тогда 
+    \begin{multline*}
+        h^{\prime}(t)=(\phi(y_1+t(x_1-y_1),\dots,y_k+t(x_k-y_k)))'=\\
+        =\sum\limits_{j=1}^{k}\phi_j'(\dots)\cdot (x_j-y_j)=\langle \grad \phi(\overline{y}+t(\overline{x}-\overline{y})), \overline{x}-\overline{y} \rangle
+    \end{multline*}
+\end{proof}
+\noindentВспомним что такое норма в $\R^k$.
+$\overline{x}=(x_1,\dots,x_k),\ \|\sqrt{x_1^2+\dots x_k^2}\|_2$
+\begin{exercise} Доказать, что при $p\geq 1$
+    $\|\overline{x}\|_p=(|x_1|^p+\dots+|x_k|^p)^{\frac{1}{p}}$
+    является нормой.
+\end{exercise}
+\noindent$\|\overline{x}\|_1=(|x_1|^p+\dots+|x_k|^p)^{\frac{1}{p}}$ называется Манхэттенской нормой.\\
+Также можно ввести $\|\overline{x}\|_{\infty}=\max\limits_{j} |x_j|$
+\begin{lemma}
+    Пусть $\Phi$ --- выпуклый компакт в $\R^k,\ U(\Phi)$ --- открытая окрестность $\Phi$. Пусть $\phi: U(\Phi)\to \R^m,\ \phi\in \mathcal{C}^1(\Phi)$. Тогда $\exists\ M>0\ \forall \overline{x}, \overline{y}\in \Phi$:
+    \[\|\phi(\overline{x})-\phi(\overline{y})\|_{\R^m}\leq M\cdot \|\overline{x}-\overline{y}\|_{\R^k}\]
+\end{lemma}
+\begin{proof}
+\begin{multline*}
+    \sqrt{(\phi_1(\overline{x})-\phi_1(\overline{y}))^2+\dots+(\phi_m(\overline{x})-\phi_m(\overline{y}))^2}\leq \sum\limits_{i=1}^{m}|\phi_i(\overline{x})-\phi_i(\overline{y})|=\\
+    \overset{(1)}{=}\sum\limits_{i=1}^{n}|\langle \grad \phi_i(\overline{\xi_i}),\ \overline{x}-\overline{y}\rangle|\overset{(2)}{=} \sum\limits_{i=1}^{m}\|\grad \phi_i(\overline{\xi}_i)\|_{\R_k}\cdot \|\overline{x}-\overline{y}|\|_{\R_k}
+\end{multline*}
+\[g_i(\overline(\xi)_i)=\sqrt{\sum\limits_{j=1}^{k}\left(\frac{\partial \phi_i}{\partial x_j}(\overline{\xi}_i)\right)^2}\]
+$\exists\ M_i,\ \forall \overline{x}\in \Phi: g_u(\overline{x})\leq M_i$.
+\end{proof}
+Напоминание
+Пусть $\Omega\subset \R^k,\ \phi: \Omega\to \R^m$. Матрицей Якоби называется мледующая матрица
+\[\begin{pmatrix}
+    \frac{\partial \phi_1}{\partial x_1} & \frac{\partial \phi_1}{\partial x_2} & \dots & \frac{\partial \phi_1}{\partial x_k}\\
+    \frac{\partial \phi_2}{\partial x_1} & \frac{\partial \phi_2}{\partial x_2} & \dots & \frac{\partial \phi_2}{\partial x_k}\\
+    \vdots & \vdots & \null & \vdots\\
+    \frac{\partial \phi_m}{\partial x_1} & \frac{\partial \phi_m}{\partial x_2} & \dots & \frac{\partial \phi_m}{\partial x_k}\\
+\end{pmatrix}\]
+Если $m=k$, то определитель этой матрицы называют Якобианом, его обозначают $J$.
+Пусть $\phi$ --- дифференцируема в точке $\overline{x}_0$. Тогда
+\[\phi(\overline{x}_0+\Delta \overline{x})-\phi(\overline{x}_0)=J(\overline{x}_0)\cdot \Delta \overline{x}+\alpha(\Delta \overline{x})\cdot \|\Delta \overline{x}\|_{\R^k}\]
+где $\alpha(\Delta \overline{x})=\bar{\bar{o}}(1)$.
+\begin{lemma}
+    Пусть $\Phi$ --- выпуклый компакт в $\R^k,\ U(\Phi)$ --- открытая окрестность $\Phi$. Пусть $\phi: U(\Phi)\to \R^m,\ \phi\in \mathcal{C}^1(\Phi)$. Тогда $\exists\ \omega(t): \R_+\to \R_+,\ \lim\limits_{t\to 0+}\omega(t)=0$ такая, что $\forall \overline{x},\ \overline{x}+\overline{\Delta x}\in \Phi$:
+    \[\|\phi(\overline{x}+\overline{\Delta x})-\phi(\overline{x})-J(\overline{x})\cdot \overline{\Delta x}\|_{\R^m}\leq \omega(\|\overline{\Delta x}\|_{\R_k})\cdot \|\overline{\Delta x}\|_{\R^k}\] 
+\end{lemma}
+\begin{proof}
+    \begin{multline*}
+        \phi(\overline{x}+\Delta \overline{x})-\phi(\overline{x})=(\phi_1(\overline{x}+\Delta \overline{x})-\phi_1(\overline{x}), \dots, \phi_m(\overline{x}+\Delta \overline{x})-\phi_m(\overline{x}))=\\
+        =(\langle \grad \phi_1(\overline{x}_1), \Delta \overline{x} \rangle, \dots, \grad \phi_m(\overline{x}_m), \Delta \overline{x})-(\langle \grad \phi_1(\overline{\xi_1}), \Delta \overline{x} \rangle, \dots, \grad \phi_m(\overline{\xi_m}), \Delta \overline{x})=\\
+        =(\langle \grad \phi_1(\overline{x})-\grad \phi_1(\overline{\xi}_1, \Delta \overline{x}) \rangle, \dots, \langle \grad \phi_m(\overline{x})-\grad \phi_m(\overline{\xi}_m, \Delta \overline{x}) \rangle)
+    \end{multline*}
+    Тогда 
+    \begin{multline*}
+        \|\phi(\overline{x}+\Delta \overline{x})-\phi(\overline{x})\|\leq \sum\limits_{i=1}^{m}|\langle \grad \phi_i(\overline{x})-\grad \phi_i(\overline{\xi}_i), \Delta\overline{x} \rangle|\leq\\
+        \leq \left(\sum\limits_{i=1}^{m}\|\grad \phi_i(\overline{x})-\grad \phi_i(\overline{\xi}_i)\|\right)\cdot \|\Delta \overline{x}_i\|
+    \end{multline*}
+    Введем 
+    \[\omega_{ij}(\delta):=\sup\{\left|\frac{\partial \phi_i}{\partial x_j}(\overline{x})-\frac{\partial \phi_i}{\partial x_j}(\overline{y})\right|: \overline{x}, \overline{y}\in \Phi,\ \|\overline{x}-\overline{y}\|<\delta\}\]
+    Теперь определим
+    \[\omega(\delta)=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{k}\omega_{ij}(\delta)\]
+    Ограничим первый множитель
+    \[(1)\leq \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{k}\left|\frac{\partial \phi_i}{\partial x_j}(\overline{x})-\frac{\partial \phi_i}{\partial x_j}(\overline{\xi}_i)\right|\leq \omega(\|\Delta \overline{x}\|)\]
+\end{proof}
+\begin{theorem}
+    Пусть $\Omega, G$ --- области в $\R^k,\ \phi^\Omega\to G$ --- биекция, причем
+    \begin{enumerate}
+        \item $\phi\in \mathcal{C}^1(\Omega)$
+        \item $\det J\neq 0$ на $\Omega$.
+        \item $\Phi$ --- измеримый компакт.
+    \end{enumerate}
+    Тогда $\phi(\Phi)=K$ --- измеримый компакт в $G$, причем
+    \[\mu(K)=\idotsint\limits_{\Phi}|\det{J}|\ dx_1\dots dx_k\]
+\end{theorem}
+\begin{example}
+    ПРИМЕР (С КАРТИНКАМИ АХАХАХХА)
+\end{example}

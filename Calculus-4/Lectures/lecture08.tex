@@ -1,0 +1,78 @@
+\section{Лекция 8}
+\subsection{Альтернативное определение кратного интеграла}
+\begin{definition}
+    Пусть $\Phi$ --- ограниченое измеримое множество. Разбиением $\Phi$ назовем набор измеримых множеств $\widetilde{T}=\{\Phi_i\}$ таких, что $\Phi=\bigsqcup\limits_i \Phi_i$. Диаметром этого разбиения назовем число $d(\widetilde{T})=\max\limits_i d(\Phi_i)$. Разметкой будем называть набор точек $\widetilde{H}=\{\xi_i\}$, где $\xi_i\in \Phi_i$. Тогда интегральной суммой назовем
+\[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=\sum\limits_{i} f(\xi_i)\mu(\Phi_i)\]
+Если $\exists\ I\in \R,\ \forall \epsilon>0\ \exists\ \delta>0,\ \forall\ \widetilde{T},\ d(\widetilde{T})<\delta$:
+\[|\widetilde{\sigma}(f,\widetilde{T},\widetilde{H})-I|<\epsilon\]
+То говорят, что $f$ интегрируема в альтернативном смысле и пишут $f\in \widetilde{\mathcal{R}}(\Phi)$.
+\end{definition}
+\begin{theorem}
+    Пусть $f\in \mathcal{B}(\Phi)$. Тогда $f\in \mathcal{R}(\Phi) \Leftrightarrow f\in \widetilde{\mathcal{R}}(\Phi)$, причем интегралы совпадают.
+\end{theorem}
+\begin{proof} Обозначим $\widetilde{I}$ --- интеграл в альтернативном смысле, $I$ --- интеграл в обычном смысле, а также введем $\widehat{f}=f\cdot \chi_{\Phi}$. Поскольку $f\in \mathcal{B}(\Phi)$, то существует $M>0: |f|\leq M$.
+    \begin{itemize}
+        \item[$(\Leftarrow)$:]
+            Пусть $f\in \widetilde{\mathcal{R}}(\Phi)$. Рассмотрим произвольный брус $\Pi$ такой, что $\Phi\subset \Pi$ и разбиение этого бруса $T=\{\Delta_i\}$. Возьмем $\Phi_i=\Delta_i\cap \Phi$. При этом разметку $H=\{\xi_i\}$ возьмем такой, чтобы если $\Delta_i\cap \partial\Phi$, то вместо $\xi_i$ выбираем $\eta_i$ таким, что $\eta_i\in \Delta_i\cap \Phi$. Таким образом
+            \begin{multline*}
+                \sigma(\widehat{f}, T, H)=\sum\limits_{\Delta_i\cap \Phi=\emptyset}\widehat{f}(\xi_i)\mu(\Delta_i)+\sum\limits_{\Delta_i\subset \Phi}\widehat{f}(\xi_i)\mu(\Delta_i)+\sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}\widehat{f}(\xi_i)\mu(\Delta_i)=\\
+                =\sum\limits_{\Delta_i\subset \Phi}f(\xi_i)\mu(\Delta_i)+\sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}\widehat{f}(\xi_i)\mu(\Delta_i)
+            \end{multline*}
+            \[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=\sum\limits_{\Delta_i\subset \Phi} f(\xi_i)\mu(\Delta_i)+\sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}f(\eta_i)\mu(\Phi_i)\]
+            Итак
+            \begin{multline*}
+                |\sigma(\widehat{f}, T, H)-\widetilde{\sigma}(f, \widetilde{T},\widetilde{H})|\leq \sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}|f(\xi_i)|\cdot \mu(\Delta_i)+\sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}|f(\eta_i)|\cdot \mu(\Phi_i)\leq\\
+                \leq M \sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}\mu(\Delta_i)+\mu(\Phi_i)\leq 2M \sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}\mu(\Delta_i)
+            \end{multline*}
+            Поскольку $f\in \widetilde{\mathcal{R}}(\Phi)$, то $\exists\ \delta'$ такая, что при $d(T)<\delta$:
+            \[|\widetilde{I}-\widetilde{\sigma}(f,\widetilde{T},\widetilde{H})|<\epsilon\]
+            Так как $\mu(\partial\Phi)=0$, то существует элементарное множество $Q_{\epsilon}$, такое, что $\mu(Q_{\epsilon})<\frac{\epsilon}{2M}$. При этом $\exists\ \theta>0$ такое, что $\rho(x,y)>\theta$, где $x\in \partial\Phi,\ y\in \partial Q_{\epsilon}$. Таким образом нужно подобрать разбиение $T$, такое, что $d(T)<\delta$, где $\delta=\min\{\theta, \delta'\}$. Тогда
+            \[|\sigma(\widehat{f}, T, H)-\widetilde{\sigma}(f, \widetilde{T},\widetilde{H})|\leq 2M \sum\limits_{\Delta_i\cap \partial\Phi\neq \emptyset}\mu(\Delta_i)\leq 2M\cdot \mu(Q_{\epsilon})=2M\cdot \frac{\epsilon}{2M}=\epsilon\]
+            Значит
+            \[|I-\sigma(\widehat{f}, T, H)|<\epsilon\]
+        \item[$(\Rightarrow)$:] 
+            Пусть $f\in \mathcal{R}(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ \delta>0\ \forall\ T,\ d(T)<\delta$:
+            \[\overline{\overline{s}}(f,T)>I-\frac{\epsilon}{3},\ \ \underline{\underline{S}}(f,T)<I+\frac{\epsilon}{3}\]
+            Поскольку $\mu(\partial \Phi)=0$, то существет элементарное множество $P_{\epsilon}$, такое, что $\partial \Phi\subset P_{\epsilon}$, причем $\mu(P_{\epsilon})<\frac{\epsilon}{3M}$. Можем считать, что $P_{\epsilon}$ состоит из брусов с диаметром меньше $\delta$. Продолжим грани $P_{\epsilon}$ и достроим его до разбиения $T$ бруса $\Pi$, где $\Phi\subset \Pi$, причем $d(T)<\delta$. Зафиксируем разбиение $T=\{\Delta_j\}$. Брусы в составе $T$ разобьем на следующие группы:
+            \begin{enumerate}
+                \item брусы $\Delta_i:\ \Delta_i\subset P$.
+                \item брусы $\Delta_i:\ \Delta_i\subset \Phi$, то есть такие, что $\Delta_i\cap P=\emptyset$.
+                \item брусы $\Delta_i:\ \Delta_i\cap \Phi=\emptyset$.
+            \end{enumerate}
+            Определим множество $C=\bigcup\limits_i \partial \Delta_i$. Заметим, что $\mu(\partial \Phi\cup C)=0$, значит, существует элементарное множество $Q_{\epsilon}$, содержащее $\partial \Phi\cup C$,\\
+            причем $\mu(Q_{\epsilon})<\frac{\epsilon}{3M}$. При этом $\exists\ \theta>0$ такое, что $\rho(x,y)=\theta$, где\\
+            $x\in \partial Q_{\epsilon},\ y\in\partial \Phi\cup C$. Возьмем $\widetilde{T}$ разбиение $\Phi$ такое, что $d(\widetilde{T})<\theta$. Брусы из этого разбиения можно поделить на группы:
+            \begin{enumerate}
+                \item[(a)] $A=\{\Phi_j:\ \exists\ \Delta_i\in T,\ \Phi_j\subset \Delta_i^o\}$.
+                \item[(b)] $B=\{\Phi_j:\ \not\exists\ \Delta_i\in T,\ \Phi_j\subset \Delta_i^o\}$. В таком случае $\Phi_j\subset Q_{\epsilon}$
+            \end{enumerate}
+            Составим интегральную сумму и разобьем ее на слагаемые, соответствующие этим группам
+            \[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=\sum\limits_{\Phi_j\in A} f(\xi_j)\mu(\Phi_j)+\sum\limits_{\Phi_j\in B} f(\xi_j)\mu(\Phi_j)=S_A+S_B\]
+            Оценим сумму сверху
+            \[S_B\leq M\cdot \sum\limits_{\Phi_j\in B}\mu(\Phi_j)= M\cdot \mu(Q_{\epsilon})=M\cdot \frac{\epsilon}{3M}=\frac{\epsilon}{3}\]
+            \[S_A=\sum\limits_{\Delta_i\subset \Phi}\left(\sum\limits_{\Phi_j\subset \Delta_i^o}f(\xi_j)\mu(\Phi_j)\right)\leq \sum\limits_{\Delta_i\subset \Phi}M_i\cdot \mu(\Delta_i)<\underline{\underline{S}}(f,T)\]
+            где $M_i=\sup\limits_{\Delta_i} |f|$. Итак
+            \[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=S_A+S_B\leq \underline{\underline{S}}(f,T)+\frac{\epsilon}{3}<I+\frac{\epsilon}{3}+\frac{\epsilon}{3}=I+\frac{2\epsilon}{3}<I+\frac{4\epsilon}{3}\]
+            Теперь оценим сумму снизу
+            \[S_B\geq -M\cdot \sum\limits_{\Phi_j\in B}\mu(\Phi_j)= -M\cdot \mu(Q_{\epsilon})=-M\cdot \frac{\epsilon}{3M}=-\frac{\epsilon}{3}\]
+            Пусть $m_i=\inf\limits_{\Delta_i} |f|$. Тогда $f(\xi_j)\geq m_i$. Заметим, что
+            \[\overline{\overline{s}}(f,T)=\sum\limits_{\Delta_i\subset\Phi}m_i\cdot \mu(\Delta_i)+\sum\limits_{\Delta_i\subset P}m_i\cdot \mu(\Delta_i)\]
+            Вспомним, что
+            \[S_A=\sum\limits_{\Delta_i\subset \Phi}\left(\sum\limits_{\Phi_j\subset \Delta_i^o}f(\xi_j)\mu(\Phi_j)\right)\]
+            Заметим, что $m_i\geq -M$ и $-m_i\geq -M$. Тогда
+            \begin{multline*}
+                S_A-\overline{\overline{s}}(f,T)\geq\sum\limits_{\Delta_i\subset \Phi}\left(\sum\limits_{\Phi_j\subset \Delta_i^o}m_i\cdot\mu(\Phi_j)\right)-\sum\limits_{\Delta_i\subset\Phi}m_i\cdot \mu(\Delta_i)-\sum\limits_{\Delta_i\subset P}m_i\cdot \mu(\Delta_i)\geq\\
+                \geq -M \sum\limits_{\Delta_i\subset \Phi}\mu\left(\Delta_i\setminus \bigcup\limits_{\Phi_j\subset \Delta_i}\Phi_j\right)-M\sum\limits_{\Delta_i\subset P}\mu(\Delta_i)\overset{(1)}{\geq}\tab[1.5cm]\\
+                \overset{(1)}{\geq}-M\cdot \mu(Q_{\epsilon})-M\cdot \mu(P_{\epsilon})=-M\cdot \frac{\epsilon}{3M}-M\cdot \frac{\epsilon}{3M}=-\frac{2\epsilon}{3}
+            \end{multline*}
+            (1): Заметим, что
+            \[\sum\limits_{\Delta_i\subset \Phi}\mu\left(\Delta_i\setminus \bigcup\limits_{\Phi_j\subset \Delta_i}\Phi_j\right)=\mu(B)\leq\mu(Q_{\epsilon})\]
+            Таким образом
+            \[S_A\geq \overline{\overline{s}}(f,T)-\frac{2\epsilon}{3}\]
+            Значит
+            \[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=S_A+S_B\geq \overline{\overline{s}}(f,T)-\frac{2\epsilon}{3}-\frac{\epsilon}{3}>I-\frac{\epsilon}{3}-\frac{2\epsilon}{3}-\frac{\epsilon}{3}=I-\frac{4\epsilon}{3}\]
+            Таким образом, объединив оценки сверху и снизу, получим, что
+            \[|I-\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})|<\frac{4\epsilon}{3}\]
+    \end{itemize}
+\end{proof}
+\newpage

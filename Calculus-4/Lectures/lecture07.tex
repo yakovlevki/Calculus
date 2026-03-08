@@ -1,0 +1,54 @@
+\section{Лекция 7}
+\subsection{Сведение кратного интеграла к повторному}
+Рассмотрим двумерный случай. Наша задача понять при каких условиях двойной интеграл
+\[\iint\limits_{[a,b]\times [c,d]}f(x,y)\ dxdy\]
+сводится к повторным интегралам интегралам вида.
+\[\int\limits_{a}^{b}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx,\ \ \ \ \int\limits_{c}^{d}\left(\int\limits_{a}^{b}f(x,y)\ dx\right)dy\]
+Для начала, покажем, что кратный и повторный интеграл это различные объекты.
+\begin{example}
+    пример 1
+\end{example}
+\begin{example}
+    пример 2
+\end{example}
+\begin{theorem} [О сведении кратного интеграла к повторному] $\\$
+    Пусть $\Pi\subset \R^k$ --- брус, $\Pi=\Pi_1\times \Pi_2$, где $\Pi_1\subset \R^m$ --- брус размерности $m,\\
+    \Pi_2\subset \R^{k-m}$ --- брус размерности $k-m,\ f\in \mathcal{R}(\Pi)$ и $\forall (x_1,\dots,x_m)\in \Pi_1$ существует интеграл
+    \[F(x_1,\dots,x_m)=\idotsint\limits_{\Pi_2} f(x_1,\dots,x_m,x_{m+1},\dots,x_k)\ dx_{m+1}\dots dx_k\]
+    Тогда
+    \[I=\idotsint\limits_{\Pi} f\ dx_1 \dots dx_k=\idotsint\limits_{\Pi_1}\left(\idotsint\limits_{\Pi_2} f\ dx_{m+1}\dots dx_k\right)dx_1 \dots dx_m\]
+\end{theorem}
+\begin{proof}
+    Пусть $T_1=\{\Delta_i^1\}$ и $H_1=\{\xi_i\}$ --- разбиение и разметка $\Pi_1$ соответственно, $T_2=\{\Delta_j^2\}$ --- разбиение $\Pi_2$. Тогда $T=T_1\times T_2$ --- разбиение $\Pi$, причем $\Delta_{ij}=\Delta_i^1\times \Delta_j^2$. Тогда 
+    \[\sigma\left(F , T_1, H_1\right)=\sum\limits_{i}\left( \idotsint\limits_{\Pi_2} f(\xi_i, x_{m+1}, \dots, x_k)\cdot \mu(\Delta_i^1)\right)=\sum\limits_{i} F(\xi_i) \mu(\Delta_i^1)\]
+    Обозначим
+    \[M_{ij}=\sup\limits_{\Delta_{ij}} f,\ m_{ij}=\inf\limits_{\Delta_{ij}} f\]
+    Тогда
+    \[m_{ij}\cdot \mu(\Delta_j^2)\leq\idotsint\limits_{\Delta_j^2} f(\xi_i, x_{m+1},\dots,x_k)\cdot \mu(\Delta_j^2)\leq M_{ij}\cdot \mu(\Delta_j^2)\]
+    и выражение
+    \[F(\xi_i)=\idotsint\limits_{\Pi_2} f(\xi_i, x_{m+1}, \dots, x_k)=\sum\limits_{j} \idotsint\limits_{\Delta_j^2} f(\xi_i, x_{m+1},\dots,x_k)\cdot \mu(\Delta_j^2)\]
+    оценивается как
+    \[\sum\limits_j m_{ij}\cdot \mu(\Delta_j^2)\leq F(\xi_i)\leq\sum\limits_j M_{ij}\cdot \mu(\Delta_j^2)\]
+    Остается заметить, что
+    \[\overline{\overline{s}}(f,T)=\sum\limits_{i,j}m_{ij}\mu(\Delta_{ij})=\sum\limits_{i}\sum\limits_{j}m_{ij} \mu(\Delta_i^1) \mu(\Delta_j^2)\]
+    \[\underline{\underline{S}}(f,T)=\sum\limits_{i,j}M_{ij}\mu(\Delta_{ij})=\sum\limits_{i}\sum\limits_{j}M_{ij} \mu(\Delta_i^1) \mu(\Delta_j^2)\]
+    Таким образом
+    \[\overline{\overline{s}}(f, T)=\sum\limits_{i}\sum\limits_{j}m_{ij} \mu(\Delta_i^1) \mu(\Delta_j^2)\leq \sigma(F,T_1,H_1) \leq \sum\limits_{i}\sum\limits_{j}m_{ij}\mu(\Delta_i^1) \mu(\Delta_j^2)=\underline{\underline{S}}(f,T)\]
+    Поскольку $f\in \mathcal{R}(\Pi)$, то $\forall \epsilon>0\ \exists\ \delta>0,\ d(T)<\delta$:
+    \[0<I-\overline{\overline{s}}(f,T)<\frac{\epsilon}{2},\ \ 0<\underline{\underline{S}}(f,T)-I<\frac{\epsilon}{2}\]
+    Итак, для произвольного разбиения $T_1$ такого, что $d(T_1)<\frac{\delta}{\sqrt{2}}$ можно выбрать разбиение $T_2$ такое, что $d(T_2)<\frac{\delta}{\sqrt{2}}$. Тогда 
+    \[d(T_1\times T_2)<\sqrt{\left(\frac{\delta}{\sqrt{2}}\right)^2+\left(\frac{\delta}{\sqrt{2}}\right)^2}=\delta\] 
+    а тогда
+    \[|I-\sigma(F,T_1,H_1)|<\epsilon\]
+    а это означает, что существует повторный интеграл и он равен кратному.
+\end{proof}
+\begin{consequense}
+будет
+\end{consequense}
+\begin{consequense}
+будет
+\end{consequense}
+\begin{example}
+будет
+\end{example}
+\newpage
