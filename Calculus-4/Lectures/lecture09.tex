@@ -30,7 +30,7 @@
 \[\|\overline{x}\|_1=(|x_1|^p+\dots+|x_k|^p)^{\frac{1}{p}}\] 
 называется Манхэттенской. Также можно ввести норму 
 \[\|\overline{x}\|_{\infty}=\max\limits_{j} |x_j|\]
-\begin{lemma} [О липшевости на компакте] $\\$
+\begin{lemma} [О липшицевости на компакте] $\\$
     Пусть $\Phi$ --- выпуклый компакт в $\R^k$, и в некоторой окрестности $U(\Phi)$ определена функция $\phi: U(\Phi)\to \R^m,\ \phi\in \mathcal{C}^1(\Phi)$. Тогда $\exists\ M>0\ \forall\ \overline{x}, \overline{y}\in \Phi$:
     \[\|\phi(\overline{x})-\phi(\overline{y})\|_{\R^m}\leq M\cdot \|\overline{x}-\overline{y}\|_{\R^k}\]
 \end{lemma}
@@ -60,7 +60,7 @@
     где $\alpha(\Delta \overline{x})=\bar{\bar{o}}(1)$.
 \end{reminder}
 \newpage
-\begin{lemma} [О липшевости производной на компакте] $\\$
+\begin{lemma} [О липшивости производной на компакте] \label{l9.3} $\\$
     Пусть $\Phi$ --- выпуклый компакт в $\R^k$, и в некоторой окрестности $U(\Phi)$ определена функция $\phi: U(\Phi)\to \R^m,\ \phi\in \mathcal{C}^1(\Phi)$. Тогда $\exists\ \omega(t): \R_+\to \R_+$,\\ причем $\lim\limits_{t\to 0+}\omega(t)=0$ а также $\forall\ \overline{x},\ \overline{x}+\Delta\overline{x}\in \Phi$:
     \[\|\phi(\overline{x}+\Delta\overline{x})-\phi(\overline{x})-J(\overline{x})\cdot \Delta\overline{x}\|_{\R^m}\leq \omega(\|\Delta\overline{x}\|_{\R_k})\cdot \|\Delta\overline{x}\|_{\R^k}\] 
 \end{lemma}
@@ -91,16 +91,7 @@
     \[\|\phi(\overline{x}+\Delta \overline{x})-\phi(\overline{x})-J(\overline{x})\cdot \Delta\overline{x}\|\leq \omega(\|\Delta \overline{x}\|)\cdot \|\Delta \overline{x}\|\]
     и $\omega$ обладает нужными свойствами.
 \end{proof}
-\begin{theorem}
-    Пусть $\Omega, G$ --- области в $\R^k,\ \phi^\Omega\to G$ --- биекция, причем
-    \begin{enumerate}
-        \item $\phi\in \mathcal{C}^1(\Omega)$
-        \item $\det J\neq 0$ на $\Omega$.
-        \item $\Phi$ --- измеримый компакт.
-    \end{enumerate}
-    Тогда $\phi(\Phi)=K$ --- измеримый компакт в $G$, причем
-    \[\mu(K)=\idotsint\limits_{\Phi}|\det{J}|\ dx_1\dots dx_k\]
-\end{theorem}
 %\begin{example}
 %    ПРИМЕР (С КАРТИНКАМИ АХАХАХХА)
 %\end{example}
+\newpage

@@ -16,7 +16,7 @@
     Пусть $h=f-g\neq 0$, она отлична от нуля только на $E$. По следствию из последней теоремы предыдущей лекции существует интеграл от $h$, причем он равен нулю. Значит, поскольку по условию существует интеграл от $f$, то существует и от $g$. В таком случае
     \[\idotsint\limits_{\Phi}(f-g)\ dx_1\dots dx_k=0\ \Leftrightarrow\ \idotsint\limits_{\Phi} f\ dx_1\dots dx_k=\idotsint\limits_{\Phi} g\ dx_1\dots dx_k\]
 \end{proof}
-\begin{statement} [Интегрируемость по подмножеству] $\\$
+\begin{statement} [Интегрируемость по подмножеству]\label{podmnoj} $\\$
     Пусть $f\in \mathcal{R}(\Phi),\ \Phi$ и $\Phi'$ -- измеримы по Жордану и $\Phi'\subset \Phi$. Тогда $f\in \mathcal{R}(\Phi')$.
 \end{statement}
 \begin{proof} Пусть $\Pi$ --- брус, такой, что $\Phi\subset \Pi$ и существует интеграл
@@ -30,7 +30,7 @@
     Таким образом $\forall \epsilon>0\ \exists\ T$:
     \[\Omega(f_2, T)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
 \end{proof}
-\begin{statement} [Аддитивность] $\\$
+\begin{statement} [Аддитивность]\label{addit} $\\$
     Пусть $\Phi, \Phi_1, \Phi_2$ --- измеримы по Жордану, $\Phi=\Phi_1\sqcup\Phi_2$. Тогда
     \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k=\idotsint\limits_{\Phi_1}f\ dx_1 \dots dx_k+\idotsint\limits_{\Phi_2}f\ dx_1 \dots dx_k\]
 \end{statement}

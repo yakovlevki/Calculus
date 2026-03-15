@@ -1,0 +1,125 @@
+\section{Лекция 11}
+\subsection{Замена переменных в кратном интеграле}
+\begin{comm}
+    Заметим, что в условиях теоремы \ref{th10.1}, где $K=\phi(\Phi)$:
+    \[\mu(K)=\idotsint\limits_{\Phi}|\det{J_{\phi}}|\ dx_1 \dots dx_k=\idotsint\limits_{K}1\ dy_1 \dots dy_k\]
+    что является частным случаем теоремы о замене переменной в интеграле.
+\end{comm}
+\begin{theorem} [О замене переменных в кратном интеграле] $\\$
+    Пусть $\phi: \Omega\to G,\ \phi\in \mathcal{C}^1(\Omega)$ и $\det{J_{\phi}}$ не обращается в ноль на $\Omega$, $\Phi\subset \Omega$ --- измеримый компакт. Обозначим $K=\phi(\Phi)$ --- измеримый компакт в $G$. Пусть $f$ определена на $K$. Тогда, при условии что оба приведенных ниже интеграла существуют, то
+    \begin{multline*}
+        \idotsint\limits_{K}f(y_1,\dots,y_k)\ dy_1 \dots dy_k=\\
+        =\idotsint\limits_{\Phi}f(y_1(x_1,\dots,x_k), \dots, y_k(x_1,\dots,x_k))\cdot |\det{J_{\phi}}|\ dx_1 \dots dx_k
+    \end{multline*}
+\end{theorem}
+\begin{proof}
+    Пусть $K=\bigsqcup\limits_{i}K_i$, обозначим $\Phi_i=\phi^{-1}(K_i)$, следовательно $\Phi=\bigsqcup\limits_{i}\Phi_i$. Введем $M_i=\sup\limits_{\Phi_i}f,\ m_i=\inf\limits_{\Phi_i}f$. Тогда
+    \[m_i\cdot \idotsint\limits_{\Phi_i}|\det{J_{\phi}}|\leq\idotsint\limits_{\Phi_i}f\cdot |\det{J_{\phi}}|\leq M_i\cdot \idotsint\limits_{\Phi_i}|\det{J_{\phi}}|\]
+    причем
+    \[\idotsint\limits_{\Phi_i}|\det{J_{\phi}}|\ dx_1 \dots dx_k=\mu(\phi(\Phi_i))\]
+    значит
+    \[m_i\cdot \mu(\phi(\Phi_i))\leq\idotsint\limits_{\Phi_i}f\cdot |\det{J_{\phi}}|\leq M_i\cdot \mu(\phi(\Phi_i))\]
+    Таким образом
+    \begin{multline*}
+            \overline{\overline{s}}(f,T)=\sum\limits_{i=1}^{n}m_i\cdot \mu(K_i)\leq \sum\limits_{i=1}^{n}\idotsint\limits_{\Phi_i}f\cdot |\det{J_{\phi}}|\ dx_1 \dots dx_k=\\
+            =\idotsint\limits_{\Phi} f\cdot |\det{J_{\phi}}|\ dx_1 \dots dx_k\leq \sum\limits_{i=1}^{n}M_i\cdot \mu(K_i)=\underline{\underline{S}}(f,T)
+    \end{multline*}
+    При этом, из того, что $f\in \mathcal{R}(K)$, то $\forall \epsilon>0\ \exists\ T: \underline{\underline{S}}(f,T)-\overline{\overline{s}}(f,T)<\epsilon$, а также
+    \[\overline{\overline{s}}(f, T)\leq \idotsint\limits_{K}f\ dy_1 \dots dy_k\leq \underline{\underline{S}}(f,T)\]
+    следует, что
+    \[\left|\idotsint\limits_{K}f\ dy_1 \dots dy_k-\idotsint\limits_{\Phi} f\cdot |\det{J_{\phi}}|\ dx_1 \dots dx_k\right|<\epsilon\]
+    А значит, из произвольности $\epsilon$, они совпадают.
+\end{proof}
+\noindent Далее продемонстрируем недостатки этой теоремы, и покажем что они не критичны.
+\begin{example}
+    Рассматрим $\Omega=[0,+\infty)\times [0,2\pi]$ в полярных координатах $(r,\theta)$. Делаем замену $\phi:\Omega\to G$ такую, что
+    \[\begin{cases}
+        x=r\cdot \cos{\theta},\\
+        y=r\cdot \sin{\theta}
+    \end{cases}\]
+    где $r\geq 0,\ \phi\in [0,2\pi]$. При этом $\det{J}_{\phi}=r$.
+    При такой замене все точки, для которых $r=0$ перейдут в начало координат. Значит это отображение не биективно, а также в этих точках якобиан обращается в ноль. Это нарушает условия теоремы. Чтобы решить данную проблему вырезаем множества меры ноль: $M_1=\{(r,0): r\geq 0\}$ и $M_2=\{(0,\theta): 0\leq \theta\leq 2\pi\}$. Тогда можно применить теорему к $\Omega'=\Omega\setminus (M_1\cup M_2)$. При этом 
+    \[\phi(\Omega')=G=\R^2\setminus\{(x,0): x\geq 0\}\]
+\end{example}
+\begin{example}
+    Тут пример на цилиндрические будет
+
+    \[\begin{cases}
+        x=r\cdot \cos{\theta},\\
+        y=r\cdot \sin{\theta},\\
+        z=h
+    \end{cases}\]
+    где $r,h\geq 0,\ \phi\in [0, 2\pi]$. При этом $\det{J_{\phi}}=r$.
+\end{example}
+\begin{example}
+    Тут пример на сферические будет
+
+    \[\begin{cases}
+        x=r\cdot \cos{\psi}\cdot \cos{\theta},\\
+        y=r\cdot \cos{\psi}\cdot \sin{\theta},\\
+        z=r\cdot \sin{\psi}
+    \end{cases}\]
+    где $r,h\geq 0,\ \phi\in [0, 2\pi]$. При этом $\det{J_{\phi}}=r^2\cdot \cos{\psi}$.
+\end{example}
+% \begin{comm}
+%     Заметим, что $f$ ограничена на $\Phi$ и непрерывна за исключением множества меры ноль на $\Phi$ (в этом случае $f\in \mathcal{R}(\Phi)$). Заметим, что множество меры ноль переходит в множество меры ноль, тогда множество точек разрыва функции
+%     $f(y_1(x_1,\dots, x_k),\dots, y_k(x_1,\dots,x_k))\cdot |\det{J_{\phi}}|$ на $K$ имеет меру ноль, а значит она интегрируема на $K$.
+% \end{comm}
+\begin{comm}
+    Заметим, что если $f$ интегрируема на $K$ (например, ограничена и непрерывна почти всюду), то множество её точек разрыва на $K$ имеет меру нуль. По теореме об обратной функции, множества меры нуль при $\phi^{-1}$ также имеет меру нуль. Значит, функция $f(\phi(x))\cdot |\det J_{\phi}|$ интегрируема на $\Phi$.
+\end{comm}
+\subsection{Кратный несобственный интеграл Римана}
+Хотим определить несобственный интеграл
+\[I=\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+Напомним как определялся несобственный интеграл на отрезке
+\[\int\limits_{a}^{+\infty} f(x)\ dx=\lim\limits_{b\to +\infty}\int\limits_{a}^{b}f(x)\ dx\]
+В многомерном случае поступают аналогично, используя понятие исчерпания области.
+\begin{definition}
+    Исчерпанием $\Omega$ называется набор измеримых компактов $\{K_n\}$ таких, что 
+    \begin{enumerate}
+        \item $\forall n\in \N: K_n\subset K^o_{n+1}$
+        \item $\bigcup\limits_{n=1}^{\infty}K_n=\Omega$
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    Рассмотрим $\Omega=\R^2$. Можно выбрать исчерпание кругами
+    \[K_n=\{(x,y):\ x^2+y^2\leq n^2\}\] 
+    а можно выбрать исчерпание квадратами
+    \[\widehat{K}_n=\{(x,y): \max\{|x|, |y|\}\leq n\}\]
+\end{example}
+\begin{definition}
+    Если для любого $\{K_n\}$ исчерпания $\Omega$ такого, что $\forall n:\\
+    f\in \mathcal{R}(K_n)$ существует предел
+    \[\lim\limits_{n\to \infty}\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k=I\]
+    причём число $I$ одно и то же для всех исчерпаний, тогда этот предел называют несобственным интегралом и обозначают
+    \[I=\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+\end{definition}
+\subsubsection{Свойства несобственного интеграла}
+\begin{statement}
+    Пусть $\Omega$ --- измеримое по Жордану множество, $f\in \mathcal{R}(\Omega)$ и
+    \[I=\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    тогда существует интеграл в новом смысле и они совпадают.
+\end{statement}
+\begin{proof}
+    Пусть $\{K_n\}$ --- исчерпание $\Omega$. Тогда по свойству \ref{podmnoj} интегрируемости на подмножествах существуют интегралы
+    \[\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    а тогда по свойству \ref{addit} аддитивности:
+    \begin{multline*}
+        \left|\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k-\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\right|=\\
+        =\left|\idotsint\limits_{\Omega\setminus K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k\right|\leq M\cdot \mu(\Omega\setminus K_n)
+    \end{multline*}
+    Заметим, что $\Omega\setminus K_{n+1}^o\subset\Omega\setminus K_n$. Предположим, что $\mu(\Omega\setminus K_n)\not\to0$, то есть $\exists\ \epsilon>0: \mu(\Omega\setminus K_n)\geq \epsilon$. Тогда существует простые замкнутые $Q_{\epsilon}$ такие, что 
+    \[Q_{\epsilon}\subset \Omega,\ \mu(\Omega\setminus Q_{\epsilon})<\frac{\epsilon}{2}\] 
+    Определим последовательность $B_n=Q_{\epsilon}\setminus K_{n+1}^o\subset \Omega\setminus K_n$. Получили последовательность $B_n$ замкнутых множеств, таких, что $B_{n+1}\subset B_n$. Значит у $B_n$ есть общая точка $x\in \bigcap\limits B_n$. Тогда $x\in Q_{\epsilon}\subset \Omega$ и $x\not\in K_{n+1}^o$, однако\newline $\bigcup\limits K_n^o=\Omega$ а значит, $x$ должна принадлежать какому-то из $K_n^o$, противоречие. Отсюда $\mu(\Omega\setminus K_n)\to 0$.
+\end{proof}
+\begin{example}
+    Тут будет пример как можно легко посчитать интеграл Эйлера-Пуассона.
+\end{example}
+% \begin{example}
+%     \[\iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy\]
+%     Выберем исчерпание $K_n=\{(x,y): x,y\in [-n,n]\}$. Тогда
+%     \[\int\limits_{-n}^{n}\int\limits_{-n}^{n}e^{-(x^2+y^2)}\ dxdy=\int\limits_{-n}^{n}e^{-x^2}dx\cdot \int\limits_{-n}^{n}e^{-y^2}dy\to \int\limits_{-\infty}^{\infty}e^{-x^2}dx\cdot \int\limits_{-\infty}^{\infty}e^{-y^2}dy=I^2\]
+%     Теперь выберем другое исчерпание $\widehat{K}_n$. Знаем, что $\forall n\ \exists\ m: \widehat{K}_n\subset K_m$:
+%     \[\iint\limits_{\widehat{K}_n}e^{-(x^2+y^2)}\ dxdy\leq \iint\limits_{K_m}e^{-(x^2+y^2)}\ dxdy\to l\]
+%     Теперь $\forall m\ \exists\ n: \widehat{K}_n\subset K_m$
+% \end{example}

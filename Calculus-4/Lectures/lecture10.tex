@@ -1,0 +1,168 @@
+\section{Лекция 10}
+\subsection{Изменение меры Жордана при линейном отображении}
+Еще проговрим про линейные преобразования. Пусть линейное отображение $\phi: \R^k\to \R^k$ задано по правилу
+\[\begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_k
+\end{pmatrix}\to
+\begin{pmatrix}
+    y_1\\
+    \vdots\\
+    y_k
+\end{pmatrix} \]
+\[\begin{cases}
+    y_1=a_{11} x_1+\dots+a_{1n}x_k\\
+    \tab[2.5cm]\vdots\\
+    y_n=a_{n1}x_1+\dots+a_{nn}x_k
+\end{cases}\]
+или в матричном виде
+\[\begin{pmatrix}
+    y_1\\
+    \vdots\\
+    y_k
+\end{pmatrix}=A_{\phi}\cdot \begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_k
+\end{pmatrix}\]
+Далее матрицу линейного отображения $\phi$ будем обозначать $A_{\phi}$.
+\begin{statement}
+    При невырожденном линейном отображении $\phi:\R^k\to \R^k$ всякий брус $\Pi$ переходит в параллелипипед меры $\mu(\Pi)\cdot |\det{A_{\phi}}|$.
+\end{statement}
+\begin{proof}
+    Любое линейное отображение является композицией следующих элементарных линейных отображений:
+    \begin{enumerate}
+        \item Перестановка координат местами. Такому отображению соответствует матрица:
+        \[
+        \begin{pmatrix}
+        1      & \null & \null & \null & \null & \null & \null \\
+        \null & \ddots & \null & \null & \null & \null & \null \\
+        \null & \null & 0 & \cdots & 1      & \null & \null \\
+        \null & \null & \vdots & \ddots & \vdots & \null & \null \\
+        \null & \null & 1      & \cdots & 0 & \null & \null \\
+        \null & \null & \null & \null & \null & \ddots & \null \\
+        \null & \null & \null & \null & \null & \null & 1
+        \end{pmatrix}
+        \]
+        При таком отображении не изменяется объем бруса.
+        \item Умножение координаты на ненулевое число $\lambda$. Такому отображению соответствует матрица:
+        \[
+        \begin{pmatrix}
+        1      & \null & \null & \null & \null & \null & \null \\
+        \null & \ddots & \null & \null & \null & \null & \null \\
+        \null & \null & 1      & \null & \null & \null & \null \\
+        \null & \null & \null & \lambda & \null & \null & \null \\
+        \null & \null & \null & \null & 1      & \null & \null \\
+        \null & \null & \null & \null & \null & \ddots & \null \\
+        \null & \null & \null & \null & \null & \null & 1
+        \end{pmatrix}
+        \]
+        При таком отображении объем умножится на $\lambda$.
+        \item Прибавление одной координаты к другой. Такому отображению соответствует матрица
+        \[
+        \begin{pmatrix}
+        1 & \null & \null & \null & \null & \null & \null \\
+        \null & \ddots & \null & \null & \null & \null & \null \\
+        \null & \null & 1 & \cdots & 1 & \null & \null \\
+        \null & \null & \null & \ddots & \vdots & \null & \null \\
+        \null & \null & \null & \null & 1 & \null & \null \\
+        \null & \null & \null & \null & \null & \ddots & \null \\
+        \null & \null & \null & \null & \null & \null & 1
+        \end{pmatrix}
+        \]
+        При таком отображении объем не изменится.
+    \end{enumerate}
+    Итак, $\phi=\phi_1\circ\dots\circ\phi_n$, а значит
+    \[\mu(\phi(\Pi))=|\det{A_{\phi_1}}|\cdot \dots\cdot |\det{A_{\phi_n}}|\cdot \mu(\Pi)=|\det{A_{\phi}}|\cdot \mu(\Pi)\]
+\end{proof}
+\begin{comm}
+    Пусть $P$ --- элементарное множество. Тогда $P=\bigsqcup\limits_i \Pi_i$, где $\Pi_i$ --- брусы. Тогда $\phi(P)=\bigsqcup\limits_i \phi(\Pi_i)$. При этом из утверждения, знаем, что
+    \[\mu(\phi(\Pi_i))=\det{A_{\phi}}\cdot \mu(\Pi_i)\]
+    значит
+    \[\mu(\phi(P))=\sum\limits_{i}\mu(\phi(\Pi_i))=\sum\limits_{i}\det{A_{\phi}}\cdot \mu(\Pi_i)=\det{A_{\phi}}\cdot \mu(P)\]
+    Таким образом, утверждение можно применять к любым простым множествам.
+\end{comm}
+\begin{consequense}
+    При невырожденном линейном отображении $\phi: \R^k\to \R^k$ всякое измеримое по Жордану множество $\Phi$ переходит в измеримое по Жордану множество меры $|\det{A_{\phi}}|\cdot \mu(\Phi)$.
+\end{consequense}
+\begin{proof}
+    Поскольку $\Phi$ --- измеримо по Жордану, то $\forall \epsilon>0$ существует простое $P_{\epsilon}$:
+    \[\partial\Phi\subset P_{\epsilon},\ \ \mu(P_{\epsilon})<\frac{\epsilon}{|\det{A_{\phi}}|}\] 
+    Заметим, что $\phi(\partial \Phi)=\partial \phi(\Phi)$, значит $\partial\phi(\Phi)\subset \phi(P_{\epsilon})$. Таким образом 
+    \[\mu(\phi(P_{\epsilon}))<\frac{\epsilon}{|\det{A_{\phi}}|}\cdot |\det{A_{\phi}}|=\epsilon\]
+    Итак, $\phi(\Phi)$ --- измеримо.
+    Поскольку $\Phi$ --- измеримо, то можно выбрать элементарные $Q_{\epsilon}\subset \Phi\subset T_{\epsilon}$ такие, что $\mu(T_{\epsilon})-\mu(Q_{\epsilon})<\frac{\epsilon}{|\det{A_{\phi}}|}$. Значит 
+    \[\phi(Q_{\epsilon})\subset \phi(\Phi)\subset \phi(T_{\epsilon})\] 
+    При этом 
+    \[\mu(\phi(Q_{\epsilon}))=\mu(Q_{\epsilon})\cdot |\det{A_{\phi}}|,\ \ \mu(\phi(T_{\epsilon}))=\mu(T_{\epsilon})\cdot |\det{A_{\phi}}|\]
+    Таким образом
+    \[\mu(Q_{\epsilon})\cdot |\det{A_{\phi}}|\leq \mu(\phi(\Phi))\leq \mu(T_{\epsilon})\cdot |\det{A_{\phi}}| \eqno{(1)}\]
+    Также известно, что
+    \[\mu(Q_{\epsilon})\leq \mu(\Phi)\leq \mu(T_{\epsilon}) \eqno{(2)}\] 
+    Используя $(1)$ и $(2)$, получим оценку сверху и снизу.
+    \begin{enumerate}
+        \item Оценка сверху:
+        \begin{multline*}
+            \mu(\phi(\Phi))-|\det{A_{\phi}}|\cdot \mu(\Phi)\leq |\det{A_{\phi}}|\cdot \mu(T_{\epsilon})-|\det{A_{\phi}}|\cdot \mu(\Phi)=\\
+            =|\det{A_{\phi}}|\cdot (\mu(T_{\epsilon})-\mu(\Phi))\leq |\det{A_{\phi}}|\cdot (\mu(T_{\epsilon})-\mu(Q_{\epsilon}))
+        \end{multline*}
+        \item Оценка снизу:
+        \begin{multline*}
+            \mu(\phi(\Phi))-|\det{A_{\phi}}|\cdot \mu(\Phi)\geq |\det{A_{\phi}}|\cdot \mu(Q_{\epsilon})-|\det{A_{\phi}}|\cdot \mu(\Phi)=\\
+            =-|\det{A_{\phi}}|\cdot (\mu(\Phi)-\mu(Q_{\epsilon}))\geq -|\det{A_{\phi}}|\cdot (\mu(T_{\epsilon})-\mu(Q_{\epsilon}))
+        \end{multline*}
+    \end{enumerate}
+    Таким образом
+    \[|\mu(\phi(\Phi))-|\det{A_{\phi}}|\cdot \mu(\Phi)|\leq |\det{A_{\phi}}|\cdot (\mu(T_{\epsilon})-\mu(Q_{\epsilon}))\leq |\det{A_{\phi}}|\cdot \frac{\epsilon}{|\det{A_{\phi}}|}=\epsilon\]
+    из произвольности $\epsilon$, получаем, что
+    \[\mu(\phi(\Phi))=|\det{A_{\phi}}|\cdot \mu(\Phi)\]
+\end{proof}
+\begin{theorem}\label{th10.1}
+    Пусть $\Omega, G$ --- области в $\R^k,\ \phi:\Omega\to G$ --- биекция,\\
+    $\phi\in \mathcal{C}^1(\Omega),\ \det J_{\phi}\neq 0$ на $\Omega$ и $\Phi$ --- измеримый компакт.
+    Тогда $\phi(\Phi)=K$ является измеримым компактом в $G$, причем
+    \[\mu(K)=\idotsint\limits_{\Phi}|\det{J_{\phi}}|\ dx_1\dots dx_k\]
+\end{theorem}
+\begin{proof}
+    \textit{Начали доказывать общий $k$-мерный случай, но в середине доказательства переключились на двумерный. К сожалению, у меня не молучилось это нормально записать. Если у кого то есть записи этого доказательства, то пришлите его мне, пожалуйста.}
+\end{proof}
+% \begin{proof}
+%     \begin{enumerate}
+%         \item Возьмем куб $\Pi$ такой, что $\Phi\subset \Pi$. Пусть $\Pi=\bigsqcup\limits_{j}\Pi_j$, где $\Pi_j$ --- кубики со строной $d>0$. Знаем, что
+%         \[\mu(\Phi)=\idotsint\limits_{\Pi}\chi_{\Phi}\ dx_1 \dots dx_n\]
+%         Возьмем $\rho(\partial \Phi, \partial\Omega)=\rho_0$. Оставим только те $i$, при которых $\Pi_i\subset \Omega$. Заметим, что $\bigsqcup\limits_i \Pi_i$ --- компакт. Пусть $c_i$ --- центр $\Pi_i$. Рассмотрим линейное преобразование
+%         \[L_{\phi, c_i}:\ \begin{pmatrix}
+%             \Delta y_1\\
+%             \vdots\\
+%             \Delta y_n
+%         \end{pmatrix}=\begin{pmatrix}
+%             \frac{\partial \phi_1}{\partial x_1} (c_i) & \dots & \frac{\partial \phi_1}{\partial x_k} (c_i)\\
+%             \vdots & \null & \vdots\\
+%             \frac{\partial \phi_k}{\partial x_1} (c_i) & \dots & \frac{\partial \phi_k}{\partial x_k} (c_i)
+%         \end{pmatrix}\cdot \begin{pmatrix}
+%             \Delta x_1\\
+%             \vdots\\
+%             \Delta x_k
+%         \end{pmatrix}\]
+%     \end{enumerate}
+%     Заметим, что $\phi$ --- липшицево на каждом $\Pi_i$. Выберем $M$ --- константу липшица на $\bigcup\limits_i \Pi_i$. %по лемме 2 вроде
+%     По лемме \ref{l9.3}:
+%     \[\|\phi(\overline{x}+\Delta\overline{x})-\phi(\overline{x})-J_{\phi}(\overline{x})\cdot \Delta\overline{x}\|_{\R^m}\leq \omega(\|\Delta\overline{x}\|_{\R_k})\cdot \|\Delta\overline{x}\|_{\R^k}\] 
+%     при это из липшицевости, мы знаем, что
+%     \[\|\phi(\overline{x}+\Delta \overline{x})\|\leq M\cdot \|\Delta \overline{x}\|\]
+%     Заметим, что по теореме об обратном отображении $\phi\in \mathcal{C}^1(G)$. При этом \\
+%     $\exists\ m>0$:
+%     \[\phi^{-1}(\overline{y}+\Delta \overline{y})-\phi^{-1}(\overline{y})\leq \frac{1}{m}\cdot \|\Delta \overline{y}\|\]
+%     Вспомним, что $\overline{y}=\phi(\overline{x}),\ \overline{y}+\Delta \overline{y}=\phi(\overline{x}+\Delta \overline{x})$. Тогда
+%     \[\|\phi(\overline{x}+\Delta \overline{x})-\phi(\overline{x})\|\geq m\cdot \|\Delta \overline{x}\|\]
+%     При нашем отображении, $\Pi_i$ не обязательно переходит в параллелограмм, однако лемма \ref{l9.3} показывает, что он не сильно от него отличается. Наша идея раздуть параллелограм, чтобы в нем помещалась эта фигура.
+%     тут решили делать в двумерном случае, просто какой то бред произошел
+%     Мы доказали, что (написать)
+%     \[\mu(K)\leq \idotsint\limits_{\Phi}|\det{J_{\phi}}|\ dx_1 \dots dx_k\]
+%     \item Переходим к доказательству неравенства 
+%     \[\idotsint\limits_{\Phi}|\det{J_{\phi}}|\ dx_1 \dots dx_k\leq \mu(K)\]
+%     Покажем, что
+%     \[\overline{\overline{s}}(|\det{J_{\phi}}|, t)\leq \mu(K)\]
+% \end{proof}
+\newpage
