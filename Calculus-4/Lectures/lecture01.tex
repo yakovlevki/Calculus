@@ -15,7 +15,7 @@
 \[I=I_*=I^*\]
 то $I$ в точности интеграл Римана.\\
 Нашей целью является перенос этой конструкции в $\R^k$ при $k\geq 2$.
-\subsection{Кратный интеграл Римана}
+\subsection{Кратный интеграл Римана по брусу}
 \begin{definition}
     Замкнутым брусом в $\R^k$ называется декартово произведение
     \[\Pi=[a_1,b_1]\times [a_2,b_2]\times \dots\times [a_k, b_k]\]
@@ -37,7 +37,7 @@
     Пусть $\Phi, \Phi_1, \Phi_2\subset \R^k$. Объемом назовем функцию, которая обладает следующими свойствами:
 \begin{enumerate}
     \item $V(\Phi)\geq 0$
-    \item $\Phi_1=\Phi_2$
+    \item $\Phi_1=\Phi_2 \Rightarrow V(\Phi_1)=V(\Phi_2)$
     \item $V(\Phi)=V(\Phi_1)+V(\Phi_2)$, если $\Phi=\Phi_1\sqcup\Phi_2$
     \item Объем единичного куба равен $1$.
 \end{enumerate}
@@ -47,13 +47,13 @@
 \begin{definition}
     Диаметром бруса $\Pi$ назовем
     \[\text{diam}(\Pi)=\sqrt{(b_1-a_1)^2+\dots+(b_k-a_k)^2}\]
-Тогда диаметром разбиения $d(T)$ называется наибольший из диаметров $\Delta_j$.
+Тогда диаметром $d(T)$ разбиения $T=\{\Delta_j\}$ называется наибольший из диаметров $\Delta_j$.
 \end{definition}
 \begin{definition}
     $I$ называется кратным интегралом функции $f$ по брусу $\Pi$, если
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta\ \forall H: |\sigma(f,T,H)-I|<\epsilon\]
 \end{definition}
-\subsection{Суммы Дарбу}
+\subsection{Суммы Дарбу для кратного интеграла}
 \begin{definition}
     Назовем верхней и нижней суммой Дарбу соответственно выражения:
     \[\underline{\underline{S}}(f,T)=\sum\limits_{j} M_j\cdot |\Delta_j|, \ \ \overline{\overline{s}}(f,T)=\sum\limits_{j} m_j\cdot |\Delta_j|\]
@@ -70,7 +70,7 @@
 \end{statement}
 \begin{statement}
     Если $T'$ --- измельчение $T$, то 
-        \[\overline{\overline{s}}(f,T)\leq \overline{\overline{s}}(f, T'),\ \underline{\underline{S}}(f,T')\leq \underline{\underline{S}}(f,T)\]
+        \[\overline{\overline{s}}(f,T)\leq \overline{\overline{s}}(f, T'),\ \ \underline{\underline{S}}(f,T')\leq \underline{\underline{S}}(f,T)\]
 \end{statement}
 \begin{proof}
     Cравним $\overline{\overline{s}}(f, T)$ и $\overline{\overline{s}}(f, T')$, где $T'$ получена добавлением разреза. После добавления, брус $\Delta_j$ разбился на два новых бруса $\Delta_j'$ и $\Delta_j''$, обозначим: $m_j', m_j''$ - инфинумы $f$ на $\Delta_j'$ и $\Delta_j''$ соответсвенно. Тогда 
@@ -82,7 +82,7 @@
     (2): $m_j'\geq m_j,\ m_j''\geq m_j$\\
     Аналогично показывается, что $\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\geq 0$.
 \end{proof}
-\begin{statement}
+\begin{statement} \label{razrezy}
         Пусть к разбиению $T$ добавили $p$ разрезов (к разбиениям $T_1,\dots,T_k)$. Тогда 
         \[0\leq \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\leq (M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
         \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\leq(M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
@@ -96,7 +96,7 @@
     \end{multline*}
     где $|\Pi_1|$ --- суммарный объём тех брусов, которые были разрезаны. Проделав эту операцию $p$ раз, получим искомое утверждение.\\
     (1): Суммируем только по тем брусам, по которым прошел разрез\\
-    (2): $m_j', m_j''\leq M,\ m_j\geq m$.
+    (2): $m_j', m_j''\leq M,\ m_j\geq m$.\\
     Аналогично для верхней суммы Дарбу.
 \end{proof}
 \begin{statement}
@@ -118,7 +118,7 @@
 \end{statement}
 \begin{proof}
     Пусть $T$ объединяет в себе все разрезы $T_1$ и $T_2$. Тогда $T$ --- измельчение и для $T'$ и для $T''$. Тогда по доказанному выше свойству и определению сумм Дарбу, получим
-    \[\overline{\overline{s}}(f,T')\leq \underline{\underline{S}}(f,T)\leq \underline{\underline{S}}(f,T)\leq \underline{\underline{S}}(f,T'')\]
+    \[\overline{\overline{s}}(f,T')\leq \overline{\overline{s}}(f,T)\leq \underline{\underline{S}}(f,T)\leq \underline{\underline{S}}(f,T'')\]
 \end{proof}
 \begin{definition}
     Нижним интегралом Дарбу называется 

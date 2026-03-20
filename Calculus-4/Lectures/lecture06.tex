@@ -1,6 +1,6 @@
 \section{Лекция 6}
 \subsection{Свойства интеграла Римана}
-\begin{statement}
+\begin{statement} \label{lin}
     Пусть $\Phi$ --- измеримо по Жордану, $f,g\in \mathcal{R}(\Phi)$. Тогда $\forall c_1, c_2:\ c_1\cdot f+c_2\cdot g\in \mathcal{R}(\Phi)$.
 \end{statement}
 \begin{proof} Обозначим $h=c_1\cdot f+c_2\cdot g$. По критерию Дарбу:
@@ -8,7 +8,7 @@
     Пусть $T$ --- разбиение, которое объединяет в себе все разрезы $T_f$ и $T_g$. Тогда 
     \[\Omega(h, T)\leq c_1\cdot \Omega(f, T_f)+c_2\cdot \Omega(g, T_g)<(c_1+c_2)\epsilon\]
 \end{proof}
-\begin{statement}[Изменение на множестве меры нуль] $\\$
+\begin{statement}[Изменение на множестве меры нуль] \label{diffmery0} $\\$
     Пусть $\mu(E)=0,\ f\in \mathcal{R}(\Phi),\ g\in \mathcal{B}(\Phi),\ f\equiv g$ на $\Phi\setminus E$. Тогда $g\in \mathcal{R}(\Phi)$:
     \[\idotsint\limits_{\Phi} f\ dx_1\dots dx_k=\idotsint\limits_{\Phi} g\ dx_1\dots dx_k\]
 \end{statement}
@@ -42,7 +42,7 @@
     \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k=\idotsint\limits_{\Phi_1}f\ dx_1\dots dx_k+\idotsint\limits_{\Phi_2}f\ dx_1\dots dx_k\]
 \end{proof}
 %нужно проверить на индикаторах, пользуемся свойством три доказывая, что f инт на ф lra инт на ф_1 пересеч с ф_2
-\begin{statement} [Монотонность по функции] $\\$
+\begin{statement} [Монотонность по функции] \label{monpofunc} $\\$
     Пусть $f,g\in \mathcal{R}(\Phi)$ и $f\geq g$ на $\Phi$. Тогда
     \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k\geq \idotsint\limits_{\Phi}g\ dx_1\dots dx_k\]
 \end{statement}
@@ -50,9 +50,9 @@
     Пусть $h=f-g\geq 0$. Заметим, что $\sigma(h, T, H)\geq 0$. Тогда по линейности
     \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k-\idotsint\limits_{\Phi}g\ dx_1\dots dx_k=\idotsint\limits_{\Phi}h\ dx_1\dots dx_k\geq 0\]
 \end{proof}
-\begin{statement} [Монотонность по множеству] $\\$
+\begin{statement} [Монотонность по множеству] \label{monpopodmnoj} $\\$
     Пусть $f\in \mathcal{R}(\Phi), \Phi'\subset \Phi$ и $f\geq 0$ на $\Phi$. Тогда
-    \[\idotsint\limits_{\Phi'} f dx_1 \dots dx_k\leq \idotsint\limits_{\Phi} f dx_1\dots dx_k\]
+    \[\idotsint\limits_{\Phi'} f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Phi} f\ dx_1\dots dx_k\]
 \end{statement}
 \begin{proof}
     Пусть $f\in \mathcal{R}(\Phi)$. Тогда $f\in \mathcal{R}(\Phi')$. Пусть $\Phi\subset\Pi$, тогда $f\cdot \chi_{\Phi}\in \mathcal{R}(\Pi)$ и $f\cdot \chi_{\Phi'}\in \mathcal{R}(\Pi)$. Поскольку $f\geq 0$ и $\chi_{\Phi'}\leq \chi_{\Phi}$, то $f\cdot \chi_{\Phi'}\leq f\cdot \chi_{\Phi}$. Отсюда

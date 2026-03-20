@@ -12,8 +12,9 @@
     \[\Omega(f, T) = \sum \limits_i \left(\ \sup \limits_{x \in \Delta_i} f(x) - \inf \limits_{x \in \Delta_i} f(x)\right)\cdot |\Delta_i|\]
     $\sup \limits_{x \in \Delta_i} f(x) - \inf \limits_{x \in \Delta_i} f(x) := \omega_i$ называют колебаниями $f$ на $\Delta_i$.
 \end{comm}
-\noindentВ одномерном случае доказывалось утверждение
-\begin{theorem}[Критерий Дарбу интегрируемости на отрезке]
+\noindent В одномерном случае доказывалось утверждение
+\setcounter{numtheorem}{-1}
+\begin{numtheorem}[Критерий Дарбу интегрируемости на отрезке]
     $ \\$Следующие условия эквивалентны:
     \begin{enumerate}
         \item $f \in \mathcal{R}[a, b]$
@@ -21,10 +22,10 @@
         \item $\forall \epsilon > 0 \ \exists\ \delta > 0: \forall T: d(T) < \delta: \Omega(f, T) < \epsilon$
         \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$
     \end{enumerate}
-\end{theorem}
+\end{numtheorem}
 \noindent Рассмотрим аналогичное утверждение и докажем его
 \begin{theorem}[Критерий Дарбу интегрируемости на брусе]
-    $ \\$Следующие условия эквивалентны:
+    $\\$Следующие условия эквивалентны:
     \begin{enumerate}
         \item $f \in \mathcal{R}(\Pi)$
         \item $I^*(f, \Pi) = I_*(f, \Pi)$
@@ -39,12 +40,12 @@
             \[\exists\ I\in \R: \forall \epsilon > 0\ \exists\ \delta > 0: \forall\ T, H,\ d(T) < \delta:|I - \sigma(f, T, H)| < \epsilon\]
             Знаем, что 
             \[\underline{\underline{S}}(f, T) = \sup\limits_H \sigma(f, T, H),\ \ \overline{\overline{s}}(f, T) = \inf\limits_H \sigma(f, T, H)\]
-            тогда
+            и
             \[I - \epsilon < \sigma(f, T, H) < I + \epsilon\]
             отсюда
             \[I - \epsilon \leq \overline{\overline{s}}(f, T) < I + \epsilon, \ \ I - \epsilon < \underline{\underline{S}}(f, T) \leq I + \epsilon\]
             таким образом $\exists\ I\in \R: \forall \epsilon > 0 \ \exists\ \delta > 0: \forall T,\ d(T) < \delta$:
-            \[|I - \overline{\overline{s}}(f, T)| < \epsilon,\ \ |I - \overline{\overline{s}}(f, T)|<\epsilon\]
+            \[|I - \overline{\overline{s}}(f, T)| < \epsilon,\ \ |I - \underline{\underline{S}}(f, T)|<\epsilon\]
             \[\lim \limits_{d(T) \rightarrow 0} \overline{\overline{s}}(f, T) = \lim \limits_{d(T) \rightarrow 0} \underline{\underline{S}}(f, T) = I\]
             \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta: \overline{\overline{s}}(f,T)\geq I-\epsilon \Rightarrow \sup\limits_{T}\overline{\overline{s}}(f,T) = I_*\geq I\]
             \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta: \underline{\underline{S}}(f,T)\leq I+\epsilon \Rightarrow \inf\limits_{T}\underline{\underline{S}}(f,T)=I^*\leq I\]
@@ -56,9 +57,9 @@
             \[0 \leq \underline{\underline{S}}(f, T_2) - \overline{\overline{s}}(f, T_1) < \epsilon\]
             Тогда если $T=T_1\cup T_2$, то 
             \[0\leq \underline{\underline{S}}(f,T)-\overline{\overline{s}}(f,T)\leq \underline{\underline{S}}(f,T_2)-\overline{\overline{s}}(f,T_1)<\epsilon\]
-        \item $(4) \Rightarrow (3)$:
-            \[\forall \epsilon>0\ \exists\ T_{\epsilon}: \Omega(f,T_{\epsilon})<\frac{\epsilon}{2}\]
-            Пусть разбиение $T_1$ получено из разбиения $T$ добавлением $p$ разрезов. Тогда
+        \item $(4) \Rightarrow (3)$: Пусть $T$ --- произвольное разбиение, такое, что $d(T)<\delta$. По пункту 4:
+            \[\forall \epsilon>0\ \exists\ T_{\epsilon}:\ \Omega(f,T_{\epsilon})<\frac{\epsilon}{2}\]
+            Пусть разбиение $T_1$ получено объединением сеток разбиений $T_{\epsilon}$ и $T$, причем добавилось $p$ разрезов. Тогда по свойству $\ref{razrezy}$:
             \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T_1)\leq (M-m)\cdot d^{k-1}\cdot d(T)\cdot p\]
             \[0\leq \Omega(f,T_1)\leq \Omega(f,T_{\epsilon})<\frac{\epsilon}{2}\]
             \begin{multline*}
@@ -93,4 +94,3 @@
     таким образом
     \[\Omega(f,T)\leq \frac{\epsilon}{2|\Pi|}\sum\limits_{i}|\Delta_i|=\frac{\epsilon}{2}<\epsilon\]
 \end{proof}
-

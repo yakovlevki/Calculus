@@ -93,28 +93,11 @@
     \[\lim\limits_{n\to \infty}\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k=I\]
     причём число $I$ одно и то же для всех исчерпаний, тогда этот предел называют несобственным интегралом и обозначают
     \[I=\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    в таком случае пишут $f\in \widetilde{\mathcal{R}}(\Omega)$.
 \end{definition}
-\subsubsection{Свойства несобственного интеграла}
-\begin{statement}
-    Пусть $\Omega$ --- измеримое по Жордану множество, $f\in \mathcal{R}(\Omega)$ и
-    \[I=\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-    тогда существует интеграл в новом смысле и они совпадают.
-\end{statement}
-\begin{proof}
-    Пусть $\{K_n\}$ --- исчерпание $\Omega$. Тогда по свойству \ref{podmnoj} интегрируемости на подмножествах существуют интегралы
-    \[\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-    а тогда по свойству \ref{addit} аддитивности:
-    \begin{multline*}
-        \left|\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k-\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\right|=\\
-        =\left|\idotsint\limits_{\Omega\setminus K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k\right|\leq M\cdot \mu(\Omega\setminus K_n)
-    \end{multline*}
-    Заметим, что $\Omega\setminus K_{n+1}^o\subset\Omega\setminus K_n$. Предположим, что $\mu(\Omega\setminus K_n)\not\to0$, то есть $\exists\ \epsilon>0: \mu(\Omega\setminus K_n)\geq \epsilon$. Тогда существует простые замкнутые $Q_{\epsilon}$ такие, что 
-    \[Q_{\epsilon}\subset \Omega,\ \mu(\Omega\setminus Q_{\epsilon})<\frac{\epsilon}{2}\] 
-    Определим последовательность $B_n=Q_{\epsilon}\setminus K_{n+1}^o\subset \Omega\setminus K_n$. Получили последовательность $B_n$ замкнутых множеств, таких, что $B_{n+1}\subset B_n$. Значит у $B_n$ есть общая точка $x\in \bigcap\limits B_n$. Тогда $x\in Q_{\epsilon}\subset \Omega$ и $x\not\in K_{n+1}^o$, однако\newline $\bigcup\limits K_n^o=\Omega$ а значит, $x$ должна принадлежать какому-то из $K_n^o$, противоречие. Отсюда $\mu(\Omega\setminus K_n)\to 0$.
-\end{proof}
-\begin{example}
-    Тут будет пример как можно легко посчитать интеграл Эйлера-Пуассона.
-\end{example}
+%\begin{example}
+%    Тут будет пример как можно легко посчитать интеграл Эйлера-Пуассона.
+%\end{example}
 % \begin{example}
 %     \[\iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy\]
 %     Выберем исчерпание $K_n=\{(x,y): x,y\in [-n,n]\}$. Тогда
@@ -123,3 +106,4 @@
 %     \[\iint\limits_{\widehat{K}_n}e^{-(x^2+y^2)}\ dxdy\leq \iint\limits_{K_m}e^{-(x^2+y^2)}\ dxdy\to l\]
 %     Теперь $\forall m\ \exists\ n: \widehat{K}_n\subset K_m$
 % \end{example}
+\newpage

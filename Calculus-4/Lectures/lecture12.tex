@@ -1,0 +1,179 @@
+\section{Лекция 12}
+\subsection{Свойства несобственного интеграла}
+\begin{statement}
+    Пусть $\Omega$ --- измеримое по Жордану множество, $f\in \mathcal{R}(\Omega)$ и
+    \[I=\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    тогда существует интеграл в новом смысле и они совпадают.
+\end{statement}
+\begin{proof}
+    Пусть $\{K_n\}$ --- исчерпание $\Omega$. Тогда по свойству \ref{podmnoj} интегрируемости на подмножествах существуют интегралы
+    \[\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    а тогда по свойству \ref{addit} аддитивности:
+    \begin{multline*}
+        \left|\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k-\idotsint\limits_{\Omega}f(x_1,\dots,x_k)\ dx_1\dots dx_k\right|=\\
+        =\left|\idotsint\limits_{\Omega\setminus K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k\right|\leq M\cdot \mu(\Omega\setminus K_n)
+    \end{multline*}
+    Заметим, что $\Omega\setminus K_{n+1}^o\subset\Omega\setminus K_n$. Предположим, что $\mu(\Omega\setminus K_n)\not\to0$, то есть $\exists\ \epsilon>0: \mu(\Omega\setminus K_n)\geq \epsilon$. Тогда существует простые замкнутые $Q_{\epsilon}$ такие, что 
+    \[Q_{\epsilon}\subset \Omega,\ \mu(\Omega\setminus Q_{\epsilon})<\frac{\epsilon}{2}\] 
+    Определим последовательность $B_n=Q_{\epsilon}\setminus K_{n+1}^o\subset \Omega\setminus K_n$. Получили последовательность $B_n$ замкнутых множеств, таких, что $B_{n+1}\subset B_n$. Значит у $B_n$ есть общая точка $x\in \bigcap\limits B_n$. Тогда $x\in Q_{\epsilon}\subset \Omega$ и $x\not\in K_{n+1}^o$, однако\newline $\bigcup\limits K_n^o=\Omega$ а значит, $x$ должна принадлежать какому-то из $K_n^o$, противоречие. Отсюда $\mu(\Omega\setminus K_n)\to 0$.
+\end{proof}
+\noindent Мы доказали, что $\mathcal{R}(\Omega)\subset \widetilde{\mathcal{R}}(\Omega)$.
+\begin{statement}
+    Пусть $f\in \widetilde{\mathcal{R}}(\Omega)$ и $g$ --- функция, отличающаяся от $f$ только на множестве меры ноль, то есть $\mu(E)=0$, где 
+    \[E=\{x\in \Omega:\ f(x)\neq g(x)\}\] 
+    причем $g$ --- ограничена на $E$. Тогда $g\in \widetilde{\mathcal{R}}(\Omega)$, причем
+    \[\idotsint\limits_{\Omega}g\ dx_1 \dots dx_k=\idotsint\limits_{\Omega}f\ dx_1 \dots dx_k\]
+\end{statement}
+\begin{proof}
+    Пусть $\{K_n\}$ --- исчерпание $\Omega$. По свойству \ref{podmnoj} интегрируемости на подмножестве $\forall n\in \N: f\in \mathcal{R}(K_n)$. Заметим, что $g\neq f$ на множестве $E\cap K_n$ и $\mu(E\cap K_n)=0$ и $g\in \mathcal{B}(K_n)$. Тогда по свойству \ref{diffmery0}:
+    \[\idotsint\limits_{K_n}g\ dx_1 \dots dx_k=\idotsint\limits_{K_n}f\ dx_1\dots dx_k\]
+    Устремим $n\to \infty$ и получим утверждение.
+    %\[\idotsint\limits_{\Omega}g\ dx_1 \dots dx_k=\idotsint\limits_{\Omega}f\ dx_1\dots dx_k\]
+\end{proof}
+\begin{statement}
+    Пусть $f, g\in \widetilde{\mathcal{R}}(\Omega)$. Тогда $\forall c_1, c_2\in \R$:
+    \[c_1\cdot f+c_2\cdot g\in \widetilde{\mathcal{R}}(\Omega)\]
+    причем
+    \begin{multline*}
+        \idotsint\limits_{\Omega}(c_1\cdot f+c_2\cdot g)\ dx_1\dots dx_k=\\
+        =c_1\cdot \idotsint\limits_{\Omega}f\ dx_1\dots dx_k+c_2\cdot \idotsint\limits_{\Omega}g\ dx_1\dots dx_k
+    \end{multline*}
+\end{statement}
+\begin{proof}
+    Пусть $\{K_n\}$ --- исчерпание $\Omega$. По свойствам \ref{podmnoj} и \ref{lin}\\
+    $\forall n\in \N: f\in \mathcal{R}(K_n)$ и
+    \begin{multline*}
+        \idotsint\limits_{K_n}(c_1\cdot f+c_2\cdot g)\ dx_1\dots dx_k=\\
+        =c_1\cdot \idotsint\limits_{K_n}f\ dx_1\dots dx_k+c_2\cdot \idotsint\limits_{K_n}g\ dx_1\dots dx_k
+    \end{multline*}
+    Устремим $n\to \infty$ и получим утверждение.
+\end{proof}
+\begin{statement}% [Монотонность по функциям] $\\$
+    Пусть $f,g\in \widetilde{\mathcal{R}}(\Omega)$ и $f\geq g$ на $\Omega$. Тогда 
+    \[\idotsint\limits_{\Omega}f\ dx_1\dots dx_k\geq \idotsint\limits_{\Omega}g\ dx_1 \dots dx_k\]
+\end{statement}
+\begin{proof}
+    Пусть $\{K_n\}$ --- исчерпание $\Omega$. Тогда по свойству \ref{monpofunc}
+    \[\idotsint\limits_{K_n}f\ dx_1\dots dx_k\geq \idotsint\limits_{K_n}g\ dx_1\dots dx_k\]
+    Устремим $n\to \infty$ и получим утверждение.
+\end{proof}
+\begin{statement}\label{l12.5}
+    Пусть $\Omega_1\subset \Omega_2,\ f\in \widetilde{\mathcal{R}}(\Omega_1)\cap \widetilde{\mathcal{R}}(\Omega_2),\ f\geq 0$ на $\Omega_2$. Тогда
+    \[\idotsint\limits_{\Omega_2}f\ dx_1 \dots dx_k\geq \idotsint\limits_{\Omega_1}f\ dx_1 \dots dx_k\]
+\end{statement}
+\begin{proof}
+    Возьмем $\{K_n\}$ --- исчерпание $\Omega_1,\ \{\Phi_j\}$ --- исчерпание $\Omega_2$. Покажем, что $\{K_n\cap \Phi_n\}$ --- также исчерпание $\Omega_1$. Для начала заметим, что $K_n\cap \Phi_n$ --- измеримы по Жордану. Заметим, что
+    \[K_n\cap \Phi_n\subset K^o_{n+1}\cap \Phi^o_{n+1}\subset (K_{n+1}\cap \Phi_{n+1})^o\]
+    Остается проверить, что 
+    \[\bigcup\limits_{n=1}^{\infty}(K_n\cap \Phi_n)=\Omega_1\]
+    Для этого покажем, что $\forall m\in \N$:
+    \[K_m\subset \bigcup\limits_{n=1}^{\infty}(K_n\cap \Phi_n)\]
+    При этом, поскольку $\Omega_1\subset \Omega_2$, то
+    \[K_m\subset \Omega_2=\bigcup\limits_{n=1}^{\infty}\Phi_n\]
+    \[K_m=K_m\cap\left(\bigcup\limits_{n=1}^{\infty}\Phi_n\right)=\bigcup\limits_{n=1}^{\infty}(K_m\cap \Phi_n)\overset{(1)}{\subset} \bigcup\limits_{n=m}^{\infty}(K_n\cap \Phi_n)\overset{(2)}{=}\bigcup\limits_{n=1}^{\infty}(K_n\cap \Phi_n)\]
+    $(1)$: Поскольку при $n\geq m:\ K_m\subset K_n$, а значит $K_m\cap \Phi_n\subset K_n\cap \Phi_n$.\\
+    $(2)$: Поскольку $K_n\cap\Phi_n\subset K_{n+1}\cap \Phi_{n+1}$.\\
+    Итак, $\{K_n\cap\Phi_n\}$ --- исчерпание $\Omega_1$. Поскольку $K_n\cap \Phi_n\subset \Phi_n$, значит, по свойству \ref{monpopodmnoj} имеем
+    \[\idotsint\limits_{\Phi_n}f\ dx_1\dots dx_k\geq \idotsint\limits_{K_n\cap\Phi_n}f\ dx_1 \dots dx_k\]
+    Устремим $n\to \infty$ и получим утверждение.
+    %\[\idotsint\limits_{\Omega_2}f\ dx_1\dots dx_k\geq \idotsint\limits_{\Omega_1}f\ dx_1 \dots dx_k\]
+\end{proof}
+\begin{example}
+    тут будет пример
+\end{example}
+% \begin{example}
+%     \[\int\limits_{(a,b)}f(x)\ dx\]
+%     Если 
+%     \[\exists\ \lim\limits_{b'\to b-0}\int\limits_{c}^{b'}f(x)\ dx,\ \exists\ \lim\limits_{a'\to a+0}\int\limits_{a'}^{c}f(x)\ dx\]
+%     и они в сумме дают 
+%     \[\int\limits_{(a,b)}f(x)\ dx\]
+%     Рассмотрим $f(x)$ как на картинке.
+%     Известно \[\sum\limits_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}=\ln{2}\],
+%     Значит в старом смысле
+%     \[\int\limits_{0}^{+\infty}f(x)\ dx=\ln{2}\]
+%     но в новом смысле возьмем исчерпание
+%     от 0 до 1 и такие же сверху $n^2$ штук, а тех что от 1 до 2 и такие же снизу $n$ штук и там не будет существовать интеграл в новом смысле.
+% \end{example}
+\subsection{Несобственный кратный интерал от неотрицательной функции}
+\begin{lemma} \label{l12.1}
+    Пусть $K\subset \Omega$ --- компакт, $\{K_n\}$ --- какое-либо исчерпание $\Omega$. Тогда $\exists\ n\in \N: K\subset K_n^o$.
+\end{lemma}
+\begin{proof}
+    Из определения знаем, что $K_n\subset K_{n+1}^o$ и
+    \[\Omega=\bigcup\limits_{n=1}^{\infty}K_n\subset \bigcup\limits_{n=1}^{\infty}K_{n+1}^o\subset \Omega\]
+    значит 
+    \[\Omega=\bigcup\limits_{n=1}^{\infty}K_{n+1}^o\]
+    Итак, $\{K_{n+1}^o\}$ --- открытое покрытие $K$. Выделим из него конечное подпокрытие $K_{n_1}^o,\dots,K_{n_p}^o$ и получим
+    \[K\subset \bigcup\limits_{j=1}^p K_{n_j}^o=K_{n_p}^o\]
+\end{proof}
+\begin{theorem} [Об одном исчерпании] \label{1ischerp} $\\$
+    Пусть $f\geq 0$ на $\Omega$. Следующие условия эквивалентны:
+    \begin{enumerate}
+        \item $f\in \widetilde{\mathcal{R}}(\Omega)$.
+        \item Для любого исчерпания $\{K_n\}$ области $\Omega$, последовательность 
+        \[\left\{\idotsint\limits_{K_n}f\ dx_1 \dots dx_k\right\}\]
+        ограничена.
+        \item Существует такое исчерпание $\{K_n\}$ области $\Omega$, что последовательность 
+        \[\left\{\idotsint\limits_{K_n}f\ dx_1 \dots dx_k\right\}\]
+        ограничена.
+    \end{enumerate}  
+\end{theorem}
+\begin{proof}\tab
+    \begin{enumerate}
+        \item $(1)\Rightarrow(2):\ f\in \widetilde{\mathcal{R}}(\Omega)$, значит, существует
+        \[I=\lim\limits_{n\to\infty}\idotsint\limits_{K_n}f\ dx_1 \dots dx_k\]
+        поэтому для любого исчерпания $\{K_n\}$ искомая последовательность сходится, а значит ограничена.
+        \item $(2)\Rightarrow(3)$: Очевидно
+        \item $(3)\Rightarrow(1)$: Пусть $\{K'_n\}$ --- исчерпание $\Omega$. Дано, что последовательность
+        \[\left\{\idotsint\limits_{K_n}f\ dx_1 \dots dx_k\right\}\]
+        ограничена. Заметим, что последовательность монотонно возрастает. Тогда, по теореме Вейерштрасса о монотонной последовательности, существует предел
+        \[I=\lim\limits_{n\to\infty}\idotsint\limits_{K_n}f\ dx_1\dots dx_k\]
+        По лемме \ref{l12.1}: $\forall m\in \N\ \exists\ n\in \N: K_m'\subset K_n^o$, значит по свойству \ref{podmnoj}: $f\in \mathcal{R}(K_n)\Rightarrow f\in \mathcal{R}(K_m')$. А из свойства \ref{monpopodmnoj} известно, что
+        \[\idotsint\limits_{K'_m}f\ dx_1\dots dx_k\leq \idotsint\limits_{K_n}f\ dx_1\dots dx_k\]
+        отсюда
+        \[\exists\ \lim\limits_{n\to\infty}\idotsint\limits_{K_m'}f\ dx_1 \dots dx_k=J\leq I\]
+        Аналогично можно показать, что $I\leq J$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}
+Для любого измеримого компакта $K\subset \Omega$
+\[\mathcal{R}_{\text{loc}}(\Omega)=\bigcap\limits_{K\subset \Omega} \mathcal{R}(K)\]
+То есть это множество всех таких функций $f$, что для любого измеримого компакта $K$ существует
+\[\idotsint\limits_{K}f\ dx_1 \dots dx_k\]
+Функции $f\in \mathcal{R}_{\text{loc}}(\Omega)$ называются локально интегрируемыми на $\Omega$.
+\end{definition}
+% пример локально инт но не инт
+\begin{example}
+    тут будет пример
+\end{example}
+\noindent Заметим, что $\widetilde{\mathcal{R}}(\Omega)\subset \mathcal{R}_{\text{loc}}(\Omega)$
+\begin{theorem} [Первый признак сравнения] $\\$
+    Пусть $f,g\in \mathcal{R}_{\text{loc}}(\Omega)$ и $0\leq f\leq g$ на $\Omega$. Тогда $g\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow f\in \widetilde{\mathcal{R}}(\Omega)$ и
+    \[\idotsint\limits_{\Omega}f\ dx_1 \dots dx_k \leq \idotsint\limits_{\Omega} g\ dx_1 \dots dx_k\]
+\end{theorem}
+\begin{proof}
+    Пусть $\{K_n\}$ --- исчерпание $\Omega$. Тогда 
+    \[\idotsint\limits_{K_n}f\ dx_1\dots dx_k\leq \idotsint\limits_{K_n}g\ dx_1\dots dx_k \to I\]
+    значит последовательность
+    \[\left\{\idotsint\limits_{K_n}f\ dx_1\dots dx_k\right\}\]
+    ограничена. Тогда по теореме \ref{1ischerp} об одном исчерпании: $f\in \widetilde{\mathcal{R}}(\Omega)$. Остается устремить $n\to \infty$ и получить
+    \[\idotsint\limits_{\Omega}f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Omega}g\ dx_1\dots dx_k\]
+\end{proof}
+\begin{example}
+    тут будет пример
+\end{example}
+% \begin{example} Признак работает только для неотрицательных функций
+%     $\Omega=(0,1), g\equiv 0,\ f=-\frac{1}{x},\ f<g\ \forall x\in (0,1)$
+%     \[\int\limits_{(0,1)}0\ dx\]
+%     но не существует
+%     \[\int\limits_{(0,1)}-\frac{1}{x}\ dx=-\infty\]
+% \end{example}
+\begin{theorem} [Второй признак сравнения] $\\$
+    Пусть $f,g\geq 0$ и $\exists\ c_1, c_2>0:\ c_1\cdot f\leq g\leq c_2\cdot f$ на $\Omega$. Тогда интегралы
+    \[\idotsint\limits_{\Omega}f\ dx_1\dots dx_k, \ \ \idotsint\limits_{\Omega}g\ dx_1 \dots dx_k\]
+    существуют или не существуют одновременно.
+\end{theorem}
+\begin{proof} По первому признаку сравнения:
+    \[g\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow c_1\cdot f\in \widetilde{\mathcal{R}}(\Omega)\Rightarrow f\in \widetilde{\mathcal{R}}(\Omega)\]
+    \[f\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow c_2\cdot f\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow g\in \widetilde{\mathcal{R}}(\Omega)\]
+\end{proof}
