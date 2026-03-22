@@ -1,0 +1,163 @@
+\section{Лекция 13}
+\subsection{Абсолютная сходимость несобственных интегралов}
+Для доказательства дальнейшей теоремы нам понадобится ввести следующие обозначения: Пусть $f$ определена на $\Omega$, обозначим
+\[
+\begin{aligned}
+f^{+}(x) &= \begin{cases}
+f(x), & f(x) \geq 0,\\
+0,    & f(x) < 0.
+\end{cases} &
+f^{-}(x) &= \begin{cases}
+-f(x), & f(x) \leq 0,\\
+0,     & f(x) > 0.
+\end{cases}
+\end{aligned}
+\]
+Итак
+\[f(x)=f^+(x)-f^-(x),\ \ |f(x)|=f^+(x)+f^-(x)\]
+\[f_+(x)=\frac{f(x)+|f(x)|}{2},\ \ f_-(x)=\frac{|f(x)|-f(x)}{2}\]
+% тут еще что то про компазицию
+Если $E$ --- измеримо по Жордану, то $f\in \mathcal{R}(E)\Rightarrow f^+,f^-, |f|\in \mathcal{R}(E)$.
+\begin{exercise}
+    Приведите примеры таких $f$ и $E$, что 
+    \begin{enumerate}
+        \item $f^+\in \mathcal{R}(E),\ f\not\in \mathcal{R}(E)$
+        \item $f^-\in \mathcal{R}(E),\ f\not\in \mathcal{R}(E)$
+        \item $|f|\in \mathcal{R}(E),\ f\not\in \mathcal{R}(E)$
+    \end{enumerate}
+\end{exercise}
+\noindent Но если хотя бы две из этих функций интегрируемы, то $f$ --- тоже интегрируема.
+%смешная картинка
+\begin{lemma}
+    Пусть $K\subset \Omega$ --- измеримый компакт. Тогда $\forall \epsilon>0\ \exists\ F_{\epsilon}\subset K$ --- измеримый компакт, что 
+    \[\idotsint\limits_{F_{\epsilon}}f\ dx_1 \dots dx_k>\idotsint\limits_{K}f^+\ dx_1 \dots dx_k - \epsilon\]
+    прчием на $F_{\epsilon}$ выполнено, что $f\equiv f^+$.
+\end{lemma}
+\begin{proof}
+    % \[\idotsint\limits_{K} f^+\ dx_1 \dots dx_k\]
+    \[\overline{\overline{s}}(f^+, T)=\sum\limits_{j} \inf\limits_{\Delta_j}f^+\cdot \mu(\Delta_j)\]
+    Заметим, что если $\exists\ x\in \Delta_j$, что $f(x)\leq 0$, то $f^+(x)=0$, а значит $\inf\limits_{\Delta_j}f^+=0$. Поэтому достаточно суммировать только по тем $\Delta_j$, на которых принимаюстя положительные значения. Обозначим такие брусы $\Delta_j'$. Тогда
+    \[\overline{\overline{s}}(f^+, T)=\sum\limits_{j}\inf\limits_{\Delta_j'} f^+\cdot \mu(\Delta_j')=\sum\limits_{j}\inf\limits_{\Delta_j'} f\cdot \mu(\Delta_j')\]
+    Нижняя сумма является инфинумом, поэтому $\forall \epsilon>0\ \exists\ T$:
+    \[\overline{\overline{s}}(f^+, T)>\idotsint\limits_{K}f^+\ dx_1 \dots dx_k -\epsilon\]
+    Обозначим
+    \[F_{\epsilon}=\bigcup\limits_{j} \Delta_j'\] %по положительным
+    Пусть $T'$ --- разбиение $F_{\epsilon}$, состоящее из брусов $\Delta_j'$. Тогда
+    \[\sum\limits_{j}\inf\limits_{\Delta_j'} f\cdot \mu(\Delta_j')=\overline{\overline{s}}(f,T')\leq \idotsint\limits_{F_{\epsilon}}f\ dx_1\dots dx_k\]
+\end{proof}
+\begin{theorem}[Критерий интегрируемости в несобственном смысле] $\\$
+    Пусть $f\in \mathcal{R}_{\text{loc}}(\Omega)$. Тогда $f\in \widetilde{\mathcal{R}}(\Omega) \Leftrightarrow |f|\in \widetilde{\mathcal{R}}(\Omega)$.
+\end{theorem}
+\begin{proof}\tab % По Солодову
+    \begin{itemize}
+        \item[$(\Leftarrow)$:] Пусть $|f|\in \widetilde{\mathcal{R}}(\Omega),\ f^+, f^-\in \mathcal{R}_{\text{loc}}(\Omega)$. Заметим, что на $\Omega$ выполнены
+        \[|f|\geq f^+\geq 0,\ \ |f|\geq f^-\geq 0\]
+        Тогда по первому признаку сравнения 
+        $f^+,f^-\in \widetilde{\mathcal{R}}(\Omega)$. Тогда 
+        \[f=f^+-f^-\in \widetilde{\mathcal{R}}(\Omega)\]
+        \item[$(\Rightarrow)$:] Предположим, что $f\in \widetilde{\mathcal{R}}(\Omega)$, но $|f|\in \widetilde{\mathcal{R}}(\Omega)$. Это в точности означает, что
+        \[\idotsint\limits_{\Omega}|f|\ dx_1 \dots dx_k=+\infty\]
+        Отсюда
+        \[f^+=\frac{|f|+f}{2}\ \Rightarrow\ \idotsint\limits_{\Omega}f^+\ dx_1 \dots dx_k=+\infty\]
+        \[f^-=\frac{|f|-f}{2}\ \Rightarrow\ \idotsint\limits_{\Omega}f^-\ dx_1 \dots dx_k=+\infty\]
+        Пусть $\{K_n\}$ --- исчерпание $\Omega$. Хотим построить такое исчерпание $\{K_m'\}$, что при нечетном $m$:
+        \[\idotsint\limits_{K_m'}f\ dx_1 \dots dx_k>m\]
+        а при четном $m$:
+        \[\idotsint\limits_{K_m'}f\ dx_1 \dots dx_k<-m\]
+        Построим такое исчерпание по индукции.\\
+        \underline{Шаг 1:} Рассмотрим
+        \[\idotsint\limits_{K_1}|f|\ dx_1 \dots dx_k\]
+        Выберем такое $n_1$, что
+        \[\idotsint\limits_{K_{n_1}}f^+\ dx_1 \dots dx_k> \idotsint\limits_{K_1}|f|\ dx_1\dots dx_k+2\]
+        По лемме, существует измеримый компакт $Q_1$ такой, что $Q_1\subset K_{n_1}$ и
+        \begin{multline*}
+            \idotsint\limits_{Q_1}f\ dx_1 \dots dx_k>\idotsint\limits_{K_{n_1}}f^+\ dx_1 \dots dx_k-1>\\
+            >\idotsint\limits_{K_1}|f|\ dx_1 \dots dx_k+1
+        \end{multline*}
+        Определим $K_1'=K_1\cup Q_1$. Тогда
+        \begin{multline*}
+            \idotsint\limits_{K_1'}f\ dx_1 \dots dx_k=\\
+            =\idotsint\limits_{Q_1}f\ dx_1 \dots dx_k+\idotsint\limits_{K_1\setminus Q_1}f\ dx_1 \dots dx_k>\tab[2.5cm]\\
+            >\idotsint\limits_{K_1}|f|\ dx_1 \dots dx_k +1 -\idotsint\limits_{K_1}|f|\ dx_1 \dots dx_k=1
+        \end{multline*} 
+        Второе слагаемое было оценено так:
+        \[\idotsint\limits_{K_1\setminus Q_1}f\ dx_1 \dots dx_k\geq -\idotsint\limits_{K_1\setminus Q_1}|f|\ dx_1 \dots dx_k\geq -\idotsint\limits_{K_1}|f|\ dx_1 \dots dx_k\]
+        \underline{Шаг 2:} Рассмотрим
+        \[\idotsint\limits_{K_2}|f|\ dx_1 \dots dx_k\]
+        Выберем такое $n_2>n_1$, что $K_1'\subset K^o_{n_2}$ и
+        \[\idotsint\limits_{K_{n_2}}f^-\ dx_1 \dots dx_k > \idotsint\limits_{K_1'\cup K_2}|f|\ dx_1\dots dx_k+3\]
+        Применим лемму к функции $-f$. Тогда существует измеримый компакт $Q_2\subset K_{K_{n_2}}$ такой, что
+        \begin{multline*}
+            \idotsint\limits_{Q_2}(-f)\ dx_1 \dots dx_k > \idotsint\limits_{K_{n_2}}f^-\ dx_1 \dots dx_k -1>\\
+            >\idotsint\limits_{K_1'\cup K_2}|f|\ dx_1 \dots dx_k+2
+        \end{multline*}
+        Определим компакт $F=K_1'\cup Q_2\cup K_2$. Тогда
+        \begin{multline*}
+            \idotsint\limits_{F}(-f)\ dx_1 \dots dx_k=\\
+            =\idotsint\limits_{Q_2}(-f)\ dx_1 \dots dx_k+\idotsint\limits_{(K_1'\cup K_2)\setminus Q_2}(-f)\ dx_1 \dots dx_k>\\
+            >\idotsint\limits_{K_1'\cup K_2}|f|\ dx_1 \dots dx_k+2-\idotsint\limits_{K_1'\cup K_2}|f|\ dx_1 \dots dx_k=2
+        \end{multline*}
+        Второе слагаемое было оценено так:
+        \begin{multline*}
+            \idotsint\limits_{(K_1'\cup K_2)\setminus Q_2}(-f)\ dx_1 \dots dx_k\geq -\idotsint\limits_{(K_1'\cup K_2)\setminus Q_2}|f|\ dx_1 \dots dx_k\geq\\
+            \geq -\idotsint\limits_{K_1'\cup K_2}|f|\ dx_1 \dots dx_k
+        \end{multline*}
+        По свойству абсолютной непрерывности существует такое $K_2'$, что\\
+        $F\subset (K_2')^o$ и тогда
+        \[\idotsint\limits_{K_2'} (-f)\ dx_1 \dots dx_k>2\]
+        % Хотим построить $K'_{2j+1}$. По предположению индукции построено $K_{2j}'$
+        % \[\idotsint\limits_{K_{2j}'}f\ dx_1 \dots dx_k<-2j\]
+        Шаг индукции. Пусть построены все $K_m'$ при $m<2j$. Проделаем шаг $2j$:
+        Рассмотрим
+        \[\idotsint\limits_{K_{2j}}|f|\ dx_1 \dots dx_k\]
+        Выберем такое $n_{2j}>n_{2j-1}$, что $K_{2j-1}'\subset K^o_{n_{2j}}$ и
+        \[\idotsint\limits_{K_{n_{2j}}}f^-\ dx_1 \dots dx_k > \idotsint\limits_{K_{2j-1}'\cup K_{2j}}|f|\ dx_1\dots dx_k+(2j+1)\]
+        Применим лемму к функции $-f$. Тогда существует измеримый компакт $Q_{2j}\subset K_{n_{2j}}$ такой, что
+        \begin{multline*}
+            \idotsint\limits_{Q_{2j}}(-f)\ dx_1 \dots dx_k > \idotsint\limits_{K_{n_{2j}}}f^-\ dx_1 \dots dx_k -1 >\\
+            >\idotsint\limits_{K_{2j-1}'\cup K_{2j}}|f|\ dx_1 \dots dx_k+2j
+        \end{multline*}
+        Определим компакт $G=K_{2j-1}'\cup Q_{2j}\cup K_{2j}$. Тогда
+        \begin{multline*}
+            \idotsint\limits_{G}(-f)\ dx_1 \dots dx_k = \\
+            =\idotsint\limits_{Q_{2j}}(-f)\ dx_1 \dots dx_k + \idotsint\limits_{(K_{2j-1}'\cup K_{2j})\setminus Q_{2j}}(-f)\ dx_1 \dots dx_k > \\
+            >\idotsint\limits_{K_{2j-1}'\cup K_{2j}}|f|\ dx_1 \dots dx_k+2j-\idotsint\limits_{K_{2j-1}'\cup K_{2j}}|f|\ dx_1 \dots dx_k = 2j
+        \end{multline*}
+        Второе слагаемое было оценено так:
+        \begin{multline*}
+            \idotsint\limits_{(K_{2j-1}'\cup K_{2j})\setminus Q_{2j}}(-f)\ dx_1 \dots dx_k \geq -\idotsint\limits_{(K_{2j-1}'\cup K_{2j})\setminus Q_{2j}}|f|\ dx_1 \dots dx_k \geq \\
+            \geq-\idotsint\limits_{K_{2j-1}'\cup K_{2j}}|f|\ dx_1 \dots dx_k
+        \end{multline*}
+        По свойству абсолютной непрерывности существует такое $K_{2j}'$, что \\
+        $G\subset (K_{2j}')^o$ и тогда
+        \[\idotsint\limits_{K_{2j}'}(-f)\ dx_1 \dots dx_k > 2j\]
+        Проделаем шаг $2j+1$:
+        Рассмотрим
+        \[\idotsint\limits_{K_{2j+1}}|f|\ dx_1 \dots dx_k\]
+        Выберем такое $n_{2j+1}>n_{2j}$, что $K_{2j}'\subset K^o_{n_{2j+1}}$ и
+        \[\idotsint\limits_{K_{n_{2j+1}}}f^+\ dx_1 \dots dx_k > \idotsint\limits_{K_{2j}'\cup K_{2j+1}}|f|\ dx_1\dots dx_k+(2j+2)\]
+        По лемме, существует измеримый компакт $Q_{2j+1}\subset K_{n_{2j+1}}$ такой, что
+        \begin{multline*}
+            \idotsint\limits_{Q_{2j+1}}f\ dx_1 \dots dx_k > \idotsint\limits_{K_{n_{2j+1}}}f^+\ dx_1 \dots dx_k -1 > \\ 
+        \idotsint\limits_{K_{2j}'\cup K_{2j+1}}|f|\ dx_1 \dots dx_k+(2j+1)
+        \end{multline*}
+        Определим компакт $S=K_{2j}'\cup Q_{2j+1}\cup K_{2j+1}$. Тогда
+        \begin{multline*}
+        \idotsint\limits_{S}f\ dx_1 \dots dx_k=\\
+        =\idotsint\limits_{Q_{2j+1}}f\ dx_1 \dots dx_k+\idotsint\limits_{(K_{2j}'\cup K_{2j+1})\setminus Q_{2j+1}}f\ dx_1 \dots dx_k > \\
+        >\idotsint\limits_{K_{2j}'\cup K_{2j+1}}|f|\ dx_1 \dots dx_k+(2j+1) -
+        \idotsint\limits_{K_{2j}'\cup K_{2j+1}}|f|\ dx_1 \dots dx_k = 2j+1
+        \end{multline*}
+        Второе слагаемое было оценено так:
+        \begin{multline*}
+            \idotsint\limits_{(K_{2j}'\cup K_{2j+1})\setminus Q_{2j+1}}f\ dx_1 \dots dx_k \geq-\idotsint\limits_{(K_{2j}'\cup K_{2j+1})\setminus Q_{2j+1}}|f|\ dx_1 \dots dx_k \geq\\
+            \geq-\idotsint\limits_{K_{2j}'\cup K_{2j+1}}|f|\ dx_1 \dots dx_k
+        \end{multline*}
+        По свойству абсолютной непрерывности существует такое $K_{2j+1}'$, что \\
+        $S\subset (K_{2j+1}')^o$ и тогда
+        \[\idotsint\limits_{K_{2j+1}'}f\ dx_1 \dots dx_k > 2j+1\]
+    \end{itemize}
+\end{proof}
+\begin{example}
+    Сферические координаты в многомерном пространстве.
+\end{example}
