@@ -1,0 +1,134 @@
+\section{Криволинейные интегралы}
+\subsection{Кривые в $\R^n$}
+\begin{definition}
+    Отображение $\phi: [a,b]\to \R^k$ такое, что $\forall t\in [a,b]:\\ \phi(t)=(x_1(t), \dots, x_k(t))$ называется параметризацией кривой.
+\end{definition}
+\begin{definition}
+    Пусть $\phi_1:[\alpha_1, \beta_1]\to \R^k,\ \phi_2:[\alpha_2, \beta_2]\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ являются параметризуют одну и ту же кривую, если существует строго монотонная функция $g: [\alpha_1, \beta_1]\to [\alpha_2, \beta_2]$ такая, что $\phi_2\equiv \phi_1\circ g$ на $[\alpha_1, \beta_1]$.
+\end{definition}
+\begin{definition}
+    Кривая --- класс эквивалентности параметризаций.
+\end{definition}
+\begin{definition}
+    Кривая называется простой, если всякая ее параметризация инъективна.
+\end{definition}
+\begin{definition}
+    Кривая называется замкнутой, если для любой ее параметризации $\phi: [\alpha,\beta]\to \R^k$ выполнено равенство $\phi(\alpha)=\phi(\beta)$. Кривая называется простой замкнутой, если из равенства $\phi(t_1)=\phi(t_2)$ следует, что либо $t_1\neq t_2$, либо $\{t_1, t_2\}=\{\alpha,\beta\}$.
+\end{definition}
+\begin{definition}
+    Пусть $T=\{t_i\}$ --- разбиение отрезка $[\alpha, \beta]$:
+    \[\alpha=t_0<t_1<t_2<\dots<t_n=\beta\]
+    Тогда множество
+    \[\Lambda(T)=\bigcup\limits_{i=1}^n [\phi(t_{i-1}), \phi(t_i)]\]
+    называется вписанной ломаной в кривую $\gamma$.
+\end{definition}
+\begin{definition}
+    Число
+    \[|\Lambda(T)|=\sum\limits_{i=1}^{n} |\phi(t_i)-\phi(t_{i-1})|\]
+    называется длиной вписанной ломаной, а число
+    \[|\gamma|=\sup\limits_T |\Lambda(T)|\]
+    называется длиной кривой.
+\end{definition}
+\begin{definition}
+    Функция $f$, определенная на промежутке $I$ имеет ограниченную вариацию, если
+    \[\text{Var}(f,I)=\sup\limits_{n\in \N} \sum\limits_{i=1}^{n}|f(t_i)-f(t_{i-1})|<+\infty\]
+\end{definition}
+\begin{theorem} [Об условиях спрямляемости кривых] $\\$
+    Следующие условия эквивалентны:
+    \begin{enumerate}
+        \item $|\gamma|<+\infty$.
+        \item Всякая параметризация кривой $\gamma$ имеет ограниченную вариацию.
+        \item Кривая $\gamma$ имеет параметризацию с ограниченой вариацией.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\tab
+    \begin{enumerate}
+        \item $(1) \Rightarrow (2)$:\\
+        $\forall T: |\Lambda(T)|<|\gamma|=\text{const}$
+        \begin{multline*}
+            |\gamma|\geq\sum\limits_{i=1}^{n}|\phi(t_i)-\phi(t_{i-1})|=\\
+            =\sum\limits_{i=1}^{n}\sqrt{(x_1(t_i)-x_1(t_{i-1}))^2+\dots+(x_k(t_i)-x_k(t_{i-1}))^2}\geq \\
+            \geq \sum\limits_{i=1}^{n}|x_j(t_i)-x_j(t_{i-1})|
+        \end{multline*}
+        \item $(2) \Rightarrow (3)$: Очевидно.
+        \item $(3) \Rightarrow (1)$:
+        \begin{multline*}
+            |\Lambda(T)|=\sum\limits_{i=1}^{n}|\phi(t_i)-\phi(t_{i-1})|\leq\\
+            \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{k}|x_j(t_i)-x_j(t_{i-1})|=\sum\limits_{j=1}^{k}\sum\limits_{i=1}^{n}|x_j(t_i)-x_j(t_{i-1})|\leq\\
+            \leq \sum\limits_{j=1}^{k}\text{Var}(x_j([\alpha,\beta]))
+        \end{multline*}
+    \end{enumerate}
+\end{proof}
+\begin{example} [Кривая, у которой бесконечная длина] $\\$
+    Построим непрерывную функцию $\gamma=(x(t),y(t))$ неограниченной вариации
+    \[x(t)\equiv t,\ \ y(t)=\begin{cases}
+        0,\ t=0,\\
+        t\cdot \sin{(\frac{\pi}{t})},\ t\in [0,1]
+    \end{cases}\]
+    тут будет картинка.
+\end{example}
+\begin{exercise}
+    Приведите пример простой кривой (без самопересечений) положительной меры Жордана.
+\end{exercise}
+\noindentНапоминание из втрого семестра:
+Пусть у кривой $\gamma$ существует параметризация $\phi\in \mathcal{C}^1$. 
+\[|\gamma|=\int\limits_{\alpha}^{\beta} \sqrt{(x_1'(t))^2+\dots+(x_k'(t))^2}\ dt\]
+Отображения из класса $\mathcal{C}^1$, у которых вектор скорости не обращается в ноль, в этом курсе будем называть гладкими.
+\subsection{Криволинейный интеграл первого рода}
+\begin{definition}
+    Пусть $f$ определена на $\phi([\alpha,\beta])$, а кривая $\gamma$ спрямляема. Криволинейным интегралом первого рода назовем
+    \[\int\limits_{\gamma}f(x_1,\dots,x_k)\ ds=\int\limits_{\alpha}^{\beta}f(x_1(t),\dots,x_k(t))\ ds(t)\]
+\end{definition}
+\begin{definition}[Альтернативное определение криволинейного интеграла первого рода]
+    Пусть $T=\{t_i\}$ --- разбиение отрезка $[\alpha,\beta],\ \Delta_i=[\phi(t_{i-1}),\phi(t_i)]$. Множество $H=\{\xi_i\}$, где $\xi_i$ выбран на дуге, которую стягивает отрезок $\Delta_i$, называется разметкой кривой. Интегральной суммой назовем
+    \[\sigma(f,\Lambda(T), H)=\sum\limits_{i=1}^{n}f(\xi_i)\cdot |\Delta_i|\]
+    Диаметром вписанной кривой назовем $\text{diam}(\Lambda(T))$ --- наибольшую из длин отрезков в составе $\Lambda(T)$. Тогда если
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \text{diam}(\Lambda(T))<\delta: |\sigma(f,\Lambda(T), H)-I|<\epsilon\]
+    То 
+    \[I=\int\limits_{\gamma}f(x_1,\dots,x_k)\ ds\]
+    называется криводинейным интегралом первого рода.
+\end{definition}
+\begin{lemma}
+    Если выполнено одно из определений криволинейного интеграла первого рода для простых кривых, то $f$ ограничена на $\phi([\alpha,\beta])$.
+\end{lemma}
+\begin{proof}
+    \[\sigma_{s}(f,T,\eta)=\sum\limits_{i=1}^{n}f(\phi(\eta_i))(s(t_i)-s(t_{i-1}))\]
+\[\forall \epsilon>0\ \exists\ \delta>0,\ \text{diam}(T)<\delta: |\sigma_s-I|<\epsilon\]
+\[I-\epsilon<\sigma_s<I+\epsilon\]
+Пусть
+\[c=\sum\limits_{i\neq m}f(\phi(\eta_i))(s(t_i)-s(t_{i-1}))\]
+Итак
+\[I-c-\epsilon<f(\phi(\eta_m))(s(t_m)-s(t_{m-1}))<I-c+\epsilon\]
+\end{proof}
+\begin{lemma}
+    Пусть $\gamma$ --- спрямляемая кривая, $\phi$ --- ее параметризация. Тогда 
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \text{diam}(\Lambda(T))<\delta: |\gamma|-|\Lambda(T)|<\epsilon\]
+\end{lemma}
+% \begin{proof} (не спрашивают на экзамене)\\
+%     $\exists\ T': |\gamma|-|\Lambda(T')|<\frac{\epsilon}{2}$.
+%     Поймем насколько меняется длина ломаной, если добавить в разбиение отрезка еще одну точку $\tau$. Для $\tau_1,\tau_2\in [\alpha,\beta]$ обозначим
+%     \[\omega(\delta)=\sup\limits_{|tau_1-\tau_2|<\delta}\ \|\phi(\tau_1)-\phi(\tau_2)\|\]
+%     и заметим, что $\omega(\delta)\to 0,\ \delta\to 0+ \Leftrightarrow \phi$ --- раномерно непрерывна.
+%     \[\forall \epsilon>0\ \exists\ \delta>0,\ |\tau_1-\tau_2|<\delta: \|\phi(\tau_1)-\phi(\tau_2)\|<\theta=\frac{\epsilon}{4N}\]
+% \end{proof}
+\begin{theorem}
+    Два определение криволинейных интегралов первого рода эквивалентны.
+\end{theorem}
+\begin{proof} (не спрашивают на экзамене)\tab
+    \begin{enumerate}
+        \item $(1)\Rightarrow(2):\ \forall \epsilon>0\ \exists\ \delta>0,\ \text{diam}(T)<\delta: |\sigma_s(f\circ \phi,T,h)-I|<\frac{\epsilon}{2}$, то есть 
+        \[\left|\sum\limits_{i=1}^{n}f(\phi(\eta_i))\cdot(s(t_i)-s(t_{i-1}))-I\right|<\frac{\epsilon}{2}\]
+        Обозначим $\xi_i=\phi(\eta_i)$. Тогда
+        \[\sigma(f,\Lambda(T),H)=\sum\limits_{i=1}^{n}f(\xi_i)\cdot |\Delta_i|\]
+        Пусть $M=\sup\limits_{\gamma}|f|$
+        \begin{multline*}
+            \sigma_s-\sigma=\left|\sum\limits_{i=1}^{n}f(\xi_i)(|a_i|-|\Delta_i|)\right|\leq M\cdot \sum\limits_{i=1}^{n}(|a_i|+|\Delta_i|)=\\
+            =M(|\gamma|-\Lambda(T))<\frac{\epsilon}{2}
+        \end{multline*}
+        \[\forall \epsilon>0\ \exists\ \theta>0,\ \text{diam}(\Lambda(T))<\theta:\ |\gamma|-\Lambda(T)<\frac{\epsilon}{2M}\]
+        Пусть $C,D\in \gamma: \rho(C,D)<\theta$, то $|\phi^{-1}(C)-\phi^{-1}(D)|<\delta$\\
+        доделать
+        \item $(2)\Rightarrow(1)$: говорят что аналогично
+    \end{enumerate}
+\end{proof}
+тут сформулировали свойства 0-3
