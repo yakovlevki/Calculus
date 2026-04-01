@@ -1,11 +1,12 @@
 \section{Лекция 4}
 Напомним, что
-\[\mu_*(\Phi)=\sup\{\ \sum\limits_{i=1}^{n}|\Pi_i|: \bigsqcup\limits_{i=1}^n\Pi_i\subset \Phi\ \}\]
-\[\mu^*(\Phi)=\inf\{\ \sum\limits_{i=1}^{n}|\Pi_i|: \Phi\subset \bigsqcup\limits_{i=1}^n\Pi_i\ \}\]
+\[\mu_*(\Phi)=\sup\left\{ \sum\limits_{i=1}^{n}|\Pi_i|: \bigsqcup\limits_{i=1}^n\Pi_i\subset \Phi \right\}\]
+\[\mu^*(\Phi)=\inf\left\{ \sum\limits_{i=1}^{n}|\Pi_i|: \Phi\subset \bigsqcup\limits_{i=1}^n\Pi_i \right\}\]
 Далее, если это требуется, будем обозначать замкнутый брус как
 \[\overline{\Pi_i}=[a_1,b_1]\times \dots\times [a_k,b_k]\]
 и открытый брус как
 \[\Pi_i^o=(a_1,b_1)\times \dots\times (a_k,b_k)\]
+Аналогично будем обозначать замыкание и внутренность.
 \subsection{Второе доказательство критерия измеримости по Жордану}
 Докажем теорему из предыдущей лекции другим, не использующим интегралы, способом.
 \begin{theorem} [Критерий измеримости по Жордану] $\\$
@@ -59,24 +60,75 @@
     \end{itemize}
 \end{proof}
 \subsection{Свойства меры Жордана на измеримых множествах}
+\begin{definition}
+    Кольцом множеств будем называть непустое семейство множеств, замкнутое относительно пересечения и симметрической разности.
+\end{definition}
 \begin{statement}
     Семейство измеримых по Жордану множеств образует кольцо множеств.
 \end{statement}
-%\begin{proof}
-%    Пусть $\Phi_1, \Phi_2$ --- измеримые по Жордану множества.
-%\end{proof}
+\begin{proof}\footnote{На лекции было пояснено по-другому}
+    Пусть $\Phi_1, \Phi_2$ --- измеримые по Жордану множества. Вспомним, что
+    \[A\bigtriangleup B=(A\cup B)\setminus (A\cap B)\]
+    Тогда достаточно показать, что измеримость сохраняется при объединении, пересечении и разности. Заметим, что
+    \[\partial(\Phi_1\cup \Phi_2)\subset \partial \Phi_1 \cup \partial \Phi_2,\ \partial(\Phi_1\cap \Phi_2)\subset \partial \Phi_1 \cup \partial \Phi_2,\ \partial(\Phi_1\setminus \Phi_2)\subset \partial \Phi_1 \cup \partial \Phi_2\]
+    Поскольку $\Phi_1$ и $\Phi_2$ --- измеримы по Жордану, то $\mu^*(\partial\Phi_1)=\mu^*(\partial\Phi_2)=0$, где 
+    \[\mu^*(\Phi)=\inf\left\{ \sum\limits_{i=1}^{n}|\Pi_i|: \Phi\subset \bigsqcup\limits_{i=1}^n\Pi_i \right\}\]
+    --- внешняя мера Жордана. Укажем несколько очевидных свойств внешней меры Жордана:
+    \begin{enumerate}
+        \item Монотонность: Если $A\subset B$, то $\mu^*(A)\leq \mu^*(B)$.
+        \item Конечная полуаддитивность: $\mu^*(A\cup B)\leq \mu^*(A)+\mu^*(B)$
+    \end{enumerate}
+    Подробнее про кольца множеств и внешнюю меру можно прочитать в \href{https://github.com/betel-git/Real-Analysis}{конспекте курса действительного анализа}. Пользуясь этими свойствами, получаем
+    \[\mu^*(\partial (\Phi_1\cup \Phi_2))\leq \mu^*(\partial\Phi_1\cup\partial\Phi_2)\leq \mu^*(\partial \Phi_1)+\mu^*(\partial\Phi_2)=0\]
+    \[\mu^*(\partial(\Phi_1\cap \Phi_2))\leq \mu^*(\partial\Phi_1\cup\partial\Phi_2)\leq \mu^*(\partial\Phi_1)+\mu^*(\partial\Phi_2)=0\]
+    \[\mu^*(\partial(\Phi_1\setminus \Phi_2))\leq \mu^*(\partial\Phi_1\cup\partial\Phi_2)\leq \mu^*(\partial\Phi_1)+\mu^*(\partial\Phi_2)=0\]
+    Таким образом $\Phi_1\cup \Phi_2,\ \Phi_1\cap \Phi_2$ и $\Phi_1\setminus \Phi_2$ измеримы по Жордану.
+    % Заметим, что $\partial(\Phi_1\cap \Phi_2)\subset \partial \Phi_1 \cup \partial \Phi_2$. Пусть $x\in \partial(\Phi_1\cap \Phi_2) \Rightarrow$ в любой окрестности точки $x$ есть точка из $\Phi_1\cap\Phi_2$ и точка из $\overline{\Phi_1\cap\Phi_2} \Rightarrow$ в любой окрестности точки $x$ есть точка из $\Phi_1$ и точка из $\Phi_2$ и в любой окрестности есть точки из $\overline{\Phi_1}$ или из $\overline{\Phi_2}$. Итак, $\Phi_1\bigtriangleup \Phi_2\subset \partial \Phi_1\cup \partial\Phi_2$
+\end{proof}
+\newpage
 \begin{statement}
     На кольце измеримых по Жордану множеств, $\mu$ является конечно-аддитивной мерой.
 \end{statement}
+\begin{proof}
+    Пусть $R$ --- кольцо измеримых по Жордану множеств. Покажем, что если $\Phi_1,\Phi_2\in R$, то
+    \[\mu(\Phi_1\sqcup \Phi_2)=\mu(\Phi_1)+\mu(\Phi_2)\]
+    Заметим, что:
+    \[\mu^*(\partial(\Phi_1\sqcup \Phi_2))\leq \mu^*(\partial\Phi_1)+\mu^*(\partial\Phi_2)=0\]
+    Значит $\Phi_1\sqcup\Phi_2\in R$.
+    При этом по свойству инфинума $\forall \epsilon>0\ \exists\ P_{1},P_{2}$:
+    \[\mu(P_1)<\mu^*(\Phi_1)+\frac{\epsilon}{2},\ \ \mu(P_2)<\mu^*(\Phi_2)+\frac{\epsilon}{2}\]
+    Тогда
+    \[\mu(P_1\cup P_2)<\mu^*(\Phi_1)+\mu^*(\Phi_2)+\epsilon\]
+    Заметим, что $\Phi_1\sqcup\Phi_2\subset P_1\cup P_2$. Тогда
+    \begin{multline*}
+        \mu^*(\Phi_1\sqcup\Phi_2)=\inf\{\mu(P): \Phi_1\sqcup\Phi_2\subset P\}\leq \\
+        \leq\inf\{\mu(P_1\cup P_2): \Phi_1\subset P_1,\ \Phi_2\subset P_2\}\leq \mu^*(\Phi_1)+\mu^*(\Phi_2)
+    \end{multline*}
+    Причем $\Phi_1,\Phi_2, \Phi_1\sqcup\Phi_2\in R$, значит
+    \[\mu^*(\Phi_1)=\mu(\Phi_1),\ \mu^*(\Phi_2)=\mu(\Phi_2),\ \mu^*(\Phi_1\sqcup\Phi_2)=\mu(\Phi_1\sqcup\Phi_2)\]
+    Отсюда 
+    \[\mu(\Phi_1\sqcup\Phi_2)\leq \mu(\Phi_1)+\mu(\Phi_2)\]
+    Покажем обратное неравенство. Поскольку $\Phi_1,\Phi_2\in R$, то существуют элементарные $Q_1,Q_2$:
+    \[\mu(Q_1)>\mu(\Phi_1)-\frac{\epsilon}{2},\ \ \mu(Q_2)>\mu(\Phi_2)-\frac{\epsilon}{2}\]
+    Заметим, что $Q_1\sqcup Q_2\subset \Phi_1\sqcup\Phi_2$. Тогда
+    \[\mu(\Phi_1\sqcup\Phi_2)\geq \mu(Q_1\sqcup Q_2)=\mu(Q_1)+\mu(Q_2)>\mu(\Phi_1)+\mu(\Phi_2)-\epsilon\]
+    из произвольности $\epsilon$ получаем, что
+    \[\mu(\Phi_1\sqcup\Phi_2)\geq \mu(\Phi_1)+\mu(\Phi_2)\]
+    % \[\forall \epsilon>0\ \exists\ T_1,T_2,\ \partial \Phi_1\subset T_1,\ \partial\Phi_2\subset T_2: \mu(T_1)<\frac{\epsilon}{2},\ \mu(T_2)<\frac{\epsilon}{2}\]
+    % Тогда $P_1=T_1\cup Q_1,\ P_2=T_2\cup Q_2$, где $Q_1\subset \Phi_1,\ Q_2\subset \Phi_2$. Таким образом
+    % \[\mu(\Phi_1)+\mu(\Phi_2)\leq \mu(P_1)+\mu(P_2)\leq\mu(Q_1)+\mu(Q_2)+\mu(T_1)+\mu(T_2)\leq \mu(\Phi_1\sqcup\Phi_2)+\epsilon\]
+    % Значит 
+    % \[\mu(\Phi_1\sqcup\Phi_2)\geq \mu(\Phi_1)+\mu(\Phi_2)\]
+\end{proof}
 \begin{statement}
     Пусть $\text{Isom}: \R^k\to \R^k$ --- отображение, которое прямые, параллельные осям координат, переводит в прямые, параллельные осям координат. Тогда
     \[\mu(\Phi)=\mu(\text{Isom}(\Phi))\]
 \end{statement}
 \begin{statement}
-    $\mu(\Phi)=0 \Leftrightarrow$ мера Лебега $\Phi$ равна нулю.
+    Пусть $\Phi$ замкнуто и $\mu(\Phi)=0 \Leftrightarrow$ мера Лебега $\Phi$ равна нулю.
 \end{statement}
-\begin{definition}
-    Пусть $\Phi$ --- измеримо по Жордану, а $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
-    \[\overbrace{\idotsint\limits_{\Phi}}^k f(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-\end{definition}
+% \begin{definition}
+%     Пусть $\Phi$ --- измеримо по Жордану, а $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
+%     \[\overbrace{\idotsint\limits_{\Phi}}^k f(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+% \end{definition}
 \newpage
