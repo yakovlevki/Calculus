@@ -1,45 +1,47 @@
 \section{Лекция 3}
 \subsection{Мера Жордана в $\R^k$}
 \begin{definition}
-    Выберем семейство элементарных множеств $\Pi_i$. Тогда семейство множеств вида $\bigsqcup\limits_{i=1}^n \Pi_i$, замкнутое относительно пересечения и симметрической разности, называется кольцом множеств.
+    Если множество $Q$ раскладывается в объединение непересекающихся брусов $Q=\bigsqcup\limits_{i=1}^n \Pi_i$, то оно называется элементарным.
 \end{definition}
+% \begin{definition}
+%     Выберем семейство элементарных множеств $\Pi_i$. Тогда семейство множеств вида $\bigsqcup\limits_{i=1}^n \Pi_i$, замкнутое относительно пересечения и симметрической разности, называется кольцом множеств.
+% \end{definition}
 \begin{definition}
     Пусть $\Phi$ -- ограниченное множество в $\R^k$. Тогда 
     \begin{enumerate}
-        \item внешней мерой Жордана называется число
+        \item Если $\Pi$ --- брус, то определим $\mu(\Pi)=V(\Pi)$ и если $\Pi_i$ --- брусы, то по определению положим 
+        \[\mu\left(\ \bigsqcup\limits_{i=1}^n \Pi_i\right)=\sum\limits_{i=1}^{n}\mu(\Pi_i)\] 
+        \item Внешней мерой Жордана называется число
             \[\mu^*(\Phi)=\inf \{\mu(P): P \text{ --- элементарное множество, такое, что } \Phi\subset P\}\]
-        \item внутренней мерой Жордана называется число
+        \item Внутренней мерой Жордана называется число
             \[\mu_*(\Phi)=\sup \{\mu(Q): Q \text{ --- элементарное множество, такое, что } Q\subset\Phi\}\]
         \item Если $\mu^*(\Phi)=\mu_*(\Phi)$, то назовем число 
             \[\mu(\Phi)=\mu^*(\Phi)=\mu_*(\Phi)\]
             мерой Жордана, а $\Phi$ измеримым по Жордану.
-        \item Если $\Pi_i$ --- элементарное множество, то по определению положим 
-        \[\mu\left(\ \bigsqcup\limits_{i=1}^n \Pi_i\right)=\sum\limits_{i=1}^{n}\mu(\Pi_i)\]
     \end{enumerate}
 \end{definition}
 \begin{definition}
     Функция 
-    \[\chi_i={\Phi}(x)=\begin{cases}
+    \[\chi_{\Phi}(x)=\begin{cases}
         1,\ x\in \Phi,\\
         0,\ x\not\in\Phi
     \end{cases}\]        
     называется индикатором множества $\Phi$.
 \end{definition}
-\begin{theorem}
+\begin{theorem} [Критерий измеримости по Жордану в терминах кратного интеграла] $\\$
     Множество $\Phi$ измеримо по Жордану $\Leftrightarrow$ по любому брусу $\Pi$ такому, что $\Phi\subseteq \Pi$, существует интеграл от $\chi_{\Phi}$ по $\Pi$. При этом
-    \[\mu(\Phi)=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    \[\mu(\Phi)=\idotsint\limits_{\Pi} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
 \end{theorem}
-\newpage
 \begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow)$:] Пусть $\mu_*(\Phi)=\mu^*(\Phi)=\mu(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ P_{\epsilon}>\Phi>Q_{\epsilon}$:
+        \item[$(\Rightarrow)$:] Пусть $\mu_*(\Phi)=\mu^*(\Phi)=\mu(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ Q_{\epsilon}\subset \Phi\subset P_{\epsilon}$:
         \[\mu(P_{\epsilon})<\mu(\Phi)+\frac{\epsilon}{2},\ \ \mu(Q_{\epsilon})>\mu(\Phi)-\frac{\epsilon}{2}\]
         \[P_{\epsilon}=\bigsqcup\limits_{i=1}^n \Pi_i\]
         можно считать, что $P_{\epsilon}$ лежат внутри бруса $\Pi$, если это не так, то, не увеличив оценку, заменим $P_{\epsilon}$ на
         \[\widehat{P}_{\epsilon}=\bigsqcup\limits_{i=1}^n (\Pi_i\cap \Pi)\]
         \[P_{\epsilon}=\bigsqcup\limits_i \Pi_i,\ Q_{\epsilon}=\bigsqcup\limits_j \Pi_j'\]
         продолжив все грани $\Pi_i$ и $\Pi_j'$, получим разбиение $T$ бруса $\Pi$, при этом поскольку
-        \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{p}\inf\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{p}\sup\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|\]
+        \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{p_i}\inf\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{p}\sup\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|\]
         то $\overline{\overline{s}}(\chi_{\Phi},T)$ состоит из элементарных множеств, которые полностью содержатся в $\Phi$, а $\underline{\underline{S}}(\chi_{\Phi},T)$ из элементарных множеств, которые пересекаются с $\Phi$ хотя бы по одной точке. Значит 
         %еще бы пояснить
         \[\overline{\overline{s}}(\chi_{\Phi}, T)\geq \mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T)\leq \mu(P_{\epsilon})\]

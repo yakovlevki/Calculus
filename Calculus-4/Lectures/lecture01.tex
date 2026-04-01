@@ -28,7 +28,7 @@
 \end{definition}
 \begin{definition}
     Интегральной суммой называется выражение
-    \[\sigma(f, T, H)=\sum\limits_{j_1=1}^{n_1}\sum\limits_{j_2=1}^{n_2}\dots \sum\limits_{j_k=1}^{n_k}=f(\xi_{j_1,\dots,j_k})\cdot |\Delta_{j_1,\dots,j_k}|\]
+    \[\sigma(f, T, H)=\sum\limits_{j_1=1}^{n_1}\sum\limits_{j_2=1}^{n_2}\dots \sum\limits_{j_k=1}^{n_k}f(\xi_{j_1,\dots,j_k})\cdot |\Delta_{j_1,\dots,j_k}|\]
     Для краткости будем писать
     \[\sigma(f, T, H)=\sum\limits_{j} f(\xi_j)\cdot |\Delta_j|\]
 \end{definition}
@@ -88,16 +88,17 @@
         \[0\leq \underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T')\leq(M-m)\cdot d^{k-1}\cdot \delta\cdot p\]
         где $M=\sup\limits_{x\in R}f(x),\ m=\inf\limits_{x\in R}f(x),\ d$ --- диаметр $\Pi,\ \delta=d(T)$ - диаметр $T$.
 \end{statement}
-\begin{proof}
+\begin{proof} Докажем для нижней суммы. Пусть $T'$ получено из $T$ добавлением одного разреза. Тогда
     \begin{multline*}
-        \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j|+(m''_j)\cdot |\Delta_j''|)\overset{(2)}{\leq}\\
+        \overline{\overline{s}}(f,T')-\overline{\overline{s}}(f,T)\overset{(1)}{=}\sum\limits_{j}((m_j'-m_j)\cdot |\Delta_j'|+(m''_j-m_j)\cdot |\Delta_j''|)\overset{(2)}{\leq}\\
         \overset{(2)}{\leq} \sum\limits_{j} ((M-m)\cdot |\Delta_j'|+(M-m)\cdot |\Delta_j''|)=(M-m)\sum\limits_{j}(|\Delta_j'|+|\Delta_j''|)=\\
-        =(M-m)\cdot |\Pi_1|\leq (M-m)\cdot d^{k-1}\cdot \delta
+        =(M-m)\cdot |\Pi_1|\overset{(3)}{\leq} (M-m)\cdot d^{k-1}\cdot \delta
     \end{multline*}
     где $|\Pi_1|$ --- суммарный объём тех брусов, которые были разрезаны. Проделав эту операцию $p$ раз, получим искомое утверждение.\\
     (1): Суммируем только по тем брусам, по которым прошел разрез\\
     (2): $m_j', m_j''\leq M,\ m_j\geq m$.\\
-    Аналогично для верхней суммы Дарбу.
+    (3): Одна сторона, которая направлена вдоль разреза, не длиннее $\delta$, а остальные $k-1$ стороны не длиннее диаметра $d$ бруса $\Pi$. Таким образом $|\Pi_1|\leq d^{k-1}\cdot \delta$. \\
+    Аналогично можно показать для верхней суммы Дарбу.
 \end{proof}
 \begin{statement}
     \[\overline{\overline{s}}(f,T)=\inf\limits_H\sigma(f,T,H),\ \ \underline{\underline{s}}(f,T)=\sup\limits_H\sigma(f,T,H)\]

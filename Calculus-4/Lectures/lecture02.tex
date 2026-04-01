@@ -51,7 +51,7 @@
             \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta: \underline{\underline{S}}(f,T)\leq I+\epsilon \Rightarrow \inf\limits_{T}\underline{\underline{S}}(f,T)=I^*\leq I\]
             При этом известно, что $I_*\leq I\leq I^*$. Таким образом, $I_*=I=I^*$
         \item $(2)\Rightarrow(4)$:
-            \[\sup \limits_{T} \underline{\underline{S}}(f, T) = \inf \limits_{T} \overline{\overline{s}}(f, T)\]
+            \[\inf \limits_{T} \underline{\underline{S}}(f, T) = \sup \limits_{T} \overline{\overline{s}}(f, T)\]
             По свойству точных граней $\forall \epsilon > 0 \ \exists\ T_1, T_2$:
             \[0 \leq I - \overline{\overline{s}}(f, T_1) < \frac{\epsilon}{2},\ \  0 \leq \underline{\underline{S}}(f, T_2)-I < \frac{\epsilon}{2}\]
             \[0 \leq \underline{\underline{S}}(f, T_2) - \overline{\overline{s}}(f, T_1) < \epsilon\]
@@ -86,11 +86,12 @@
 \begin{proof}
     Пусть $f\in \mathcal{C}(\Pi) \Rightarrow f$ - равномерно непрерывна на $\Pi\\
     (f\in \mathcal{UC}(f))$:
-    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x_1,x_2,\ \rho(x_1,x_2)<\delta: |f(x_1)-f(x_2)|<\frac{\epsilon}{2|\Pi|}\]
-    Хотим показать, что
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall x_1,x_2,\ \rho(x_1,x_2)<\delta: |f(x_1)-f(x_2)|<\frac{\epsilon}{|\Pi|} \eqno{(*)}\]
+    Хотим показать, что выполнен критерий Дарбу:
     \[\Omega(f,T)=\sum\limits_{i}\omega_i\cdot |\Delta_i|<\epsilon\]
-    При этом 
-    \[\omega_i=\sup\limits_{x_1\in \Delta_i}f(x_1)-\inf\limits_{x_2\in \Delta_i}f(x_2)\leq \frac{\epsilon}{2|\Pi|}\]
+    При этом из $(*)$ имеем
+    \[\omega_i=\sup\limits_{x_1\in \Delta_i}f(x_1)-\inf\limits_{x_2\in \Delta_i}f(x_2)\leq \frac{\epsilon}{|\Pi|}\]
     таким образом
-    \[\Omega(f,T)\leq \frac{\epsilon}{2|\Pi|}\sum\limits_{i}|\Delta_i|=\frac{\epsilon}{2}<\epsilon\]
+    \[\Omega(f,T)\leq \frac{\epsilon}{|\Pi|}\sum\limits_{i}|\Delta_i|=\frac{\epsilon}{|\Pi|}\cdot |\Pi|=\epsilon\]
 \end{proof}
+\newpage
