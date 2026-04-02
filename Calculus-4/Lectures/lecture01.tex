@@ -54,6 +54,7 @@
     \[\forall \epsilon>0\ \exists\ \delta>0,\ \forall T: d(T)<\delta\ \forall H: |\sigma(f,T,H)-I|<\epsilon\]
 \end{definition}
 \subsection{Суммы Дарбу для кратного интеграла}
+Далее пусть дан брус $\Pi$ и его разбиение $T=\{\Delta_j\}$.
 \begin{definition}
     Назовем верхней и нижней суммой Дарбу соответственно выражения:
     \[\underline{\underline{S}}(f,T)=\sum\limits_{j} M_j\cdot |\Delta_j|, \ \ \overline{\overline{s}}(f,T)=\sum\limits_{j} m_j\cdot |\Delta_j|\]
@@ -104,11 +105,11 @@
     \[\overline{\overline{s}}(f,T)=\inf\limits_H\sigma(f,T,H),\ \ \underline{\underline{s}}(f,T)=\sup\limits_H\sigma(f,T,H)\]
 \end{statement}
 \begin{proof}
-    \[\sigma(f,T,H)=\sum\limits_{j}f(\xi_j)\cdot |\Delta_j|,\ \ \overline{\overline{s}}(f,T)=\sum\limits_{j}m_j\cdot |\Delta_j|\]
+    \[\sigma(f,T,H)=\sum\limits_{j}f(\xi_j)\cdot |\Delta_j|,\ \ \overline{\overline{s}}(f,T)=\sum\limits_{j} m_j\cdot |\Delta_j|\]
     Поскольку $m_j$ --- инфинум, то
-    \[\forall \epsilon>0\ \exists\ \xi_j\in \Delta_j: 0\leq f(\xi_j)-m_j<\frac{\epsilon}{|R|}\]
+    \[\forall \epsilon>0\ \exists\ \xi_j\in \Delta_j: 0\leq f(\xi_j)-m_j<\frac{\epsilon}{|\Pi|}\]
     отсюда
-    \[0\leq \sigma(f,T,H)-\overline{\overline{s}}(f,T)=\sum\limits_{j}(f(\xi_j)-m_j)\cdot |\Delta_j|<\sum\limits_{j}\frac{\epsilon}{|R|}\cdot |\Delta_j|\]
+    \[0\leq \sigma(f,T,H)-\overline{\overline{s}}(f,T)=\sum\limits_{j}(f(\xi_j)-m_j)\cdot |\Delta_j|<\sum\limits_{j}\frac{\epsilon}{|\Pi|}\cdot |\Delta_j|=\frac{\epsilon}{|\Pi|}\cdot \sum\limits_{j}|\Delta_j|=\epsilon\]
     а это в точности означает, что
     \[\overline{\overline{s}}(f,T)=\inf\limits_H\sigma(f,T,H)\]
     Аналогично для верхней суммы Дарбу.

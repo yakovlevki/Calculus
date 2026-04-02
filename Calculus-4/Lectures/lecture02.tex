@@ -9,8 +9,8 @@
 \end{definition}
 \begin{comm}
     Пусть $T = \{\Delta_j\}$
-    \[\Omega(f, T) = \sum \limits_i \left(\ \sup \limits_{x \in \Delta_i} f(x) - \inf \limits_{x \in \Delta_i} f(x)\right)\cdot |\Delta_i|\]
-    $\sup \limits_{x \in \Delta_i} f(x) - \inf \limits_{x \in \Delta_i} f(x) := \omega_i$ называют колебаниями $f$ на $\Delta_i$.
+    \[\Omega(f, T) = \sum \limits_i \left(\ \sup \limits_{x \in \Delta_i} f(x) - \inf \limits_{x \in \Delta_i} f(x)\right)\cdot |\Delta_i|=\sum\limits_{i}\omega_i\cdot |\Delta_i|\]
+    $\omega_i:=\sup \limits_{x \in \Delta_i} f(x) - \inf \limits_{x \in \Delta_i} f(x)$ называют колебаниями $f$ на $\Delta_i$.
 \end{comm}
 \noindent В одномерном случае доказывалось утверждение
 \setcounter{numtheorem}{-1}
@@ -19,7 +19,7 @@
     \begin{enumerate}
         \item $f \in \mathcal{R}[a, b]$
         \item $I^*(f, [a,b]) = I_*(f, [a,b])$
-        \item $\forall \epsilon > 0 \ \exists\ \delta > 0: \forall T: d(T) < \delta: \Omega(f, T) < \epsilon$
+        \item $\forall \epsilon > 0 \ \exists\ \delta > 0: \forall T,\ d(T) < \delta: \Omega(f, T) < \epsilon$
         \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$
     \end{enumerate}
 \end{numtheorem}
@@ -33,7 +33,6 @@
         \item $\forall \epsilon > 0 \ \exists\ T: \Omega(f, T) < \epsilon$
     \end{enumerate}
 \end{theorem}
-\newpage
 \begin{proof} Докажем по схеме $(1)\Rightarrow(2) \Rightarrow(4) \Rightarrow (3) \Rightarrow (1)$
     \begin{enumerate}
         \item $(1) \Rightarrow (2)$:
@@ -47,10 +46,10 @@
             таким образом $\exists\ I\in \R: \forall \epsilon > 0 \ \exists\ \delta > 0: \forall T,\ d(T) < \delta$:
             \[|I - \overline{\overline{s}}(f, T)| < \epsilon,\ \ |I - \underline{\underline{S}}(f, T)|<\epsilon\]
             \[\lim \limits_{d(T) \rightarrow 0} \overline{\overline{s}}(f, T) = \lim \limits_{d(T) \rightarrow 0} \underline{\underline{S}}(f, T) = I\]
-            \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta: \overline{\overline{s}}(f,T)\geq I-\epsilon \Rightarrow \sup\limits_{T}\overline{\overline{s}}(f,T) = I_*\geq I\]
-            \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta: \underline{\underline{S}}(f,T)\leq I+\epsilon \Rightarrow \inf\limits_{T}\underline{\underline{S}}(f,T)=I^*\leq I\]
+            \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta:\ \overline{\overline{s}}(f,T)\geq I-\epsilon \Rightarrow \sup\limits_{T}\overline{\overline{s}}(f,T) = I_*\geq I\]
+            \[\forall \epsilon>0\ \exists\ T,\ d(T)<\delta:\ \underline{\underline{S}}(f,T)\leq I+\epsilon \Rightarrow \inf\limits_{T}\underline{\underline{S}}(f,T)=I^*\leq I\]
             При этом известно, что $I_*\leq I\leq I^*$. Таким образом, $I_*=I=I^*$
-        \item $(2)\Rightarrow(4)$:
+        \item $(2)\Rightarrow(4)$: Пусть
             \[\inf \limits_{T} \underline{\underline{S}}(f, T) = \sup \limits_{T} \overline{\overline{s}}(f, T)\]
             По свойству точных граней $\forall \epsilon > 0 \ \exists\ T_1, T_2$:
             \[0 \leq I - \overline{\overline{s}}(f, T_1) < \frac{\epsilon}{2},\ \  0 \leq \underline{\underline{S}}(f, T_2)-I < \frac{\epsilon}{2}\]
@@ -64,7 +63,7 @@
             \[0\leq \Omega(f,T_1)\leq \Omega(f,T_{\epsilon})<\frac{\epsilon}{2}\]
             \begin{multline*}
                 0\leq \Omega(f,T)-\Omega(f,T_1)=(\underline{\underline{S}}(f,T)-\overline{\overline{s}}(f,T))-(\underline{\underline{S}}(f,T_1)-\overline{\overline{s}}(f,T_1))=\\
-                =(\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T_1))-(\overline{\overline{s}}(f,T_1)-\overline{\overline{s}}(f,T))\leq 2(M-m)\cdot d^{k-1}\cdot d(T)\cdot p\overset{(1)}{<}\frac{\epsilon}{2}
+                =(\underline{\underline{S}}(f,T)-\underline{\underline{S}}(f,T_1))+(\overline{\overline{s}}(f,T_1)-\overline{\overline{s}}(f,T))\leq 2(M-m)\cdot d^{k-1}\cdot d(T)\cdot p\overset{(1)}{<}\frac{\epsilon}{2}
             \end{multline*}
             (1): при условии, что мы берем 
             \[\delta:=\frac{\epsilon}{4(M-m)\cdot d^{k-1}\cdot p}>0\]
