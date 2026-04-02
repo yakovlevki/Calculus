@@ -1,19 +1,26 @@
 \section{Лекция 6}
 \subsection{Свойства интеграла Римана}
-\begin{statement} \label{lin}
-    Пусть $\Phi$ --- измеримо по Жордану, $f,g\in \mathcal{R}(\Phi)$. Тогда $\forall c_1, c_2:\ c_1\cdot f+c_2\cdot g\in \mathcal{R}(\Phi)$.
+\begin{statement}[Линейность] \label{lin} $\\$
+    Пусть $\Phi$ --- измеримо по Жордану, $f,g\in \mathcal{R}(\Phi)$. Тогда $\forall c_1, c_2:\ c_1\cdot f+c_2\cdot g\in \mathcal{R}(\Phi)$ и
+    \begin{multline*}
+        \idotsint\limits_{\Phi} (c_1\cdot f+ c_2\cdot g)\ dx_1 \dots dx_k=\\
+        =c_1\cdot \idotsint\limits_{\Phi}f\ dx_1 \dots dx_k+c_2\cdot \idotsint\limits_{\Phi} g\ dx_1 \dots dx_k
+    \end{multline*}
 \end{statement}
 \begin{proof} Обозначим $h=c_1\cdot f+c_2\cdot g$. По критерию Дарбу:
-    \[\Omega(f,T_f)<\epsilon,\ \ \Omega(g, T_g)<\epsilon\]
+    \[\Omega(f,T_f)<\frac{\epsilon}{|c_1|+|c_2|},\ \ \Omega(g, T_g)<\frac{\epsilon}{|c_1|+|c_2|}\]
     Пусть $T$ --- разбиение, которое объединяет в себе все разрезы $T_f$ и $T_g$. Тогда 
-    \[\Omega(h, T)\leq c_1\cdot \Omega(f, T_f)+c_2\cdot \Omega(g, T_g)<(c_1+c_2)\epsilon\]
+    \[\Omega(h, T)\leq |c_1|\cdot \Omega(f, T_f)+|c_2|\cdot \Omega(g, T_g)<\frac{\epsilon}{|c_1|+|c_2|}\cdot (|c_1|+|c_2|)=\epsilon\]
+    Далее заметим, что
+    \[\sigma(h,T,H)=c_1\cdot \sigma(f,T,H)+c_2\cdot \sigma(g,T,H)\]
+    что при $d(T)\to 0$ дает искомое равенство.
 \end{proof}
 \begin{statement}[Изменение на множестве меры нуль] \label{diffmery0} $\\$
     Пусть $\mu(E)=0,\ f\in \mathcal{R}(\Phi),\ g\in \mathcal{B}(\Phi),\ f\equiv g$ на $\Phi\setminus E$. Тогда $g\in \mathcal{R}(\Phi)$:
     \[\idotsint\limits_{\Phi} f\ dx_1\dots dx_k=\idotsint\limits_{\Phi} g\ dx_1\dots dx_k\]
 \end{statement}
 \begin{proof}
-    Пусть $h=f-g\neq 0$, она отлична от нуля только на $E$. По следствию из последней теоремы предыдущей лекции существует интеграл от $h$, причем он равен нулю. Значит, поскольку по условию существует интеграл от $f$, то существует и от $g$. В таком случае
+    Пусть $h=f-g\neq 0$, она отлична от нуля только на $E$. По следствию из теоремы \ref{dostyslov} существует интеграл от $h$, причем он равен нулю. Значит, поскольку по условию существует интеграл от $f$, то существует и от $g$. В таком случае
     \[\idotsint\limits_{\Phi}(f-g)\ dx_1\dots dx_k=0\ \Leftrightarrow\ \idotsint\limits_{\Phi} f\ dx_1\dots dx_k=\idotsint\limits_{\Phi} g\ dx_1\dots dx_k\]
 \end{proof}
 \begin{statement} [Интегрируемость по подмножеству]\label{podmnoj} $\\$
@@ -21,11 +28,11 @@
 \end{statement}
 \begin{proof} Пусть $\Pi$ --- брус, такой, что $\Phi\subset \Pi$ и существует интеграл
     \[\idotsint\limits_{\Pi}f\cdot \chi_{\Phi}\ dx_1 \dots dx_k\]
-    обозначим $f\cdot \chi_{\Phi}=f_1,\ f\cdot \chi_{\Phi'}=f_2$. Заметим, что $\Omega(f,T)$ состоит из суммы колебаний по всем внутренним брусам $\Phi'$ плюс суммы колебаний по брусам, содержащим границу $\partial \Phi'$:
+    обозначим $f\cdot \chi_{\Phi}=f_1,\ f\cdot \chi_{\Phi'}=f_2$. Заметим, что $\Omega(f_2,T)$ состоит из $S_1$ -- сумма колебаний по всем внутренним брусам $\Phi'$ плюс $S_2$ --- сумма колебаний по брусам, содержащим границу $\partial \Phi'$:
     \[\Omega(f_2,T)=S_1 +S_2\]
     Поскольку все брусы из $S_1$ содержатся в $\Omega(f_1,T)$, то 
     \[S_1\leq \Omega(f_1, T)<\frac{\epsilon}{2}\]
-    $\mu(\partial \Phi)=0$, значит $\forall \epsilon>0$ существует элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\subset P_{\epsilon}$ и $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi} |f|$. Тогда 
+    $\mu(\partial \Phi')=0$, значит $\forall \epsilon>0$ существует элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi'\subset P_{\epsilon}$ и $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi} |f|$. Тогда 
     \[S_2\leq 2M\cdot \frac{\epsilon}{4M}=\frac{\epsilon}{2}\]
     Таким образом $\forall \epsilon>0\ \exists\ T$:
     \[\Omega(f_2, T)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
@@ -51,7 +58,7 @@
     \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k-\idotsint\limits_{\Phi}g\ dx_1\dots dx_k=\idotsint\limits_{\Phi}h\ dx_1\dots dx_k\geq 0\]
 \end{proof}
 \begin{statement} [Монотонность по множеству] \label{monpopodmnoj} $\\$
-    Пусть $f\in \mathcal{R}(\Phi), \Phi'\subset \Phi$ и $f\geq 0$ на $\Phi$. Тогда
+    Пусть $f\in \mathcal{R}(\Phi), \Phi'\subset \Phi$ и $f\geq 0$ на $\Phi$,\ $\Phi$ и $\Phi'$ --- измеримы по Жордану. Тогда
     \[\idotsint\limits_{\Phi'} f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Phi} f\ dx_1\dots dx_k\]
 \end{statement}
 \begin{proof}
@@ -60,11 +67,11 @@
     а это в точности означает, что
     \[\idotsint\limits_{\Phi'} f dx_1 \dots dx_k\leq \idotsint\limits_{\Phi} f dx_1\dots dx_k\]
 \end{proof}
-\begin{definition}
-    Функция для которой выполнено
-    \[\exists\ C>0\ \forall x_1,x_2\in [a,b]: |g(x_1)-g(x_2)|\leq C\cdot |x_1-x_2|\]
-    называется Липшицевой на отрезке $[a,b]$, обозначается $g\in \lip([a,b])$.
-\end{definition}
+\begin{reminder}
+    Если для функции $g$ $\exists\ C>0\ \forall x_1,x_2\in \Phi$:
+    \[|g(x_1)-g(x_2)|\leq C\cdot |x_1-x_2|\]
+    то $g$ называется Липшицевой на $\Phi$, обозначается $g\in \lip(\Phi)$.
+\end{reminder}
 \begin{statement} [Композиция с липшицевой функцией] $\\$
     Пусть $f\in \mathcal{R}(\Phi),\ g\in \text{Lip}(f(\Phi))$. Тогда $g\circ f\in \mathcal{R}(\Phi)$.
 \end{statement}
@@ -80,7 +87,7 @@
     \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Phi}|f|\ dx_1 \dots dx_k\]
 \end{consequense}
 \begin{proof}
-    Возьмем $g(x)=|x|$. Тогда $f\in \mathcal{R}(\Phi) \Rightarrow |f|\in \mathcal{R}(\Phi)$. При этом $f\leq |f|$, значит, по утверждению 6.5:
+    Возьмем $g(x)=|x|$. Тогда $f\in \mathcal{R}(\Phi) \Rightarrow |f|\in \mathcal{R}(\Phi)$. При этом $f\leq |f|$, значит, по утверждению \ref{monpofunc}:
     \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Phi}|f|\ dx_1 \dots dx_k\]
 \end{proof}
 \begin{consequense} 
@@ -97,13 +104,13 @@
 \end{proof}
 \begin{consequense}
     Пусть $f\in \mathcal{R}(\Phi),\ \exists\ \epsilon>0$ такой, что на $\Phi: |f|\geq \epsilon$. Тогда\\
-    $f^{-1}\in \mathcal{R}(\Phi)$.
+    $\frac{1}{x}\in \mathcal{R}(\Phi)$.
 \end{consequense}
 \begin{proof}
     Возьмем $g(x)=\frac{1}{x}$, она Липшицева на $[-M,-\epsilon]\cup[\epsilon, M]$.
 \end{proof}
 \begin{statement} [Теорема о среднем] $\\$
-    Пусть $f,g\in \mathcal{R}(\Phi),\ g\geq 0$ на $\Phi$. Тогда $\exists\ \mu\in [m,M]$:
+    Пусть $f,g\in \mathcal{R}(\Phi),\ g> 0$ на $\Phi$. Тогда $\exists\ \mu\in [m,M]$:
     \[\idotsint\limits_{\Phi}f\cdot g\ dx_1\dots dx_k=\mu\cdot \idotsint\limits_{\Phi}g\ dx_1\dots dx_k\]
     где
     \[m=\inf\limits_{\Phi}f,\ M=\sup\limits_{\Phi}f\]
@@ -121,6 +128,7 @@
 \begin{statement}[Оценка интеграла] $\\$
     Пусть $f\in \mathcal{R}(\Phi)$. Тогда 
     \[\left|\idotsint\limits_{\Phi}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(\Phi)\]
+    где $M=\sup\limits_{\Phi}|f|$.
 \end{statement}
 \begin{proof}
     Пусть $\Pi$ --- брус, такой, что $\Phi\subset \Pi$. Тогда 
@@ -134,11 +142,11 @@
     \[\left|\idotsint\limits_{\Phi}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(\Phi)\]
 \end{proof}
 \begin{statement}[Абсолютная непрерывность интеграла] $\\$
-    Пусть $f\in \mathcal{R}(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ \delta>0,\ E\subset\Phi,\ \mu(E)<\delta$:
+    Пусть $f\in \mathcal{R}(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ \delta>0$ для любого измеримого $E\subset\Phi$ такого, что $\mu(E)<\delta$:
     \[\left|\idotsint\limits_{E}f\ dx_1 \dots dx_k \right|<\epsilon\]
 \end{statement}
 \begin{proof}
-    Возьмем $\delta=\frac{\epsilon}{M+1}$, где $M=\sup\limits_{\Phi}|f|$. Тогда
-    \[\left|\idotsint\limits_{E}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(E)<M\cdot \frac{\epsilon}{M+1}<\epsilon\]
+    Возьмем $\delta=\frac{\epsilon}{M}$, где $M=\sup\limits_{\Phi}|f|$. Тогда
+    \[\left|\idotsint\limits_{E}f\ dx_1\dots dx_k \right|\leq M\cdot \mu(E)<M\cdot \frac{\epsilon}{M}<\epsilon\]
 \end{proof}
 \newpage

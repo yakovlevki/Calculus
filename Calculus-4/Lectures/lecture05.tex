@@ -1,13 +1,14 @@
 \section{Лекция 5}
 \subsection{Интеграл по измеримому по Жордану множеству}
 \begin{comm}
-    Множество $\Phi$ измеримо по Жордану $\Leftrightarrow \overline{\Phi}$ измеримо по Жордану. Однако аналогичное утверждение неверно для понятия измеримости по Лебегу:
-    \[\nu(\Q_{[0,1]})=0,\ \ \nu(\overline{\Q_{[0,1]}})=1\] 
+    Множество $\Phi$ измеримо по Жордану $\Leftrightarrow \overline{\Phi}$ измеримо по Жордану, причем $\mu(\Phi)=\mu(\overline{\Phi})$. 
+    %Однако аналогичное утверждение неверно для понятия измеримости по Лебегу:
+    %\[\nu(\Q_{[0,1]})=0,\ \ \nu(\overline{\Q_{[0,1]}})=1\] 
 \end{comm}
-Далее пусть $\Phi$ --- измеримое по Жордану множество.
+\noindentДалее пусть $\Phi$ --- измеримое по Жордану множество.
 \begin{definition}
     Пусть $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
-    \[\overbrace{\idotsint\limits_{\Phi}}^k f(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi}}^k f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    \[\idotsint\limits_{\Phi} f(x_1,\dots,x_k)\ dx_1\dots dx_k=\idotsint\limits_{\Pi} f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
 \end{definition}
 \begin{statement}
     Определение интеграла по измеримому по Жордану множеству $\Phi$ корректно.
@@ -22,10 +23,10 @@
         Пусть $T_1$ --- произвольное разбиение бруса $\Pi_1$ такое, что $d(T_1)<\delta$. Существует $T_2$ --- разбиение бруса $\Pi_2$, которое на $\Pi_1$ совпадает с $T_1$, а на $\Pi_2\setminus \Pi_1$ является произвольным разбиением с диаметром меньшим $\delta$. Тогда при $d(T_1)<\delta$ имеем, что $d(T_2)<\delta$. Таким образом, $\Omega(\widehat{f}, T_2)$ содержит все слагаемые $\Omega(\widehat{f}, T_1)$. Значит $\forall \epsilon>0\ \exists\ \delta>0,\ \forall T_1,\ d(T_1)<\delta$:
         \[\Omega(\widehat{f}, T_1)<\Omega(\widehat{f}, T_2)<\epsilon\]
         \item Пусть существует интеграл по $\Pi_1$. Тогда
-        \[\forall \epsilon>0\ \exists\ T_1: \Omega(\widehat{f}, T_1)<\epsilon\]
+        \[\forall \epsilon>0\ \exists\ T_1: \Omega(\widehat{f}, T_1)<\frac{\epsilon}{2}\]
         Возьмем брус $\Pi_1'$ такой, что $\Pi_1\subset \Pi_1'\subset \Pi_2$. Обозначим $M=\sup |\widehat{f}|$, тогда
         \[\mu(\Pi_1'\setminus \Pi_1)=\mu(\Pi_1')-\mu(\Pi_1)<\frac{\epsilon}{4M}\]
-        Рассмотри разбиение $T_2$ бруса $\Pi_2$ такое, что оно совпадает с $T_1$ на $\Pi_1$ и содержит разрезы по граням $\Pi_1'$. Тогда брусы разбиения $T_2$ можно разбить на три группы:
+        Рассмотрим разбиение $T_2$ бруса $\Pi_2$ такое, что оно совпадает с $T_1$ на $\Pi_1$ и содержит разрезы по граням $\Pi_1'$. Тогда брусы разбиения $T_2$ можно разбить на три группы:
         \begin{enumerate}
             \item Брусы содержащиеся в $\Pi_1$
             \item Брусы содержащиеся в $\Pi_1'\setminus \Pi_1$
@@ -55,7 +56,7 @@
 \begin{proof}
     Без доказательства.
 \end{proof}
-\begin{theorem} [Достаточное условие интегрируемости на $\Phi$] $\\$
+\begin{theorem} [Достаточное условие интегрируемости на $\Phi$] \label{dostyslov} $\\$
     Если $f\in \mathcal{B}(\Phi)$ и мера Жордана от точек разрыва на $\Phi$ равна нулю, то $f\in \mathcal{R}(\Phi)$.
 \end{theorem}
 \begin{proof}
@@ -73,7 +74,7 @@
 \end{consequense}
 \begin{proof}
     Пусть $A=\{x: f(x)\neq 0\}$ обозначим $S=\text{supp}\hspace{0.05cm} f = \overline{A}$.
-    Тогда $\mu(S)=\mu(A\cup \partial A)=\mu((A\setminus \partial A)\sqcup \partial A)=\mu(A\setminus \partial A)+\mu(\partial A)=0$. В любом брусе найдется точка, в которой $f(x)=0$, иначе этот брус лежит в $S$, а тогда $\mu(S)>0$ и получаем противоречие. Значит для каждого разбиения существует разметка, такая, что $\sigma(f, T, H)=0$. По критерию Жордана интеграл
+    Тогда $\mu(S)=\mu(A\cup \partial A)=\mu((A\setminus \partial A)\sqcup \partial A)=\mu(A\setminus \partial A)+\mu(\partial A)=0$. В любом брусе найдется точка, в которой $f(x)=0$, иначе этот брус лежит в $S$, а тогда $\mu(S)>0$ и получаем противоречие. Значит для каждого разбиения существует разметка, такая, что $\sigma(f, T, H)=0$. По критерию Жордана существует интеграл
     \[I=\idotsint\limits_{\Phi}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
     а значит $I=\sigma(f, T, H)=0$.
 \end{proof}
