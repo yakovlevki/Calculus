@@ -9,7 +9,7 @@
 \begin{definition}
     Пусть $\Phi$ -- ограниченное множество в $\R^k$. Тогда 
     \begin{enumerate}
-        \item Если $\Pi$ --- брус, то определим $\mu(\Pi)=V(\Pi)$ и если $\Pi_i$ --- брусы, то по определению положим 
+        \item Если $\Pi$ --- брус, то определим $\mu(\Pi)=V(\Pi)$ и если $\Pi_i$ --- непересекающиеся брусы, то по определению положим 
         \[\mu\left(\ \bigsqcup\limits_{i=1}^n \Pi_i\right)=\sum\limits_{i=1}^{n}\mu(\Pi_i)\] 
         \item Внешней мерой Жордана называется число
             \[\mu^*(\Phi)=\inf \{\mu(P): P \text{ --- элементарное множество, такое, что } \Phi\subset P\}\]
@@ -28,57 +28,59 @@
     \end{cases}\]        
     называется индикатором множества $\Phi$.
 \end{definition}
-\begin{theorem} [Критерий измеримости по Жордану в терминах кратного интеграла] $\\$
+\begin{theorem} [Критерий измеримости по Жордану в терминах кратного интеграла] \label{kritizmvint} $\\$
     Множество $\Phi$ измеримо по Жордану $\Leftrightarrow$ по любому брусу $\Pi$ такому, что $\Phi\subseteq \Pi$, существует интеграл от $\chi_{\Phi}$ по $\Pi$. При этом
     \[\mu(\Phi)=\idotsint\limits_{\Pi} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
 \end{theorem}
 \begin{proof}\tab
     \begin{itemize}
-        \item[$(\Rightarrow)$:] Пусть $\mu_*(\Phi)=\mu^*(\Phi)=\mu(\Phi)$. Тогда $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ Q_{\epsilon}\subset \Phi\subset P_{\epsilon}$:
+        \item[$(\Rightarrow)$:] Пусть $\mu_*(\Phi)=\mu^*(\Phi)=\mu(\Phi)$. Тогда по свойству точных граней\\
+        $\forall \epsilon>0\ \exists\ P_{\epsilon},\ Q_{\epsilon},\ Q_{\epsilon}\subset \Phi\subset P_{\epsilon}$:
         \[\mu(P_{\epsilon})<\mu(\Phi)+\frac{\epsilon}{2},\ \ \mu(Q_{\epsilon})>\mu(\Phi)-\frac{\epsilon}{2}\]
-        \[P_{\epsilon}=\bigsqcup\limits_{i=1}^n \Pi_i\]
-        можно считать, что $P_{\epsilon}$ лежат внутри бруса $\Pi$, если это не так, то, не увеличив оценку, заменим $P_{\epsilon}$ на
-        \[\widehat{P}_{\epsilon}=\bigsqcup\limits_{i=1}^n (\Pi_i\cap \Pi)\]
         \[P_{\epsilon}=\bigsqcup\limits_i \Pi_i,\ Q_{\epsilon}=\bigsqcup\limits_j \Pi_j'\]
-        продолжив все грани $\Pi_i$ и $\Pi_j'$, получим разбиение $T$ бруса $\Pi$, при этом поскольку
-        \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{p}\inf\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{p}\sup\limits_{x\in \Delta p}\chi_{\Phi}(x)|\Delta p|\]
+        можно считать, что $P_{\epsilon}$ лежат внутри бруса $\Pi$, если это не так, то, не увеличив оценку, заменим $P_{\epsilon}$ на
+        \[\widehat{P}_{\epsilon}=\bigsqcup\limits_{i} (\Pi_i\cap \Pi)\]
+        продолжив все грани $\Pi_i$ и $\Pi_j'$, получим разбиение $T=\{\delta_j\}$ бруса $\Pi$, при этом поскольку
+        \[\overline{\overline{s}}(\chi_{\Phi},T)=\sum\limits_{j}\inf\limits_{x\in \Delta_j}\chi_{\Phi}(x)\cdot |\Delta_j|,\ \ \underline{\underline{S}}(\chi_{\Phi},T)=\sum\limits_{j}\sup\limits_{x\in \Delta_j}\chi_{\Phi}(x)\cdot |\Delta_j|\]
         то $\overline{\overline{s}}(\chi_{\Phi},T)$ состоит из элементарных множеств, которые полностью содержатся в $\Phi$, а $\underline{\underline{S}}(\chi_{\Phi},T)$ из элементарных множеств, которые пересекаются с $\Phi$ хотя бы по одной точке. Значит 
         %еще бы пояснить
         \[\overline{\overline{s}}(\chi_{\Phi}, T)\geq \mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T)\leq \mu(P_{\epsilon})\]
         таким образом
         \[\Omega(\chi_{\Phi}, T)=\underline{\underline{S}}(\chi_{\Phi}, T)-\overline{\overline{s}}(\chi_{\Phi}, T)\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
         значит существует
-        \[I=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-        \[\mu(Q_{\epsilon})\leq \overline{\overline{s}}(\chi_{\phi}, T)\leq I\leq \underline{\underline{S}}(\chi_{\phi}, T)\leq \mu(P_{\epsilon})\]
-        итак $\forall \epsilon>0$
-        \[|I-\mu(\Phi)|\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
-        значит
+        \[I=\idotsint\limits_{\Pi} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+        Причем
+        \[\mu(\Phi)-\frac{\epsilon}{2}<\mu(Q_{\epsilon})\leq \overline{\overline{s}}(\chi_{\phi}, T)\leq I\leq \underline{\underline{S}}(\chi_{\phi}, T)\leq \mu(P_{\epsilon})<\mu(\Phi)+\frac{\epsilon}{2}\]
+        Итак
+        \[|I-\mu(\Phi)|<\frac{\epsilon}{2}\]
+        Из произвольности $\epsilon$ получим, что
         \[I=\mu(\Phi)\]
         \item[$(\Leftarrow)$:] Пусть существует 
-        \[I=\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\] 
-        $\forall \epsilon>0\ \exists$  разбиение $T$ такое, что
-        \[\Omega(\chi_{\Phi}, T)=\sum\limits_{p}(\sup\limits_{\Delta p}\chi_{\Phi}-\inf\limits_{\Delta p}\chi_{\Phi})\cdot |\Delta p|<\epsilon \eqno(*)\]
+        \[I=\idotsint\limits_{\Pi} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\] 
+        По критерию Дарбу $\forall \epsilon>0\ \exists\ T_{\epsilon}=\{\Delta_j\}$ --- разбиение бруса $\Pi$ такое, что
+        % \[\Omega(\chi_{\Phi}, T)=\sum\limits_{j}(\sup\limits_{\Delta_j}\chi_{\Phi}-\inf\limits_{\Delta_j}\chi_{\Phi})\cdot |\Delta_j|<\epsilon\]
+        \[\Omega(\chi_{\Phi}, T)=\underline{\underline{S}}(\chi_{\Phi},T_{\epsilon})-\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})<\epsilon\]
         Заметим, что $\Delta p$ делятся на группы:
         \begin{enumerate}
-            \item $\sup \chi_{\Phi}=\inf \chi_{\Phi}=1$ --- находится внутри
-            \item $\sup \chi_{\Phi}=1,\ \inf \chi_{\Phi}=0$ --- содержит границу
-            \item $\sup \chi_{\Phi}=\inf \chi_{\Phi}=0$ --- находится снаружи
+            \item $\sup\limits_{x\in \Delta_j} \chi_{\Phi}(x)=\inf\limits_{x\in \Delta_j} \chi_{\Phi}(x)=1$\ \ ($\Delta_j\subset \Phi$)
+            \item $\sup\limits_{x\in \Delta_j} \chi_{\Phi}(x)=1,\ \inf\limits_{x\in \Delta_j} \chi_{\Phi}(x)=0$\ \ ($\Delta_j\cap \partial\Phi\neq \emptyset$)
+            \item $\sup\limits_{x\in \Delta_j} \chi_{\Phi}(x)=\inf\limits_{x\in \Delta_j} \chi_{\Phi}(x)=0$\ \ ($\Delta_j\cap \Phi=\emptyset$)
         \end{enumerate}
-        Определим $Q_{\epsilon}$ как объединение брусов из первой группы, а $P_{\epsilon}$ как объединение брусов из первой и второй группы. Заметим, что $\overline{\overline{s}}(\chi_{\Phi}, T)$ является объединением брусов из первой группы, а $\underline{\underline{S}}(\chi_{\Phi}, T)$ --- объединением ячеек из первой и второй группы. Значит
-        \[\overline{\overline{s}}(\chi_{\Phi}, T)=\mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T)= \mu(P_{\epsilon}) \eqno(*)\]
+        Определим $Q_{\epsilon}$ как объединение брусов из первой группы, а $P_{\epsilon}$ как объединение брусов из первой и второй группы. Заметим, что $\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})$ является суммой мер брусов из первой группы, а $\underline{\underline{S}}(\chi_{\Phi}, T_{\epsilon})$ --- суммой мер брусов из первой и второй группы. Значит
+        \[\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})=\mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T_{\epsilon})= \mu(P_{\epsilon}) \eqno(*)\]
         Таким образом
-        \[\Omega(\chi_{\Phi}, T)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})\]
-        \[\mu^*(\Phi)-\mu_*(\Phi)\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        % \[\Omega(\chi_{\Phi}, T)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})\]
+        \[\mu^*(\Phi)-\mu_*(\Phi)\leq \mu(P_{\epsilon})-\mu(Q_{\epsilon})=\Omega(\chi_{\Phi}, T_{\epsilon})<\epsilon\]
         Известно, что
-        \[\overline{\overline{s}}(\chi_{\Phi}, T)\leq I\leq \underline{\underline{S}}(\chi_{\Phi}, T)\]
+        \[\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})\leq I\leq \underline{\underline{S}}(\chi_{\Phi}, T_{\epsilon})\]
         \[\mu(Q_{\epsilon})\leq \mu(\Phi)\leq \mu(P_{\epsilon})\]
-        комбинируя эти результаты и используя соотношения $(*)$, получим
-        \[|I-\mu(\Phi)|\leq \Omega(\chi_{\Phi}, T)<\epsilon\]
+        комбинируя эти результаты и используя соотношение $(*)$, получим
+        \[|I-\mu(\Phi)|\leq \Omega(\chi_{\Phi}, T_{\epsilon})<\epsilon\]
     \end{itemize}
 \end{proof}
 \begin{consequense}
     Пусть $\Phi$ измеримо по Жордану и $\Phi\subset \Pi_1,\ \Phi\subset \Pi_2$. Тогда
-    \[\overbrace{\idotsint\limits_{\Pi_1}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k=\overbrace{\idotsint\limits_{\Pi_2}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+    \[\idotsint\limits_{\Pi_1} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k=\idotsint\limits_{\Pi_2} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
 \end{consequense}
 \subsection{Первое доказательство критерия измеримости по Жордану}
 \begin{theorem}[Критерий измеримости по Жордану] $\\$
@@ -93,10 +95,23 @@
 \begin{proof} Докажем по схеме $(1)\Rightarrow(2) \Rightarrow(3) \Rightarrow (1)$
     \begin{enumerate}
         \item $(1) \Rightarrow (2)$:\\
-        Пусть $\Phi$ измеримо по Жордану. Тогда существует интеграл
-        \[\overbrace{\idotsint\limits_{\Pi}}^k \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-        Во второй части доказательства предыдщуей теоремы было показано, что
-        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
+        Пусть $\Phi$ измеримо по Жордану. Тогда по теореме \ref{kritizmvint} существует интеграл
+        \[\idotsint\limits_{\Pi} \chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
+        Дальнейшие выкладки полностью повторяют доказательство обратной импликации предыдущей теоремы:
+        По критерию Дарбу $\forall \epsilon>0\ \exists\ T_{\epsilon}=\{\Delta_j\}$ --- разбиение бруса $\Pi$ такое, что
+        % \[\Omega(\chi_{\Phi}, T)=\sum\limits_{j}(\sup\limits_{\Delta_j}\chi_{\Phi}-\inf\limits_{\Delta_j}\chi_{\Phi})\cdot |\Delta_j|<\epsilon\]
+        \[\Omega(\chi_{\Phi}, T)=\underline{\underline{S}}(\chi_{\Phi},T_{\epsilon})-\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})<\epsilon\]
+        Заметим, что $\Delta p$ делятся на группы:
+        \begin{enumerate}
+            \item $\sup\limits_{x\in \Delta_j} \chi_{\Phi}(x)=\inf\limits_{x\in \Delta_j} \chi_{\Phi}(x)=1$\ \ ($\Delta_j\subset \Phi$)
+            \item $\sup\limits_{x\in \Delta_j} \chi_{\Phi}(x)=1,\ \inf\limits_{x\in \Delta_j} \chi_{\Phi}(x)=0$\ \ ($\Delta_j\cap \partial\Phi\neq \emptyset$)
+            \item $\sup\limits_{x\in \Delta_j} \chi_{\Phi}(x)=\inf\limits_{x\in \Delta_j} \chi_{\Phi}(x)=0$\ \ ($\Delta_j\cap \Phi=\emptyset$)
+        \end{enumerate}
+        Определим $Q_{\epsilon}$ как объединение брусов из первой группы, а $P_{\epsilon}$ как объединение брусов из первой и второй группы. Заметим, что $\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})$ является суммой мер брусов из первой группы, а $\underline{\underline{S}}(\chi_{\Phi}, T_{\epsilon})$ --- суммой мер брусов из первой и второй группы. Значит
+        \[\overline{\overline{s}}(\chi_{\Phi}, T_{\epsilon})=\mu(Q_{\epsilon}),\ \ \underline{\underline{S}}(\chi_{\Phi}, T_{\epsilon})= \mu(P_{\epsilon}) \eqno(*)\]
+        Таким образом
+        % \[\Omega(\chi_{\Phi}, T)=\mu(P_{\epsilon})-\mu(Q_{\epsilon})\]
+        \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})=\Omega(\chi_{\Phi}, T_{\epsilon})<\epsilon\]
         \item $(2) \Rightarrow (3)$:\\
         Пусть 
         \[\mu(P_{\epsilon})-\mu(Q_{\epsilon})<\epsilon\]
