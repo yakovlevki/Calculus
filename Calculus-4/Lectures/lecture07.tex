@@ -4,12 +4,22 @@
 \[\iint\limits_{[a,b]\times [c,d]}f(x,y)\ dxdy\]
 сводится к повторным интегралам интегралам вида.
 \[\int\limits_{a}^{b}\left(\int\limits_{c}^{d}f(x,y)\ dy\right)dx,\ \ \ \ \int\limits_{c}^{d}\left(\int\limits_{a}^{b}f(x,y)\ dx\right)dy\]
-Для начала, покажем, что кратный и повторный интеграл это различные объекты.
+Сначала покажем, что кратный и повторный интеграл --- различные объекты:
 \begin{example}
-    пример 1
+    Рассмотрим произвольное замкнутое $E \subset [0, 1]: \mu(E) = 0$. Пусть \[f(x, y) = \begin{cases}
+        \mathcal{D}(y), \ x \in E;\\
+        0, \ x \notin E.
+    \end{cases}\]
+    Тогда на брусе $[0, 1]^2$ $f(x, y)$ отлична от нуля на множестве $E \times [0, 1]$, причём
+    \[\mu(E \times [0, 1]) = 0 \cdot 1 = 0 \Longrightarrow \exists \iint\limits_{[0,1]^2} f(x, y)\ dxdy = 0\]
+    однако $\forall x \in E: f(x, y) \equiv \mathcal{D}(y)$ --- неинтегрируема на отрезке $[0, 1]$. Значит,
+    \[\exists \iint\limits_{[0,1]^2} f(x, y)\ dxdy, \text{  но   } \nexists \int_{0}^{1}\left(\int_{0}^{1} f(x, y) \ dy\right) dx\]
 \end{example}
 \begin{example}
-    пример 2
+    Рассмотрим $f(x) = \frac{x^2 - y^2}{(x^2 + y^2)^2}$ на открытом брусе $(0, 1)^2$. Кратный интеграл не существует в силу неограниченности в окрестности точки $(0, 0)$, однако
+    \[\int_{0}^{1}\left(\int_{0}^{1} \frac{x^2 - y^2}{(x^2 + y^2)^2} \ dx\right) dy = \int_{0}^{1}\left(\frac{-x}{x^2 + y^2}\right)_0^1\ dy = -\int_{0}^{1}\frac{1}{1 + y^2}\ dy = -\frac{\pi}{4};\]
+    \[\int_{0}^{1}\left(\int_{0}^{1} \frac{x^2 - y^2}{(x^2 + y^2)^2} \ dy\right) dx = \int_{0}^{1}\left(\frac{y}{x^2 + y^2}\right)_0^1\ dx = \int_{0}^{1}\frac{1}{1 + x^2}\ dx = \frac{\pi}{4}\]
+    т.е. повторные интегралы существуют и их значения не совпадают.
 \end{example}
 \begin{theorem} [О сведении кратного интеграла к повторному] $\\$
     Пусть $\Pi\subset \R^k$ --- брус, $\Pi=\Pi_1\times \Pi_2$, где $\Pi_1\subset \R^m$ --- брус размерности $m,\\
@@ -40,15 +50,21 @@
     \[d(T_1\times T_2)<\sqrt{\left(\frac{\delta}{\sqrt{2}}\right)^2+\left(\frac{\delta}{\sqrt{2}}\right)^2}=\delta\] 
     а тогда
     \[|I-\sigma(F,T_1,H_1)|<\epsilon\]
-    а это означает, что существует повторный интеграл и он равен кратному.
+    а это означает, что повторный интеграл существует и равен кратному.
 \end{proof}
 \begin{consequense}
-будет
+    Пусть $\overline{\Omega}$ -- измеримый компакт в $\R^{k-1}$, $\phi, \psi \in C(\overline{\Omega})$. Тогда если
+    $\overline{G} = \{(x_1,...,x_k) : (x_1,...,x_{k-1}) \in \overline{\Omega}, \ \phi(x_1,...,x_{k-1})\leqslant x_k \leqslant \psi(x_1,...,x_{k-1})\}$, $f \in \mathcal{R}(\overline{G})$ и все необходимые интегралы существуют, то
+    \[\idotsint\limits_{\overline{G}}f \ dx_1...dx_k = \idotsint\limits_{\overline{\Omega}}\left(\int_{\phi(x_1,...,x_{k-1})}^{\psi(x_1,...,x_{k-1})}f \ dx_k\right)\ dx_1...dx_{k-1}\]
 \end{consequense}
 \begin{consequense}
-будет
+    Пусть $\forall x_1 \in [a, b]: \ \overline{\Omega}(x_1)$ -- измеримый компакт в $\R^{k-1}$. Тогда если
+    $\overline{G} = \{(x_1,...,x_k) : x_1 \in [a, b], \ (x_2,...,x_{k}) \in \overline{\Omega}(x_1)\}$ измеримо в $\R^k$, $f \in \mathcal{R}(\overline{G})$ и все необходимые интегралы существуют, то
+    \[\idotsint\limits_{\overline{G}}f \ dx_1...dx_k = \int_{a}^{b}\left(\idotsint\limits_{\overline{\Omega}(x_1)}f \ dx_2...dx_k\right)\ dx_1\]
 \end{consequense}
-\begin{example}
-будет
+\begin{example}(Принцип Кавальери для объёмов)\\
+    Пусть даны два тела $\Phi_1, \Phi_2 \subset \R^3$ такие, что при любом сечении плоскостью, параллельной данной, площади полученных сечений равны. Тогда из следствия 2 при $f \equiv 1$ следует, что объёмы $\Phi_1$ и $\Phi_2$ равны.\\
+    Вычислим с помощью этого объём шара радиуса $R$. Для этого сначала посчитаем площадь сечения полушария на высоте $h$ от диаметрального сечения --- она равна $\pi(R^2 - h^2)$. Теперь рассмотрим тело, полученное вырезанием из цилиндра с высотой и радиусом основания $R$ конуса остриём вниз --- в его сечениях теми же плоскостями получим круг радиуса $R$, из которого вырезан круг радиуса $h$. Площадь такого сечения также равна $\pi R^2 - \pi h^2$, то есть по принципу Кавальери объёмы этих тел равны. Отсюда объём полушария равен
+    \[V = \pi R^2 \cdot R - \frac{1}{3}\pi R^2 \cdot R = \frac{2}{3}\pi R^3 \Longrightarrow 2V = \frac{4}{3}\pi R^3\]
 \end{example}
 \newpage
