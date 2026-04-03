@@ -120,12 +120,38 @@
 \end{proof}
 \begin{theorem}\label{th10.1}
     Пусть $\Omega, G$ --- области в $\R^k,\ \phi:\Omega\to G$ --- биекция,\\
-    $\phi\in \mathcal{C}^1(\Omega),\ \det J_{\phi}\neq 0$ на $\Omega$ и $\Phi$ --- измеримый компакт.
+    $\phi\in \mathcal{C}^1(\Omega),\ \det J_{\phi}\neq 0$ на $\Omega$ и $\Phi \subset \Omega$ --- измеримый компакт.
     Тогда $\phi(\Phi)=K$ является измеримым компактом в $G$, причем
     \[\mu(K)=\idotsint\limits_{\Phi}|\det{J_{\phi}}|\ dx_1\dots dx_k\]
 \end{theorem}
 \begin{proof}
-    \textit{Начали доказывать общий $k$-мерный случай, но в середине доказательства переключились на двумерный. К сожалению, у меня не молучилось это нормально записать. Если у кого то есть записи этого доказательства, то пришлите его мне, пожалуйста.}
+    \textit{Начали доказывать общий $k$-мерный случай, но в середине доказательства переключились на двумерный. К сожалению, у меня не молучилось это нормально записать. Если у кого то есть записи этого доказательства, то пришлите его мне, пожалуйста.}\\
+    Проведём доказательство для двумерного случая.
+    Пусть сначала $\Phi$ -- выпуклый компакт. Возьмём квадрат $\Pi$ такой, что $\Phi \subset \Pi$, и разобьём его на квадраты $\Pi_{ij}$ со стороной $d$. По лемме \ref{l9.2}
+    \[\exists\ C>0:\ \forall\ \overline{x}, \overline{y}\in \Phi: \|\phi(\overline{x})-\phi(\overline{y})\|\leq M\cdot \|\overline{x}-\overline{y}\|\]
+    то есть расстояние между любыми двумя точками $\Phi$ увеличилось не более чем в $C$ раз. Каждый $\Pi_{ij}$ лежит в круге радиуса $\frac{d}{\sqrt{2}}$ (с центром в центре квадрата) $\Longrightarrow$ каждый $K_{ij} = \phi(\Pi_{ij})$ лежит в круге радиусом $\frac{Cd}{\sqrt{2}}$, то есть площадью $\frac{\pi C^2 d^2}{2}$.\\
+    Также из измеримости $\Phi$ имеем \[\mu(\partial \Phi) = 0 \Longrightarrow \forall \epsilon > 0\ \exists \delta > 0: \forall \{\Pi_{ij}\}, d < \delta \ \sum\limits_{\Pi_{ij} \cap \partial\Phi \neq \varnothing} d^2 < \epsilon\]
+    то есть $\phi(\partial\Phi)$ лежит в объединении кругов суммарной площади менее $\frac{\pi C^2 \epsilon}{2}$. В силу непрерывности $\phi$ $\phi(\partial\Phi) = \partial K \Longrightarrow \mu(\partial K) = 0$, а значит, $K$ измеримо.
+
+    Для каждого $\Pi_{ij} \subset \Phi$ обозначим за $\overline{x}_{ij}$ его левый нижний угол, а произвольную его точку запишем как $\overline{x}_{ij} + \Delta\overline{x}$. Тогда можем рассмотреть следующий параллелограмм:
+    \[P_{ij} = \phi(\overline{x}_{ij}) + J_\phi(\overline{x}_{ij}) \Delta\overline{x}\Longrightarrow \mu(P_{ij}) = |J_\phi(\overline{x}_{ij})|\cdot d^2\]
+    При этом из леммы $\ref{l9.3} \ \exists\ \omega(t)$:
+    \[\|\phi(\overline{x}_{ij}+\Delta\overline{x})-\phi(\overline{x}_{ij})-J_\phi(\overline{x}_{ij})\cdot \Delta\overline{x}\| \leqslant \omega(\|\Delta\overline{x}\|)\cdot \|\Delta\overline{x}\| \leqslant \omega(\sqrt{2}d)\cdot \sqrt{2}d\]
+    То есть если рассмотреть множество $\tilde{P}_{ij}$ точек, находящихся на расстоянии не более $|\omega(\sqrt{2}d)|\cdot \sqrt{2}d$ от $P_{ij}$, то $\phi(\Pi_{ij}) \subset \tilde{P}_{ij}$. При этом $\tilde{P}_{ij}$ лежит в объедиении $P_{ij}$, четырёх прямоугольников шириной $|\omega(\sqrt{2}d)|\cdot \sqrt{2}d$ на сторонах $P_{ij}$ (длина стороны $P_{ij}$ не больше $Cd$ в силу рассуждений выше) и четырёх кругов радиуса $|\omega(\sqrt{2}d)|\cdot \sqrt{2}d$ с центрами в вершинах $P_{ij}$. Значит,
+    \begin{multline*}
+        \mu(K_{ij}) \leqslant \mu(\tilde{P}_{ij}) \leqslant |J_\phi(\overline{x}_{ij})|\cdot d^2 + 4 |\omega(\sqrt{2}d)|\cdot \sqrt{2}d\cdot Cd + 4\pi\omega^2(\sqrt{2}d)\cdot 2d^2 \leqslant \\ \leqslant |J_\phi(\overline{x}_{ij})|\cdot d^2 + |\omega(\sqrt{2}d)| \cdot d^2\cdot  c \ \ \ (c = 4\sqrt{2}\cdot C + 8\pi)
+    \end{multline*}
+    (т.к. $\omega(t) \rightarrow 0$ при $t\rightarrow 0+$, возьмём достаточно малое $d$, чтобы $|\omega(\sqrt{2}d)| \leqslant 1$)
+
+    Тогда:
+    \begin{multline*}
+        \sum\limits_{\Pi_{ij}\subset\Phi} \mu(K_{ij}) \leqslant \sum\limits_{\Pi_{ij}\subset\Phi} |J_\phi(\overline{x}_{ij})|\cdot d^2 + \sum\limits_{\Pi_{ij}\subset\Phi} |\omega(\sqrt{2}d)| \cdot d^2\cdot c \leqslant \\ \leqslant\sum\limits_{\Pi_{ij}\subset\Phi} |J_\phi(\overline{x}_{ij})|\cdot d^2 + |\omega(\sqrt{2}d)|\cdot c \cdot \mu(\Phi)
+    \end{multline*}
+    При $d \rightarrow 0$:
+    \[\sum\limits_{\Pi_{ij}\subset\Phi} \mu(K_{ij}) \rightarrow \mu(K); \ \ \ |\omega(\sqrt{2}d)|\cdot c \cdot \mu(\Phi) \rightarrow 0; \]\[ \sum\limits_{\Pi_{ij}\subset\Phi} |J_\phi(\overline{x}_{ij})|\cdot d^2 \rightarrow \iint\limits_\Phi |J_\phi|\ dxdy \Longrightarrow \mu(K) \leqslant \iint\limits_\Phi |J_\phi|\ dxdy\]
+    Сразу заметим, что данные рассуждения легко распространить на случай невыпуклого $\Phi$, проведя их для всех внутренних $\Pi_{ij}$ некоторого разбиения --- при $d\rightarrow 0$ получим требуемое.\\
+    (в другую сторону вечером)
+    % Теперь докажем неравенство в другую сторону. Так как $\phi$ -- непрерывная биекция и $J_\phi \neq 0$ на $\Omega$, можем рассмотреть $\phi^{-1}$
 \end{proof}
 % \begin{proof}
 %     \begin{enumerate}
