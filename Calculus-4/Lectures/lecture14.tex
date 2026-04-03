@@ -1,5 +1,5 @@
 \section{Лекция 14}
-\begin{theorem}[Сферические ккординаты в многомерном пространстве] $\\$
+\begin{theorem}[Сферические координаты в многомерном пространстве] $\\$
     Определим $\phi$ по правилу
     \[\begin{cases}
         x_1=r\cdot \cos{\alpha_1}\cdot \dots \cdot \cos{\alpha_{n-1}}\\
@@ -98,19 +98,31 @@
         ограничена, а значит она сходится. Значит $|f|\in \widetilde{\mathcal{R}}(\Omega)$. Таким образом, по теореме \ref{kritintnes} выполнено $f\in \widetilde{\mathcal{R}}(\Omega)$.
     \end{itemize}
 \end{proof}
+\begin{example}
+    Рассмотрим функцию 
+    \[f(x_1,\dots,x_k)=\frac{1}{\left(\sqrt{x_1^2+\dots+x_k^2}\ \right)^p}\] 
+    и интеграл
+    \[\idotsint\limits_{0<\sqrt{x_1^2+\dots+x_k}<1}f(x_1,\dots,x_k)\ dx_1 \dots dx_k\]
+    Поймем при каких $p$ он сходится: %Возьмем 
+    %\[K_n=\frac{1}{n}\leq \sqrt{x_1^2+\dots+x_k^2}\leq 1-\frac{1}{n}\]
+    %и перейдем к полярным координатам:
+    \begin{multline*}
+        \idotsint\limits_{0<\sqrt{x_1^2+\dots+x_k}<1}f(x_1,\dots,x_k)\ dx_1 \dots dx_k=\\
+        =\idotsint\limits_{0<r<1}f(\phi(x_1,\dots,x_k))\cdot r^{k-1}\cdot \cos{\alpha_2}\cdot \dots \cos^{k-2}{\alpha_{k-1}}\ dr d\alpha_1 \dots d\alpha_{k-1}=\\
+        =\int\limits_{0}^{1}\frac{1}{r^{p-k+1}}\ dr\cdot \int\limits_{0}^{2\pi}1 \ d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}\ d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{k-1}}\ d\alpha_{k-1}\overset{p<k}{=}\\
+        \overset{p<k}{=}\frac{1}{k-p}\cdot2\pi\cdot B\left(\frac{1+1}{2},\frac{0+1}{2}\right)\cdot B\left(\frac{2+1}{2},\frac{0+1}{2}\right)\dots B\left(\frac{k-1}{2},\frac{0+1}{2}\right)=\\
+        =\frac{1}{k-p}\cdot2\pi\cdot \frac{\Gamma(1)\Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})}\cdot \frac{\Gamma(\frac{3}{2})\Gamma(\frac{1}{2})}{\Gamma(2)} \dots \frac{\Gamma(\frac{k-1}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{k}{2})}=\\
+        =\frac{2\pi}{k-p}\cdot \frac{(\sqrt{\pi})^{k-2}}{\Gamma(\frac{k}{2})}=\frac{2\cdot \pi^{\frac{k}{2}}}{(k-p)\cdot \Gamma(\frac{k}{2})}
+    \end{multline*}
+    Теперь рассмотрим интеграл
+    \[\idotsint\limits_{\sqrt{x_1^2+\dots+x_k}>1}f(x_1,\dots,x_k)\ dx_1 \dots dx_k\]
+    \begin{multline*}
+        \idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1 \dots dx_k=\\
+        =\int\limits_{1}^{\infty}\frac{1}{r^{p-k+1}}\ dr\cdot \int\limits_{0}^{2\pi}1 \ d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}\ d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{k-1}}\ d\alpha_{k-1}\overset{p>k}{=}\\
+        \overset{p>k}{=}\frac{1}{p-k}\cdot2\pi\cdot B\left(\frac{1+1}{2},\frac{0+1}{2}\right)\cdot B\left(\frac{2+1}{2},\frac{0+1}{2}\right)\dots B\left(\frac{k-1}{2},\frac{0+1}{2}\right)=\\
+        =\frac{1}{p-k}\cdot2\pi\cdot \frac{\Gamma(1)\Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})}\cdot \frac{\Gamma(\frac{3}{2})\Gamma(\frac{1}{2})}{\Gamma(2)} \dots \frac{\Gamma(\frac{k-1}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{k}{2})}=\\
+        =\frac{2\pi}{p-k}\cdot \frac{(\sqrt{\pi})^{k-2}}{\Gamma(\frac{k}{2})}=\frac{2\cdot \pi^{\frac{k}{2}}}{(p-k)\cdot \Gamma(\frac{k}{2})}
+    \end{multline*}
+\end{example}
 \noindent \textit{Свойства аддитивности и интегрируемости по подмножеству в несобственных интегралов убираем из прораммы}
-% \begin{example}
-%     Рассмотрим функцию $f(x_1,\dots,x_k)=\frac{1}{(\sqrt{x_1^2+\dots+x_k^2})^p}$ и интеграл
-%     \[\idotsint\limits_{0<\sqrt{x_1^2+\dots+x_k}<1}f(x_1,\dots,x_k)\ dx_1 \dots dx_k\]
-%     Поймем при каких $p$ он сходится: Возьмем $K_n=\frac{1}{n}\leq \sqrt{x_1^2+\dots+x_k^2}\leq 1-\frac{1}{n}$
-%     \begin{multline*}
-%         \idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1 \dots dx_k=\\
-%         =\idotsint\limits_{\frac{1}{n}\leq r\leq 1-\frac{1}{n}}f(\phi(x_1,\dots,x_k))\cdot r^{k-1}\cdot \cos{\alpha_2}\cdot \dots \cos^{k-2}{\alpha_{k-1}}\ dr d\alpha_1 \dots d\alpha_{k-1}=\\
-%         =\int\limits_{\frac{1}{n}}^{1-\frac{1}{n}}\frac{1}{r^{p-k+1}}dr\cdot \int\limits_{0}^{2\pi}1 d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{k-1}}d\alpha_{k-1}=\\
-%         =\frac{1}{k}\cdot2\pi\cdot B(\frac{1+1}{2},\frac{0+1}{2})\cdot B(\frac{2+1}{2},\frac{0+1}{2})\dots B(\frac{k-1}{2},\frac{0+1}{2})=\\
-%         =\frac{1}{k}\cdot\frac{\Gamma(1)\Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})}\cdot \frac{\Gamma(\frac{3}{2})\Gamma(\frac{1}{2})}{\Gamma(2)} \dots \frac{\Gamma(\frac{k-1}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{k}{2})}=\\
-%         =\frac{2\pi(\sqrt{\pi})^{k-2}}{k\cdot \Gamma(\frac{k}{2})}=\frac{2\cdot \pi^{\frac{k}{2}}}{k\cdot \Gamma(\frac{k}{2})}
-%     \end{multline*}
-%     тут поправить
-% \end{example}
 \newpage
