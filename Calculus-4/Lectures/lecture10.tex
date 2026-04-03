@@ -125,7 +125,8 @@
     \[\mu(K)=\idotsint\limits_{\Phi}|\det{J_{\phi}}|\ dx_1\dots dx_k\]
 \end{theorem}
 \begin{proof}
-    \textit{Начали доказывать общий $k$-мерный случай, но в середине доказательства переключились на двумерный. К сожалению, у меня не молучилось это нормально записать. Если у кого то есть записи этого доказательства, то пришлите его мне, пожалуйста.}\\
+    % \textit{Начали доказывать общий $k$-мерный случай, но в середине доказательства переключились на двумерный. К сожалению, у меня не молучилось это нормально записать. Если у кого то есть записи этого доказательства, то пришлите его мне, пожалуйста.}\\
+    \textit{Сейчас здесь приведён адаптированный вариант док-ва из курса 2009 года, если у кого то есть записи этого доказательства из свежего курса, то пришлите мне, пожалуйста.}\\
     Проведём доказательство для двумерного случая.
     Пусть сначала $\Phi$ -- выпуклый компакт. Возьмём квадрат $\Pi$ такой, что $\Phi \subset \Pi$, и разобьём его на квадраты $\Pi_{ij}$ со стороной $d$. По лемме \ref{l9.2}
     \[\exists\ C>0:\ \forall\ \overline{x}, \overline{y}\in \Phi: \|\phi(\overline{x})-\phi(\overline{y})\|\leq M\cdot \|\overline{x}-\overline{y}\|\]
@@ -150,8 +151,14 @@
     При $d \rightarrow 0$:
     \[\sum\limits_{\Pi_{ij}\subset\Phi} \mu(K_{ij}) \rightarrow \mu(K); \ \ \ |\omega(\sqrt{2}d)|\cdot c \cdot \mu(\Phi) \rightarrow 0; \]\[ \sum\limits_{\Pi_{ij}\subset\Phi} |J_\phi(\overline{x}_{ij})|\cdot d^2 \rightarrow \iint\limits_\Phi |J_\phi|\ dxdy \Longrightarrow \mu(K) \leqslant \iint\limits_\Phi |J_\phi|\ dxdy\]
     Сразу заметим, что данные рассуждения легко распространить на случай невыпуклого $\Phi$, проведя их для всех внутренних $\Pi_{ij}$ некоторого разбиения --- при $d\rightarrow 0$ получим требуемое.\\
-    (в другую сторону вечером)
-    % Теперь докажем неравенство в другую сторону. Так как $\phi$ -- непрерывная биекция и $J_\phi \neq 0$ на $\Omega$, можем рассмотреть $\phi^{-1}$
+    Теперь докажем неравенство в другую сторону. Так как $\phi$ -- биекция из $C^1(\Omega)$ и $J_\phi \neq 0$ на $\Omega$, по теореме об обратном отображении можем рассмотреть $\phi^{-1}$ -- также из $C^1$. Пусть $\{\Phi_i\}_{i=1}^k$ -- разбиение $\Phi$, $K_i = \phi(\Phi_i)$. \\
+    Тогда из неравенства выше:
+    \[\mu(G_i) \leqslant \iint\limits_{K_i} |J_{\phi^{-1}}|\ d\hat{x}d\hat{y}\] \[\iint\limits_{K_i} |J_{\phi^{-1}}|\ d\hat{x}d\hat{y} \leqslant M_i \mu(K_i), \ M_i = \max\limits_{K_i}(|J_{\phi^{-1}}|) = \max\limits_{K_i}(|J_{\phi}|^{-1}) = (\min\limits_{\Phi_i}(|J_{\phi}|))^{-1}\]
+    то есть если $m_i = \min\limits_{\Phi_i}(|J_{\phi}|)$, то $M_i = \frac{1}{m_i} \Longrightarrow \mu(G_i) \leqslant \frac{1}{m_i}\mu(K_i)$.\\
+    Рассмотрим $\overline{\overline{s}}(|J_{\phi}|, T)$ для произвольного разбиения $T$:
+    \[\overline{\overline{s}}(|J_{\phi}|, T) = \sum\limits_{i=1}^k m_i\mu(\Phi_i) \leqslant \sum\limits_{i=1}^k m_i\frac{1}{m_i}\mu(K_i) = \mu(K)\]
+    отсюда при $d(T) \rightarrow 0$ получим требуемое:
+    \[\iint\limits_\Phi |J_\phi|\ dxdy \leqslant \mu(K) \Longrightarrow \iint\limits_\Phi |J_\phi|\ dxdy = \mu(K)\]
 \end{proof}
 % \begin{proof}
 %     \begin{enumerate}
