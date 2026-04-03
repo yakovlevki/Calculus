@@ -13,12 +13,14 @@
     Тогда на брусе $[0, 1]^2$ $f(x, y)$ отлична от нуля на множестве $E \times [0, 1]$, причём
     \[\mu(E \times [0, 1]) = 0 \cdot 1 = 0 \Longrightarrow \exists \iint\limits_{[0,1]^2} f(x, y)\ dxdy = 0\]
     однако $\forall x \in E: f(x, y) \equiv \mathcal{D}(y)$ --- неинтегрируема на отрезке $[0, 1]$. Значит,
-    \[\exists \iint\limits_{[0,1]^2} f(x, y)\ dxdy, \text{  но   } \nexists \int_{0}^{1}\left(\int_{0}^{1} f(x, y) \ dy\right) dx\]
+    \[\exists \iint\limits_{[0,1]^2} f(x, y)\ dxdy, \text{  но   } \nexists \int\limits_{0}^{1}\left(\int\limits_{0}^{1} f(x, y) \ dy\right) dx\]
 \end{example}
 \begin{example}
-    Рассмотрим $f(x) = \frac{x^2 - y^2}{(x^2 + y^2)^2}$ на открытом брусе $(0, 1)^2$. Кратный интеграл не существует в силу неограниченности в окрестности точки $(0, 0)$, однако
-    \[\int_{0}^{1}\left(\int_{0}^{1} \frac{x^2 - y^2}{(x^2 + y^2)^2} \ dx\right) dy = \int_{0}^{1}\left(\frac{-x}{x^2 + y^2}\right)_0^1\ dy = -\int_{0}^{1}\frac{1}{1 + y^2}\ dy = -\frac{\pi}{4};\]
-    \[\int_{0}^{1}\left(\int_{0}^{1} \frac{x^2 - y^2}{(x^2 + y^2)^2} \ dy\right) dx = \int_{0}^{1}\left(\frac{y}{x^2 + y^2}\right)_0^1\ dx = \int_{0}^{1}\frac{1}{1 + x^2}\ dx = \frac{\pi}{4}\]
+    Рассмотрим 
+    \[f(x,y) = \frac{x^2 - y^2}{(x^2 + y^2)^2}\] 
+    на открытом брусе $(0, 1)^2$. Кратный интеграл не существует в силу неограниченности в окрестности точки $(0, 0)$, однако
+    \[\int\limits_{0}^{1}\left(\int\limits_{0}^{1} \frac{x^2 - y^2}{(x^2 + y^2)^2} \ dx\right) dy = \int\limits_{0}^{1}\left(\frac{-x}{x^2 + y^2}\right)\Bigg|_0^1\ dy = -\int\limits_{0}^{1}\frac{1}{1 + y^2}\ dy = -\frac{\pi}{4};\]
+    \[\int\limits_{0}^{1}\left(\int\limits_{0}^{1} \frac{x^2 - y^2}{(x^2 + y^2)^2} \ dy\right) dx = \int\limits_{0}^{1}\left(\frac{y}{x^2 + y^2}\right)\Bigg|_0^1\ dx = \int\limits_{0}^{1}\frac{1}{1 + x^2}\ dx = \frac{\pi}{4}\]
     т.е. повторные интегралы существуют и их значения не совпадают.
 \end{example}
 \begin{theorem} [О сведении кратного интеграла к повторному] $\\$
