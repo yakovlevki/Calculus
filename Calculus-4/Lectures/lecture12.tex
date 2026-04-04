@@ -17,7 +17,7 @@
     \[Q_{\epsilon}\subset \Omega,\ \mu(\Omega\setminus Q_{\epsilon})<\frac{\epsilon}{2}\] 
     Определим последовательность $B_n=Q_{\epsilon}\setminus K_{n+1}^o\subset \Omega\setminus K_n$. Получили последовательность $B_n$ замкнутых множеств, таких, что $B_{n+1}\subset B_n$. Значит у $B_n$ есть общая точка $x\in \bigcap\limits B_n$. Тогда $x\in Q_{\epsilon}\subset \Omega$ и $x\not\in K_{n+1}^o$, однако\newline $\bigcup\limits K_n^o=\Omega$ а значит, $x$ должна принадлежать какому-то из $K_n^o$, противоречие. Отсюда $\mu(\Omega\setminus K_n)\to 0$.
 \end{proof}
-\noindent Мы доказали, что $\mathcal{R}(\Omega)\subset \widetilde{\mathcal{R}}(\Omega)$.
+%\noindent Мы доказали, что $\mathcal{R}(\Omega)\subset \widetilde{\mathcal{R}}(\Omega)$.
 \begin{statement}
     Пусть $f\in \widetilde{\mathcal{R}}(\Omega)$ и $g$ --- функция, отличающаяся от $f$ только на множестве меры ноль, то есть $\mu(E)=0$, где 
     \[E=\{x\in \Omega:\ f(x)\neq g(x)\}\] 
@@ -188,7 +188,7 @@
     Перейдем к полярным координатам $(r,\phi)$ в двойном интеграле. При этом переходе $\det{J}=r$. Значит
     \[\iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy=\int\limits_{0}^{2\pi}\left(\int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr\right)d\phi=2\pi\cdot \int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr\]
     Сделаем замену $r^2=u$ при такой замене $dr=\frac{du}{2r}$ и
-    \[2\pi\cdot \int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr=2\pi\cdot \frac{1}{2}\cdot \int\limits_{0}^{=\infty}e^{-u}\ du=2\pi\cdot \frac{1}{2}=\pi\]
+    \[2\pi\cdot \int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr=2\pi\cdot \frac{1}{2}\cdot \int\limits_{0}^{+\infty}e^{-u}\ du=2\pi\cdot \frac{1}{2}=\pi\]
     Итак $I^2=\pi$, значит $I=\sqrt{\pi}$.
 \end{example}
 \newpage

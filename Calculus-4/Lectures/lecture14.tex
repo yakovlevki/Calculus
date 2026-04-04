@@ -61,14 +61,14 @@
 \begin{proof}
     Пусть $\{\Phi_n\}$ --- исчерпание $\Omega$, тогда $\{K_n\}=\{\phi(\Phi_n)\}$ --- исчерпание $G$. По теореме \ref{zamena} о замене переменной в кратном интеграле
     \[\idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1\dots dx_k=\idotsint\limits_{\Phi_n}f(\phi(y_1,\dots,y_k))\cdot |\det{J_{\phi}}|\ dy_1 \dots dy_k\]
-    поскольку оба интграла сущетсвуют, то, устремив $n\to \infty$, получим утверждение теоремы.
+    поскольку оба интеграла сущетсвуют, то, устремив $n\to \infty$, получим утверждение теоремы.
 \end{proof}
 \begin{reminder}
     Последовательность $\{a_n\}$ называется фундаментальной, если 
     \[\forall \epsilon>0\ \exists\ N\in \N,\ \forall m,n>N: |a_n-a_m|<\epsilon\]
 \end{reminder}
 \begin{theorem}[Критерий Коши существования несобственного кратного интграла] $\\$
-    Пусть $\Omega$ --- открытое множество, $f\in \mathcal{R}_{\text{loc}}(\Omega)$. Тогда $f\in \widetilde{\mathcal{R}}(\Omega)$ тогда и только тогда, когда $\forall \epsilon>0\ \exists\ K_{\epsilon}\subset \Omega$ --- измеримый компакт такой, что $\forall K\subset\Omega\setminus K_{\epsilon}$:
+    Пусть $\Omega$ --- открытое множество, $f\in \mathcal{R}_{\text{loc}}(\Omega)$. Тогда $f\in \widetilde{\mathcal{R}}(\Omega)$ тогда и только тогда, когда $\forall \epsilon>0\ \exists\ K_{\epsilon}\subset \Omega$ --- измеримый компакт такой, что для любого измеримого компакта $K\subset\Omega\setminus K_{\epsilon}$:
     \[\idotsint\limits_{K}|f|\ dx_1 \dots dx_k<\epsilon\]
 \end{theorem}
 \begin{proof}\tab
@@ -76,7 +76,7 @@
         \item[$(\Rightarrow)$:]
         Пусть $f\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow |f|\in \widetilde{\mathcal{R}}(\Omega)$. Пусть $\{K_n\}$ --- какое-либо исчерпание $\Omega$. Определим последовательность
         \[a_n=\idotsint\limits_{K_n}|f|\ dx_1 \dots dx_k\]
-        она имеет предел, а значит она функдаментальна, то есть \\
+        она имеет предел, а значит она фундаментальна, то есть \\
         $\forall \epsilon>0\ \exists\ N\in \N,\ \forall m,n>N$:
         \[\idotsint\limits_{K_m}|f|\ dx_1 \dots dx_k-\idotsint\limits_{K_n}|f|\ dx_1 \dots dx_k<\epsilon\]
         Для каждого $\epsilon>0$ положим $K_{\epsilon}=K_{N+1}$. Пусть $K\subset \Omega\setminus K_{N+1}$. Поскольку $\{K_n\}$ --- исчерпание $\Omega$, то $\exists\ m \in \N: K\subset K_m$. Значит $K\subset K_m\setminus K_{N+1}$ и
@@ -86,7 +86,7 @@
         \[\idotsint\limits_{K}|f|\ dx_1 \dots dx_k<1\]
         Заметим, что $K_n\setminus K_1\subset \Omega\setminus K_1$. Тогда для $n\geq 2$:
         \[\idotsint\limits_{K_n\setminus K_1}|f|\ dx_1 \dots dx_k<1\]
-        Поскольку $K_1$ --- компакт и $f\in \mathcal{R_{\text{loc}}}$, то 
+        Поскольку $K_1$ --- компакт и $f\in \mathcal{R_{\text{loc}}}(\Omega)$, то 
         \[\idotsint\limits_{K_1}|f|\ dx_1 \dots dx_k=C\]
         Таким образом
         \begin{multline*}
@@ -98,7 +98,7 @@
         ограничена, а значит она сходится. Значит $|f|\in \widetilde{\mathcal{R}}(\Omega)$. Таким образом, по теореме \ref{kritintnes} выполнено $f\in \widetilde{\mathcal{R}}(\Omega)$.
     \end{itemize}
 \end{proof}
-\begin{example}
+\begin{example} [Интегрируемость $1/r^p$ по проколотому единичному шару и его внешности] $\\$
     Рассмотрим функцию 
     \[f(x_1,\dots,x_k)=\frac{1}{\left(\sqrt{x_1^2+\dots+x_k^2}\ \right)^p}\] 
     и интеграл
@@ -109,7 +109,7 @@
     \begin{multline*}
         \idotsint\limits_{0<\sqrt{x_1^2+\dots+x_k}<1}f(x_1,\dots,x_k)\ dx_1 \dots dx_k=\\
         =\idotsint\limits_{0<r<1}f(\phi(x_1,\dots,x_k))\cdot r^{k-1}\cdot \cos{\alpha_2}\cdot \dots \cos^{k-2}{\alpha_{k-1}}\ dr d\alpha_1 \dots d\alpha_{k-1}=\\
-        =\int\limits_{0}^{1}\frac{1}{r^{p-k+1}}\ dr\cdot \int\limits_{0}^{2\pi}1 \ d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}\ d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{k-1}}\ d\alpha_{k-1}\overset{p<k}{=}\\
+        =\int\limits_{0}^{1}\frac{1}{r^{p-k+1}}\ dr\cdot \int\limits_{0}^{2\pi}1 \ d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}\ d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos^{k-2}{\alpha_{k-1}}\ d\alpha_{k-1}\overset{p<k}{=}\\
         \overset{p<k}{=}\frac{1}{k-p}\cdot2\pi\cdot B\left(\frac{1+1}{2},\frac{0+1}{2}\right)\cdot B\left(\frac{2+1}{2},\frac{0+1}{2}\right)\dots B\left(\frac{k-1}{2},\frac{0+1}{2}\right)=\\
         =\frac{1}{k-p}\cdot2\pi\cdot \frac{\Gamma(1)\Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})}\cdot \frac{\Gamma(\frac{3}{2})\Gamma(\frac{1}{2})}{\Gamma(2)} \dots \frac{\Gamma(\frac{k-1}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{k}{2})}=\\
         =\frac{2\pi}{k-p}\cdot \frac{(\sqrt{\pi})^{k-2}}{\Gamma(\frac{k}{2})}=\frac{2\cdot \pi^{\frac{k}{2}}}{(k-p)\cdot \Gamma(\frac{k}{2})}
@@ -118,7 +118,7 @@
     \[\idotsint\limits_{\sqrt{x_1^2+\dots+x_k}>1}f(x_1,\dots,x_k)\ dx_1 \dots dx_k\]
     \begin{multline*}
         \idotsint\limits_{K_n}f(x_1,\dots,x_k)\ dx_1 \dots dx_k=\\
-        =\int\limits_{1}^{\infty}\frac{1}{r^{p-k+1}}\ dr\cdot \int\limits_{0}^{2\pi}1 \ d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}\ d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{k-1}}\ d\alpha_{k-1}\overset{p>k}{=}\\
+        =\int\limits_{1}^{\infty}\frac{1}{r^{p-k+1}}\ dr\cdot \int\limits_{0}^{2\pi}1 \ d\alpha_1\cdot \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos{\alpha_{2}}\ d\alpha_2 \dots \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos^{k-2}{\alpha_{k-1}}\ d\alpha_{k-1}\overset{p>k}{=}\\
         \overset{p>k}{=}\frac{1}{p-k}\cdot2\pi\cdot B\left(\frac{1+1}{2},\frac{0+1}{2}\right)\cdot B\left(\frac{2+1}{2},\frac{0+1}{2}\right)\dots B\left(\frac{k-1}{2},\frac{0+1}{2}\right)=\\
         =\frac{1}{p-k}\cdot2\pi\cdot \frac{\Gamma(1)\Gamma(\frac{1}{2})}{\Gamma(\frac{3}{2})}\cdot \frac{\Gamma(\frac{3}{2})\Gamma(\frac{1}{2})}{\Gamma(2)} \dots \frac{\Gamma(\frac{k-1}{2})\Gamma(\frac{1}{2})}{\Gamma(\frac{k}{2})}=\\
         =\frac{2\pi}{p-k}\cdot \frac{(\sqrt{\pi})^{k-2}}{\Gamma(\frac{k}{2})}=\frac{2\cdot \pi^{\frac{k}{2}}}{(p-k)\cdot \Gamma(\frac{k}{2})}
