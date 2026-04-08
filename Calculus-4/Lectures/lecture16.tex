@@ -1,0 +1,115 @@
+\section{Лекция 16}
+\subsection{Свойства криволинейного интеграла первого рода}
+\begin{statement}
+    Если существует интеграл
+    \[\int\limits_{\gamma}f\ ds\]
+    то $f$ ограничена на $\gamma$.
+\end{statement}
+\begin{statement}
+    Если $f$ непрерывна на $\phi([a,b])$ и $\gamma$ спрямляема, то существует интеграл
+    \[\int\limits_{\gamma}f\ ds\]
+\end{statement}
+\begin{statement}
+    Пусть $c_1,c_2\in \R$ и существуют интегралы
+    \[\int\limits_{\gamma}f\ ds,\ \ \int\limits_{\gamma}g\ ds\]
+    Тогда существует интеграл
+    \[\int\limits_{\gamma}(c_1\cdot f+c_2\cdot g)\ ds=c_1\cdot \int\limits_{\gamma}f\ ds+c_2\cdot \int\limits_{\gamma}g\ ds\]
+\end{statement}
+\begin{statement}
+    Пусть $\phi: [\alpha,\beta]\to \R^k$ --- параметризация кривой $\gamma$ и $\phi\in \mathcal{C}^1$. Тогда
+    \[\int\limits_{\gamma}f\ ds=\int\limits_{\alpha}^{\beta}f(\phi)\cdot \sqrt{(x_1'(t))^2+\dots+(x_k')^2}\ dt\]
+\end{statement}
+\begin{statement}
+    Интеграл
+    \[\int\limits_{\gamma}f\ ds\]
+    не зависит от ориентации.
+\end{statement}
+\begin{statement}
+    Пусть $f\geq g$ на $\gamma$ и существуют интегралы
+    \[\int\limits_{\gamma}f\ ds,\ \ \int\limits_{\gamma}g\ ds\]
+    Тогда
+    \[\int\limits_{\gamma}f\ ds\geq\int\limits_{\gamma}g\ ds\]
+\end{statement}
+\begin{proof} Заметим, что
+    \[\sigma_s(f\circ\phi,T,H)\geq\sigma_s(g\circ\phi,T,H)\]
+    Устремим $d(T)\to 0$ и получим утверждение.
+\end{proof}
+\begin{statement}
+    Если $\gamma=\gamma_1\sqcup\gamma_2$ и существуют интегралы
+    \[\int\limits_{\gamma}f\ ds,\ \ \int\limits_{\gamma_1}f\ ds,\ \ \int\limits_{\gamma_2}f\ ds\]
+    Тогда
+    \[\int\limits_{\gamma}f\ ds=\int\limits_{\gamma_1}f\ ds+\int\limits_{\gamma_2}f\ ds\]
+\end{statement}
+\begin{statement}
+    Пусть $f\geq 0$ на $\gamma=\gamma_1\cup\gamma_2$. Тогда
+    \[\int\limits_{\gamma}f\ ds\geq \int\limits_{\gamma_1}f\ ds\]
+\end{statement}
+\begin{statement}
+    Пусть $\phi$ --- параметризация кривой $\gamma$,\ $f$ непрерывна на $\phi([\alpha,\beta])$ и $\gamma$ --- спрямляема. Тогда существует $c\in [\alpha,\beta]$ такое, что 
+    \[\int\limits_{\gamma}f\ ds=f(\phi(c))\cdot |\gamma|\]
+\end{statement}
+\begin{proof}
+    \[\int\limits_{\gamma}f\ ds=\int\limits_{\alpha}^{\beta}f(\phi(t))\ dl(t)=f(\phi(c))\cdot \int\limits_{\alpha}^{\beta}1\ dl(t)=f(\phi(c))\cdot |\gamma|\]
+\end{proof}
+\subsection{Криволинейный интеграл второго рода}
+\begin{definition}
+    Пусть $\gamma$ --- кривая с параметризацией 
+    \[\phi:[\alpha,\beta]\to \R^k,\ \ \phi(t)=(x_1(t),\dots,x_k(t))\]
+    Пусть $f_1,\dots,f_k$ --- функции, определенные на $\gamma$ такие, что для каждого $i=1,\dots,k$ существует интеграл
+    \[\int\limits_{\alpha}^{\beta}f_i(x_1(t),\dots,x_k(t))\ d(x_i(t))\]
+    Тогда
+    \[\int\limits_{\gamma}f_1\ dx_1+f_2\ dx_2+\dots+f_k\ dx_k := \sum\limits_{i=1}^{k}\int\limits_{\alpha}^{\beta}f_i(\phi(t))\ d(x_i(t))\]
+    называется криволинейным интегралом второго рода.
+\end{definition}
+\begin{definition}[Альтернативное определение криволинейного интеграла второго рода]\tab
+    \begin{enumerate}
+        \item Пусть $\gamma$ --- кривая с параметризацией 
+        \[\phi:[\alpha,\beta]\to \R^k,\ \ \phi(t)=(x_1(t),\dots,x_k(t))\]
+        Пусть $f_1,\dots,f_k$ --- функции, определенные на $\gamma$. Рассмотрим $T=\{t_i\}$ и\\
+        $H=\{\eta_i\}$ --- произвольные разбиение и разметка отрезка $[\alpha,\beta]$.\
+        \item Обозначим $\Delta_{ij}=x_i(t_j)-x_i(t_{j-1})$. Интегральной суммой назовем
+        \[\sigma(f,T,H)=\sum\limits_{j=1}^{n}\Big(f_1(\phi(\xi_j))\Delta x_{1j}+f_2(\phi(\xi_j))\Delta x_{2j}+\dots+f_k(\phi(\xi_j))\Delta x_{kj}\Big)\]
+        \item Наконец, если
+        \[\forall \epsilon>0\ \exists\ \delta>0: \forall T,\ d(T)<\delta: |\sigma(f,T,H)-I|<\epsilon\]
+        то 
+        \[I=\int\limits_{\gamma}f_1\ dx_1+f_2\ dx_2+\dots+f_k\ dx_k\]
+        называется криволинейным интегралом второго рода.
+    \end{enumerate}
+\end{definition}
+\subsection{Свойства криволинейного интеграла второго рода}
+\begin{statement}
+    Пусть $f_1,\dots,f_k$ --- непрерывны на спрямляемой кривой $\gamma$. Тогда существует интеграл
+    \[\int\limits_{\gamma}f_1\ dx_1+f_2\ dx_2+\dots+f_k\ dx_k\]
+\end{statement}
+\begin{statement}
+    Пусть $c_1,c_2\in \R$
+    %\[\vec{F}=(f_1,\dots,f_k),\ \ \vec{G}=(g_1,\dots,g_k)\] 
+    и существуют интегралы
+    \[\int\limits_{\gamma}f_1\ dx_1+f_2\ dx_2+\dots+f_k\ dx_k,\ \ \int\limits_{\gamma}g_1\ dx_1+g_2\ dx_2+\dots+g_k\ dx_k\]
+    Тогда существует интеграл
+    \begin{multline*}
+        \int\limits_{\gamma}(c_1\cdot f_1+c_2\cdot g_1)\ dx_1+\dots+(c_1\cdot f_k+c_2\cdot g_k)\ dx_k=\\
+        =c_1\cdot \int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k+c_2\cdot \int\limits_{\gamma}g_1\ dx_1+\dots+g_k\ dx_k
+    \end{multline*}
+\end{statement}
+\begin{statement}
+    Пусть $\gamma$ --- спрямляемая кривая. Тогда
+    \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\alpha}^{\beta}\Big(f_1(\phi(t))\cdot x_1'(t)+\dots+f_k(\phi(t))\cdot x_k'(t)\Big)\ dt\]
+\end{statement}
+\begin{statement}
+    При смене ориентации кривой $\gamma$, интеграл второго рода меняет знак.
+\end{statement}
+\begin{statement}
+    Пусть $\gamma=\gamma_1\sqcup\gamma_2$ и существуют интегралы
+    \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k,\ \int\limits_{\gamma_1}f_1\ dx_1+\dots+f_k\ dx_k,\ \int\limits_{\gamma_2}f_1\ dx_1+\dots+f_k\ dx_k\]
+    Тогда 
+    \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\gamma_1}f_1\ dx_1+\dots+f_k\ dx_k+\int\limits_{\gamma_2}f_1\ dx_1+\dots+f_k\ dx_k\]
+\end{statement}
+\begin{statement}
+    Пусть $\gamma\in \mathcal{C}^1$ --- кривая, $f_1,\dots,f_k$ --- непрерывны на $\gamma$. Обозначим $\vec{F}=(f_1,\dots,f_k)$. Тогда
+    \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\gamma}\vec{F}\cdot (x_1'(t),\dots,x_k'(t))\ ds\]
+\end{statement}
+\begin{comm}
+    Тут что то про случай комплексной функции 
+    \[f(x,y)=u(x,y)+i\cdot v(x,y)\]
+\end{comm}
