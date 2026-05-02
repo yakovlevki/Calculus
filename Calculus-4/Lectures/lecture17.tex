@@ -1,0 +1,194 @@
+\section{Лекция 17}
+\subsection{Потенциальное векторное поле}
+\begin{definition}\tab
+    \begin{enumerate}
+        \item Пусть $\Omega$ --- область в $\R^k$. Отображение $F:\Omega\to \R^k$, которое каждой точке $x\in \Omega$ ставит в соответствие вектор $F(x)=(f_1(x),\dots,f_k(x))$, называется векторным полем.
+        \item Векторное поле называется непрерывным, если непрерывна каждая $f_i$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}\tab
+    \begin{enumerate}
+        \item Функция $U:\Omega\to \R$ такая, что $U\in \mathcal{C}^1(\Omega)$ и на $\Omega$ выполнено:
+        \[\grad{U}\equiv (f_1,\dots,f_k)\]
+        называется потенциалом.
+        \item Непрерывное векторное поле $(f_1,\dots,f_k)$ в $\Omega$ называется потенциальным, если для него существует потенциал в $\Omega$.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    Следующие условия эквивалентны:
+    \begin{enumerate}
+        \item $\vec{F}=(f_1,\dots,f_k)$ --- потенциальное поле в $\Omega$.
+        \item Для любой ломаной $\Lambda\subset \Omega$ с началом в точке $A$ и концом в точке $B$, интеграл 
+        \[\int\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k\]
+        зависит только от точек $A$ и $B$ (не зависит от $\Lambda$).
+        \item Для любой замкнутой ломаной $\Lambda\subset\Omega$:
+        \[\oint\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k=0\]
+        \item Для любой спрямляемой кривой $\gamma$ в $\Omega$ с началом в точке $A$ и концом в точке $B$ интеграл
+        \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k\]
+        зависит только от $A$ и $B$ (не зависит от $\gamma$).
+        \item Для любой замкнутой спрямляемой кривой $\gamma$ в $\Omega$:
+        \[\oint\limits_{\gamma}f_1\ d x_1+\dots+f_k\ dx_k=0\]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}\tab
+    \begin{enumerate}
+        \item $(1)\Rightarrow(2)$: Пусть существует потенциал $U$, введем $A_1,\dots,A_n$ --- точки излома ломаной $\Lambda$. Обозначим $\Delta_j=[A_{j-1}, A_{}]$ --- произвольное звено ломаной длины $l$. Обозначим $A_{j-1}=(x_1^{j-1},\dots,x_k^{j-1}),\ A_{j}=(x_1^{j},\dots,x_k^{j})$ и возьмем натуральную параметризацию для $\Delta_j$:
+        \[\phi(t): \begin{cases}
+            x_1=x_1^{j-1}+u_1 t,\\
+            \tab[1.4cm]\vdots\\
+            x_k=x_k^{j-1}+u_k t
+        \end{cases}\]
+        где $t\in [0,l]$. Заметим, что поскольку поле потенциально, то
+        \[\frac{d}{dt}(U(\phi(t)))=\sum\limits_{i=1}^{k}\frac{\partial U}{\partial x_i}(\phi(t))\cdot \frac{dx_i}{dt}=\sum\limits_{i=1}^{k}f_i(\phi(t))\cdot u_i\]
+        Тогда
+        \begin{multline*}
+            \int\limits_{\Delta_j}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{0}^{l}\Big(f_1(\phi(t))u_1+\dots+f_k(\phi(t))u_k\Big)\ dt=\\
+            \int\limits_{0}^{l}\frac{d}{dt}(U(\phi(t)))\ dt=U(\phi(l))-U(\phi(0))=U(A_{j})-U(A_{j-1})
+        \end{multline*}
+        Таким образом, суммируя по всем звеньям $\Delta_j$, получим
+        \begin{multline*}
+            \int\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k=\\
+            =(U(A_2)-U(A_1))+(U(A_3)-U(A_2))+\dots+(U(A_n)-U(A_{n-1}))=\\
+            =U(A_n)-U(A_1)
+        \end{multline*}
+        \item $(2)\Rightarrow(3)$: Пусть $\Lambda$ --- произвольная замкнутая ломаная. Выберем на ней две произволные вершины $A$ и $B$. Тогда ломаную можно представить в виде
+        \[\Lambda=\Lambda_1\cup\Lambda_2^-\]
+        где $\Lambda_1$ --- ломаная от $A$ до $B$, а $\Lambda_2$ --- ломаная от $B$ до $A$, а $\Lambda_2^-$ --- ломаная $\Lambda_2$, пройденная в обратном направлении. Тогда 
+        \begin{multline*}
+            \oint\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k=\\
+            =\int\limits_{\Lambda_1}f_1\ dx_1+\dots+f_k\ dx_k+\int\limits_{\Lambda_2^-}f_1\ dx_1+\dots+f_k\ dx_k=\\
+            =\int\limits_{\Lambda_1}f_1\ dx_1+\dots+f_k\ dx_k-\int\limits_{\Lambda_2}f_1\ dx_1+\dots+f_k\ dx_k
+        \end{multline*}
+        Поскольку $\Lambda_1$ и $\Lambda_2$ соединяют точки $A$ и $B$, то интегралы от них совпадают, значит, искомый интеграл по замкнутому контуру равен нулю.
+        \item $(3)\Rightarrow(2)$: Пусть $\Lambda_1$ и $\Lambda_2$ --- произвольные ломаные, соединяющие точки $A$ и $B$, обозначим $\Lambda=\Lambda_1\cup\Lambda_2^-$. Тогда
+        \begin{multline*}
+            \oint\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k=\\
+            =\int\limits_{\Lambda_1}f_1\ dx_1+\dots+f_k\ dx_k+\int\limits_{\Lambda_2^-}f_1\ dx_1+\dots+f_k\ dx_k=\\
+            =\int\limits_{\Lambda_1}f_1\ dx_1+\dots+f_k\ dx_k-\int\limits_{\Lambda_2}f_1\ dx_1+\dots+f_k\ dx_k
+        \end{multline*}
+        Отсюда
+        \[\int\limits_{\Lambda_1}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\Lambda_2}f_1\ dx_1+\dots+f_k\ dx_k\]
+        \item $(4)\Leftrightarrow(5)$: Аналогично.
+        \item $(2)\Rightarrow(4)$: Пусть $\gamma$ --- произвольная кривая соединяющая точки $A$ и $B$, а $\phi:[a,b]\to \Omega$ --- ее параметризация. Рассмотрим разбиение $T_n=\{t_j\}$ отрезка $[a,b]$ и вписанную ломаную $\Lambda(T_n)$, ее звенья обозначим $\Delta_i$. Хотим показать, что
+        \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\lim\limits_{n\to\infty}\int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k\]
+        Вычислим интеграл по ломаной
+        \[\int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k=\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1\ dx_1+\dots+f_k\ dx_k\]
+        и рассмотрим интегральную сумму Римана-Стильтьеса
+        \[\sigma(T_n)=\sum\limits_{i=1}^{n}\vec{F}(\phi(\xi_i))\cdot \vec{\Delta}_i=\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1(\phi(\xi_i))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k\]
+        Аналогично первому пункту введем натуральную параметризацию $\widetilde{\phi}$ звена $\Delta_i$:
+        \[\widetilde{\phi}(t): \begin{cases}
+            x_1=x_1^{i-1}+u_1 t,\\
+            \tab[1.4cm]\vdots\\
+            x_k=x_k^{i-1}+u_k t
+        \end{cases}\]
+        где $t\in [0,|\Delta_i|]$ и $\vec{u}=(u_1,\dots,u_k)$ и $\|u\|=1$.
+        \begin{multline*}
+            \int\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k-\sigma(T_n)=\\
+            =\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1\ dx_1+\dots+f_k\ dx_k-\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1(\phi(\xi_i))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k=\\
+            =\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}\Big(f_1(x)-f_1(\phi(\xi_i))\Big)\ dx_1+\dots+\Big(f_k(x)-f_k(\phi(\xi_i))\Big)\ dx_k=\\
+            =\sum\limits_{i=1}^{n}\int\limits_{0}^{|\Delta_i|}\Big(\Big(f_1(\widetilde{\phi}(t))-f_1(\phi(\xi_i))\Big)u_1+\dots+\Big(f_k(\widetilde{\phi}(t))-f_k(\phi(\xi_i))\Big)u_k\Big)\ dt
+        \end{multline*}
+        Найдем такой компакт $E$ в $\Omega$, что $\gamma\subset E^o$. Поскольку все $f_j$ непрерывны на $\Omega$, то они равномерно непрерывны на $E$. Тогда
+        \begin{multline*}
+            \int\limits_{0}^{|\Delta_i|}\Big(\Big(f_1(\widetilde{\phi}(t))-f_1(\phi(\xi_i))\Big)u_1+\dots+\Big(f_k(\widetilde{\phi}(t))-f_k(\phi(\xi_i))\Big)u_k\Big)\ dt\leq\\
+            \leq |\Delta_i|\cdot \max{|g|}\leq \epsilon\cdot |\Delta_i|\cdot \sum\limits_{i=1}^{k}|u_i|\overset{(1)}{\leq} \epsilon\cdot \sqrt{k}\cdot |\Delta_i| 
+        \end{multline*}
+        где 
+        \[g=\Big(f_1(\widetilde{\phi}(t))-f_1(\phi(\xi_i))\Big)u_1+\dots+\Big(f_k(\widetilde{\phi}(t))-f_k(\phi(\xi_i))\Big)u_k\] 
+        (1): Применили неравенство между средним арифметическим и средним квадратичным:
+        \[\frac{1}{k}\cdot \sum\limits_{i=1}^{n}|u_i|\leq \sqrt{\frac{1}{k}\cdot \sum\limits_{i=1}^k u_i^2}=\frac{1}{\sqrt{k}}\]
+        Итак
+        \[\left|\ \int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k-\sigma(T_n)\right|\leq \epsilon\cdot \sqrt{k}\cdot \sum\limits_i |\Delta_i|\leq \epsilon\cdot \sqrt{k}\cdot |\gamma|\]
+        \item $(4)\Rightarrow(1)$: Пусть $A\in \Omega$ --- произвольная точка, $\gamma$ --- кривая, соединяющая точки $A$ и $B$. Положим 
+        \[U(B)=\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k\]
+        Хотим показать, что $\forall\ B\in \Omega$ и $\forall i=1,\dots,k$ существует 
+        \[\frac{\partial U}{\partial x_i}(B)=f_i(B)\] 
+        Рассмотри точку $B'=B+(0,\dots,\Delta x_i,\dots,0)$. Аналогично предыдущим пунктам  введем натуральную параметризацию $\phi$ для $BB'$:
+        $\phi(t)=B+\vec{u}\cdot t$
+        где $t\in [0,|\Delta x_i|]$ и $\vec{u}=(u_1,\dots,u_k)$ и $\|u\|=1$.
+        \begin{multline*}
+            \frac{1}{\Delta x_i}\cdot(U(B')-U(B))=\frac{1}{\Delta x_i}\cdot \int\limits_{BB'}f_1\ dx_1+\dots+f_k\ dx_k=\\
+            =\frac{1}{\Delta x_i}\cdot \int\limits_{0}^{|\Delta x_i|}\Big(f_1(\phi(t))u_1+\dots+f_k(\phi(t))u_k\Big) dt=\frac{1}{\Delta x_i}\cdot \int\limits_{0}^{|\Delta x_i|}f_i(\phi(t)) u_i\ dt
+        \end{multline*}
+        Остается заметить, что $\exists\ c\in [0,|\Delta x_i|]: f_i(\phi(c))\to f_i(B)$. Таким образом
+        \[\frac{\partial U}{\partial x_i}(B)=f_i(B)\]
+    \end{enumerate}
+\end{proof}
+% \begin{consequense}
+%     тут написать что можно считать по формуле разность конечн минус началн точки
+% \end{consequense}
+\subsection{Формула Грина для области, ограниченной сверху и снизу графиками функций}
+\begin{theorem}[Формула Грина для области, ограниченной сверху и снизу графиками функций] %$\\$
+    Пусть $P,Q\in \mathcal{C}^1(\Omega),\ \phi_1,\phi_2\in \mathcal{C}([a,b])$. Тогда
+    \[\oint\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\overline{G}}\left(Q'_x-P'_y\right) dxdy\]
+    где 
+    \[\overline{G}=\{(x,y): x\in [a,b],\ \phi_1(x)\leq y\leq \phi_2(x)\}\]
+    \[
+    \begin{tikzpicture}[scale=1.7]
+    \draw[->] (-0.5,0) -- (4.5,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
+
+    \def\a{1.0}
+    \def\b{3.0}
+
+    \pgfmathdeclarefunction{phi2}{1}{%
+        \pgfmathparse{2.5 + 0.1*sin(deg(3*#1)) + 0.07*cos(deg(5*#1))}%
+    }
+    \pgfmathdeclarefunction{phi1}{1}{%
+        \pgfmathparse{0.78 + 0.05*sin(deg(5*#1)) + 0.03*cos(deg(4*#1))}%
+    }
+
+    \draw[thick, ->] plot[domain=\a:\b, samples=100] (\x, {phi1(\x)});
+    \draw[thick, ->] plot[domain=\b:\a, samples=100] (\x, {phi2(\x)});
+
+    \node at (2, {phi1(1.5)-0.4}) {$\phi_1(x)$};
+    \node at (1.8, {phi2(2.5)+0.08}) {$\phi_2(x)$};
+    \node at (2.2, {phi1(1.5)+0.1}) {$\gamma_1$};
+    \node at (3.25, {phi2(2.5)-1}) {$\gamma_2$};
+    \node at (2.1, {phi2(2.5)-0.5}) {$\gamma_3$};
+    \node at (0.75, {phi2(2.5)-1}) {$\gamma_4$};
+
+    \pgfmathsetmacro{\lowA}{phi1(\a)}
+    \pgfmathsetmacro{\highA}{phi2(\a)}
+    \draw[dashed] (\a,0) -- (\a,\lowA);
+    \draw[very thick, ->] (\a,\highA) -- (\a,\lowA);
+    \draw[dashed] (\a,\highA) -- (\a,3.0);
+
+    \pgfmathsetmacro{\lowB}{phi1(\b)}
+    \pgfmathsetmacro{\highB}{phi2(\b)}
+    \draw[dashed] (\b,0) -- (\b,\lowB);
+    \draw[very thick, ->] (\b,\lowB) -- (\b,\highB);
+    \draw[dashed] (\b,\highB) -- (\b,3.0);
+
+    \node[below] at (\a,0) {$a$};
+    \node[below] at (\b,0) {$b$};
+
+    \node at (2,1.6) {$\overline{G}$};
+\end{tikzpicture}
+    \]
+\end{theorem}
+\begin{proof} Докажем для $P$. Заметим, что $x=\text{const}$ на кривых $\gamma_2$ и $\gamma_4$. Значит
+    \begin{multline*}
+        \oint\limits_{\gamma} P\ dx=\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_2}P\ dx+\int\limits_{\gamma_3}P\ dx+\int\limits_{\gamma_4}P\ dx=\\
+        =\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_3}P\ dx=\int\limits_{a}^{b}P(x,\phi_1(x))\ dx-\int\limits_{a}^{b}P(x,\phi_2(x))\ dx
+    \end{multline*}
+    Напишем параметризации для $\gamma_1$ и $\gamma_3$:
+    \[\gamma_1: \begin{cases}
+        x=x\in [a,b],\\
+        y=\phi_1(x)
+    \end{cases},\ \ \gamma_3: \begin{cases}
+        x=x\in [a,b],\\
+        y=\phi_2(x)
+    \end{cases}\]
+    \[\iint\limits_{\overline{G}}\left(-P'_y\ \right)\ dxdy=\int\limits_{a}^{b}\left(\ \int\limits_{\phi_1(x)}^{\phi_2(x)}\left(-P'_y\ \right)\ dy\right)dx=\int\limits_{a}^{b}P(x,\phi_1(x))-P(x,\phi_2(x))\ dx\]
+    Отсюда
+    \[\oint\limits_{\gamma} P\ dx=\iint\limits_{\overline{G}}\left(-P'_y\ \right)\ dxdy\]
+    Аналогично для $Q$.
+\end{proof}
+% \begin{theorem}[Формула Грина для треугольника] $\\$
+%     Пусть $P,Q\in \mathcal{D}(\overline{G})$ и
+%     \[\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\in \mathcal{C}(\overline{G})\]
+%     Тогда
+%     \[\oint\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\overline{G}}\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dxdy\]
+% \end{theorem}
+\newpage

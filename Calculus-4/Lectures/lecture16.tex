@@ -110,6 +110,17 @@
     \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\gamma}\vec{F}\cdot (x_1'(t),\dots,x_k'(t))\ ds\]
 \end{statement}
 \begin{comm}
-    Тут что то про случай комплексной функции 
+    Пусть $f:\gamma\to \mathbb{C}$ --- комплекснозначная функция, определенная на кривой $\gamma$. Функцию $f$ можно представить в виде
     \[f(x,y)=u(x,y)+i\cdot v(x,y)\]
+    где $u(x,y)$ и $v(x,y)$ --- вещественнозначные функции на кривой $\gamma$. Определим криволинейный интерал первого рода рода от комплекснозначной функции: 
+    \[\int\limits_{\gamma}f(z)\ |dz|:=\int\limits_{\gamma}u(x,y)\ ds+i\cdot \int\limits_{\gamma} v(x,y)\ ds\]
+    Заметим, что $dz=dx+i dy$. Значит
+    \begin{multline*}
+        f(z)\ dz=(u+iv)(dx+idy)=u\ dx+iu\ dy+iv\ dx+i^2v\ dy=\\
+        =(u\ dx-v\ dy)+i(v\ dx+u\ dy)
+    \end{multline*}
+    Тогда интеграл второго рода:
+    \[\int\limits_{\gamma}f(z)\ dz:=\int\limits_{\gamma}u\ dx-v\ dy+\int\limits_{\gamma}v\ dx+u\ dy\]
+    Таким образом, криволинейный интеграл второго рода находит широкое применение в комплексном анализе.
 \end{comm}
+\newpage

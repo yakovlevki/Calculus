@@ -1,0 +1,37 @@
+\section{Лекция 23}
+\[\grad{f}=(f'_x,f'_y, f'_z)\]
+направление градиента: $\frac{\partial f}{\partial \vec{u}}$ максимально. Если $F(x,y,z)=C$ --- поверхность уровня, то $\grad$ --- вектор нормали к ней.
+\begin{center}
+\resizebox{1\textwidth}{!}{%
+\setlength{\tabcolsep}{8pt}
+    \begin{tabular}{|c|c|c|c|c|}
+        \toprule
+        \text{Оператор} & \text{Аргумент} & \text{Значения} & \text{Связь с $\nabla$} & \text{Инвариантность} \\
+        \midrule
+        \text{Градиент} & 
+        \shortstack{скалярное поле \\ $(\mathcal{C}^k(\Omega),\ \mathcal{D}^k(\Omega))$} & 
+        \shortstack{векторное поле \\ $(\mathcal{C}^{k-1}(\Omega),\ \mathcal{D}^{k-1}(\Omega))$} & 
+        $\nabla \circ$ & \shortstack{при всех \\ ортогональных \\ преобразованиях} \\
+        \midrule
+        \text{Дивергенция} & 
+        \shortstack{векторное поле \\ $(\mathcal{C}^k(\Omega),\ \mathcal{D}^k(\Omega))$} & 
+        \shortstack{скалярное поле \\ $(\mathcal{C}^{k-1}(\Omega),\ \mathcal{D}^{k-1}(\Omega))$} & 
+        $\nabla \cdot$ & \shortstack{при всех \\ невырожденных \\ преобразованиях} \\
+        \midrule
+        \text{Ротор} & 
+        \shortstack{векторное поле \\ $(\mathcal{C}^k(\Omega),\ \mathcal{D}^k(\Omega))$} & 
+        \shortstack{векторное поле \\ $(\mathcal{C}^{k-1}(\Omega),\ \mathcal{D}^{k-1}(\Omega))$} & 
+        $\nabla \times$ & \shortstack{при всех \\ ортогональных \\ преобразованиях \\ сохраняющих \\ ориентацию}\\
+        \bottomrule
+    \end{tabular}
+}
+\end{center}
+Тут будет  про $\text{div}$\\
+Тут будет про $\text{rot}$\\
+%322 от косухина
+\begin{definition} Оператор
+    \[\triangle f=f''_{xx}+f''_{yy}+f''_{zz}=\text{div}(f'_x,f'_y,f'_z)=\text{div}(\grad(f))\]
+    называется опреатором Лапласа.
+\end{definition}
+\[\nabla\cdot\nabla f=\triangle f\]
+\[\oint\limits_{\Gamma}\frac{\partial f}{\partial n}\ dS=\iint\limits_{G}\triangle f\ dxdy\]
