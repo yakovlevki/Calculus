@@ -1,103 +1,190 @@
 \section{Лекция 18}
-\begin{theorem}
-    Пусть $\overline{\Delta}\subset \Omega$ --- треугольник, $(P,Q)$ --- дифференцируемое векторное поле в $\Omega,\ Q'_x-P'_y\in \mathcal{C}(\Omega)$. Тогда
-    \[\oint\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\overline{\Delta}}(Q'_x-P'_y) dxdy\]
-\end{theorem}
-\begin{proof}
-    Пусть
-    \[M=\oint\limits_{\gamma}P\ dx-+Q\ dy-\iint\limits_{\overline{\Delta}}(Q'_x-P'_y)\ dxdy\]
-    Разбили наш треугольник на 4 треугольника. $\exists\ \Delta_1$:
-    \[\oint\limits_{\gamma_1}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta_1}}(Q'_x-P'_y)\ dxdy\geq \frac{M}{4}\]
-    Получили последовательность вложенных треугольников
-    \[\Delta_0\supset\Delta_1\supset\Delta_2\subset\dots\]
-    где диаметр $D_n=\frac{D}{2^n},\ P_n=\frac{P}{2^n},\ S_n=\frac{S}{4^n}$
-    \[P(x,y)=P(x_0,y_0)+P'_x(x_0,y_0)\cdot (x-x_0)+P'_y(x_0,y_0)\cdot (y-y_0)+\alpha_1(x,y)\cdot \sqrt{(x-x_0)^2+(y-y_0)^2}\]
-    \[\int\limits_{\gamma_n}P\ dx+Q\ dy-\int\limits_{\overline{\Delta}_n}(Q'_x-P'_y)\ dxdy\geq\frac{M}{4^n}\]
-\begin{lemma}
+\subsection{Формула Грина для треугольника}
+\begin{lemma}\label{lem18} Пусть $\Delta$ --- треугольник, $\gamma$ --- его граница, ориентированная против часовой стрелки. Тогда  
     \begin{enumerate}
         \item \[\oint\limits_{\gamma}x\ dx=\oint\limits_{\gamma}y\ dy=0\]
-        \item \[\oint\limits_{\gamma}y\ dx=\oint\limits_{\gamma}x\ dy=S(\Delta ABC)\]
+        \item \[\oint\limits_{\gamma}x\ dy=-\oint\limits_{\gamma}y\ dx=S(\Delta)\]
     \end{enumerate}
 \end{lemma}
-\begin{proof}
+\begin{proof}\tab
     \begin{enumerate}
-        \item Предъявим потенциал $U=\frac{x^2}{2} \Rightarrow U'_x=x,\ U'_y=0$ аналогично для второго интеграла.
-        \item Покажем, что
-        \[-\oint\limits_{\gamma}y\ dx=S(\Delta ABC)\]
-        там мы рисуем треугольник и показываем что интеграл не изменяется при параллельном переносе. Для движения по горизонтали очевидно там что то из интеграла Стильтьеса, а по вертикали смотрим на интегральную сумму
-        \[\sigma=\sum\limits_{i=1}^{n}(y_{\text{нижн}_i}-y_{\text{верх}_i})\Delta x_i\]
-        поэтому при сдвиге ничего не меняется.
-        тут много картинок(((
+        \item Предъявим потенциал 
+        \[U=\frac{x^2}{2}\ \Rightarrow\ U'_x=x,\ U'_y=0\] 
+        аналогично для второго интеграла.
+        \item \textit{Нужно просто вычислить интеграл (появится чуть позже).}
+        %Покажем, что
+        % \[-\oint\limits_{\gamma}y\ dx=S(\Delta ABC)\]
+        % Заметим, что сдвиг по $x$ не меняет $dx$ и $y$, поэтому
+        % \[\oint\limits_{\gamma}y\ dx\]
+        % не изменяется, а также что сдвиг по $y$ дает
+        % \[\oint\limits_{\gamma}(y+k)\ dx=\oint\limits_{\gamma}y\ dx+\oint\limits_{\gamma}k\ dx=\oint\limits_{\gamma}y\ dx\] 
+        % Таким образом, интеграл не меняет значение при параллельных переносах. Выберем систему координат 
     \end{enumerate}
 \end{proof}
-\begin{multline*}
-    \int\limits_{\gamma_n}P\ dx+Q\ dy=\int\limits_{\gamma_n}(P'_y(x_0,y_0)\cdot(y-y_0)+\alpha_1(x,y)\cdot \sqrt{(x-x_0)^2+(y-y_0)^2})dx+\\
-    +(Q'_x(x_0,y_0)\cdot (x-x_0)+\alpha_2(x,y)\cdot \sqrt{(x-x_0)^2+(y-y_0)^2}\ dy)=\\
-    =(Q'_x(x_0,y_0)-P'_y(x_0,y_0))\cdot S_n+\int\limits_{\gamma_n}\sqrt{(x-x_0)^2+(y-y_0)^2}\cdot (\alpha(x,y)dx+\alpha_2(x,y)dy)
-\end{multline*}
-\[\left|\int\limits_{\gamma} f_1\ dx+ f_2\ dy\right|\leq \max\limits_{\gamma}\sqrt{f_1^2+f_2^2}\cdot |\gamma|\]
-\[|\dots|\leq \max\limits_{\gamma_n} \sqrt{(x-x_0)^2+(y-y_0)^2}\cdot \sqrt{\alpha_1^2+\alpha_2^2}-|\gamma_n|\leq \overline{\overline{o}}(1)D_n\cdot P_n=\overline{\overline{1}}\cdot \frac{P\cdot D}{4^n}\]
-$\forall \epsilon>0\ \exists\ \delta>0,\ \sqrt{(x-x_0)^2+(y-y_0)^2}<\delta$:
-\[|(Q'_x-P'_y)(x,y)-(Q'_x-P'_y)(x_0,y_0)|<\epsilon\]
-\begin{multline*}
-    \left|\iint\limits_{\Delta_n}(Q'_x-P'_y)\ dxdy-\iint\limits_{\Delta_n}(Q'_x-P'_y)(x_0,y_0)\ dxdy\right|=\\
-    =|\iint\limits_{\Delta}(Q'_x-P'_y)(x_0,y_0)-(Q'_x-P'_y)(x_0,y_0)\ dxdy|\leq \epsilon\cdot S_n
-\end{multline*}
-Итак
-\[\left|\int\limits_{\gamma_n}P\ dx+Q\ dy-\iint\limits_{\Delta_n}(Q'_x-P'_y)\ dxdy\right|\leq \overline{\overline{o}}(1)\cdot D_n\cdot P_n+\overline{\overline{o}}(1)\cdot S_n=\overline{\overline{o}}\left(\frac{1}{4^n}\right)\]
-\end{proof}
-тут про индекс кривой.\\
-Теперь общий случай (доказывать его конечно же не будем)
-\begin{theorem}
-    Пусть $\gamma$ --- спрямляемая кривая. Тогда
-    \[\int\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\R^2}(Q'_x-P'_y)\cdot \text{ind}_{\gamma}\ dxdy\]
+\begin{theorem}\label{grintreyg}
+    Пусть $\overline{\Delta}\subset \Omega$ --- треугольник, $\gamma$ --- кривая, состоящая из сторон треугольника, $(P,Q)$ --- дифференцируемое векторное поле в $\Omega,\ Q'_x-P'_y\in \mathcal{C}(\Omega)$. Тогда
+    \[\oint\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\overline{\Delta}}(Q'_x-P'_y)\ dxdy\]
 \end{theorem}
-Мы же докажем для замкнутой ломаной без пересечений.
+\begin{proof} Разобьем наш треугольник на 4 треугольника:
+    \[
+    \begin{tikzpicture}
+        \usetikzlibrary{calc}
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4,0);
+    \coordinate (C) at (2,3.464);
+    \coordinate (D) at (2,0);
+    \coordinate (E) at (3,1.732);
+    \coordinate (F) at (1,1.732);
+    \draw (A) -- (B) -- (C) -- cycle;
+    \draw (D) -- (E) -- (F) -- cycle;
+    \node at (1,0.577) {$\Delta_2$};
+    \node at (3,0.577) {$\Delta_4$};
+    \node at (2,2.309) {$\Delta_1$};
+    \node at (2,1.155) {$\Delta_3$};
+    \end{tikzpicture}
+    \]
+    и обозначим $\gamma_k$ --- ориентированные против часовой стрелки границы каждого из треугольников. Обозначим
+    \[M=\oint\limits_{\gamma}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}}(Q'_x-P'_y)\ dxdy\]
+    Заметим, что
+    \[\oint\limits_{\gamma}P\ dx+Q\ dy=\sum\limits_{k=1}^{4} \left(\ \oint\limits_{\gamma_k}P\ dx+Q\ dy\right)\]
+    а также
+    \[\iint\limits_{\overline{\Delta}}(Q'_x-P'_y)\ dxdy=\sum\limits_{k=1}^{4}\left(\iint\limits_{\overline{\Delta}_k}(Q'_x-P'_y)\ dxdy\right)\]
+    Значит
+    \[M=\sum\limits_{k=1}^{4}\left(\oint\limits_{\gamma_k}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}_k}(Q'_x-P'_y)\ dxdy\right)\]
+    Обозначим 
+    \[M_k=\left(\oint\limits_{\gamma_k}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}_k}(Q'_x-P'_y)\ dxdy\right)\]
+    Тогда $|M|\leq 4\cdot \max_k |M_k|$ и найдется хотя бы один треугольник для которого $|M_k|\geq \frac{|M|}{4}$. Выберем этот треугольник и назовем его $\Delta_1$. Таким образом
+    \[\left|\ \oint\limits_{\gamma_1}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta_1}}(Q'_x-P'_y)\ dxdy\right|\geq \frac{|M|}{4}\]
+    Теперь рассмотрим треугольник $\Delta_1$ и разобьем его на 4 треугольника и выберем $\Delta_2$. Продолжая процесс деления, полчим последовательность вложенных треугольников $\Delta_n$, таких, что
+    \[\left|\ \oint\limits_{\gamma_n}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}_n}(Q'_x-P'_y)\ dxdy\right|\geq \frac{|M|}{4^n}\]
+    Где $\gamma_n$ --- граница $\Delta_n$. Также для $\Delta_n$ обозначим: $D_n=\frac{D}{2^n}$ --- диаметр,\\
+    $P_n=\frac{P}{2^n}$ --- периметр, $S_n=\frac{S}{4^n}$ --- площадь. Для каждого треугольника $\Delta_n$ выберем точку $(x_n,y_n)$ внутри него (например центр). Разложим $P$ и $Q$ по формуле Тейлора:
+    \begin{multline*}
+        P(x,y)=P(x_n,y_n)+P'_x(x_n,y_n)\cdot (x-x_n)+P'_y(x_n,y_n)\cdot (y-y_n)+\\
+        +\alpha_n(x,y)\cdot r_n(x,y)
+    \end{multline*}
+    \begin{multline*}
+        Q(x,y)=Q(x_n,y_n)+Q'_x(x_n,y_n)\cdot (x-x_n)+Q'_y(x_n,y_n)\cdot (y-y_n)+\\
+        +\beta_n(x,y)\cdot r_n(x,y)
+    \end{multline*}
+    где $r_n(x,n)=\sqrt{(x-x_n)^2+(y-y_n)^2}$ и $\alpha_n, \beta_n\to 0$ при $(x,y)\to (x_n,y_n)$. Подставим разложение в интерал и воспользуемся леммой \ref{lem18}:
+    \begin{multline*}
+        \oint\limits_{\gamma_n}P\ dx+ Q\ dy=\\
+        =\oint\limits_{\gamma_n}\left(P(x_n,y_n)+P'_x(x_n,y_n)(x-x_n)+P'_y(x_n,y_n)(y-y_n)+\alpha_n\cdot r_n(x,y)\right)dx+\\
+        +\oint\limits_{\gamma_n}\left(Q(x_n,y_n)+Q'_x(x_n,y_n)(x-x_n)+Q'_y(x_n,y_n)(y-y_n)+\beta_n\cdot r_n(x,y)\right)dy=\\
+        =\underbrace{P(x_n,y_n)\cdot \oint\limits_{\gamma_n}dx}_{=0}+\underbrace{P'_x(x_n,y_n)\cdot \oint\limits_{\gamma_n}(x-x_n)\ dx}_{=0}+\tab[6.2cm]\\
+        +P'_y(x_n,y_n)\cdot \oint\limits_{\gamma_n}(y-y_n)\ dx+\oint\limits_{\gamma_n}\alpha_n\cdot r_n\ dx+\underbrace{Q(x_n,y_n)\cdot \oint\limits_{\gamma_n}dy}_{=0}+\\
+        +Q'_x(x_n,y_n)\cdot \oint\limits_{\gamma_n}(x-x_n)\ dy+\underbrace{Q'_y(x_n,y_n)\cdot \oint\limits_{\gamma_n}(y-y_n)\ dy}_{=0} + \oint\limits_{\gamma_n}\beta_n\cdot r_n\ dy
+    \end{multline*}
+    Теперь заметим, что
+    \[\oint\limits_{\gamma_n}(y-y_n)\ dx=\oint\limits_{\gamma_n}y\ dx-y_n\cdot \oint\limits_{\gamma_n}dx=-S_n\]
+    \[\oint\limits_{\gamma_n}(x-x_n)\ dy=\oint\limits_{\gamma_n}x\ dy-x_n\cdot \oint\limits_{\gamma_n}dy=S_n\]
+    Таким образом
+    \[\int\limits_{\gamma_n}P\ dx+Q\ dy=(Q'_x(x_n,y_n)-P'_y(x_n,y_n))\cdot S_n+\oint\limits_{\gamma_n}(\alpha_n\cdot r_n\ dx+\beta_n\cdot r_n\ dy)\]
+    Рассмотрим функцию $f=Q'_x-P'_y$. Заметим, что
+    \begin{multline*}
+        \iint\limits_{\overline{\Delta_n}}f(x,y)\ dxdy=\iint\limits_{\overline{\Delta_n}}(f(x_n,y_n)+(f(x,y)-f(x_n,y_n)))\ dxdy=\\
+        =f(x_n,y_n)\cdot \iint\limits_{\overline{\Delta_n}} dxdy+\iint\limits_{\overline{\Delta_n}}(f(x,y)-f(x_n,y_n))\ dxdy=\\
+        =f(x_n,y_n)\cdot S_n+\iint\limits_{\overline{\Delta_n}}(f(x,y)-f(x_n,y_n))\ dxdy
+    \end{multline*}
+    Таким образом
+    \begin{multline*}
+        \oint\limits_{\gamma_n}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta_n}}f\ dxdy=\\
+        =\oint\limits_{\gamma_n}(\alpha_n\cdot r_n\ dx+\beta_n\cdot r_n\ dy)-\iint\limits_{\overline{\Delta_n}}(f(x,y)-f(x_n,y_n))\ dxdy
+    \end{multline*}
+    Оценим первое слагаемое. Обозначим $\omega_n=\max\limits_{\gamma_n}\sqrt{\alpha_n^2+\beta_n^2}$ и заметим, что\\
+    $\omega_n\to 0$. Также очевидно, что $r_n(x,y)\leq D_n$. 
+    \begin{multline*}
+        \left|\ \oint\limits_{\gamma_n}(\alpha_n\cdot r_n\ dx+\beta_n\cdot r_n\ dy)\right|\leq \omega_n\cdot D_n\cdot \oint\limits_{\gamma_n}\left(|dx|+|dy|\right)\leq\\
+        \leq \omega_n\cdot D_n\cdot \sqrt{2}P_n=\sqrt{2}\cdot \omega_n\cdot \frac{DP}{4^n}
+    \end{multline*}
+    где
+    \[\oint\limits_{\gamma_n}\left(|dx|+|dy|\right)\leq \sqrt{2}\cdot \int\limits_{\gamma_n}ds=\sqrt{2}\cdot P_n\]
+    Теперь оценим второе слагаемое. Поскольку $f$ непрерывна на компакте $\overline{\Delta}_n$, то она равномерно непрерывна на $\overline{\Delta}_n$. Тогда для всех $x\in \Delta_n$:
+    \[\forall \epsilon>0\ \exists\ \delta>0,\ d(\delta_n)<\delta: |f(x,y)-f(x_n,y_n)|<\epsilon_n\]
+    Отсюда
+    \[\left|\iint\limits_{\overline{\Delta_n}}(f(x,y)-f(x_n,y_n))\ dxdy\right|<\epsilon_n\cdot S_n=\epsilon_n\cdot \frac{S}{4^n}\]
+    Итак, $\forall \epsilon>0\ \exists\ N,\ \forall n>N$:
+    \[\left|\ \oint\limits_{\gamma_n}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta_n}}f\ dxdy\right|<\epsilon\cdot \frac{DP+S}{4^n}\]
+    Но по построению последовательности $\Delta_n$ выбирался таким, что
+    \[\left|\oint\limits_{\gamma_n}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}_n}(Q'_x-P'_y)\ dxdy\right|\geq \frac{|M|}{4^n}\]
+    Отсюда получаем, что
+    \[\frac{|M|}{4^n}\leq \epsilon\cdot \frac{DP+S}{4^n}\]
+    Поскольку $\epsilon$ произвольно, то $M=0$.
+\end{proof}
+\subsection{Формула Грина для замкнутой ломаной}
+% \begin{definition}
+%     Индексом кривой относительно точки называется $\text{ind}_{\gamma}$ --- число оборотов кривой при обходе вокруг точки.
+% \end{definition}
+% \noindentДля общего случая Формула Грина имеет вид
+% \begin{theorem}
+%     Пусть $\gamma$ --- спрямляемая кривая. Тогда
+%     \[\int\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\R^2}(Q'_x-P'_y)\cdot \text{ind}_{\gamma}\ dxdy\]
+% \end{theorem}
+% \noindentМы же докажем более слабую формулировку, кривой будет замкнутая ломаная без самопересечений.
 \begin{theorem}
-    Пусть $\Lambda$ --- замкнутая ломаная без самопересечений в $\Omega,\ P,Q\in \mathcal{D}(\Omega),\ Q_x'-P_y'\in \mathcal{C}(\Omega)$. тогда
+    Пусть $\Lambda$ --- замкнутая ломаная без самопересечений в $\Omega,\\
+    P,Q\in \mathcal{D}(\Omega),\ Q_x'-P_y'\in \mathcal{C}(\Omega)$. Тогда
     \[\oint\limits_{\Lambda}P\ dx+Q\ dy=\iint\limits_{\Phi}(Q'_x-P'_y)\ dxdy\]
 \end{theorem}
 \begin{proof}
-    Хотим свести задачу к предыдущей и разбить многоугольник на треугольники:
+    Построим разбиение многоугольника на треугольники и воспользуемся теоремой \ref{grintreyg}
     \begin{enumerate}
-        \item Если многоугольник выпуклый, то преведем диагонали из одной вершины и получим что нужно
-        \item Если многоугольник не выпуклый то проводим семейство параллельных прямых (достаточно частно) и разрезаем этот многоугольник на выпуклые многоугольники.
+        \item Если многоугольник выпуклый, то выберем любую вершину и преведем из нее диагонали. Получим разбиение на треугольники. Теперь каждого треугольника применяем теорему и суммируем полученные интегралы.
+        \item Если многоугольник не выпуклый, то проводим семейство параллельных прямых (достаточно частно), что разрезает этот многоугольник на выпуклые многоугольники.
     \end{enumerate}
 \end{proof}
 \begin{consequense}
-    Пусть $\gamma$ --- такая замкнутая простая кривая, что для нее существует последовательность вписанных простых ломаных с максимальной длиной отрезков стремащихся к нулю.
+    Пусть $\gamma$ --- такая замкнутая простая кривая, что для нее существует последовательность вписанных простых ломаных с максимальной длиной отрезков стремящихся к нулю. Тогда предельным переходом можно распространить формулу Грина на кривую $\gamma$.
 \end{consequense}
-Теперь рассказываем ради чего это все
-\begin{multline*}
-    \int\limits_{\gamma}f(z)\ dz=\int\limits_{\gamma} u(x,y)+i\cdot v(x,y)\ d(x+iy)=\\
-    =\left(\int\limits_{\gamma}u(x,y)\ dx-v(x,y)\ dy\right)+i\cdot \left(\int\limits_{\gamma}v(x,y)\ dx+u(x,y)\ dy\right)
-\end{multline*}
+% Теперь рассказываем ради чего это все
+% \begin{multline*}
+%     \int\limits_{\gamma}f(z)\ dz=\int\limits_{\gamma} u(x,y)+i\cdot v(x,y)\ d(x+iy)=\\
+%     =\left(\int\limits_{\gamma}u(x,y)\ dx-v(x,y)\ dy\right)+i\cdot \left(\int\limits_{\gamma}v(x,y)\ dx+u(x,y)\ dy\right)
+% \end{multline*}
 \begin{definition}
-    
+    Если $\forall z\in \Omega$ существует предел
+    \[\lim\limits_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}\]
+    то функция называется аналитической. Обозначают $f\in \mathcal{A}(\Omega)$.
 \end{definition}
 \begin{theorem}
-    Пусть $f\in \mathcal{A}(\Omega), \gamma$ --- замкнутая спрямляемая ограниченная кривая. На множестве $\Phi\subset \Omega$ справедлива формула Грина. Тогда
+    Пусть $f\in \mathcal{A}(\Omega),\ \gamma$ --- замкнутая спрямляемая ограниченная кривая, являющаяся границей области $\Phi\subset \Omega$ для которой справедлива формула Грина. Тогда
     \[\oint\limits_{\gamma}f(z)\ dz=0\] 
 \end{theorem}
-\begin{proof}
-    \[\zeta=\lim\limits_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0} \Leftrightarrow f(z)-f(z_0)=\zeta\cdot (z-z_0)+\overline{\overline{o}}(1)\cdot (z-z_0)\]
+\begin{proof} Пусть $f(z)=u(x,y)+i\cdot v(x,y),\ z=z+iy,\ z_0=x_0+iy_0$ и $\theta=\xi+i\cdot \eta$. Заметим, что
+    \[\theta=\lim\limits_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}\ \Leftrightarrow\ f(z)-f(z_0)=\theta\cdot (z-z_0)+\overline{\overline{o}}(1)\cdot (z-z_0)\]
+    Распишем правую часть равенства:
+    \begin{multline*}
+        \theta(z-z_0)=(\xi+i\eta)((x-x_0)+i(y-y_0))=\\
+        =\xi(x-x_0)-\eta(y-y_0)+i(\eta(x-x_0)+\xi(y-y_0))
+    \end{multline*}
+    Выделив вещественную и мнимую части, получим:
     \[\begin{cases}
         u(x,y)-u(x_0,y_0)=\xi(x-x_0)-\eta(y-y_0)+\overline{\overline{o}}(1)\cdot \sqrt{(x-x_0)^2+(y-y_0)^2},\\
         v(x,y)-v(x_0,y_0)=\eta(x-x_0)-\xi(y-y_0)+\overline{\overline{o}}(1)\cdot \sqrt{(x-x_0)^2+(y-y_0)^2}
     \end{cases}\]
+    Это означает, что функции $u$ и $v$ дифференциуемы в точке $M_0=(x_0,y_0)$, причем
+    \[u'_x(x_0,y_0)=\xi,\ u'_y(x_0,y_0)=-\eta,\ v'_x(x_0,y_0)=\eta,\ v'_y(x_0,y_0)=\xi\] 
+    что равносильно условиям Коши-Римана:
+    \[\begin{cases}
+        \xi=u'_x=v'_y\\
+        \eta=-u'_y=v'_x
+    \end{cases}\]
+    Таким образом
     \begin{multline*}
-        (\xi+i\eta)((x-x_0)+i(y-y_0))=\\
-        =\xi(x-x_0)-\eta(y-y_0)+i(\eta(x-x_0)+\xi(y-y_0))
+        \int\limits_{\gamma}f(z)\ dz=\int\limits_{\gamma}u(x,y)+i\cdot v(x,y)\ d(x+iy)=\\
+        =\left(\int\limits_{\gamma}u(x,y)\ dx-v(x,y)\ dy\right)+i\cdot \left(\int\limits_{\gamma}v(x,y)\ dx+u(x,y)\ dy\right)=\\
+        =\iint\limits_{\Phi}(-v'_x-u'_y)\ dxdy+i\cdot \iint\limits_{\Phi}(u'_x-v'_y)\ dxdy=0
     \end{multline*}
 \end{proof}
-\begin{example} [Сапог Шварца] $\\$
-    Рассмотрим цилиндр
-    $S_{\text{бок}}=2\pi R\cdot H$ разрежем его на $m$ слоев
-    Впишем в верхнюю окружность правильный пятиугольник потом спускаемся на слой ниже и рисуем пятиугольнимк в противофазе
-    прикол тут будет в том что при одном стремлении m n к бесконечности мы получим площадь поверхности а при другом нет
-    в следующий раз проверим это
-\end{example}
-\begin{center}
-    \includegraphics[width=0.4\textwidth]{Images/Sapog.png}
-\end{center}
+% \begin{example} [Сапог Шварца] $\\$
+%     Рассмотрим цилиндр
+%     $S_{\text{бок}}=2\pi R\cdot H$ разрежем его на $m$ слоев
+%     Впишем в верхнюю окружность правильный пятиугольник потом спускаемся на слой ниже и рисуем пятиугольнимк в противофазе
+%     прикол тут будет в том что при одном стремлении m n к бесконечности мы получим площадь поверхности а при другом нет
+%     в следующий раз проверим это
+% \end{example}
+% \begin{center}
+%     \includegraphics[width=0.4\textwidth]{Images/Sapog.png}
+% \end{center}
 \newpage
