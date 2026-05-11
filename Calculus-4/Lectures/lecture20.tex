@@ -1,2 +1,117 @@
 \section{Лекция 20}
+\subsection{Поверхностный интерал второго рода}
+\begin{definition}
+    \begin{enumerate}
+        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\Phi_2$ эквивалентны если существует биективная гладкая $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}> 0$ на $\Omega_1$ и $\phi_2\equiv\phi_1\circ\psi$.
+        \item Ориентированной гладкой поверхностью называется класс эквивалентности гладких параметризаций по указанному отношению.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    Ориентированная гладкая поверхность --- это поверхность, на которой задано непрерывное векторное поле единичных нормалей.
+\end{definition}
+\begin{definition}
+    Пусть $(\Sigma, \vec{n})$ --- ориентированная поверхность, $(P,Q,R)$ --- векторное поле на $\phi(\overline{\Omega})$. Интеграл
+    \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy:=\iint\limits_{\Sigma}(P,Q,R)\cdot \vec{n}\ dS\]
+    называется поверхностным интегралом второго рода.
+\end{definition}
+\begin{comm}
+    Если $\vec{n}=(\cos{\alpha},\cos{\beta},\cos{\gamma})$, то
+    \begin{multline*}
+        \iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy=\iint\limits_{\Sigma}(P,Q,R)\cdot \vec{n}\ dS=\\
+        =\iint\limits_{\overline{\Omega}}(P\cos{\alpha}+Q\cos{\beta}+R\cos{\gamma})\sqrt{EG-F^2}\ dudv=\\
+        =\iint\limits_{\overline{\Omega}}\begin{vmatrix}
+            P & Q & R\\
+            x'_u & y'_u & z'_u\\
+            x'_v & y'_v & z'_v
+        \end{vmatrix} dudv
+    \end{multline*}
+\end{comm}
+\begin{comm}
+    Пусть поверхность $\Sigma$ задается графиком функции:
+    \[\begin{cases}
+        x=u\\
+        y=v\\
+        z=z(x,y)
+    \end{cases}\]
+    Тогда
+    \[\iint\limits_{\Sigma}R\ dxdy=\iint\limits_{\overline{\Omega}}R(x,y,z(x,y))\ dxdy\]
+\end{comm}
+\begin{statement}
+    Поверхностный интеграл второго рода не зависит от выбора параметризации.
+\end{statement}
+\begin{proof}
+    Без доказательства.
+\end{proof}
+\begin{statement}
+    Поверхностный интеграл второго рода меняет знак при смене ориентации.
+\end{statement}
+\begin{proof}
+    \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy=\iint\limits_{\Sigma}(P,Q,R)\cdot \vec{n}\ dS\]
+    При смене ориентации, нормаль меняется на противоположную. Отсюда скалярное произведение, а значит и сам интеграл, тоже меняет знак.
+\end{proof}
+\begin{statement}
+    Пусть заданы векторные поля $(P_1,Q_1,R_1)$ и $(P_2,Q_2,R_2)$ и существуют интегралы
+    \[\iint\limits_{\Sigma}P_1\ dydz+Q_1\ dzdx+R_1\ dxdy,\ \ \iint\limits_{\Sigma}P_2\ dydz+Q_2\ dzdx+R_2\ dxdy\]
+    Тогда $\forall c_1,c_2\in \R$ существует интеграл
+    \begin{multline*}
+        \iint\limits(c_1\cdot P_1+c_2\cdot P_2)\ dydz+(c_1\cdot Q_1+c_2\cdot Q_2)\ dzdx+(c_1\cdot R_1+c_2\cdot R_2)\ dxdy=\\
+        =c_1\cdot \iint\limits_{\Sigma}P_1\ dydz+Q_1\ dzdx+R_1\ dxdy+c_2\cdot \iint\limits_{\Sigma}P_2\ dydz+Q_2\ dzdx+R_2\ dxdy
+    \end{multline*}
+\end{statement}
+\begin{comm}
+    Пусть $\Sigma$ --- простая гладкая поверхность, $(P,Q,R)$ --- непрерывное векторное поле скоростей частиц. И в каждой точке задана непрерывная функция $\rho(x,y,z)$ --- плотность. Тогда масса, протекающая через $\Sigma$ за единицу времени в точности равна
+    \[\iint\limits_{\Sigma}\rho((P,Q,R)\cdot \vec{n})\ dS\]
+\end{comm}
+\subsection{Формула Стокса}
+\begin{theorem}[Формула Стокса] $\\$
+    Пусть $(\Sigma, \vec{n})$ --- ориентированная простая поверхность класса $\mathcal{C}^2$ с параметризацией $\phi:\Omega\to \R^3,\ \partial\Omega=\gamma,\ \Gamma=\phi(\gamma)$ и $(P,Q,R)$ --- непрерывное векторное поле на $\Sigma$. Тогда
+        \[\oint\limits_{\Gamma}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma} \begin{vmatrix}
+            \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+            \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+            P & Q & R
+        \end{vmatrix}\]
+\end{theorem}
+\begin{proof}
+    Благодаря свойству линейности, без ограничения общности можем считать, что $P=Q=0$. Пусть $\psi:[a,b]\to \R^2$ --- параметризация кривой $\gamma$. Тогда $\phi\circ\psi:[a,b]\to \R^3$ --- параметризация кривой $\Gamma$. Таким образом
+    \[dz=z'_u\cdot u'_t+z'_v\cdot v'_t\]
+    Значит
+    \begin{multline*}
+        \oint\limits_{\Gamma}R\ dz=\int\limits_{a}^{b}R(x,y,z)(z'_u\cdot u'_t+z'_v\cdot v'_t)\ dt=\oint\limits_{\gamma}R\cdot z'_u\ du+R\cdot z'_v\ dv=\\
+        =\iint\limits_{\overline{\Omega}}(R\cdot z'_v)'_u-(R\cdot z'_u)'_v\ dudv=\iint\limits_{\overline{\Omega}}(R'_u\cdot z'_v-R'_v\cdot z'_u)\ dudv
+    \end{multline*}
+    \[R'_u=R'_x\cdot x'_u+R'_y\cdot y'_u+R'_z\cdot z'_u,\ \ R'_v=R'_x\cdot x'_v+R'_y\cdot y'_v+R'_z\cdot z'_v\]
+    Отсюда
+    \[R'_u\cdot z'_v-R'_v\cdot z'_u=R'_x(x'_u z'_v-x'_v z'_u)+R'_y(y'_u z'_v-y'_v z'_u)\]
+    Рассмотрим векторное произведение
+    \[r'_u\times r'_v=(y'_u z'_v-y'_v z'_u,\ z'_u x'_v-z'_v x'_u,\ x'_u y'_v-x'_v y'_u)\]
+    Заметим, что $-(x'_u z'_v-x'_v z'_u)=z'_u x'_v-z'_v x'_u$ --- вторая координата $r'_u\times r'_v$ и $y'_u z'_v-y'_v z'_u$ --- первая координата $r'_u\times r'_v$. Таким образом
+    \[\iint\limits_{\overline{\Omega}} (R'_u\cdot z'_v-R'_v\cdot z'_u)\ dudv=\iint\limits_{\overline{\Omega}}(R'_y,-R'_x,0)\cdot (r'_u\times r'_v)\ dudv\]
+    при этом $(r'_u\times r'_v)\ dudv=\vec{n}\cdot dS$, где $\vec{n}=(\cos{\alpha},\cos{\beta},\cos{\gamma})$. Значит
+    \[\oint\limits_{\Gamma}R\ dz=\iint\limits_{\Sigma}(R'_y \cos{\alpha}-R'_x \cos{\beta})\ dS\]
+    Теперь заметим, что
+    \[\begin{vmatrix}
+        \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        0 & 0 & R
+    \end{vmatrix}=R'_y \cos{\alpha}-R'_x \cos{\beta}\]
+    Следовательно
+    \[\oint\limits_{\Gamma}R\ dz=\iint\limits_{\Sigma} \begin{vmatrix}
+        \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        0 & 0 & R
+    \end{vmatrix}\ dS\]
+    Аналогично для векторных полей $(P,0,0)$ и $(0,Q,0)$ получаются соответствующие определители. Складывая их по линейности, получим
+    \[\oint\limits_{\Gamma}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma} \begin{vmatrix}
+        \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        P & Q & R
+    \end{vmatrix}\ dS\]
+\end{proof}
+\begin{comm}
+    \[\iint\limits_{\Sigma} \begin{vmatrix}
+        \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        P & Q & R
+    \end{vmatrix}\ dS=\iint\limits_{\Sigma}(R'_y-Q'_z)dydz+(P'_z-R'_x)\ dzdx+(Q'_x-P'_y)dxdy\]
+\end{comm}
 \newpage

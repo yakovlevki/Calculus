@@ -41,8 +41,8 @@
         \end{matrix}\Bigg|=\frac{1}{r^2}\cdot \int\limits_{0}^{2\pi}r^2\cdot \cos^2{\phi}+r^2\cdot \sin^2{\phi}\ d\phi=2\pi\neq 0\]
 \end{example}
 \subsection{Поверхности в $\R^n$}
-\textit{тут что то про поверхности}
-\begin{definition}\tab
+% \textit{тут что то про поверхности}
+\begin{definition}\label{surface}\tab
     \begin{enumerate}
         \item Пусть $\Omega\subset\R^2,\ \partial\Omega=\gamma$ --- кусочно-гладкая кривая. Отображение
         $\phi:\overline{\Omega}\to\R^k$, где $k\geq 3$ такое, что $\phi\in \mathcal{C}^1(\overline{\Omega})$
@@ -53,7 +53,7 @@
             \phi'_v
         \end{pmatrix}=2\]
         называется гладкой параметризацией поверхности.
-        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\Phi_2$ эквивалентны (параметризуют одну и ту же поверхность), есть существует биективная $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}\neq 0$ на $\Omega_1$ и $\phi_2\equiv\phi_1\circ\psi$.
+        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\Phi_2$ эквивалентны (параметризуют одну и ту же поверхность), если существует биективная $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}\neq 0$ на $\Omega_1$ и $\phi_2\equiv\phi_1\circ\psi$.
         \item Поверхностью называется класс эквивалентности гладких параметризаций по указанному отношению.
     \end{enumerate}
 \end{definition}
