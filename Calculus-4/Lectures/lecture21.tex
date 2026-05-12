@@ -1,65 +1,107 @@
 \section{Лекция 21}
 \subsection{Обобщение поверхностных интегралов на кусочно-гладкую поверхность}
 \begin{definition}
-    Кусочно-гладкой поверхностью $\Sigma$ в $\R^3$ назовем конечный набор гладких поверхностей $\{\Sigma_j\}$, где $\Sigma_j$ с разными индексами либо не пересекаются, либо пересекаются по гладкой дуге границы. Любые три разных $\Sigma_j$ могут пересекаться по одной точке. Из любой $\Sigma_j$ можно перейти в любую $\Sigma_j$ по цепочке соприкасающихся поверхностей. 
+    Кусочно-гладкой поверхностью $\Sigma$ в $\R^3$ назовем конечный набор гладких поверхностей $\{\Sigma_j\}$, таких что
+    \begin{enumerate}
+        \item $\Sigma_j$ с разными индексами либо не пересекаются, либо пересекаются по гладкой дуге границы.
+        \item Любые три разных $\Sigma_j$ могут пересекаться по одной точке.
+        \item Из любой $\Sigma_j$ можно перейти в любую $\Sigma_j$ по цепочке соприкасающихся поверхностей.
+    \end{enumerate}
     Интеграл первого рода определяется так:
     \[\iint\limits_{\Sigma}f\ dS =\sum\limits_{j=1}^{n}\iint\limits_{\Sigma_j}f\ dS\]
-    Интеграл второго рода определяется также: (по аддитивности)
 \end{definition}
 \begin{definition}
-    Ориентированной кусочно-гладкой поверхностью называется кусочно гладкая поверхность у которой линии склейки проходятся в разном направлении.
+    Ориентированной кусочно-гладкой поверхностью называется кусочно гладкая поверхность у которой линии склейки проходятся в разном направлении. Интеграл второго рода определяется так:
+    \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy=\sum\limits_{j=1}^{n}\iint\limits_{\Sigma_j}P\ dydz+Q\ dzdx+R\ dxdy\]
 \end{definition}
 \begin{comm}
     Таким образом на кусочно-гладкую поверхность можно перенести формулу Стокса.
 \end{comm}
+\subsection{Формула Гаусса-Остроградского}
 \begin{theorem}[Формула Гаусса-Остроградского] $\\$
-    Пусть $G$ --- выпуклая область в $\R^3$ с кусочно-гладкой границей $\partial G$, которая ориентированна полем внешних нормалей. На $\overline{G}$ определено $\mathcal{C}^1$ векторное поле $(P,Q,R)$. 
+    Пусть $G$ --- выпуклая область в $\R^3$ с кусочно-гладкой границей $\partial G$, которая ориентированна полем внешних нормалей и на $\overline{G}$ определено $\mathcal{C}^1$ векторное поле $(P,Q,R)$. Тогда
     \[\iint\limits_{\partial G} Pdydz+ Qdzdx+ Rdxdy=\iiint\limits_{\overline{G}}(P'_x+Q'_y+R'_z)\ dxdydz\]
 \end{theorem}
 \begin{proof}
-    Докажем для одного слагаемого.\\
-    Спроецируем $G$ на плоскость $XOY$. $(x,y)\in \overline{\Omega},\ \psi_1(x,y)\leq z\leq \psi_2(x,y)$
-    \[\iiint\limits_{\overline{G}}R'_z\ dxdydz=\iint\limits_{\overline{\Omega}}\left(\ \int\limits_{\psi_1(x,y)}^{\psi_2(x,y)}R'_z(x,y,z)\ dz\right)dxdy\]
-    \[\int\limits_{\psi_1(x,y)}^{\psi_2(x,y)}R'_z(x,y,z)\ dz=R(x,y,\psi_2(x,y))-R(x,y,\psi_1)\]
-    там как то поделили на сигма 1 2 и 3
-    \[\iint\limits_{\overline{\Sigma_2}}R(x,y,z)\ dxdy=\iint\limits{\overline{\Omega}}R(x,y,\psi_2(x,y))\ dxdy\]
-    Получается
-    \[\iint\limits_{\Sigma_2^+} R\ dxdy+\iint\limits_{\Sigma_1^-}R\ dxdy+\iint\limits_{\Sigma_3}R\ dxdy\]
+    Для начала докажем для случая $P=Q=0$, то есть для векторного поля $(0,0,R)$. Пусть $\Omega$ --- проекция $G$ на плоскость $Oxy$. Причем для $(x,y)\in \overline{\Omega}$:
+    \[\psi_1(x,y)\leq z\leq \psi_2(x,y)\]
+    Тогда
+    \begin{multline*}
+        \iiint\limits_{\overline{G}}R'_z\ dxdydz=\iint\limits_{\overline{\Omega}}\left(\ \int\limits_{\psi_1(x,y)}^{\psi_2(x,y)}R'_z(x,y,z)\ dz\right)dxdy=\\
+        =\iint\limits_{\overline{\Omega}}(R(x,y,\psi_2(x,y))-R(x,y,\psi_1(x,y)))dxdy
+    \end{multline*}
+    Разобьём границу $\partial G$ на три части:
+    \begin{enumerate}
+        \item Нижняя поверхность $\Sigma_1$:
+        \[z=\psi_1(x,y), (x,y)\in \overline{\Omega}\]
+        На $\Sigma_1$ внешняя нормаль имеет отрицательную координату по $z$, поэтому при проектировании на $Oxy$ элемент площади будет со знаком "$-$".
+        \item Верхняя поверхность $\Sigma_2$:
+        \[z=\psi_2(x,y), (x,y)\in \overline{\Omega}\]
+        На $\Sigma_2$ внешняя нормаль имеет положительную координату по $z$, поэтому при проектировании на $Oxy$ элемент площади будет со знаком "$+$".
+        \item Боковая поверхность $\Sigma_3$: поверхность, нормаль к которой горизонтальна. На $\Sigma_3$ внешняя нормаль перпендикулярна оси $Oz$, следовательно, элемент площади будет нулевым. 
+    \end{enumerate}
+    В итоге получается
+    \begin{multline*}
+        \iint\limits_{\partial G}R\ dxdy=\\
+        =\iint\limits_{\Sigma_1} R(x,y,\psi_1)\ dxdy+\iint\limits_{\Sigma_2} R(x,y,\psi_2)\ dxdy+\iint\limits_{\Sigma_3} R(x,y,z)\ dxdy=\\
+        =\iint\limits_{\overline{\Omega}}R(x,y,\psi_2)\ dxdy-\iint\limits_{\overline{\Omega}}R(x,y,\psi_1)\ dxdy=\iiint\limits_{\overline{G}}R'_z\ dxdydz
+    \end{multline*}
+    Аналогично, для векторных полей $(P,0,0)$ и $(0,Q,0)$. Складывая интегралы по линейности, получим
+    \[\iint\limits_{\partial G} Pdydz+ Qdzdx+ Rdxdy=\iiint\limits_{\overline{G}}(P'_x+Q'_y+R'_z)\ dxdydz\]
 \end{proof}
 \subsection{Теоремы Гульдина}
 Зададим плотность $\rho(x,y)$ в каждой точке $\overline{\Omega}$.
 \[x_0=\frac{\iint\limits_{\overline{\Omega}}x\cdot \rho(x,y)\ dxdy}{\iint\limits_{\overline{\Omega}}\rho(x,y)\ dxdy}\]
 \begin{theorem}[Первая теорема Гульдина] $\\$ % ЗАМЕЧАНИЕ НА НЕКСТ ЛЕКЦИИ ДАЛ: ВМЕСТО НАТУРАЛЬНОЙ ПАРАМЕТРИЗАЦИИ МОЖНО ИСПОЛЬЗОВАТЬ ЛЮБУЮ (можно и натуральную то тогда это работается только для кусочно гладких кривых)
-    Пусть дано направление $l$ и $\gamma$ --- кусочно-гладкая простая замкнутая кривая. Определим $\overline{G}$ --- тело вращения $\overline{\Omega}$ вокруг $l$. Тогда $\Sigma=\partial G$ --- поверхность вращения. Площадь $\Sigma$ равна длине $\gamma$ умноженой на длину пути центра масс кривой $\gamma$ при вращении вокруг $l$.
+    Пусть дано направление $l$ и $\gamma$ --- кусочно-гладкая простая замкнутая кривая, огриничивающая область $\Omega$. Определим $\overline{G}$ --- тело вращения $\overline{\Omega}$ вокруг $l$. Тогда $\Sigma=\partial G$ --- поверхность вращения, причем площадь поверхности $\Sigma$ равна длине $\gamma$ умноженой на длину пути центра масс кривой $\gamma$ при вращении вокруг $l$.
 \end{theorem}
 \begin{proof}
-    Параметризуем поверхность
+    Без ограничения общности, направим ость вращения вдоль оси $Oz$. Параметризуем поверхность:
     \[\begin{cases}
-        x=\widehat{x}(s)\cdot \cos{\phi},\\
-        y=\widehat{x}(s)\cdot \sin{\phi},\\
-        z=\widehat{z}(s).
+        x(s,\phi)=\widehat{x}(s)\cdot \cos{\phi},\\
+        y(s,\phi)=\widehat{x}(s)\cdot \sin{\phi},\\
+        z(s,\phi)=\widehat{z}(s).
     \end{cases}\]
-    \[r'_s=(\widehat{x}'(s)\cdot \cos{\phi}, \widehat{x}'(s)\cdot \sin{\phi}, \widehat{z}'(s))\]
-    \[r'_{\phi}=(-\widehat{x}(s)\cdot \sin{\phi},\widehat{x}\cdot \cos{\phi}, 0)\]
-    Площадь сигма это
-    \[\int\limits_{0}^{2\pi}\int\limits_{0}^{|\gamma|}\widehat{x}(s)\ dsd\phi=2\pi\cdot \int\limits_{0}^{|\gamma|}\]
-    \[\sqrt{EG-F^2}=\widehat{x}(s)\]
-    но 
-    \[x_0=\frac{\int\limits_{\gamma}x\ ds}{\int\limits_{\gamma}1\ ds}\]
+    где $s\in [0,|\gamma|],\ \phi\in[0,2\pi]$ и $s$ --- натуральный параметр.
+    \[r'_s=(\widehat{x}'(s)\cdot \cos{\phi},\ \widehat{x}'(s)\cdot \sin{\phi},\ \widehat{z}'(s))\]
+    \[r'_{\phi}=(-\widehat{x}(s)\cdot \sin{\phi},\ \widehat{x}\cdot \cos{\phi},\ 0)\]
+    \[E=(\widehat{x}'(s))^2+(\widehat{z}'(s))^2=1,\ \ G=\widehat{x}(s)(\sin^2{\phi}+\cos^2{\phi})=x^2(s)\]
+    \[F=-\widehat{x}(s)\cdot \widehat{x}'(s)\cdot \sin{\phi}\cos{\phi}+\widehat{x}(s)\cdot\widehat{x}'(s)\cdot \sin{\phi}\cos{\phi}+0=0\]
+    Таким образом
+    \[\sqrt{EG-F^2}=\widehat{x}(s)\cdot \sqrt{(\widehat{x}'(s))^2+(\widehat{z}'(s))^2}\]
+    Считаем площадь поверхности:
+    \begin{multline*}
+        S=\int\limits_{0}^{2\pi}\int\limits_{0}^{|\gamma|}\widehat{x}(s)\cdot \sqrt{(\widehat{x}'(s))^2+(\widehat{z}'(s))^2}\ dsd\phi=\\
+        =2\pi\cdot \int\limits_{0}^{|\gamma|}\widehat{x}(s)\cdot \sqrt{(\widehat{x}'(s))^2+(\widehat{z}'(s))^2}\ ds=2\pi\cdot \int\limits_{\gamma}x(s)\ dl
+    \end{multline*}
+    где
+    \[dl=\sqrt{(\widehat{x}'(s))^2+(\widehat{z}'(s))^2}\ ds\]
+    но координата $x_0$ центра масс равна
+    \[x_0=\frac{\int\limits_{\gamma}x\ ds}{\int\limits_{\gamma}1\ ds}=\frac{\int\limits_{\gamma}x\ dl}{|\gamma|}\]
+    Таким образом
+    \[\int\limits_{\gamma}x\ ds=x_0\cdot |\gamma|\]
+    \[S=2\pi\cdot x_0\cdot |\gamma|\]
+    это и есть длина $\gamma$ умноженная на длину пути центра масс при вращении вокруг $l$.
 \end{proof}
 \begin{theorem}[Вторая теорема Гульдина] $\\$
-    Объем $G$ равен площади $\Omega$ умноженую на длину пути центра масс области $\overline{\Omega}$ при вращении вокруг $l$.
+    Пусть дано направление $l$ и $\gamma$ --- кусочно-гладкая простая замкнутая кривая, огриничивающая область $\Omega$. Определим $\overline{G}$ --- тело вращения $\overline{\Omega}$ вокруг $l$. Тогда объем $G$ равен площади $\Omega$ умноженую на длину пути центра масс области $\overline{\Omega}$ при вращении вокруг $l$.
 \end{theorem}
 \begin{proof}
-    Параметризуем. Пусть $(u,v)\in \overline{\Omega}$.
+    Параметризуем. Пусть для $(u,v)\in \overline{\Omega}$:
     \[\begin{cases}
         x=u\cdot \cos{\phi},\\
         y=u\cdot \sin{\phi},\\
         z=v.
-    \end{cases}\]text
-    \[\int\limits_{0}^{2\pi}\iint\limits_{\overline{\Omega}}u\ dudvd\phi=2\pi\cdot \iint\limits_{\overline{\Omega}}u\ dudv\]
-    при этом
-    \[u_0=\cfrac{\iint\limits_{\overline{\Omega}}u\ dudv}{\iint\limits_{\overline{\Omega}}1\ dudv}\]
+    \end{cases}\]
+    После перехода к полярным координатам, получим:
+    \[V=\int\limits_{0}^{2\pi}\left(\ \iint\limits_{\overline{\Omega}}u\ dudv\right)d\phi=2\pi\cdot \iint\limits_{\overline{\Omega}}u\ dudv\]
+    при этом координата $u_0$ центра масс плоской фигуры $\Omega$ равна
+    \[u_0=\cfrac{\iint\limits_{\overline{\Omega}}u\ dudv}{\iint\limits_{\overline{\Omega}}1\ dudv}=\frac{\iint\limits_{\overline{\Omega}}u\ dudv}{|\Omega|}\]
+    Таким образом
+    \[\iint\limits_{\overline{\Omega}}u\ dudv=u_0\cdot |\Omega|\]
+    а значит
+    \[V=2\pi\cdot u_0\cdot |\Omega|\]
+    это и есть площадь $\Omega$ умноженная на длину пути центра масс области при вращении вокруг $l$.
 \end{proof}
 %пример с тором
 \newpage

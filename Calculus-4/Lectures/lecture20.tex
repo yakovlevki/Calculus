@@ -72,7 +72,8 @@
         \end{vmatrix}\]
 \end{theorem}
 \begin{proof}
-    Благодаря свойству линейности, без ограничения общности можем считать, что $P=Q=0$. Пусть $\psi:[a,b]\to \R^2$ --- параметризация кривой $\gamma$. Тогда $\phi\circ\psi:[a,b]\to \R^3$ --- параметризация кривой $\Gamma$. Таким образом
+    Для начала докажем для случая $P=Q=0$, то есть для векторного поля $(0,0,R)$. Пусть\\
+    $\psi:[a,b]\to \R^2$ --- параметризация кривой $\gamma$. Тогда $\phi\circ\psi:[a,b]\to \R^3$ --- параметризация кривой $\Gamma$. Таким образом
     \[dz=z'_u\cdot u'_t+z'_v\cdot v'_t\]
     Значит
     \begin{multline*}
@@ -100,7 +101,7 @@
         \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
         0 & 0 & R
     \end{vmatrix}\ dS\]
-    Аналогично для векторных полей $(P,0,0)$ и $(0,Q,0)$ получаются соответствующие определители. Складывая их по линейности, получим
+    Аналогично, для векторных полей $(P,0,0)$ и $(0,Q,0)$ получаются соответствующие определители. Складывая их по линейности, получим
     \[\oint\limits_{\Gamma}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma} \begin{vmatrix}
         \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
         \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
