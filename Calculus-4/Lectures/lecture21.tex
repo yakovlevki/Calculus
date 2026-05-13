@@ -50,8 +50,10 @@
     \[\iint\limits_{\partial G} Pdydz+ Qdzdx+ Rdxdy=\iiint\limits_{\overline{G}}(P'_x+Q'_y+R'_z)\ dxdydz\]
 \end{proof}
 \subsection{Теоремы Гульдина}
-Зададим плотность $\rho(x,y)$ в каждой точке $\overline{\Omega}$.
-\[x_0=\frac{\iint\limits_{\overline{\Omega}}x\cdot \rho(x,y)\ dxdy}{\iint\limits_{\overline{\Omega}}\rho(x,y)\ dxdy}\]
+\begin{definition}
+    Пусть в каждой точке области $\Omega$ задана плотность --- непрерывная функция $\rho(x,y)\geq 0$. Тогда центром масс области $\Omega$ назовем точку $(x_0,y_0)$, координаты которой задаются формулами:
+    \[x_0=\frac{\iint\limits_{\overline{\Omega}}x\cdot \rho(x,y)\ dxdy}{\iint\limits_{\overline{\Omega}}\rho(x,y)\ dxdy},\ \ \ y_0=\frac{\iint\limits_{\overline{\Omega}}y\cdot \rho(x,y)\ dxdy}{\iint\limits_{\overline{\Omega}}\rho(x,y)\ dxdy}\]
+\end{definition}
 \begin{theorem}[Первая теорема Гульдина] $\\$ % ЗАМЕЧАНИЕ НА НЕКСТ ЛЕКЦИИ ДАЛ: ВМЕСТО НАТУРАЛЬНОЙ ПАРАМЕТРИЗАЦИИ МОЖНО ИСПОЛЬЗОВАТЬ ЛЮБУЮ (можно и натуральную то тогда это работается только для кусочно гладких кривых)
     Пусть дано направление $l$ и $\gamma$ --- кусочно-гладкая простая замкнутая кривая, огриничивающая область $\Omega$. Определим $\overline{G}$ --- тело вращения $\overline{\Omega}$ вокруг $l$. Тогда $\Sigma=\partial G$ --- поверхность вращения, причем площадь поверхности $\Sigma$ равна длине $\gamma$ умноженой на длину пути центра масс кривой $\gamma$ при вращении вокруг $l$.
 \end{theorem}
