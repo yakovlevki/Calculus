@@ -1,37 +1,173 @@
 \section{Лекция 23}
-\[\grad{f}=(f'_x,f'_y, f'_z)\]
-направление градиента: $\frac{\partial f}{\partial \vec{u}}$ максимально. Если $F(x,y,z)=C$ --- поверхность уровня, то $\grad$ --- вектор нормали к ней.
+\subsection{Элементы теории поля}
+\begin{definition}
+    Пусть $\Omega\subset \R^3$ --- область, $f\in \mathcal{D}(\Omega)$. Оператор 
+    \[\nabla f=(f'_x, f'_y, f'_z)\] 
+    называется градиентом.
+\end{definition}
+\begin{definition}
+    Пусть $\vec{u}=(u_1,u_2,u_3),\ \|\vec{u}\|=1$. Тогда производной функции $f$ по направлению $\vec{u}$ называется 
+    \[\frac{\partial f}{\partial \vec{u}}\ (x_0,y_0,z_0)=\lim\limits_{t\to 0}\frac{f(x_0+tu_1, y_0+tu_2, z_0+tu_3)-f(x_0,y_0,z_0)}{t}=\nabla f\cdot \vec{u}\]
+\end{definition}
+\begin{statement}
+    Направление градиента является направлением наибольшего возрастания функции в данной точке.
+\end{statement}
+\begin{proof}
+    Пусть $f(x,y,z)$ --- дифференцируемая функция, $\vec{l}$ --- единичный вектор направления. Тогда
+    \[\frac{\partial f}{\partial l}=\nabla f\cdot \vec{l}=\|\nabla f\|\cdot \cos{\theta}\]
+    где $\theta$ --- угол между $\nabla f$ и $\vec{l}$. Заметим, что максимум этого выражения достигается при $\cos{\theta}=1$, то есть в случае, когда $\vec{l}$ сонаправлен с $\nabla f$.
+\end{proof}
+\begin{statement}[Геометрический смысл градиента] $\\$
+    Пусть поверхность задана уравнением $F(x,y,z)=0$, где $F\in \mathcal{C}^1(\Omega)$ и точка $(x_0,y_0,z_0)$ такая, что $F'_z(x_0,y_0,z_0)\neq 0$. Тогда вектор 
+    $\nabla F(x_0,y_0,z_0)$ является вектором нормали к касательной плоскости в точке $(x_0,y_0,z_0)$.
+\end{statement}
+\begin{proof}
+    Напишем уравнение касательной плоскости в точке $(x_0,y_0,z_0)$:
+    \[z-z_0=z'_x(x_0,y_0)\cdot (x-x_0)+z'_y(x_0,y_0)\cdot (y-y_0)\]
+    при этом
+    \[z'_x=-\frac{F'_x}{F'_z},\ \ z'_y=-\frac{F'_y}{F'_z}\]
+    Тогда
+    \[z-z_0=-\frac{F'_x}{F'_z}\cdot (x-x_0)-\frac{F'_y}{F'_z}\cdot(y-y_0)\]
+    и уравнение касательной плоскости принимает вид:
+    \[F'_x(x_0,y_0,z_0)(x-x_0)+F'_y(x_0,y_0,z_0)(y-y_0)+F'_z(x_0,y_0,z_0)(z-z_0)=0\]
+    отсюда делаем вывод, что вектор $(F'_x(x_0,y_0,z_0), F'_y(x_0,y_0,z_0), F'_z(x_0,y_0,z_0))$ является вектором нормали в точке $(x_0,y_0,z_0)$.
+\end{proof}
+\begin{statement}
+    Пусть в евклидовом пространстве заданы системы координат $(x_1,y_1,z_1)$ и $(x_2,y_2,z_2)$, причем
+    \[\begin{pmatrix}
+        x_1\\
+        y_1\\
+        z_1
+    \end{pmatrix}=A \begin{pmatrix}
+        x_2\\
+        y_2\\
+        z_2
+    \end{pmatrix}\]
+    где $A$ --- ортогональная матрица, то есть $A^T A=E$. Пусть $f$ --- дифференцируемое скалярное поле. Обозначим $\nabla_1 f$ --- вектор градиента в системе $(x_1,y_1,z_1)$ и $\nabla_2$ --- вектор градиента в системе $(x_2,y_2,z_2)$. Тогда
+    \[\nabla_2 f=\nabla_1 f\cdot A\]
+    то есть градиент не зависит от выбора ортонормированной системы координат.
+\end{statement}
+\begin{proof}
+    Пусть $A=(a_{ij})$. Выразим $(x_1,y_1,z_1)$ через $(x_2,y_2,z_2)$:
+    \[\begin{cases}
+        x_1=a_{11}x_2+a_{12}y_2+a_{13}z_2,\\
+        y_1=a_{21}x_2+a_{22}y_2+a_{23}z_2,\\
+        z_1=a_{31}x_2+a_{32}y_2+a_{33}z_2.
+    \end{cases}\]
+    Отсюда
+    \[\frac{\partial f}{\partial x_2}=\frac{\partial f}{\partial x_1}\cdot \frac{\partial x_1}{\partial x_2}+\frac{\partial f}{\partial y_1}\cdot \frac{\partial y_1}{\partial x_2}+\frac{\partial f}{\partial z_1}\cdot \frac{\partial z_1}{\partial x_2}\]
+    причем 
+    \[\frac{\partial x_1}{\partial x_2}=a_{11},\ \frac{\partial y_1}{\partial x_2}=a_{21},\ \frac{\partial z_1}{x_2}=a_{31}\]
+    значит
+    \[\frac{\partial f}{\partial x_2}=a_{11}\cdot \frac{\partial f}{\partial x_1}+a_{21}\cdot \frac{\partial f}{\partial y_1}+a_{31}\cdot \frac{\partial f}{\partial z_1}\]
+    Аналогично
+    \[\frac{\partial f}{\partial y_2}=a_{12}\cdot \frac{\partial f}{\partial x_1}+a_{22}\cdot \frac{\partial f}{\partial y_1}+a_{32}\cdot \frac{\partial f}{\partial z_1}\] 
+    \[\frac{\partial f}{\partial x_2}=a_{13}\cdot \frac{\partial f}{\partial x_1}+a_{23}\cdot \frac{\partial f}{\partial y_1}+a_{33}\cdot \frac{\partial f}{\partial z_1}\]
+    Запишем в матричной форме:
+    \[\nabla_2 f=\nabla_1 f\cdot A\]
+\end{proof}
+\begin{definition}
+    Оператор
+    \[\text{div}(P,Q,R)=P'_x+Q'_y+R'_z\]
+    называется дивергенцией векторного поля $(P,Q,R)$.
+\end{definition}
+\begin{comm}
+    Заметим, что 
+    \[\nabla\cdot f=\left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z}\right)\begin{pmatrix}
+        P\\
+        Q\\
+        R
+    \end{pmatrix}=P'_x+Q'_y+R'_z=\text{div} f\]
+\end{comm}
+\begin{statement}
+    Оператор $\text{div}$ инвариантен при всех невырожденных преобразованиях.
+\end{statement}
+\begin{proof}
+    Рассмотрим матрицу Якоби векторного поля $f=(P,Q,R)$:
+    \[J_f=\begin{pmatrix}
+        P'_x & P'_y & P'_z\\
+        Q'_x & Q'_y & Q'_z\\
+        R'_x & R'_y & R'_z
+    \end{pmatrix}\]
+    Заметим, что $\text{div}f=\text{tr}(J_f)$. Из линейной алгебры известно, что след инвариантен относительно невырожденных линейных преобразований, значит дивергенция тоже.
+\end{proof}
+\begin{comm}
+    По формуле Гаусса-Остроградского:
+    \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+ R\ dxdy=\iint\limits_{\Omega}(P'_x+Q'_y+R'_z)\ dxdydz=\iint\limits_{\Omega}\text{div}f\ dxdydz\]
+    Рассмотрим область $B_R$ --- шар радиуса $R$ и поверхность $\Sigma_R$ --- сферу радиуса $R$ в точке $(x_0,y_0,z_0)$. Тогда
+    \[\iint\limits_{\Sigma_R}P\ dydz+Q\ dzdx+ R\ dxdy=\iint\limits_{B_R}\text{div}f\ dxdydz\] 
+    Выразим дивергенцию и устремим $R\to 0+$:
+    \[\text{div}f(x_0,y_0,z_0)=\lim\limits_{R\to 0+}\frac{1}{\frac{4}{3} \pi R^3}\cdot \iint\limits_{\Sigma_R}P\ dydz+ Q\ dzdx+R\ dxdy\]
+    Иногда это берут за определние дивергенции.
+\end{comm}
+\begin{definition}
+    Оператор
+    \[\text{rot}f=\begin{vmatrix}
+        i & j & k\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        P & Q & R
+    \end{vmatrix}=\left(R'_y-Q'_z,\ P'_z-R'_x,\ Q'_x-P'_y\right)\]
+    называется ротором векторного поля $f$.
+\end{definition}
+\begin{comm}
+    Заметим, что 
+    \[\nabla\times(P,Q,R)=\begin{vmatrix}
+        i & j & k\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        P & Q & R
+    \end{vmatrix}=\text{rot}f\]
+\end{comm}
+\begin{comm}
+    По формуле Стокса:
+    \[\oint\limits_{\partial \Sigma}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma}\begin{vmatrix}
+        \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        P & Q & R
+    \end{vmatrix}\ dS\]
+    где $\vec{n}=(\cos{\alpha}, \cos{\beta}, \cos{\gamma})$ --- вектор нормали. Раскроем определитель по первой строке:
+    \[\begin{vmatrix}
+        \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+        P & Q & R
+    \end{vmatrix}=\cos{\alpha}\cdot (R'_y-Q'_z)+\cos{\beta}\cdot (P'_z-R'_x)+\cos{\gamma}\cdot (Q'_x-P'_y)\]
+    Таким образом
+    \[\oint\limits_{\partial \Sigma}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma}\text{rot}f\cdot \vec{n}\ dS\]
+    Рассмотри плоский круг $\Sigma_R$ радиуса $R$ с центром в точке $(x_0,y_0,z_0)$, перпендикулярный вектору нормали $\vec{n}$ и его границу --- окружность $\partial \Sigma_R$. Тогда
+    \[\oint\limits_{\partial\Sigma_R}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma_R}\text{rot}f\cdot \vec{n}\ dS\]
+    Выразим прекцию ротора на направление нормали и устремим $R\to 0+$:
+    \[\text{rot}f(x_0,y_0,z_0)\cdot \vec{n}=\lim\limits_{R\to 0+}\frac{1}{\pi R^2}\cdot \oint\limits_{\partial\Sigma_R}P\ dx+ Q\ dy+ R\ dz\]
+    Иногда это берут за определние ротора.
+\end{comm}
+\begin{statement}
+    Ротор инвариантен при всех ортогональных преобразованиях, сохряняющих ориентацию.
+\end{statement}
+\begin{proof}
+    Воспользуемся выведенной формулой:
+    \[\text{rot}f(x_0,y_0,z_0)\cdot \vec{n}=\lim\limits_{R\to 0+}\frac{1}{\pi R^2}\cdot \oint\limits_{\partial\Sigma_R}P\ dx+ Q\ dy+ R\ dz\]
+    Правая часть не зависит от выбора координат, значит проекция ротора на направление $\vec{n}$ тоже. Значит, поскольку $\text{rot}f$ не изменяется при проекции на любое направление, то он не изменяется при поворотах, а то есть всех ортогональных преобразованиях, сохраняющих ориентацию. 
+\end{proof}
+\noindent Итак, можем составить таблицу
 \begin{center}
-\resizebox{1\textwidth}{!}{%
-\setlength{\tabcolsep}{8pt}
-    \begin{tabular}{|c|c|c|c|c|}
-        \toprule
-        \text{Оператор} & \text{Аргумент} & \text{Значения} & \text{Связь с $\nabla$} & \text{Инвариантность} \\
-        \midrule
-        \text{Градиент} & 
-        \shortstack{скалярное поле \\ $(\mathcal{C}^k(\Omega),\ \mathcal{D}^k(\Omega))$} & 
-        \shortstack{векторное поле \\ $(\mathcal{C}^{k-1}(\Omega),\ \mathcal{D}^{k-1}(\Omega))$} & 
-        $\nabla \circ$ & \shortstack{при всех \\ ортогональных \\ преобразованиях} \\
-        \midrule
-        \text{Дивергенция} & 
-        \shortstack{векторное поле \\ $(\mathcal{C}^k(\Omega),\ \mathcal{D}^k(\Omega))$} & 
-        \shortstack{скалярное поле \\ $(\mathcal{C}^{k-1}(\Omega),\ \mathcal{D}^{k-1}(\Omega))$} & 
-        $\nabla \cdot$ & \shortstack{при всех \\ невырожденных \\ преобразованиях} \\
-        \midrule
-        \text{Ротор} & 
-        \shortstack{векторное поле \\ $(\mathcal{C}^k(\Omega),\ \mathcal{D}^k(\Omega))$} & 
-        \shortstack{векторное поле \\ $(\mathcal{C}^{k-1}(\Omega),\ \mathcal{D}^{k-1}(\Omega))$} & 
-        $\nabla \times$ & \shortstack{при всех \\ ортогональных \\ преобразованиях \\ сохраняющих \\ ориентацию}\\
-        \bottomrule
-    \end{tabular}
+{\small
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{13pt}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Оператор} & \textbf{Аргумент} & \textbf{Значения} & \textbf{Связь} & \textbf{Инвариантность} \\
+\hline
+Градиент & \makecell{скалярное поле \\ $(C^k,\mathcal{D}^k)$} & \makecell{векторное поле \\ $(C^{k-1},\mathcal{D}^{k-1})$} & $\nabla\circ$ & \makecell{при всех \\ ортогональных \\ преобразованиях} \\
+\hline
+Дивергенция & \makecell{векторное поле \\ $(C^k,\mathcal{D}^k)$} & \makecell{скалярное поле \\ $(C^{k-1},\mathcal{D}^{k-1})$} & $\nabla\cdot$ & \makecell{при всех \\ невырожденных \\ преобразованиях} \\
+\hline
+Ротор & \makecell{векторное поле \\ $(C^k,\mathcal{D}^k)$} & \makecell{векторное поле \\ $(C^{k-1},\mathcal{D}^{k-1})$} & $\nabla\times$ & \makecell{при всех ортогон. \\ преобразованиях, \\ сохраняющих ориент.} \\
+\hline
+\end{tabular}
 }
 \end{center}
-Тут будет  про $\text{div}$\\
-Тут будет про $\text{rot}$\\
 %322 от косухина
-\begin{definition} Оператор
-    \[\triangle f=f''_{xx}+f''_{yy}+f''_{zz}=\text{div}(f'_x,f'_y,f'_z)=\text{div}(\grad(f))\]
-    называется опреатором Лапласа.
-\end{definition}
-\[\nabla\cdot\nabla f=\triangle f\]
-\[\oint\limits_{\Gamma}\frac{\partial f}{\partial n}\ dS=\iint\limits_{G}\triangle f\ dxdy\]
+% \begin{definition} Оператор
+%     \[\triangle f=f''_{xx}+f''_{yy}+f''_{zz}=\text{div}(f'_x,f'_y,f'_z)=\text{div}(\grad(f))\]
+%     называется опреатором Лапласа.
+% \end{definition}
+% \[\nabla\cdot\nabla f=\triangle f\]
+% \[\oint\limits_{\Gamma}\frac{\partial f}{\partial n}\ dS=\iint\limits_{G}\triangle f\ dxdy\]
