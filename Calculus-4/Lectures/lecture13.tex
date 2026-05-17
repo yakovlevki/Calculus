@@ -55,7 +55,7 @@ f^{-}(x) &= \begin{cases}
         Тогда по первому признаку сравнения 
         $f^+,f^-\in \widetilde{\mathcal{R}}(\Omega)$. Тогда 
         \[f=f^+-f^-\in \widetilde{\mathcal{R}}(\Omega)\]
-        \item[$(\Rightarrow)$:] Предположим, что $f\in \widetilde{\mathcal{R}}(\Omega)$, но $|f|\in \widetilde{\mathcal{R}}(\Omega)$. Это в точности означает, что
+        \item[$(\Rightarrow)$:] Предположим, что $f\in \widetilde{\mathcal{R}}(\Omega)$, но $|f|\not\in \widetilde{\mathcal{R}}(\Omega)$. Это в точности означает, что
         \[\idotsint\limits_{\Omega}|f|\ dx_1 \dots dx_k=+\infty\]
         Отсюда
         \[f^+=\frac{|f|+f}{2}\ \Rightarrow\ \idotsint\limits_{\Omega}f^+\ dx_1 \dots dx_k=+\infty\]
@@ -156,6 +156,9 @@ f^{-}(x) &= \begin{cases}
         По свойству абсолютной непрерывности существует такое $K_{2j+1}'$, что \\
         $S\subset (K_{2j+1}')^o$ и тогда
         \[\idotsint\limits_{K_{2j+1}'}f\ dx_1 \dots dx_k > 2j+1\]
+        Таким образом, построено исчерпание, для которого не существует предела 
+        \[\lim\limits_{m\to \infty}\idotsint\limits_{K'_m}f\ dx_1 \dots dx_k\]
+        то есть $f\not\in \widetilde{\mathcal{R}}(\Omega)$, противоречие.
     \end{itemize}
 \end{proof}
 \newpage
