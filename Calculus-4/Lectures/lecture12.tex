@@ -91,9 +91,9 @@
     Устремим $n\to \infty$ и получим утверждение.
     %\[\idotsint\limits_{\Omega_2}f\ dx_1\dots dx_k\geq \idotsint\limits_{\Omega_1}f\ dx_1 \dots dx_k\]
 \end{proof}
-\begin{example}
-    тут будет пример
-\end{example}
+% \begin{example}
+%     тут будет пример
+% \end{example}
 % \begin{example}
 %     \[\int\limits_{(a,b)}f(x)\ dx\]
 %     Если 
@@ -157,9 +157,15 @@
 \end{definition}
 % пример локально инт но не инт
 \begin{example}
-    тут будет пример
+    Рассмотрим $f(x)=x$. Заметим, что интеграл
+    \[\int\limits_{\R}x\ dx\]
+    расходится. Однако для каждого конечного компакта $K$ существует интеграл
+    \[\int\limits_{K} x\ dx\]
+    Таким образом, $f\in \mathcal{R}_{\text{loc}}(\R)$, но $f\not\in \mathcal{R}(\R)$.
 \end{example}
-\noindent Заметим, что $\widetilde{\mathcal{R}}(\Omega)\subset \mathcal{R}_{\text{loc}}(\Omega)$
+\begin{comm}
+    На самом деле для несобсвенных интегралов также верна теорема о интегрируемости на подмножествах (в этом курсе мы ее не рассматриваем). Из этой теоремы следует что $\widetilde{\mathcal{R}}(\Omega)\subset \mathcal{R}_{\text{loc}}(\Omega)$.
+\end{comm}
 \begin{theorem} [Первый признак сравнения] $\\$
     Пусть $f,g\in \mathcal{R}_{\text{loc}}(\Omega)$ и $0\leq f\leq g$ на $\Omega$. Тогда $g\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow f\in \widetilde{\mathcal{R}}(\Omega)$ и
     \[\idotsint\limits_{\Omega}f\ dx_1 \dots dx_k \leq \idotsint\limits_{\Omega} g\ dx_1 \dots dx_k\]
@@ -172,15 +178,14 @@
     ограничена. Тогда по теореме \ref{1ischerp} об одном исчерпании: $f\in \widetilde{\mathcal{R}}(\Omega)$. Остается устремить $n\to \infty$ и получить
     \[\idotsint\limits_{\Omega}f\ dx_1 \dots dx_k\leq \idotsint\limits_{\Omega}g\ dx_1\dots dx_k\]
 \end{proof}
-\begin{example}
-    тут будет пример
+\begin{example} Признак работает только для неотрицательных функций.\\
+    Пусть $\Omega=(0,1)$ 
+    \[g\equiv 0,\ \ f=-\frac{1}{x}\]
+    Заметим ,что $\forall x\in (0,1): f<g$. Существует интеграл 
+    \[\int\limits_{(0,1)}0\ dx=0\]
+    но не существует
+    \[\int\limits_{(0,1)}-\frac{1}{x}\ dx=-\infty\]
 \end{example}
-% \begin{example} Признак работает только для неотрицательных функций
-%     $\Omega=(0,1), g\equiv 0,\ f=-\frac{1}{x},\ f<g\ \forall x\in (0,1)$
-%     \[\int\limits_{(0,1)}0\ dx\]
-%     но не существует
-%     \[\int\limits_{(0,1)}-\frac{1}{x}\ dx=-\infty\]
-% \end{example}
 \begin{theorem} [Второй признак сравнения] $\\$
     Пусть $f,g\geq 0$ и $\exists\ c_1, c_2>0:\ c_1\cdot f\leq g\leq c_2\cdot f$ на $\Omega$. Тогда интегралы
     \[\idotsint\limits_{\Omega}f\ dx_1\dots dx_k, \ \ \idotsint\limits_{\Omega}g\ dx_1 \dots dx_k\]
@@ -190,10 +195,14 @@
     \[g\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow c_1\cdot f\in \widetilde{\mathcal{R}}(\Omega)\Rightarrow f\in \widetilde{\mathcal{R}}(\Omega)\]
     \[f\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow c_2\cdot f\in \widetilde{\mathcal{R}}(\Omega) \Rightarrow g\in \widetilde{\mathcal{R}}(\Omega)\]
 \end{proof}
-\begin{example} [Вычисление интеграла Эйлера Пуассона с помощью кратного интеграла] $\\$
-    Вычислим интеграл
+\begin{example}
+    Вычислиим интеграл Эйлера Пуассона с помощью кратного интеграла:
     \[I=\int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx\]
-    Рассмотрим двойной интеграл
+    Сначала покажем, что такой интеграл сходится. Заметим, что $f(x)=e^{-x^2}$ --- четная функция. Значит
+    \[\int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx=2\cdot\int\limits_{0}^{+\infty}e^{-x^2}\ dx\]
+    Заметим, что $e^{-x^2}$ непрерывна на отрезке $[0,1]$, значит интегрируема, а также что $e^{-x^2}\leq e^{-x}$ на отрезке $[1,+\infty]$, при этом
+    \[\int\limits_{1}^{+\infty}e^{-x}\ dx=\frac{1}{e}\]
+    Значит, по признаку вейерштрасса интеграл сходится. Теперь рассмотрим двойной интеграл
     \begin{multline*}
         \iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy=\int\limits_{-\infty}^{+\infty}\left(\ \int\limits_{-\infty}^{+\infty}e^{-(x^2+y^2)}\ dy\right)dx=\\
         =\left(\ \int\limits_{-\infty}^{+\infty} e^{-y^2}\ dy\right)\cdot \left(\ \int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx\right)=I^2
