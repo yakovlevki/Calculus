@@ -1,11 +1,19 @@
 \section{Лекция 8}
 \subsection{Альтернативное определение кратного интеграла}
 \begin{definition}
-    Пусть $\Phi$ --- ограниченое измеримое множество. Разбиением $\Phi$ назовем набор измеримых множеств $\widetilde{T}=\{\Phi_i\}$ таких, что $\Phi=\bigsqcup\limits_i \Phi_i$. Диаметром этого разбиения назовем число $d(\widetilde{T})=\max\limits_i d(\Phi_i)$. Разметкой будем называть набор точек $\widetilde{H}=\{\xi_i\}$, где $\xi_i\in \Phi_i$. Тогда интегральной суммой назовем
-\[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=\sum\limits_{i} f(\xi_i)\mu(\Phi_i)\]
-Если $\exists\ I\in \R,\ \forall \epsilon>0\ \exists\ \delta>0,\ \forall\ \widetilde{T},\ d(\widetilde{T})<\delta$:
-\[|\widetilde{\sigma}(f,\widetilde{T},\widetilde{H})-I|<\epsilon\]
-То говорят, что $f$ интегрируема в альтернативном смысле и пишут $f\in \widetilde{\mathcal{R}}(\Phi)$.
+    Пусть $\Phi$ --- ограниченое измеримое множество. 
+    \begin{enumerate}
+        \item Разбиением $\Phi$ назовем набор измеримых множеств $\widetilde{T}=\{\Phi_i\}$ таких, что 
+        \[\Phi=\bigsqcup\limits_i \Phi_i\]
+        \item Диаметром этого разбиения назовем число $d(\widetilde{T})=\max\limits_i d(\Phi_i)$.
+        \item Разметкой будем называть набор точек $\widetilde{H}=\{\xi_i\}$, где $\xi_i\in \Phi_i$.
+        \item Интегральной суммой назовем
+        \[\widetilde{\sigma}(f, \widetilde{T}, \widetilde{H})=\sum\limits_{i} f(\xi_i)\mu(\Phi_i)\]
+        \item Если $\exists\ I\in \R,\ \forall \epsilon>0\ \exists\ \delta>0,\ \forall\ \widetilde{T},\ d(\widetilde{T})<\delta$:
+        \[|\widetilde{\sigma}(f,\widetilde{T},\widetilde{H})-I|<\epsilon\]
+        то говорят, что $f$ интегрируема в альтернативном смысле и пишут\\
+        $f\in \widetilde{\mathcal{R}}(\Phi)$.
+    \end{enumerate}
 \end{definition}
 \begin{theorem}
     Пусть $f\in \mathcal{B}(\Phi)$. Тогда $f\in \mathcal{R}(\Phi) \Leftrightarrow f\in \widetilde{\mathcal{R}}(\Phi)$, причем интегралы совпадают.

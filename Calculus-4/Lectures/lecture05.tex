@@ -5,7 +5,7 @@
     %Однако аналогичное утверждение неверно для понятия измеримости по Лебегу:
     %\[\nu(\Q_{[0,1]})=0,\ \ \nu(\overline{\Q_{[0,1]}})=1\] 
 \end{comm}
-\noindentДалее пусть $\Phi$ --- измеримое по Жордану множество.
+\noindent Далее пусть $\Phi$ --- измеримое по Жордану множество.
 \begin{definition}
     Пусть $f$ определена на $\Phi$, $\Pi$ --- произвольный брус, содержащий $\Phi$. Тогда
     \[\idotsint\limits_{\Phi} f(x_1,\dots,x_k)\ dx_1\dots dx_k=\idotsint\limits_{\Pi} f(x_1,\dots,x_k)\chi_{\Phi}(x_1,\dots,x_k)\ dx_1\dots dx_k\]
@@ -24,9 +24,9 @@
         \[\Omega(\widehat{f}, T_1)<\Omega(\widehat{f}, T_2)<\epsilon\]
         \item Пусть существует интеграл по $\Pi_1$. Тогда
         \[\forall \epsilon>0\ \exists\ T_1: \Omega(\widehat{f}, T_1)<\frac{\epsilon}{2}\]
-        Возьмем брус $\Pi_1'$ такой, что $\Pi_1\subset \Pi_1'\subset \Pi_2$. Обозначим $M=\sup |\widehat{f}|$, тогда
+        Возьмем брус $\Pi_1'$ такой, что $\Pi_1\subset \Pi_1'\subset \Pi_2$, причем
         \[\mu(\Pi_1'\setminus \Pi_1)=\mu(\Pi_1')-\mu(\Pi_1)<\frac{\epsilon}{4M}\]
-        Рассмотрим разбиение $T_2$ бруса $\Pi_2$ такое, что оно совпадает с $T_1$ на $\Pi_1$ и содержит разрезы по граням $\Pi_1'$. Тогда брусы разбиения $T_2$ можно разбить на три группы:
+        где $M=\sup |\widehat{f}|$. Рассмотрим разбиение $T_2$ бруса $\Pi_2$ такое, что оно совпадает с $T_1$ на $\Pi_1$ и содержит разрезы по граням $\Pi_1'$. Тогда брусы разбиения $T_2$ можно разбить на три группы:
         \begin{enumerate}
             \item Брусы содержащиеся в $\Pi_1$
             \item Брусы содержащиеся в $\Pi_1'\setminus \Pi_1$
@@ -44,6 +44,9 @@
 \begin{statement}
     Определение интеграла по брусу эквивалентно следующему: Для любой последовательности $(T_n, H_n)$ размеченых разбиений бруса $\Pi$, последовательность $\sigma(f, T_n, H_n)$ стремится к $I$ при $d(T_n)\to 0$.
 \end{statement}
+\begin{proof}
+    Без доказательства.
+\end{proof}
 \begin{theorem} [Необходимое условие интегрируемости по $\Phi$] $\\$
     $f\in \mathcal{R}(\Phi) \Rightarrow f\in \mathcal{B}(\Phi)$
 \end{theorem}
@@ -61,12 +64,13 @@
 \end{theorem}
 \begin{proof}
     Пусть $E$ --- множество точек разрыва, по условию\\
-    $\mu(E)=0$. При этом $\Phi$ --- измеримое по Жордану, значит $\mu(\partial \Phi)=0$. Таким образом $\mu(\partial\Phi\cup E)=0\ \Rightarrow\ \forall \epsilon>0$ существует открытое элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\cup E\subset P_{\epsilon}$, причем $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi}|f|$. Возьмем $Q_{\epsilon}=\overline{\Phi}\setminus P_{\epsilon}$ и заметим, что $Q_{\epsilon}\subset \Phi$ и замкнуто. Таким образом, $Q_{\epsilon}$ --- компакт. Тогда, поскольку все точки разрыва находятся в $P_{\epsilon}$, то $f\in \mathcal{C}(Q_{\epsilon})$, а значит, что $f\in \mathcal{U}(Q_{\epsilon})$ (равномерно непрерывна). Если это потребуется, то разрежем $Q_{\epsilon}$ на части такого диаметра, чтобы колебания $f$ на каждой из частей было меньше чем $\frac{\epsilon}{2\mu(Q_{\epsilon})}$. Таким образом
+    $\mu(E)=0$. При этом $\Phi$ --- измеримое по Жордану, значит $\mu(\partial \Phi)=0$. Таким образом $\mu(\partial\Phi\cup E)=0\ \Rightarrow\ \forall \epsilon>0$ существует открытое элементарное множество $P_{\epsilon}$ такое, что $\partial \Phi\cup E\subset P_{\epsilon}$, причем $\mu(P_{\epsilon})<\frac{\epsilon}{4M}$, где $M=\sup\limits_{\Phi}|f|$. Возьмем $Q_{\epsilon}=\overline{\Phi}\setminus P_{\epsilon}$ и заметим, что $Q_{\epsilon}\subset \Phi$ и замкнуто. Таким образом, $Q_{\epsilon}$ --- компакт. Тогда, поскольку все точки разрыва находятся в $P_{\epsilon}$, то $f\in \mathcal{C}(Q_{\epsilon})$, а значит, что $f$ равномерно непрерывна на $Q_{\epsilon}$. Если это потребуется, то разрежем $Q_{\epsilon}$ на части такого диаметра, чтобы колебания $f$ на каждой из частей было меньше чем $\frac{\epsilon}{2\mu(Q_{\epsilon})}$. Рассмотрим произвольный брус $\Pi\supset\Phi$. Продлим грани всех брусов в составах $P_{\epsilon}$ и $Q_{\epsilon}$ и получим разбиение $\Pi$. Таким образом
     \[\Omega(\widehat{f}, T)=\sum\limits_{P_{\epsilon}}+\sum\limits_{Q_{\epsilon}}\]
     то есть сумма по всем брусам $P_{\epsilon}$ плюс сумма по всем брусам $Q_{\epsilon}$. При этом
     \[\sum\limits_{P_{\epsilon}}<2M\cdot \mu(P_{\epsilon})<2M\cdot \frac{\epsilon}{4M}=\frac{\epsilon}{2}\]
     \[\sum\limits_{Q_{\epsilon}}<\frac{\epsilon}{2\mu(Q_{\epsilon})}\cdot \mu(Q_{\epsilon})=\frac{\epsilon}{2}\]
-    значит $\Omega(\widehat{f}, T)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$.
+    значит 
+    \[\Omega(\widehat{f}, T)<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon\]
 \end{proof}
 \begin{consequense}
     Пусть $f$ ограничена и отлична от нуля только на множестве меры нуль по Жордану. Тогда для любого измеримого по Жордану множества $\Phi$ на котором определена функция $f$ существует интеграл
@@ -74,11 +78,12 @@
 \end{consequense}
 \begin{proof}
     Пусть $A=\{x: f(x)\neq 0\}$ обозначим $S=\text{supp}\hspace{0.05cm} f = \overline{A}$.
-    Тогда $\mu(S)=\mu(A\cup \partial A)=\mu((A\setminus \partial A)\sqcup \partial A)=\mu(A\setminus \partial A)+\mu(\partial A)=0$. В любом брусе найдется точка, в которой $f(x)=0$, иначе этот брус лежит в $S$, а тогда $\mu(S)>0$ и получаем противоречие. Значит для каждого разбиения существует разметка, такая, что $\sigma(f, T, H)=0$. По критерию Жордана существует интеграл
-    \[I=\idotsint\limits_{\Phi}f(x_1,\dots,x_k)\ dx_1\dots dx_k\]
-    а значит $I=\sigma(f, T, H)=0$.
+    Тогда 
+    \[\mu(S)=\mu(A\cup \partial A)=\mu((A\setminus \partial A)\sqcup \partial A)=\mu(A\setminus \partial A)+\mu(\partial A)=0\] 
+    Следовательно мера Жордана множества точек разрыва равна нулю, а значит $f\in \mathcal{R}(\Phi)$. В любом брусе найдется точка, в которой $f(x)=0$, иначе этот брус лежит в $S$, а тогда $\mu(S)>0$ и получаем противоречие. Значит для каждого разбиения существует разметка, такая, что $\sigma(f, T, H)=0$, а значит 
+    \[\idotsint\limits_{\Phi}f(x_1,\dots,x_k)\ dx_1\dots dx_k=\sigma(f, T, H)=0\]
 \end{proof}
-\begin{examples} Для меры Лебега интеграл может как существовать так и не существовать
+\begin{example} Для меры Лебега интеграл может как существовать так и не существовать
     \begin{enumerate}
         \item Функция Дирихле
         \[D(x)=\begin{cases}
@@ -93,5 +98,5 @@
         \end{cases}\]
         отлична от нуля в рациональных точках, мера Лебега которых равна нулю и $R(x)\in \mathcal{R}[a,b]$.
     \end{enumerate}
-\end{examples}
+\end{example}
 \newpage
