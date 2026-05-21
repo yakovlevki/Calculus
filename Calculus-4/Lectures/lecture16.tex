@@ -8,6 +8,10 @@
 \begin{proof}
     По необходимому условию для интеграла Римана-Стилтьеса.
 \end{proof}
+\begin{reminder}
+    Если $f\in \mathcal{C}([a,b]),\ g$ --- функция ограниченной вариации, то существует интеграл
+    \[\int\limits_{a}^{b}f(x)\ d(g(x))\]
+\end{reminder}
 \begin{statement}[Достаточное условие существования] $\\$
     Если $f\in \mathcal{C}(\phi([\alpha,\beta]))$ и $\gamma$ спрямляема, то существует интеграл
     \[\int\limits_{\gamma}f\ ds\]
@@ -26,18 +30,18 @@
 \end{proof}
 \begin{reminder}
     Пусть $f$ --- функция ограниченной вариации, $g\in \mathcal{D}([a,b]),\\
-    g'\in \mathcal{R}([a,b])$. Тогда 
+    g'\in \mathcal{R}([a,b])$. Тогда интеграл Римана-Стилтьеса сводится к интегралу Римана:
     \[(S)\int\limits_{a}^{b}f(x)\ d(g(x))=(R)\int\limits_{a}^{b}f(x)\cdot g'(x)\ dx\]
 \end{reminder}
 \begin{statement}
     Пусть $\phi: [\alpha,\beta]\to \R^k$ --- параметризация кривой $\gamma$ и $\phi\in \mathcal{C}^1$. Тогда
-    \[\int\limits_{\gamma}f\ ds=\int\limits_{\alpha}^{\beta}f(\phi)\cdot \sqrt{(x_1'(t))^2+\dots+(x_k')^2}\ dt\]
+    \[\int\limits_{\gamma}f\ ds=\int\limits_{\alpha}^{\beta}f(\phi)\cdot \sqrt{(x_1'(t))^2+\dots+(x_k'(t))^2}\ dt\]
 \end{statement}
 \begin{proof}
     Сведем интеграл Римана-Стилтьеса к интегралу Римана:
     \begin{multline*}
         \int\limits_{\gamma}f\ ds=\int\limits_{\alpha}^{\beta}f(\phi(t))\ ds(t)=\int\limits_{\alpha}^{\beta}f(\phi(t))\cdot \|\phi'(t)\|\ dt=\\
-        =\int\limits_{\alpha}^{\beta}f(\phi(t))\cdot \sqrt{(x_1'(t))^2+\dots+(x_k')^2}\ dt
+        =\int\limits_{\alpha}^{\beta}f(\phi(t))\cdot \sqrt{(x_1'(t))^2+\dots+(x_k'(t))^2}\ dt
     \end{multline*}
 \end{proof}
 \begin{statement}
@@ -72,7 +76,7 @@
     Устремим $d(T)\to 0$ и получим утверждение теоремы.
 \end{proof}
 \begin{statement}
-    Пусть $f\geq 0$ на $\gamma=\gamma_1\cup\gamma_2$. Тогда
+    Пусть $f\geq 0$ на $\gamma=\gamma_1\sqcup\gamma_2$. Тогда
     \[\int\limits_{\gamma}f\ ds\geq \int\limits_{\gamma_1}f\ ds\]
 \end{statement}
 \begin{proof}
@@ -103,7 +107,7 @@
         \item Пусть $\gamma$ --- кривая с параметризацией 
         \[\phi:[\alpha,\beta]\to \R^k,\ \ \phi(t)=(x_1(t),\dots,x_k(t))\]
         Пусть $f_1,\dots,f_k$ --- функции, определенные на $\gamma$. Рассмотрим $T=\{t_i\}$ и\\
-        $H=\{\eta_i\}$ --- произвольные разбиение и разметка отрезка $[\alpha,\beta]$.\
+        $H=\{\xi_i\}$ --- произвольные разбиение и разметка отрезка $[\alpha,\beta]$.\
         \item Обозначим $\Delta_{ij}=x_i(t_j)-x_i(t_{j-1})$. Интегральной суммой назовем
         \[\sigma(f,T,H)=\sum\limits_{j=1}^{n}\Big(f_1(\phi(\xi_j))\Delta x_{1j}+f_2(\phi(\xi_j))\Delta x_{2j}+\dots+f_k(\phi(\xi_j))\Delta x_{kj}\Big)\]
         \item Наконец, если
@@ -114,7 +118,7 @@
     \end{enumerate}
 \end{definition}
 \subsection{Свойства криволинейного интеграла второго рода}
-\begin{statement} [Необходимое условие существования] $\\$
+\begin{statement} [Достаточное условие существования] $\\$
     Пусть $f_1,\dots,f_k$ --- непрерывны на спрямляемой кривой $\gamma$. Тогда существует интеграл
     \[\int\limits_{\gamma}f_1\ dx_1+f_2\ dx_2+\dots+f_k\ dx_k\]
 \end{statement}
@@ -147,12 +151,30 @@
 \begin{statement}
     При смене ориентации кривой $\gamma$, интеграл второго рода меняет знак.
 \end{statement}
+\begin{proof}
+    Рассмотрим интегральную сумму
+    \[\sigma(f,T,H)=\sum\limits_{j=1}^{n}\sum\limits_{i=1}^{k}f_i(\phi(\xi_j)) (x_i(t_j)-x_i(t_{j-1}))\]
+    При смене ориентации кривой, направление движения по ней меняется на противоположное. Если проходить кривую в обратном направлении то на каждом участке разбиения, начальная и конечные точки меняются местами:
+    \[\Delta_{ij}'=x_i(t_{j-1})-x_i(t_j)=-(x_i(t_j)-x_i(t_{j-1}))\]
+    Отсюда
+    \[\sigma(f,T',H')=-\sum\limits_{j=1}^{n}\sum\limits_{i=1}^{k}f_i(\phi(\xi'_j)) (x_i(t_j)-x_i(t_{j-1}))\]
+    Устремим $d(T')\to 0,\ d(T)\to 0$ и получим утверждение теоремы.
+\end{proof}
 \begin{statement}
     Пусть $\gamma=\gamma_1\sqcup\gamma_2$ и существуют интегралы
     \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k,\ \int\limits_{\gamma_1}f_1\ dx_1+\dots+f_k\ dx_k,\ \int\limits_{\gamma_2}f_1\ dx_1+\dots+f_k\ dx_k\]
     Тогда 
     \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\gamma_1}f_1\ dx_1+\dots+f_k\ dx_k+\int\limits_{\gamma_2}f_1\ dx_1+\dots+f_k\ dx_k\]
 \end{statement}
+\begin{proof}
+    По свойству аддитивности для интеграла Римана-Стилтьеса по каждой координат:
+    \[\int\limits_{\gamma}f_i\ dx_i=\int\limits_{\gamma_1}f_i\ dx_i+\int\limits_{\gamma_2}f_i\ dx_i\]
+    Значит
+    \begin{multline*}
+        \int\limits_{\gamma}\sum\limits_{i=1}^{k}f_i\ dx_i=\sum\limits_{i=1}^{k}\int\limits_{\gamma}f_i\ dx_i=\sum\limits_{i=1}^{k}\left(\ \int\limits_{\gamma_1}f_i\ dx_i+\int\limits_{\gamma_2}f_i\ dx_i\right)=\\
+        =\sum\limits_{i=1}^{k}\int\limits_{\gamma_1}f_i\ dx_i+\sum\limits_{i=1}^{k}\int\limits_{\gamma_2}f_i\ dx_i=\int\limits_{\gamma_1}\sum\limits_{i=1}^{k}f_i\ dx_i+\int\limits_{\gamma_2}\sum\limits_{i=1}^{k}f_i\ dx_i
+    \end{multline*}
+\end{proof}
 \begin{statement}
     Пусть $\gamma\in \mathcal{C}^1$ --- кривая, $f_1,\dots,f_k$ --- непрерывны на $\gamma$. Обозначим $\vec{F}=(f_1,\dots,f_k)$. Тогда
     \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\int\limits_{\gamma}\vec{F}\cdot (x_1'(t),\dots,x_k'(t))\ ds\]
