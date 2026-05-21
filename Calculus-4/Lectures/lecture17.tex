@@ -32,13 +32,13 @@
 \end{theorem}
 \begin{proof}\tab
     \begin{enumerate}
-        \item $(1)\Rightarrow(2)$: Пусть существует потенциал $U$, введем $A_1,\dots,A_n$ --- точки излома ломаной $\Lambda$. Обозначим $\Delta_j=[A_{j-1}, A_{}]$ --- произвольное звено ломаной длины $l$. Обозначим $A_{j-1}=(x_1^{j-1},\dots,x_k^{j-1}),\ A_{j}=(x_1^{j},\dots,x_k^{j})$ и возьмем натуральную параметризацию для $\Delta_j$:
+        \item $(1)\Rightarrow(2)$: Пусть существует потенциал $U$, введем $A_1,\dots,A_n$ --- точки излома ломаной $\Lambda$. Обозначим $\Delta_j=[A_{j-1}, A_{j}]$ --- произвольное звено ломаной длины $l$. Обозначим $A_{j-1}=(x_1^{j-1},\dots,x_k^{j-1}),\ A_{j}=(x_1^{j},\dots,x_k^{j})$ и возьмем натуральную параметризацию для $\Delta_j$:
         \[\phi(t): \begin{cases}
             x_1=x_1^{j-1}+u_1 t,\\
             \tab[1.4cm]\vdots\\
             x_k=x_k^{j-1}+u_k t
         \end{cases}\]
-        где $t\in [0,l]$. Заметим, что поскольку поле потенциально, то
+        где $t\in [0,l], (u_1,\dots,u_k)$ --- единичный вектор направления от $A_{j-1}$ к $A_j$. Заметим, что поскольку поле потенциально, то
         \[\frac{d}{dt}(U(\phi(t)))=\sum\limits_{i=1}^{k}\frac{\partial U}{\partial x_i}(\phi(t))\cdot \frac{dx_i}{dt}=\sum\limits_{i=1}^{k}f_i(\phi(t))\cdot u_i\]
         Тогда
         \begin{multline*}
@@ -53,7 +53,7 @@
         \end{multline*}
         \item $(2)\Rightarrow(3)$: Пусть $\Lambda$ --- произвольная замкнутая ломаная. Выберем на ней две произволные вершины $A$ и $B$. Тогда ломаную можно представить в виде
         \[\Lambda=\Lambda_1\cup\Lambda_2^-\]
-        где $\Lambda_1$ --- ломаная от $A$ до $B$, а $\Lambda_2$ --- ломаная от $B$ до $A$, а $\Lambda_2^-$ --- ломаная $\Lambda_2$, пройденная в обратном направлении. Тогда 
+        где $\Lambda_1$ --- первая ломаная от $A$ до $B$, а $\Lambda_2$ --- вторая ломаная от $A$ до $B$, а $\Lambda_2^-$ --- ломаная $\Lambda_2$, пройденная в обратном направлении. Тогда 
         \begin{multline*}
             \oint\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k=\\
             =\int\limits_{\Lambda_1}f_1\ dx_1+\dots+f_k\ dx_k+\int\limits_{\Lambda_2^-}f_1\ dx_1+\dots+f_k\ dx_k=\\
@@ -73,8 +73,11 @@
         \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\lim\limits_{n\to\infty}\int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k\]
         Вычислим интеграл по ломаной
         \[\int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k=\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1\ dx_1+\dots+f_k\ dx_k\]
-        и рассмотрим интегральную сумму Римана-Стильтьеса
-        \[\sigma(T_n)=\sum\limits_{i=1}^{n}\vec{F}(\phi(\xi_i))\cdot \vec{\Delta}_i=\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1(\phi(\xi_i))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k\]
+        и рассмотрим интегральную сумму Римана-Стилтьеса:
+        \begin{multline*}
+            \sigma(f,T_n,H)=\sum\limits_{j=1}^{n}\left(\sum\limits_{i=1}^{k}f_i(\phi(\xi_j))\Delta_{ij}\right)=\sum\limits_{i=1}^{k}\left(\sum\limits_{j=1}^{n}f_i(\phi(\xi_j))\Delta_{ij}\right)=\\
+            =\sum\limits_{i=1}^{k}\int\limits_{\Delta_i}f_1(\phi(\xi_j))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k
+        \end{multline*}
         Аналогично первому пункту введем натуральную параметризацию $\widetilde{\phi}$ звена $\Delta_i$:
         \[\widetilde{\phi}(t): \begin{cases}
             x_1=x_1^{i-1}+u_1 t,\\
@@ -117,10 +120,11 @@
 % \begin{consequense}
 %     тут написать что можно считать по формуле разность конечн минус началн точки
 % \end{consequense}
-\subsection{Формула Грина для области, ограниченной сверху и снизу графиками функций}
-\begin{theorem}[Формула Грина для области, ограниченной сверху и снизу графиками функций] %$\\$
-    Пусть $P,Q\in \mathcal{C}^1(\Omega),\ \phi_1,\phi_2\in \mathcal{C}([a,b])$. Тогда
-    \[\oint\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\overline{G}}\left(Q'_x-P'_y\right) dxdy\]
+\subsection{Формула Грина для областей специального вида}
+\begin{lemma} $\\$
+    Пусть $\gamma$ --- кривая, ограничивающая область $G$ в $\R^k,\ P\in \mathcal{C}^1(\overline{\Omega}),\\
+    \phi_1,\phi_2\in \mathcal{C}([a,b])$. Тогда
+    \[\oint\limits_{\gamma}P\ dx=\iint\limits_{\overline{G}}\left(-P'_y\right) dxdy\]
     где 
     \[\overline{G}=\{(x,y): x\in [a,b],\ \phi_1(x)\leq y\leq \phi_2(x)\}\]
     \[
@@ -166,7 +170,7 @@
     \node at (2,1.6) {$\overline{G}$};
 \end{tikzpicture}
     \]
-\end{theorem}
+\end{lemma}
 \begin{proof} Докажем для $P$. Заметим, что $x=\text{const}$ на кривых $\gamma_2$ и $\gamma_4$. Значит
     \begin{multline*}
         \oint\limits_{\gamma} P\ dx=\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_2}P\ dx+\int\limits_{\gamma_3}P\ dx+\int\limits_{\gamma_4}P\ dx=\\
@@ -183,8 +187,49 @@
     \[\iint\limits_{\overline{G}}\left(-P'_y\ \right)\ dxdy=\int\limits_{a}^{b}\left(\ \int\limits_{\phi_1(x)}^{\phi_2(x)}\left(-P'_y\ \right)\ dy\right)dx=\int\limits_{a}^{b}P(x,\phi_1(x))-P(x,\phi_2(x))\ dx\]
     Отсюда
     \[\oint\limits_{\gamma} P\ dx=\iint\limits_{\overline{G}}\left(-P'_y\ \right)\ dxdy\]
-    Аналогично для $Q$.
 \end{proof}
+\begin{lemma}
+    Пусть $\gamma$ --- кривая, ограничивающая область $G$ в $\R^k,\ Q\in \mathcal{C}^1(\overline{\Omega}),\\
+    \phi_1,\phi_2\in \mathcal{C}([a,b])$. Тогда
+    \[\oint\limits_{\gamma}Q\ dy=\iint\limits_{\overline{G}}Q'_x\ dxdy\]
+    где
+    \[\overline{G}=\{(x,y): y\in[a,b],\ \phi_1(y)\leq x\leq \phi_2(y)\}\]
+\end{lemma}
+\begin{theorem}[Формула Грина для областей специального вида] $\\$
+    Пусть $\gamma$ --- кривая, ограничивающая выпуклую область $G$ в $\R^k,\ P,Q\in \mathcal{C}^1(\overline{\Omega})$. Тогда 
+    \[\oint\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\overline{G}}\left(Q'_x-P'_y\right) dxdy\]
+\end{theorem}
+\begin{proof}\tab
+    \begin{enumerate}
+        \item Проведем семейство вертикальных прямых и разрежем область $G$ на области, подходящие под лемму для $P$. Применим лемму для каждой области и сложим интегралы по аддитивности. 
+        \item Проведем семейство горизонтальных прямых и разрежем область $G$ на области, подходящие под лемму для $Q$. Применим лемму для каждой области и сложим интегралы по аддитивности.
+    \end{enumerate}
+    Таким образом, доказав утверждение для $P$ и для $Q$ отдельно, получим утверждение теоремы.
+\end{proof}
+\begin{theorem}[Достаточное условие потенциального поля в односвязной области]
+    Пусть $F=(P,Q)$ --- векторное поле, $\Omega\subset \R^2$ --- односвязная выпуклая область и\\
+    $\partial \Omega$ --- связное множество. Тогда если $P,Q\in \mathcal{C}^1(\overline{\Omega})$ и $Q'_x=P'_y$, то\\
+    $(P,Q)$ --- потенциальное поле.
+\end{theorem}
+\begin{proof}
+    Пусть $\gamma$ --- произвольная замкнутая ломаная без самопересечений, лежащая в $\Omega$, обозначим $\Phi$ --- область, которую ограничивает $\gamma$. Тогда по формуле Грина:
+    \[\int\limits_{\gamma}P\ dx+Q\ dy=\iint\limits_{\Phi}(Q'_x-P'_y)\ dxdy=0\]
+    Значит по теореме \ref{potential} известно, что $(P,Q)$ --- потенциальное поле.
+\end{proof}
+\begin{example} 
+    Условие односвязности области $\Omega$ нельзя опустить. Пусть\\
+    $\Omega=\{(x,y): 0<x^2+y^2<R\}$. Возьмем 
+    \[P=\frac{-y}{x^2+y^2},\ \ Q=\frac{x}{x^2+y^2}\]
+    \[P'_y=\frac{y^2-x^2}{(x^2+y^2)^2},\ \ Q'_x=\frac{y^2-x^2}{(x^2+y^2)^2}\ \Rightarrow\ P'_y=Q'_x\]
+    \[\oint\limits \frac{x\ dy-y\ dx}{x^2+y^2}=\Bigg|
+        \begin{matrix}
+            x=r\cdot \cos{\phi}\\
+            y=r\cdot \sin{\phi}
+        \end{matrix}\Bigg|=\frac{1}{r^2}\cdot \int\limits_{0}^{2\pi}r^2\cdot \cos^2{\phi}+r^2\cdot \sin^2{\phi}\ d\phi=2\pi\neq 0\]
+\end{example}
+\begin{comm}
+    Если пользоваться формулой Грина для треугольника, можно показать это утверждение для произвольных односвязных областей.
+\end{comm}
 % \begin{theorem}[Формула Грина для треугольника] $\\$
 %     Пусть $P,Q\in \mathcal{D}(\overline{G})$ и
 %     \[\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\in \mathcal{C}(\overline{G})\]
