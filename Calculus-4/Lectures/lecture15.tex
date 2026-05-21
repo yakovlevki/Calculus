@@ -3,7 +3,7 @@
 \begin{definition}\tab
     \begin{enumerate}
         \item Непрерывное отображение $\phi: [a,b]\to \R^k$ такое, что $\forall t\in [a,b]:\\ \phi(t)=(x_1(t), \dots, x_k(t))$ называется параметризацией кривой.
-        \item Пусть $\phi_1:[\alpha_1, \beta_1]\to \R^k,\ \phi_2:[\alpha_2, \beta_2]\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны (параметризуют одну и ту же кривую), если существует строго монотонная функция $g: [\alpha_1, \beta_1]\to [\alpha_2, \beta_2]$ такая, что $\phi_2\equiv \phi_1\circ g$ на $[\alpha_1, \beta_1]$.
+        \item Пусть $\phi_1:[\alpha_1, \beta_1]\to \R^k,\ \phi_2:[\alpha_2, \beta_2]\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны (параметризуют одну и ту же кривую), если существует строго монотонная биекция $g: [\alpha_1, \beta_1]\to [\alpha_2, \beta_2]$ такая, что $\phi_1\equiv \phi_2f \circ g$ на $[\alpha_1, \beta_1]$.
         \item Кривой называется класс эквивалентности параметризаций по указанному отношению.
     \end{enumerate}
 \end{definition}
@@ -24,14 +24,20 @@
 \end{definition}
 \begin{definition}
     Число
-    \[|\Lambda(T)|=\sum\limits_{i=1}^{n} |\phi(t_i)-\phi(t_{i-1})|\]
+    \[|\Lambda(T)|=\sum\limits_{i=1}^{n} \|\phi(t_i)-\phi(t_{i-1})\|\]
     называется длиной вписанной ломаной, а число
     \[|\gamma|=\sup\limits_T |\Lambda(T)|\]
     называется длиной кривой. Если длина кривой конечна, то кривая называется спрямляемой.
 \end{definition}
-\begin{reminder}
-    Функция $f$, определенная на промежутке $I$ имеет ограниченную вариацию, если
-    \[\var(f,I)=\sup\limits_{n\in \N} \sum\limits_{i=1}^{n}|f(t_i)-f(t_{i-1})|<+\infty\]
+\begin{reminder}\tab
+    \begin{enumerate}
+        \item Функция $f:[\alpha,\beta]\to \R$ имеет ограниченную вариацию, если
+        \[\var(f,[\alpha,\beta])=\sup\limits_{T} \sum\limits_{i=1}^{n}|f(t_i)-f(t_{i-1})|<+\infty\]
+        $T$ --- разбиение отрезка $[\alpha,\beta]$.
+        \item Отображение $f:[\alpha,\beta]\to \R^k$ имеет ограниченную вариацию, если
+        \[\sum\limits_{j=1}^{k}\var(x_j,[\alpha,\beta])<+\infty\]
+        где $T$ --- разбиение отрезка $[\alpha,\beta]$.
+    \end{enumerate}
 \end{reminder}
 \begin{theorem} [Об условиях спрямляемости кривых] $\\$
     Следующие условия эквивалентны:
@@ -45,19 +51,25 @@
     \begin{enumerate}
         \item $(1) \Rightarrow (2)$:
         Пусть $\phi:[\alpha,\beta]\to \R^k$ --- произвольная параметризация\\
-        кривой $\gamma$, $T$ --- разбиение отрезка $[\alpha,\beta]$. Тогда $|\Lambda(T)|<|\gamma|=\text{const}$
+        кривой $\gamma$, $T$ --- разбиение отрезка $[\alpha,\beta]$. Тогда
         \begin{multline*}
-            |\gamma|\geq\sum\limits_{i=1}^{n}|\phi(t_i)-\phi(t_{i-1})|=\\
-            =\sum\limits_{i=1}^{n}\sqrt{(x_1(t_i)-x_1(t_{i-1}))^2+\dots+(x_k(t_i)-x_k(t_{i-1}))^2}\geq \\
+            \sum\limits_{i=1}^{n}\|\phi(t_i)-\phi(t_{i-1})\|=\\
+            =\sum\limits_{i=1}^{n}\sqrt{(x_1(t_1)-x_1(t_{i-1}))^2+\dots+(x_k(t_1)-x_k(t_{i-1}))^2}\geq \tab[2cm]\\
             \geq \sum\limits_{i=1}^{n}|x_j(t_i)-x_j(t_{i-1})|
         \end{multline*}
+        Для всех $j=1,\dots,k$. Перейдем к супремуму и получим, что
+        \[\var(x_j, [\alpha,\beta])\leq |\gamma|\]
+        Отсюда 
+        \[\sum\limits_{j=1}^{k}\var(x_j, [\alpha,\beta])\leq k\cdot |\gamma|\] 
         \item $(2) \Rightarrow (3)$: Очевидно.
         \item $(3) \Rightarrow (1)$: Пусть существует параметризация $\phi:[\alpha,\beta]\to \R^k$ и ее вариация ограничена. Тогда
         \begin{multline*}
-            |\Lambda(T)|=\sum\limits_{i=1}^{n}|\phi(t_i)-\phi(t_{i-1})|\leq\\
-            \sum\limits_{i=1}^{n}\sum\limits_{j=1}^{k}|x_j(t_i)-x_j(t_{i-1})|=\sum\limits_{j=1}^{k}\sum\limits_{i=1}^{n}|x_j(t_i)-x_j(t_{i-1})|\leq\\
-            \leq \sum\limits_{j=1}^{k}\text{Var}(x_j([\alpha,\beta]))
+            \sum\limits_{i=1}^{n}\|\phi(t_i)-\phi(t_{i-1})\|=\\
+            =\sum\limits_{i=1}^{n}\sqrt{(x_1(t_i)-x_1(t_{i-1}))^2+\dots+(x_k(t_i)-x_k(t_{i-1}))^2}\leq\tab[3cm]\\
+            \tab[2cm]\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{k}|x_j(t_i)-x_j(t_{i-1})|=\sum\limits_{j=1}^{k}\sum\limits_{i=1}^{n}|x_j(t_i)-x_j(t_{i-1})|
         \end{multline*}
+        Перейдем к супремуму и получим, что
+        \[|\gamma|\leq \sum\limits_{j=1}^{k}\var(x_j, [\alpha,\beta])\]
     \end{enumerate}
 \end{proof}
 \begin{example} [Неспрямляемой кривой] $\\$
@@ -68,9 +80,13 @@
     \end{cases}\]
     %тут будет картинка.
 \end{example}
-\begin{exercise}
-    Приведите пример простой кривой (без самопересечений) положительной меры Жордана.
-\end{exercise}
+\begin{example}[Кривая Пеано] $\\$
+    Рассмотрим квадрат $[0,1]^2$. Разделим его на 4 равных квадрата: (1) --- левый нижний, (2) --- левый верхний, (3) --- правый верхний, (4) --- правый нижний. Соединим соседние центры кадратов отрезками по правилу 
+    \[(1)\to(2)\to(3)\to(4)\]
+    Каждый из 4 квадратов делим ещё на 4. В каждом крупном квадрате повторяем тот же порядок обхода, но с поворотом или отражением так, чтобы ломаная непрерывно переходила из одного крупного квадрата в соседний. Первые три иттерации выглядят так:
+    \[\includegraphics[width=0.8\textwidth]{Images/PeanoCurve.png}\]
+    Таким образом, кривая заполняет квадрат. Кривая Пеано --- пример кривой положительной меры.
+\end{example}
 \begin{reminder}
     Пусть у кривой $\gamma$ существует параметризация $\phi\in \mathcal{C}^1$. Тогда
     \[|\gamma|=\int\limits_{\alpha}^{\beta} \sqrt{(x_1'(t))^2+\dots+(x_k'(t))^2}\ dt\]
