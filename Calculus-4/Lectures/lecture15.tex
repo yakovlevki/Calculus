@@ -3,8 +3,14 @@
 \begin{definition}\tab
     \begin{enumerate}
         \item Непрерывное отображение $\phi: [a,b]\to \R^k$ такое, что $\forall t\in [a,b]:\\ \phi(t)=(x_1(t), \dots, x_k(t))$ называется параметризацией кривой.
-        \item Пусть $\phi_1:[\alpha_1, \beta_1]\to \R^k,\ \phi_2:[\alpha_2, \beta_2]\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны (параметризуют одну и ту же кривую), если существует строго монотонная биекция $g: [\alpha_1, \beta_1]\to [\alpha_2, \beta_2]$ такая, что $\phi_1\equiv \phi_2f \circ g$ на $[\alpha_1, \beta_1]$.
+        \item Пусть $\phi_1:[\alpha_1, \beta_1]\to \R^k,\ \phi_2:[\alpha_2, \beta_2]\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны (параметризуют одну и ту же кривую), если существует строго монотонная биекция $g: [\alpha_1, \beta_1]\to [\alpha_2, \beta_2]$ такая, что $\phi_1\equiv \phi_2 \circ g$ на $[\alpha_1, \beta_1]$.
         \item Кривой называется класс эквивалентности параметризаций по указанному отношению.
+    \end{enumerate}
+\end{definition}
+\begin{definition}\tab
+    \begin{enumerate}
+        \item Пусть $\phi_1:[\alpha_1, \beta_1]\to \R^k,\ \phi_2:[\alpha_2, \beta_2]\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны (параметризуют одну и ту же кривую), если существует строго возрастающая биекция $g: [\alpha_1, \beta_1]\to [\alpha_2, \beta_2]$ такая, что $\phi_1\equiv \phi_2f \circ g$ на $[\alpha_1, \beta_1]$.
+        \item Ориентированной кривой называется класс эквивалентности параметризаций по указанному отношению.
     \end{enumerate}
 \end{definition}
 \begin{definition}\tab
@@ -148,7 +154,7 @@
     % \[\forall \epsilon>0\ \exists\ \delta>0,\ |\tau_1-\tau_2|<\delta: \|\phi(\tau_1)-\phi(\tau_2)\|<\theta=\frac{\epsilon}{4N}\]
 \end{proof}
 \begin{theorem}
-    Два определение криволинейных интегралов первого рода эквивалентны.
+    Два определения криволинейных интегралов первого рода эквивалентны.
 \end{theorem}
 \begin{proof} \textit{(не спрашивают на экзамене)}\tab
     \begin{enumerate}
