@@ -10,10 +10,10 @@
     В каждом слое сапога Шварца находится $2n$ треугольников, тогда вся эта поверхность состоит из $2nm$ треугольников. Обозначим $d$ основания треугольников, являющиеся хордами окружностей.
     \[d=2R\cdot \sin{\frac{\pi}{n}},\ \ h_1=R\cdot \cos\frac{\pi}{n},\ \ x=R\left(1-\cos{\frac{\pi}{n}}\right)\]
     Тогда по теореме Пифагора можем найти высоту $h_2$ треугольника из поверхности сапога Шварца:
-    \[h_2=\sqrt{\left(\frac{h}{m}\right)^2+R^2\left(1-\cos{\frac{\pi}{n}}\right)}\]
+    \[h_2=\sqrt{\left(\frac{h}{m}\right)^2+R^2\left(1-\cos{\frac{\pi}{n}}\right)^2}\]
     Где $h$ --- высота цилиндра. Значит площадь поверхности сапога Шварца равна:
     \begin{multline*}
-        S=2mn\cdot \frac{1}{2}\cdot 2R\cdot\sin{\frac{\pi}{n}}\cdot \sqrt{\left(\frac{h}{m}\right)^2+R^2\left(1-\cos{\frac{\pi}{n}}\right)}=\\
+        S=2mn\cdot \frac{1}{2}\cdot 2R\cdot\sin{\frac{\pi}{n}}\cdot \sqrt{\left(\frac{h}{m}\right)^2+R^2\left(1-\cos{\frac{\pi}{n}}\right)^2}=\\
         =2\pi R\cdot \cfrac{\sin{\frac{\pi}{n}}}{\frac{\pi}{n}}\cdot \sqrt{h^2+R^2m^2\left(1-\cos{\frac{\pi}{n}}\right)^2}
     \end{multline*}
     При $m,n\to +\infty$:
@@ -23,7 +23,7 @@
 % \textit{тут что то про поверхности}
 \begin{definition}\label{surface}\tab
     \begin{enumerate}
-        \item Пусть $\Omega\subset\R^2,\ \partial\Omega=\gamma$ --- кусочно-гладкая кривая. Отображение
+        \item Пусть $\Omega\subset\R^2,\ \partial\Omega=\gamma$ --- кусочно-гладкая кривая. Отображение\\
         $\phi:\overline{\Omega}\to\R^k$, где $k\geq 3$ такое, что $\phi\in \mathcal{C}^1(\overline{\Omega})$
         \[\phi(u,v)=(x_1(u,v),\dots,x_k(u,v))\]
         и в $\Omega$:
@@ -32,7 +32,7 @@
             \phi'_v
         \end{pmatrix}=2\]
         называется гладкой параметризацией поверхности.
-        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\Phi_2$ эквивалентны (параметризуют одну и ту же поверхность), если существует биективная $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}\neq 0$ на $\Omega_1$ и $\phi_2\equiv\phi_1\circ\psi$.
+        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны (параметризуют одну и ту же поверхность), если существует биективная $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}\neq 0,\ \psi\in \mathcal{C}^1(\Omega)$ на $\Omega_1$ и $\phi_1\equiv\phi_2\circ\psi$.
         \item Поверхностью называется класс эквивалентности гладких параметризаций по указанному отношению.
     \end{enumerate}
 \end{definition}
@@ -92,16 +92,22 @@
     % \[z-z_0=z'_x(x_0,y_0)(x-x_0)+z'_y(x_0,y_0)(y-y_0)\]
 \end{comm}
 \noindent Приведем несколько свойств, следующих из определения:
-\begin{statement}
+\begin{statement}[Достаточное условие существования] $\\$
     Если $f\in \mathcal{C}(\phi(\overline{\Omega}))$, то существует интеграл
     \[\iint\limits_{\Sigma}f\ dS\]
 \end{statement}
+\begin{proof}
+    Из достаточного условия существования для кратных интегралов.
+\end{proof}
 \begin{statement}
     Пусть существуют интегралы
     \[\iint\limits_{\Sigma}f\ dS,\ \iint\limits_{\Sigma}g\ dS\]
     Тогда $\forall c_1,c_2\in \R$ существует интеграл
     \[\iint\limits_{\Sigma}(c_1\cdot f+c_2\cdot g)\ dS=c_1\cdot \iint\limits_{\Sigma}f\ dS+c_2\cdot \iint\limits_{\Sigma}g\ dS\]
 \end{statement}
+\begin{proof}
+    Из линейности кратных интегралов.
+\end{proof}
 \begin{statement}
     Поверхностный интерал первого рода не зависит от ориентации.
 \end{statement}
@@ -109,13 +115,17 @@
     Пусть $f(\overline{x})\leq g(\overline{x})$ для всех $\overline{x}\in \phi(\overline{\Omega})$. Тогда 
     \[\iint\limits_{\Sigma}f\ dS\leq \iint\limits_{\Sigma}g\ dS\]
 \end{statement}
+\begin{proof}
+    Из монотонности по функции кратных интегралов.
+\end{proof}
 \begin{statement}
-    \[\left|\iint\limits_{\Sigma}f\ dS\right|\leq \sup|f|\cdot |\Sigma|\]
+    \[\left|\iint\limits_{\Sigma}f\ dS\right|\leq M\cdot |\Sigma|\]
+    где $M=\sup\limits_{\Sigma}|f|$.
 \end{statement}
 \begin{proof}
     \begin{multline*}
-        \left|\ \iint\limits_{\Sigma}f\ dS\ \right|\leq \iint\limits_{\Omega}|f(x(u,v),y(u,v),z(u,v))|\cdot\sqrt{EG-F^2} \leq\\
-        \leq \sup|f|\cdot \iint\limits_{\Omega}\sqrt{EG-F^2} = \sup|f|\cdot |\Sigma|
+        \left|\ \iint\limits_{\Sigma}f\ dS\ \right|\leq \iint\limits_{\Omega}|f(x(u,v),y(u,v),z(u,v))|\cdot\sqrt{EG-F^2}\ dudv \leq\\
+        \leq M\cdot \iint\limits_{\Omega}\sqrt{EG-F^2} = M\cdot |\Sigma|
     \end{multline*}
 \end{proof}
 \newpage

@@ -1,8 +1,8 @@
 \section{Лекция 20}
 \subsection{Поверхностный интерал второго рода}
-\begin{definition}
+\begin{definition}\tab
     \begin{enumerate}
-        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\Phi_2$ эквивалентны если существует биективная гладкая $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}> 0$ на $\Omega_1$ и $\phi_2\equiv\phi_1\circ\psi$.
+        \item Пусть $\phi_1: \Omega_1\to \R^k,\ \phi_2: \Omega_2\to \R^k$. Считаем, что $\phi_1$ и $\phi_2$ эквивалентны если существует биективная гладкая $\psi:\Omega_1\to \Omega_2$ такая, что $\det{J_{\psi}}> 0$ на $\Omega_1$ и $\phi_2\equiv\phi_1\circ\psi$.
         \item Ориентированной гладкой поверхностью называется класс эквивалентности гладких параметризаций по указанному отношению.
     \end{enumerate}
 \end{definition}
@@ -43,28 +43,48 @@
     Без доказательства.
 \end{proof}
 \begin{statement}
+    Пусть $\Sigma$ --- гладкая поверхность, $P,Q,R\in \mathcal{C}(\phi(\overline{\Omega}))$. Тогда существует интеграл
+    \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy\]
+\end{statement}
+\begin{proof}
+    Пусть $\vec{n}=(\cos{\alpha},\cos{\beta},\cos{\gamma})$. Тогда
+    \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy=\iint\limits_{\overline{\Omega}}(P\cos{\alpha}+Q\cos{\beta}+R\cos{\gamma})\ dS\]
+    Заметим, что $P\cos{\alpha}+Q\cos{\beta}+R\cos{\gamma}\in \mathcal{C}(\overline{\Omega})$. Значит интеграл существует по достаточному условию для поверхностного интеграла первого рода.
+\end{proof}
+\begin{statement}
     Поверхностный интеграл второго рода меняет знак при смене ориентации.
 \end{statement}
 \begin{proof}
     \[\iint\limits_{\Sigma}P\ dydz+Q\ dzdx+R\ dxdy=\iint\limits_{\Sigma}(P,Q,R)\cdot \vec{n}\ dS\]
     При смене ориентации, нормаль меняется на противоположную. Отсюда скалярное произведение, а значит и сам интеграл, тоже меняет знак.
 \end{proof}
-\begin{statement}
+\begin{statement}[Линейность] $\\$
     Пусть заданы векторные поля $(P_1,Q_1,R_1)$ и $(P_2,Q_2,R_2)$ и существуют интегралы
     \[\iint\limits_{\Sigma}P_1\ dydz+Q_1\ dzdx+R_1\ dxdy,\ \ \iint\limits_{\Sigma}P_2\ dydz+Q_2\ dzdx+R_2\ dxdy\]
     Тогда $\forall c_1,c_2\in \R$ существует интеграл
     \begin{multline*}
-        \iint\limits(c_1\cdot P_1+c_2\cdot P_2)\ dydz+(c_1\cdot Q_1+c_2\cdot Q_2)\ dzdx+(c_1\cdot R_1+c_2\cdot R_2)\ dxdy=\\
+        \iint\limits_{\Sigma}(c_1\cdot P_1+c_2\cdot P_2)\ dydz+(c_1\cdot Q_1+c_2\cdot Q_2)\ dzdx+(c_1\cdot R_1+c_2\cdot R_2)\ dxdy=\\
         =c_1\cdot \iint\limits_{\Sigma}P_1\ dydz+Q_1\ dzdx+R_1\ dxdy+c_2\cdot \iint\limits_{\Sigma}P_2\ dydz+Q_2\ dzdx+R_2\ dxdy
     \end{multline*}
 \end{statement}
+\begin{proof}
+    Свести к интегралу певого рода и воспользоваться линейностью.
+\end{proof}
 \begin{comm}
     Пусть $\Sigma$ --- простая гладкая поверхность, $(P,Q,R)$ --- непрерывное векторное поле скоростей частиц. И в каждой точке задана непрерывная функция $\rho(x,y,z)$ --- плотность. Тогда масса, протекающая через $\Sigma$ за единицу времени в точности равна
     \[\iint\limits_{\Sigma}\rho((P,Q,R)\cdot \vec{n})\ dS\]
 \end{comm}
 \subsection{Формула Стокса}
+\begin{definition}
+    Циркуляцией векторного поля $(P,Q,R)$ по замкнутой простой кривой на поверхности называется криволинейный интеграл второго рода
+    \[\oint\limits_{\gamma}P\ dx+Q\ dy+R\ dz\]
+    взятый в данном направлении обхода.
+\end{definition}
+\begin{definition}
+    Направление обхода на ориентированной гладкой поверхности положительно, если обход осуществляется против часовой стрелки отностельно вектора нормали (по правилу правой руки).
+\end{definition}
 \begin{theorem}[Формула Стокса] $\\$
-    Пусть $(\Sigma, \vec{n})$ --- ориентированная простая поверхность класса $\mathcal{C}^2$ с параметризацией $\phi:\Omega\to \R^3,\ \partial\Omega=\gamma,\ \Gamma=\phi(\gamma)$ и $(P,Q,R)$ --- непрерывное векторное поле на $\Sigma$. Тогда
+    Пусть $(\Sigma, \vec{n})$ --- ориентированная простая поверхность класса $\mathcal{C}^2$ с параметризацией $\phi:\Omega\to \R^3,\ \partial\Omega=\gamma,\ \Gamma=\phi(\gamma)$ --- ориентированная кривая с положительным направлением обхода и $(P,Q,R)$ --- дифференцируемое векторное поле класса на $\Sigma$. Тогда
         \[\oint\limits_{\Gamma}P\ dx+Q\ dy+R\ dz=\iint\limits_{\Sigma} \begin{vmatrix}
             \cos{\alpha} & \cos{\beta} & \cos{\gamma}\\
             \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
@@ -74,7 +94,7 @@
 \begin{proof}
     Для начала докажем для случая $P=Q=0$, то есть для векторного поля $(0,0,R)$. Пусть\\
     $\psi:[a,b]\to \R^2$ --- параметризация кривой $\gamma$. Тогда $\phi\circ\psi:[a,b]\to \R^3$ --- параметризация кривой $\Gamma$. Таким образом
-    \[dz=z'_u\cdot u'_t+z'_v\cdot v'_t\]
+    \[dz=(z'_u\cdot u'_t+z'_v\cdot v'_t)\ dt\]
     Значит
     \begin{multline*}
         \oint\limits_{\Gamma}R\ dz=\int\limits_{a}^{b}R(x,y,z)(z'_u\cdot u'_t+z'_v\cdot v'_t)\ dt=\oint\limits_{\gamma}R\cdot z'_u\ du+R\cdot z'_v\ dv=\\
