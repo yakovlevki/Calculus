@@ -171,12 +171,7 @@
 \end{tikzpicture}
     \]
 \end{lemma}
-\begin{proof} Докажем для $P$. Заметим, что $x=\text{const}$ на кривых $\gamma_2$ и $\gamma_4$. Значит
-    \begin{multline*}
-        \oint\limits_{\gamma} P\ dx=\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_2}P\ dx+\int\limits_{\gamma_3}P\ dx+\int\limits_{\gamma_4}P\ dx=\\
-        =\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_3}P\ dx=\int\limits_{a}^{b}P(x,\phi_1(x))\ dx-\int\limits_{a}^{b}P(x,\phi_2(x))\ dx
-    \end{multline*}
-    Напишем параметризации для $\gamma_1$ и $\gamma_3$:
+\begin{proof} Заметим, что $x=\text{const}$ на кривых $\gamma_2$ и $\gamma_4$ и напишем параметризации для $\gamma_1$ и $\gamma_3$:
     \[\gamma_1: \begin{cases}
         x=x\in [a,b],\\
         y=\phi_1(x)
@@ -184,6 +179,11 @@
         x=x\in [a,b],\\
         y=\phi_2(x)
     \end{cases}\]
+    Тогда
+    \begin{multline*}
+        \oint\limits_{\gamma} P\ dx=\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_2}P\ dx+\int\limits_{\gamma_3}P\ dx+\int\limits_{\gamma_4}P\ dx=\\
+        =\int\limits_{\gamma_1}P\ dx+\int\limits_{\gamma_3}P\ dx=\int\limits_{a}^{b}P(x,\phi_1(x))\ dx-\int\limits_{a}^{b}P(x,\phi_2(x))\ dx
+    \end{multline*}
     \[\iint\limits_{\overline{G}}\left(-P'_y\ \right)\ dxdy=\int\limits_{a}^{b}\left(\ \int\limits_{\phi_1(x)}^{\phi_2(x)}\left(-P'_y\ \right)\ dy\right)dx=\int\limits_{a}^{b}P(x,\phi_1(x))-P(x,\phi_2(x))\ dx\]
     Отсюда
     \[\oint\limits_{\gamma} P\ dx=\iint\limits_{\overline{G}}\left(-P'_y\ \right)\ dxdy\]
@@ -207,7 +207,7 @@
     Таким образом, доказав утверждение для $P$ и для $Q$ отдельно, получим утверждение теоремы.
 \end{proof}
 \begin{theorem}[Достаточное условие потенциального поля в односвязной области]
-    Пусть $F=(P,Q)$ --- векторное поле, $\Omega\subset \R^2$ --- односвязная выпуклая область и\\
+    Пусть $F=(P,Q)$ --- векторное поле, $\Omega\subset \R^2$ --- односвязная выпуклая область и
     $\partial \Omega$ --- связное множество. Тогда если $P,Q\in \mathcal{C}^1(\overline{\Omega})$ и $Q'_x=P'_y$, то\\
     $(P,Q)$ --- потенциальное поле.
 \end{theorem}
