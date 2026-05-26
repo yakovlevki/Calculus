@@ -202,15 +202,18 @@
     \[\int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx=2\cdot\int\limits_{0}^{+\infty}e^{-x^2}\ dx\]
     Заметим, что $e^{-x^2}$ непрерывна на отрезке $[0,1]$, значит интегрируема, а также что $e^{-x^2}\leq e^{-x}$ на отрезке $[1,+\infty]$, при этом
     \[\int\limits_{1}^{+\infty}e^{-x}\ dx=\frac{1}{e}\]
-    Значит, по признаку вейерштрасса интеграл сходится. Теперь рассмотрим двойной интеграл
+    Значит, по признаку Вейерштрасса интеграл сходится. Рассмотрим двойной интеграл и выберем такое исчерпание $\R^2$:
+    \[[-n,n]\times[-n,n]\]
     \begin{multline*}
-        \iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy=\int\limits_{-\infty}^{+\infty}\left(\ \int\limits_{-\infty}^{+\infty}e^{-(x^2+y^2)}\ dy\right)dx=\\
+        \iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy=\lim\limits_{n\to \infty}\int\limits_{-n}^{n}\left(\ \int\limits_{-n}^{n}e^{-(x^2+y^2)}\ dy\right)dx=\\
         =\left(\ \int\limits_{-\infty}^{+\infty} e^{-y^2}\ dy\right)\cdot \left(\ \int\limits_{-\infty}^{+\infty}e^{-x^2}\ dx\right)=I^2
     \end{multline*}
-    Перейдем к полярным координатам $(r,\phi)$ в двойном интеграле. При этом переходе $\det{J}=r$. Значит
-    \[\iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy=\int\limits_{0}^{2\pi}\left(\int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr\right)d\phi=2\pi\cdot \int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr\]
+    Теперь перейдем к полярным координатам $(r,\phi)$ и рассмотрим рассмотрим исчерпание $\R^2$ кругами: 
+    \[r\leq n.\ \phi\in [0,2\pi]\]
+    При этом переходе $\det{J}=r$. Значит
+    \[\iint\limits_{\R^2}e^{-(x^2+y^2)}\ dxdy=\lim\limits_{n\to \infty}\int\limits_{0}^{2\pi}\left(\int\limits_{0}^{n}r\cdot e^{-r^2}\ dr\right)d\phi=\lim\limits_{n\to \infty}2\pi\cdot \int\limits_{0}^{n}r\cdot e^{-r^2}\ dr\]
     Сделаем замену $r^2=u$ при такой замене $dr=\frac{du}{2r}$ и
-    \[2\pi\cdot \int\limits_{0}^{+\infty}r\cdot e^{-r^2}\ dr=2\pi\cdot \frac{1}{2}\cdot \int\limits_{0}^{+\infty}e^{-u}\ du=2\pi\cdot \frac{1}{2}=\pi\]
+    \[\lim\limits_{n\to \infty}2\pi\cdot \int\limits_{0}^{n}r\cdot e^{-r^2}\ dr=\lim\limits_{n\to \infty}2\pi\cdot \frac{1}{2}\cdot \int\limits_{0}^{n^2}e^{-u}\ du=\lim\limits_{n\to \infty}\pi\cdot(1- e^{-n^2})=\pi\]
     Итак $I^2=\pi$, значит $I=\sqrt{\pi}$.
 \end{example}
 \newpage
