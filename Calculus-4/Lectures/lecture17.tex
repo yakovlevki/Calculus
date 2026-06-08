@@ -73,10 +73,10 @@
         \[\int\limits_{\gamma}f_1\ dx_1+\dots+f_k\ dx_k=\lim\limits_{n\to\infty}\int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k\]
         Вычислим интеграл по ломаной
         \[\int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k=\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1\ dx_1+\dots+f_k\ dx_k\]
-        и рассмотрим интегральную сумму Римана-Стилтьеса:
+        и распишем интегральную сумму из альтернативного определения:
         \begin{multline*}
-            \sigma(f,T_n,H)=\sum\limits_{j=1}^{n}\left(\sum\limits_{i=1}^{k}f_i(\phi(\xi_j))\Delta_{ij}\right)=\sum\limits_{i=1}^{k}\left(\sum\limits_{j=1}^{n}f_i(\phi(\xi_j))\Delta_{ij}\right)=\\
-            =\sum\limits_{i=1}^{k}\int\limits_{\Delta_i}f_1(\phi(\xi_j))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k
+            \sigma(f,T_n,H)=\sum\limits_{j=1}^{n}\left(\sum\limits_{i=1}^{k}f_i(\phi(\xi_j))\Delta_{ij}\right)=\sum\limits_{j=1}^{n}\left(\sum\limits_{i=1}^{k}\int\limits_{\Delta_j}f_i(\phi(\xi_j))dx_i\right)=\\
+            =\sum\limits_{j=1}^{n}\int\limits_{\Delta_j}f_1(\phi(\xi_j))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k
         \end{multline*}
         Аналогично первому пункту введем натуральную параметризацию $\widetilde{\phi}$ звена $\Delta_i$:
         \[\widetilde{\phi}(t): \begin{cases}
@@ -86,7 +86,7 @@
         \end{cases}\]
         где $t\in [0,|\Delta_i|]$ и $\vec{u}=(u_1,\dots,u_k)$ и $\|u\|=1$.
         \begin{multline*}
-            \int\limits_{\Lambda}f_1\ dx_1+\dots+f_k\ dx_k-\sigma(T_n)=\\
+            \int\limits_{\Lambda(T_n)}f_1\ dx_1+\dots+f_k\ dx_k-\sigma(f, T_n, H)=\\
             =\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1\ dx_1+\dots+f_k\ dx_k-\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}f_1(\phi(\xi_i))\ dx_1+\dots+f_k(\phi(\xi_i))\ dx_k=\\
             =\sum\limits_{i=1}^{n}\int\limits_{\Delta_i}\Big(f_1(x)-f_1(\phi(\xi_i))\Big)\ dx_1+\dots+\Big(f_k(x)-f_k(\phi(\xi_i))\Big)\ dx_k=\\
             =\sum\limits_{i=1}^{n}\int\limits_{0}^{|\Delta_i|}\Big(\Big(f_1(\widetilde{\phi}(t))-f_1(\phi(\xi_i))\Big)u_1+\dots+\Big(f_k(\widetilde{\phi}(t))-f_k(\phi(\xi_i))\Big)u_k\Big)\ dt

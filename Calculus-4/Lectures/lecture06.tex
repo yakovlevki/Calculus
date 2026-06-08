@@ -42,8 +42,7 @@
     \[\idotsint\limits_{\Phi}f\ dx_1 \dots dx_k=\idotsint\limits_{\Phi_1}f\ dx_1 \dots dx_k+\idotsint\limits_{\Phi_2}f\ dx_1 \dots dx_k\]
 \end{statement}
 \begin{proof}
-    Поскольку $\Phi=\Phi_1\sqcup \Phi_2$, то $f\cdot \chi_{\Phi}=f\cdot \chi_{\Phi_1}+f\cdot \chi_{\Phi_2}$. Причем $f\in \mathcal{R}(\Phi) \Rightarrow f\cdot \chi_{\Phi}\in \mathcal{R}(\Pi)$. Так как $\Phi_1$ и $\Phi_2$ --- подмножества $\Phi$,\\
-    то $f\in \mathcal{R}(\Phi_1),\ f\in \mathcal{R}(\Phi_2)$. Значит $f\cdot \chi_{\Phi_1}\in \mathcal{R}(\Pi),\ f\cdot \chi_{\Phi_2}\in \mathcal{R}(\Pi)$. Таким образом
+    Поскольку $\Phi=\Phi_1\sqcup \Phi_2$, то $f\cdot \chi_{\Phi}=f\cdot \chi_{\Phi_1}+f\cdot \chi_{\Phi_2}$. Причем $f\in \mathcal{R}(\Phi) \Rightarrow f\cdot \chi_{\Phi}\in \mathcal{R}(\Pi)$ для любого бруса $\Pi \supset \Phi$. Т.к. $\Phi_1, \Phi_2$ -- подмножества $\Phi$, $f\in \mathcal{R}(\Phi_1),\ f\in \mathcal{R}(\Phi_2)$. Значит $f\cdot \chi_{\Phi_1}\in \mathcal{R}(\Pi),\ f\cdot \chi_{\Phi_2}\in \mathcal{R}(\Pi)$. Таким образом:
     \[\idotsint\limits_{\Pi}f\cdot \chi_{\Phi}\ dx_1\dots dx_k=\idotsint\limits_{\Pi}f\cdot \chi_{\Phi_1}\ dx_1\dots dx_k+\idotsint\limits_{\Pi}f\cdot \chi_{\Phi_2}\ dx_1\dots dx_k\]
     а это в точности означает, что
     \[\idotsint\limits_{\Phi}f\ dx_1\dots dx_k=\idotsint\limits_{\Phi_1}f\ dx_1\dots dx_k+\idotsint\limits_{\Phi_2}f\ dx_1\dots dx_k\]
@@ -103,11 +102,11 @@
     \[f_1\cdot f_2=\frac{(f_1+f_2)^2-f_1^2-f_2^2}{2}\in \mathcal{R}(\Phi)\]
 \end{proof}
 \begin{consequense}
-    Пусть $f\in \mathcal{R}(\Phi),\ \exists\ \epsilon>0$ такой, что на $\Phi: |f|\geq \epsilon$. Тогда\\
-    $\frac{1}{x}\in \mathcal{R}(\Phi)$.
+    Пусть $f\in \mathcal{R}(\Phi),\ \exists\ \epsilon>0$ такой, что на $\Phi: |f|\geq \epsilon$. Тогда
+    $\frac{1}{f}\in \mathcal{R}(\Phi)$.
 \end{consequense}
 \begin{proof}
-    Возьмем $g(x)=\frac{1}{x}$, она Липшицева на $[-M,-\epsilon]\cup[\epsilon, M]$.
+    Возьмем $g(x)=\frac{1}{x}$, она липшицева на $[-M,-\epsilon]\cup[\epsilon, M]$.
 \end{proof}
 \begin{statement} [Теорема о среднем] $\\$
     Пусть $f,g\in \mathcal{R}(\Phi),\ g> 0$ на $\Phi$. Тогда $\exists\ \mu\in [m,M]$:

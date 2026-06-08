@@ -152,8 +152,8 @@
     Сразу заметим, что данные рассуждения легко распространить на случай невыпуклого $\Phi$, проведя их для всех внутренних $\Pi_{ij}$ некоторого разбиения --- при $d\rightarrow 0$ получим требуемое.\\
     Теперь докажем неравенство в другую сторону. Так как $\phi$ -- биекция из $C^1(\Omega)$ и $J_\phi \neq 0$ на $\Omega$, по теореме об обратном отображении можем рассмотреть $\phi^{-1}$ -- также из $C^1$. Пусть $\{\Phi_i\}_{i=1}^k$ -- разбиение $\Phi$, $K_i = \phi(\Phi_i)$. \\
     Тогда из неравенства выше:
-    \[\mu(G_i) \leqslant \iint\limits_{K_i} |J_{\phi^{-1}}|\ d\hat{x}d\hat{y}\] \[\iint\limits_{K_i} |J_{\phi^{-1}}|\ d\hat{x}d\hat{y} \leqslant M_i \mu(K_i), \ M_i = \max\limits_{K_i}(|J_{\phi^{-1}}|) = \max\limits_{K_i}(|J_{\phi}|^{-1}) = (\min\limits_{\Phi_i}(|J_{\phi}|))^{-1}\]
-    то есть если $m_i = \min\limits_{\Phi_i}(|J_{\phi}|)$, то $M_i = \frac{1}{m_i} \Longrightarrow \mu(G_i) \leqslant \frac{1}{m_i}\mu(K_i)$.\\
+    \[\mu(\Phi_i) \leqslant \iint\limits_{K_i} |J_{\phi^{-1}}|\ d\hat{x}d\hat{y}\] \[\iint\limits_{K_i} |J_{\phi^{-1}}|\ d\hat{x}d\hat{y} \leqslant M_i \mu(K_i), \ M_i = \max\limits_{K_i}(|J_{\phi^{-1}}|) = \max\limits_{K_i}(|J_{\phi}|^{-1}) = (\min\limits_{\Phi_i}(|J_{\phi}|))^{-1}\]
+    то есть если $m_i = \min\limits_{\Phi_i}(|J_{\phi}|)$, то $M_i = \frac{1}{m_i} \Longrightarrow \mu(\Phi_i) \leqslant \frac{1}{m_i}\mu(K_i)$.\\
     Рассмотрим $\overline{\overline{s}}(|J_{\phi}|, T)$ для произвольного разбиения $T$:
     \[\overline{\overline{s}}(|J_{\phi}|, T) = \sum\limits_{i=1}^k m_i\mu(\Phi_i) \leqslant \sum\limits_{i=1}^k m_i\frac{1}{m_i}\mu(K_i) = \mu(K)\]
     отсюда при $d(T) \rightarrow 0$ получим требуемое:

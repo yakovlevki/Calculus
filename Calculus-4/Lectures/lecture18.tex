@@ -55,7 +55,7 @@
     \[M_k=\left(\oint\limits_{\gamma_k}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}_k}(Q'_x-P'_y)\ dxdy\right)\]
     Тогда $|M|\leq 4\cdot \max_k |M_k|$ и найдется хотя бы один треугольник для которого $|M_k|\geq \frac{|M|}{4}$. Выберем этот треугольник и назовем его $\Delta_1$. Таким образом
     \[\left|\ \oint\limits_{\gamma_1}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta_1}}(Q'_x-P'_y)\ dxdy\right|\geq \frac{|M|}{4}\]
-    Теперь рассмотрим треугольник $\Delta_1$ и разобьем его на 4 треугольника и выберем $\Delta_2$. Продолжая процесс деления, полчим последовательность вложенных треугольников $\Delta_n$, таких, что
+    Теперь рассмотрим треугольник $\Delta_1$ и разобьем его на 4 треугольника и выберем $\Delta_2$. Продолжая процесс деления, получим последовательность вложенных треугольников $\Delta_n$, таких, что
     \[\left|\ \oint\limits_{\gamma_n}P\ dx+Q\ dy-\iint\limits_{\overline{\Delta}_n}(Q'_x-P'_y)\ dxdy\right|\geq \frac{|M|}{4^n}\]
     Где $\gamma_n$ --- граница $\Delta_n$. Также для $\Delta_n$ обозначим: $D_n=\frac{D}{2^n}$ --- диаметр,\\
     $P_n=\frac{P}{2^n}$ --- периметр, $S_n=\frac{S}{4^n}$ --- площадь. Для каждого треугольника $\Delta_n$ выберем точку $(x_n,y_n)$ внутри него (например центр). Разложим $P$ и $Q$ по формуле Тейлора:
@@ -67,7 +67,7 @@
         Q(x,y)=Q(x_n,y_n)+Q'_x(x_n,y_n)\cdot (x-x_n)+Q'_y(x_n,y_n)\cdot (y-y_n)+\\
         +\beta_n(x,y)\cdot r_n(x,y)
     \end{multline*}
-    где $r_n(x,n)=\sqrt{(x-x_n)^2+(y-y_n)^2}$ и $\alpha_n, \beta_n\to 0$ при $(x,y)\to (x_n,y_n)$. Подставим разложение в интерал и воспользуемся леммой \ref{lem18}:
+    где $r_n(x,n)=\sqrt{(x-x_n)^2+(y-y_n)^2}$ и $\alpha_n, \beta_n\to 0$ при $(x,y)\to (x_n,y_n)$. Подставим разложение в интеграл и воспользуемся леммой \ref{lem18}:
     \begin{multline*}
         \oint\limits_{\gamma_n}P\ dx+ Q\ dy=\\
         =\oint\limits_{\gamma_n}\left(P(x_n,y_n)+P'_x(x_n,y_n)(x-x_n)+P'_y(x_n,y_n)(y-y_n)+\alpha_n\cdot r_n(x,y)\right)dx+\\

@@ -109,7 +109,7 @@
         Пусть $f_1,\dots,f_k$ --- функции, определенные на $\gamma$. Рассмотрим $T=\{t_i\}$ и\\
         $H=\{\xi_i\}$ --- произвольные разбиение и разметка отрезка $[\alpha,\beta]$.\
         \item Обозначим $\Delta_{ij}=x_i(t_j)-x_i(t_{j-1})$. Интегральной суммой назовем
-        \[\sigma(f,T,H)=\sum\limits_{j=1}^{n}\Big(f_1(\phi(\xi_j))\Delta x_{1j}+f_2(\phi(\xi_j))\Delta x_{2j}+\dots+f_k(\phi(\xi_j))\Delta x_{kj}\Big)\]
+        \[\sigma(f,T,H)=\sum\limits_{j=1}^{n}\Big(f_1(\phi(\xi_j))\Delta_{1j}+f_2(\phi(\xi_j))\Delta_{2j}+\dots+f_k(\phi(\xi_j))\Delta_{kj}\Big)\]
         \item Наконец, если
         \[\forall \epsilon>0\ \exists\ \delta>0: \forall T,\ d(T)<\delta: |\sigma(f,T,H)-I|<\epsilon\]
         то 
@@ -182,7 +182,7 @@
 \begin{comm}
     Пусть $f:\gamma\to \mathbb{C}$ --- комплекснозначная функция, определенная на кривой $\gamma$. Функцию $f$ можно представить в виде
     \[f(x,y)=u(x,y)+i\cdot v(x,y)\]
-    где $u(x,y)$ и $v(x,y)$ --- вещественнозначные функции на кривой $\gamma$. Определим криволинейный интерал первого рода рода от комплекснозначной функции: 
+    где $u(x,y)$ и $v(x,y)$ --- вещественнозначные функции на кривой $\gamma$. Определим криволинейный интеграл первого рода рода от комплекснозначной функции: 
     \[\int\limits_{\gamma}f(z)\ |dz|:=\int\limits_{\gamma}u(x,y)\ ds+i\cdot \int\limits_{\gamma} v(x,y)\ ds\]
     Заметим, что $dz=dx+i dy$. Значит
     \begin{multline*}
@@ -190,7 +190,7 @@
         =(u\ dx-v\ dy)+i(v\ dx+u\ dy)
     \end{multline*}
     Тогда интеграл второго рода:
-    \[\int\limits_{\gamma}f(z)\ dz:=\int\limits_{\gamma}u\ dx-v\ dy+\int\limits_{\gamma}v\ dx+u\ dy\]
+    \[\int\limits_{\gamma}f(z)\ dz:=\int\limits_{\gamma}u\ dx-v\ dy+ i \int\limits_{\gamma}v\ dx+u\ dy\]
     Таким образом, криволинейный интеграл второго рода находит широкое применение в комплексном анализе.
 \end{comm}
 \newpage
